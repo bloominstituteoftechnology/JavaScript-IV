@@ -25,12 +25,12 @@ const fred = new Person({
 * **Fork** and clone this repository.
 * **Complete** all of the exercises found in the assignment files.
 
-### `prototype-refactor` - Take existing code and make it modern, extending it in turn
+## `prototype-refactor` - Take existing code and make it modern, extending it in turn
 
 * You're going to work with your prototypes assignment you built out yesterday. Only this time you're going to actually have a solution built out for you.
 * `Challenge:` **Convert** all of your constructors into ES6 Classes using the `class` and `extends` keywords. You should be able to run your same logs and they should build out the proper expected behaviors.
 
-### `lambda-classes` - We need a roster of Lambda School personnel. Build it!
+## `lambda-classes` - We need a roster of Lambda School personnel. Build it!
 
 * All of the instructions you'll need for this project can be found in the `lambda-classes` file. But here is an overview of what we're trying to achieve here.
 
@@ -60,7 +60,7 @@ const fred = new Instructor({
 * Person receives `speak` as a method.
 * This method logs out a phrase `Hello my name is Fred, I am from Bedrock​​​​​` where `name` and `location` are the object's own props
 
-### Instructor
+#### Instructor
 
 * Now that we have a Person as our base class, we'll build our Instructor class.
 * Instructor uses the same attributes that have been set up by Person
