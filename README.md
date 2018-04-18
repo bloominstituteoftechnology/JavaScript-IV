@@ -28,9 +28,7 @@ const fred = new Person({
 ### `prototype-refactor` - Take existing code and make it modern, extending it in turn
 
 * You're going to work with your prototypes assignment you built out yesterday. Only this time you're going to actually have a solution built out for you.
-* `Challenge 1 : Convert` all of your constructors into Classes using the `class` and `extends` keywords. You should be able to run your same logs and build out your same objects as necessary.
-* Now we're going to extend this project by adding a couple of extra pieces of functionality to your game objects.
-* **[TODO FILL IN EXTRA CHALLENGE - SHOULD BE STRETCH?]**
+* `Challenge:` **Convert** all of your constructors into ES6 Classes using the `class` and `extends` keywords. You should be able to run your same logs and they should build out the proper expected behaviors.
 
 ### `lambda-classes` - We need a roster of Lambda School personnel. Build it!
 
@@ -41,9 +39,59 @@ const fred = new Person({
   * **Instructors** - extensions of Person
   * **Students** - extensions of Person
   * **Project Managers** - extensions of Instructors
-* **note** of course we know there are a lot more people on staff but you're just responsible for creating these three types.
-* We need a main parent class called - `Person`.
-* Instructors and Students are both children of `Person`.
-* ProjectManagers are extensions of Instructors.
-* This image might help you in designing your objects:
-* ![Diagram](https://ibin.co/3yqgRQqoGxby.png)
+* **IMPORTANT** - You'll need to create 2 - 3 objects for each class and test them according to their unique Attributes. For example:
+
+```
+const fred = new Instructor({
+  name: 'Fred',
+  location: 'Bedrock',
+  age: 37,
+  gender: 'male',
+  favLanguage: 'JavaScript',
+  specialty: 'Front-end',
+  catchPhrase: `Don't forget the homies`
+});
+```
+
+#### Person
+
+* First we need a Person class. This will be our `base-class`
+* Person receives `name` `age` `location` `gender` all as props
+* Person receives `speak` as a method.
+* This method logs out a phrase `Hello my name is Fred, I am from Bedrock​​​​​` where `name` and `location` are the object's own props
+
+### Instructor
+
+* Now that we have a Person as our base class, we'll build our Instructor class.
+* Instructor uses the same attributes that have been set up by Person
+* Instructor has the following unique props:
+  * `specialty` what the Instructor is good at i.e. 'redux'
+  * `favLanguage` i.e. 'JavaScript, Python, Elm etc.'
+  * `catchPhrase` i.e. `Don't forget the homies`
+* Instructor has the following methods:
+  * `demo` receives a `subect` string as an argument and logs out the phrase '​​​​​Today we are learning about {subject}' where subject is the param passed in.
+  * `grade` receives a student object and a subject string as arguments and logs out '​​​​​{student.name} receives a perfect score on {variables​​​​​}'
+
+#### Student
+
+* Now we need some students!
+* Student uses the same attributes that have been set up by Person
+* Student has the following unique props:
+  * `previousBackground` i.e. what the Student used to do before Lambda School
+  * `className` i.e. CS132'
+  * `favSubjects`. i.e. an array of the student's favorite subjects ['Html', 'CSS', 'JavaScript']
+* Student has the following methods:
+  * `listsSubjects` a method that logs out all of the student's favoriteSubjects one by one.
+  * `PRAssignment` a method that receives a subject as an argument and logs out that the `student.name has submitted a PR for {subject}`
+  * `sprintChallenge` similar to PRAssignment but logs out `student.name has begun spring challenge on {subject}`
+
+#### Project Mananger
+
+* Now that we have instructors and students, we'd be nowhere without our PM's
+* ProjectManagers are extensions of Instructors
+* ProjectManagers have the following uniqe props:
+  * `gradClassName`: i.e. CS1
+  * `favInstructor`: i.e. Sean
+* ProjectManangers have the following Methods:
+  * `standUp` a method that takes in a slack channel and logs `{name} announces to {channel}, @channel standy times!​​​​​
+  * `debugsCode` a method that takes in a student object and a subject and logs out `{​​​​​name} debugs {student.name}'s code on {subject}`
