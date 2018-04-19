@@ -127,3 +127,40 @@ const Celina = new Student({
   favSubjects: ['Linux', 'math', 'algorithms']
 });
 console.log(Celina)
+
+const Andrew = new Student({
+  name: 'Andrew',
+  location: 'South Dakota',
+  age: 59,
+  gender: 'male',
+  previousBackground: 'support tech',
+  className: 'CS_7',
+  favSubjects: ['Functional programming', 'Java', 'Business']
+})
+console.log(Andrew)
+
+const Lora = new ProjectManager({
+  name: 'Lora',
+  location: 'Houston',
+  age: 50,
+  gender: 'female',
+  specialty: 'React.js',
+  favLanguage: 'Javascript',
+  catchPhrase: 'Standy Time!!',
+  gradClassName: 'CS_15',
+  favInstructor: 'Calamari'
+});
+console.log(Lora)
+
+const Cole = new ProjectManager({
+  name: 'Cole',
+  location: 'Houston',
+  age: 35,
+  gender: 'male',
+  specialty: 'python',
+  favLanguage: 'Python',
+  catchPhrase: 'lets get crackin!',
+  gradClassName: 'CS_40',
+  favInstructor: 'Bill'
+});
+console.log(Cole)
