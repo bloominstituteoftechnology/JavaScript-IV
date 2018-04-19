@@ -8,7 +8,7 @@ class Person {
         this.gender = attributes.gender;
     }
     speak() {
-        return `Hellon my name is ${this.name}, I am from
+        return `Hello my name is ${this.name}, I am from
         ${this.location}.`;
     }
 }
@@ -21,7 +21,7 @@ class Instructor extends Person {
         this.catchPhrase = instructorAttributes.catchPhrase;
     }
     demo(subject) {
-        return `Today we are learning about ${subject}`;
+        return `Today we are learning about ${this.specialty}`;
     }
     grade(student, subject) {
         return `${student} receives a perfect score on ${subject}`;
@@ -139,6 +139,6 @@ console.log(jackee.debugsCode('lonnie', 'javaScript'));
 console.log(jackee.gradClassName);
 console.log(jackee.location);
 
-console.log(lonnie.listSubjects());
+console.log(lonnie.speak());
 console.log(lonnie.PRAssignment('JavaScript-IV'));
 console.log(lonnie.sprintChallenge('JavaScript Fundamentals'));
