@@ -59,30 +59,30 @@ class ProjectManager extends Instructor {
 }
 
 
-const fred = new Person({
-    gender: 'M',
-    name: 'Fred',
-    age: '28',
-    location: 'Italy'
-});
-console.log(fred);
+// const fred = new Person({
+//     gender: 'M',
+//     name: 'Fred',
+//     age: '28',
+//     location: 'Italy'
+// });
+// console.log(fred);
 
-const angela = new Person({
-    gender: 'F',
-    name: 'Angela',
-    age: '22',
-    location: 'Paris'
-});
-console.log(angela);
+// const angela = new Person({
+//     gender: 'F',
+//     name: 'Angela',
+//     age: '22',
+//     location: 'Paris'
+// });
+// console.log(angela);
 
 
-const john = new Person({
-    gender: 'M',
-    name: 'Joh',
-    age: '26',
-    location: 'Germany'
-});
-console.log(john);
+// const john = new Person({
+//     gender: 'M',
+//     name: 'Joh',
+//     age: '26',
+//     location: 'Germany'
+// });
+// console.log(john);
 
 
 // const fred = new Instructor({
@@ -91,8 +91,8 @@ console.log(john);
 //     age: '28',
 //     location: 'Italy',
 //     specialty: 'traveling',
-//     favLanguage: 'Arabic',
-//     catchPhrase: 'Chances Make Champions',
+//     favLanguage: 'British English',
+//     catchPhrase: 'What you waiting for',
 // });
 // console.log(fred);
 
@@ -102,7 +102,7 @@ console.log(john);
 //     age: '22',
 //     location: 'Paris',
 //     specialty: 'travel',
-//     favLanguage: 'Arabic',
+//     favLanguage: 'Spanish',
 //     catchPhrase: 'Chances Make Champions',
 // });
 // console.log(angela);
@@ -112,42 +112,42 @@ console.log(john);
 //     name: 'Joh',
 //     age: '26',
 //     location: 'Germany',
-//     specialty: 'traveling',
+//     specialty: 'Flying',
 //     favLanguage: 'Arabic',
-//     catchPhrase: 'Chances Make Champions',
+//     catchPhrase: 'Get with it',
 // });
 // console.log(john);
 
-// const fred = new Student({
-//     name: 'Fred',
-//     age: '28',
-//     location: 'Italy',
-//     previousBackground: '',
-//     className: '',
-//     favSubjects: ''
-// });
-// console.log(fred);
+const fred = new Student({
+    name: 'Fred',
+    age: '28',
+    location: 'Italy',
+    previousBackground: 'Jackets',
+    className: 'Class Of Hardknocks',
+    favSubjects: 'Foreign Languages'
+});
+console.log(fred);
 
-// const angela = new Student({
-//     name: 'Angela',
-//     age: '22',
-//     location: 'Paris',
-//     previousBackground: '',
-//     className: '',
-//     favSubjects: ''
-// });
-// console.log(angela);
+const angela = new Student({
+    name: 'Angela',
+    age: '22',
+    location: 'Paris',
+    previousBackground: 'Active',
+    className: 'By all means',
+    favSubjects: 'Math'
+});
+console.log(angela);
 
 
-// const john = new Student({
-//     name: 'Joh',
-//     age: '26',
-//     location: 'Germany',
-//     previousBackground: '',
-//     className: '',
-//     favSubjects: ''
-// });
-// console.log(john);
+const john = new Student({
+    name: 'Joh',
+    age: '26',
+    location: 'Germany',
+    previousBackground: 'Priors',
+    className: 'Intuition',
+    favSubjects: 'The Hard Way'
+});
+console.log(john);
 
 // const fred = new ProjectManager({
 //     name: 'Fred',
