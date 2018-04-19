@@ -28,7 +28,7 @@ class Instructor extends Person {
     return `${student.name} receives a perfect score on ${subject}.`;
   }
   addGrade(student){
-    const grade = (Math.ceil(Math.random() * 10)) * (Math.random() < 0.5 ? 1 : -1); // Random number 1-10 * 1|-1
+    const grade = (Math.ceil(Math.random() * 20)) * (Math.random() < 0.5 ? 1 : -1); // Random number 1-20 * 1|-1
     student.grade += grade;
     return `${this.name} changed ${student.name}'s grade by ${grade} points.`;
   }
@@ -56,8 +56,10 @@ class Student extends Person {
   graduate(){
     if(this.grade > 70){
       this.graduated = true;
-      return `${this.name} has graduated.`;
+      return `${this.name} graduated with a ${this.grade}.`;
     }
+
+    return `${this.name} has a ${this.grade} and has not qualified for graduation yet.`;
   }
 }
 
@@ -159,16 +161,10 @@ console.log(jackie);
 console.log(jackie.speak());
 console.log(jackie.demo('HTML'));
 console.log(jackie.grade(george, 'Front End Project'));
-console.log(jackie.addGrade(george));
-console.log(jackie.addGrade(george));
-console.log(george.grade);
 
 console.log(doug);
 console.log(doug.speak());
 console.log(doug.demo('LESS'));
-console.log(doug.addGrade(paige));
-console.log(doug.addGrade(paige));
-console.log(paige.grade);
 
 // Test project managers
 const marc = new ProjectManager({
@@ -204,3 +200,15 @@ console.log(alvin);
 console.log(alvin.speak());
 console.log(alvin.standUp('CS11'));
 console.log(alvin.debugsCode(paige, 'C'));
+
+
+// Test stretch
+while(!george.graduated){
+  console.log(jackie.addGrade(george));
+  console.log(george.graduate());
+}
+
+while(!paige.graduated){
+  console.log(doug.addGrade(paige));
+  console.log(paige.graduate());
+}
