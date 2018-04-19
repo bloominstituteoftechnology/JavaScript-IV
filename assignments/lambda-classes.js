@@ -52,9 +52,38 @@ class Instructors extends Person {
     }
 }
 
+/**
+ * @class
+ * @constructor
+ * @augments Person
+ * @property previousBackground the student's previousBackground
+ * @property favSubjects array the student's favSubjects list
+ * @property className the student's className
+ * @function listsSubjects() 
+ *      @returns all of the student's favoriteSubjects
+ * @function PRAssignment()
+ *      @param subject 
+ *      @returns string `The ${student name} has submitted a PR for ${subject}`
+ * @function sprintChallenge() 
+ *      @param subject 
+ *      @returns string `The ${student name} has begun spring challenge on {subject}`
+*/
+
 class Students extends Person {
     constructor(studentsObj){
         super(studentsObj);
+        this.previousBackground = studentsObj.previousBackground;
+        this.favSubjects = studentsObj.favSubjects;
+        this.className = studentsObj.className;
+    }
+    listsSubject() {
+        return this.favSubjects;
+    }
+    PRAssignment(subject) {
+        return `${this.name} has submitted a PR for ${subject}`
+    }
+    sprintChallenge(subject) {
+        return `${this.name} has begun spring challenge on ${subject}`
     }
 }
 
@@ -81,9 +110,9 @@ const alice = new Students({
     location: 'Seattle',
     age: 27,
     gender: 'female',
-    favLanguage: 'JavaScript',
-    specialty: 'Front-end',
-    catchPhrase: ``
+    previousBackground: 'college student',
+    favSubjects: ['HTML', 'CSS'],
+    className: 'CS8' 
 });
 
 const pete = new Students({
@@ -91,9 +120,9 @@ const pete = new Students({
     location: 'Denver',
     age: 30,
     gender: 'male',
-    favLanguage: 'JavaScript',
-    specialty: 'Front-end',
-    catchPhrase: ``
+    previousBackground: 'freelancer',
+    favSubjects: ['HTML', 'CSS', 'Wordpress'],
+    className: 'CS8' 
 });
 
 const jess = new ProjectManagers({
@@ -108,5 +137,6 @@ const jess = new ProjectManagers({
 
 // Tests
 console.log(pete.speak());
-console.log(fred.demo('Js-III'))
-console.log(fred.grade(pete, 'Js-III'))
+console.log(fred.demo('Js-III'));
+console.log(fred.grade(pete, 'Js-III'));
+console.log(pete.PRAssignment('Bootstrap'));
