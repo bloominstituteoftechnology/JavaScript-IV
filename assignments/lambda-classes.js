@@ -70,7 +70,6 @@ class Students extends Person {
         this.grade = studentDeets.grade;
     }
     listsSubjects() {
-        // return this.favSubjects.toString();
         for (let i = 0; i < this.favSubjects.length; i++){
             console.log(this.favSubjects[i]);
         }
@@ -88,10 +87,6 @@ class Students extends Person {
         return `Congratulations, ${this.name}! You graduated!`
     }
 }
-
-// runners.forEach(function(a,i) {
-//     fullName.push(`${runners[i].first_name} ${runners[i].last_name}`);
-//   });
 
 
 const gal = new Students({
@@ -137,8 +132,8 @@ class ProjectManagers extends Instructor {
     standUp(channel) {
         return `${this.name} announces to ${channel}, @channel standy times!`;
     }
-    debugsCode(studentName, subject) {
-        return `${this.name} debugs ${studentName}'s code on ${subject}`;
+    debugsCode(student, subject) {
+        return `${this.name} debugs ${student.name}'s code on ${subject}`;
     }
 }
 
@@ -171,7 +166,7 @@ console.log(dude.greet());
 console.log(bruce.demo('JavaScript')); 
 console.log(walt.grade('Jessie', 'C#'));
 
-// //Students
+//Students
 gal.listsSubjects();
 console.log(liz.PRAssignment('JavaScript'));
 console.log(andy.sprintChallenge('RoR'));
@@ -180,4 +175,4 @@ console.log(andy.graduate());
 
 //PMs
 console.log(maude.standUp('CSHelp'));
-console.log(joe.debugsCode('Alex', 'JavaScript'));
+console.log(joe.debugsCode(gal, 'JavaScript'));
