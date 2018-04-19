@@ -129,7 +129,7 @@ const Mary = new ProjectManagers({
     gender: 'Female',
     specialty: 'Node',
     favLanguage: 'JavaScript',
-    catchPhrase: 'Booya',
+    catchPhrase: 'Booyaa',
     gradClassName: 'CS4',
     favInstructor: 'Josh'
 });
