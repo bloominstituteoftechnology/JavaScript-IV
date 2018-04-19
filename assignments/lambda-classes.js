@@ -21,7 +21,7 @@ class Instructor extends Person {
   demo(subject) {
   	return `Today we are learning about ${this.subject}`;
   }
-  
+
   grade(student, subject) {
   	return `${student.name} recieves a perfect score on ${this.subject}`;
   }
@@ -45,7 +45,7 @@ class Student extends Instructor {
   }
   sprintChallenge () {
     return `${this.name} has begun sprint challenge on ${this.subject}`;
-  } 
+  }
 }
 
 class ProjectManager extends Student {
@@ -55,10 +55,40 @@ class ProjectManager extends Student {
     this.favInstructor = pmAttributes.favInstructor;
   }
   standUp(slackChannel) {
-    return `${this.name} announces to ${this.slackChannel}, @channel standby times!`
+    return `${this.name} announces to ${this.slackChannel}, @channel standby times!`;
   }
 
   debugsCode(Student, subject) {
-    return `${this.name} debugs ${student.name}'s code on {*-}`
+    return `${this.name} debugs ${student.name}'s code on {*-}`;
   }
 }
+
+
+
+const instructor1 = new Person({
+  name: 'John',
+  location: 'Texas',
+  age: 36,
+  gender: 'male',
+  specialty: 'redux',
+  catchPhrase: 'Howdy, partner!'
+});
+
+const student1 = new Person({
+  name: 'Mary',
+  location: 'Ohio',
+  age: 19,
+  gender: 'female',
+  previousBackground: 'Highschool Student',
+  className: 'cs14',
+  favSubjects: 'Javascript'
+});
+
+const projectmanager1 = new Person({
+  name: 'Phil',
+  location: 'Pennsylvania',
+  age: 28,
+  gender: 'male',
+  gradClassName: 'cs2',
+  favInstructor: 'Herbert'
+});
