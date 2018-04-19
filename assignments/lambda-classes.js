@@ -24,4 +24,35 @@ class Instructor extends Person {
   demo(subject) {
     return `Today we are learning about ${subject}`;
   }
+  grade(student, subject) {
+    return `${student} receives a perfect score on ${subject}`;
+  }
 }
+
+// const ryan = new Instructor({
+//   specialty: 'react',
+//   favLanguage: 'javascript',
+//   catchPhrase: 'none',
+// });
+
+// console.log(ryan.grade('luis', 'java'))
+
+class Students extends Person {
+  constructor(attributes) {
+    super(attributes);
+    this.previousBackGround = attributes.previousBackGround;
+    this.className = attributes.className;
+    this.favSubject = attributes.favSubject;
+  }
+  listsSubjects() {
+    return `${this.name} likes ${this.favSubject}`;
+  }
+}
+
+const me = new Students({
+  className: 10,
+  name: 'ryan',
+  favSubject: ['math', 'java', 'code'],
+});
+
+console.log(me.listsSubjects());
