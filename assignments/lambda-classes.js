@@ -40,6 +40,7 @@ class Student extends Person {
         this.previousBackground = options.previousBackground;
         this.className = options.className;
         this.favSubjects = options.favSubjects; //array
+        this.grade = Math.floor(Math.random() * (100 - 1) + 1); // Assigns a random number in the range [1, 100]
     }
     listsSubjects(){
         this.favSubjects.forEach( subject => {
