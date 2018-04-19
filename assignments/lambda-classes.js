@@ -57,3 +57,133 @@ class ProjectManager extends Instructor {
         return `${name} announces to ${slackChannel}, @channel standy times! `
     }
 }
+
+
+const fred = new Person({
+    gender: 'M',
+    name: 'Fred',
+    age: '28',
+    location: 'Italy'
+});
+console.log(fred);
+
+const angela = new Person({
+    gender: 'F',
+    name: 'Angela',
+    age: '22',
+    location: 'Paris'
+});
+console.log(angela);
+
+
+const john = new Person({
+    gender: 'M',
+    name: 'Joh',
+    age: '26',
+    location: 'Germany'
+});
+console.log(john);
+
+
+// const fred = new Instructor({
+//     gender: 'M',
+//     name: 'Fred',
+//     age: '28',
+//     location: 'Italy',
+//     specialty: 'traveling',
+//     favLanguage: 'Arabic',
+//     catchPhrase: 'Chances Make Champions',
+// });
+// console.log(fred);
+
+// const angela = new Instructor({
+//     gender: 'F',
+//     name: 'Angela',
+//     age: '22',
+//     location: 'Paris',
+//     specialty: 'travel',
+//     favLanguage: 'Arabic',
+//     catchPhrase: 'Chances Make Champions',
+// });
+// console.log(angela);
+
+// const john = new Instructor({
+//     gender: 'M',
+//     name: 'Joh',
+//     age: '26',
+//     location: 'Germany',
+//     specialty: 'traveling',
+//     favLanguage: 'Arabic',
+//     catchPhrase: 'Chances Make Champions',
+// });
+// console.log(john);
+
+// const fred = new Student({
+//     name: 'Fred',
+//     age: '28',
+//     location: 'Italy',
+//     previousBackground: '',
+//     className: '',
+//     favSubjects: ''
+// });
+// console.log(fred);
+
+// const angela = new Student({
+//     name: 'Angela',
+//     age: '22',
+//     location: 'Paris',
+//     previousBackground: '',
+//     className: '',
+//     favSubjects: ''
+// });
+// console.log(angela);
+
+
+// const john = new Student({
+//     name: 'Joh',
+//     age: '26',
+//     location: 'Germany',
+//     previousBackground: '',
+//     className: '',
+//     favSubjects: ''
+// });
+// console.log(john);
+
+// const fred = new ProjectManager({
+//     name: 'Fred',
+//     age: '28',
+//     location: 'Italy',
+//     specialty: '',
+//     favLanguage: '',
+//     catchPhrase: '',
+//     gradClassName: '',
+//     favInstructor: ''
+// });
+// console.log(fred);
+
+// const angela = new ProjectManager({
+//     gender: 'F',
+//     name: 'Angela',
+//     age: '22',
+//     location: 'Paris',
+//     specialty: '',
+//     favLanguage: '',
+//     catchPhrase: '',
+//     gradClassName: '',
+//     favInstructor: ''
+// });
+// console.log(angela);
+
+
+// const john = new ProjectManager({
+//     gender: 'M',
+//     name: 'Joh',
+//     age: '26',
+//     location: 'Germany',
+//     specialty: '',
+//     favLanguage: '',
+//     catchPhrase: '',
+//     gradClassName: '',
+//     favInstructor: ''
+// });
+// console.log(john);
