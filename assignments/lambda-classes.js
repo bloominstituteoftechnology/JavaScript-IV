@@ -8,8 +8,7 @@ class Person {
         this.gender = attributes.gender;
     }
     speak() {
-        return `Hello my name is ${this.name}, I am from
-        ${this.location}.`;
+        return `Hello my name is ${this.name}, I am from ${this.location}.`;
     }
 }
 
@@ -24,7 +23,7 @@ class Instructor extends Person {
         return `Today we are learning about ${this.specialty}`;
     }
     grade(student, subject) {
-        return `${student} receives a perfect score on ${subject}`;
+        return `${student.name} receives a perfect score on ${subject}`;
     }
 }
 
@@ -33,11 +32,12 @@ class Instructor extends Person {
 class Student extends Person {
     constructor(studentAttributes){
         super(studentAttributes);
+        this.previousBackground = studentAttributes.previousBackground;
         this.className = studentAttributes.className;
         this.favSubjects = studentAttributes.favSubjects;
     }
     listSubjects() {
-        return `${this.favSubjects}`;
+        return `${this.name}'s favorite subjects are ${this.favSubjects}.`;
     }
     PRAssignment(subject) {
         return `${this.name} has submitted a PR for ${subject}`;
@@ -57,7 +57,7 @@ class ProjectManager extends Instructor {
         return `${this.name} annouces to ${channel}, @channel Standy Times!!`
     }
     debugsCode(student, subject) {
-        return `${this.name} debugs ${student}'s code on ${subject}`;
+        return `${this.name} debugs ${student.name}'s code on ${subject}`;
     }
 }
 
@@ -114,31 +114,35 @@ const moises = new ProjectManager ({
 const lonnie =  new Student ({
     name: 'Lonnie',
     age: 45,
+    previousBackground: 'Paramedic',
     location: 'Texas',
     gender: 'M',
     className: 'cs10',
-    favSubjects: 'Everything'
+    favSubjects: ['JavaScript', 'React', 'Node']
 })
 
 const maribel =  new Student ({
     name: 'Maribel',
     age: 35,
+    previousBackground: 'Weding Planer',
     location: 'Phillippines',
     gender: 'F',
     className: 'cs10',
-    favSubjects: 'Everything'
+    favSubjects: ['JavaScript', 'React', 'Node']
 })
 
 console.log(josh.location);
 console.log(josh.catchPhrase);
 console.log(josh.demo('Life'));
-console.log(josh.grade('Maribel', 'JavaScript'));
+console.log(josh.grade(maribel, 'JavaScript'));
 
 console.log(jackee.standUP('cs10_jackee'));
-console.log(jackee.debugsCode('lonnie', 'javaScript'));
+console.log(jackee.debugsCode(lonnie, 'javaScript'));
 console.log(jackee.gradClassName);
 console.log(jackee.location);
 
 console.log(lonnie.speak());
+console.log(lonnie.previousBackground);
+console.log(lonnie.listSubjects());
 console.log(lonnie.PRAssignment('JavaScript-IV'));
 console.log(lonnie.sprintChallenge('JavaScript Fundamentals'));
