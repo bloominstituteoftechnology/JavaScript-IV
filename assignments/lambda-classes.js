@@ -25,7 +25,7 @@ class Instructor extends Person {
         return `Today we are learning about ${this.subject}`;
     }
     grade(student, subject) {
-        // return `${this.student.name} receives a perfect score on ${this.variables​​​​​}`;
+        return `${this.name} receives a perfect score on ${this.subject}`;
         return this.student.name + ' receives a perfect score on ' + this.variables;
         }
 }
@@ -38,14 +38,14 @@ class Student extends Person {
         this.className = studentTraits.className;
         this.favSubjects = studentTraits.favSubjects;
     }
-    listsSubjects() {
-        
+    listsSubjects(subject) {
+        return `${this.favSubjects} are my favorite subjects.`;
     }
     PRAssignment(subject) {
-        return `${this.student.name} has submitted a PR for ${this.subject}`;
+        return `${this.name} has submitted a PR for ${subject}`;
     }
     sprintChallenge(subject) {
-        return `${Student.name} has begun sprint challenge on ${Student.favSubjects}`;
+        return `${this.name} has begun sprint challenge on ${subject}`;
     }
 }
 
@@ -58,11 +58,11 @@ class ProjectManagers extends Instructor {
         this.favInstructor = managerTraits.favInstructor;
     }
     standUp(channel) {
-        // return `${this.name} announces to ${this.channel}, @channel standy times!`​​​​​;
+        return `${this.name} announces to ${channel}, @${channel} standy times!`​​​​​;
         return this.name + ' announces to ' + this.channel + ', @channel standy times!';
     }
     debugsCode(student, subject) {
-        // return `${this.​​​​​name} debugs ${this.student.name}'s code on ${this.subject}.`;
+        // return `${this.​​​​​student} debugs ${this.name}'s code on ${this.subject}.`;
         return this.name + ' debugs ' + this.student.name + '\'s code on ' + this.subject;
     }
 }
@@ -133,4 +133,6 @@ const bob = new Instructor({
         favInstructor: 'Austen'
       });
 
-      console.log(calvin.sprintChallenge(calvin['favSubjects'[0]]));
+      console.log(calvin.sprintChallenge(calvin.favSubjects[0]));
+      console.log(calvin.PRAssignment(calvin.favSubjects[0]));
+      console.log(chris.listsSubjects(chris.favSubjects));
