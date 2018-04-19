@@ -6,31 +6,22 @@
 //   this.createdAt = options.createdAt;
 //   this.dimensions = options.dimensions;
 // }
-// GameObject.prototype.destroy = function () {
+
+// GameObject.prototype.destroy = function() {
 //   return `Object was removed from the game.`;
 // };
 
-// GameObject Constructor
+// GameObject
 
 class GameObject {
   constructor(options) {
-    this.createdAt = options.createdAt;
-    this.dimensions = options.dimensions;
-  }
-  destroy() {
-    return `Object was removed from the game.`;
+  this.createdAt = options.createdAt;
+  this.dimensions = options.dimensions;
+}
+destroy() {
+  return `Object was removed from the game.`;
   }
 } // GameObject
-
-// CharacterStats Construtor
-
-class CharacterStats {
-  constructor(characterStatsOptions) {
-    super(characterStatsOptions);
-    this.hp = characterStatsOptions.hp;
-    this.name = characterStatsOptions.name;
-  }
-}
 
 // function CharacterStats(characterStatsOptions) {
 //   GameObject.call(this, characterStatsOptions);
@@ -44,18 +35,46 @@ class CharacterStats {
 //   return `${this.name} took damage.`;
 // };
 
-function Humanoid(humanoidOptions) {
-  CharacterStats.call(this, humanoidOptions);
-  this.faction = humanoidOptions.faction;
-  this.weapons = humanoidOptions.weapons;
-  this.language = humanoidOptions.language;
+// CharacterStats
+
+class CharacterStats extends GameObject {
+  constructor(characterStatsOptions) {
+    super(characterStatsOptions);
+    this.hp = characterStatsOptions.hp;
+    this.name = characterStatsOptions.name;
+  }
+  takeDamage() {
+    return `${this.name} took damage.`;
+  }
 }
 
-Humanoid.prototype = Object.create(CharacterStats.prototype);
+// function Humanoid(humanoidOptions) {
+//   CharacterStats.call(this, humanoidOptions);
+  // this.faction = humanoidOptions.faction;
+  // this.weapons = humanoidOptions.weapons;
+  // this.language = humanoidOptions.language;
+// }
 
-Humanoid.prototype.greet = function() {
-  return `${this.name} offers a greeting in ${this.language}.`;
-};
+// Humanoid.prototype = Object.create(CharacterStats.prototype);
+
+// Humanoid.prototype.greet = function() {
+//   return `${this.name} offers a greeting in ${this.language}.`;
+// };
+
+// Humandoid
+
+class Humanoid extends CharacterStats {
+  constructor(humanoidOptions) {
+    super(humanoidOptions);
+      this.faction = humanoidOptions.faction;
+      this.weapons = humanoidOptions.weapons;
+      this.language = humanoidOptions.language;
+  }
+  greet() {
+    return `${this.name} offers a greeting in ${this.language}.`;
+  }
+}
+
 
 const mage = new Humanoid({
   createdAt: new Date(),
