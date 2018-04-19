@@ -27,6 +27,11 @@ class Instructor extends Person {
   grade(student, subject){
     return `${student.name} receives a perfect score on ${subject}.`;
   }
+  addGrade(student){
+    const grade = (Math.ceil(Math.random() * 10)) * (Math.random() < 0.5 ? 1 : -1); // Random number 1-10 * 1|-1
+    student.grade += grade;
+    return `${this.name} changed ${student.name}'s grade by ${grade} points.`;
+  }
 }
 
 // ==== Student ====
@@ -96,7 +101,7 @@ const george = new Student({
   'previousBackground': 'Math Tutor',
   'className': 'CS20',
   'favSubjects': ['Python', 'R'],
-  'grade': 92 // Stretch
+  'grade': 52 // Stretch
 });
 
 const paige = new Student({
@@ -107,7 +112,7 @@ const paige = new Student({
   'previousBackground': 'High School Student',
   'className': 'CS11',
   'favSubjects': ['HTML', 'CSS', 'JS'],
-  'grade': 98 // Stretch
+  'grade': 58 // Stretch
 });
 
 console.log(george);
@@ -147,11 +152,16 @@ console.log(jackie);
 console.log(jackie.speak());
 console.log(jackie.demo('HTML'));
 console.log(jackie.grade(george, 'Front End Project'));
+console.log(jackie.addGrade(george));
+console.log(jackie.addGrade(george));
+console.log(george.grade);
 
 console.log(doug);
 console.log(doug.speak());
 console.log(doug.demo('LESS'));
-console.log(doug.grade(paige, 'Back End Project'));
+console.log(doug.addGrade(paige));
+console.log(doug.addGrade(paige));
+console.log(paige.grade);
 
 // Test project managers
 const marc = new ProjectManager({
