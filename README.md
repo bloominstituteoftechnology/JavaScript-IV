@@ -68,7 +68,7 @@ const fred = new Instructor({
   * `catchPhrase` i.e. `Don't forget the homies`
 * Instructor has the following methods:
   * `demo` receives a `subect` string as an argument and logs out the phrase '​​​​​Today we are learning about {subject}' where subject is the param passed in.
-  * `grade` receives a student object and a subject string as arguments and logs out '​​​​​{student.name} receives a perfect score on {variables​​​​​}'
+  * `grade` receives a student object and a subject string as arguments and logs out '​​​​​{student.name} receives a perfect score on {subject}'
 
 #### Student
 

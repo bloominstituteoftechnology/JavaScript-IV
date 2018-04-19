@@ -32,6 +32,7 @@ class Student extends Person {
         this.previousBackground = studentAttributes.previousBackground;
         this.className = studentAttributes.className;
         this.favSubjects = studentAttributes.favSubjects;
+        this.grade = 70;
     }
     listsSubjects() {
         for (let subject of this.favSubjects) {
@@ -73,11 +74,11 @@ const ronaldAttr = {
     "favSubjects": ["JavaScript", "HTML", "CSS", "Computer Science"],
 }
 
-// Can I make a simple object?
-console.log(ronaldAttr);
-// Yes I can.
+// // Can I make a simple object?
+// console.log(ronaldAttr);
+// // Yes I can.
 
-// Can I use this object to supply arguments for my classes?
+// // Can I use this object to supply arguments for my classes?
 
 const ronald = new Student(ronaldAttr);
 
@@ -110,6 +111,7 @@ console.log(csaba);
 console.log(csaba.gender);
 // Instructor
 console.log(csaba.specialty);
+console.log(csaba.catchPhrase);
 console.log(csaba.demo('JavaScript'));
 // Project Manager
 console.log(csaba.debugsCode(ronald, 'JavaScript'));
