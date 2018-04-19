@@ -57,6 +57,15 @@ class Student extends Person {
     springChallenge(subject) {
         console.log(`${this.name} has begun spring challenge on ${subject}`);
     }
+    graduate() {
+        if (this.grade > 70) {
+            return "CONGRATS: You are all a Software Engineer"
+         } else {
+             this.grade += Math.floor(Math.random() * ((100-this.grade) - 1) + 1);
+             return "Keep on track, check with your PM to strength your Skills before grad.";
+         }
+        
+    }
 }
 /**
  * ------- ProjectM -------
@@ -166,7 +175,23 @@ console.log(pepito);
 
 
 /** ------- Stretch Challenge ------- */
+// ADD method to Instructor && Project Manager
+console.log(jean.grade);
 console.log(josh.changeGrade(jean));
+console.log(jean.grade);
 console.log(josh.changeGrade(jean));
+console.log(jean.grade);
+
+console.log(sarah.grade);
 console.log(josh.changeGrade(sarah));
+console.log(sarah.grade);
 console.log(josh.changeGrade(sarah));
+console.log(sarah.grade);
+
+// ADD method to Student
+console.log(jean.grade);
+console.log(jean.graduate());
+console.log(jean.grade);
+console.log(sarah.grade);
+console.log(sarah.graduate());
+console.log(sarah.grade);
