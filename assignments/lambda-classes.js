@@ -21,7 +21,7 @@ class Instructor extends Person {
         return `Today we are learning about${this.subject}.`;
     }
     grade() {
-        return `${student.name} receives a perfect score on ${variables​​​​​}`;
+        return `${student.name} receives a perfect score on ${this.variables​​​​​}`;
 
     }
 }//Instructor
@@ -34,13 +34,13 @@ class Student extends Person {
         this.favSubjects = studentOptions.favSubjects;
     }
     listsSubjects() {
-        return `${this.favSubjects}`; 
+        return `${favSubjects}`; 
     }
     PRAssignment() {
-        return `${this.name} has begun spring challenge on ${subject}`;
+        return `${student.name} has submitted a PR for ${subject}`;
     }
     sprintChallenge() {
-        return `${student.name} has begun spring challenge on ${subject}`;
+        return `${this.name} has begun sprint challenge on ${this.subject}`;
     }
 }//Student
 
@@ -50,11 +50,11 @@ class ProjectManager extends Instructor {
         this.gradClassName = PmOptions.gradClassName;
         this.favInstructor = PmOptions.className;
     }
-    standUp() {
-        return `${name} announces to ${channel}, @channel standy times!​​​​​`;
+    standUp(channel) {
+        return `${this.name} announces to @${channel} standy times!​​​​​`;
     }
-    debugsCode() {
-        return `${​​​​​name} debugs ${student.name}'s code on ${subject}`;
+    debugsCode(student,subject) {
+        return `${this.​​​​​name} debugs ${student.name}'s code on ${subject}`;
     }
 }// PM
 
@@ -151,3 +151,8 @@ const dante = new ProjectManager({
 
 console.log(evelyn.name); //?
 console.log(maribel.listsSubjects()); //?
+console.log(josh.speak());
+console.log(josh.demo());
+console.log(moises.grade());
+console.log(maribel.listsSubjects());
+console.log(marco.PRAssignment()); //?
