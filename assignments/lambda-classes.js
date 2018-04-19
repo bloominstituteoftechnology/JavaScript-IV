@@ -49,7 +49,7 @@ class Student extends Person {
   }
 
   sprintChallenge(subject) {
-    console.log(`${this.name} has begun spring challenge on ${subject}`);
+    console.log(`${this.name} has begun sprint challenge on ${subject}`);
   }
 
 }
@@ -94,4 +94,12 @@ let xangattr = {
 };
 const xang = new Student(xangattr);
 
+xang.speak();
+xang.listsSubjects();
+xang.PRAssignment("JS IV");
+xang.sprintChallenge("JavaScript");
+
+fred.speak();
+fred.demo("class in JavaScript");
+fred.standUp("#weekend");
 fred.debugsCode(xang, "JavaScript");
