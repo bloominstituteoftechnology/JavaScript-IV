@@ -75,6 +75,7 @@ class Students extends Person {
         this.previousBackground = studentObj.previousBackground;
         this.favSubjects = studentObj.favSubjects;
         this.className = studentObj.className;
+        this.grade = studentObj.grade;
     }
     listsSubject() {
         return this.favSubjects;
@@ -135,7 +136,8 @@ const alice = new Students({
     gender: 'female',
     previousBackground: 'college student',
     favSubjects: ['HTML', 'CSS'],
-    className: 'CS8' 
+    className: 'CS8',
+    grade: 80
 });
 
 const pete = new Students({
@@ -145,7 +147,8 @@ const pete = new Students({
     gender: 'male',
     previousBackground: 'freelancer',
     favSubjects: ['HTML', 'CSS', 'Wordpress'],
-    className: 'CS8' 
+    className: 'CS8',
+    grade: 60
 });
 
 const jess = new ProjectManagers({
@@ -163,3 +166,10 @@ console.log(fred.demo('Js-III')); // Today we are learning about Js-III
 console.log(fred.grade(pete, 'Js-III')); // Pete receives a perfect score on Js-III
 console.log(pete.PRAssignment('Bootstrap')); // Pete has submitted a PR for Bootstrap
 console.log(jess.debugsCode(alice, 'Bootstrap')); // Jess debugs Alice's code on Bootstrap
+
+// Stretch Assignment
+//1. Extend the functionality of the Student by adding a prop called grade and setting it equal to a number between 1-100.
+//2. Now that our students have a grade build out a method on the Instructor (this will be used by BOTH instructors and PM's) that will randomly add or subtract points to a student's grade. Math.random will help.
+//3. Add a graduate method to a student.
+// This method, when called, will check the grade of the student and see if they're ready to graduate from Lambda School
+// If the student's grade is above a 70% let them graduate! Otherswise go back to grading their assignments to increase their score.
