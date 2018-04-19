@@ -31,7 +31,21 @@ class Instructor extends Person {
 
 // ==== Student ====
 class Student extends Person {
-
+  constructor(studentAttributes){
+    super(studentAttributes);
+    this.previousBackground = studentAttributes.previousBackground;
+    this.className = studentAttributes.className;
+    this.favSubjects = studentAttributes.favSubjects;
+  }
+  listsSubjects(){
+    this.favSubjects.forEach(x => console.log(x));
+  }
+  PRAssignment(subject){
+    return `${this.name} has submitted a PR for ${subject}.`;
+  }
+  sprintChallenge(subject){
+    return `${this.name} has begun the sprint challenge on ${subject}.`;
+  }
 }
 
 // ==== Project Manager ====
