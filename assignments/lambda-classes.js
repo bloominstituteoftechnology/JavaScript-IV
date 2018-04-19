@@ -64,13 +64,30 @@ class Instructor extends Person {
   * `favSubjects`. i.e. an array of the student's favorite subjects ['Html', 'CSS', 'JavaScript']
 * Student has the following methods:
   * `listsSubjects` a method that logs out all of the student's favoriteSubjects one by one.
-  * `PRAssignment` a method that receives a subject as an argument and logs out that the `student.name has submitted a PR for {subject}`
+  * `PRAssignment` a method that receives a subject as an argument 
+  * and logs out that the `student.name has submitted a PR for {subject}`
   * `sprintChallenge` similar to PRAssignment but logs out `student.name has begun spring challenge on {subject}`
 */
 
-
-
-
+class Student extends Person {
+    constructor (studentAttributes) {
+        super(studentAttributes);
+        this.previousBackground = studentAttributes.previousBackground;
+        this.className = studentAttributes.className;
+        this.favSubjects = studentAttributes.favSubjects;
+    }
+    listsSubjects() {
+        this.favSubjects.forEach(favSubject => {
+            console.log(`${favSubject}`);
+        });
+    } 
+    PRAssignment(subject) {
+        console.log(`${this.name} has submitted a PR for ${subject}`);
+    } 
+    sprintChallenge(subject) {
+        console.log(`${this.name} has begun spring challenge on ${subject}`);
+    } 
+}
 
 /*
   #### Project Mananger
@@ -81,31 +98,124 @@ class Instructor extends Person {
   * `gradClassName`: i.e. CS1
   * `favInstructor`: i.e. Sean
 * ProjectManangers have the following Methods:
-  * `standUp` a method that takes in a slack channel and logs `{name} announces to {channel}, @channel standy times!​​​​​
-  * `debugsCode` a method that takes in a student object and a subject and logs out `{​​​​​name} debugs {student.name}'s code on {subject}`
+  * `standUp` a method that takes in a slack channel 
+  * and logs `{name} announces to {channel}, @channel standy times!​​​​​
+  * `debugsCode` a method that takes in a student object 
+  * and a subject and logs out `{​​​​​name} debugs {student.name}'s code on {subject}`
 
   */
 
- const vlad = new Person({
-    name: 'Wladimir Fraga',
-    location: 'Bedrock',
-    age: 48,
-    gender: 'male',
-    favLanguage: 'JavaScript',
-    specialty: 'Front-end',
-    catchPhrase: `I love Video Games`
-  });
+class ProjectManager extends Instructor {
+    constructor(projectManagerAttributes) {
+        super(projectManagerAttributes);
+        this.gradClassName = projectManagerAttributes.gradClassName
+        this.favInstructor = projectManagerAttributes.favInstructor
+    }
+    standUp(channel) {
+        console.log(`${this.name} announces to ${channel}, @${channel} standy times!`);
+    }
+    debugsCode(student, subject) {
+        console.log(`${this.name} debugs ${student.name}\'s code on ${subject}`);
+    }
+}
 
- const fred = new Instructor({
-    name: 'Fred',
+  /**
+ * ------- INSTANCES -------
+ */
+
+ /** ------- Instructor ------- */
+
+const josh = new Instructor({
+    name: 'Josh',
     location: 'Bedrock',
     age: 37,
     gender: 'male',
     favLanguage: 'JavaScript',
     specialty: 'Front-end',
     catchPhrase: `Don't forget the homies`
-  });
+});
+const pedro = new Instructor({
+    name: 'Fred',
+    location: 'Bedrock',
+    age: 37,
+    gender: 'female',
+    favLanguage: 'Python',
+    specialty: 'Back-end',
+    catchPhrase: 'Docs, refer to documentation!'
+});
+  
+/** ------- Student ------- */
 
-  fred.speak();
-  fred.demo('C# for loops');
-  fred.grade(vlad, "Javascript");
+const vlad = new Student({
+      name: 'Wladimir',
+      location: 'Florida',
+      age: 48,
+      gender: 'male',
+      previousBackground: 'Some HTML, CSS and JS',
+      className: 'CS10',
+      favSubjects: ['Javascript', 'React', 'Node']
+});
+const sarah = new Student({
+    name: 'Sarah',
+    location: 'England',
+    age: 39,
+    gender: 'female',
+    previousBackground: 'Antropology',
+    className: 'CS11',
+    favSubjects: ['Humanism', 'Gestalt']
+});
+    
+/** ------- Project Manager ------- */    
+
+const cole = new ProjectManager({
+    name: 'Cole',
+    location: 'California',
+    age: 30,
+    gender: 'female',
+    favLanguage: 'C',
+    specialty: 'Back-end',
+    catchPhrase: `Refer to syllabus`
+});
+const pepito = new ProjectManager({
+    name: 'Pepito',
+    location: 'Colombia',
+    age: 57,
+    gender: 'male',
+    favLanguage: 'Python',
+    specialty: 'React',
+    catchPhrase: 'Instantiate yourself!'
+});
+
+/**
+ * ------- PLAY GORUND -------
+ */
+/** ------- Instructor ------- */
+
+// josh
+console.log(josh);
+console.log(josh.demo("JS"));
+console.log(josh.grade(vlad, "JS"));
+
+// pedro
+console.log(pedro);
+
+/** ------- Student ------- */
+
+// vlad
+console.log(vlad);
+console.log(vlad.listsSubjects());
+console.log(vlad.PRAssignment("Node"));
+console.log(vlad.sprintChallenge("React"));
+
+// sarah
+console.log(sarah);
+
+/** ------- Project Manager ------- */   
+
+// cole
+console.log(cole);
+console.log(cole.standUp("Struggling-Brains"));
+console.log(cole.debugsCode(sarah, 'JS'));
+
+// pepito
+console.log(pepito);
