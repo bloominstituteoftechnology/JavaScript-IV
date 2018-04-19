@@ -27,25 +27,24 @@ class Person {
         return `${student.name} receives a perfect score on ${subject}`;
     }
     changeGrade(student) {
-      let newGrade = 0;
+    //removed var that was used to hold the new grade. this was causing the students grade to return to the original value every time the method was called
       let randomNum = Math.random();
+    //   console.log(randomNum)
       if (randomNum > 0.5) {
-        newGrade = student.grade + (Math.random() * 10);
+        student.grade = student.grade + (Math.random() * 10);
+        // console.log(student.grade) 
       }
       else {
-        newGrade = student.grade - (Math.random() * 10);
+        student.grade = student.grade - (Math.random() * 10);
       }
-      if (newGrade > 100) {
-        newGrade = 100;
+      if (student.grade > 100) {
+        student.grade = 100;
       }
-      else if (newGrade < 0) {
-        newGrade = 0;
+      else if (student.grade < 0) {
+        student.grade = 0;
       }
-      else {
-        return newGrade;
-      }
-      student.grade = newGrade;
-      return student.grade;
+      return Math.floor(student.grade)
+    
     }
   }
   
@@ -124,7 +123,7 @@ class Person {
     previousBackground: 'skydiver',
     className: 'CS0132',
     favSubjects: ['js', 'python', 'c', 'css'],
-    grade: 50
+    grade: 68
   });
   
   const alice = new ProjectManagers ({
@@ -147,6 +146,9 @@ class Person {
   console.log(studentA);
   console.log(alice);
   
+  console.log(fred.changeGrade(studentA));
+  console.log(fred.changeGrade(studentA));
+  console.log(fred.changeGrade(studentA));
   console.log(fred.changeGrade(studentA));
   
   console.log(studentA.checkGraduate());
