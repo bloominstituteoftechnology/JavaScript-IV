@@ -34,19 +34,17 @@ class Instructor extends Person {
     return `${ studentOBJ.name } receives a perfect score on ${ subjectSTR }`;
   }
 
-  gradeStudent(studentOBJ) {
-    const newGrade = Math.floor(Math.random() * Math.floor(100));
+  graduateStudent(studentOBJ) {
+    return `Congratulations, ${ studentOBJ.name }, you are now ready to graduate!`;
+  }
 
-    if (newGrade > studentOBJ.grade) {
-      studentOBJ.grade += newGrade;
-      return `Congratulations! ${ studentOBJ.name }'s grade went up and is now ${ studentOBJ.grade }!`;
-    }
-    else if (newGrade < studentOBJ.grade) {
-      studentOBJ.grade -= newGrade;
-      return `${ studentOBJ.name }'s grade went down and is now ${ studentOBJ.grade }. Time for more reps!`;
-    }
-    else {
-      return `${ studentOBJ.name }'s grade stayed the same. Consistency is NOT always key.`;
+  gradeStudent(studentOBJ) {
+    let newGrade = 0;
+
+    while (newGrade <= 70) {
+      newGrade = Math.floor(Math.random() * Math.floor(100)) + studentOBJ.grade;
+      
+      if (newGrade > 70) return this.graduateStudent(studentOBJ);
     }
   }
 }
