@@ -27,8 +27,8 @@ class Instructor extends Person {
     demo(subject) {
         console.log(`'​​​​​Today we are learning about ${subject}'`);
     }
-    grade(studen, subject) {
-        console.log()`'​​​​​${student.name} receives a perfect score on ${subject}'`;
+    grade(student, subject) {
+        console.log(`'​​​​​${student.name} receives a perfect score on ${subject}'`);
     }
 }
 /**
@@ -139,15 +139,22 @@ const pepito = new ProjectM({
 /** ------- Instructor ------- */
 // josh
 console.log(josh);
+console.log(josh.demo("JS"));
+console.log(josh.grade(jean, "JS"));
 // pedro
 console.log(pedro);
 /** ------- Student ------- */
 // jean
 console.log(jean);
+console.log(jean.listsSubjects());
+console.log(jean.PRAssigment("Node"));
+console.log(jean.springChallenge("React"));
 // sarah
 console.log(sarah);
 /** ------- Project Manager ------- */   
 // cole
 console.log(cole);
+console.log(cole.standUp("Struggling-Brains"));
+console.log(cole.debugsCode(sarah, 'JS'));
 // pepito
 console.log(pepito);
