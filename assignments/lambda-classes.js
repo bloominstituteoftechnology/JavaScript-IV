@@ -109,17 +109,31 @@ console.log(dante.PRAssignment('Dante', 'UI Responsiveness'));
 
 // Project Managers Class
 
+// class ProjectManagers extends Instructors {
+//     constructor(projectManagerAttributes) {
+//         super(projectManagerAttributes);
+//         this.gradClassName = projectManagerAttributes.gradClassname;
+//         this.favInstructor = projectManagerAttributes.favInstructor;
+//     }
+//     standUp() {
+//         return `{this.name} announces to {channel}, @channel standy times!​​​​​`
+//     }
+//     debugsCode(studentName, subject) {
+//         return `${​this.name} debugs ${studentName} code on ${subject}.`
+//     }
+// }
+
 class ProjectManagers extends Instructors {
     constructor(projectManagerAttributes) {
         super(projectManagerAttributes);
-        this.gradClassName = projectManagerAttributes.gradClassname;
+        this.gradClassName = projectManagerAttributes.gradClassName;
         this.favInstructor = projectManagerAttributes.favInstructor;
     }
-    standUp() {
-        return `{this.name} announces to {channel}, @channel standy times!​​​​​`
+    standUp(name, channel) {
+        return `${name} announces to ${channel}, @${channel} standy times!​​​​​`
     }
-    debugsCode(name, studentName, subject) {
-        return `${​​​​​name} debugs ${studentName}'s code on ${subject}.`
+    debugsCode(student, subject) {
+        return `​​​${this.name} debugs ${student}'s code on ${subject}.`
     }
 }
 
@@ -128,22 +142,33 @@ const dre = new ProjectManagers({
     age: 25,
     location: 'Bedrock',
     gender: 'Male',
+    specialty: 'JavaScript',
+    language: 'JavaScript',
+    catchPhrase: 'Yeah',
     gradClassName: 'CS5',
     favInstructor: 'Josh'
   });
 
 console.log(dre);
-// console.log(dre.gradClassname);
-// console.log(dre.favInstructor);
-// console.log(dre.standUp());
-console.log(dre.debugsCode('Dre', 'Dante', 'Classes'));
+console.log(dre.gradClassName);
+console.log(dre.favInstructor);
+console.log(dre.standUp('Dre', 'CS10 Channel'));
+console.log(dre.debugsCode('Dante','Classes'));
 
 const moises = new ProjectManagers({
     name: 'Moises',
-    age: 25,
+    age: 26,
     location: 'Bedrock',
     gender: 'Male',
-    favLanguage: 'JavaScript',
-    specialty: 'Front-end',
-    catchPhrase: `Don't forget the homies`
+    specialty: 'JavaScript',
+    language: 'JavaScript',
+    catchPhrase: 'Yeah',
+    gradClassName: 'CS8',
+    favInstructor: 'Nelson'
   });
+
+console.log(moises);
+console.log(moises.gradClassName);
+console.log(moises.favInstructor);
+console.log(moises.standUp('Moises', 'CS05 Channel'));
+console.log(moises.debugsCode('Dante','Classes'));
