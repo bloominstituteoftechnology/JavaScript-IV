@@ -95,3 +95,11 @@ const fred = new Instructor({
 * ProjectManangers have the following Methods:
   * `standUp` a method that takes in a slack channel and logs `{name} announces to {channel}, @channel standy times!​​​​​
   * `debugsCode` a method that takes in a student object and a subject and logs out `{​​​​​name} debugs {student.name}'s code on {subject}`
+
+#### Stretch Goal
+
+* Extend the functionality of the Student by adding a prop called grade and setting it equal to a number between 1-100.
+* Now that our students have a grade build out a method on the Instructor (this will be used by _BOTH_ instructors and PM's) that will randomly add or subtract points to a student's grade. _Math.random_ will help.
+* Add a graduate method to a student.
+  * This method, when called, will check the grade of the student and see if they're ready to graduate from Lambda School
+  * If the student's grade is above a 70% let them graduate! Otherswise go back to grading their assignments to increase their score.
