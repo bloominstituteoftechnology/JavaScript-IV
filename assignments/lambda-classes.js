@@ -32,6 +32,10 @@ class Instructor extends Person {
     console.log(`${student.name} receives a perfect score on ${subject}.`);
   }
 
+  reGrade(student) {
+    student.grade += Math.ceil(Math.random() * 100 - 50);
+  }
+
 }
 
 
@@ -42,6 +46,7 @@ class Student extends Person {
     this.previousBackground = attributes.previousBackground;
     this.className = attributes.className;
     this.favSubjects = attributes.favSubjects;
+    this.grade = attributes.grade;
   }
 
   listsSubjects() {
@@ -56,6 +61,11 @@ class Student extends Person {
 
   sprintChallenge(subject) {
     console.log(`${this.name} has begun a sprint challenge on ${subject}`);
+  }
+
+  graduate() {
+    if (this.grade >= 70) console.log(`${this.name} graduates with a grade of ${this.grade}`);
+    else console.log(`With a grade of ${this.grade}, ${this.name} is not ready to graduate.`);
   }
 
 }
@@ -101,7 +111,9 @@ testStudent = new Student({
   'previousBackground': 'none',
   'className': 'CSsqrt(-1)',
   'favSubjects': ['stuff', 'things', 'doings'],
+  'grade': 50,
 });
+
 
 Billy.speak();
 
@@ -121,3 +133,9 @@ testStudent.sprintChallenge("blargh");
 Billy.debugsCode(testStudent, "things");
 
 Billy.standup("Billy's Channel");
+
+Billy.reGrade(testStudent);
+console.log(testStudent.grade);
+
+
+testStudent.graduate();
