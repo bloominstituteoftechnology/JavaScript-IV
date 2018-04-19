@@ -56,8 +56,16 @@ class Student extends Person {
 /**
  * ------- ProjectM -------
  */
-class ProjectM {
+class ProjectM extends Instructor {
     constructor(options){
-        this. = options.;
+        super(options);
+        this.gradClassName = options.gradClassName;
+        this.favInstructor = options.favInstructor;
+    }
+    standUp(chanel) {
+        console.log(`${this.name} announces to ${chanel}, @chanel standy times!`);
+    }
+    debugsCode(student, subject) {
+        console.log(`${this.name} debugs ${student.name}'s code on ${subject}`);
     }
 }
