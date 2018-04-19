@@ -51,6 +51,11 @@ class Instructor extends Person {
     grade (student, subject) {
         console.log(`${student.name} receives a perfect score on ${subject}`);
     }
+    setGrade(student) {
+        student.grade+=Math.floor(Math.random() * (11)) -5;
+        student.grade = student.grade < 0 ? 0 : student.grade > 100 ? 100 : student.grade; 
+        return student.grade
+    }
 }
 
   /*
@@ -75,6 +80,7 @@ class Student extends Person {
         this.previousBackground = studentAttributes.previousBackground;
         this.className = studentAttributes.className;
         this.favSubjects = studentAttributes.favSubjects;
+        this.grade = studentAttributes.grade;
     }
     listsSubjects() {
         this.favSubjects.forEach(favSubject => {
@@ -87,6 +93,9 @@ class Student extends Person {
     sprintChallenge(subject) {
         console.log(`${this.name} has begun spring challenge on ${subject}`);
     } 
+    graduate () {
+        return this.grade >= 70 ? true : false;
+    }
 }
 
 /*
@@ -153,7 +162,8 @@ const vlad = new Student({
       gender: 'male',
       previousBackground: 'Some HTML, CSS and JS',
       className: 'CS10',
-      favSubjects: ['Javascript', 'React', 'Node']
+      favSubjects: ['Javascript', 'React', 'Node'],
+      grade: 0,
 });
 const sarah = new Student({
     name: 'Sarah',
@@ -162,7 +172,8 @@ const sarah = new Student({
     gender: 'female',
     previousBackground: 'Antropology',
     className: 'CS11',
-    favSubjects: ['Humanism', 'Gestalt']
+    favSubjects: ['Humanism', 'Gestalt'],
+    grade: 75,
 });
     
 /** ------- Project Manager ------- */    
@@ -219,3 +230,25 @@ console.log(cole.debugsCode(sarah, 'JS'));
 
 // pepito
 console.log(pepito);
+
+/*
+#### Stretch Problem
+
+* Extend the functionality of the Student by adding a prop called grade and setting it equal to a number between 1-100.
+* Now that our students have a grade build out a method on the Instructor 
+(this will be used by _BOTH_ instructors and PM's) that will randomly add or subtract points to a student's grade. _Math.random_ will help.
+* Add a graduate method to a student.
+  * This method, when called, will check the grade of the student and see if they're ready to graduate from Lambda School
+  * If the student's grade is above a 70% let them graduate! Otherswise go back to grading their assignments to increase their score.
+*/
+
+
+console.log(vlad.grade);
+console.log(vlad.graduate());
+
+do {
+    console.log(cole.setGrade(vlad));
+} while ( ! vlad.graduate());
+
+console.log(vlad.graduate());
+console.log(vlad.grade);
