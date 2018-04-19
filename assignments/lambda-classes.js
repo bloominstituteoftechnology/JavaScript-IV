@@ -5,6 +5,7 @@
  */
 class Person {
     constructor(options){
+        this.name = options.name;
         this.age = options.age;
         this.location = options.location;
         this.gender = options.gender;
@@ -33,9 +34,23 @@ class Instructor extends Person {
 /**
  * ------- Student -------
  */
-class Student {
+class Student extends Person {
     constructor(options){
-        this. = options.;
+        super(options);
+        this.previousBackground = options.previousBackground;
+        this.className = options.className;
+        this.favSubjects = options.favSubjects; //array
+    }
+    listsSubjects(){
+        this.favSubjects.forEach( subject => {
+            console.log(subject);
+        });
+    }
+    PRAssigment(subject){
+        console.log(`${this.name} has submitted a PR for ${subject}`);
+    }
+    springChallenge(subject) {
+        console.log(`${this.name} has begun spring challenge on ${subject}`);
     }
 }
 /**
