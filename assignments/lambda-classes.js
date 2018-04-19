@@ -128,4 +128,10 @@ console.log(Jeff.grade(Andrew, 'Everything'))
 console.log(Brandon.speak());
 console.log(Brandon.PRAssignment('JavaScript'));
 console.log(Jeff.debugsCode(Alex, 'JavaScript'));
-console.log(Jeff.standuUp('CS10'))
+console.log(Jeff.standuUp('CS10'));
+console.log(Andrew.speak());
+console.log(Jeff.specialty);
+console.log(Jeff.gradClassName);
+console.log(Josh.demo('JavaScript'));
+console.log(Alex.speak());
+console.log(Alex.favInstructor);
