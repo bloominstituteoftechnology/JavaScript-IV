@@ -104,19 +104,19 @@ const swordsman = new Humanoid({
   language: 'Common Toungue'
 });
 
-const archer = new Humanoid({
-  createdAt: new Date(),
-  dimensions: {
-    length: 1,
-    width: 2,
-    height: 4
-  },
-  hp: 10,
-  name: 'Lilith',
-  faction: 'Forest Kingdom',
-  weapons: ['Bow', 'Dagger'],
-  language: 'Elvish'
-});
+// const archer = new Humanoid({
+//   createdAt: new Date(),
+//   dimensions: {
+//     length: 1,
+//     width: 2,
+//     height: 4
+//   },
+//   hp: 10,
+//   name: 'Lilith',
+//   faction: 'Forest Kingdom',
+//   weapons: ['Bow', 'Dagger'],
+//   language: 'Elvish'
+// });
 
 console.log(mage.createdAt); // Today's date
 console.log(archer.dimensions); // { length: 1, width: 2, height: 4 }

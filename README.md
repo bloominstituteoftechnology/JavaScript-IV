@@ -72,7 +72,7 @@ const fred = new Instructor({
 
 #### Student
 
-* Now we need some students!
+<!-- * Now we need some students!
 * Student uses the same attributes that have been set up by Person
 * Student has the following unique props:
   * `previousBackground` i.e. what the Student used to do before Lambda School
@@ -81,7 +81,7 @@ const fred = new Instructor({
 * Student has the following methods:
   * `listsSubjects` a method that logs out all of the student's favoriteSubjects one by one.
   * `PRAssignment` a method that receives a subject as an argument and logs out that the `student.name has submitted a PR for {subject}`
-  * `sprintChallenge` similar to PRAssignment but logs out `student.name has begun spring challenge on {subject}`
+  * `sprintChallenge` similar to PRAssignment but logs out `student.name has begun spring challenge on {subject}` -->
 
 #### Project Mananger
 
