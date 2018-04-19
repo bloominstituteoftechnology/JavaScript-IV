@@ -10,8 +10,10 @@ class Person {
 }
 
 const jose = new Person({ name: 'Jose', location: 'LA' });
-
 console.log(jose.speak());
+
+
+//Instructor Class
 
 class Instructor extends Person {
   constructor(attributes) {
@@ -20,22 +22,20 @@ class Instructor extends Person {
     this.favLanguage = attributes.favLanguage;
     this.catchPhrase = attributes.catchPhrase;
   }
-
   demo(subject) {
-    return `Today we are learning about ${subject}`;
+    return `Today we are learning about ${subject}.`;
   }
   grade(student, subject) {
-    return `${student} receives a perfect score on ${subject}`;
+    return `${student} receives a perfect score on ${subject}.`;
+  }
+  adjustGrade(grade) {
+    if(grade >= 70) return `Sorry, ${this.name} already graduated! Leave them alone!!!`
+    return grade = Math.floor(Math.random() * Math.floor(100));
   }
 }
 
-// const ryan = new Instructor({
-//   specialty: 'react',
-//   favLanguage: 'javascript',
-//   catchPhrase: 'none',
-// });
 
-// console.log(ryan.grade('luis', 'java'))
+//Student Class
 
 class Students extends Person {
   constructor(attributes) {
@@ -43,17 +43,24 @@ class Students extends Person {
     this.previousBackGround = attributes.previousBackGround;
     this.className = attributes.className;
     this.favSubject = attributes.favSubject;
+    this.grade = attributes.grade;
   }
   listsSubjects() {
     return `${this.name} likes ${this.favSubject}`;
   }
   PRAssignment(subject) {
-    return `${this.name} has submitted a PR for ${subject}`;
+    return `${this.name} has submitted a PR for ${subject}.`;
   }
   sprintChallenge(subject) {
-    return `student.name has begun spring challenge on ${subject}`;
+    return `${this.name} has begun spring challenge on ${subject}.`;
+  }
+  graduatedFinally() {
+    if (this.grade >= 70) return `${this.name} can F.I.N.A.L.L.Y. graduate!`;
   }
 }
+
+//Project Manager Class
+
 
 class ProjectManagers extends Instructor {
   constructor(attributes) {
@@ -61,16 +68,18 @@ class ProjectManagers extends Instructor {
     this.gradClassName = attributes.gradClassName;
     this.favInstructor = attributes.favInstructor;
   }
-
   standUp(slackChannel) {
     return `${this.name} announces to ${slackChannel}, @channel standy times!`;
   }
   debugsCode(student, subject) {
-    return `${this.name} debugs ${student.name}'s code on ${subject}`;
+    return `${this.name} debugs ${student.name}'s code on ${subject}.`;
   }
 }
 
-const ryan = new Instructor({
+
+//Instructor Objects
+
+const Ryan = new Instructor({
   name: 'Ryan',
   location: 'Cali',
   specialty: 'Java',
@@ -94,14 +103,18 @@ const Kevin = new Instructor({
   favLanguage: 'Python',
 });
 
-const sally = new ProjectManagers({
+
+
+//Project Manager Objects
+
+const Sally = new ProjectManagers({
   name: 'Sally',
   location: 'Oregon',
   specialty: 'Node',
   previousBackGround: 'Management',
   gradClassName: 'CS10',
 });
-console.log(sally);
+console.log(Sally);
 
 const Xanadu = new ProjectManagers({
   name: 'Xanadu',
@@ -115,11 +128,42 @@ const Xanadu = new ProjectManagers({
 });
 console.log(Xanadu.standUp('cs_10 Help'));
 
+
+
+//Student Objects
+
 const Joe = new Students({
   name: 'Joe',
   location: 'Liberal lala land',
   previousBackGround: 'Playerr',
   className: 'CS 10',
   favSubject: 'CSS',
+  grade: 77
 });
 console.log(Joe.listsSubjects());
+
+const Mike = new Students({
+  name: 'Mike',
+  location: 'Florida',
+  favLanguage: 'JS',
+  favInstructor: 'Bob',
+  previousBackGround: 'Food Service',
+  catchPhrase: 'Mike Rox',
+  gradClassName: 'CS12',
+  grade: 90
+})
+console.log(Mike.PRAssignment('JSIII'));
+
+
+
+//Tests
+
+console.log(Kevin.adjustGrade(Joe.grade));
+console.log(Kevin.adjustGrade(Joe.grade));
+console.log(Kevin.adjustGrade(Joe.grade));
+
+console.log(Sally.adjustGrade(Mike.grade));
+console.log(Sally.adjustGrade(Mike.grade));
+console.log(Sally.adjustGrade(Mike.grade));
+
+
