@@ -61,21 +61,14 @@ class ProjectManagers extends Instructor {
     this.gradClassName = attributes.gradClassName;
     this.favInstructor = attributes.favInstructor;
   }
+
   standUp(slackChannel) {
-    return `${
-      this.name
-    } announces to ${channel}, ${slackChannel} standy times!`;
+    return `${this.name} announces to ${slackChannel}, @channel standy times!`;
   }
   debugsCode(student, subject) {
     return `${this.name} debugs ${student.name}'s code on ${subject}`;
   }
 }
-
-const me = new Students({
-  className: 10,
-  name: 'ryan',
-  favSubject: ['math', 'java', 'code'],
-});
 
 const ryan = new Instructor({
   name: 'Ryan',
@@ -84,3 +77,49 @@ const ryan = new Instructor({
   favLanguage: 'Java',
   catchPhrase: 'Nifty',
 });
+
+const Bryan = new Instructor({
+  name: 'Bryan',
+  location: 'Boston',
+  specialty: 'Yarn',
+  favLanguage: 'Ruby',
+  catchPhrase: "Hey ya'll",
+});
+console.log(Bryan.demo('Yarn'));
+
+const Kevin = new Instructor({
+  name: 'Kevin',
+  location: 'Texas',
+  specialty: 'Human resources',
+  favLanguage: 'Python',
+});
+
+const sally = new ProjectManagers({
+  name: 'Sally',
+  location: 'Oregon',
+  specialty: 'Node',
+  previousBackGround: 'Management',
+  gradClassName: 'CS10',
+});
+console.log(sally);
+
+const Xanadu = new ProjectManagers({
+  name: 'Xanadu',
+  location: 'Wyoming',
+  specialty: 'CSS',
+  favLanguage: 'CSS',
+  favInstructor: 'Ron',
+  previousBackGround: 'Ranching',
+  catchPhrase: 'Take me to Xanadu',
+  gradClassName: 'CS4',
+});
+console.log(Xanadu.standUp('cs_10 Help'));
+
+const Joe = new Students({
+  name: 'Joe',
+  location: 'Liberal lala land',
+  previousBackGround: 'Playerr',
+  className: 'CS 10',
+  favSubject: 'CSS',
+});
+console.log(Joe.listsSubjects());
