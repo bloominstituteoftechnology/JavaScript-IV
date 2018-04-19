@@ -28,9 +28,12 @@ class Instructor extends Person {
   grade(student, subject) {
     return `${student} receives a perfect score on ${subject}.`;
   }
-  adjustGrade(grade) {
-    if(grade >= 70) return `Sorry, ${this.name} already graduated! Leave them alone!!!`
-    return grade = Math.floor(Math.random() * Math.floor(100));
+  adjustGrade(student) {
+    if (student.grade >= 70) {
+      return `Sorry, ${student.name} already graduated! Leave them alone!!!`;
+    } else {
+      return student.grade = Math.floor(Math.random() * Math.floor(100));
+    }
   }
 }
 
@@ -46,7 +49,7 @@ class Students extends Person {
     this.grade = attributes.grade;
   }
   listsSubjects() {
-    return `${this.name} likes ${this.favSubject}`;
+    return `${this.name} likes ${this.favSubject}.`;
   }
   PRAssignment(subject) {
     return `${this.name} has submitted a PR for ${subject}.`;
@@ -138,7 +141,7 @@ const Joe = new Students({
   previousBackGround: 'Playerr',
   className: 'CS 10',
   favSubject: 'CSS',
-  grade: 77
+  grade: 67
 });
 console.log(Joe.listsSubjects());
 
@@ -150,7 +153,7 @@ const Mike = new Students({
   previousBackGround: 'Food Service',
   catchPhrase: 'Mike Rox',
   gradClassName: 'CS12',
-  grade: 90
+  grade: 40
 })
 console.log(Mike.PRAssignment('JSIII'));
 
@@ -158,12 +161,17 @@ console.log(Mike.PRAssignment('JSIII'));
 
 //Tests
 
-console.log(Kevin.adjustGrade(Joe.grade));
-console.log(Kevin.adjustGrade(Joe.grade));
-console.log(Kevin.adjustGrade(Joe.grade));
+console.log(Kevin.adjustGrade(Joe));
+console.log(Kevin.adjustGrade(Joe));
+console.log(Kevin.adjustGrade(Joe));
+console.log(Kevin.adjustGrade(Joe));
+console.log(Kevin.adjustGrade(Joe));
+console.log(Kevin.adjustGrade(Joe));
 
-console.log(Sally.adjustGrade(Mike.grade));
-console.log(Sally.adjustGrade(Mike.grade));
-console.log(Sally.adjustGrade(Mike.grade));
+
+console.log(Sally.adjustGrade(Mike));
+console.log(Sally.adjustGrade(Mike));
+console.log(Sally.adjustGrade(Mike));
+console.log(Sally.adjustGrade(Mike));
 
 
