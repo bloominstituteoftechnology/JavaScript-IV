@@ -33,9 +33,12 @@ class Person {
  *      @param subject 
  *      @returns string '​​​​​Today we are learning about {subject}' 
  * @function grade() 
- *      @param studentObject
+ *      @param studentObj
  *      @param subject
  *      @returns string '​​​​​{student.name} receives a perfect score on {subject}'
+ * @function editStudentGrade() 
+ *      @param studentObj
+ *      @returns string `{Instructor/PM name} just changed {student name}'s grade from {previous grade} to {new grade}`
  */
 class Instructors extends Person {
     constructor(instructorObj){
@@ -50,6 +53,11 @@ class Instructors extends Person {
     grade(studentObj, subject) {
         return `${studentObj.name} receives a perfect score on ${subject}`;
     }
+    editStudentGrade(studentObj) {
+        let prevGrade = studentObj.grade;
+        studentObj.grade = Math.ceil(Math.random()*100);
+        return `${this.name} just changed ${studentObj.name}'s grade from ${prevGrade} to ${studentObj.grade}`
+    }
 }
 
 /**
@@ -59,6 +67,7 @@ class Instructors extends Person {
  * @property previousBackground the student's previousBackground
  * @property favSubjects array the student's favSubjects list
  * @property className the student's className
+ * @property grade the student's grade
  * @function listsSubjects() 
  *      @returns all of the student's favoriteSubjects
  * @function PRAssignment()
@@ -173,3 +182,8 @@ console.log(jess.debugsCode(alice, 'Bootstrap')); // Jess debugs Alice's code on
 //3. Add a graduate method to a student.
 // This method, when called, will check the grade of the student and see if they're ready to graduate from Lambda School
 // If the student's grade is above a 70% let them graduate! Otherswise go back to grading their assignments to increase their score.
+
+// Stretch Test
+console.log(pete.grade); // Pete's current grade: 60
+console.log(jess.editStudentGrade(pete)); // Jess just changed Pete's grade from 60 to {random number}
+console.log(pete.grade); // Pete's new grade: random number
