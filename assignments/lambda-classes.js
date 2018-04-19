@@ -9,7 +9,7 @@ class Person{
         this.gender = properties.gender;
     };
     speak(){
-        retrun`Hello my name is ${this.name}. I am from ${this.location}`;
+        return`Hello my name is ${this.name}. I am from ${this.location}`;
     };
 };
 
@@ -125,3 +125,4 @@ const Jeff = new PM({
   console.log(Jeff);
   console.log(Josh.demo('JS'));
   console.log(Jeff.grade(Andrew, 'Everything'))
+console.log(Brandon.speak())
