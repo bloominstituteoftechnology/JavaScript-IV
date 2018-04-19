@@ -53,11 +53,11 @@ class ProjectManagers extends Instructors {
         this.gradClassName = projectManagerAttributes.gradClassName;
         this.favInstructor = projectManagerAttributes.favInstructor;
     }
-    // standUp(name, channel) {
-    //     return `${name} announces to ${channel}, @${channel} standy times!​​​​​`
-    // }
-    debugsCode(nameOne, student, subject) {
-        return `​​​${​​​​​nameOne} debugs ${student}\'s code on ${subject}.`
+    standUp(name, channel) {
+        return `${name} announces to ${channel}, @${channel} standy times!​​​​​`
+    }
+    debugsCode(student, subject) {
+        return `​​​${this.name} debugs ${student}\'s code on ${subject}.`
     }
  }
 
@@ -125,7 +125,7 @@ const fred = new Instructors({
   });
 
 //   console.log(mark);
-//   console.log(mark.standUp('Jeff', 'CS10'));
+  console.log(mark.standUp('Jeff', 'CS10'));
   console.log(mark.debugsCode('Ken', 'lea', 'JS-I'))
 
   const poly = new ProjectManagers ({
