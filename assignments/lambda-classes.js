@@ -62,3 +62,24 @@ class ProjectManager extends Instructor {
     return `${this.name} debugs ${student.name}'s code on ${subject}.`;
   }
 }
+
+
+// Test classes
+
+// Test person
+const frank = new Person({
+  'name': 'Frank',
+  'age': '23',
+  'location': 'San Diego',
+  'gender': 'M'
+});
+
+const jacob = new Person({
+  'name': 'Jacob',
+  'age': '35',
+  'location': 'Atlanta',
+  'gender': 'M'
+});
+
+console.log(frank.speak());
+console.log(jacob.speak());
