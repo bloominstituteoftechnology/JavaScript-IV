@@ -1,1 +1,214 @@
 // CODE here for your Lambda Classes
+
+// ==== Person ====
+class Person {
+  constructor(personAttributes){
+    this.name = personAttributes.name;
+    this.age = personAttributes.age;
+    this.location = personAttributes.location;
+    this.gender = personAttributes.gender;
+  }
+  speak(){
+    return `Hello my name is ${this.name}, I am from ${this.location}.`;
+  }
+}
+
+// ==== Instructor ====
+class Instructor extends Person {
+  constructor(instructorAttributes){
+    super(instructorAttributes);
+    this.speciality = instructorAttributes.speciality;
+    this.favLanguage = instructorAttributes.favLanguage;
+    this.catchPhrase = instructorAttributes.catchPhrase;
+  }
+  demo(subject){
+    return `Today we are learning about ${subject}.`;
+  }
+  grade(student, subject){
+    return `${student.name} receives a perfect score on ${subject}.`;
+  }
+  addGrade(student){
+    const grade = (Math.ceil(Math.random() * 20)) * (Math.random() < 0.5 ? 1 : -1); // Random number 1-20 * 1|-1
+    student.grade += grade;
+    return `${this.name} changed ${student.name}'s grade by ${grade} points.`;
+  }
+}
+
+// ==== Student ====
+class Student extends Person {
+  constructor(studentAttributes){
+    super(studentAttributes);
+    this.previousBackground = studentAttributes.previousBackground;
+    this.className = studentAttributes.className;
+    this.favSubjects = studentAttributes.favSubjects;
+    this.grade = studentAttributes.grade; // Stretch
+    this.graduated = false; // Stretch
+  }
+  listsSubjects(){
+    this.favSubjects.forEach(x => console.log(x));
+  }
+  PRAssignment(subject){
+    return `${this.name} has submitted a PR for ${subject}.`;
+  }
+  sprintChallenge(subject){
+    return `${this.name} has begun the sprint challenge on ${subject}.`;
+  }
+  graduate(){
+    if(this.grade > 70){
+      this.graduated = true;
+      return `${this.name} graduated with a ${this.grade}.`;
+    }
+
+    return `${this.name} has a ${this.grade} and has not qualified for graduation yet.`;
+  }
+}
+
+// ==== Project Manager ====
+class ProjectManager extends Instructor {
+  constructor(projectManagerAttributes){
+    super(projectManagerAttributes);
+    this.gradClassName = projectManagerAttributes.gradClassName;
+    this.favInstructor = projectManagerAttributes.favInstructor;
+  }
+  standUp(slackChannel){
+    return `${this.name} announces to ${slackChannel}, @channel standy times!`;
+  }
+  debugsCode(student, subject){
+    return `${this.name} debugs ${student.name}'s code on ${subject}.`;
+  }
+}
+
+
+// Test classes
+
+// Test person
+const frank = new Person({
+  'name': 'Frank',
+  'age': '23',
+  'location': 'San Diego, CA',
+  'gender': 'M'
+});
+
+const jacob = new Person({
+  'name': 'Jacob',
+  'age': '35',
+  'location': 'Atlanta, GA',
+  'gender': 'M'
+});
+
+console.log(frank);
+console.log(frank.speak());
+console.log(jacob);
+console.log(jacob.speak());
+
+// Test student
+const george = new Student({
+  'name': 'George',
+  'age': '25',
+  'location': 'New York, NY',
+  'gender': 'M',
+  'previousBackground': 'Math Tutor',
+  'className': 'CS20',
+  'favSubjects': ['Python', 'R'],
+  'grade': 52 // Stretch
+});
+
+const paige = new Student({
+  'name': 'Paige',
+  'age': '18',
+  'location': 'Reno, NV',
+  'gender': 'F',
+  'previousBackground': 'High School Student',
+  'className': 'CS11',
+  'favSubjects': ['HTML', 'CSS', 'JS'],
+  'grade': 58 // Stretch
+});
+
+console.log(george);
+console.log(george.speak());
+console.log(george.listsSubjects());
+console.log(george.PRAssignment('Node I'));
+console.log(george.sprintChallenge('Node'));
+
+console.log(paige);
+console.log(paige.speak());
+console.log(paige.listsSubjects());
+console.log(paige.PRAssignment('Graphs II'));
+console.log(paige.sprintChallenge('Graphs'));
+
+// Test instructor
+const jackie = new Instructor({
+  'name': 'Jackie',
+  'age': '28',
+  'location': 'Fort Worth, TX',
+  'gender': 'F',
+  'speciality': 'Front End Development, UX',
+  'favLanguage': 'JavaScript',
+  'catchPhrase': 'Shut the front door!'
+});
+
+const doug = new Instructor({
+  'name': 'Doug',
+  'age': '31',
+  'location': 'Tampa, Fl',
+  'gender': 'M',
+  'speciality': 'MEAN Stack',
+  'favLanguage': 'JavaScript',
+  'catchPhrase': 'Computer says no'
+});
+
+console.log(jackie);
+console.log(jackie.speak());
+console.log(jackie.demo('HTML'));
+console.log(jackie.grade(george, 'Front End Project'));
+
+console.log(doug);
+console.log(doug.speak());
+console.log(doug.demo('LESS'));
+
+// Test project managers
+const marc = new ProjectManager({
+  'name': 'Marc',
+  'age': '40',
+  'location': 'Nashville, TN',
+  'gender': 'M',
+  'speciality': 'Data Science',
+  'favLanguage': 'Python',
+  'catchPhrase': 'Bam!',
+  'gradClassName': 'CS10',
+  'favInstructor': 'Beej'
+});
+
+const alvin = new ProjectManager({
+  'name': 'Alvin',
+  'age': '36',
+  'location': 'Denver, CO',
+  'gender': 'M',
+  'speciality': 'Unity, Game Development',
+  'favLanguage': 'C#, JavaScript',
+  'catchPhrase': 'Hey hey hey',
+  'gradClassName': 'CS8',
+  'favInstructor': 'Dan'
+});
+
+console.log(marc);
+console.log(marc.speak());
+console.log(marc.standUp('CS20'));
+console.log(marc.debugsCode(george, 'Node'));
+
+console.log(alvin);
+console.log(alvin.speak());
+console.log(alvin.standUp('CS11'));
+console.log(alvin.debugsCode(paige, 'C'));
+
+
+// Test stretch
+while(!george.graduated){
+  console.log(jackie.addGrade(george));
+  console.log(george.graduate());
+}
+
+while(!paige.graduated){
+  console.log(doug.addGrade(paige));
+  console.log(paige.graduate());
+}
