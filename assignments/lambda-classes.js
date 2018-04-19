@@ -36,6 +36,7 @@ class Student extends Person {
     this.previousBackground = studentAttributes.previousBackground;
     this.className = studentAttributes.className;
     this.favSubjects = studentAttributes.favSubjects;
+    this.grade = studentAttributes.grade; // Stretch
   }
   listsSubjects(){
     this.favSubjects.forEach(x => console.log(x));
@@ -94,7 +95,8 @@ const george = new Student({
   'gender': 'M',
   'previousBackground': 'Math Tutor',
   'className': 'CS20',
-  'favSubjects': ['Python', 'R']
+  'favSubjects': ['Python', 'R'],
+  'grade': 92 // Stretch
 });
 
 const paige = new Student({
@@ -104,7 +106,8 @@ const paige = new Student({
   'gender': 'F',
   'previousBackground': 'High School Student',
   'className': 'CS11',
-  'favSubjects': ['HTML', 'CSS', 'JS']
+  'favSubjects': ['HTML', 'CSS', 'JS'],
+  'grade': 98 // Stretch
 });
 
 console.log(george);
