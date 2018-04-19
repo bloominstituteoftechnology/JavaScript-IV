@@ -24,6 +24,18 @@ class Instructor extends Person {
   grade(student, subject) { //checking if quotes are needed later
     return `${student.name} recieves a perfect score on ${subject}`;
   }
+  passOrNot(student) {
+    // const max = 10;
+    // const random = function getRandomInt(max) {
+    //   return student.grade - studentMath.floor(Math.random() * Math.floor(max));
+    // }
+    
+    const random = Math.floor((Math.random() * 10) + 1);
+    if (student.grade - random > 70) {
+      return 'Graduating';
+    }
+    return 'Study some more.';
+  }
 }
 
 class Student extends Person {
@@ -32,9 +44,10 @@ class Student extends Person {
     this.previousBackground = studentProps.previousBackground;
     this.className = studentProps.className;
     this.favSubjects = studentProps.favSubjects;
+    this.grade = studentProps.grade;
   }
   listsSubjects() {
-    return `${this.favSubjects.map(subject => subject)} `;
+    return `${this.favSubjects.map(subject => subject)}, `;
   }
   PRAssignments(subject) {
     return `${student.name} has submitted a PR for ${subject}`
@@ -86,12 +99,13 @@ const Jon = new Person({
   gender: 'male',
 });
 console.log(Jon);
+console.log(Jon.speak())
 
 const Jessica = new Person({
   name: 'Jessica',
   location: 'Guatemala',
   age: 37,
-  gender: 'female'
+  gender: 'female',
 });
 console.log(Jessica);
 
@@ -102,9 +116,10 @@ const Kamal = new Instructor({
   gender: 'male',
   specialty: 'systems',
   favLanguage: 'Cobal',
-  catchPhrase: 'Coballin Coballin'
+  catchPhrase: 'Coballin Coballin',
 });
 console.log(Kamal)
+console.log(Kamal.demo('Python'))
 
 const Frank = new Instructor({
   name: 'Frank',
@@ -113,7 +128,7 @@ const Frank = new Instructor({
   gender: 'male',
   specialty: 'Front-End',
   favLanguage: 'Javascript',
-  catchPhrase: 'dont mess with me'
+  catchPhrase: 'dont mess with me',
 });
 console.log(Frank)
 
@@ -124,9 +139,15 @@ const Celina = new Student({
   gender: 'female',
   previousBackground: 'geology',
   className: 'CS_582',
-  favSubjects: ['Linux', 'math', 'algorithms']
+  favSubjects: ['Linux', 'math', 'algorithms'],
+  grade: 75,
 });
+
+// students to pass
+console.log(Kamal.passOrNot(Celina));
+
 console.log(Celina)
+console.log(Celina.listsSubjects())
 
 const Andrew = new Student({
   name: 'Andrew',
@@ -135,8 +156,15 @@ const Andrew = new Student({
   gender: 'male',
   previousBackground: 'support tech',
   className: 'CS_7',
-  favSubjects: ['Functional programming', 'Java', 'Business']
+  favSubjects: ['Functional programming', 'Java', 'Business'],
+  grade: 75,
 })
+
+// students to pass
+console.log(Frank.passOrNot(Andrew));
+
+
+
 console.log(Andrew)
 
 const Lora = new ProjectManager({
@@ -148,7 +176,7 @@ const Lora = new ProjectManager({
   favLanguage: 'Javascript',
   catchPhrase: 'Standy Time!!',
   gradClassName: 'CS_15',
-  favInstructor: 'Calamari'
+  favInstructor: 'Calamari',
 });
 console.log(Lora)
 
@@ -161,6 +189,6 @@ const Cole = new ProjectManager({
   favLanguage: 'Python',
   catchPhrase: 'lets get crackin!',
   gradClassName: 'CS_40',
-  favInstructor: 'Bill'
+  favInstructor: 'Bill',
 });
 console.log(Cole)
