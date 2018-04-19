@@ -95,7 +95,7 @@ const cass = new Student({
 
 const dresean = new ProjectManager({
 	'name': 'Dre\'Sean',
-	'age': 25,
+	'age': 25, // not sure how old you are, Dre'Sean. lol
 	'location': 'North Carolina',
 	'gender': 'M',
 	'specialty': 'Back-End Web Development',
@@ -106,22 +106,26 @@ const dresean = new ProjectManager({
 });
 
 // testing speak
+console.log('\n***************\nTesting speak()\n***************\n')
 console.log(josh.speak());
 console.log(cass.speak());
 console.log(dresean.speak());
 
 // testing properties
-console.log(josh.age);
-console.log(cass.gender);
-console.log(dresean.specialty);
-console.log(josh.favLanguage);
-console.log(cass.previousBackground);
-console.log(dresean.catchPhrase);
-console.log(josh.catchPhrase);
-console.log(cass.className);
-console.log(dresean.favInstructor.name);
+console.log('\n******************\nTesting properties\n******************\n')
+console.log(`${josh.name} is ${josh.age} years old`);
+console.log(`${cass.name}'s gender is '${cass.gender}'`);
+console.log(`${dresean.name}'s specialty is ${dresean.specialty}`);
+console.log(`${josh.name}'s favorite language is ${josh.favLanguage}`);
+console.log(`${cass.name}'s backround is in ${cass.previousBackground}`);
+console.log(`${dresean.name} likes to say, "${dresean.catchPhrase}"`);
+console.log(`${josh.name}'s catch phrase is, "${josh.catchPhrase}"`);
+console.log(`${cass.name} is in ${cass.className}`);
+console.log(`${dresean.name}'s favorite instructor is ${dresean.favInstructor.name}`);
+console.log(`As my favorite instructor, ${josh.name}, says, "${josh.catchPhrase}."`);
 
 // testing grading
+console.log('\n***************\nTesting grading\n***************\n')
 console.log(`${cass.name}'s initial grade is ${cass.grade}%`);
 console.log(josh.grade(cass, 'JavaScript'));
 console.log(dresean.grade(cass, 'Bootstrap'));
@@ -130,9 +134,11 @@ console.log(dresean.grade(cass, 'HTML'));
 console.log(cass.graduate(josh, 'JavaScript'));
 
 // testing other methods
+console.log('\n********************\nTesting misc methods\n********************\n')
 console.log(josh.demo('CSS'));
 cass.listSubjects;
 console.log(cass.PRAssignment('Bootstrap'));
 console.log(cass.sprintChallenge('JavaScript'));
 console.log(dresean.standUp('cs10_dreseansninjas'));
 console.log(dresean.debugsCode(cass, 'HTML'));
+
