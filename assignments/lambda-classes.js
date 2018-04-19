@@ -81,10 +81,11 @@ class Students extends Person {
         return `${this.name} has begun spring challenge on ${subject}.`;
     }
     graduate() {
-        if(this.grade < 70){
-           bruce.changeGrade(this.grade) 
+        let newGrade = this.grade;
+        while (newGrade < 70){
+           newGrade = bruce.changeGrade(newGrade);
         }
-        return `Congratulations, ${this.name}! You graduated!`
+        return `Congratulations, ${this.name}! You graduated with a ${newGrade}`;
     }
 }
 
@@ -119,7 +120,7 @@ const andy = new Students({
     previousBackground: 'Police Officer',
     className: 'CS9',
     favSubjects: ['React', ' C'],
-    grade: 26
+    grade: 48
 })
 
 
