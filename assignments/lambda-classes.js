@@ -19,10 +19,10 @@ class Instructor extends Person {
     this.catchPhrase = attributes.catchPhrase;
   }
   demo(subject) {
-    return `Today, we are learning about ${subject}`;
+    return `Today, we are learning about ${subject}.`;
   }
-  grade(student, variable) {
-    return `${student.name} receives a perfect score on ${variable}`;
+  grade(student, subject) {
+    return `${student.name} receives a perfect score on ${subject}.`;
   }
 }
 
@@ -34,7 +34,10 @@ class Student extends Person {
   this.favSubjects = attributes.favSubjects;
   }
   listsSubjects() {
-    favSubjects.forEach((fs) => console.log.fs);
+    for (let i=0; i<this.favSubjects.length;i++) {
+       console.log(this.favSubjects[i]);
+    };
+    return 'this works';
   };
   PRAssignment(subject) {
     return `${this.name} has submitted a PR for ${subject}`;
@@ -54,7 +57,7 @@ class ProjectManager extends Instructor {
     return `${this.name} announces to ${channel}, @${channel} standup time!`
   }
   debugsCode(student, subject) {
-    return `{name} debugs ${this.name}\'s code on {subject}.`
+    return `${this.name} debugs ${student.name}\'s code on ${subject}.`
   }
 }
 
@@ -74,10 +77,9 @@ const kelly = new Student({
   location: 'Bedrock',
   age: 37,
   gender: 'female',
-  favSubjects: 'EcmaScript, Preprocessing',
-  favLanguage: 'EcmaScript',
-  specialty: 'Front-end',
-  catchPhrase: `whatever`
+  previousBackground: 'none',
+  className: 'CS10',
+  favSubjects: ['Preprocessing'],
 });
 
 const cole = new ProjectManager({
@@ -85,11 +87,18 @@ const cole = new ProjectManager({
   location: 'Bedrock',
   age: 1,
   gender: 'female',
-  favSubjects: 'EcmaScript, Preprocessing',
-  favLanguage: 'EcmaScript',
-  specialty: 'Front-end',
-  catchPhrase: `whatever`
+  specialty: 'the PM thing',
+  favLanguage: 'English',
+  catchPhrase: 'You\'re doing fine!',
+  gradClassName: 'CS10',
+  favInstructor: 'whoever',
 });
 
-
+console.log(fred.speak());
+console.log(fred.demo('JSIV'));
+console.log(fred.grade(kelly,'JSIV'))
+console.log(kelly.listsSubjects());
+console.log(kelly.PRAssignment('JSIV'));
 console.log(kelly.sprintChallenge('JSIV'));
+console.log(cole.standUp('CS10'));
+console.log(cole.debugsCode(kelly,'JSIV'));
