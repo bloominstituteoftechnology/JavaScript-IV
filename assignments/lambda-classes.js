@@ -25,7 +25,7 @@ class Instructor extends Person {
     return `${student.name} receives a perfect score on ${subject}.`;
   }
   random(student) {
-    return student.grade += Math.random()*100-50;
+    return student.grade += Math.ceil(Math.random()*100-50);
   }
 }
 
