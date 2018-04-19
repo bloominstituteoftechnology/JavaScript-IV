@@ -31,6 +31,7 @@ class Student extends Person {
         this.previousBackground = studentAtt.previousBackground;
         this.className = studentAtt.className;
         this.favSubjects = studentAtt.favSubjects;
+        this.grade = studentAtt.grade;
     }
     listsSubjects() {
         this.favSubjects.forEach(function(sub) {
@@ -42,6 +43,10 @@ class Student extends Person {
     }
     sprintChallenge(subject) {
         console.log(`${this.name} has begun sprint challenge on ${subject}.`);
+    }
+    graduate() {
+        if (this.grade > 70) console.log(`Congratulations ${this.name}, you graduated from Lambda School!`)
+        else console.log(`Sorry ${this.name}, you didn't graduate.`)
     }
 }
 
@@ -57,6 +62,14 @@ class PM extends Instructor {
     debugsCode(student, subject) {
         console.log(`${this.name} debugs ${student.name}'s code on ${subject}.`);
     }
+    giveGrade(student) {
+        if (Math.round(Math.random()) === 1) {
+            student.grade -= Math.floor(Math.random() * (10 - 1));
+        } else {
+            student.grade += Math.floor(Math.random() * (10 - 1));
+        }
+        console.log(`${student.name}'s current grade is ${student.grade}%`)
+    }
 }
 
 const braden = new Student ({
@@ -66,7 +79,8 @@ const braden = new Student ({
     'gender': 'M',
     'previousBackground': 'college',
     'className': 'CS10',
-    'favSubjects': ['HTML', 'CSS', 'JaveSript']
+    'favSubjects': ['HTML', 'CSS', 'JaveSript'],
+    'grade': 70
 });
 
 const ja = new Student ({
@@ -76,7 +90,8 @@ const ja = new Student ({
     'gender': 'F',
     'previousBackground': 'college',
     'className': 'CS10',
-    'favSubjects': ['Basic HTML', 'Basic CSS', 'Basic JaveSript']
+    'favSubjects': ['Basic HTML', 'Basic CSS', 'Basic JaveSript'],
+    'grade': 100
 });
 
 const josh = new Instructor ({
@@ -133,3 +148,21 @@ heather.grade(braden, 'JavaScript');
 
 ellen.standUp('cs_10 ellen');
 moises.debugsCode(ja, 'JavaScript');
+
+console.log(braden.grade);
+ellen.giveGrade(braden);
+ellen.giveGrade(braden);
+ellen.giveGrade(braden);
+ellen.giveGrade(braden);
+ellen.giveGrade(braden);
+ellen.giveGrade(braden);
+ellen.giveGrade(braden);
+ellen.giveGrade(braden);
+ellen.giveGrade(braden);
+ellen.giveGrade(braden);
+ellen.giveGrade(braden);
+ellen.giveGrade(braden);
+ellen.giveGrade(braden);
+ellen.giveGrade(braden);
+console.log(braden.grade);
+braden.graduate();
