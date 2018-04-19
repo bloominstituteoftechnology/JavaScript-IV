@@ -21,14 +21,16 @@ class Instructor extends Person {
         this.catchPhrase = instructorAttributes.catchPhrase;
     }
     demo(subject) {
-        return `Today we are learning about ${this.subject}`;
+        return `Today we are learning about ${subject}`;
     }
     grade(student, subject) {
-        return `${student.name} receives a perfect score on ${subject}`;
+        return `${student} receives a perfect score on ${subject}`;
     }
 }
 
-class Students extends Person {
+
+
+class Student extends Person {
     constructor(studentAttributes){
         super(studentAttributes);
         this.className = studentAttributes.className;
@@ -38,23 +40,105 @@ class Students extends Person {
         return `${this.favSubjects}`;
     }
     PRAssignment(subject) {
-        return `${student.name} has submitted a PR for ${subject}`;
+        return `${this.name} has submitted a PR for ${subject}`;
     }
     sprintChallenge(subject) {
-        return `${student.name} has begun sprint challenge on ${subject}`;
+        return `${this.name} has begun sprint challenge on ${subject}`;
     }        
 }
 
 class ProjectManager extends Instructor {
     constructor(projectManagerAttributes){
-        super(instructorAttributes);
+        super(projectManagerAttributes);
         this.gradClassName = projectManagerAttributes.gradClassName;
         this.favInstructor = projectManagerAttributes.favInstructor;
     }
-    standUP(channle) {
-        return `${this.name} annouces to ${channel}, @channel standy times!`;
+    standUP(channel) {
+        return `${this.name} annouces to ${channel}, @channel Standy Times!!`
     }
     debugsCode(student, subject) {
-        return `${name} debugs ${student.name}'s code on ${subject}`;
+        return `${this.name} debugs ${student}'s code on ${subject}`;
     }
 }
+
+// Instuctor Ojects
+
+const josh = new Instructor({
+    name: 'Josh',
+    age: 35,
+    location: "Utah",
+    gender: 'M',
+    specialty: 'Everything, but is Fond of front end',
+    favLanguage: 'JavaScript',
+    catchPhrase: 'Look at those Jazz go!'
+});
+
+const ryan = new Instructor({
+    name: 'Ryan',
+    age: 32,
+    location: "Utah",
+    gender: 'M',
+    specialty: 'Everything, but is Fond of React',
+    favLanguage: 'JavaScript',
+    catchPhrase: 'Look at those Jazz go!'
+});
+
+// Project Manager Objects
+
+const jackee = new ProjectManager ({
+    name: 'Jackee',
+    age: 35,
+    location: 'North Dakota',
+    gender: 'F',
+    specialty: 'Everything',
+    favLanguage: 'JavaScript',
+    catchPhrase: 'You can do it!',
+    gradClassName: 'CS_4',
+    favInstructor: 'Josh'
+});
+
+const moises = new ProjectManager ({
+    name: 'Moises',
+    age: 25,
+    location: 'Florida',
+    gender: 'M',
+    specialty: 'Everything',
+    favLanguage: 'JavaScript',
+    catchPhrase: 'You got this!',
+    gradClassName: 'CS_4',
+    favInstructor: 'Josh'
+});
+
+// student Objects
+
+const lonnie =  new Student ({
+    name: 'Lonnie',
+    age: 45,
+    location: 'Texas',
+    gender: 'M',
+    className: 'cs10',
+    favSubjects: 'Everything'
+})
+
+const maribel =  new Student ({
+    name: 'Maribel',
+    age: 35,
+    location: 'Phillippines',
+    gender: 'F',
+    className: 'cs10',
+    favSubjects: 'Everything'
+})
+
+console.log(josh.location);
+console.log(josh.catchPhrase);
+console.log(josh.demo('Life'));
+console.log(josh.grade('Maribel', 'JavaScript'));
+
+console.log(jackee.standUP('cs10_jackee'));
+console.log(jackee.debugsCode('lonnie', 'javaScript'));
+console.log(jackee.gradClassName);
+console.log(jackee.location);
+
+console.log(lonnie.listSubjects());
+console.log(lonnie.PRAssignment('JavaScript-IV'));
+console.log(lonnie.sprintChallenge('JavaScript Fundamentals'));
