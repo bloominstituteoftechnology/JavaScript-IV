@@ -42,6 +42,7 @@ class Student extends Person {
     this.className = studentAttributes.className;
     this.favSubjects = studentAttributes.favSubjects;
     this.grade = studentAttributes.grade; // Stretch
+    this.graduated = false; // Stretch
   }
   listsSubjects(){
     this.favSubjects.forEach(x => console.log(x));
@@ -51,6 +52,12 @@ class Student extends Person {
   }
   sprintChallenge(subject){
     return `${this.name} has begun the sprint challenge on ${subject}.`;
+  }
+  graduate(){
+    if(this.grade > 70){
+      this.graduated = true;
+      return `${this.name} has graduated.`;
+    }
   }
 }
 
