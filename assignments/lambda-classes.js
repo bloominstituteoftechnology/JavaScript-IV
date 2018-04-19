@@ -47,6 +47,28 @@ class Students extends Person {
   listsSubjects() {
     return `${this.name} likes ${this.favSubject}`;
   }
+  PRAssignment(subject) {
+    return `${this.name} has submitted a PR for ${subject}`;
+  }
+  sprintChallenge(subject) {
+    return `student.name has begun spring challenge on ${subject}`;
+  }
+}
+
+class ProjectManagers extends Instructor {
+  constructor(attributes) {
+    super(attributes);
+    this.gradClassName = attributes.gradClassName;
+    this.favInstructor = attributes.favInstructor;
+  }
+  standUp(slackChannel) {
+    return `${
+      this.name
+    } announces to ${channel}, ${slackChannel} standy times!`;
+  }
+  debugsCode(student, subject) {
+    return `${this.name} debugs ${student.name}'s code on ${subject}`;
+  }
 }
 
 const me = new Students({
@@ -55,4 +77,10 @@ const me = new Students({
   favSubject: ['math', 'java', 'code'],
 });
 
-console.log(me.listsSubjects());
+const ryan = new Instructor({
+  name: 'Ryan',
+  location: 'Cali',
+  specialty: 'Java',
+  favLanguage: 'Java',
+  catchPhrase: 'Nifty',
+});
