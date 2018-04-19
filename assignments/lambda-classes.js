@@ -24,6 +24,9 @@ class Instructor extends Person {
   grade(student, subject) {
     return `${student.name} receives a perfect score on ${subject}.`;
   }
+  random(student) {
+    return student.grade += Math.random()*100-50;
+  }
 }
 
 class Student extends Person {
@@ -32,6 +35,7 @@ class Student extends Person {
   this.previousBackground = attributes.previousBackground;
   this.className = attributes.className;
   this.favSubjects = attributes.favSubjects;
+  this.grade = attributes.grade;
   }
   listsSubjects() {
     for (let i=0; i<this.favSubjects.length;i++) {
@@ -44,6 +48,14 @@ class Student extends Person {
   }
   sprintChallenge(subject) {
     return `${this.name} has begun sprint challenge on ${subject}`;
+  }
+  graduate(){
+    if (this.grade >= 70) {
+      return `Congratulations, ${this.name}! You graduate!`;
+    }
+    else {
+      return `Sorry, ${this.name}. Keep trying!`;
+    }
   }
 }
 
@@ -75,11 +87,12 @@ const fred = new Instructor({
 const kelly = new Student({
   name: 'Kelly',
   location: 'Bedrock',
-  age: 37,
+  age: 1,
   gender: 'female',
   previousBackground: 'none',
   className: 'CS10',
   favSubjects: ['Preprocessing'],
+  grade: 50,
 });
 
 const cole = new ProjectManager({
@@ -96,9 +109,11 @@ const cole = new ProjectManager({
 
 console.log(fred.speak());
 console.log(fred.demo('JSIV'));
-console.log(fred.grade(kelly,'JSIV'))
+console.log(fred.grade(kelly,'JSIV'));
+console.log(fred.random(kelly));
 console.log(kelly.listsSubjects());
 console.log(kelly.PRAssignment('JSIV'));
 console.log(kelly.sprintChallenge('JSIV'));
+console.log(kelly.graduate());
 console.log(cole.standUp('CS10'));
 console.log(cole.debugsCode(kelly,'JSIV'));
