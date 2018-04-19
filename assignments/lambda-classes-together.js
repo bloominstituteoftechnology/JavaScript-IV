@@ -36,7 +36,6 @@ class Instructor extends Person{
 }
 
 /////
-let studentScore = 0;
 function studentScoreGen() {
     return studentScore = Math.floor(Math.random() * 61) 
 }
