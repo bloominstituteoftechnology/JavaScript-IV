@@ -38,11 +38,11 @@ class Person {
  *      @returns string '​​​​​{student.name} receives a perfect score on {subject}'
  */
 class Instructors extends Person {
-    constructor(instructorsObj){
-        super(instructorsObj);
-        this.specialty = instructorsObj.specialty;
-        this.favLanguage = instructorsObj.favLanguage;
-        this.catchPhrase = instructorsObj.catchPhrase;
+    constructor(instructorObj){
+        super(instructorObj);
+        this.specialty = instructorObj.specialty;
+        this.favLanguage = instructorObj.favLanguage;
+        this.catchPhrase = instructorObj.catchPhrase;
     }
     demo(subject) {
         return `Today we are learning about ${subject}`;
@@ -70,26 +70,49 @@ class Instructors extends Person {
 */
 
 class Students extends Person {
-    constructor(studentsObj){
-        super(studentsObj);
-        this.previousBackground = studentsObj.previousBackground;
-        this.favSubjects = studentsObj.favSubjects;
-        this.className = studentsObj.className;
+    constructor(studentObj){
+        super(studentObj);
+        this.previousBackground = studentObj.previousBackground;
+        this.favSubjects = studentObj.favSubjects;
+        this.className = studentObj.className;
     }
     listsSubject() {
         return this.favSubjects;
     }
     PRAssignment(subject) {
-        return `${this.name} has submitted a PR for ${subject}`
+        return `${this.name} has submitted a PR for ${subject}`;
     }
     sprintChallenge(subject) {
-        return `${this.name} has begun spring challenge on ${subject}`
+        return `${this.name} has begun spring challenge on ${subject}`;
     }
 }
 
+/**
+ * @class
+ * @constructor
+ * @augments Instructors
+ * @property gradClassName the student's gradClassName
+ * @property favInstructor array the student's favInstructor list
+ * @function standUp()
+ *      @param channel slack channel name 
+ *      @returns `{name} announces to {channel}, @channel standy times!​​​​​`
+ * @function debugsCode() 
+ *      @param studentObj
+ *      @param subject
+ *      @returns string `{​​​​​name} debugs {student.name}'s code on {subject}`
+*/
+
 class ProjectManagers extends Instructors {
-    constructor(projectManagersObj){
-        super(projectManagersObj);
+    constructor(projectManagerObj){
+        super(projectManagerObj);
+        this.gradClassName = projectManagerObj.gradClassName;
+        this.favInstructor = projectManagerObj.favInstructor;
+    }
+    standUp(channel) {
+        return `${this.name} announces to ${channel}, @channel standy times!​​​​​`;
+    }
+    debugsCode(studentObj, subject) {
+        return `${this.name} debugs ${studentObj.name}'s code on ${subject}`;
     }
 }
 
@@ -130,13 +153,13 @@ const jess = new ProjectManagers({
     location: 'New York',
     age: 34,
     gender: 'female',
-    favLanguage: 'JavaScript',
-    specialty: 'Front-end',
-    catchPhrase: ``
+    gradClassName: 'CS1',
+    favInstructor: 'Sean'
 });
 
 // Tests
-console.log(pete.speak());
-console.log(fred.demo('Js-III'));
-console.log(fred.grade(pete, 'Js-III'));
-console.log(pete.PRAssignment('Bootstrap'));
+console.log(pete.speak()); // Hello, my name is Pete, I am from Denver
+console.log(fred.demo('Js-III')); // Today we are learning about Js-III
+console.log(fred.grade(pete, 'Js-III')); // Pete receives a perfect score on Js-III
+console.log(pete.PRAssignment('Bootstrap')); // Pete has submitted a PR for Bootstrap
+console.log(jess.debugsCode(alice, 'Bootstrap')); // Jess debugs Alice's code on Bootstrap
