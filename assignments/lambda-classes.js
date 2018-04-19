@@ -23,7 +23,7 @@ class Instructor extends Person {
   }
   
   grade(student, subject) {
-  	return `${this.name} recieves a perfect score on ${this.subject}`;
+  	return `${student.name} recieves a perfect score on ${this.subject}`;
   }
 }
 
@@ -39,13 +39,26 @@ class Student extends Instructor {
     this.forEach((element) => {
     allFavSubjects.push(`${element.favSubject}`);
 });
-
-  PRAssignment() {
-      
+}
+  PRAssignment(subject) {
+      return `${this.name} has submitted a PR for ${this.subject}`;
   }
-  }
+  sprintChallenge () {
+    return `${this.name} has begun sprint challenge on ${this.subject}`;
+  } 
 }
 
 class ProjectManager extends Student {
+  constructor(pmAttributes) {
+    super(pmAttributes);
+    this.gradClassName = pmAttributes.gradClassName;
+    this.favInstructor = pmAttributes.favInstructor;
+  }
+  standUp(slackChannel) {
+    return `${this.name} announces to ${this.slackChannel}, @channel standby times!`
+  }
 
+  debugsCode(Student, subject) {
+    return `${this.name} debugs ${student.name}'s code on {*-}`
+  }
 }
