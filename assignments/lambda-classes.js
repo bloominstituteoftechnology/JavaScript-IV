@@ -69,3 +69,85 @@ class ProjectM extends Instructor {
         console.log(`${this.name} debugs ${student.name}'s code on ${subject}`);
     }
 }
+
+/**
+ * ------- INSTANCES -------
+ */
+/** ------- Instructor ------- */
+const josh = new Instructor({
+    name: 'Josh',
+    location: 'Bedrock',
+    age: 37,
+    gender: 'male',
+    favLanguage: 'JavaScript',
+    specialty: 'Front-end',
+    catchPhrase: `Don't forget the homies`
+});
+const pedro = new Instructor({
+    name: 'Fred',
+    location: 'Bedrock',
+    age: 37,
+    gender: 'female',
+    favLanguage: 'Python',
+    specialty: 'Back-end',
+    catchPhrase: 'Docs, refer to documentation!'
+});
+  
+/** ------- Student ------- */
+const jean = new Student({
+      name: 'Jean',
+      location: 'Madrid',
+      age: 36,
+      gender: 'male',
+      previousBackground: 'Some HTML, CSS and JS',
+      className: 'CS10',
+      favSubjects: ['Javascript', 'React', 'Node']
+});
+const sarah = new Student({
+    name: 'Sarah',
+    location: 'England',
+    age: 39,
+    gender: 'female',
+    previousBackground: 'Antropology',
+    className: 'CS11',
+    favSubjects: ['Humanism', 'Gestalt']
+});
+    
+/** ------- Project Manager ------- */    
+const cole = new ProjectM({
+    name: 'Cole',
+    location: 'California',
+    age: 30,
+    gender: 'female',
+    favLanguage: 'C',
+    specialty: 'Back-end',
+    catchPhrase: `Refer to syllabus`
+});
+const pepito = new ProjectM({
+    name: 'Pepito',
+    location: 'Colombia',
+    age: 57,
+    gender: 'male',
+    favLanguage: 'Python',
+    specialty: 'React',
+    catchPhrase: 'Instantiate yourself!'
+});
+
+/**
+ * ------- PLAY GORUND -------
+ */
+/** ------- Instructor ------- */
+// josh
+console.log(josh);
+// pedro
+console.log(pedro);
+/** ------- Student ------- */
+// jean
+console.log(jean);
+// sarah
+console.log(sarah);
+/** ------- Project Manager ------- */   
+// cole
+console.log(cole);
+// pepito
+console.log(pepito);
