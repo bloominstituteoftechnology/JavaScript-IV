@@ -58,7 +58,7 @@ class ProjectManagers extends Instructor {
         this.favInstructor = managerTraits.favInstructor;
     }
     standUp(channel) {
-        return `${this.name} announces to ${channel}, @${channel} standy times!`​​​​​;
+        `${this.name} announces to ${channel}, @channel standy times!`;
         return this.name + ' announces to ' + this.channel + ', @channel standy times!';
     }
     debugsCode(student, subject) {
