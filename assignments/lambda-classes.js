@@ -149,3 +149,38 @@ console.log(doug);
 console.log(doug.speak());
 console.log(doug.demo('LESS'));
 console.log(doug.grade(paige, 'Back End Project'));
+
+// Test project managers
+const marc = new ProjectManager({
+  'name': 'Marc',
+  'age': '40',
+  'location': 'Nashville, TN',
+  'gender': 'M',
+  'speciality': 'Data Science',
+  'favLanguage': 'Python',
+  'catchPhrase': 'Bam!',
+  'gradClassName': 'CS10',
+  'favInstructor': 'Beej'
+});
+
+const alvin = new ProjectManager({
+  'name': 'Alvin',
+  'age': '36',
+  'location': 'Denver, CO',
+  'gender': 'M',
+  'speciality': 'Unity, Game Development',
+  'favLanguage': 'C#, JavaScript',
+  'catchPhrase': 'Hey hey hey',
+  'gradClassName': 'CS8',
+  'favInstructor': 'Dan'
+});
+
+console.log(marc);
+console.log(marc.speak());
+console.log(marc.standUp('CS20'));
+console.log(marc.debugsCode(george, 'Node'));
+
+console.log(alvin);
+console.log(alvin.speak());
+console.log(alvin.standUp('CS11'));
+console.log(alvin.debugsCode(paige, 'C'));
