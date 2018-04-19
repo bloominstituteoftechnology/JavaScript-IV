@@ -1,11 +1,14 @@
-// Instructors - extensions of Person
-// Students - extensions of Person
-// Project Managers - extensions of Instructors
+/**
+ * A class to represent a person at school.
+ * @class
+ * @constructor
+ * @property name the person's name
+ * @property age the person's age
+ * @property location the person's location
+ * @property gender the person's gender
+ * @function speak() return a string  
+ */
 
-
-// Person receives name age location gender all as props
-// Person receives speak as a method.
-// This method logs out a phrase Hello my name is Fred, I am from Bedrock​​​​​ where name and location are the object's own props
 class Person {
     constructor(obj) {
         this.name = obj.name;
@@ -16,12 +19,36 @@ class Person {
     speak() {
         return `Hello, my name is ${this.name}, I am from ${this.location}`;
     }
-}
+} 
 
+/**
+ * A class to represent an instructor at school.
+ * @class
+ * @constructor
+ * @augments Person
+ * @property specialty the instructor's specialty
+ * @property favLanguage the instructor's favLanguage
+ * @property catchPhrase the instructor's catchPhrase
+ * @function demo() 
+ *      @param subject 
+ *      @returns string '​​​​​Today we are learning about {subject}' 
+ * @function grade() 
+ *      @param studentObject
+ *      @param subject
+ *      @returns string '​​​​​{student.name} receives a perfect score on {subject}'
+ */
 class Instructors extends Person {
     constructor(instructorsObj){
         super(instructorsObj);
-
+        this.specialty = instructorsObj.specialty;
+        this.favLanguage = instructorsObj.favLanguage;
+        this.catchPhrase = instructorsObj.catchPhrase;
+    }
+    demo(subject) {
+        return `Today we are learning about ${subject}`;
+    }
+    grade(studentObj, subject) {
+        return `${studentObj.name} receives a perfect score on ${subject}`;
     }
 }
 
@@ -81,3 +108,5 @@ const jess = new ProjectManagers({
 
 // Tests
 console.log(pete.speak());
+console.log(fred.demo('Js-III'))
+console.log(fred.grade(pete, 'Js-III'))
