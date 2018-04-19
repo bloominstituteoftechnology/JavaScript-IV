@@ -40,6 +40,7 @@ const fred = new Person({
 * **IMPORTANT** - You'll need to create 2 - 3 objects for each class and test them according to their unique Attributes. For example:
 
 ```
+
 const fred = new Instructor({
   name: 'Fred',
   location: 'Bedrock',
