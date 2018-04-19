@@ -1,10 +1,10 @@
 // CODE here for your Lambda Classes
 class Person {
-	constructor(personAttributes) {
-		this.name = personAttributes.name;
-		this.age = personAttributes.age;
-		this.location = personAttributes.location;
-		this.gender = personAttributes.gender;
+	constructor({name, age, location, gender}) {
+		this.name = name;
+		this.age = age;
+		this.location = location;
+		this.gender = gender;
 	}
 	speak() {
 		return `Hello my name is ${this.name}, I am from ${this.location}`;
