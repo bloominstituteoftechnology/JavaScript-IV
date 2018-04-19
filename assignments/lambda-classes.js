@@ -119,8 +119,15 @@ const Sandy = new Student ({
 })
 
 
-console.log(Sandy.previousBackground)
-console.log(Sandy.PRAssignment("Math"))
+const Gigi = new Student ({
+    previousBackground: "Astronaut",
+    className: "CS 10",
+    favSubjects: ["JQuery", "CSS"]
+})
+
+console.log(Gigi.previousBackground)
+console.log(Sandy.PRAssignment("math"))
+
 // #### Project Mananger
 
 // * Now that we have instructors and students, we'd be nowhere without our PM's
@@ -148,3 +155,11 @@ class ProjectManager extends Instructor {
     // }
 }
 
+const Becky = new ProjectManager ({
+    gradClasName: "CS 10",
+    favInstructor: "Josh"
+})
+
+console.log(Becky.gradClasName)
+
+console.log(Becky.standUp("help"))
