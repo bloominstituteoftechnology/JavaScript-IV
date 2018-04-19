@@ -36,7 +36,7 @@ class Person {
  *      @param studentObj
  *      @param subject
  *      @returns string '​​​​​{student.name} receives a perfect score on {subject}'
- * @function editStudentGrade() 
+ * @function editStudentGrade() utility function, modify student object's grade
  *      @param studentObj
  *      @returns string `{Instructor/PM name} just changed {student name}'s grade from {previous grade} to {new grade}`
  */
@@ -53,10 +53,10 @@ class Instructors extends Person {
     grade(studentObj, subject) {
         return `${studentObj.name} receives a perfect score on ${subject}`;
     }
-    editStudentGrade(studentObj) {
+    static editStudentGrade(studentObj) {
         let prevGrade = studentObj.grade;
         studentObj.grade = Math.ceil(Math.random()*100);
-        return `${this.name} just changed ${studentObj.name}'s grade from ${prevGrade} to ${studentObj.grade}`
+        console.log(`${this.name} just changed ${studentObj.name}'s grade from ${prevGrade} to ${studentObj.grade}`);
     }
 }
 
@@ -76,6 +76,10 @@ class Instructors extends Person {
  * @function sprintChallenge() 
  *      @param subject 
  *      @returns string `The ${student name} has begun spring challenge on {subject}`
+ * @function graduate() evaluate if student's grade is under 70
+ *      if under 70: execute editStudentGrade to get new grade
+ *      if equal and over 70: return
+ *      @returns `{student name}'s new grade is {new grade}. {student name} graduated!!!`
 */
 
 class Students extends Person {
@@ -94,6 +98,14 @@ class Students extends Person {
     }
     sprintChallenge(subject) {
         return `${this.name} has begun spring challenge on ${subject}`;
+    }
+    graduate() {
+        console.log(`${this.name}'s current grade: ${this.grade}`);
+        while (this.grade < 70) {
+            console.log(`${this.name}'s new grade is ${this.grade}. Not gradudate yet.`)
+            Instructors.editStudentGrade(this);
+        }
+        return `${this.name}'s new grade is ${this.grade}. ${this.name} graduated!!!`;
     }
 }
 
@@ -184,6 +196,10 @@ console.log(jess.debugsCode(alice, 'Bootstrap')); // Jess debugs Alice's code on
 // If the student's grade is above a 70% let them graduate! Otherswise go back to grading their assignments to increase their score.
 
 // Stretch Test
-console.log(pete.grade); // Pete's current grade: 60
-console.log(jess.editStudentGrade(pete)); // Jess just changed Pete's grade from 60 to {random number}
-console.log(pete.grade); // Pete's new grade: random number
+console.log(pete.graduate());
+// Pete's current grade: 60
+// Pete's new grade is {random number < 70}. Not gradudate yet.
+// Instructors just changed Pete's grade from 60 to {random number}
+// ...
+// Instructors just changed Pete's grade from 60 to {random number > 70}
+// Pete's new grade is {random number > 70}. Pete graduated!!!
