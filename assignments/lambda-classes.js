@@ -70,16 +70,49 @@ class ProjectManager extends Instructor {
 const frank = new Person({
   'name': 'Frank',
   'age': '23',
-  'location': 'San Diego',
+  'location': 'San Diego, CA',
   'gender': 'M'
 });
 
 const jacob = new Person({
   'name': 'Jacob',
   'age': '35',
-  'location': 'Atlanta',
+  'location': 'Atlanta, GA',
   'gender': 'M'
 });
 
+console.log(frank);
 console.log(frank.speak());
+console.log(jacob);
 console.log(jacob.speak());
+
+// Test instructor
+const jackie = new Instructor({
+  'name': 'Jackie',
+  'age': '28',
+  'location': 'Fort Worth, TX',
+  'gender': 'F',
+  'speciality': 'Front End Development, UX',
+  'favLanguage': 'JavaScript',
+  'catchPhrase': 'Shut the front door!'
+});
+
+const doug = new Instructor({
+  'name': 'Doug',
+  'age': '31',
+  'location': 'Tampa, Fl',
+  'gender': 'M',
+  'speciality': 'MEAN Stack',
+  'favLanguage': 'JavaScript',
+  'catchPhrase': 'Computer says no'
+});
+
+console.log(jackie);
+console.log(jackie.speak());
+console.log(jackie.demo('HTML'));
+// console.log(jackie.grade(studentObj, subject));
+
+console.log(doug);
+console.log(doug.speak());
+console.log(doug.demo('LESS'));
+// console.log(doug.grade(studentObj, subject));
