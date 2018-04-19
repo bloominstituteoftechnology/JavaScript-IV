@@ -33,6 +33,22 @@ class Instructor extends Person {
   grade(studentOBJ, subjectSTR) {
     return `${ studentOBJ.name } receives a perfect score on ${ subjectSTR }`;
   }
+
+  gradeStudent(studentOBJ) {
+    const newGrade = Math.floor(Math.random() * Math.floor(100));
+
+    if (newGrade > studentOBJ.grade) {
+      studentOBJ.grade += newGrade;
+      return `Congratulations! ${ studentOBJ.name }'s grade went up and is now ${ studentOBJ.grade }!`;
+    }
+    else if (newGrade < studentOBJ.grade) {
+      studentOBJ.grade -= newGrade;
+      return `${ studentOBJ.name }'s grade went down and is now ${ studentOBJ.grade }. Time for more reps!`;
+    }
+    else {
+      return `${ studentOBJ.name }'s grade stayed the same. Consistency is NOT always key.`;
+    }
+  }
 }
 
 /******************
@@ -44,6 +60,7 @@ class Student extends Person {
     this.previousBackground = attr.previousBackground;
     this.className          = attr.className;
     this.favSubjects        = attr.favSubjects;
+    this.grade              = attr.grade;
   }
 
   listsSubjects() {
@@ -117,6 +134,7 @@ const brandon = new Student({
   previousBackground : 'Contractor',
   className          : 'CS10',
   favSubjects        : ['Algorithms', 'Backend', 'Databases'],
+  grade              :  Math.floor(Math.random() * Math.floor(100)),
 });
 
 // thuy
@@ -128,6 +146,7 @@ const thuy = new Student({
   previousBackground : 'previousBackground',
   className          : 'CS10',
   favSubjects        : ['Algorithms', 'Backend', 'Databases'],
+  grade              :  Math.floor(Math.random() * Math.floor(100)),
 });
 
 // alex
@@ -139,6 +158,7 @@ const alex = new Student({
   previousBackground : 'previousBackground',
   className          : 'CS10',
   favSubjects        : ['Algorithms', 'Backend', 'Databases'],
+  grade              :  Math.floor(Math.random() * Math.floor(100)),
 });
 
 /********************************
@@ -211,8 +231,10 @@ console.log(alex.sprintChallenge('JavaScript-IV'));
 console.log(schock);
 console.log(schock.standUp('#cs10_Jeff'));
 console.log(schock.debugsCode(brandon, 'JavaScript'));
+console.log(schock.gradeStudent(brandon));
 
 // patrick
 console.log(patrick);
 console.log(patrick.standUp('#cs10_Patrick'));
 console.log(patrick.debugsCode(alex, 'nothing, he\'s doing great!'));
+console.log(schock.gradeStudent(thuy));
