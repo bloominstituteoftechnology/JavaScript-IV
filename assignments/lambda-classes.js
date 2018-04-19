@@ -15,7 +15,18 @@ class Person {
 
 // ==== Instructor ====
 class Instructor extends Person {
-
+  constructor(instructorAttributes){
+    super(instructorAttributes);
+    this.speciality = instructorAttributes.speciality;
+    this.favLanguage = instructorAttributes.favLanguage;
+    this.catchPhrase = instructorAttributes.catchPhrase;
+  }
+  demo(subject){
+    return `Today we are learning about ${subject}.`;
+  }
+  grade(student, subject){
+    return `${student.name} receives a perfect score on ${subject}.`;
+  }
 }
 
 // ==== Student ====
@@ -25,5 +36,5 @@ class Student extends Person {
 
 // ==== Project Manager ====
 class ProjectManager extends Instructor {
-  
+
 }
