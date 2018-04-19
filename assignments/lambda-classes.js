@@ -34,10 +34,10 @@ class Students extends Person {
         this.favSubjects = studentAttributes.favSubjects;
     }
     listsSubjects() {
-        return `${this.favSubjects}`;
-        // const list = favSubjects.map(data) => {
-
-        // }
+        // return `${this.favSubjects}`;
+        const list = this.favSubjects.map((data) => {
+                    console.log(data);
+        })
     }
     PRAssignment(subject) {
         return `${this.name} has submitted a PR for ${subject}`;    
@@ -142,12 +142,12 @@ const fred = new Instructors({
 //   console.log(poly.debugsCode('Wean', 'Bob', 'JS-IV'))
 
 //********** students *************************
-// console.log(lea);
-// console.log(lea.listsSubjects());
-// console.log(lea.PRAssignment('JS'));
-// console.log(lea.sprintChallenge('JS'));
+console.log(lea);
+console.log(lea.listsSubjects());
+console.log(lea.PRAssignment('JS'));
+console.log(lea.sprintChallenge('JS'));
 
-// console.log(dan);
-// console.log(dan.listsSubjects());
-// console.log(dan.PRAssignment('JS-IV'));
-// console.log(dan.sprintChallenge('Sprint-JS-IV'));
+console.log(dan);
+console.log(dan.listsSubjects());
+console.log(dan.PRAssignment('JS-IV'));
+console.log(dan.sprintChallenge('Sprint-JS-IV'));
