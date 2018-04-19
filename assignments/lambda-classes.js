@@ -33,15 +33,15 @@ class Student extends Person{
         this.favSubjects = studentAtt.favSubjects;
     }
     listsSubjects(){
-        favSubjects.forEach(function(sub){
+        this.favSubjects.forEach(function(sub){
             console.log(sub);
         });
     }
     PRAssignment(subject){
-        console.log(`${student.name} has submitted a PR for ${subject}.`)
+        console.log(`${this.name} has submitted a PR for ${subject}.`)
     }
     sprintChallenge(subject){
-        console.log(`${student.name} has begun sprint challenge on ${subject}.`)
+        console.log(`${this.name} has begun sprint challenge on ${subject}.`)
     }
 }
 
@@ -59,7 +59,7 @@ class PM extends Instructor{
     }
 }
 
-const Braden = new Student ({
+const braden = new Student ({
     'name': 'Braden',
     'age': 20,
     'location': 'CA',
@@ -69,7 +69,7 @@ const Braden = new Student ({
     'favSubjects': ['HTML', 'CSS', 'JaveSript']
 });
 
-const Ja = new Student ({
+const ja = new Student ({
     'name': 'Ja',
     'age': 35,
     'location': 'NC',
@@ -77,4 +77,59 @@ const Ja = new Student ({
     'previousBackground': 'college',
     'className': 'CS10',
     'favSubjects': ['Basic HTML', 'Basic CSS', 'Basic JaveSript']
-})
+});
+
+const josh = new Instructor ({
+    'name': 'Josh',
+    'age': 30,
+    'location': 'UT',
+    'gender': 'M',
+    'specialty': 'Web Development',
+    'favLanguage': 'JavaScript',
+    'catchPhrase': 'Go Jazz!'    
+});
+
+const heather = new Instructor ({
+    'name': 'Heather',
+    'age': 40,
+    'location': 'OR',
+    'gender': 'F',
+    'specialty': 'Coding',
+    'favLanguage': 'Ruby',
+    'catchPhrase': 'Hey Everyone!'    
+});
+
+const ellen = new PM ({
+    'name': 'Ellen',
+    'age': 21,
+    'location': 'CA',
+    'gender': 'F',
+    'specialty': 'helping students',
+    'favLanguage': 'React',
+    'catchPhrase': 'Who\'s next?',
+    'gradClassName': 'CS5',
+    'favInstructor': 'Josh'
+});
+
+const moises = new PM ({
+    'name': 'Moises',
+    'age': 22,
+    'location': 'NY',
+    'gender': 'M',
+    'specialty': 'coding challenges',
+    'favLanguage': 'javaScript',
+    'catchPhrase': 'Zoom time!',
+    'gradClassName': 'CS5',
+    'favInstructor': 'Sean'
+});
+
+braden.speak();
+braden.listsSubjects();
+ja.PRAssignment('JavaScript');
+ja.sprintChallenge('JavaScriptIV');
+
+josh.demo('JavaScript');
+heather.grade(braden, 'JavaScript');
+
+ellen.standUp('cs_10 ellen');
+moises.debugsCode(ja, 'JavaScript');
