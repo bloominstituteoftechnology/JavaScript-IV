@@ -24,7 +24,12 @@ class Instructor extends Person {
     grade (student, subject) {
         return `${student.name} receives a perfect score on ${subject}`;
     }
-};
+    grading (student, max, min) { // This is the code I wrote for the stretch task that randomly adds/subtracts points
+        max = 20;
+        min = -20;
+        return student.grade - Math.random() * (max-min) + max
+    }
+}
 
 class Student extends Person {
     constructor (studentAttributes) {
@@ -32,6 +37,7 @@ class Student extends Person {
     this.previousBackground = studentAttributes.previousBackground;
     this.className = studentAttributes.className;
     this.favSubjects = studentAttributes.favSubjects;
+    this.grade = Math.floor(Math.random() * 100) + 1 // This is the code I wrote for the stretch task that randomly assigned grades to students.
     }
     listsSubjects () {
         return this.favSubjects;
@@ -42,6 +48,13 @@ class Student extends Person {
     sprintChallenge(subject) {
         return `${this.name} has begun sprint challenge on ${subject}`
     }
+    graduation () { // This is the code I wrote for the stretch task that graduates students.
+        if (this.grade > 70 ) {
+            return 'Congratulations on graduating from Lambda!  Good luck finding employment!  Refer to us often!'
+        } else {
+            return `I guess it's more pull requests for you!`
+        }
+}
 }
 
 class ProjectManager extends Instructor {
@@ -51,7 +64,7 @@ class ProjectManager extends Instructor {
     this.favInstructor = pmAttributes.favInstructor;
     }
     standUp (channel) {
-        return `${this.name} announces to ${channel}, ${channel} standy times!`
+        return `${this.name} announces to ${channel}, @channel standy times!`
     }
     debugsCode(student, subject) {
         return `${this.name} debugs ${student.name}'s code on ${subject}`
@@ -175,4 +188,12 @@ console.log(chaz.sprintChallenge('User Interface'))
 console.log(josh.demo('Bootstrap'))
 console.log(jenifer.grade(amy, 'Javascript-IV'))
 console.log(cole.standUp('CS10'))
+console.log(amy.grade)
+console.log(josep.grading(amy))
+console.log(amy.graduation())
+
+
+
+
+
 
