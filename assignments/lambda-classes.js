@@ -49,7 +49,7 @@ class Student extends Person {
 			return `${this.name} has graduated from LambdaSchool with a grade of ${this.grade}%!`;
 		} else {
 			instructor.grade(this, subject);
-			return `${this.name}'s grade is ${this.grade}%. He/she needs more time at LambdaSchool.`;
+			return `${this.name}'s grade is ${this.grade}%. ${this.gender === 'M' ? 'He' : 'She'} needs more time at LambdaSchool.`;
 		}
 	}
 }
