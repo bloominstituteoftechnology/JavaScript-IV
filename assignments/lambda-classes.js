@@ -52,7 +52,7 @@ class Instructor extends Person {
         console.log(`${student.name} receives a perfect score on ${subject}`);
     }
     setGrade(student) {
-        student.grade+=Math.floor(Math.random() * (11)) -5;
+        student.grade+=Math.floor(Math.random() * (21)) -10;
         student.grade = student.grade < 0 ? 0 : student.grade > 100 ? 100 : student.grade; 
         return student.grade
     }
@@ -248,6 +248,7 @@ console.log(vlad.graduate());
 
 do {
     console.log(cole.setGrade(vlad));
+    console.log(josh.setGrade(vlad));
 } while ( ! vlad.graduate());
 
 console.log(vlad.graduate());
