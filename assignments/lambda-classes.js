@@ -53,3 +53,45 @@ class Student extends Person {
   }
 
 }
+
+class ProjectManager extends Instructor {
+  constructor(options) {
+    super(options);
+    this.gradClassName = options.gradClassName;
+    this.favInstructor = options.favInstructor;
+  }
+
+  standUp(channel) {
+    console.log(`${this.name} announces to ${channel}, @channel standy times!`);
+  }
+
+  debugsCode(stuObj, subject) {
+    console.log(`${this.name} debugs ${stuObj.name}'s code on ${subject}`);
+  }
+
+}
+
+const fred = new ProjectManager({
+  name: 'Fred',
+  location: 'Bedrock',
+  age: 37,
+  gender: 'male',
+  favLanguage: 'JavaScript',
+  specialty: 'Front-end',
+  catchPhrase: `Don't forget the homies`,
+  gradClassName: 'CS10',
+  favInstructor: 'Sean'
+});
+
+let xangattr = {
+  name: "Xang",
+  age: 25,
+  location: "Fremont, CA",
+  gender: "male",
+  previousBackground: "Valet",
+  className: "CS10",
+  favSubjects: ["html", "CSS", "JavaScript"]
+};
+const xang = new Student(xangattr);
+
+fred.debugsCode(xang, "JavaScript");
