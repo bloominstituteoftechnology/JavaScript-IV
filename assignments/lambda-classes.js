@@ -10,7 +10,7 @@ class Person {
         this.gender = options.gender;
     }
     speak () {
-        console.log(`Hello my name is ${this.name}, I am from ${this.location}`)
+        console.log(`Hello my name is ${this.name}, I am from ${this.location}`);
     }
 }
 /**
@@ -23,7 +23,12 @@ class Instructor extends Person {
         this.favLanguage = options.favLanguage;
         this.catchPhrase = options.catchPhrase;
     }
-    
+    demo(subject) {
+        console.log(`'​​​​​Today we are learning about ${subject}'`);
+    }
+    grade(studen, subject) {
+        console.log()`'​​​​​${student.name} receives a perfect score on ${subject}'`;
+    }
 }
 /**
  * ------- Student -------
