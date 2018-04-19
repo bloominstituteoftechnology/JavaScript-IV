@@ -1,3 +1,4 @@
+//Worked by Maribel Cuales & Marco Guzman
 // CODE here for your Lambda Classes
 class Person {
     constructor(attributes) {
@@ -17,10 +18,10 @@ class Instructor extends Person {
         this.favlanguage = instructorOptions.favlanguage;
         this.catchPhrase = instructorOptions.catchPhrase;
     }
-    demo() {
+    demo(subject) {
         return `Today we are learning about${this.subject}.`;
     }
-    grade() {
+    grade(student, subject) {
         return `${student.name} receives a perfect score on ${this.variables​​​​​}`;
 
     }
@@ -34,12 +35,12 @@ class Student extends Person {
         this.favSubjects = studentOptions.favSubjects;
     }
     listsSubjects() {
-        return `${favSubjects}`; 
+        console.log`${favSubjects}`;
     }
-    PRAssignment() {
+    PRAssignment(subject) {
         return `${student.name} has submitted a PR for ${subject}`;
     }
-    sprintChallenge() {
+    sprintChallenge(subject) {
         return `${this.name} has begun sprint challenge on ${this.subject}`;
     }
 }//Student
@@ -53,16 +54,16 @@ class ProjectManager extends Instructor {
     standUp(channel) {
         return `${this.name} announces to @${channel} standy times!​​​​​`;
     }
-    debugsCode(student,subject) {
+    debugsCode(student, subject) {
         return `${this.​​​​​name} debugs ${student.name}'s code on ${subject}`;
     }
 }// PM
 
 // OBJECTS
-const evelyn = new Person ({
+const evelyn = new Person({
     "name": 'Evelyn',
     "age": 31,
-    "location":'Guam',
+    "location": 'Guam',
 });
 const tim = new Person({
     "name": 'Tim',
@@ -104,7 +105,7 @@ const lavell = new Student({
     "name": 'lavell',
     "age": 30,
     "location": 'San Francisco',
-     "previousBackground": 'Teacher',
+    "previousBackground": 'Teacher',
     "className": 'CS10',
     "favSubjects": 'Art',
 });
@@ -153,6 +154,6 @@ console.log(evelyn.name); //?
 console.log(maribel.listsSubjects()); //?
 console.log(josh.speak());
 console.log(josh.demo());
-console.log(moises.grade());
+console.log(moises.grade()); //?
 console.log(maribel.listsSubjects());
 console.log(marco.PRAssignment()); //?
