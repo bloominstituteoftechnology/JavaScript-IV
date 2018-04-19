@@ -23,6 +23,11 @@ class Instructor extends Person {
     grade(student, subject) {
         console.log(`${student.name} receives a perfect score on ${subject}.`)
     }
+    addPoint(student, point) {
+        let oldGrade = student.grade;
+        student.grade += point
+        console.log(`${point} added to ${student.name} and student grade changed from ${oldGrade} to ${student.grade}`)
+    }
 }
 
 class Student extends Person {
@@ -31,6 +36,7 @@ class Student extends Person {
         this.previousBackground = studentOpts.previousBackground;
         this.className = studentOpts.className;
         this.favSubjects = studentOpts.favSubjects;
+        this.grade = studentOpts.grade;
     }
     listSubjects() {
         this.favSubjects.forEach(sub => console.log(sub))
@@ -40,6 +46,13 @@ class Student extends Person {
     }
     sprintChallenge() {
         console.log(`${this.name} has begun spring challenge on ${subject}`)
+    }
+    graduate() {
+        if (this.grade >= 70) {
+            console.log('Congrats, you have graduated!')
+        } else {
+            console.log('Sorry, pal! Keep studying!')
+        }
     }
 }
 
@@ -88,15 +101,18 @@ const erinc = new Student({
     gender: 'male',
     prevBackground: 'Sales',
     className: 'CS10',
-    favSubjects: ['CSS', 'JavaScript', 'HTML']
+    favSubjects: ['CSS', 'JavaScript', 'HTML'],
+    grade: Math.floor(Math.random() * 101)
 });
 
 console.log(josh)
 console.log(erinc.speak())
+console.log(erinc.graduate())
 console.log(josh.demo('react'))
 console.log(josh.speak())
 console.log(ellen)
 console.log(ellen.standUp('cs10'))
 console.log(ellen.debugsCode(erinc, 'inheritance'))
 console.log(ellen.grade(erinc, 'css'))
+console.log(ellen.addPoint(erinc, 4))
 
