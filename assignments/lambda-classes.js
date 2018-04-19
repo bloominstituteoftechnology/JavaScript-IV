@@ -128,3 +128,15 @@ const patrick = new ProjectManager({
     specialty: 'Algorithms',
     catchPhrase: `Im here to help!`
 });
+
+//Checking Things Out
+
+console.log(josh)
+console.log(jackee)
+console.log(josh.catchPhrase)
+console.log(josh.demo("React"));
+
+console.log(max)
+console.log(max.previousBackground)
+
+console.log(patrick)
