@@ -78,7 +78,7 @@ const fred = new Instructor({
 * Student uses the same attributes that have been set up by Person
 * Student has the following unique props:
   * `previousBackground` i.e. what the Student used to do before Lambda School
-  * `className` i.e. CS132'
+  * `className` i.e. CS132
   * `favSubjects`. i.e. an array of the student's favorite subjects ['Html', 'CSS', 'JavaScript']
 * Student has the following methods:
   * `listsSubjects` a method that logs out all of the student's favoriteSubjects one by one.
@@ -96,7 +96,7 @@ const fred = new Instructor({
   * `standUp` a method that takes in a slack channel and logs `{name} announces to {channel}, @channel standy times!​​​​​
   * `debugsCode` a method that takes in a student object and a subject and logs out `{​​​​​name} debugs {student.name}'s code on {subject}`
 
-#### Stretch Goal
+#### Stretch Problem
 
 * Extend the functionality of the Student by adding a prop called grade and setting it equal to a number between 1-100.
 * Now that our students have a grade build out a method on the Instructor (this will be used by _BOTH_ instructors and PM's) that will randomly add or subtract points to a student's grade. _Math.random_ will help.
