@@ -143,9 +143,9 @@ const doug = new Instructor({
 console.log(jackie);
 console.log(jackie.speak());
 console.log(jackie.demo('HTML'));
-// console.log(jackie.grade(studentObj, subject));
+console.log(jackie.grade(george, 'Front End Project'));
 
 console.log(doug);
 console.log(doug.speak());
 console.log(doug.demo('LESS'));
-// console.log(doug.grade(studentObj, subject));
+console.log(doug.grade(paige, 'Back End Project'));
