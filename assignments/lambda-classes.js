@@ -22,11 +22,10 @@ class Instructor extends Person {
         this.catchPhrase = instructorTraits.catchPhrase;
     }
     demo(subject) {
-        return `Today we are learning about ${this.subject}`;
+        return `Today we are learning about ${subject}`;
     }
     grade(student, subject) {
-        return `${this.name} receives a perfect score on ${this.subject}`;
-        return this.student.name + ' receives a perfect score on ' + this.variables;
+        return `${student.name} receives a perfect score on ${subject}`;
         }
 }
 
@@ -49,8 +48,6 @@ class Student extends Person {
     }
 }
 
-
-
 class ProjectManagers extends Instructor {
     constructor(managerTraits) {
         super(managerTraits);
@@ -58,12 +55,10 @@ class ProjectManagers extends Instructor {
         this.favInstructor = managerTraits.favInstructor;
     }
     standUp(channel) {
-        `${this.name} announces to ${channel}, @channel standy times!`;
-        return this.name + ' announces to ' + this.channel + ', @channel standy times!';
+        return `${this.name} announces to ${channel}, channel standy times!`;
     }
     debugsCode(student, subject) {
-        // return `${this.​​​​​student} debugs ${this.name}'s code on ${this.subject}.`;
-        return this.name + ' debugs ' + this.student.name + '\'s code on ' + this.subject;
+        return `${this.name} debugs ${student.name}'s code on ${subject}.`;
     }
 }
 
@@ -120,6 +115,9 @@ const bob = new Instructor({
         location: 'Orlando',
         age: 35,
         gender: 'male',
+        specialty: 'All the things',
+        favLanguage: 'JavaScript',
+        catchPhrase: `What's up guys?!`,
         gradClassName: 'CS5',
         favInstructor: 'Josh'
       });
@@ -133,6 +131,11 @@ const bob = new Instructor({
         favInstructor: 'Austen'
       });
 
+      console.log(moises);
+      console.log(josh.demo('JavaScript'));
+      console.log(josh.grade(chris, 'JavaScript'));
       console.log(calvin.sprintChallenge(calvin.favSubjects[0]));
       console.log(calvin.PRAssignment(calvin.favSubjects[0]));
       console.log(chris.listsSubjects(chris.favSubjects));
+      console.log(moises.standUp('CS10'));
+      console.log(jackee.debugsCode(chris, 'HTML'));
