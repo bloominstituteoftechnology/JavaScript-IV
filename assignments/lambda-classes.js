@@ -30,6 +30,10 @@ class Instructor extends Person {
     grade(student, subject) {
         console.log(`'​​​​​${student.name} receives a perfect score on ${subject}'`);
     }
+    changeGrade(student) {
+        student.grade -= (Math.floor(Math.random() * Math.floor(2) === 1)) ? Math.floor(Math.random() * (5 - 1) + 1) : -Math.floor(Math.random() * (10 - 1) + 1);
+        console.log(student.grade)
+    }
 }
 /**
  * ------- Student -------
@@ -159,3 +163,10 @@ console.log(cole.standUp("Struggling-Brains"));
 console.log(cole.debugsCode(sarah, 'JS'));
 // pepito
 console.log(pepito);
+
+
+/** ------- Stretch Challenge ------- */
+console.log(josh.changeGrade(jean));
+console.log(josh.changeGrade(jean));
+console.log(josh.changeGrade(sarah));
+console.log(josh.changeGrade(sarah));
