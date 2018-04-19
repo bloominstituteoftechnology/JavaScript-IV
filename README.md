@@ -6,7 +6,7 @@ This challenge focuses on classes in JavaScript using the new `class` keyword.
 
 You already pretty much know all about classes but you're used to seeing them built in the following context:
 
-```
+```js
 function Person(personAttributes)  {
   this.name = personAttributes.name;
   this.age = personAttributes.age;
@@ -39,7 +39,7 @@ const fred = new Person({
   * **Project Managers** - extensions of Instructors
 * **IMPORTANT** - You'll need to create 2 - 3 objects for each class and test them according to their unique Attributes. For example:
 
-```
+```js
 const fred = new Instructor({
   name: 'Fred',
   location: 'Bedrock',
@@ -56,7 +56,7 @@ const fred = new Instructor({
 * First we need a Person class. This will be our `base-class`
 * Person receives `name` `age` `location` `gender` all as props
 * Person receives `speak` as a method.
-* This method logs out a phrase `Hello my name is Fred, I am from Bedrock​​​​​` where `name` and `location` are the object's own props
+* This method logs out a phrase `Hello my name is Fred, I am from Bedrock` where `name` and `location` are the object's own props
 
 #### Instructor
 
@@ -67,8 +67,8 @@ const fred = new Instructor({
   * `favLanguage` i.e. 'JavaScript, Python, Elm etc.'
   * `catchPhrase` i.e. `Don't forget the homies`
 * Instructor has the following methods:
-  * `demo` receives a `subect` string as an argument and logs out the phrase '​​​​​Today we are learning about {subject}' where subject is the param passed in.
-  * `grade` receives a student object and a subject string as arguments and logs out '​​​​​{student.name} receives a perfect score on {variables​​​​​}'
+  * `demo` receives a `subject` string as an argument and logs out the phrase 'Today we are learning about {subject}' where subject is the param passed in.
+  * `grade` receives a `student` object and a `subject` string as arguments and logs out '{student.name} receives a perfect score on {subject}'
 
 #### Student
 
@@ -92,7 +92,7 @@ const fred = new Instructor({
   * `favInstructor`: i.e. Sean
 * ProjectManangers have the following Methods:
   * `standUp` a method that takes in a slack channel and logs `{name} announces to {channel}, @channel standy times!​​​​​
-  * `debugsCode` a method that takes in a student object and a subject and logs out `{​​​​​name} debugs {student.name}'s code on {subject}`
+  * `debugsCode` a method that takes in a student object and a subject and logs out `{name} debugs {student.name}'s code on {subject}`
 
 #### Stretch Problem
 
