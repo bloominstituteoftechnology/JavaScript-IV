@@ -41,11 +41,11 @@ class Student extends Person{
         for(let i = 0; i < this.favSubjects.length; i++ )
         console.log(this.favSubjects[i]);
     };
-    PRAssignment(){
-
+    PRAssignment(subject){
+        return `${this.name} has submitted a PR ${subject}`;
     };
-    sprintChalleng(){
-        
+    sprintChalleng(subject){
+        return `${this.name} has begun spring challenge on ${subject}`;
     };
 };
 
@@ -55,11 +55,11 @@ class PM extends Instructor{
         this.gradClassName = PMProperties.gradClassName;
         this.favInstructor = PMProperties.favInstructor;
     };
-    standuUp(){
-        return ``
+    standuUp(channel){
+        return `${this.name}announces to ${channel}, @channel standy times!​​​​​`
     };
-    debugsCode(){
-
+    debugsCode(student, subject){
+        return `${this.name} debug ${student.name} on ${subject}.`
     }  
 };
 
@@ -99,7 +99,7 @@ const Jeff = new PM({
     favSubjects: ['CSS', 'JavaScript', 'HTML']
   });
 
-  const Alex = new Student({
+const Alex = new Student({
     name:'Alex', 
     location: 'Somewhere',
     age: 21,
@@ -109,7 +109,7 @@ const Jeff = new PM({
     favSubjects: ['CSS', 'JavaScript', 'HTML']
   });
 
-  const Andrew = new Student({
+const Andrew = new Student({
     name:'Andrew', 
     location: 'Somewhere',
     age: 21,
@@ -119,10 +119,13 @@ const Jeff = new PM({
     favSubjects: ['CSS', 'JavaScript', 'HTML']
   });
 
-  Brandon.listSubjects();
-  console.log(Brandon);
-  console.log(Josh);
-  console.log(Jeff);
-  console.log(Josh.demo('JS'));
-  console.log(Jeff.grade(Andrew, 'Everything'))
-console.log(Brandon.speak())
+Brandon.listSubjects();
+console.log(Brandon);
+console.log(Josh);
+console.log(Jeff);
+console.log(Josh.demo('JS'));
+console.log(Jeff.grade(Andrew, 'Everything'))
+console.log(Brandon.speak());
+console.log(Brandon.PRAssignment('JavaScript'));
+console.log(Jeff.debugsCode(Alex, 'JavaScript'));
+console.log(Jeff.standuUp('CS10'))
