@@ -1,10 +1,10 @@
 // CODE here for your Lambda Classes
 class Person {
   constructor(personProps) {
-    this.gender = personProps.gender;
     this.name = personProps.name;
-    this.age = personProps.age;
     this.location = personProps.location;
+    this.age = personProps.age;
+    this.gender = personProps.gender;
   }
   speak() {
     return `Hello my name is ${this.name} , I am from ${this.location}`;
@@ -58,13 +58,72 @@ class ProjectManager extends Instructor {
   }
 }
 
-const fred = new Instructor({
-  name: 'Fred',
-  location: 'Bedrock',
-  age: 37,
+// PERSON ///////
+// this.gender = personProps.gender;
+// this.name = personProps.name;
+// this.age = personProps.age;
+// this.location = personProps.location;
+
+// INSTRUCTOR ////////
+// this.specialty = instructorProps.specialty;
+// this.favLanguage = instructorProps.favLanguage;
+// this.catchPhrase = instructorProps.catchPhrase;
+
+// STUDENT //////////
+// this.previousBackground = studentProps.previousBackground;
+// this.className = studentProps.className;
+// this.favSubjects = studentProps.favSubjects
+
+// Project Manageer ////////
+// this.gradClassName = pmProps.gradClassName;
+// this.favInstructor = pmProps.favInstructor;
+
+
+const Jon = new Person({
+  name: 'Jon',
+  location: 'Spain',
+  age: 97,
   gender: 'male',
-  favLanguage: 'JavaScript',
-  specialty: 'Front-end',
-  catchPhrase: `Don't forget the homies`
 });
-console.log(fred);
+console.log(Jon);
+
+const Jessica = new Person({
+  name: 'Jessica',
+  location: 'Guatemala',
+  age: 37,
+  gender: 'female'
+});
+console.log(Jessica);
+
+const Kamal = new Instructor({
+  name: 'Kamal',
+  location: 'Guadalajara',
+  age: 45,
+  gender: 'male',
+  specialty: 'systems',
+  favLanguage: 'Cobal',
+  catchPhrase: 'Coballin Coballin'
+});
+console.log(Kamal)
+
+const Frank = new Instructor({
+  name: 'Frank',
+  location: 'California',
+  age: 39,
+  gender: 'male',
+  specialty: 'Front-End',
+  favLanguage: 'Javascript',
+  catchPhrase: 'dont mess with me'
+});
+console.log(Frank)
+
+const Celina = new Student({
+  name: 'Celia',
+  location: 'California',
+  age: 20,
+  gender: 'female',
+  previousBackground: 'geology',
+  className: 'CS_582',
+  favSubjects: ['Linux', 'math', 'algorithms']
+});
+console.log(Celina)
