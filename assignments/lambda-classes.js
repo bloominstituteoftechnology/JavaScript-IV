@@ -24,6 +24,15 @@ class Instructor extends Person {
     grade(student, subject) {
         console.log(`${student.name} receives a perfect score on ${subject}.`);
     }
+    studentPoints(student) {
+        let randomAddSubtract = Math.round(Math.random(), 2);
+        let randomPoints = Math.floor((Math.random() * 30) + 1);
+        if (randomAddSubtract === 0) {
+            return student.grade -= randomPoints;
+        } else {
+            return student.grade += randomPoints;
+        }
+    }
 }
 
 class Student extends Person {
@@ -32,6 +41,7 @@ class Student extends Person {
         this.previousBackground = props.previousBackground;
         this.className = props.className;
         this.favSubjects = props.favSubjects;
+        this.grade = 70;
     }
     listSubjects(arr) {
         arr.forEach(element => {
@@ -43,6 +53,13 @@ class Student extends Person {
     }
     sprintChallenge(subject) {
         console.log(`${this.name} has begun sprint challenge on ${subject}.`);
+    }
+    graduate() {
+        if (this.grade >= 70) {
+            return `${this.name} graduated!`
+        } else {
+            return `${this.name} needs to study more.`
+        }
     }
 }
 
@@ -156,3 +173,6 @@ matthias.sprintChallenge('JavaScript');
 
 moises.standUp('moises-CS10');
 moises.debugsCode(matthias, 'JavaScript');
+
+bonn.studentPoints(matthias); //?
+matthias.graduate(); //?
