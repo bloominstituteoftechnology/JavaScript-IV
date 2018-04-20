@@ -115,4 +115,4 @@ console.log(josh.demo('CSS'));
 console.log(derrick.listsSubjects) //I'm not sure if I did this one correctly.  Quokka doesn't seem to be outputting what I want it to
 console.log(derrick.PRAssignment('Javascript IV'));
 console.log(derrick.sprintChallenge('PreProcessing'));
-console.log(dresean.debugsCode(derrick, 'Flexbox'));
+// console.log(dresean.debugsCode(derrick, 'Flexbox'));
