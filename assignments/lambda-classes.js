@@ -11,6 +11,7 @@ class Person {
     }
 }
 
+
 class Instructor extends Person {
     constructor(instructorProps) {
         super(instructorProps);
@@ -34,6 +35,7 @@ class Instructor extends Person {
         }
     }
 }
+
 
 class Student extends Person { 
     constructor(studentProps) {
@@ -60,6 +62,7 @@ class Student extends Person {
        }
     }
 }
+
 
 class ProjectManager extends Instructor {
     constructor(pmProps) {
