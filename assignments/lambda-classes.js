@@ -64,22 +64,26 @@ const evelyn = new Person({
     "name": 'Evelyn',
     "age": 31,
     "location": 'Guam',
+    "gender": 'F',
 });
 const tim = new Person({
     "name": 'Tim',
     "age": 40,
     "location": 'New York',
+    "gender": 'M',
 });
 const don = new Person({
     "name": 'Don',
     "age": 45,
     "location": 'Hawaii',
+    "gender": 'M',
 });
 
 const josh = new Instructor({
     "name": 'Josh',
     "age": 48,
     "location": 'Utah',
+    "gender": 'M',
     "specialty": 'Redux',
     "favLanguage": 'Python',
     "catchPhrase": 'Never Surrender!!',
@@ -88,6 +92,7 @@ const moises = new Instructor({
     "name": 'Moises',
     "age": 35,
     "location": 'Florida',
+    "gender": 'M',
     "specialty": 'JavaScript',
     "favLanguage": 'French',
     "catchPhrase": 'Viva Cuba!!',
@@ -96,6 +101,7 @@ const jax = new Instructor({
     "name": 'Jackee',
     "age": 30,
     "location": 'North Dakota',
+    "gender": 'F',
     "specialty": 'Zoom',
     "favLanguage": 'Spanish',
     "catchPhrase": 'Lets talk about it!!',
@@ -105,6 +111,7 @@ const lavell = new Student({
     "name": 'lavell',
     "age": 30,
     "location": 'San Francisco',
+    "gender": 'M',
     "previousBackground": 'Teacher',
     "className": 'CS10',
     "favSubjects": 'Art',
@@ -114,6 +121,7 @@ const maribel = new Student({
     "name": 'Maribel',
     "age": 36,
     "location": 'Phillipines',
+    "gender": 'F',
     "previousBackground": 'Wev Developer',
     "className": 'CS10',
     "favSubjects": 'Math',
@@ -122,6 +130,7 @@ const marco = new Student({
     "name": 'Marco',
     "age": 39,
     "location": 'San Diego',
+    "gender": 'M',
     "previousBackground": 'Librarian',
     "className": 'CS10',
     "favSubjects": 'Coding',
