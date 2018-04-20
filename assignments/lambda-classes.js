@@ -69,7 +69,7 @@ class ProjectManager extends Instructor {
         this.favInstructor = projectManagerAttributes.favInstructor;
     }
     standUp(channel){
-        return `${this.name} announces to ${channel}, @${channel}'s standup times!`
+        return `${this.name} announces to ${channel}, @channel standup times!`
     }
     debugsCode(student, subject){
         return `${this.name} debugs ${student.name}'s code on ${subject}`
@@ -206,3 +206,6 @@ console.log(amy.demo("Classes"));
 console.log(dylan.graduate());
 console.log(gennifer.graduate());
 console.log(dreSean.grade(misty, "JavaScript Array Methods"));
+console.log(gennifer.sprintChallenge("math"))
+console.log(dylan.favSubjects);
+console.log(greg.catchPhrase);
