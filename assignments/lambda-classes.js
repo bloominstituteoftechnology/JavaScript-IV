@@ -25,7 +25,9 @@ class Instructor extends Person {
         console.log(`${student.name} receives a perfect score on ${subject}.`);
     }
     studentPoints(student) {
+        // picks 0 or 1 and assigns the number to randomAddSubtract
         let randomAddSubtract = Math.round(Math.random(), 2);
+        // picks a number from 1 - 30 and saves it to randomPoints
         let randomPoints = Math.floor((Math.random() * 30) + 1);
         if (randomAddSubtract === 0) {
             return student.grade -= randomPoints;
