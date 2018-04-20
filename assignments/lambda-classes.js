@@ -19,10 +19,10 @@ class Instructor extends Person {
         this.catchPhrase = instructorOptions.catchPhrase;
     }
     demo(subject) {
-        return `Today we are learning about${this.subject}.`;
+        return `Today we are learning about${subject}.`;
     }
     grade(student, subject) {
-        return `${student.name} receives a perfect score on ${this.variables​​​​​}`;
+        return `${student.name} receives a perfect score on ${subject​​​​​}`;
 
     }
 }//Instructor
@@ -35,13 +35,13 @@ class Student extends Person {
         this.favSubjects = studentOptions.favSubjects;
     }
     listsSubjects() {
-        console.log`${favSubjects}`;
+        return`${this.favSubjects}`;
     }
     PRAssignment(subject) {
         return `${student.name} has submitted a PR for ${subject}`;
     }
     sprintChallenge(subject) {
-        return `${this.name} has begun sprint challenge on ${this.subject}`;
+        return `${student.name} has begun sprint challenge on ${subject}`;
     }
 }//Student
 
@@ -52,10 +52,10 @@ class ProjectManager extends Instructor {
         this.favInstructor = PmOptions.className;
     }
     standUp(channel) {
-        return `${this.name} announces to @${channel} standy times!​​​​​`;
+        return `${name} announces to @${channel} standy times!​​​​​`;
     }
     debugsCode(student, subject) {
-        return `${this.​​​​​name} debugs ${student.name}'s code on ${subject}`;
+        return `${name} debugs ${student}'s code on ${subject}`;
     }
 }// PM
 
