@@ -86,7 +86,7 @@ const eddy = new Student({
   location: 'New York',
   previousBackground: 'Information Technology',
   className: 'CS10',
-  favSubjects: ['Programming',' Hacking',' and Math']
+  favSubjects: ['Programming', 'Hacking', 'Math']
 })
 
 const dresean = new ProjectManager({
@@ -96,14 +96,14 @@ const dresean = new ProjectManager({
   location: 'North Carolina',
   favLanguage: 'Python',
   specialty: 'JavaScript',
-  catchPhrase: 'What\'s Up!',
+  catchPhrase: 'There is no dance without the dancers.',
   gradClassName: 'CS1',
   favInstructor: 'Josh Knell'
 })
 
 // Testing properties and methods for Instructor class
 
-console.log(`Hello my name is ${fred.name} and I am the instructor for CS10. I am ${fred.age} years old and I am from ${fred.location}. My gender is ${fred.gender}. My favorite language is ${fred.favLanguage} and my specialty is ${fred.specialty}. I always say "${fred.catchPhrase}."\n`);
+console.log(`Hello my name is ${fred.name} and I am the instructor for CS10. I am ${fred.age} years old and I am from ${fred.location}. My gender is ${fred.gender}. My favorite language is ${fred.favLanguage} and my specialty is ${fred.specialty}. My favorite catchphrase is "${fred.catchPhrase}."\n`);
 fred.speak();
 fred.demo('JavaScript');
 fred.grade(eddy, 'JavaScript');
@@ -120,7 +120,7 @@ eddy.sprintChallenge('JavaScript');
 
 // Testing properties and methods for ProjectManager class
 
-console.log(`Hello my name is ${dresean.name} and I am a project manager for ${eddy.className}. I am a graduate of ${dresean.gradClassName}. I am ${dresean.age} years old and I am from ${dresean.location}. My gender is ${dresean.gender}. My favorite language is ${dresean.favLanguage} and my specialty is ${dresean.specialty}. My favorite instructor is ${dresean.favInstructor}. I always say "${dresean.catchPhrase}."\n`);
+console.log(`Hello my name is ${dresean.name} and I am a project manager for ${eddy.className}. I am a graduate of ${dresean.gradClassName}. I am ${dresean.age} years old and I am from ${dresean.location}. My gender is ${dresean.gender}. My favorite language is ${dresean.favLanguage} and my specialty is ${dresean.specialty}. My favorite instructor is ${dresean.favInstructor}. My favorite catchphrase is "${dresean.catchPhrase}."\n`);
 dresean.speak();
 dresean.demo('React');
 dresean.grade(eddy, 'JavaScript-IV');
