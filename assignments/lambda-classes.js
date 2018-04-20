@@ -34,19 +34,11 @@ class Student extends Person{
         this.favSubjects = studentProps.favSubjects;
     }
     listsSubjects() {
-        let subjectList = [];
-        //  this.favSubjects.forEach((x) => {
-        //      subjectList.push(x);
-        //  })
-        // }
-       for (let i = 0; i < this.favSubjects.length; i++) {
-           subjectList = subjectList.push(this.favSubjects[i]);
-           let list = subjectList+ "\n";
-           return list
+        for (let i = 0; i < this.favSubjects.length; i++) {
+            console.log(`${this.favSubjects[i]}`);
+        };
     };
-       };
       
-    
     prAssingment(subject) {
         return `${this.name} has submitted a PR for ${subject}`;
     };
@@ -63,10 +55,10 @@ class ProjectManager extends Instructor{
     }
     standUp(channel) {
         return  `${this.name} announces to ${channel}, @channel standy times!`
-     }
-     debugsCode(student, subject) {
-        return `${this.name} debugs ${student.name}'s code on ${subject}`
-     }
+    }
+     debugsCode(studentName, subject) {
+        return `${this.name} debugs ${studentName}'s code on ${subject}`
+    }
 }
 
 
@@ -74,13 +66,13 @@ class ProjectManager extends Instructor{
 // student objects
 
 const sam = new Student ({
-gender: 'M',
-age: 31,
-name: "Sam",
-location: "Cape Cod",
-previousBackground: "none",
-className: "CS10",
-favSubjects: ['HTML', 'CSS', 'JavaScript']
+    gender: 'M',
+    age: 31,
+    name: "Sam",
+    location: "Cape Cod",
+    previousBackground: "none",
+    className: "CS10",
+    favSubjects: ['HTML', 'CSS', 'JavaScript']
 });
 
 const jeb = new Student ({
@@ -151,3 +143,4 @@ console.log(duke.gender);
 console.log(sam.prAssingment("CSS"))
 console.log(dreSean.standUp("CS10 Dre'Sean's Ninjas"))
 console.log(sam.listsSubjects());
+console.log(dreSean.debugsCode("sam", "css"));
