@@ -109,22 +109,7 @@ console.log(dante.listsSubjects('Machine Learning, Calculus, Computer Architectu
 console.log(dante.PRAssignment('Dante', 'UI Responsiveness'));
 console.log(dil.sprintChallenge('Dante', 'JavaScript IV'));
 
-
 // Project Managers Class
-
-// class ProjectManagers extends Instructors {
-//     constructor(projectManagerAttributes) {
-//         super(projectManagerAttributes);
-//         this.gradClassName = projectManagerAttributes.gradClassname;
-//         this.favInstructor = projectManagerAttributes.favInstructor;
-//     }
-//     standUp() {
-//         return `{this.name} announces to {channel}, @channel standy times!​​​​​`
-//     }
-//     debugsCode(studentName, subject) {
-//         return `${​this.name} debugs ${studentName} code on ${subject}.`
-//     }
-// }
 
 class ProjectManagers extends Instructors {
     constructor(projectManagerAttributes) {
