@@ -84,6 +84,7 @@ const joe = new Person({
 });
 console.log(joe);
 
+
 const angela = new Person({
     gender: 'F',
     name: 'Angela',
