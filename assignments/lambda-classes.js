@@ -36,15 +36,18 @@ class Student extends Person {
     this.favSubjects = studentBase.favSubjects;
   };
   listsSubjects(){
-    for (i = 0; i < this.favSubjects.length; i++) {
-      return this.favSubjects[i];
-    }
+    this.favSubjects.forEach(function(i){
+      return i;
+    })
+    // for (i = 0; i < this.favSubjects.length; i++) {
+    //   return this.favSubjects[i];
+    // };
   };
   PRAssignment(subject){
-    return `${student.name} has submitted a PR for ${subject}.`
+    return `${this.name} has submitted a PR for ${subject}.`
   };
   sprintChallenge(subject){
-    return `${student.name} has begun sprint challenge on ${subject}.`
+    return `${this.name} has begun sprint challenge on ${subject}.`
   };
 };
 
@@ -142,7 +145,7 @@ console.log(thomas.name);
 console.log(thomas.previousBackground);
 console.log(ashley.className);
 console.log(thomas.favSubjects);
-// console.log(ashley.listSubjects());
+console.log(ashley.listsSubjects());
 console.log(thomas.PRAssignment('Authentication'));
 console.log(ashley.sprintChallenge('Authentication'));
 console.log(ashley.location);
