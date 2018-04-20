@@ -24,6 +24,15 @@ class Instructor extends Person {
     grade(student, subject) { //checking if quotes are needed later
         return `${student.name} recieves a perfect score on ${subject}`;
     }
+    passFail() {
+        const generatePoints = Math.floor((Math.random() * 50) + 10);
+        const addSubtract = Math.round(Math.random(), 2);
+        if (addSubtract === 0) {
+            return student.grade -= generatePoints;
+        } else {
+            return student.grade += generatePoints;
+        }
+    }
 }
 
 class Student extends Person { 
@@ -32,6 +41,7 @@ class Student extends Person {
         this.previousBackground = studentProps.previousBackground;
         this.className = studentProps.className;
         this.favSubjects = studentProps.favSubjects;
+        this.grade = studentProps.grade;
     }
     listsSubjects() {
         return `${this.favSubjects.map(subject => subject)} `;
@@ -41,6 +51,13 @@ class Student extends Person {
     }
     sprintChallenge(subject) {
         return `${student.name} has begun sprint challenge ${subject}`;
+    }
+    graduate() {
+        if (this.grade >= 70) {
+            return `${this.name} graduated!`;
+        } else {
+            `${this.name} needs to study more!`; 
+       }
     }
 }
 
@@ -124,7 +141,8 @@ const Matt = new Student({
     location: 'Italy',
     previousBackground: 'Jackets',
     className: 'Class Of Hardknocks',
-    favSubjects: 'Foreign Languages'
+    favSubjects: 'Foreign Languages',
+    grade: 60
 });
 console.log(fred);
 
@@ -134,7 +152,8 @@ const mariam = new Student({
     location: 'Paris',
     previousBackground: 'Active',
     className: 'By all means',
-    favSubjects: 'Math'
+    favSubjects: 'Math',
+    grade: 60
 });
 console.log(mariam);
 
@@ -145,7 +164,8 @@ const justin = new Student({
     location: 'Germany',
     previousBackground: 'Priors',
     className: 'Intuition',
-    favSubjects: 'The Hard Way'
+    favSubjects: 'The Hard Way',
+    grade: 60
 });
 console.log(justin);
 
