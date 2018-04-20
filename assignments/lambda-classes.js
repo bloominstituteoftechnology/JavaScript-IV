@@ -32,7 +32,7 @@ class Instructor extends Person {
     if (student.grade >= 70) {
       return `Sorry, ${student.name} already graduated! Leave them alone!!!`;
     } else {
-      return student.grade = Math.floor(Math.random() * Math.floor(100));
+      return student.grade += (Math.floor(Math.random() * 10));
     }
   }
 }
@@ -57,8 +57,12 @@ class Students extends Person {
   sprintChallenge(subject) {
     return `${this.name} has begun spring challenge on ${subject}.`;
   }
-  graduatedFinally() {
-    if (this.grade >= 70) return `${this.name} can F.I.N.A.L.L.Y. graduate!`;
+  graduated() {
+    if (this.grade >= 70) {
+      return `${this.name} can F.I.N.A.L.L.Y. graduate!`;
+    } else {
+      return `${this.name} needs to master more topics.`;
+    }
   }
 }
 
@@ -168,10 +172,15 @@ console.log(Kevin.adjustGrade(Joe));
 console.log(Kevin.adjustGrade(Joe));
 console.log(Kevin.adjustGrade(Joe));
 
+console.log(Sally.adjustGrade(Mike));
+console.log(Sally.adjustGrade(Mike));
+console.log(Sally.adjustGrade(Mike));
+console.log(Sally.adjustGrade(Mike));
 
-console.log(Sally.adjustGrade(Mike));
-console.log(Sally.adjustGrade(Mike));
-console.log(Sally.adjustGrade(Mike));
-console.log(Sally.adjustGrade(Mike));
+
+console.log(Mike.graduated());
+console.log(Joe.graduated());
+
+
 
 
