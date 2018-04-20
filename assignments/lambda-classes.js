@@ -74,8 +74,8 @@ class Students extends Person {
     PRAssignment(name, subject) {
         return `${name} has submitted a PR for ${subject}`;     
     }
-    sprintChallenge() {
-        return `student.name has begun spring challenge on {subject}`;
+    sprintChallenge(name, subject) {
+        return `${name} has begun sprint challenge on ${subject}`;
     }
 }
 
@@ -92,6 +92,7 @@ const dil = new Students({
 console.log(dil);
 console.log(dil.listsSubjects('Machine Learning, Calculus, Computer Architecture'));
 console.log(dil.PRAssignment('Dil', 'UI Responsiveness'));
+console.log(dil.sprintChallenge('Dil', 'JavaScript IV'));
 
 const dante = new Students({
     name: 'Dante',
@@ -106,6 +107,8 @@ const dante = new Students({
 console.log(dante);
 console.log(dante.listsSubjects('Machine Learning, Calculus, Computer Architecture'));
 console.log(dante.PRAssignment('Dante', 'UI Responsiveness'));
+console.log(dil.sprintChallenge('Dante', 'JavaScript IV'));
+
 
 // Project Managers Class
 
