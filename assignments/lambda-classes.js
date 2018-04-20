@@ -85,7 +85,7 @@ const derrick = new Student({
 const dresean = new ProjectManager({
 	'name': 'Dre\'Sean',
 	'age': 28,
-	'location': 'Bronx',
+	'location': 'North Carolina',
 	'gender': 'M',
 	'specialty': 'Python',
 	'favLanguage': 'C++',
@@ -112,7 +112,7 @@ console.log(josh.grade(derrick, 'JavaScript'));
 console.log(dresean.grade(derrick, 'Bootstrap'));
 
 console.log(josh.demo('CSS'));
-console.log(derrick.listsSubjects);
+console.log(derrick.listsSubjects) //I'm not sure if I did this one correctly.  Quokka doesn't seem to be outputting what I want it to
 console.log(derrick.PRAssignment('Javascript IV'));
 console.log(derrick.sprintChallenge('PreProcessing'));
 console.log(dresean.debugsCode(derrick, 'Flexbox'));
