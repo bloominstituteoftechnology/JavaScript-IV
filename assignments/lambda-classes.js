@@ -5,7 +5,7 @@
 // * First we need a Person class. This will be our `base-class`
 // * Person receives `name` `age` `location` `gender` all as props
 // * Person receives `speak` as a method.
-// * This method logs out a phrase `Hello my name is Fred, I am from Bedrock​​​​​` where `name` and `location` are the object's own props
+// * This method logs out a phrase `Hello my name is Fred, I am from Bedrock` where `name` and `location` are the object's own props
 
 class Person {
     constructor (atts) {
@@ -35,8 +35,8 @@ const Sara = new Person ({
 })
 
 
-// console.log(Sara.speak());
-//console.log(Mary.speak());
+console.log(Sara.speak());
+console.log(Mary.speak());
 
 // #### Instructor
 
@@ -47,8 +47,9 @@ const Sara = new Person ({
 //   * `favLanguage` i.e. 'JavaScript, Python, Elm etc.'
 //   * `catchPhrase` i.e. `Don't forget the homies`
 // * Instructor has the following methods:
-//   * `demo` receives a `subect` string as an argument and logs out the phrase '​​​​​Today we are learning about {subject}' where subject is the param passed in.
-//   * `grade` receives a student object and a subject string as arguments and logs out '​​​​​{student.name} receives a perfect score on {variables​​​​​}'
+//   * `demo` receives a `subect` string as an argument and logs out the phrase 'Today we are learning about {subject}' where subject is the param passed in.
+//   * `grade` receives a student object and a subject string as arguments and logs out '{student.name} receives a perfect score on {variable}'
+
 
 
 class Instructor extends Person {
@@ -60,22 +61,40 @@ class Instructor extends Person {
     }
 
     demo (subject) {
-        return '​​​​​Today we are learning about ${subject}.';
+        console.log (`Today we are learning about ${subject}.`);
     }
 
-    grade (obj, stuStr) {
-        return '​​​​​${this.name} receives a perfect score on {this.variables​​​​​}';
+    grade (stuObj, stuStr) {
+        console.log(`${stuObj.name} receives a perfect score on ${stuStr}`);
     }
 }
 
 const Dave = new Instructor({
+    name: "Dave",
+    age: 27,
+    location: "New York",
     specialty: 'React',
     favLanguage: "JavaScript",
     catchPhrase: "Automagically"
-})
+});
 
-// console.log(Dave.specialty)
-// console.log(Dave.demo("React"));
+const Sam = new Instructor({
+    name: "Sam",
+    age: 31,
+    location: "Los Angeles",
+    specialty: 'Backend',
+    favLanguage: "Python",
+    catchPhrase: "Holla 'atcha boy"
+});
+
+Sam.specialty;
+Sam.favLanguage;
+Sam.catchPhrase;
+
+
+Dave.specialty;
+Dave.demo("React");
+
 // #### Student
 
 // * Now we need some students!
@@ -97,36 +116,45 @@ class Student extends Person {
         this.favSubjects = sAtts.favSubjects;
     }
 
-    listsSubjects (favSubjects) {
-        for (let i = 0; i < favSubjects.length; i++)
-            console.log(favSubjects[i]);
+    listsSubjects () {
+        for (let i = 0; i < this.favSubjects.length; i++)
+            console.log(this.favSubjects[i]);
     }
 
     PRAssignment (subject) {
-        console.log(`${this.name} has submitted a PR for ${subject}`)
+        console.log(`${this.name} has submitted a PR for ${subject}`);
     }
 
     sprintChallenge (subject) {
-        console.log (`${this.name} has begun spring challenge on ${subject}`)
+        console.log (`${this.name} has begun sprint challenge on ${subject}`);
     }
 }
 
 
 const Sandy = new Student ({
+    name: "Sandy",
+    age: 22,
+    location: "Miami",
     previousBackground: "Chef",
     className: "CS 10",
     favSubjects: ["JavaScript", "Bootstrap"]
-})
+});
 
+Sam.grade(Sandy, "HTML");
 
 const Gigi = new Student ({
+    name: "Gigi",
+    age: 33,
+    location: "San Francisco",
     previousBackground: "Astronaut",
     className: "CS 10",
     favSubjects: ["JQuery", "CSS"]
-})
+});
 
-console.log(Gigi.previousBackground)
-console.log(Sandy.PRAssignment("math"))
+console.log(Gigi.previousBackground);
+Sandy.PRAssignment("Bootstrap");
+Gigi.sprintChallenge("Node");
+Gigi.listsSubjects();
 
 // #### Project Mananger
 
@@ -136,8 +164,8 @@ console.log(Sandy.PRAssignment("math"))
 //   * `gradClassName`: i.e. CS1
 //   * `favInstructor`: i.e. Sean
 // * ProjectManangers have the following Methods:
-//   * `standUp` a method that takes in a slack channel and logs `{name} announces to {channel}, @channel standy times!​​​​​
-//   * `debugsCode` a method that takes in a student object and a subject and logs out `{​​​​​name} debugs {student.name}'s code on {subject}`
+//   * `standUp` a method that takes in a slack channel and logs `{name} announces to {channel}, @channel standy times!
+//   * `debugsCode` a method that takes in a student object and a subject and logs out `{name} debugs {student.name}'s code on {subject}`
 
 class ProjectManager extends Instructor {
     constructor(pAtts) {
@@ -147,19 +175,34 @@ class ProjectManager extends Instructor {
     }
 
     standUp (channel) {
-        console.log(`${this.name} announces to slackChannel @${channel} standy times!​​​​​`);
+        console.log(`${this.name} announces to slackChannel @ ${channel} standy times!`);
     }
-
-    // debugsCode (student, subect) {
-    //     console.log(​​​​​`${this.name} debugs ${student} s  code on ${subject}`);
-    // }
 }
 
+
 const Becky = new ProjectManager ({
+    name: "Becky",
+    age: 38,
+    location: "Salem",
+    specialty: "Frontend",
+    favLanguage: "Ruby",
+    catchPhrase: "Hello Nurse",
     gradClasName: "CS 10",
     favInstructor: "Josh"
 })
 
-console.log(Becky.gradClasName)
+const Rebecca = new ProjectManager ({
+    name: "Rebecca",
+    age: 40,
+    location: "Boston",
+    specialty: "Blockchain",
+    favLanguage: "Java",
+    catchPhrase: "What's really good!",
+    gradClasName: "CS 10",
+    favInstructor: "Josh"
+})
 
-console.log(Becky.standUp("help"))
+
+console.log(Becky.gradClasName);
+
+Becky.standUp("CS10_help");
