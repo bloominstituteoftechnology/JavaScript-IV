@@ -7,6 +7,6 @@ class Person {
         this.gender = info.gender;
     }
     speak() {
-        return `Hello my name is ${$this.name}, I am from ${this.location}`;
+        return `Hello my name is ${this.name}, I am from ${this.location}`;
     }
 }
