@@ -25,6 +25,23 @@ class Instructor extends Person {
       //console.log(`${student.name} receives a perfect score on ${subject}`);
       return `${student.name} receives a perfect score on ${subject}`;
     }
+    changeGrade(student) {
+      let randomNum = Math.floor(Math.random() * 100) - 50;
+      let pronoun = '';
+      if (student.gender === 'Male') {
+        pronoun = 'his';
+      } else {
+        pronoun = 'her';
+      }
+      student.grade += randomNum;
+      if (randomNum === 0) {
+        return `${student.name}'s grade did not change`;
+      } else if (randomNum > 0) {
+        return `${student.name}'s grade went up by ${randomNum} points, ${pronoun} new grade is ${student.grade}`
+      } else {
+        return `${student.name}'s grade went down by ${randomNum} points, ${pronoun} new grade is ${student.grade}`;
+      }
+    }
 }
 
 class ProjectManager extends Instructor {
@@ -47,6 +64,7 @@ class Student extends Person {
     this.previousBackground = studentAttributes.previousBackground;
     this.className = studentAttributes.className;
     this.favSubjects = studentAttributes.favSubjects;
+    this.grade = studentAttributes.grade;
   }
     listsSubjects() {
       return `${this.name}'s favorite subjects are ${this.favSubjects.join(", ")}`;
@@ -133,7 +151,8 @@ const jennifer = new Student ({
   "catchPhrase": "I have no idea what I'm doing",
   "previousBackground": "Cosmetology",
   "className": "Axolotls",
-  "favSubjects": ["Javascript", "Node.js", "React"]
+  "favSubjects": ["Javascript", "Node.js", "React"],
+  "grade": 85
 });
 
 const summer = new Student ({
@@ -145,7 +164,8 @@ const summer = new Student ({
   "catchPhrase": "Go home and drink, grandpa",
   "previousBackground": "High School",
   "className": "Axolotls",
-  "favSubjects": ["LESS", "HTML", "CSS"]
+  "favSubjects": ["LESS", "HTML", "CSS"],
+  "grade": 60
 });
 
 const jerry = new Student ({
@@ -157,26 +177,31 @@ const jerry = new Student ({
   "catchPhrase": "Hmmm... human music",
   "previousBackground": "Stay at home dad",
   "className": "Meeseeks",
-  "favSubjects": ["Python", "C", "React"]
+  "favSubjects": ["Python", "C", "React"],
+  "grade": 100
 });
-//test objects
-console.log(josh);
-console.log(jason);
-console.log(jennifer);
+// //test objects
+// console.log(josh);
+// console.log(jason);
+// console.log(jennifer);
+//
+// //test instructor functions
+// console.log(johnathan.speak());
+// console.log(josh.demo("the class keyword"));
+// console.log(patrick.grade(jerry, "interdimensional travel"));
+//
+// //test project manager functions
+// console.log(jason.speak());
+// console.log(rick.grade(jennifer, "node.js"));
+// console.log(morty.standUp("cs11"));
+// console.log(rick.debugsCode(jerry, "html"));
+//
+// //test student functions
+// console.log(jennifer.speak());
+// console.log(summer.listsSubjects());
+// console.log(jerry.PRAssignment("Javascript-IV"));
+// console.log(jennifer.sprintChallenge("Data Structures and Algorithms"));
 
-//test instructor functions
-console.log(johnathan.speak());
-console.log(josh.demo("the class keyword"));
-console.log(patrick.grade(jerry, "interdimensional travel"));
-
-//test project manager functions
-console.log(jason.speak());
-console.log(rick.grade(jennifer, "node.js"));
-console.log(morty.standUp("cs11"));
-console.log(rick.debugsCode(jerry, "html"));
-
-//test student functions
-console.log(jennifer.speak());
-console.log(summer.listsSubjects());
-console.log(jerry.PRAssignment("Javascript-IV"));
-console.log(jennifer.sprintChallenge("Data Structures and Algorithms"));
+//test strech goals
+// console.log(josh.changeGrade(jerry));
+// console.log(johnathan.changeGrade(summer));
