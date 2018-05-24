@@ -20,6 +20,13 @@ class Person {
       this.favLanguage = instructorAttributes.favLanguage;
       this.catchPhrase = instructorAttributes.catchPhrase;
     }
+    // gradeAdjust() {
+    //     if(this.grade >=70) {
+    //         return `${this.name}, congratulations! You have graduated Lambda School!`; 
+    // } else {
+            //something in here about the Instructor grading...
+    // }
+    //  }
   }
   
   class Student extends Person {
@@ -28,6 +35,7 @@ class Person {
       this.previousBackground = studentAttributes.previousBackground;
       this.className = studentAttributes.className;
       this.favSubjects = studentAttributes.favSubjects;
+      this.grade = studentAttributes.grade;
     }
 
     listsSubjects() {
@@ -103,7 +111,8 @@ class Person {
       catchPhrase: "What's your spaghetti policy here?",
       previousBackground: "Janitor",
       className: "not sure",
-      favSubjects: "Little green ghouls, magnets, kitten mittons"
+      favSubjects: "Little green ghouls, magnets, kitten mittons",
+     // grade: "3"  //for the stretch
       }) 
       
       const ricketyCricket = new Student({
@@ -116,7 +125,8 @@ class Person {
       catchPhrase: "They broke my legs, but they couldn't break my spirit.",
       previousBackground: "street-rat",
       className: "cs13",
-      favSubjects: "wrestling, being hunted, eating lemons"
+      favSubjects: "wrestling, being hunted, eating lemons",
+      //grade: "87" //for the stretch
       })
       
       const psychoPete = new Student({
@@ -129,7 +139,8 @@ class Person {
       catchPhrase: "I'm not crazy",
       previousBackground: "Psycho",
       className: "cs11",
-      favSubjects: "petting dogs, meditating, not cannibalism"
+      favSubjects: "petting dogs, meditating, not cannibalism",
+      //grade: "99" //for the stretch
       }) 
       
       const sweetDee = new ProjectManager ({
@@ -172,4 +183,14 @@ class Person {
       }) 
   
   
-  console.log(waitress.speak);
+  console.log(waitress.speak());
+  console.log(charlie.speak());
+  console.log(frank.speak());
+  console.log(psychoPete.listsSubjects());
+  console.log(ricketyCricket.PRAssignment());
+  console.log(charlie.sprintChallenge());
+  console.log(mac.debugsCode());
+  console.log(sweetDee.standUp());
+
+
+
