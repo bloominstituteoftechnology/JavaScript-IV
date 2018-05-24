@@ -2,10 +2,21 @@
 // Today your goal is to refactor all of this code to use ES6 Classes.
 // The console.log() statements should still return what is expected of them.
 
-function GameObject(options) {
-  this.createdAt = options.createdAt;
-  this.dimensions = options.dimensions;
+//function GameObject(options) {
+  //this.createdAt = options.createdAt;
+  //this.dimensions = options.dimensions;
+//}
+
+class GameObject {
+  constructor(options){
+    this.createdAt = options.createdAt;
+    this.dimensions = options.dimensions;
+  }
+  destroy() {
+    return `${this.name} was removed from the game.`;
+  }
 }
+
 
 GameObject.prototype.destroy = function() {
   return `Object was removed from the game.`;
@@ -88,3 +99,4 @@ console.log(archer.language); // Elvish
 console.log(archer.greet()); // Lilith offers a greeting in Elvish.
 console.log(mage.takeDamage()); // Bruce took damage.
 console.log(swordsman.destroy()); // Sir Mustachio was removed from the game.
+
