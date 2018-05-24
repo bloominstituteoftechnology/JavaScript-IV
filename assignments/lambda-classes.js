@@ -19,7 +19,7 @@ class Instructor extends Person {
         this.catchPhrase = instructorFeatures.catchPhrase;
     }
     demo(subject){
-        return `Today we are learning about ${this.subject}`;
+        return `Today we are learning about ${subject}`;
     }
     
     grade(student, subject){
@@ -28,16 +28,19 @@ class Instructor extends Person {
 }
 
 
-//STUDENTS
-// * Student uses the same attributes that have been set up by Person
-// * Student has the following unique props:
-//   * `previousBackground` i.e. what the Student used to do before Lambda School
-//   * `className` i.e. CS132
-//   * `favSubjects`. i.e. an array of the student's favorite subjects ['Html', 'CSS', 'JavaScript']
-// * Student has the following methods:
-//   * `listsSubjects` a method that logs out all of the student's favoriteSubjects one by one.
-//   * `PRAssignment` a method that receives a subject as an argument and logs out that the `student.name has submitted a PR for {subject}`
-//   * `sprintChallenge` similar to PRAssignment but logs out `student.name has begun spring challenge on {subject}`
+    class ProjectManager extends Instructor {
+        constructor(PMFeatures){
+            super(PMFeatures);
+            this.gradClassName = PMFeatures.gradClassName;
+            this.favInstructor = PMFeatures.favInstructor;
+        }
+        standUp(channel){
+            return `${this.name} announces to ${channel.name}, @channel standy times!​`
+        }
+        debugsCode(student){
+            return `${this.name} debugs ${student.name}'s code on ${this.subject}` 
+        }
+    }
 
 
 class Student extends Person {
@@ -48,10 +51,109 @@ class Student extends Person {
         this.favSubjects = studentFeatures.favSubjects;
     }
     listsSubjects(){
-        return `${this.favSubjects}`
+        return `${this.favSubjects}`;
+    }
+
+    PRAssignment(subject){
+        return `${this.name} has submitted a PR for ${subject}`;
+    }
+    sprintChallenge(subject){
+        return `${this.name} has begun sprint challenge on ${subject}`;
     }
 } 
 
 
+// Instructor Objects 
+// 1)
+const josh = new Instructor({
+    name: 'Josh Knell',
+    location: 'somewhere in Utah',
+    age: 35,
+    gender: 'male',
+    favLanguage: 'JavaScript',
+    specialty: 'Web-Design and Front-End',
+    catchPhrase: `Don't forget the homies`
+  });
 
 
+// 2)
+  const ryan = new Instructor({
+    name: 'Ryan Hamblin',
+    location: 'somewhere in California',
+    age: 32,
+    gender: 'male',
+    favLanguage: 'Python',
+    specialty: 'Front-end',
+    catchPhrase: `Don't forget the homies`
+  });
+
+// 3)
+const lebron = new Instructor({
+    name: 'Lebron James',
+    location: 'somewhere in Ohio',
+    age: 33,
+    gender: 'male',
+    favLanguage: 'English',
+    specialty: 'Everything?',
+    catchPhrase: `Just a kid from Akron.`
+  });
+// end Instructor Objects 
+
+
+
+// Project Manager Objects 
+// 1)
+const haywood = new ProjectManager({
+    name: 'Haywood Johnson',
+    location: 'somewhere in Texas',
+    age: 26,
+    gender: 'male',
+    favLanguage: 'Python',
+    specialty: 'Regex Gawd',
+    catchPhrase: `Probably involves parrots somehow.`
+  });
+
+// 2)
+const ben = new ProjectManager({
+    name: 'Ben',
+    location: 'somewhere in Virginia',
+    age: 28,
+    gender: 'male',
+    favLanguage: 'Python',
+    specialty: 'Debugging',
+    catchPhrase: `Have you tried it on the Python Tutor?`
+  });
+
+
+// 3)
+const haywood = new ProjectManager({
+    name: 'Haywood Johnson',
+    location: 'somewhere in Texas',
+    age: 26,
+    gender: 'male',
+    favLanguage: 'Python',
+    specialty: 'Regex Gawd',
+    catchPhrase: `Probably involves parrots somehow.`
+  });
+
+
+// end Project Manager Objects 
+
+
+/// Student Objects 
+// 1)
+
+
+
+
+
+// 2)
+
+
+
+
+
+// 3)
+
+
+// end Student Objects
