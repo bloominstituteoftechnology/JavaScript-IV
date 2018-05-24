@@ -2,39 +2,38 @@
 // Today your goal is to refactor all of this code to use ES6 Classes.
 // The console.log() statements should still return what is expected of them.
 
-function GameObject(options) {
-  this.createdAt = options.createdAt;
-  this.dimensions = options.dimensions;
+class GameObject {
+  constructor(options) {
+    this.createdAt = options.createdAt;
+    this.dimensions = options.dimensions;
+  }
+  destroy() {
+    return `${this.name} was removed from the game.`;
+  }
 }
 
-GameObject.prototype.destroy = function() {
-  return `Object was removed from the game.`;
-};
-
-function CharacterStats(characterStatsOptions) {
-  GameObject.call(this, characterStatsOptions);
-  this.hp = characterStatsOptions.hp;
-  this.name = characterStatsOptions.name;
+class CharacterStats extends GameObject {
+  constructor(characterStatsOptions) {
+    super(characterStatsOptions);
+    this.hp = characterStatsOptions.hp;
+    this.name = characterStatsOptions.name;
+  }
+  takeDamage() {
+    return `${this.name} took damage.`;
+  }
 }
 
-CharacterStats.prototype = Object.create(GameObject.prototype);
-
-CharacterStats.prototype.takeDamage = function() {
-  return `${this.name} took damage.`;
-};
-
-function Humanoid(humanoidOptions) {
-  CharacterStats.call(this, humanoidOptions);
-  this.faction = humanoidOptions.faction;
-  this.weapons = humanoidOptions.weapons;
-  this.language = humanoidOptions.language;
+class Humanoid extends CharacterStats {
+  constructor(humanoidOptions) {
+    super(humanoidOptions);
+    this.faction = humanoidOptions.faction;
+    this.weapons = humanoidOptions.weapons;
+    this.language = humanoidOptions.language;
+  }
+  greet() {
+    return `${this.name} offers a greeting in ${this.language}.`;
+  }
 }
-
-Humanoid.prototype = Object.create(CharacterStats.prototype);
-
-Humanoid.prototype.greet = function() {
-  return `${this.name} offers a greeting in ${this.language}.`;
-};
 
 const mage = new Humanoid({
   createdAt: new Date(),
@@ -88,3 +87,79 @@ console.log(archer.language); // Elvish
 console.log(archer.greet()); // Lilith offers a greeting in Elvish.
 console.log(mage.takeDamage()); // Bruce took damage.
 console.log(swordsman.destroy()); // Sir Mustachio was removed from the game.
+
+class Villain extends Humanoid {
+  constructor(villain) {
+    super(villain);
+  }
+  bowShoot() {
+    return Math.floor((Math.random() * 6));
+  }
+}
+
+class Hero extends Humanoid {
+  constructor(hero) {
+    super(hero);
+  }
+  swordHit() {
+    return Math.floor((Math.random() * 6));
+  }
+}
+
+const robin = new Villain({
+  createdAt: new Date(),
+  dimensions: {
+    length: 2,
+    width: 2,
+    height: 3,
+  },
+  hp: 30,
+  name: 'Robin',
+  faction: 'Forest Kingdom',
+  weapons: [
+    'Bow',
+    'Dagger',
+  ],
+  language: 'Common tongue'
+});
+
+const ornn = new Hero({
+  createdAt: new Date(),
+  dimensions: {
+    length: 3,
+    width: 3,
+    height: 4,
+  },
+  hp: 30,
+  name: 'Ornn',
+  faction: 'The Round Table',
+  weapons: [
+    'Sword',
+    'Dagger',
+  ],
+  language: 'Common tongue'
+});
+
+function startBattle(hero, villain) {
+  while(hero.hp > 0 && villain.hp > 0) {
+    let currentHeroHp = hero.hp;
+    let currentVillainHp = villain.hp;
+    villain.hp -= hero.swordHit();
+    let previousVillainHp = villain.hp;
+    let villainDamageTaken = currentVillainHp - previousVillainHp; 
+    hero.hp -= villain.bowShoot();
+    let previousHeroHp = hero.hp;
+    let heroDamageTaken = currentHeroHp - previousHeroHp;
+    console.log(`${hero.name}'s HP: ${hero.hp} / Damage taken: ${heroDamageTaken}`);
+    console.log(`${villain.name}'s HP: ${villain.hp} / Damage taken: ${villainDamageTaken}\n`);
+  }
+  if(hero.hp <= 0 && villain.hp <= 0) {
+    console.log(`${hero.destroy()}\n${villain.destroy()}\n${hero.name} and ${villain.name} killed each other!`);
+  } else if(hero.hp <= 0) {
+    console.log(`${hero.destroy()}\n${villain.name} defeated ${hero.name} with ${villain.hp} hp left!`);
+  } else {
+    console.log(`${villain.destroy()}\n${hero.name} defeated ${villain.name} with ${hero.hp} hp left!`);
+  }
+}
+
+startBattle(ornn, robin);
