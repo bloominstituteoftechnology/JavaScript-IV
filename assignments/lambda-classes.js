@@ -127,7 +127,7 @@ class Student extends Person {
 }
 
 const jj = new Student(
-    {name: 'josh', 
+    {name: 'jj', 
     gender: 'M', 
     previousBackground: 'nurse', 
     className: 'cs11', 
@@ -138,3 +138,60 @@ jj.listsSubjects();
 jj.PRAssignment('javascript'); 
 jj.sprintChallenge('python');
 
+// ####
+// Project Mananger
+
+//     *
+//     Now that we have instructors and students, we 'd be nowhere without our PM'
+// s
+//     *
+//     ProjectManagers are extensions of Instructors *
+//     ProjectManagers have the following uniqe props:
+//     *
+//     `gradClassName`: i.e.CS1 *
+//     `favInstructor`: i.e.Sean *
+//     ProjectManangers have the following Methods:
+//     *
+//     `standUp`
+// a method that takes in a slack channel and logs `{name} announces to {channel}, @channel standy times!​​​​​
+//   * `
+// debugsCode ` a method that takes in a student object and a subject and logs out ` {
+//     name
+// }
+// debugs {
+//     student.name
+// }
+// 's code on {subject}`
+
+class projectManager extends Instructor {
+    constructor(props) {
+        super(props);
+        this.gradClassName = props.gradClassName;
+        this.favInstructor = props.favInstructor;
+    }
+    standUp(channel) {
+     console.log(`${this.name} announces to ${channel}, @channel standy times!​​​​​`);
+    }
+    debugsCode(student, subject) {
+    console.log(`${this.name} debugs ${student.name}'s code on ${subject}`);
+
+    }
+}
+
+
+console.log(jj.name); 
+
+const ben = new projectManager({
+    name: 'ben',
+    gender: 'M',
+    previousBackground: 'lego builder',
+    className: 'cs1',
+    specialty: 'vanilla js',
+    favLanguage: 'javascript',
+    catchPhrase: `Let's Flamingle!`,
+    gradClassName: 'CS6',
+    favInstructor: 'josh',
+}); //? 
+
+ben.standUp('flamingo'); 
+ben.debugsCode(jj, 'javascript');
