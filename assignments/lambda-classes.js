@@ -23,6 +23,24 @@ class Instructor extends Person {
     grade(student, subject) {
         console.log(`${student.name} receives a perfect score on ${subject}`);
     }
+    educate(student) {
+        let roundToDecimal = function (num, dec) {
+            return dec * Math.floor((num / dec))
+        };
+        while (student.grade > 0 && student.grade < 70) {
+            
+            let sign = ( Math.random() < .5 ) ? -1 : 1;
+            let number = roundToDecimal(Math.random()*10, .01);
+            let gradeChange = sign * number;
+            student.grade = roundToDecimal(student.grade + gradeChange, .01);
+            console.log (`${student.name}'s grade was changed by ${gradeChange}% as a result of the most recent assignment. ${student.name}'s new grade is ${student.grade}%.\n`)
+        }
+        if (student.grade < 0) {
+            console.log(`${student.name} failed out. Fortunately ${student.name} won the lottery soon afterwards and became a professional figure skater.` );
+        } else {
+            console.log(`${student.name} graduated from Lambda School! In an unexpected twist, they abandoned programming for a career in figure skating.`);
+        }
+    }
 }
 
 class Student extends Person {
@@ -104,3 +122,4 @@ haywood.demo('HTML');
 haywood.grade(kam, 'etiquette');
 haywood.standUp('CS11_Haywood');
 haywood.debugsCode(kam, 'Sign Language');
+haywood.educate(kam);
