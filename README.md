@@ -73,7 +73,7 @@ const fred = new Instructor({
 #### Student
 
 * Now we need some students!
-* Student uses the same attributes that have been set up by Person
+* Student uame atses the stributes that have been set up by Person
 * Student has the following unique props:
   * `previousBackground` i.e. what the Student used to do before Lambda School
   * `className` i.e. CS132
