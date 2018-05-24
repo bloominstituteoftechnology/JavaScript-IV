@@ -29,13 +29,17 @@ class Instructor extends Person {
       student.grade += grade;
       return `${student.name} did great! ${
         student.gender == 'male' ? 'He' : 'She'
-      } got ${grade} points and now has ${student.grade} points.`;
+      } got ${grade} ${grade > 1 ? 'points' : 'point'} and now has ${
+        student.grade
+      } points.`;
     }
     let grade = Math.floor(Math.random() * 10 + 1);
     student.grade -= grade;
     return `${student.name} had a rough go. ${
       student.gender == 'male' ? 'He' : 'She'
-    } lost ${grade} points and now has ${student.grade} points.`;
+    } lost ${grade} ${grade > 1 ? 'points' : 'point'} and now has ${
+      student.grade
+    } points.`;
   }
 }
 
