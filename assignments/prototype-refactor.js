@@ -2,39 +2,93 @@
 // Today your goal is to refactor all of this code to use ES6 Classes.
 // The console.log() statements should still return what is expected of them.
 
-function GameObject(options) {
-  this.createdAt = options.createdAt;
-  this.dimensions = options.dimensions;
+class GameObject {
+  constructor(attributes) {
+      this.createdAt = attributes.createdAt;
+    this.dimensions = attributes.dimensions;
+  }
+  destroy() {
+    return `${this.name} was removed from the game.`;
+  }
 }
 
-GameObject.prototype.destroy = function() {
-  return `Object was removed from the game.`;
-};
 
-function CharacterStats(characterStatsOptions) {
-  GameObject.call(this, characterStatsOptions);
-  this.hp = characterStatsOptions.hp;
-  this.name = characterStatsOptions.name;
+// function GameObject (attributes) {
+//   this.createdAt = attributes.createdAt;
+//   this.dimensions = attributes.dimensions;
+// }
+
+// GameObject.prototype.destroy = function() {
+//   return `${this.name} was removed from the game.`;
+// };
+
+/*
+  === CharacterStats ===
+  * hp
+  * name
+  * takeDamage() // prototype method -> returns the string '<object name> took damage.'
+  * should inherit destroy() from GameObject's prototype
+*/
+
+class CharacterStats extends GameObject {
+  constructor(StatAttributes){
+    super(StatAttributes);
+    this.hp = StatAttributes.hp;
+    this.name = StatAttributes.name;
+  }
+  takeDamage() {
+    return `${this.name} took damage.`;
+  }
 }
 
-CharacterStats.prototype = Object.create(GameObject.prototype);
+// function CharacterStats(StatAttributes) {
+//   GameObject.call(this, StatAttributes);
+//   this.hp = StatAttributes.hp;
+//   this.name = StatAttributes.name;
+// }
+// CharacterStats.prototype = Object.create(GameObject.prototype);
 
-CharacterStats.prototype.takeDamage = function() {
-  return `${this.name} took damage.`;
-};
+// CharacterStats.prototype.takeDamage = function() {
+//   return `${this.name} took damage.`;
+// };
 
-function Humanoid(humanoidOptions) {
-  CharacterStats.call(this, humanoidOptions);
-  this.faction = humanoidOptions.faction;
-  this.weapons = humanoidOptions.weapons;
-  this.language = humanoidOptions.language;
+
+
+/*
+  === Humanoid ===
+  * faction
+  * weapons
+  * language
+  * greet() // prototype method -> returns the string '<object name> offers a greeting in <object language>.'
+  * should inherit destroy() from GameObject through CharacterStats
+  * should inherit takeDamage() from CharacterStats
+*/
+
+
+class Humanoid extends CharacterStats {
+  constructor(HumanoidStats) {
+    super(HumanoidStats);
+    this.faction = HumanoidStats.faction;
+    this.weapons = HumanoidStats.weapons;
+    this.language = HumanoidStats.language; 
+  }
+  greet() {
+    return `${this.name} offers a greeting in ${this.language}`;
+  }
 }
 
-Humanoid.prototype = Object.create(CharacterStats.prototype);
 
-Humanoid.prototype.greet = function() {
-  return `${this.name} offers a greeting in ${this.language}.`;
-};
+// function Humanoid(HumanoidStats) {
+//   CharacterStats.call(this, HumanoidStats);
+//   this.faction = HumanoidStats.faction;
+//   this.weapons = HumanoidStats.weapons;
+//   this.language = HumanoidStats.language;
+// }
+// Humanoid.prototype = Object.create(CharacterStats.prototype);
+
+// Humanoid.prototype.greet = function() {
+//   return `${this.name} offers a greeting in ${this.language}`;
+// }
 
 const mage = new Humanoid({
   createdAt: new Date(),
