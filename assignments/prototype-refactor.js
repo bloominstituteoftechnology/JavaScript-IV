@@ -7,11 +7,10 @@ class GameObject {
     this.createdAt = options.createdAt;
     this.dimensions = options.dimensions;
   }
+  destroy() {
+    return `${this.name} was removed from the game.`;
+  }
 }
-
-GameObject.prototype.destroy = function() {
-  return `Object was removed from the game.`;
-};
 
 class CharacterStats extends GameObject {
   constructor(characterStatsOptions) {
@@ -19,13 +18,10 @@ class CharacterStats extends GameObject {
      this.hp = characterStatsOptions.hp;
      this.name = characterStatsOptions.name;
   }
+  takeDamage () {
+    return `${this.name} took damage.`;
+  }
 }
-
-CharacterStats.prototype = Object.create(GameObject.prototype);
-
-CharacterStats.prototype.takeDamage = function() {
-  return `${this.name} took damage.`;
-};
 
 class Humanoid extends CharacterStats {
   constructor(humanoidOptions) {
@@ -34,13 +30,11 @@ class Humanoid extends CharacterStats {
     this.weapons = humanoidOptions.weapons;
     this.language = humanoidOptions.language;
   }
+  greet () {
+    return `${this.name} offers a greeting in ${this.language}.`;
+  }
 }
 
-Humanoid.prototype = Object.create(CharacterStats.prototype);
-
-Humanoid.prototype.greet = function() {
-  return `${this.name} offers a greeting in ${this.language}.`;
-};
 
 const mage = new Humanoid({
   createdAt: new Date(),
@@ -89,7 +83,7 @@ console.log(archer.dimensions); // { length: 1, width: 2, height: 4 }
 console.log(swordsman.hp); // 15
 console.log(mage.name); // Bruce
 console.log(swordsman.faction); // The Round Table
-console.log(mage.weapons); // Staff of Shamalama
+console.log(mage.weapons[0]); // Staff of Shamalama
 console.log(archer.language); // Elvish
 console.log(archer.greet()); // Lilith offers a greeting in Elvish.
 console.log(mage.takeDamage()); // Bruce took damage.
