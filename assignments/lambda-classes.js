@@ -216,7 +216,7 @@ console.log(diandra.grade(JosephS, 'nothing!'));
 //..............................................................
 // STUDENTS TEST 
 console.log('\n\n\n=========================================');
-console.log('testing student');
+console.log('testing student'); 
 console.log('=========================================');
 // SamK
 console.log(SamK);
