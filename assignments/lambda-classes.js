@@ -7,7 +7,7 @@ class Person {
         this.gender = personInfo.gender;
     }
     speak() {
-        return `Hello my name is ${this.name}, I am from ${this.location}`;
+        console.log(`Hello my name is ${this.name}, I am from ${this.location}`);
     }
 }
 
@@ -19,10 +19,10 @@ class Instructor extends Person {
         this.catchPhrase = instructorInfo.catchPhrase;
     }
     demo(subject) {
-        return `Today we are learning about ${subject}`;
+        console.log(`Today we are learning about ${subject}`);
     }
     grade(studentObj, subject) {
-        return `${studentObj.name} receives a perfect score on ${subject}`;
+        console.log(`${studentObj.name} receives a perfect score on ${subject}`);
     }
 }
 
