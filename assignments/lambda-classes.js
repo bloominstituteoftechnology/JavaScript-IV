@@ -1,6 +1,5 @@
 // CODE here for your Lambda Classes
 
-
 class Person {
     constuctor(personAttributes) {
         this.name = personAttributes.name;
@@ -15,6 +14,7 @@ class Person {
         return "Hello my name is " + this.name + "," + " I am from " + this.location;
     }
 }
+
 
 class Instructor extends Person {
     constructor(intructorAttributes) {
@@ -34,11 +34,11 @@ class Instructor extends Person {
         return `${student.name} receives a perfect score on ${subject}`;
     }
     gradeRevision(student) {
-        student.grade = student.grade + Math.floor((Math.random() * 50) + -50);
+        student.grade = student.grade + Math.floor((Math.random() * 20) + -20);
         return student.grade;
-    }
-    
+    } 
 }
+
 
 class Student extends Person {
     constructor(studentAttributes) {
@@ -61,19 +61,24 @@ class Student extends Person {
     sprintChallenge(subject, student) {
         return `${student.name} has begun sprint challenge on ${subject}`;
     }
+    // graduate(instructor) {
+    //     if (this.grade > 70) {
+    //         return "You are ready to graduate from Lambda School";
+    //     }
+    //     else if (this.grade <= 70) {
+    //         this.grade = instructor.gradeRevision(this);
+    //         return this.grade;
+    //        }
+        
+    //     }
     graduate(instructor) {
-        // for (let i = 0; i<100; i++) {}
+        while (this.grade <= 70) {
+            this.grade = instructor.gradeRevision(this);
+        }
         if (this.grade > 70) {
-            return "You are ready to graduate from Lambda School";
+        return "Congratulations. You graduated with a grade of " + this.grade;
         }
-        else if (this.grade <= 70) {
-            // this.grade = instructor.gradeRevision(this);
-            return this.graduate(instructor);
-        }
-               
     }
-
-
 }
 
 
@@ -99,7 +104,6 @@ class ProjectManager extends Instructor {
     sprintChallenge(student, subject) {
         return `${student.name} has begun spring challenge on ${subject}`;
     }
-
 }
 
 
@@ -114,8 +118,6 @@ const bobby = new Student({
     grade: 90
   })
 
-  console.log(bobby.name);
-  console.log(bobby.grade);
 
   const sam = new Student({
     name: "same",
@@ -125,9 +127,8 @@ const bobby = new Student({
     previousBackground: "glass blower",
     className: "CS11",
     favSubjects: "redux",
-    grade: 90
+    grade: 90,
   })
-
 
 
 const vin = new Instructor({
@@ -144,10 +145,13 @@ const vin = new Instructor({
   console.log(vin.speak());
   console.log(vin.demo('machine code'));
   console.log(vin.grade(bobby, '?' ));
-  console.log(vin.gradeRevision(bobby));
+  console.log(vin.gradeRevision(bobby)); 
   
   console.log(bobby.graduate(vin));
+
   console.log(bobby.grade);
+
+  
 
   const alfred = new Instructor({
     name: 'alfred',
@@ -166,6 +170,7 @@ const vin = new Instructor({
   console.log(alfred.gradeRevision(sam));
 
   console.log(sam.grade);
+  console.log(sam.graduate(alfred)); 
 
   const samantha = new Student({
     name: "samantha",
@@ -183,6 +188,12 @@ const vin = new Instructor({
   console.log(samantha.listsSubjects());
   console.log(samantha.PRAssignment("react", samantha));
   console.log(samantha.sprintChallenge("redux", samantha));
+  console.log(alfred.gradeRevision(samantha));
+  
+  console.log(samantha.graduate(alfred));
+
+  console.log(samantha.grade);
+
 
 
   const tom = new Student({
