@@ -1,3 +1,6 @@
+  // CODE here for your Lambda Classes
+
+
 class Person {
     constructor(attributes) {
       this.name = attributes.name;
@@ -26,15 +29,18 @@ class Person {
       this.className = studentAttributes.className;
       this.favSubjects = studentAttributes.favSubjects;
     }
+
     listsSubjects() {
       return `${this.favSubjects}`;
     }
+
     PRAssignment() {
-      return //come back to this, Lib
-    }
+        return `${this.name} has submitted a PR for ${subject}`
+      }
+
     sprintChallenge() {
-      return //come back to this also
-    }
+        return `${this.name} has begun the sprint challenge on ${subject}`
+      }
   }
   
   class ProjectManager extends Instructor {
@@ -43,20 +49,16 @@ class Person {
         this.gradClassName = projectManagerAttributes.gradClassName;
         this.favInstructor = projectManagerAttributes.favInstructor;
     }
+
     standUp() {
-      return `${this.name} announces to {channel}, @channel standy times!`;
+      return `${this.name} announces to ${channel}, @channel standy times!`;
     }
+
     debugsCode() {
-      `${this.Student} + ${favSubjects} `
+      return `${this.name} debugs ${student.name}'s code on ${subject}`;
     }
   }
-  
-  
-  
-  // this.profession = attributes.profession;
-  
-  // CODE here for your Lambda Classes
-  
+    
   const frank = new Instructor({
       name: "Frank",
       age: "73",
@@ -101,7 +103,7 @@ class Person {
       catchPhrase: "What's your spaghetti policy here?",
       previousBackground: "Janitor",
       className: "not sure",
-      favSubjects: "Little green ghouls, magnets"
+      favSubjects: "Little green ghouls, magnets, kitten mittons"
       }) 
       
       const ricketyCricket = new Student({
@@ -114,7 +116,7 @@ class Person {
       catchPhrase: "They broke my legs, but they couldn't break my spirit.",
       previousBackground: "street-rat",
       className: "cs13",
-      favSubjects: "Little green ghouls, magnets"
+      favSubjects: "wrestling, being hunted, eating lemons"
       })
       
       const psychoPete = new Student({
@@ -127,7 +129,7 @@ class Person {
       catchPhrase: "I'm not crazy",
       previousBackground: "Psycho",
       className: "cs11",
-      favSubjects: "petting dogs, meditating"
+      favSubjects: "petting dogs, meditating, not cannibalism"
       }) 
       
       const sweetDee = new ProjectManager ({
