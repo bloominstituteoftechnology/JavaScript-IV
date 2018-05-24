@@ -36,7 +36,7 @@ class Person {
 
 class Instructor extends Person{
 	constructor(teachProps){
-		super(teachprops); 
+		super(teachProps); 
 		this.specialty = teachProps.specialty;
 		this.favLanguage = teachProps.favLanguage; 
 		this.catchPhrase = teachProps.catchPhrase;
@@ -76,11 +76,11 @@ class Student extends Person{
 
 
 class ProjectManager extends Instructor{
-	constructor(promanProps){
-		super(promanProps){
+	constructor(projmanProps){
+		super(projmanProps);
 
-			this.gradClassName = promanProps.gradClassName;
-			this.favInstructor = promanProps.favInstructor;
+			this.gradClassName = projmanProps.gradClassName;
+			this.favInstructor = projmanProps.favInstructor;
 		}
 
 		standUp() {
@@ -93,11 +93,45 @@ class ProjectManager extends Instructor{
 
 
 		}
-	}
+	
+
+
+const damian = new Student({
+  name: 'damian',
+  location: 'Jamrock',
+  age: 31,
+  gender: 'male',
+  favSubjects: 'Python',
+  previousBackground: 'Musician',
+  className: `cs-11`
+});
+
+
+const fred = new Instructor({
+  name: 'Fred',
+  location: 'Bedrock',
+  age: 37,
+  gender: 'male',
+  favLanguage: 'Assembly',
+  specialty: 'Front-end',
+  catchPhrase: `Don't forget the homies`
+});
+
+const bob = new ProjectManager({
+  name: 'Mr.Ross',
+  location: 'Dayton Beach, Florida',
+  age: 37,
+  gender: 'male',
+  favLanguage: 'None except for Painting',
+  specialty: 'Art Instructor',
+  catchPhrase: "We don't make mistakes, just happy little accidents."
+});
 
 
 
-
+console.log(damian.speak())
+console.log(bob.catchPhrase)
+console.log(fred.favLanguage)
 
 
 
