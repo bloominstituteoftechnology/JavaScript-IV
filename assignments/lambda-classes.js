@@ -52,18 +52,21 @@ class Instructor extends Person {
 
         //random the assignment grade from 1-10, then multiple with adjustment to get the correct sign.
         let point = Math.ceil(Math.random() * 10) * adjustment;
-        student.grade += point
-        return `${this.name} ${adjustment === 1 ? "add" : "subtract"} ${point} ${adjustment === 1 ? "to" : "from"} ${student.name}'s grade. ${student.name}'s grade is now ${student.grade}.`;
+
+        student.grade += point;
+
+        let statement = `${this.name} ${adjustment === 1 ? "add" : "subtract"} ${point} ${adjustment === 1 ? "to" : "from"} ${student.name}'s grade. ${student.name}'s grade is now ${student.grade}.`;
+        console.log(statement);
     }
 
     //Check on a student, if a student's grade is not above 70 then keep grading assignment, else announce that student can graduate.
-    graduate(student) {
-        while (student.grade < 70) {
-            this.gradeAssignment(student);
-            console.log(this.gradeAssignment(student))
-        }
-        return `${student.name} can now graduate from Lambda School.`;
-    }
+    // graduate(student) {
+    //     while (student.grade < 70) {
+    //         this.gradeAssignment(student);
+    //         // console.log(this.gradeAssignment(student))
+    //     }
+    //     return `${student.name} can now graduate from Lambda School.`;
+    // }
 }
 // Student
 
@@ -77,6 +80,7 @@ class Instructor extends Person {
 // listsSubjects a method that logs out all of the student's favoriteSubjects one by one.
 // PRAssignment a method that receives a subject as an argument and logs out that the student.name has submitted a PR for {subject}
 // sprintChallenge similar to PRAssignment but logs out student.name has begun spring challenge on {subject}
+
 // Project Mananger
 class Student extends Person {
     constructor(stuProps) {
@@ -95,9 +99,16 @@ class Student extends Person {
         return `${this.name} has submitted a PR for ${subject}`;
     }
 
-    // graduate() {
-    //     return this.grade >= 70 ? `${this.name} can now graduate from Lambda School!` : `${this.name} needs to work harder to graduate!`
-    // }
+    sprintChallenge(subject) {
+        return `${this.name} has begun spring challenge on ${subject}`;
+    }
+    graduate(instructor) {
+        //If grade is under 70 keep getting instructor to grade until graduate.
+        while (this.grade < 70) {
+            instructor.gradeAssignment(this);
+        }
+        return `${this.name} can now graduate from Lambda School!`;
+    }
 }
 // Now that we have instructors and students, we'd be nowhere without our PM's
 // ProjectManagers are extensions of Instructors
@@ -124,7 +135,6 @@ class ProjectManagers extends Instructor {
     }
 
 }
-
 
 //Person's properties
 // name
@@ -203,4 +213,5 @@ console.log(jason.debugCode(vu, 'today Challenge'));
 // If the student's grade is above a 70% let them graduate! Otherswise go back to grading their assignments to increase their score.
 
 console.log(vu.grade);
-console.log(josh.graduate(vu))
+console.log(vu.graduate(josh));
+
