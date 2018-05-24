@@ -1,3 +1,4 @@
+// -CLASSES-
 class Person {
 	// name age location gender
 	constructor(pAttributes){
@@ -41,12 +42,13 @@ class Student extends Person {
 		super(sAttributes);
 		this.previousBackground = sAttributes.previousBackground;
 		this.className = sAttributes.className;
-		this.favSubjects = sAttributes.favSubjects;
+		this.favoriteSubjects = sAttributes.favoriteSubjects;
 	}
+
 	// a method that logs out all of the student's favoriteSubjects one by one.
 	listsSubjects(){
-		for(let i = 0; i < this.favSubjects.length; i++){
-			console.log(this.favSubjects[i]);
+		for(let i = 0; i < this.favoriteSubjects.length; i++){
+			console.log(this.favoriteSubjects[i]);
 		}
 	}
 
@@ -57,7 +59,7 @@ class Student extends Person {
 
 	// similar to PRAssignment but logs out `student.name has begun spring challenge on {subject}`
 	sprintChallenge(subject){
-		return `${this.name} has begun spring challenge on ${subject}`;
+		return `${this.name} has begun sprint challenge on ${subject}`;
 	}
 
 } // Student
@@ -81,3 +83,104 @@ class ProjectManager extends Instructor {
 	}
 
 } // Project Manager
+
+// -OBJECTS-
+// Students name age location gender previousBackground className favSubjects
+const morty = new Student({
+	"name": "Morty Smith",
+	"age": "14",
+	"location": "Chicago",
+	"gender": "M",
+	"previousBackground": ["Interdimentional Travel", "Puberty"],
+	"className": "Computer Science Immersive",
+	"favoriteSubjects": ["HTML", "CSS"]
+});
+
+const summer = new Student({
+	"name": "Summer Smith",
+	"age": "18",
+	"location": "Chicago",
+	"gender": "F",
+	"previousBackground": ["Not Much"],
+	"className": "Computer Science Immersive",
+	"favoriteSubjects": ["Lunch", "Mall"]
+});
+
+const abrodolph = new Student({
+	"name": "Abrodolph Lincler",
+	"age": "47",
+	"location": "Rick's Lab",
+	"gender": "M",
+	"previousBackground": ["Morally Confused"],
+	"className": "Computer Science Immersive",
+	"favoriteSubjects": ["Moral-Neutrality", "AI"]
+});
+
+// Teachers name age location gender specialty favLanguage catchPhrase
+const rick = new Instructor({
+	"name": "Rick Sanchez",
+	"age": "70",
+	"location": "Earth",
+	"gender": "M",
+	"specialty": "Inventor",
+	"favLanguage": "Bird Person",
+	"catchPhrase": "Wubba lubba dub-dub!"
+});
+
+const eyehole = new Instructor({
+	"name": "Eyehole Man",
+	"age": "26",
+	"location": "Earth",
+	"gender": "M",
+	"specialty": "Roughing up 'Eyehole Cerial' fans",
+	"favLanguage": "Megaphone",
+	"catchPhrase": "Get up on out of hter with my Eyeholes."
+});
+
+const goldenfold = new Instructor({
+	"name": "Mr. Goldenfold",
+	"age": "48",
+	"location": "Earth",
+	"gender": "M",
+	"specialty": "Algebra",
+	"favLanguage": "Python",
+	"catchPhrase": "My lust... My greed... I deserve this!"
+});
+
+
+// ProjectManagers name age location gender specialty favLanguage catchPhrase gradClassName favInstructor
+const albert = new ProjectManager({
+	"name":"Albert Einstein",
+	"age":"76",
+	"location":"Deceased",
+	"gender":"M",
+	"specialty":"Space Time",
+	"favLanguage":"Basic",
+	"catchPhrase":"The difference between stupidity and genious is that genious has it's limits",
+	"gradClassName":"CS11",
+	"favInstructor":"eyehole"
+});
+
+const kyle = new ProjectManager({
+	"name":"Kyle",
+	"age":"30",
+	"location":"Rick's Microverse",
+	"gender":"M",
+	"specialty":"Miniverse Citizen",
+	"favLanguage":"Ruby",
+	"catchPhrase":"That just sounds like slavery with ex... tra... steps.",
+	"gradClassName":"CS11",
+	"favInstructor":"goldenfold"
+});
+
+const xenon = new ProjectManager({
+	"name":"Dr. Xenon Bloom",
+	"age":"78",
+	"location":"Anatomy Park",
+	"gender":"M",
+	"specialty":"Running Anatomy Park",
+	"favLanguage":"JSON",
+	"catchPhrase":"The digestive tract is the body's evacuation route....get it?",
+	"gradClassName":"CS11",
+	"favInstructor":"rick"
+});
