@@ -23,8 +23,18 @@ class Person {
       }
       grade(Student, subject) {
           return `${Student.name} receives a perfect score on ${subject}`
-      } // MAKE SURE THIS WORKS
+      }
+      popQuiz(Student) {
+        let points = Math.random();
+        if (points > .5) {
+            return Student.grade += (points * 10);  
+        } else if (points <= .5) {
+            return Student.grade -= (points * 10);  
+        }
+      }
   }
+
+
   const chang = new Instructor({
     name: 'Chang',
     location: 'Greendale',
@@ -56,15 +66,23 @@ class Person {
           this.previousBackground = studentProps.previousBackground;
           this.className = studentProps.className;
           this.favSubjects = studentProps.favSubjects;
+          this.grade = studentProps.grade;
       }
-      listsSubjects() {
+        listsSubjects() {
           return this.favSubjects;
       }
-      PRAssignment(subject) {
+        PRAssignment(subject) {
           return `${this.name} has submitted a PR for ${subject}`
       }
-      sprintChallenge(subject) {
+        sprintChallenge(subject) {
         return `${this.name} has begun sprint challenge on ${subject}`
+      }
+        graduate () {
+        if (this.grade >= 70) {
+            return `Congrats, ${this.name}, you graduate!`
+        } else if (this.grade < 70) {
+            return `Sorry, ${this.name}, You don't graduate!`
+        }
     }
   }
 
@@ -75,16 +93,19 @@ class Person {
     gender: 'male',
     previousBackground: 'football',
     className: 'CS132',
-    favSubjects: ['Html', 'CSS', 'JavaScript']
+    favSubjects: ['Html', 'CSS', 'JavaScript'],
+    grade: 60,
   });
+
   const abed = new Student({
-    name: 'Troy',
+    name: 'Abed',
     location: 'Greendale',
-    age: 21,
+    age: 20,
     gender: 'male',
-    previousBackground: 'football',
-    className: 'CS132',
-    favSubjects: ['Ruby', 'Viedography', 'JavaScript']
+    previousBackground: 'Asbergers',
+    className: 'CS131',
+    favSubjects: ['Ruby', 'Videography', 'JavaScript'],
+    grade: 90
   });
 
 
@@ -97,8 +118,8 @@ class Person {
     standup (channel) {
         return `${this.name} announces to ${channel}, @channel stand up time!`
     }
-    debugsCode (student, subject) {
-        return `${this.name} debugs ${student.name}'s code on ${subject}`
+    debugsCode (Student, subject) {
+        return `${this.name} debugs ${Student.name}'s code on ${subject}`
     }
   }
 
@@ -127,10 +148,30 @@ class Person {
   });
 
   console.log(brian.speak());
-  console.log(brian.standup());
+  console.log(brian.standup('cs11'));
   console.log(chang.grade(troy, "science"))
   console.log(chang.grade(troy, "science"))
   console.log(troy.PRAssignment("JavaScript"))
   console.log(troy.speak());
   console.log(brian.debugsCode(troy, "JavaScript"))
   console.log(abed.listsSubjects())
+  console.log(troy.sprintChallenge("JavaScript"))
+  console.log(otherOne.specialty)
+  console.log(abed.favSubjects)
+  console.log(fred.catchPhrase)
+  console.log(fred.popQuiz(troy))
+  console.log(fred.popQuiz(abed))
+ console.log(troy.graduate())
+ console.log(fred.popQuiz(abed))
+ console.log(abed.graduate())
+
+
+
+
+
+
+
+
+
+  // STRECH PROBLEM
+
