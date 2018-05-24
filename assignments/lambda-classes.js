@@ -6,7 +6,7 @@ class Person {
         this.location = personStats.location;
         this.gender = personStats.gender;
     }
-    greet() {
+    speak() {
        return `Hello my name is ${this.name}, I am from ${this.location}`;
     }
 }
@@ -15,14 +15,22 @@ class Instructor extends Person {
     constructor(instructorStats) {
         super(instructorStats);
         this.specialty = instructorStats.specialty;
-        this.favLanguage = instructorStats.faveLanguage;
+        this.favLanguage = instructorStats.favLanguage;
         this.catchPhrase = instructorStats.catchPhrase;
     }
-    demo(string){
-        return `Today we are learning about ${this.name}`;
+    demo(subject){
+        return `Today we are learning about ${subject}`;
     } 
     grade(student, subject) {
-        return `${student.name} receives a perfect score on {subject}`;
+        return `${student.name} receives a perfect score on ${subject}`;
+    }
+    graduate(student) {
+        
+        if (this.grade > 70) {
+            return 'You have graduated!';
+        } else {
+            return 'You have failed!';
+        }
     }
 }
 
@@ -32,15 +40,16 @@ class Student extends Instructor {
         this.previousBackground = studentStats.previousBackground;
         this.className = studentStats.className;
         this.favSubjects = studentStats.favSubjects;
+        this.grade = studentStats.grade;
     }
     listsSubjects() {
         return this.favSubjects;
     }
     PRAssignment(subject) {
-        return `${student.name} has submitted a PR for {subject}`;
+        return `${this.name} has submitted a PR ${subject}`;
     }
-    sprintChallenge() {
-        return `${student.name} has submitted a PR for {subject}`;
+    sprintChallenge(subject) {
+        return `${this.name} has submitted a PR for {subject}`;
     }
 }
 
@@ -51,19 +60,73 @@ class ProjectManager extends Student {
         this.favInstructor = PMstats.favInstructor;
     }
     standUp(channel){
-        return `{name} announced to {channel}, @channel standup time!`;
+        return `${this.name} announced to ${channel}, @channel standup time!`;
     }
     debugsCode(student, subject) {
-        return `{name} debugs {student.name}'s code on {subject}`;
+        return `${this.name} debugs ${this.name}'s code on ${subject}`;
     }
 }
 
-const fred = new Person({
-    name: 'Fred',
-    location: 'Bedrock',
-    age: 37,
+const lily = new Person({
+    name: 'Lily',
+    location: 'Atlanta',
+    age: 23,
+    gender: 'female',
+    favLanguage: 'Java',
+    specialty: 'Back-end',
+    catchPhrase: `All about the back-end`
+  });
+
+const george = new Instructor({
+    name: 'George',
+    location: 'Salt Lake City',
+    age: 47,
     gender: 'male',
     favLanguage: 'JavaScript',
     specialty: 'Front-end',
-    catchPhrase: `Don't forget the homies`
+    catchPhrase: `Born and raised in Utah`
+});
+
+const mark = new Student({
+    name: 'Mark',
+    location: 'San Diego',
+    age: 21,
+    gender: 'male',
+    favLanguage: 'Python',
+    specialty: 'Back-end',
+    catchPhrase: `I hate Javascript`,
+    previousBackground: `Hack Reactor`,
+    className: 'HR14',
+    favSubjects: ['Math', 'Economics', 'Politics'],
+    grade: Math.floor(Math.random())
   });
+
+  const stephanie = new ProjectManager({
+    name: 'Stephanie',
+    location: 'Phoenix',
+    age: 29,
+    gender: 'female',
+    favLanguage: 'Go',
+    specialty: 'Full-stack',
+    catchPhrase: `Learning programming since I was 14`,
+    gradClassName: 'HR10',
+    favInstructor: 'Mike'
+  });
+
+  console.log(lily.name);
+  console.log(lily.speak());
+  console.log(george.favLanguage);
+  console.log(george.demo('math'));
+  console.log(george.grade(george, 'math'));
+  console.log(mark.className);
+  console.log(mark.favSubjects);
+  console.log(mark.PRAssignment('math'));
+  console.log(mark.sprintChallenge());
+  console.log(stephanie.gradClassName);
+  console.log(stephanie.standUp('random'));
+  console.log(stephanie.debugsCode('mark', 'economics'));
+
+  // Stretch
+
+
+  
