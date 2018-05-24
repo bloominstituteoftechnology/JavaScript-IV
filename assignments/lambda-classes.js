@@ -1,83 +1,80 @@
 // CODE here for your Lambda Classes
 
 class Person {
-    constructor(personInfo)
-    {
+    constructor(personInfo) {
         this.name = personInfo.name;
         this.age = personInfo.age;
         this.location = personInfo.location;
         this.gender = personInfo.gender;
     };
-    speak(){
+    speak() {
         return `Hello my name is ${this.name}, I am from ${this.location}`;
     }
 };
 
 class Instructor extends Person {
-    constructor(instInfo){
+    constructor(instInfo) {
         super(instInfo);
         this.specialty = instInfo.specialty;
         this.favLanguage = instInfo.favLanguage;
         this.catchPhrase = instInfo.catchPhrase;
     }
-    demo(subject){
+    demo(subject) {
         return `Today we are learning about ${subject}`;
     }
-    grade(Student, subject){
+    grade(Student, subject) {
         return `${Student.name} recieves a perfect score on ${subject}`;
     }
-    gradeAlter(Student){
-        let alterArr = ['+','-'];
+    gradeAlter(Student) {
+        let alterArr = ['+', '-'];
         let score = Math.round(Math.random() * 10);
         let gradeScore = alterArr[Math.round(Math.random())];
-        if(gradeScore === '+'){
+        if (gradeScore === '+') {
             return `${Student.name} is killin it with a ${Math.round(Student.grade += score)} in the class`;
-        }
-        else{
+        } else {
             return `${Student.name} aint doing so hot with a ${Math.round(Student.grade -= score)} in the class`;
-            
+
         }
-    
+
     }
 };
 
 class Student extends Person {
-    constructor(studInfo){
+    constructor(studInfo) {
         super(studInfo);
         this.previousBackround = studInfo.previousBackround;
         this.className = studInfo.className;
         this.favSubjects = studInfo.favSubjects;
         this.grade = studInfo.grade;
     }
-    listsSubjects(){
+    listsSubjects() {
         return this.favSubjects;
     }
-    PRAssignment(subject){
+    PRAssignment(subject) {
         return `${this.name} has submitted a PR for ${subject}`;
     }
-    sprintChallenge(subject){
+    sprintChallenge(subject) {
         return `${this.name} has begun sprint challenge on ${subject}`;
     }
-    graduate(){
-        if(this.grade >= 70){
+    graduate() {
+        if (this.grade >= 70) {
             return `${this.name} is ready to graduate!!!!!`
-        }
-        else{
+        } else {
             return `You have failed everyone who has ever cared about you`;
         }
     }
 }
 
-class ProjectManager extends Instructor{
-    constructor(projInfo){
+class ProjectManager extends Instructor {
+    constructor(projInfo) {
         super(projInfo);
         this.gradClassName = projInfo.gradClassName;
         this.favInstructor = projInfo.favInstructor;
     }
-    standUp(channel){
+    standUp(channel) {
         return `${this.name} announces to ${channel}, @channel standy times!`;
     }
-    debugsCode(Student,subject){
+    debugsCode(Student, subject) {
         return `${this.name} debugs ${Student.name}'s code on ${subject}`;
     }
 }
@@ -108,7 +105,7 @@ const libby = new Student({
     previousBackround: 'lion taming',
     className: 'CS11',
     favSubjects: 'Inline-block, lion taming',
-    grade : 70,
+    grade: 70,
 });
 const eric = new Student({
     name: 'eric',
@@ -118,7 +115,7 @@ const eric = new Student({
     previousBackround: 'hockey player',
     className: 'CS11',
     favSubjects: 'Javascript',
-    grade : 70,
+    grade: 70,
 });
 
 
