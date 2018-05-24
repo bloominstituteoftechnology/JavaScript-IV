@@ -53,7 +53,7 @@ class Instructor extends Person {
         //random the assignment grade from 1-10, then multiple with adjustment to get the correct sign.
         let point = Math.ceil(Math.random() * 10) * adjustment;
 
-        student.grade += point;
+        if((student.grade+point) >=0) student.grade += point;
 
         let statement = `${this.name} ${adjustment === 1 ? "add" : "subtract"} ${point} ${adjustment === 1 ? "to" : "from"} ${student.name}'s grade. ${student.name}'s grade is now ${student.grade}.`;
         console.log(statement);
