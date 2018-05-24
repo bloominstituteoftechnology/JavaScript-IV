@@ -2,39 +2,38 @@
 // Today your goal is to refactor all of this code to use ES6 Classes.
 // The console.log() statements should still return what is expected of them.
 
-function GameObject(options) {
-  this.createdAt = options.createdAt;
-  this.dimensions = options.dimensions;
+class GameObject{
+  constructor(options) {
+    this.createdAt = options.createdAt;
+    this.dimensions = options.dimensions;
+  }
+  destroy() {
+    return `${this.name} was removed from the game.`;
+  }
 }
 
-GameObject.prototype.destroy = function() {
-  return `Object was removed from the game.`;
-};
-
-function CharacterStats(characterStatsOptions) {
-  GameObject.call(this, characterStatsOptions);
-  this.hp = characterStatsOptions.hp;
-  this.name = characterStatsOptions.name;
+class CharacterStats extends GameObject {
+  constructor(characterStatsOptions) {
+    super(characterStatsOptions);
+    this.hp = characterStatsOptions.hp;
+    this.name = characterStatsOptions.name;
+  }
+  takeDamage() {
+    return `${this.name} took damage.`;
+  }
 }
 
-CharacterStats.prototype = Object.create(GameObject.prototype);
-
-CharacterStats.prototype.takeDamage = function() {
-  return `${this.name} took damage.`;
-};
-
-function Humanoid(humanoidOptions) {
-  CharacterStats.call(this, humanoidOptions);
-  this.faction = humanoidOptions.faction;
-  this.weapons = humanoidOptions.weapons;
-  this.language = humanoidOptions.language;
+class Humanoid extends CharacterStats {
+  constructor(humanoidOptions) {
+    super(humanoidOptions);
+    this.faction = humanoidOptions.faction;
+    this.weapons = humanoidOptions.weapons;
+    this.language = humanoidOptions.language;
+  }
+  greet() {
+    return `${this.name} offers a greeting in ${this.language}.`;
+  }
 }
-
-Humanoid.prototype = Object.create(CharacterStats.prototype);
-
-Humanoid.prototype.greet = function() {
-  return `${this.name} offers a greeting in ${this.language}.`;
-};
 
 const mage = new Humanoid({
   createdAt: new Date(),
@@ -88,3 +87,71 @@ console.log(archer.language); // Elvish
 console.log(archer.greet()); // Lilith offers a greeting in Elvish.
 console.log(mage.takeDamage()); // Bruce took damage.
 console.log(swordsman.destroy()); // Sir Mustachio was removed from the game.
+
+class Hero extends Humanoid {
+  constructor(args) {
+    super(args);
+    this.heroAttack = Math.floor((Math.random() * 7) + 1);
+  }
+}
+
+class Villian extends Humanoid {
+  constructor(args) {
+    super(args);
+    this.villianAttack = Math.floor((Math.random() * 5) + 1);
+  }
+}
+
+const assassin = new Hero({
+  createdAt: new Date(),
+  dimensions: {
+    length: 3,
+    width: 1,
+    height: 3
+  },
+  hp: 30,
+  name: 'Ryu',
+  faction: 'League of Assassins',
+  weapons: [
+    'Sword',
+    'Dagger'
+  ],
+  language: 'Common Toungue'
+});
+
+const darkLord = new Villian({
+  createdAt: new Date(),
+  dimensions: {
+    length: 4,
+    width: 2,
+    height: 5
+  },
+  hp: 40,
+  name: 'Voldemort',
+  faction: 'Evil',
+  weapons: [
+    'Dark Magic'
+  ],
+  language: 'Parseltongue'
+});
+
+function startEpicBattle(hero, villian) {
+  let round = 1;
+  while(hero.hp > 0 && villian.hp > 0) {
+    hero.hp -= villian.villianAttack();
+    villian.hp -= hero.heroAttack();
+    console.log(`Round: ${round++}`);
+    console.log(hero.takeDamage());
+    console.log(`${hero.name}'s HP: ${hero.hp}`);
+    console.log(villian.takeDamage());
+    console.log(`${villian.name}'s HP: ${villian.hp}`);
+  }
+  if (hero.hp > 0) {
+    return console.log(`${villian.destroy()} ${hero.name} defeated ${villian.name}!`)
+  } else if (hero.hp < 0 && villian.hp < 0) {
+    return console.log(`${hero.destroy()} ${villian.destroy()} Weird!`);
+  }
+  return console.log(`${hero.destroy()} ${hero.name} failed to defeat ${villian.name}!`)
+}
+
+startEpicBattle(assassin, darkLord);
