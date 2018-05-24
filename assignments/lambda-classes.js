@@ -96,7 +96,7 @@ const em = new Student ({
   previousbackground: "healthcare",
   className: "CS132",
   favSubjects: ["HTML", "CSS", "Javascript"],
-  grade: Math.floor((Math.Random() * 100), 0)
+  grade: 88
 });
 
 const Johnathan = new ProjectManager ({
