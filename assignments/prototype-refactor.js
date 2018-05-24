@@ -87,3 +87,79 @@ console.log(archer.language); // Elvish
 console.log(archer.greet()); // Lilith offers a greeting in Elvish.
 console.log(mage.takeDamage()); // Bruce took damage.
 console.log(swordsman.destroy()); // Sir Mustachio was removed from the game.
+
+class Villain extends Humanoid {
+  constructor(villain) {
+    super(villain);
+  }
+  bowShoot() {
+    return Math.floor((Math.random() * 6));
+  }
+}
+
+class Hero extends Humanoid {
+  constructor(hero) {
+    super(hero);
+  }
+  swordHit() {
+    return Math.floor((Math.random() * 6));
+  }
+}
+
+const robin = new Villain({
+  createdAt: new Date(),
+  dimensions: {
+    length: 2,
+    width: 2,
+    height: 3,
+  },
+  hp: 30,
+  name: 'Robin',
+  faction: 'Forest Kingdom',
+  weapons: [
+    'Bow',
+    'Dagger',
+  ],
+  language: 'Common tongue'
+});
+
+const ornn = new Hero({
+  createdAt: new Date(),
+  dimensions: {
+    length: 3,
+    width: 3,
+    height: 4,
+  },
+  hp: 30,
+  name: 'Ornn',
+  faction: 'The Round Table',
+  weapons: [
+    'Sword',
+    'Dagger',
+  ],
+  language: 'Common tongue'
+});
+
+function startBattle(hero, villain) {
+  while(hero.hp > 0 && villain.hp > 0) {
+    let currentHeroHp = hero.hp;
+    let currentVillainHp = villain.hp;
+    villain.hp -= hero.swordHit();
+    let previousVillainHp = villain.hp;
+    let villainDamageTaken = currentVillainHp - previousVillainHp; 
+    hero.hp -= villain.bowShoot();
+    let previousHeroHp = hero.hp;
+    let heroDamageTaken = currentHeroHp - previousHeroHp;
+    console.log(`${hero.name}'s HP: ${hero.hp} / Damage taken: ${heroDamageTaken}`);
+    console.log(`${villain.name}'s HP: ${villain.hp} / Damage taken: ${villainDamageTaken}\n`);
+  }
+  if(hero.hp <= 0 && villain.hp <= 0) {
+    console.log(`${hero.destroy()}\n${villain.destroy()}\n${hero.name} and ${villain.name} killed each other!`);
+  } else if(hero.hp <= 0) {
+    console.log(`${hero.destroy()}\n${villain.name} defeated ${hero.name} with ${villain.hp} hp left!`);
+  } else {
+    console.log(`${villain.destroy()}\n${hero.name} defeated ${villain.name} with ${hero.hp} hp left!`);
+  }
+}
+
+startBattle(ornn, robin);
