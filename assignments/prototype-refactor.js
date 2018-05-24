@@ -50,7 +50,7 @@ class Hero extends Humanoid {
   }
   parryChance() {
     let chanceArr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-    return this.parry = chanceArr[Math.round((Math.random() * 9) + 1)];
+    return this.parry = chanceArr[Math.round((Math.random() * 10))];
   }
   damageDealt(Villian) { //Villian takes damage
     Villian.hp -= this.specialDam;
