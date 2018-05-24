@@ -94,18 +94,18 @@ const josh = new ProjectManagers({
 });
 
 //Instructor tests
-console.log(turner.speak());
-console.log(turner.demo('HTML'));
-console.log(turner.grade(simon,'Javascript'));
+turner.speak();
+turner.demo('HTML');
+turner.grade(simon,'Javascript');
 
 
 //Student tests
-console.log(simon.listsSubjects());
-console.log(simon.PRAssignment('Javascript IV'));
-console.log(simon.sprintChallenge('Super Javascript'));
+simon.listsSubjects();
+simon.PRAssignment('Javascript IV');
+simon.sprintChallenge('Super Javascript');
 
 
 //PM tests
-console.log(josh.standUp('CS11-Josh'));
-console.log(josh.debugsCode(simon, 'HTML'));
+josh.standUp('CS11-Josh');
+josh.debugsCode(simon, 'HTML');
 
