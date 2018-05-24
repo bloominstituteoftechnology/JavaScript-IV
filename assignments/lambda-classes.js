@@ -74,6 +74,9 @@ class Student extends Person {
   graduate() {
     if(this.grade >= 70)
     { console.log(`${this.name} graduated!`); }
+    else {
+    { console.log(`${this.name} is not yet ready to graduate!`)}
+    }
   }
 
 }
@@ -117,7 +120,7 @@ let paul = new Student ({
 });
 
 let jimmy = new Student ({
-  name :"Jimmy Paige",
+  name :"Jimmy Page",
   age  : 72,
   location : "Manchester",
   gender : "M",
@@ -201,6 +204,4 @@ while(keepGoing)
     // Grade our random student with our random grader
     graders[graderIndex].changeGrade(students[studentIndex])
   }
-
-
 }
