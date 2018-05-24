@@ -5,6 +5,7 @@ class Person {
         this.name = personInfo.name;
         this.location = personInfo.location;
         this.gender = personInfo.gender;
+        this.age = age;
     }
     speak() {
         console.log(`Hello my name is ${this.name}, I am from ${this.location}`);
@@ -65,8 +66,8 @@ class Student extends Person {
 class ProjectManagers extends Instructor {
     constructor(pmInfo) {
         super(pmInfo);
-        this.gradClassName = this.pmInfo;
-        this.favInstructor = this.favInstructor;
+        this.gradClassName = pmInfo.gradClassName;
+        this.favInstructor = pmInfo.favInstructor;
     }
     standUp(channel) {
         console.log(`${this.name} announces to ${channel}, @channel standy times!`);
