@@ -1,3 +1,16 @@
+// #### Stretch Problem
+
+// * Extend the functionality of the Student by adding a prop called grade 
+//       and setting it equal to a number between 1-100.
+// * Now that our students have a grade build out a method on the Instructor
+//       (this will be used by _BOTH_ instructors and PM's) that will randomly add
+//       or subtract points to a student's grade. _Math.random_ will help.
+// * Add a graduate method to a student.
+//   * This method, when called, will check the grade of the student and see if they're ready to graduate from Lambda School
+//   * If the student's grade is above a 70% let them graduate! Otherswise go back to grading their assignments to increase their score.
+
+
+
 class Person {
     constructor(personFeatures){
     this.name = personFeatures.name;
@@ -23,8 +36,17 @@ class Instructor extends Person {
     }
     
     grade(student, subject){
-        return `${student.name} receives a perfect score on ${this.subject}`;
+        return `${student} receives a perfect score on ${subject}`;
     }
+
+    // random(student){
+    //     return Math.floor(Math.random() * Math.floor());
+    // }
+
+    // * Now that our students have a grade, build out a method on the Instructor
+//       (this will be used by _BOTH_ instructors and PM's) that will randomly add
+//       or subtract points to a student's grade. _Math.random_ will help.
+// * Add a graduate method to a student.
 }
 
 
@@ -35,12 +57,13 @@ class Instructor extends Person {
             this.favInstructor = PMFeatures.favInstructor;
         }
         standUp(channel){
-            return `${this.name} announces to ${channel.name}, @channel standy times!​`
+            return `${this.name} announces to ${channel}, @channel standy times!​`
         }
         debugsCode(student){
-            return `${this.name} debugs ${student.name}'s code on ${subject}` 
+            return `${this.name} debugs ${student}'s code on ${subject}` 
         }
     }
+
 
 
 class Student extends Person {
@@ -49,6 +72,7 @@ class Student extends Person {
         this.previousBackground = studentFeatures.previousBackground;
         this.className = studentFeatures.className;
         this.favSubjects = studentFeatures.favSubjects;
+        this.grade = studentFeatures.grade;
     }
     listsSubjects(){
         return `${this.favSubjects}`;
@@ -60,7 +84,11 @@ class Student extends Person {
     sprintChallenge(subject){
         return `${this.name} has begun sprint challenge on ${subject}`;
     }
+    // graduate(student, grade){
+    //     if ()
+    // }
 } 
+
 
 
 // Instructor Objects 
@@ -74,7 +102,6 @@ const josh = new Instructor({
     specialty: 'Web-Design and Front-End',
     catchPhrase: `Don't forget the homies`
   });
-
 
 // 2)
   const ryan = new Instructor({
@@ -97,6 +124,7 @@ const lebron = new Instructor({
     specialty: 'Everything?',
     catchPhrase: `Just a kid from Akron.`
   });
+
 // end Instructor Objects 
 
 
@@ -151,7 +179,8 @@ const alex = new Student({
     age: 24,
     gender: 'male',
     previousBackground: 'Journalism',
-    favSubjects: ['JS', 'CSS', 'HTML']
+    favSubjects: ['JS', 'CSS', 'HTML'],
+    grade: 100
   });
 
 // 2)
