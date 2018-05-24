@@ -28,7 +28,7 @@ function Humanoid(humanoidOptions) {
   this.faction = humanoidOptions.faction;
   this.weapons = humanoidOptions.weapons;
   this.language = humanoidOptions.language;
-}
+ }
 
 Humanoid.prototype = Object.create(CharacterStats.prototype);
 
