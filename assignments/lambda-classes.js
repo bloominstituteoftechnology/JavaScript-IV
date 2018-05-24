@@ -24,8 +24,15 @@ class Instructor extends Person {
     return `Today we are learning about ${subject}`;
   }
 
-  grade(student, subject) {
+  perfectGrade(student, subject) {
     return `${student.name} receives a perfect grade on ${subject}`;
+  }
+
+  grade(student) {
+    let points = Math.floor(Math.random() * (50 + 50) - 50);
+    console.log(`${student.name} had a ${student.grade} and it changed by ${points} points resulting in a ${student.grade + points}`);
+    student.grade = student.grade + points;
+    return student.grade;
   }
 }
 
@@ -35,7 +42,7 @@ class Student extends Person {
     this.previousBackground = props.previousBackground;
     this.className = props.className;
     this.favSubjects = props.favSubjects;
-    this.grade = Math.random() * 100;
+    this.grade = Math.floor(Math.random() * 100);
   }
 
   listsSubjects(subjects) {
@@ -48,6 +55,14 @@ class Student extends Person {
 
   sprintChallenge(subject) {
     return `${this.name} has begun sprint challenge on ${subject}`
+  }
+
+  graduate() {
+    if (this.grade >= 70) {
+      return `${this.name} has graduated!`;
+    } else {
+      return `Student needs furhter grading`;
+    }
   }
 
 
@@ -80,5 +95,20 @@ const patrick = new ProjectManagers({
   "gradClassName": "CS2 ?",
   "favInstructor": "Josh"
 });
+
+const themysgandra = new Student({
+  "name": "Themysgandra",
+  "age": 102,
+  "gender": "Non-comforming",
+  "location": "Truth or Consequences, New Mexico",
+  "className": "CS2030",
+  "favSubjects": "Node.js, Express, MongoDB"
+})
 console.log(patrick);
 console.log(patrick.standUp("slack184"));
+console.log(themysgandra);
+console.log(patrick.grade(themysgandra));
+console.log(patrick.grade(themysgandra));
+console.log(patrick.grade(themysgandra));
+console.log(patrick.grade(themysgandra));
+console.log(themysgandra.graduate());
