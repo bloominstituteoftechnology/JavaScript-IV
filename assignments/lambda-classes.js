@@ -68,3 +68,60 @@ class ProjectManager extends Instructor {
     }
 }
 
+const fred = new Instructor({
+    name: 'Fred',
+    location: 'Bedrock',
+    age: 37,
+    gender: 'male',
+    favLanguage: 'JavaScript',
+    specialty: 'Front-end',
+    catchPhrase: `Don't forget the homies`
+  });
+
+const annie = new Instructor({
+    name: 'Annie',
+    location: 'Utah',
+    age: 31,
+    gender: 'female',
+    favLanguage: 'JavaScript',
+    specialty: 'Back-end',
+    catchPhrase: `Jahvascript, jah mon.`
+  });
+
+const cathy = new Student({
+    name: 'Cathy',
+    location: 'Texas',
+    age: 24,
+    gender: 'female',
+    previousBackground: 'Marketing',
+    className: 'CS7',
+    favSubjects: ['React', 'Node', 'Javascript']
+});
+
+const joe = new Student({
+    name: 'Joe',
+    location: 'Minnesota',
+    age: 41,
+    gender: 'male',
+    previousBackground: 'Healthcare',
+    className: 'CS8',
+    favSubjects: ['Bootstrap', 'CSS', 'LESS']
+});
+
+const allen = new ProjectManager({
+    name: 'Allen',
+    location: 'Florida',
+    age: 46,
+    gender: 'male',
+    favInstructor: 'Fred',
+    gradClassName: 'CS4',
+});
+
+const julia = new ProjectManager({
+    name: 'Julia',
+    location: 'California',
+    age: 27,
+    gender: 'female',
+    favInstructor: 'Annie',
+    gradClassName: 'CS2',
+});
