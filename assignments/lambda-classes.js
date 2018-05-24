@@ -28,6 +28,12 @@ class Instructor extends Person{
   grade(student, subject){
     return `${student.name} receives a perfect score on ${subject}`;
   }
+ 
+  studentGrade(student){
+    let rounded = (Math.round(Math.random() * 20));
+    student.grade = student.grade + rounded;
+    return `${this.name} has added ${rounded} grades to ${student.name}`;
+  }
 }
 
 class Student extends Person{
@@ -36,6 +42,7 @@ class Student extends Person{
     this.previousBackground = studentAttributes.previousBackground;
     this.className = studentAttributes.className;
     this.favSubjects = studentAttributes.favSubjects;
+    this.grade = 50;
   }
 
   listsSubjects(){
@@ -149,3 +156,4 @@ console.log(hermione. listsSubjects());//Hermione's Favorite subjects are: Html,
 console.log(harry.PRAssignment("Java"));//Harry has submitted a PR for Java
 console.log(ron.standUp('cs_11'));//Ron announces to cs_11, @channel standy times!
 console.log(dean.debugsCode(harry, "JavaScript"));//Dean debugs Harry's code on JavaScript
+console.log(snape.studentGrade(hermione)); //Snape has added 9 grades to Hermione
