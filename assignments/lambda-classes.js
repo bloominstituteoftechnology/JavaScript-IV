@@ -1,5 +1,5 @@
 
-class Person() {
+class Person {
   constructor(attributes) {
     this.name = attributes.name;
     this.age = attributes.age;
@@ -11,7 +11,7 @@ class Person() {
   }
 }
 
-class Instructor extends Person(instructorAttributes) {
+class Instructor extends Person {
   constructor(instructorAttributes) {
     super(instructorAttributes);
     this.specialty = instructorAttributes.specialty;
@@ -26,7 +26,7 @@ class Instructor extends Person(instructorAttributes) {
   }
 }
 
-class ProjectManager extends Instructor(pmAttributes) {
+class ProjectManager extends Instructor {
   constructor(pmAttributes) {
     super(pmAttributes);
     this.gradClassName = pmAttributes.gradClassName;
@@ -40,7 +40,7 @@ class ProjectManager extends Instructor(pmAttributes) {
   }
 }
 
-class Student extends Person(studentAttributes) {
+class Student extends Person {
   constructor(studentAttributes) {
     super(studentAttributes);
     this.previousBackground = studentAttributes.previousBackground;
@@ -57,3 +57,26 @@ class Student extends Person(studentAttributes) {
     return `${this.name} has begun spring challenge on ${subject}`;
   }
 }
+
+const ciara = new Student({
+  name: "Ciara",
+  age: 31,
+  location: 'NJ',
+  gender: 'F',
+  previousBackground: 'Web Developer',
+  className: 'CS11',
+  favSubjects: ['HTML', 'CSS', 'Python', 'Data Science']
+});
+
+const jon = new Student({
+  name: "Jon",
+  age: 29,
+  location: 'WY',
+  gender: 'M',
+  previousBackground: 'Office Assistant',
+  className: 'CS18',
+  favSubjects: ['JavaScript', 'Ruby on Rails', 'MySQL']
+});
+
+console.log(ciara);
+console.log(jon);
