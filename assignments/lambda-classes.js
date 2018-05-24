@@ -31,5 +31,27 @@ class ProjectManagers extends Instructor {
     this.gradClassName = pmAttributes.gradClassName;
     this.favInstructor = pmAttributes.favInstructor;
   }
-    standUp()
+    standUp(channel) {
+      console.log(`${this.name} announces to ${channel}, @channel standy times!​​​​​`)
+    }
+    debugsCode(student, subject) {
+      console.log(`${this.name} debugs ${student.name}'s code on ${subject}`)
+    }
+}
+
+class Student extends Person {
+  constructor(studentAttributes) {
+    super(attributes);
+    this.previousBackground = studentAttributes.previousBackground;
+    this.className = studentAttributes.className;
+    this.favSubjects = studentAttributes.favSubjects;
+  }
+    listsSubjects() {
+      console.log(favSubjects.join(", "));
+    }
+    PRAssignment(subject) {
+      console.log(`${this.name} has submitted a PR for ${subject}`);
+    }
+}   sprintChallenge(subject) {
+      console.log(`${this.name} has begun the sprint challenge on ${subject}`);
 }
