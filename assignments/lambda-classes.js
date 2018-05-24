@@ -33,7 +33,11 @@ class Instructor extends Person {
     grade(student, subject) {
         return `${student.name} receives a perfect score on ${subject}`;
     }
-
+    gradeRevision(student) {
+        student.grade = student.grade + Math.floor((Math.random() * 50) + -50);
+        return student.grade;
+    }
+    
 }
 
 class Student extends Person {
@@ -46,6 +50,7 @@ class Student extends Person {
         this.previousBackground = studentAttributes.previousBackground;
         this.className = studentAttributes.className;
         this.favSubjects = studentAttributes.favSubjects;
+        this.grade = studentAttributes.grade;
     }
     listsSubjects() {
         return this.favSubjects;
@@ -56,6 +61,18 @@ class Student extends Person {
     sprintChallenge(subject, student) {
         return `${student.name} has begun sprint challenge on ${subject}`;
     }
+    graduate(instructor) {
+        // for (let i = 0; i<100; i++) {}
+        if (this.grade > 70) {
+            return "You are ready to graduate from Lambda School";
+        }
+        else if (this.grade <= 70) {
+            // this.grade = instructor.gradeRevision(this);
+            return this.graduate(instructor);
+        }
+               
+    }
+
 
 }
 
@@ -93,10 +110,24 @@ const bobby = new Student({
     gender: "m",
     previousBackground: "high school student",
     className: "CS11",
-    favSubjects: "python"
+    favSubjects: "python",
+    grade: 90
   })
 
-  console.log(bobby.name)
+  console.log(bobby.name);
+  console.log(bobby.grade);
+
+  const sam = new Student({
+    name: "same",
+    age: "25",
+    location: "California",
+    gender: "m",
+    previousBackground: "glass blower",
+    className: "CS11",
+    favSubjects: "redux",
+    grade: 90
+  })
+
 
 
 const vin = new Instructor({
@@ -113,7 +144,10 @@ const vin = new Instructor({
   console.log(vin.speak());
   console.log(vin.demo('machine code'));
   console.log(vin.grade(bobby, '?' ));
-
+  console.log(vin.gradeRevision(bobby));
+  
+  console.log(bobby.graduate(vin));
+  console.log(bobby.grade);
 
   const alfred = new Instructor({
     name: 'alfred',
@@ -129,7 +163,9 @@ const vin = new Instructor({
   console.log(alfred.speak());
   console.log(alfred.demo('bootstrap'));
   console.log(alfred.grade(bobby, bobby.favSubjects ));
+  console.log(alfred.gradeRevision(sam));
 
+  console.log(sam.grade);
 
   const samantha = new Student({
     name: "samantha",
@@ -138,7 +174,8 @@ const vin = new Instructor({
     gender: "f",
     previousBackground: "journalist",
     className: "CS11",
-    favSubjects: ["html/css", "js", "ruby"]
+    favSubjects: ["html/css", "js", "ruby"],
+    grade: 88,
   })
 
   console.log(Object.entries(samantha));
@@ -155,7 +192,8 @@ const vin = new Instructor({
     gender: "m",
     previousBackground: "wood-working",
     className: "CS11",
-    favSubjects: ["JavaScript", "PHP"]
+    favSubjects: ["JavaScript", "PHP"],
+    grade: 77,
   })
 
   console.log(Object.entries(tom));
