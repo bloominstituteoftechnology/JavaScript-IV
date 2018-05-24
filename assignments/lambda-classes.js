@@ -58,38 +58,83 @@ class Instructor extends Person {
         this.catchPhrase = props.catchPhrase;
     }
     demo(subject) {
-      return `Today we are learning about ${subject}`;
+      console.log(`Today we are learning about ${subject}`);
     }
     grade(student, subject) {
-       return `${student.name} receives a perfect score on ${subject}`;
+       console.log(`${student.name} receives a perfect score on ${subject}`);
     }
 }
 console.log(Instructor.prototype.demo('javascript'));
 console.log(Instructor.prototype.grade({name:'Josh'}, 'javascript'));
 
-####
-Student
+const josh = new Instructor({
+    name: 'josh',
+    gender: 'M',
+    previousBackground: 'tech support',
+    className: 'cs1',
+    specialty: 'vanilla js',
+    favLanguage: 'javascript',
+    catchPhrase: 'Oh SNAP',
+}); //?
 
-    *
-    Now we need some students!
-    *
-    Student uses the same attributes that have been set up by Person *
-    Student has the following unique props:
-    *
-    `previousBackground`
-i.e.what the Student used to do before Lambda School *
-        `className`
-    i.
-    e.CS132 *
-    `favSubjects`.i.e.an array of the student 's favorite subjects ['
-Html ', '
-CSS ', '
-JavaScript '] *
-    Student has the following methods:
-    *
-    `listsSubjects`
-a method that logs out all of the student 's favoriteSubjects one by one. *
-    `PRAssignment`
-a method that receives a subject as an argument and logs out that the `student.name has submitted a PR for {subject}` *
-    `sprintChallenge`
-similar to PRAssignment but logs out `student.name has begun spring challenge on {subject}`
+
+// ####
+// Student
+
+//     *
+//     Now we need some students!
+//     *
+//     Student uses the same attributes that have been set up by Person *
+//     Student has the following unique props:
+//     *
+//     `previousBackground`
+// i.e.what the Student used to do before Lambda School *
+//         `className`
+//     i.
+//     e.CS132 *
+//     `favSubjects`.i.e.an array of the student 's favorite subjects ['
+// Html ', '
+// CSS ', '
+// JavaScript '] *
+//     Student has the following methods:
+//     *
+//     `listsSubjects`
+// a method that logs out all of the student 's favoriteSubjects one by one. *
+//     `PRAssignment`
+// a method that receives a subject as an argument and logs out that the `student.name has submitted a PR for {subject}` *
+//     `sprintChallenge`
+// similar to PRAssignment but logs out `student.name has begun spring challenge on {subject}`
+
+class Student extends Person {
+    constructor(props) {
+        super(props);
+        this.previousBackground = props.previousBackground;
+        this.className = props.className;
+        this.favSubjects = props.favSubjects;
+    }
+    listsSubjects(favSubjects) {
+        let subjectList = this.favSubjects.forEach(subject => {
+           console.log(subject);
+       });
+    }
+    PRAssignment(subject) {
+        `${this.name} has submitted a PR for ${subject}`; //?
+    }
+     sprintChallenge(subject) {
+         `${this.name} has begun sprint challenge on ${subject}`; //?
+     }
+
+}
+
+const jj = new Student(
+    {name: 'josh', 
+    gender: 'M', 
+    previousBackground: 'nurse', 
+    className: 'cs11', 
+    favSubjects: ['javascript', 'python'], 
+}); //?
+
+jj.listsSubjects();
+jj.PRAssignment('javascript'); 
+jj.sprintChallenge('python');
+
