@@ -58,6 +58,14 @@ class Student extends Person {
     sprintChallenge(subject){
         return `${this.name} has begun sprint challenge on ${subject}`;
     }
+    graduate(){
+        if(this.grade >= 70){
+            return `${this.name} is ready to graduate!!!!!`
+        }
+        else{
+            return `You have failed everyone who has ever cared about you`;
+        }
+    }
 }
 
 class ProjectManager extends Instructor{
@@ -100,7 +108,7 @@ const libby = new Student({
     previousBackround: 'lion taming',
     className: 'CS11',
     favSubjects: 'Inline-block, lion taming',
-    grade : 90,
+    grade : 70,
 });
 const eric = new Student({
     name: 'eric',
@@ -110,7 +118,7 @@ const eric = new Student({
     previousBackround: 'hockey player',
     className: 'CS11',
     favSubjects: 'Javascript',
-    grade : 90,
+    grade : 70,
 });
 
 
@@ -137,3 +145,5 @@ console.log(ben.standUp('cs11'));
 console.log(ben.debugsCode(libby, 'classes'));
 console.log(josh.gradeAlter(libby));
 console.log(josh.gradeAlter(eric));
+console.log(libby.graduate());
+console.log(eric.graduate());
