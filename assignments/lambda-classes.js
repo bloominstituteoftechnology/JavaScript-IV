@@ -19,10 +19,10 @@ class Instructor extends Person {
         this.catchPhrase = instructorAttributes.catchPhrase;
     }
     demo (subject) {
-        return `Today we are learning about ${this.subject}`;
+        return `Today we are learning about ${subject}`;
     }
     grade (student, subject) {
-       return  `${student.name} receives a perfect score on {subject}`;
+       return  `${student.name} receives a perfect score on ${subject}`;
     }
 } //instructor
  class Student extends Person {
@@ -36,7 +36,7 @@ class Instructor extends Person {
          return this.favSubjects;
      }
      PRAssignment (subject) {
-return "student.name has submitted a PR for {subject}";
+return `${this.name} has submitted a PR for ${subject}`;
      }
      
  } //students
@@ -57,19 +57,30 @@ debugsCode (student, subject) {
     name: "Steve",
     age: 30,
     location: 'NY',
-    faction: 'Mage Guild',
     gender: "Male",
     specialty: 'redux',
-    favLanguage: "CSS",
+    favLanguage: "HTML",
     catchPhrase: "No man left behind"
+  });
+  const bucky = new Student({
+    name: "Bucky",
+    age: 25,
+    location: 'NY',
+    gender: "Male",
+    previousBackground: 'Blackops',
+    className: "Bootcamp",
+    favSubjects: ["Wakanda","Civil War"]
   });
  console.log(steverogers.age)
   console.log(steverogers.greet());
+  console.log(steverogers.demo("math"));
+  console.log(steverogers.grade(bucky,"math"));
+  console.log(bucky.favSubjects)
 //  console.log(brian.standup('cs11'));
 //  console.log(chang.grade(troy, "science"))
 //  console.log(chang.grade(troy, "science"))
-//  console.log(troy.PRAssignment("JavaScript"))
+  console.log(bucky.PRAssignment("JavaScript"))
 //  console.log(troy.speak());
 //  console.log(brian.debugsCode(troy, "JavaScript"))
-//  console.log(abed.listsSubjects())
+  console.log(bucky.listsSubjects())
 //  console.log(troy.sprintChallenge("JavaScript"))
