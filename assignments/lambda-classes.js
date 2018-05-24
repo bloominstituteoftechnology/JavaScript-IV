@@ -19,10 +19,10 @@ class Instructor extends Person {
         this.catchPhrase = education.Catchphrase;
     }
     demo(subject) {
-        return `Today we are learning about` + subject;
+        return `Today we are learning about ` + subject;
     }
     grade(student, subject) {
-        return student + `receives a perfect score on` + subject;
+        return student + ` receives a perfect score on ` + subject;
     }
 }
 
@@ -34,27 +34,28 @@ class Student extends Person {
         this.favSubjects = learn.favSubjects;
     }
     listsSubjects() {
+        
         return this.favSubjects;
     }
     prAssignmant(subject) {
-        return student.name + `has submitted a PR for ` + subject;
+        return `${this.name} has submitted a PR for ` + subject;
     }
     sprintChallenge(subject) {
-        return student.name + `has begun sprint challenge on ` + subject;
+        return `${this.name} has begun sprint challenge on ` + subject;
     }
 }
 
 class ProjectManager extends Instructor {
     constructor(pm) {
-        super(ta)
-        this.gradClassName = ta.gradClassName;
-        this.favInstructor = ta.favInstructor;
+        super(pm)
+        this.gradClassName = pm.gradClassName;
+        this.favInstructor = pm.favInstructor;
     }
     standUp(channel) {
-        return `${this.name} announces to` + channel + `@channel standy times!`;
+        return `${this.name} announces to ` + channel + ` @channel standy times!`;
     }
     debugsCode(student, subject) {
-        return `${this.name} debugs` + student + `'s code on` + subject;
+        return `${this.name} debugs ` + student + `'s code on ` + subject;
     }
 }
 
@@ -97,7 +98,7 @@ const oldGregg = new ProjectManager({
     gender: 'female',
     specialty: 'water colors',
     favLanguage: 'love',
-    catchPhrase: `I'm old gregggg!`
+    catchPhrase: 'Im old gregggg!',
     gradClassName: 'cs1',
     favInstructor: 'Sylvester'
 });
@@ -121,3 +122,18 @@ const oprah = new Student({
     className: 'cs1234',
     favSubjects: ['books', 'celebs', "giveaways"]
 });
+
+console.log(josh.specialty);
+console.log(barack.age)
+console.log(haywood.gradClassName)
+console.log(oldGregg.specialty)
+console.log(jacob.location)
+console.log(oprah.previousBackground)
+console.log(josh.speak())
+console.log(barack.demo("stuff"))
+console.log(josh.grade(jacob.name, "JavaScript"))
+console.log(jacob.listsSubjects())
+console.log(oprah.prAssignmant("politics"))
+console.log(jacob.sprintChallenge("JavaScript"))
+console.log(haywood.standUp("cs11.haywood"))
+console.log(oldGregg.debugsCode(oprah.name, "water colors"))
