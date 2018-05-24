@@ -243,12 +243,12 @@ console.log('testing project manager');
 console.log('=========================================');
 // JohnathanJ
 console.log(JohnathanJ);
-console.log(JohnathanJ.standUp('#cs10_Jeff'));
+console.log(JohnathanJ.standUp('@SamK'));
 console.log(JohnathanJ.debugsCode(SamK, 'JavaScript'));
 console.log(JohnathanJ.gradeStudent(SamK));
 console.log('\n')
 // BrianD
 console.log(BrianD);
-console.log(BrianD.standUp('#cs10_BrianD'));
+console.log(BrianD.standUp('@JackV'));
 console.log(BrianD.debugsCode(SeanC, 'nothing, he\'s doing great!'));
 console.log(BrianD.gradeStudent(JosephS));
