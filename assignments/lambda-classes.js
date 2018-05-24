@@ -44,7 +44,7 @@ class Student extends Person {
     }
 }
 
-class ProjectManagers extends Instructors {
+class ProjectManager extends Instructor {
     constructor(pm) {
         super(ta)
         this.gradClassName = ta.gradClassName;
@@ -64,16 +64,60 @@ const josh = new Instructor({
     location: 'Utah',
     gender: 'male',
     specialty: 'All things',
-    favLanguage: 'JavaScript',
+    favLanguage: 'CSS',
     catchPhrase: `Waka Waka`
 });
 
-const josh = new Instructor({
-    name: 'Josh',
-    age: 35,
-    location: 'Utah',
+const barack = new Instructor({
+    name: 'Barack',
+    age: 59,
+    location: 'Washington',
     gender: 'male',
-    specialty: 'All things',
+    specialty: 'politics',
+    favLanguage: 'html',
+    catchPhrase: `yes we can`
+});
+
+const haywood = new ProjectManager({
+    name: 'Haywood',
+    age: 28,
+    location: 'Texas',
+    gender: 'male',
+    specialty: 'Managing Projects',
     favLanguage: 'JavaScript',
-    catchPhrase: `Waka Waka`
+    catchPhrase: `let me know if youn need help`,
+    gradClassName: 'cs9',
+    favInstructor: 'Arnold'
+});
+
+const oldGregg = new ProjectManager({
+    name: 'Gregg',
+    age: 40,
+    location: 'His Waters',
+    gender: 'female',
+    specialty: 'water colors',
+    favLanguage: 'love',
+    catchPhrase: `I'm old gregggg!`
+    gradClassName: 'cs1',
+    favInstructor: 'Sylvester'
+});
+
+const jacob = new Student({
+    name: 'Jacob',
+    age: 29,
+    location: 'Oregon',
+    gender: 'male',
+    previousBackground: 'wind turbines',
+    className: 'cs11',
+    favSubjects: ['html', 'CSS', "JavaScript"]
+});
+
+const oprah = new Student({
+    name: 'Oprah',
+    age: 62,
+    location: 'Los Angeles',
+    gender: 'female',
+    previousBackground: 'talk shows',
+    className: 'cs1234',
+    favSubjects: ['books', 'celebs', "giveaways"]
 });
