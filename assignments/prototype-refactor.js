@@ -10,8 +10,8 @@ class GameObject {
   destroy() {
    return `Object was removed from the game.`;
 }
-
-class CharacterStats extends GameObject {
+}
+  class CharacterStats extends GameObject {
   constructor(characterStatsOptions) {
   super(characterStatsOptions);
   this.hp = characterStatsOptions.hp

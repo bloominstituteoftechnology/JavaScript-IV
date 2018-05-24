@@ -8,7 +8,7 @@ class Person {
 }
     speak(){
         console.log(`Hello my name is ${this.name}, I am from ${this.location}`);
-    }
+}
 
 }
 
@@ -21,15 +21,15 @@ class Instructor extends Person {
     }
 
     demo(subject){
-        console.log(`Today we are learning about ${subject}`);
+        return `Today we are learning about ${subject}`;
     }
     grade(student, subject){
-        console.log(`${student.name} receives a perfect score on ${subject}`);
+        return `${student} receives a perfect score on ${subject}`;
     }
-    gradeAdjust(min, max){
+    gradeChange(min, max){
         min = Math.ceil(min);
         max = Math.floor(max);
-        return Math.floor(Math.random(student.grade) * (max - min + 1)) + min;
+        return Math.floor(Math.random(this.grade) * (max - min + 1)) + min;
     }
 }
 class Student extends Person {
@@ -40,30 +40,29 @@ class Student extends Person {
         this.favSubjects = traits.favSubjects
     }
 
-    listsSubjects(){
-        for(i=0;i<favSubjects.length;i++){
-            console.log(favSubjects);
+    listsSubjects() {
+        for (let i = 0; i < this.favSubjects.length; i++) {
+          console.log(`${this.name} loves ${this.favSubjects[i]}`);
     }
     }
     PRAssignment(subject){
-        console.log(`${student.name} has submitted a PR for ${subject}`);
+        return `${this.name} has submitted a PR for ${subject}`;
     }
     sprintChallenge(subject){
-        console.log(`${student.name} has begun spring challenge on ${subject}`);
+        return `${this.name} has begun spring challenge on ${subject}`;
     }
-    grade(){
-        console.log(Math.floor(Math.random() * 100) + 1);
+    gradeAdjust(){
+        return Math.floor(Math.random() * 100) + 1;
     }
     graduate(){
-        if (student.grade > 70){
-            console.log(`Congratulations ${student.name}, you graduated!`)
+        if (this.grade > 70){
+            console.log(`Congratulations ${this.name}, you graduated!`)
         }
         else {
-            grade(student.name) 
+           console.log(this.grade);
         }
     }
 }
-
 class ProjectManagers extends Instructor {
     constructor(descriptors){
         super(descriptors);
@@ -72,20 +71,94 @@ class ProjectManagers extends Instructor {
     }
 
     standup(channel){
-        console.log(`${name} announces to ${channel}, @channel standy times!`);
+        return `${this.name} announces to ${channel}, @channel standy times!`;
     }
     debugsCode(student, subject){
-        console.log(`${name} debugs ${student.name}'s code on ${subject}`)
+        return `${this.name} debugs ${student}'s code on ${subject}`;
     }
 }
 
-console.log()
-console.log()
-console.log()
-console.log()
-console.log()
-console.log()
-console.log()
-console.log()
-console.log()
-console.log()
+const Mike = new Student ({
+    name: 'Mike',
+    age: 28,
+    location: 'Philadelphia, PA',
+    gender: 'M',
+    previousBackground: 'Covert Ops',
+    className: 'CS 11',
+    favSubjects:['JavaScript', 'CSS', 'Python']
+});
+const Todd = new Student ({
+    name: 'Todd',
+    age: 34,
+    location: 'Albequerque, NM',
+    gender: 'M',
+    previousBackground: 'Accountant',
+    className: 'CS 10',
+    favSubjects:['Node', 'C++', 'Applied Cryptography']
+});
+
+const Darrel = new Instructor ({
+    name: 'Darrel',
+    age: 41,
+    location: 'Austin, TX',
+    gender: 'M',
+    specialty: 'Applied JavaScript',
+    favLanguage: 'Rust',
+    catchPhrase: 'Flippin heck!'
+});
+
+const Tracy = new Instructor ({
+    name: 'Tracy',
+    age: 37,
+    location: 'Seattle, WA',
+    gender: 'F',
+    specialty: 'React',
+    favLanguage: 'Solidity',
+    catchPhrase: 'By golly!' 
+});
+
+const Cheryl = new ProjectManagers ({
+    name: 'Cheryl',
+    age: 51,
+    location: 'Buffalo, NY',
+    gender: 'F',
+    specialty: 'Node',
+    favLanguage: 'Python',
+    catchPhrase: 'Bring the ruckus!',
+    gradClassName: 'Aristocrats',
+    favInstructor: 'Patrick'
+});
+
+const David = new ProjectManagers ({
+    name: 'David',
+    age: 70,
+    location: 'Denver, CO',
+    gender: 'M',
+    specialty: 'R',
+    favLanguage: 'JavaScript',
+    catchPhrase: 'What was that?',
+    gradClassName: 'Gentlefolks',
+    favInstructor: 'Josh'
+});
+
+
+console.log(Mike.previousBackground);
+console.log(Todd.className);
+console.log(Mike.favSubjects);
+console.log(Todd.listsSubjects()); //?
+console.log(Mike.PRAssignment('value'));
+console.log(Mike.sprintChallenge('whatever')); 
+console.log(Darrel.catchPhrase); 
+console.log(Darrel.specialty);
+console.log(Tracy.favLanguage);
+console.log(Tracy.demo('C'));
+console.log(Tracy.grade('Jeff', 'C++'));
+console.log(Cheryl.favInstructor); //?
+console.log(Cheryl.demo('thing')); 
+console.log(Cheryl.grade('Cheryl' ,'R')); //?
+console.log(David.gradClassName);
+console.log(David.standup('CS11'));
+console.log(David.debugsCode('Alan', 'HTML'));
+console.log(Mike.gradeAdjust());
+console.log(Todd.graduate());
+console.log(Darrel.gradeChange(70,80));
