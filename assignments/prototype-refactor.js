@@ -67,7 +67,7 @@ class Villian extends Humanoid{
     this.metamorph = villOptions.metamorph;
   }
   damageDealt(Hero){
-    if(Hero.parry < 5){      //Hero takes damage
+    if(Hero.parry <= 4){      //Hero takes damage
     Hero.hp -= this.specialDam;
     console.log(`${Hero.name} has taken ${this.specialDam} damage!`);
     return Hero.hp;
