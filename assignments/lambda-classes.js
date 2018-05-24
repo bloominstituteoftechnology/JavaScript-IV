@@ -7,7 +7,7 @@ class Person {
         this.gender = attributes.gender;
     }
     greet () {
-        return 'Hello my name is Fred, I am from Bedrock'
+        return `Hello my name is ${this.name}, I am from ${this.location}`;
     }
 } // parent
 
@@ -21,7 +21,7 @@ class Instructor extends Person {
     demo (subject) {
         return `Today we are learning about ${this.subject}`;
     }
-    grade (subject, "subject") {
+    grade (subject, subject) {
        return  `${student.name} receives a perfect score on {subject}`;
     }
 } //instructor
@@ -41,6 +41,26 @@ return "student.name has submitted a PR for {subject}";
      
  } //students
  class Project_Manager extends Student {
-
+constructor (project_managerAttributes){
+    super(project_managerAttributes);
+    this.gradClassName = project_managerAttributes.gradClassName;
+    this.favInstructor= project_managerAttributes.favInstructor;
+}
+standUp (slack_channel) {
+    return `${name} announces to ${channel}, @channel standup times!`
+}
+debugsCode (student, subject) {
+    return `${name} debugs ${student.name}'s code on {subject}`
+}
  }
-
+ const steverogers = new Instructor({
+    name: "Steve",
+    age: 30,
+    location: 'NY',
+    faction: 'Mage Guild',
+    gender: "Male",
+    specialty: 'redux',
+    favLanguage: "CSS",
+    catchPhrase: "No man left behind"
+  });
+  console.log(steverogers)
