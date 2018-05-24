@@ -24,6 +24,9 @@ class Instructor extends Person { // Inheriting from the Person class
     grade(student, subject) {
         return (`${student.name} receives a perfect score on ${subject}`)
     }
+    educate(student) {
+       student.grade = Math.floor(Math.random() * 101);
+    }
 }
 
 class Student extends Person { // Inheriting from Person, not from Instructor. 
@@ -32,6 +35,7 @@ class Student extends Person { // Inheriting from Person, not from Instructor.
         this.previousBackground = obj.previousBackground;
         this.className = obj.className;
         this.favSubjects = obj.favSubjects;
+        this.grade = Math.floor(Math.random() * 101);
     }
     listSubjects() {
         for (let i = 0; i < this.favSubjects.length; i++) {
@@ -43,6 +47,13 @@ class Student extends Person { // Inheriting from Person, not from Instructor.
     }
     sprintChallenge(subject) {
         return (`${this.name} has begun spring challenge on ${subject}`)
+    }
+    graduate() {
+        if (this.grade > 70) {
+            return `Congrats! ${this.name} is graduated now!`;
+        } else {
+            return `Please get graded again by instructors.`;
+        }
     }
 }
 
@@ -132,3 +143,8 @@ console.log(ted.favInstructor)
 console.log(ted.gradClassName)
 console.log(ted.standUp('#general'))
 console.log(ted.debugsCode(hannah, 'math'))
+console.log(hannah.graduate());
+console.log(ted.educate(hannah))
+console.log(hannah.graduate())
+
+// Stretch Problem
