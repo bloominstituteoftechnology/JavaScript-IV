@@ -10,7 +10,6 @@ class Person {
     return `Hello my name is ${this.name}, I am from ${this.location}.`
   }
 }
-
 class Instructor extends Person {
   constructor(instructorOptions) {
     super(instructorOptions);
@@ -21,8 +20,22 @@ class Instructor extends Person {
   demo (subject){
     return `Today we are learning about ${subject}.`;
   }
-  subject (student, subject){
+  grade (student, subject){
     return `${student.name} receives a perfect score on ${subject}`;
+  }
+  teach(student){
+    if (student.grade >= 70){
+      return `${student.name}'s grade is ${student.grade} so ${student.name} is now a Lambda School graduate!`
+    }
+    else {
+      while (student.grade < 70){
+        student.grade = Math.floor(Math.random() * 100) + 1;
+        if (student.grade >= 70){
+          return `${student.name}'s grade is ${student.grade} so ${student.name} is now a Lambda School graduate!`
+        }
+        console.log(`${student.name}'s new grade is ${student.grade}`)
+      }
+    }
   }
 }
 class Student extends Person {
@@ -30,16 +43,19 @@ class Student extends Person {
     super(studentOptions);
     this.previousBackground = studentOptions.previousBackground;
     this.className = studentOptions.className;
-    this.favSubjects = favSubjects.favSubjects;
+    this.favSubjects = studentOptions.favSubjects;
+    this.grade = Math.floor(Math.random() * 100) + 1;
   }
   listsSubjects(){
-    return "listsSubjects";
+    for (var i = 1; i < 4; i++){
+      return(this.favSubjects[`subject${i}`]);
+    }
   }
-  PRAssignment(){
-    return "PRAssignment";
+  PRAssignment(subject){
+    return `${this.name} has submitted a PR for ${subject}`;
   }
-  sprintChallenge(){
-    return "sprintChallenge";
+  sprintChallenge(subject){
+    return `${this.name} has begun spring challenge on ${subject}`;
   }
 }
 class ProjectManager extends Instructor{
@@ -48,11 +64,11 @@ class ProjectManager extends Instructor{
     this.gradClassName = projectManagerOptions.gradClassName;
     this.favInstructor = projectManagerOptions.favInstructor;
   }
-  standUp(){
-    return "standUp";
+  standUp(channel){
+    return `${this.name} announces to ${channel}, @${channel} standy times!`;
   }
-  debugsCode(){
-    return "debugsCode";
+  debugsCode(student, subject){
+    return `${this.name} debugs ${student.name}'s code on ${subject}'`;
   }
 }
 var personTest = new Person ({
@@ -77,16 +93,29 @@ var studentTest = new Student ({
   gender: "Male",
   previousBackground: "College graduate",
   className: "CS11",
-  favSubjects: "Game hacking"
+  favSubjects: {
+    subject1: "c++",
+    subject2: "game hacking",
+    subject3: "logic"
+  }
 });
 var projectManagerTest = new ProjectManager({
   name: "Perry Ahern",
   age: "50",
   location: "New York",
-  gender: "Male"
+  gender: "Male",
   specialty: "React",
   favLanguage: "C++",
   catchPhrase: "Pair programming is fun!",
   gradClassName: "CS7",
   favInstructor: "Dianndra Ryan-Mas"
 });
+//function tests
+console.log(personTest.speak());
+console.log(instructorTest.demo("c++"));
+console.log(instructorTest.grade(studentTest,"c++"));
+console.log(studentTest.listsSubjects());
+console.log(studentTest.PRAssignment("Perl"));
+console.log(studentTest.sprintChallenge("Classes"));
+console.log(projectManagerTest.standUp("Cs11-Perry"));
+console.log(projectManagerTest.debugsCode(studentTest, "CSS"));
