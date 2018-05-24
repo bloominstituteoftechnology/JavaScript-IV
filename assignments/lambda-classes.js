@@ -24,6 +24,9 @@ class Instructor extends Person {
   grade(student, subject) {
     return `${student.name} received a perfect score on ${subject}`;
   }
+  points(student, grade) {
+    return student.grade + (Math.floor(Math.random() * 100) + (-100));
+  }
 }
 
 class ProjectManager extends Instructor {
@@ -46,6 +49,7 @@ class Student extends Person {
     this.previousBackground = studentAttributes.previousBackground;
     this.className = studentAttributes.className;
     this.favSubjects = studentAttributes.favSubjects;
+    this.grade = studentAttributes.grade;
   }
   listsSubjects(subjects) {
     subjects = this.favSubjects;
@@ -113,7 +117,8 @@ const ciara = new Student({
   gender: 'F',
   previousBackground: 'Web Developer',
   className: 'CS11',
-  favSubjects: ['HTML', 'CSS', 'Python', 'Data Science']
+  favSubjects: ['HTML', 'CSS', 'Python', 'Data Science'],
+  grade: 89
 });
 
 const jon = new Student({
@@ -123,11 +128,13 @@ const jon = new Student({
   gender: 'M',
   previousBackground: 'Office Assistant',
   className: 'CS18',
-  favSubjects: ['JavaScript', 'Ruby on Rails', 'MySQL']
+  favSubjects: ['JavaScript', 'Ruby on Rails', 'MySQL'],
+  grade: 75
 });
 
 console.log(emily.catchPhrase);
 console.log(emily.demo('Preprocessors'));
+console.log(jess.points(jon));
 
 console.log(zoe.catchPhrase);
 console.log(zoe.grade(ciara, 'DOM'));
@@ -137,6 +144,7 @@ console.log(stephan.standUp('show-it-off'));
 
 console.log(jess.catchPhrase);
 console.log(jess.debugsCode(ciara, 'DOM'));
+console.log(jess.points(ciara));
 
 console.log(ciara);
 console.log(ciara.previousBackground);
