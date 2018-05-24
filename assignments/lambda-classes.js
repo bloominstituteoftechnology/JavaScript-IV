@@ -44,3 +44,56 @@ class Student extends Person{
         console.log(`${this.name} has begun sprint challenge on ${subject}.`);
     }
 }
+
+class ProjectManager extends Instructor{
+    constructor(pmProps){
+        super(pmProps);
+        this.gradClassName = pmProps.gradClassName;
+        this.favInstructor = pmProps.favInstructor;
+    }
+    standUp(channel){
+        console.log(`${this.name} announces to ${channel}, @channel standup time!`);
+    }
+    debugsCode(student, subject){
+        console.log(`${this.name} debugs ${student.name}'s code on ${subject}.`);
+    }
+}
+
+const miyagi = new Instructor({
+    name: 'Mr. Miyagi',
+    location: `Los Angeles`,
+    age: '65',
+    gender: 'male',
+    favLanguage: 'Assembly',
+    specialty: 'Theoretical computer science',
+    catchPhrase: 'Wax on Wax off'
+});
+
+const daniel = new Student({
+    name:`Daniel`,
+    location: `New Jersey`,
+    age: '15',
+    gender: 'male',
+    previousBackground: 'Karate student',
+    className: 'CS44',
+    favSubjects: ['Data Structures', 'Algorithms', 'Web Design']
+
+});
+
+const john = new ProjectManager({
+    name: 'John',
+    location: 'Cobra Kai',
+    age: '17',
+    gender: 'male',
+    gradClassName: 'CS41',
+    favInstructor: 'Josh'
+})
+
+miyagi.speak();
+miyagi.demo('karate coding');
+miyagi.grade(daniel,'Wax Algorithms');
+daniel.listsSubjects();
+daniel.PRAssignment('Window Washing');
+daniel.sprintChallenge('Ethical Hacking');
+john.standUp('CS41-Python Kai');
+john.debugsCode(daniel, 'HTML');
