@@ -2,6 +2,7 @@
 // Today your goal is to refactor all of this code to use ES6 Classes.
 // The console.log() statements should still return what is expected of them.
 
+/*//PROTOTYPE INHERITANCE - COMMITED OUT
 function GameObject(options) {
   this.createdAt = options.createdAt;
   this.dimensions = options.dimensions;
@@ -10,7 +11,20 @@ function GameObject(options) {
 GameObject.prototype.destroy = function() {
   return `Object was removed from the game.`;
 };
+*/
 
+//CLASS CONTRUCTOR ES6
+//BASE (PARENT) CLASS
+class GameObject {
+  constructor (parentParams) {
+    this.createdAt = parentParams.createdAt ;
+    this.dimensions = parentParams.dimensions ;
+  }
+  destroy() {
+    return `${this.name} was removed from the game!` ;
+  } 
+}
+/*
 function CharacterStats(characterStatsOptions) {
   GameObject.call(this, characterStatsOptions);
   this.hp = characterStatsOptions.hp;
@@ -22,7 +36,24 @@ CharacterStats.prototype = Object.create(GameObject.prototype);
 CharacterStats.prototype.takeDamage = function() {
   return `${this.name} took damage.`;
 };
+*/
 
+//CHILD CLASS BELOW
+////'EXTENDS' (creates a child)
+//NOTE SYNTAX: class child EXTENDS parent
+class CharacterStats extends GameObject {
+  constructor (childParams) {
+//'SUPER' KEYWORD IS USED TO ACCESS AND CALL FUNCTIONS ON AN OBJECTS PARENT​​​​​
+    super(childParams) ;
+
+    this.hp = childParams.hp ;
+    this.name = childParams.name   
+  }
+  takeDamage() {
+    return `${this.name} took damage.` ; 
+  }
+}
+/*
 function Humanoid(humanoidOptions) {
   CharacterStats.call(this, humanoidOptions);
   this.faction = humanoidOptions.faction;
@@ -35,6 +66,20 @@ Humanoid.prototype = Object.create(CharacterStats.prototype);
 Humanoid.prototype.greet = function() {
   return `${this.name} offers a greeting in ${this.language}.`;
 };
+*/
+class Humanoid extends CharacterStats {
+  constructor (grandChildParams) {
+    super(grandChildParams) ;
+    this.faction = grandChildParams.faction ;
+    this.weapons = grandChildParams.weapons ;
+    this.language = grandChildParams.language ;  
+  }
+  greet() {
+    return `${this.name} offers a greeting in ${this.language}.` ;
+  }
+}
+
+////END OF MY CODE
 
 const mage = new Humanoid({
   createdAt: new Date(),
