@@ -66,3 +66,75 @@ class ProjectManager extends Instructor {
     return `${this.name} debugs ${student.name}'s code on ${subject}`;
   }
 }
+
+const hagrid = new Person({
+  name: 'Hagrid',
+  location: 'Hogwarts',
+  age: 55,
+  gender: 'male'
+});
+
+const snape = new Instructor({
+  name: 'Snape',
+  location: 'Hogwarts',
+  age: 38,
+  gender: 'male',
+  favLanguage: 'JavaScript',
+  specialty: 'Front-end',
+  catchPhrase: "Don't forget the potions"
+});
+
+const dumbledore = new Instructor({
+  name: 'Dumbledore',
+  location: 'Hogwarts',
+  age: 100,
+  gender: 'male',
+  favLanguage: 'PHP',
+  specialty: 'Full-Stack',
+  catchPhrase: "Don''t tickle the sleeping Dragon"
+});
+
+
+const harry = new Student({
+  name: 'Harry',
+  location: 'Hogwarts',
+  age: 17,
+  gender: 'male',
+  previousBackground: 'muggle',
+  className: 'CS132',
+  favSubjects: ['Html', 'CSS', 'JavaScript']
+});
+
+const hermione = new Student({
+  name: 'Hermione',
+  location: 'Hogwarts',
+  age: 16,
+  gender: 'female',
+  previousBackground: 'muggle',
+  className: 'CS132',
+  favSubjects: ['Html', 'CSS', 'JavaScript','SQL']
+});
+
+const ron = new ProjectManager({
+  name: 'Ron',
+  location: 'Hogwarts',
+  age: 32,
+  gender: 'male',
+  favLanguage: 'Java',
+  specialty: 'Back-end',
+  catchPhrase: 'Blimey',
+  gradClassName: 'CS1',
+  favInstructor: 'Snape'
+});
+
+const dean = new ProjectManager({
+  name: 'Dean',
+  location: 'Hogwarts',
+  age: 35,
+  gender: 'male',
+  favLanguage: 'C',
+  specialty: 'Back-end',
+  catchPhrase: "Merlin's Beard",
+  gradClassName: 'CS1',
+  favInstructor: 'Dumbledore'
+});
