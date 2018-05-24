@@ -38,7 +38,7 @@ class Instructor extends Person {
             return `${this.name} announces to ${channel.name}, @channel standy times!​`
         }
         debugsCode(student){
-            return `${this.name} debugs ${student.name}'s code on ${this.subject}` 
+            return `${this.name} debugs ${student.name}'s code on ${subject}` 
         }
     }
 
@@ -111,6 +111,7 @@ const haywood = new ProjectManager({
     favLanguage: 'Python',
     specialty: 'Regex Gawd',
     catchPhrase: `Probably involves parrots somehow.`
+        // debugsCode: alex, 
   });
 
 // 2)
@@ -120,20 +121,22 @@ const ben = new ProjectManager({
     age: 28,
     gender: 'male',
     favLanguage: 'Python',
-    specialty: 'Debugging',
+    specialty: 'functions',
     catchPhrase: `Have you tried it on the Python Tutor?`
+        // debugsCode: alex, 
   });
 
 
 // 3)
-const haywood = new ProjectManager({
+const Calum = new ProjectManager({
     name: 'Haywood Johnson',
     location: 'somewhere in Texas',
     age: 26,
     gender: 'male',
     favLanguage: 'Python',
-    specialty: 'Regex Gawd',
-    catchPhrase: `Probably involves parrots somehow.`
+    specialty: 'Debugging',
+    catchPhrase: `You already know what it is.`
+    // debugsCode: alex, 
   });
 
 
@@ -142,18 +145,33 @@ const haywood = new ProjectManager({
 
 /// Student Objects 
 // 1)
-
-
-
-
+const alex = new Student({
+    name: 'Alex Ager',
+    location: 'somewhere in Colorado',
+    age: 24,
+    gender: 'male',
+    previousBackground: 'Journalism',
+    favSubjects: ['JS', 'CSS', 'HTML']
+  });
 
 // 2)
-
-
-
-
+const kam = new Student({
+    name: 'Kamry Bowman',
+    location: 'somewhere in Denver',
+    age: 27,
+    gender: 'male',
+    previousBackground: 'Economics',
+    favSubjects: ['Programming', 'Philosophy', 'Computer Science'],
+  });
 
 // 3)
-
-
+const mark = new Student({
+    name: 'Mark Hong',
+    location: 'somewhere in Iowa',
+    age: 24,
+    gender: 'male',
+    previousBackground: 'Art',
+    favSubjects: ['CSS', 'HTML', 'design'],
+  });
 // end Student Objects
+
