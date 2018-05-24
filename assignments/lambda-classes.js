@@ -94,3 +94,17 @@ const simon = new Student({
     className: "CS11",
 });
 
+//Instructor tests
+console.log(turner.speak());
+console.log(turner.demo('HTML'));
+console.log(turner.grade(simon,'Javascript'));
+
+//Student tests
+console.log(simon.listsSubjects());
+console.log(simon.PRAssignment('Javascript IV'));
+console.log(simon.sprintChallenge('Super Javascript'));
+
+
+//PM tests
+console.log(josh.standUp('CS11-Josh'));
+console.log(josh.debugsCode(simon, 'HTML'));
