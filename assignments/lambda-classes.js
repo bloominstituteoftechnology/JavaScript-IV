@@ -25,6 +25,10 @@ class Instructor extends Person{
     grade(student, subject){
         return `${student.name} receives a perfect score on ${subject}.`
     }
+    gradeAssignment(student){
+        student.grade += (Math.random() * (50 - (-50)) + (-50));
+        return `${student.name}'s grade is ${student.grade}.`;
+    }
 }
 
 class Student extends Person{
@@ -33,6 +37,7 @@ class Student extends Person{
         this.previousBackground = attributes.previousBackground;
         this.className = attributes.className;
         this.favSubjects = attributes.favSubjects;
+        this.grade = attributes.grade;
     }
     listSubjects(){
         return this.favSubjects;
@@ -42,6 +47,14 @@ class Student extends Person{
     }
     sprintChallenge(subject){
         return `${this.name} has begun spring challenge on ${subject}.`;  
+    }
+    graduate(instructor){
+        if(this.grade >= 70){
+            return `${this.name} has graduated.`;
+        }
+        else{
+            return instructor.gradeAssignment(this);
+        }
     }
 }
 
@@ -74,7 +87,8 @@ const wilma = new Student({
     location: 'Couchrock',
     previousBackground: 'waitress',
     className: 'CS132',
-    favSubjects: ['HTML', 'CSS', 'JavaScript']
+    favSubjects: ['HTML', 'CSS', 'JavaScript'],
+    grade: 50
 });
 
 const pebbles = new ProjectManager({
@@ -99,3 +113,5 @@ console.log(pebbles.demo("HTML"));
 console.log(pebbles.grade(wilma, "CSS"));
 console.log(pebbles.standUp("CS132"));
 console.log(pebbles.debugsCode(wilma, "JavaScript"));
+console.log(fred.gradeAssignment(wilma));
+console.log(wilma.graduate(fred));
