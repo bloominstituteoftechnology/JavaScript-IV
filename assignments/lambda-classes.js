@@ -1,5 +1,4 @@
 // CODE here for your Lambda Classes
-var me;
 class Person {
   constructor(args) {
     this.name = args.name;
