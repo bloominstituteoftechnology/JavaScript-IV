@@ -38,6 +38,15 @@ class Instructor extends Person {
     grade(student, subject) {
         return `${student.name} receives a perfect score on ${subject}.`
     }
+    gradeStudent(student) {
+        if(Math.floor(Math.random() * 2) === 0) {
+            // Add
+            return student.grade += Math.floor((Math.random() * 10) + 1);
+        } else {
+            // Subtract
+            return student.grade -= Math.floor((Math.random() * 10)) + 1;
+        }
+    }
 }
 
   const brandon = new Instructor({
@@ -66,6 +75,7 @@ class Student extends Person {
         this.previousBackground = studentOptions.previousBackground;
         this.className = studentOptions.className;
         this.favSubjects = studentOptions.favSubjects;
+        this.grade = studentOptions.grade;
     }
     listSubjects() {
         return this.favSubjects;
@@ -76,6 +86,13 @@ class Student extends Person {
     sprintChallenge(subject) {
         return `${this.name} has begun sprint challenge on ${subject}.`;
     }
+    graduate() {
+        if(this.grade >= 70) {
+            return `Congratulations! You graduated Lambda School with a grade of ${this.grade}!`;
+        } else {
+            return `Unfortunately, you failed to graduate from Lambda School with a score of ${this.grade}..`;
+        }
+    }
 }
 
 const janet = new Student({
@@ -85,7 +102,8 @@ const janet = new Student({
     gender: 'female',
     previousBackground: 'gamer',
     className: 'CS-11',
-    favSubjects: ['HTML, CSS, C++']
+    favSubjects: ['HTML, CSS, C++'],
+    grade: 70
   });
 
   const jane = new Student({
@@ -95,7 +113,8 @@ const janet = new Student({
     gender: 'female',
     previousBackground: 'worker',
     className: 'CS-11',
-    favSubjects: ['C#, .NET']
+    favSubjects: ['C#, .NET'],
+    grade: 70
   });
 
 class ProjectManagers extends Instructor {
@@ -149,4 +168,7 @@ console.log(janet.sprintChallenge('JavaScript'));
 
 console.log(chris.standUp('CS-11'));
 console.log(josh.debugsCode(brandon, 'JavaScript'));
+
+brandon.gradeStudent(janet);
+console.log(janet.graduate());
 
