@@ -50,3 +50,19 @@ class Student extends Person{
     return `${this.name} has begun spring challenge on ${subject}`;
   }
 }
+
+class ProjectManager extends Instructor {
+  constructor(projectManagerAttributes){
+      super(projectManagerAttributes);
+    this.gradClassName = projectManagerAttributes.gradClassName;
+    this.favInstructor = projectManagerAttributes.favInstructor;
+  }
+
+  standUp(channel){
+    return `${this.name} announces to ${channel}, @channel standy times!​​​​​`;
+  }
+
+  debugsCode(student, subject){
+    return `${this.name} debugs ${student.name}'s code on ${subject}`;
+  }
+}
