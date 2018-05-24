@@ -112,28 +112,29 @@ const ryan = new Instructor({
     name: "Ryan",
     age: 30,
     location: "Somewhere, CA",
-    specialty: "",
+    specialty: "codin'",
     favLanguage: "JavaScript",
     catchPhrase: "...I have a cool red beard?",
 
 })
 
-const  = new projectManager ({
-    name: "Ben",
-    age: 27,
-    location: "Heavenly Mexico",
-    specialty: "React Awesomeness",
-    favLanguage: "Spanish",
-    catchPhrase: "I'm heading to Denver to relax.",
-    gradClassName: "CS205",
-    favInstructor: "Ben Nelson"
+const perry = new projectManager ({
+    name: "perry",
+    age: 49,
+    location: "New York",
+    specialty: "HTML",
+    favLanguage: "English",
+    catchPhrase: "Don't get discouraged",
+    gradClassName: "CS20",
+    favInstructor: "Josh"
 }) 
 
-const kelley = new Student ({
-    name: "Kelley",
-    age: 25,
-    location: "New Orleans",
-    previousBackground: "Secretary",
-    className: "CS11",
-    favSubjects: ["Anatomy", "Computer Science", "JavaScript"]
+const melanie = new Student ({
+    name: "Melanie",
+    age: 19,
+    location: "Sacramento",
+    previousBackground: "Doctor",
+    className: "CS1",
+    favSubjects: ["Medicine, Forensics, Tech"]
 })
+
