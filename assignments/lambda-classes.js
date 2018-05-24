@@ -63,6 +63,21 @@ class Instructor extends Person {
     grade(student, subject) {
        console.log(`${student.name} receives a perfect score on ${subject}`);
     }
+    randomPoints (student) {
+        let randomNum = Math.floor(Math.random() * 10) //? 
+        console.log(randomNum)
+        if (randomNum > 5 && student.grade < 95 && student.grade != 50) {
+            student.grade += randomNum;
+            return `${student.name} got lucky its not Sunday and Chick-fil-a is open. BOOM! ${randomNum} points sounds good.  Why? Because this is my school and I do what I want. New Grade: ${student.grade}.`
+
+        }else if (randomNum <= 5 && student.grade > 5 && student.grade != 50) {
+           student.grade -= randomNum; 
+           return `${student.name} has been annoying in Slack, its time to deduct some points. ${randomNum} sounds good. New Grade: ${student.grade}. ` //?
+        }else if (student.grade = 50) {
+            student.grade = 100;
+            return `Looks like ${student.name} has been copying answers from Stack Overflow. Thats how it works...Now I have a good reason to double your grade. Nice Job. ${student.grade}'s FOR DAYS.`
+        }
+    }
 }
 console.log(Instructor.prototype.demo('javascript'));
 console.log(Instructor.prototype.grade({name:'Josh'}, 'javascript'));
@@ -77,6 +92,7 @@ const josh = new Instructor({
     catchPhrase: 'Oh SNAP',
 }); //?
 
+//?
 
 // ####
 // Student
@@ -111,6 +127,7 @@ class Student extends Person {
         this.previousBackground = props.previousBackground;
         this.className = props.className;
         this.favSubjects = props.favSubjects;
+        this.grade = props.grade;
     }
     listsSubjects(favSubjects) {
         let subjectList = this.favSubjects.forEach(subject => {
@@ -123,6 +140,13 @@ class Student extends Person {
      sprintChallenge(subject) {
          `${this.name} has begun sprint challenge on ${subject}`; //?
      }
+     graduate() {
+         if (this.grade > 70) {
+             return `${this.grade}%. Its time to graduate dude! Now get to work and pay Austen his money. Claim your graduation gift here: https://www.youtube.com/watch?v=dQw4w9WgXcQ`
+         } else {
+             return `Your next assignment: https://www.youtube.com/watch?v=dQw4w9WgXcQ`
+         }
+     }
 
 }
 
@@ -132,6 +156,7 @@ const jj = new Student(
     previousBackground: 'nurse', 
     className: 'cs11', 
     favSubjects: ['javascript', 'python'], 
+    grade: 50,
 }); //?
 
 jj.listsSubjects();
