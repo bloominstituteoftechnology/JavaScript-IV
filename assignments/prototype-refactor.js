@@ -54,7 +54,8 @@ class Hero extends Humanoid{
   }
   damageDealt(Villian){       //Villian takes damage
     Villian.hp -= this.specialDam;
-    return `${Villian.name} has taken ${this.specialDam + 10} damage!;`
+    console.log(`${Villian.name} has taken ${this.specialDam} damage!`);
+    return Villian.hp;
   }
 }
 /*********Villian********* */
@@ -68,7 +69,8 @@ class Villian extends Humanoid{
   damageDealt(Hero){
     if(Hero.parry < 5){      //Hero takes damage
     Hero.hp -= this.specialDam;
-    return `${Hero.name} has taken ${this.specialDam} damage!;`
+    console.log(`${Hero.name} has taken ${this.specialDam} damage!`);
+    return Hero.hp;
     }
     else{
       return `${Hero.name} parries!`;
@@ -151,17 +153,21 @@ const archer = new Humanoid({
 });
 
 
-gandalf.parryChance();// Sir Mustachio was removed from the game.
+gandalf.parryChance();
 console.log(gandalf.damageDealt(balrog))
 console.log(balrog.damageDealt(gandalf))
+
+
+while(gandalf.hp > 0 && balrog.hp > 0){
 gandalf.damageDealt(balrog);
+balrog.damageDealt(gandalf);
+}
+
 if(gandalf.hp <= 0){
-  console.log('dead');
   console.log(gandalf.destroy());
   reset(gandalf,balrog);
 }
 if(balrog.hp <= 0){
-  console.log('dead');
   console.log(balrog.destroy());
   reset(gandalf,balrog);
 }
@@ -176,4 +182,4 @@ if(balrog.hp <= 0){
 // console.log(archer.language); // Elvish
 // console.log(archer.greet()); // Lilith offers a greeting in Elvish.
 // console.log(mage.takeDamage()); // Bruce took damage.
-//console.log(swordsman.destroy()); 
+//console.log(swordsman.destroy()); // Sir Mustachio was removed from the game.
