@@ -19,7 +19,7 @@ class Person {
           this.catchPhrase = uniqueProps.catchPhrase;
       }
       demo(subject) {
-          return `Todays we are learning about ${subject}`
+          return `Today we are learning about ${subject}`
       }
       grade(Student, subject) {
           return `${Student.name} receives a perfect score on ${subject}`
@@ -164,6 +164,7 @@ class Person {
  console.log(troy.graduate())
  console.log(fred.popQuiz(abed))
  console.log(abed.graduate())
+ console.log(chang.demo("Spanish"));
 
 
 
