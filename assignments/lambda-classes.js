@@ -28,13 +28,13 @@ class Instructor extends Person {
     }
     gradeAlter(Student){
         let alterArr = ['+','-'];
-        let score = Math.random() * 10;
+        let score = Math.round(Math.random() * 10);
         let gradeScore = alterArr[Math.round(Math.random())];
         if(gradeScore === '+'){
             return `${Student.name} is killin it with a ${Math.round(Student.grade += score)} in the class`;
         }
         else{
-            return `${Student.name} aint doing so hot with a ${Math.round(Student.grade = score)} in the class`;
+            return `${Student.name} aint doing so hot with a ${Math.round(Student.grade -= score)} in the class`;
             
         }
     
