@@ -18,11 +18,29 @@ class Instructor extends Person {
         this.favLangauge = instructorAttributes.favLangauge;
         this.catchPhrase = instructorAttributes.catchPhrase;
     }
-    demo () {
+    demo (subject) {
         return `Today we are learning about ${this.subject}`;
     }
-    grade () {
-       return  `${student.name} receives a perfect score on {subject}`
+    grade (subject, "subject") {
+       return  `${student.name} receives a perfect score on {subject}`;
     }
-}
+} //instructor
+ class Student extends Instructor {
+     constructor (studentAttributes) {
+         super(studentAttributes);
+         this.previousBackground = studentAttributes.previousBackground;
+         this.className = studentAttributes.className;
+         this.favSubjects = studentAttributes.favSubjects;
+     }
+     listsSubjects () {
+         return this.favSubjects;
+     }
+     PRAssignment (subject) {
+return "student.name has submitted a PR for {subject}";
+     }
+     
+ } //students
+ class Project_Manager extends Student {
+
+ }
 
