@@ -9,7 +9,7 @@ class GameObject {
   }
   
   destroy () {
-    return `${this.name} was removed from the game.`
+    return `${this.name} was removed from the game.`;
   }
 }
 
