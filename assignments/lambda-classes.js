@@ -22,7 +22,13 @@ class Instructor extends Person {
         return `Today we are learning about ${subject}.`;
     }
     grade(student, subject) {
-        return `${student.name} recieves a perfect score on ${subject}.`;
+        return `${student.name} receives a perfect score on ${subject}.`;
+    }
+    points(student) {
+        var addSub =  [Math.floor(student.grade + (Math.random() * (100 - student.grade ))), Math.floor(student.grade - (Math.random() * (student.grade) + 1))];
+         student.grade = addSub[Math.floor((Math.random() * addSub.length))];
+         return student.grade;
+         
     }
 }
 
@@ -32,6 +38,7 @@ class Student extends Person {
         this.previousBackground = options.previousBackground;
         this.className = options.className;
         this.favSubjects = options.favSubjects;
+        this.grade = options.grade;
     }
     listsSubjects() {
         return this.favSubjects;
@@ -41,6 +48,14 @@ class Student extends Person {
     }
     sprintChallenge(subject) {
         return `${this.name} has begun sprint challenge on ${subject}.`;
+    }
+    graduate() {
+        if (this.grade >= 70) {
+            return `Congratulations! ${this.name} has graduated!`;
+        }
+        else {
+            return `Keep trying to get your score up.`;
+        }
     }
 }
 
@@ -96,7 +111,8 @@ const erin = new Student({
     gender: 'F',
     previousBackground: 'none',
     className: 'CS11',
-    favSubjects: ['CSS', 'Bootstrap', 'Javascript']
+    favSubjects: ['CSS', 'Bootstrap', 'Javascript'],
+    grade: 100
 });
 
 const luke = new Student({
@@ -106,7 +122,8 @@ const luke = new Student({
     gender: 'M',
     previousBackground: 'Moisture Farm Technician',
     className: 'CS11',
-    favSubjects: ['Force 101', 'Lightsaber', 'X-wing piloting']
+    favSubjects: ['Force 101', 'Lightsaber', 'X-wing piloting'],
+    grade: 87
 });
 
 const leia = new Student({
@@ -116,7 +133,8 @@ const leia = new Student({
     gender: 'F',
     previousBackground: 'Imperial Senator',
     className: 'CS11',
-    favSubjects: ['Advanced Blaster Techniques', 'Government', 'SQL']
+    favSubjects: ['Advanced Blaster Techniques', 'Government', 'SQL'],
+    grade: 92
 });
 
 const joe = new ProjectManager({
@@ -161,3 +179,13 @@ console.log(joe.debugsCode(erin, 'Python'));
 console.log(sam.standUp('CS11'));
 console.log(sam.sayHello());
 console.log(mike.grade(leia, 'bootstrap'));
+console.log(mike.points(erin));
+console.log(anne.points(luke));
+console.log(mike.points(leia));
+console.log(joe.points(luke));
+console.log(luke.grade);
+console.log(erin.grade);
+console.log(leia.grade);
+console.log(luke.graduate());
+console.log(erin.graduate());
+console.log(leia.graduate());
