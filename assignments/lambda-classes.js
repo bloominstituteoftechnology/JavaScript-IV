@@ -75,6 +75,13 @@ class Student extends Person {
     sprintChallenge(subject) {
       return `${this.name} has begun the sprint challenge on ${subject}`;
 }
+    graduate() {
+      if (this.grade > 70) {
+        return `${this.name} is graduating!`;
+      } else {
+        return `${this.name} only has a grade of ${this.grade}%, keep doing assignments!`
+      }
+}
 }
 
 //Objects
@@ -181,27 +188,30 @@ const jerry = new Student ({
   "grade": 100
 });
 // //test objects
-// console.log(josh);
-// console.log(jason);
-// console.log(jennifer);
+console.log(josh);
+console.log(jason);
+console.log(jennifer);
 //
 // //test instructor functions
-// console.log(johnathan.speak());
-// console.log(josh.demo("the class keyword"));
-// console.log(patrick.grade(jerry, "interdimensional travel"));
+console.log(johnathan.speak());
+console.log(josh.demo("the class keyword"));
+console.log(patrick.grade(jerry, "interdimensional travel"));
 //
 // //test project manager functions
-// console.log(jason.speak());
-// console.log(rick.grade(jennifer, "node.js"));
-// console.log(morty.standUp("cs11"));
-// console.log(rick.debugsCode(jerry, "html"));
-//
+console.log(jason.speak());
+console.log(rick.grade(jennifer, "node.js"));
+console.log(morty.standUp("cs11"));
+console.log(rick.debugsCode(jerry, "html"));
+
 // //test student functions
-// console.log(jennifer.speak());
-// console.log(summer.listsSubjects());
-// console.log(jerry.PRAssignment("Javascript-IV"));
-// console.log(jennifer.sprintChallenge("Data Structures and Algorithms"));
+console.log(jennifer.speak());
+console.log(summer.listsSubjects());
+console.log(jerry.PRAssignment("Javascript-IV"));
+console.log(jennifer.sprintChallenge("Data Structures and Algorithms"));
 
 //test strech goals
-// console.log(josh.changeGrade(jerry));
-// console.log(johnathan.changeGrade(summer));
+console.log(josh.changeGrade(jerry));
+console.log(johnathan.changeGrade(summer));
+
+console.log(jennifer.graduate());
+console.log(summer.graduate());
