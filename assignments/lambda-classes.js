@@ -67,8 +67,8 @@ class ProjectManager extends Instructor {
     return this.name + ' announces to ' + slackchannel + ',' + ' @' + slackchannel + ' standup times!';
   }
 
-  debugsCode(subject){
-    return this.name + ' debugs ' + Student.name + '\'s code on ' + subject;
+  debugsCode(student, subject){
+    return this.name + ' debugs ' + student.name + '\'s code on ' + subject;
   }
 }//End of ProjectManager
 
@@ -172,4 +172,4 @@ console.log(Thor.PRAssignment('Javascript'));
 console.log(ironMan.sprintChallenge('JavaScript'));
 //Testing Project Manager
 console.log(John.standUp('CS11-John'));
-console.log(Calum.debugsCode('Javascript'));
+console.log(Calum.debugsCode(Tai, 'Javascript'));
