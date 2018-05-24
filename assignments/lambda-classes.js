@@ -27,7 +27,18 @@ class Instructor extends Person {
     grade (student, subject) {
         return `${student.name} receives a perfect score on ${subject}.`;
     }
-}
+
+    evaluate (student) {
+        let score = Math.random() 
+            if (score > 0.49) {
+                student.grade += 5;
+            } else {
+                student.grade -=5;
+            }
+            return `${student.name}'s grade is now ${student.grade}%.`;
+        }
+    }
+
 
 class Student extends Person {
     constructor(student) {
@@ -35,6 +46,7 @@ class Student extends Person {
         this.previousBackground = student.previousBackground;
         this.className = student.className;
         this.favSubjects = student.favSubjects;
+        this.grade = student.grade;
     }
 
     listsSubjects () {
@@ -50,6 +62,15 @@ class Student extends Person {
 
     sprintChallenge (subject) {
         return `${this.name} has begun sprint challenge on ${subject}`;
+    }
+
+    graduate () {
+        if (this.grade >= 70) {
+            return `${this.name} graduates from ${this.className}!`;
+        }
+        else {
+           return `${this.name}'s grade is not high enough to graduate from ${this.className}!`;
+        }
     }
 }
 
@@ -97,6 +118,7 @@ const mark = new Student ({
     "previousBackground": "Customer Service",
     "className": "CS11",
     "favSubjects": ["LESS", "JavaScript"],
+    "grade": 70,
 })
 
 const dalilah = new Student ({
@@ -107,6 +129,7 @@ const dalilah = new Student ({
     "previousBackground": "Farming",
     "className": "CS11",
     "favSubjects": ["Bootstrap", "JavaScript"],
+    "grade": 70,
 })
 
 
@@ -150,3 +173,7 @@ console.log(chris.standUp("cs11_schroeder"));
 console.log(chris.debugsCode(dalilah, "JavaScript"));
 console.log(olivia.standUp("cs11_olivia"));
 console.log(olivia.debugsCode(dalilah, "JavaScript"));
+console.log(josh.evaluate(mark));
+console.log(olivia.evaluate(dalilah));
+console.log(mark.graduate());
+console.log(dalilah.graduate());
