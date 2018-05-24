@@ -25,8 +25,9 @@ class Instructor extends Person {
 		return `Today we are learning about ${subject}`;
 	}
 	grade(student, subject) {
-		return `${student} receives a perfect score on ${subject}`;
-	}
+			student.grade += Math.floor((Math.random() * 10), 2);
+			return `${this.name} graded ${student.name}'s ${subject} assignment. \n${student.name}'s grade is ${student.grade}%`;
+		}
 }
 
 //Grandchild Class
@@ -36,6 +37,7 @@ class Student extends Instructor {
 		this.previousbackground = grandChildAttributes.previousbackground;
 		this.className = grandChildAttributes.className;
 		this.favSubjects = grandChildAttributes.favSubjects;
+		this.grade = grandChildAttributes.grade;
 	}
 	listsSubject() {
 		return `These are my favorite subjects in Lambda School: ${this.favSubjects}`;
@@ -45,7 +47,10 @@ class Student extends Instructor {
 	}
 	sprintChallenge(){
 		return `${this.name} has begun spring challenge ${this.subject}`;
-}
+	}
+	grade() {
+		return
+	}
 }
 
 //Great-Grandchild Class
@@ -91,6 +96,7 @@ const em = new Student ({
   previousbackground: "healthcare",
   className: "CS132",
   favSubjects: ["HTML", "CSS", "Javascript"],
+  grade: Math.floor((Math.Random() * 100), 0)
 });
 
 const Johnathan = new ProjectManager ({
@@ -118,3 +124,4 @@ console.log(em.sprintChallenge('today'));
 console.log(Johnathan.standUp());
 console.log(Josh.grade('LaLa', 'math'));
 console.log(Josh.grade('Rosco', 'music'));
+console.log(em.grade);
