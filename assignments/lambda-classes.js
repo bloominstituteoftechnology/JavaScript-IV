@@ -68,3 +68,17 @@ class ProjectManagers extends Instructor {
     return `${student.name} debugs ${subject}`;
   }
 }
+
+const patrick = new ProjectManagers({
+  "name": "patrick",
+  "age": 35,
+  "gender": "Male",
+  "location": "New Hampshire",
+  "specialty": "Student Success",
+  "favLanguage": "JavaScript",
+  "catchPhrase": `You're never too old to program`,
+  "gradClassName": "CS2 ?",
+  "favInstructor": "Josh"
+});
+console.log(patrick);
+console.log(patrick.standUp("slack184"));
