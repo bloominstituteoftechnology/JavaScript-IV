@@ -50,7 +50,7 @@ class Hero extends Humanoid{
   }
   parryChance(){
     let chanceArr = [1,2,3,4,5,6,7,8,9,10];
-    return this.parry = chanceArr[Math.round(Math.random() * 10 + 1)];
+    return this.parry = chanceArr[Math.round(Math.random() * 9)];
   }
   damageDealt(Villian){       //Villian takes damage
     Villian.hp -= this.specialDam;
@@ -154,13 +154,11 @@ const archer = new Humanoid({
 
 
 gandalf.parryChance();
-console.log(gandalf.damageDealt(balrog))
-console.log(balrog.damageDealt(gandalf))
-
 
 while(gandalf.hp > 0 && balrog.hp > 0){
 gandalf.damageDealt(balrog);
 balrog.damageDealt(gandalf);
+gandalf.parryChance();
 }
 
 if(gandalf.hp <= 0){
