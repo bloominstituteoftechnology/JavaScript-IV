@@ -47,8 +47,12 @@ class Student extends Person {
     this.className = studentAttributes.className;
     this.favSubjects = studentAttributes.favSubjects;
   }
-  listsSubjects() {
-    return this.favSubjects;
+  listsSubjects(subjects) {
+    subjects = this.favSubjects;
+
+    subjects.forEach((subject) => {
+      console.log(subject);
+    });
   }
   PRAssignment(subject) {
     return `${this.name} has submitted a PR for ${subject}`;
@@ -57,6 +61,50 @@ class Student extends Person {
     return `${this.name} has begun spring challenge on ${subject}`;
   }
 }
+
+// instructors
+const emily = new Instructor({
+  name: 'Emily',
+  age: 35,
+  gender: 'F',
+  specialty: 'Mobile Web',
+  favLanguage: 'JavaScript',
+  catchPhrase: 'The hard way is the easy way.'
+});
+
+const zoe = new Instructor({
+  name: 'Zoe',
+  age: 42,
+  gender: 'F',
+  specialty: 'Django',
+  favLanguage: 'Toml',
+  catchPhrase: 'Fake it \'til you make it.'
+});
+
+// Project Managers
+const stephan = new ProjectManager({
+  name: 'Stephan',
+  age: 26,
+  gender: 'M',
+  specialty: 'iOS',
+  favLanguage: 'Swift',
+  catchPhrase: 'It ain\'t over \'til it\'s over',
+  gradClassName: 'CS5',
+  favInstructor: 'Zoe'
+});
+
+const jess = new ProjectManager({
+  name: 'Jess',
+  age: 30,
+  gender: 'F',
+  specialty: 'Machine Learning',
+  favLanguage: 'R',
+  catchPhrase: 'Copy/Paste until you can\'t',
+  gradClassName: 'CS1',
+  favInstructor: 'Emily'
+});
+
+// Students
 
 const ciara = new Student({
   name: "Ciara",
@@ -78,5 +126,20 @@ const jon = new Student({
   favSubjects: ['JavaScript', 'Ruby on Rails', 'MySQL']
 });
 
+console.log(emily.catchPhrase);
+console.log(emily.demo('Preprocessors'));
+
+console.log(zoe.catchPhrase);
+console.log(zoe.grade(ciara, 'DOM'));
+
+console.log(stephan.catchPhrase);
+console.log(stephan.standUp('show-it-off'));
+
+console.log(jess.catchPhrase);
+console.log(jess.debugsCode(ciara, 'DOM'));
+
 console.log(ciara);
+console.log(ciara.previousBackground);
+console.log(ciara.listsSubjects());
 console.log(jon);
+console.log(jon.sprintChallenge('React'));
