@@ -24,6 +24,18 @@ class Instructor extends Person {
     grade(studentObj, subject) {
         console.log(`${studentObj.name} receives a perfect score on ${subject}`);
     }
+    changeScore(grade) {
+        const randomPoints =     Math.floor(Math.random() * (5 - 1 + 1)) + 1;
+
+        const randomGrading = Math.random();
+        if(randomGrading >= .5) {
+            grade += 1;
+        }
+        else {
+            grade -= 1;
+        }
+        return grade;
+    }
 }
 
 class Student extends Person {
@@ -81,6 +93,7 @@ const simon = new Student({
     favSubjects: ['Javascript', 'Mathmatics'],
     previousBackground: "Some JS experience",
     className: "CS11",
+    grade: 89,
 });
 
 const josh = new ProjectManagers({
