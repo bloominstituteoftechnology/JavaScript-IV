@@ -27,6 +27,22 @@ class Instructor extends Person {
   grade(student, subject) {
     return `${student.name} receives a perfect score on ${subject}`;
   }
+
+  testScore(student) {
+    let grade = student.grade;
+    if (grade >= 50) {
+      return `Awesome job! You passed this class with a grade of ${grade +
+        30}!`;
+    }
+  }
+  graduate(student) {
+    let grade = student.grade;
+    if (this.grade >= 70) {
+      return `${this.name} has graduated.`;
+    } else {
+      return this.testScore(student);
+    }
+  }
 }
 
 // Student Class
@@ -36,6 +52,7 @@ class Student extends Person {
     this.previousBackground = studentOptions.previousBackground;
     this.className = studentOptions.className;
     this.favSubjects = studentOptions.favSubjects;
+    this.grade = studentOptions.grade;
   }
   listsSubjects() {
     return `${this.name}'s favorite subjects are ${this.favSubjects}`;
@@ -83,7 +100,8 @@ const dan = new Student({
   catchPhrase: `Biggest risk in life is not taking one`,
   previousBackground: "MySQL",
   className: "CS11",
-  favSubjects: ["Html", "CSS", "JavaScript"]
+  favSubjects: ["Html", "CSS", "JavaScript"],
+  grade: 50
 });
 
 const perry = new ProjectManager({
@@ -109,3 +127,6 @@ console.log(dan.PRAssignment("CSS"));
 console.log(dan.sprintChallenge("CSS"));
 console.log(perry.standUp("CS11"));
 console.log(perry.debugsCode(dan, "CS11"));
+// Stretch Goal
+console.log(fred.testScore(dan));
+console.log(fred.graduate(dan));
