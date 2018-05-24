@@ -24,6 +24,14 @@ class Instructor extends Person {
     grade(student, subject) {
         return student + ` receives a perfect score on ` + subject;
     }
+    gradeChange(student) {
+        let currentGrade = student.grade
+        let points = Math.floor(Math.random()*19);
+        points *= Math.floor(Math.random()*2) == 1 ? 1 : -1;
+        let newGrade = currentGrade + points;
+        return newGrade
+    }
+    
 }
 
 class Student extends Person {
@@ -110,7 +118,8 @@ const jacob = new Student({
     gender: 'male',
     previousBackground: 'wind turbines',
     className: 'cs11',
-    favSubjects: ['html', 'CSS', "JavaScript"]
+    favSubjects: ['html', 'CSS', "JavaScript"],
+    grade: 70
 });
 
 const oprah = new Student({
@@ -120,7 +129,8 @@ const oprah = new Student({
     gender: 'female',
     previousBackground: 'talk shows',
     className: 'cs1234',
-    favSubjects: ['books', 'celebs', "giveaways"]
+    favSubjects: ['books', 'celebs', "giveaways"],
+    grade: 70
 });
 
 console.log(josh.specialty);
@@ -137,3 +147,4 @@ console.log(oprah.prAssignmant("politics"))
 console.log(jacob.sprintChallenge("JavaScript"))
 console.log(haywood.standUp("cs11.haywood"))
 console.log(oldGregg.debugsCode(oprah.name, "water colors"))
+console.log(jacob.gradeChange())
