@@ -2,78 +2,77 @@
 // Today your goal is to refactor all of this code to use ES6 Classes.
 // The console.log() statements should still return what is expected of them.
 
-let reset = function(Hero, Villian){
+let reset = function (Hero, Villian) {
   Hero.hp = 10;
   Villian.hp = 10;
 }
-class GameObject{
-  constructor(options){
+class GameObject {
+  constructor(options) {
     this.createdAt = options.createdAt;
     this.dimensions = options.dimensions;
   }
-  destroy(){
+  destroy() {
     return `${this.name} was removed from the game`;
   }
 };
 
-class CharacterStats extends GameObject{
-  constructor(characterStatsOptions){
+class CharacterStats extends GameObject {
+  constructor(characterStatsOptions) {
     super(characterStatsOptions);
     this.hp = characterStatsOptions.hp;
     this.name = characterStatsOptions.name;
   }
-  takeDamage(damage){
+  takeDamage(damage) {
     return `${this.name} took ${damage}.`;
   }
 
 };
 
-class Humanoid extends CharacterStats{
-  constructor(humanoidOptions){
+class Humanoid extends CharacterStats {
+  constructor(humanoidOptions) {
     super(humanoidOptions);
     this.faction = humanoidOptions.faction;
     this.weapons = humanoidOptions.weapons;
     this.language = humanoidOptions.language;
   }
-  greet(){
+  greet() {
     return `${this.name} offers a greeting in ${this.language}`
   }
-  
+
 }
 /*********Hero********* */
-class Hero extends Humanoid{
-  constructor(heroOptions){
+class Hero extends Humanoid {
+  constructor(heroOptions) {
     super(heroOptions);
     this.special = heroOptions.special;
     this.specialDam = heroOptions.specialDam;
     this.parry = heroOptions.parry;
   }
-  parryChance(){
-    let chanceArr = [1,2,3,4,5,6,7,8,9,10];
-    return this.parry = chanceArr[Math.round(Math.random() * 9)];
+  parryChance() {
+    let chanceArr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+    return this.parry = chanceArr[Math.round((Math.random() * 9) + 1)];
   }
-  damageDealt(Villian){       //Villian takes damage
+  damageDealt(Villian) { //Villian takes damage
     Villian.hp -= this.specialDam;
     console.log(`${Villian.name} has taken ${this.specialDam} damage!`);
     return Villian.hp;
   }
 }
 /*********Villian********* */
-class Villian extends Humanoid{
-  constructor(villOptions){
+class Villian extends Humanoid {
+  constructor(villOptions) {
     super(villOptions);
     this.mysticWep = villOptions.mysticWep;
     this.specialDam = villOptions.specialDam;
     this.metamorph = villOptions.metamorph;
   }
-  damageDealt(Hero){
-    if(Hero.parry <= 4){      //Hero takes damage
-    Hero.hp -= this.specialDam;
-    console.log(`${Hero.name} has taken ${this.specialDam} damage!`);
-    return Hero.hp;
-    }
-    else{
-      return `${Hero.name} parries!`;
+  damageDealt(Hero) {
+    if (Hero.parry >= 6) { //Hero takes damage
+      Hero.hp -= this.specialDam;
+      console.log(`${Hero.name} has taken ${this.specialDam} damage!`);
+      return Hero.hp;
+    } else {
+      return console.log(`${Hero.name} parries!`);
     }
   }
 }
@@ -155,19 +154,21 @@ const archer = new Humanoid({
 
 gandalf.parryChance();
 
-while(gandalf.hp > 0 && balrog.hp > 0){
-gandalf.damageDealt(balrog);
-balrog.damageDealt(gandalf);
-gandalf.parryChance();
+while (gandalf.hp > 0 && balrog.hp > 0) {
+  gandalf.damageDealt(balrog);
+  balrog.damageDealt(gandalf);
+  gandalf.parryChance();
 }
 
-if(gandalf.hp <= 0){
+if (gandalf.hp <= 0) {
   console.log(gandalf.destroy());
-  reset(gandalf,balrog);
+  reset(gandalf, balrog);
+  console.log('Hp reset! Gandalf is the victor! Parry OP!');
 }
-if(balrog.hp <= 0){
+if (balrog.hp <= 0) {
   console.log(balrog.destroy());
-  reset(gandalf,balrog);
+  reset(gandalf, balrog);
+  console.log('Hp reset! Balrog is the victor!')
 }
 
 
