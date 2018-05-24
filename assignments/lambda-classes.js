@@ -64,7 +64,7 @@ class Student extends Person {
         else{
             gen = 'her';
         }
-        
+
         if (this.grade >= 70) {
             return `${this.name} is ready to graduate!!!!!`
         } else {
@@ -135,7 +135,7 @@ const ben = new ProjectManager({
     specialty: 'react',
     favLanguage: 'react',
     catchPhrase: 'Time to flamingle!',
-    gradClassName: 'CS(Thatone)',
+    gradClassName: 'CS(That one)',
     favInstructor: 'Josh'
 })
 
