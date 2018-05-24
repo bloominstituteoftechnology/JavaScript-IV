@@ -38,8 +38,12 @@ class Instructor extends Person {
     }
   }
   graduate(student) {
-    let grade = student.grade;
-    return this.grade;
+    let score = this.testScore(student);
+    if (score >= 70) {
+      return `Congratulations you passed! your score is ${score}`;
+    } else {
+      return `Sorry get your grades up! Score: ${score}`;
+    }
   }
 }
 
@@ -128,6 +132,3 @@ console.log(perry.debugsCode(dan, "CS11"));
 // Stretch Goal
 console.log(fred.testScore(dan));
 console.log(fred.graduate(dan));
-console.log(fred.testScore(dan));
-console.log(fred.testScore(dan));
-console.log(fred.testScore(dan));
