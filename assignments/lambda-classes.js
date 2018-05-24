@@ -200,6 +200,7 @@ console.log(josh.demo('JavaScript'));
 console.log(josh.grade(vu, 'JavaScript'));
 console.log(vu.listsSubjects());
 console.log(vu.PRAssignment('JavaScript'));
+console.log(vu.sprintChallenge('JavaScript'));
 console.log(vu.speak());
 console.log(jason.speak());
 console.log(jason.demo('Whiteboarding'));
