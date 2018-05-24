@@ -24,7 +24,7 @@ class Instructor extends Person{
         return `Today we are learning about ${subject}`
     }
     grade(student,subject){
-        return `${student.name} recieves a perfect score on ${subject}`
+        return `${student.name} recieves a score of ${student.grade - (Math.floor(Math.random() * student.grade) + 1)}`
     }
 }
 
@@ -42,18 +42,24 @@ const fred = new Instructor({
 
 class Student extends Person{
     constructor(studAttr){
-        super(studAttr)
+        super(studAttr);
         this.previousBackground = studAttr.previousBackground;
         this.className = studAttr.className;
         this.favSubjects = studAttr.favSubjects;
+        this.grade = studAttr.grade;
     }
     listSubjects(){
-        return (this.favSubjects)
+        // return (this.favSubjects)
+        return this.favSubjects.forEach(function(cv){
+            console.log(cv)
+        })
 
     }
     PRAssignment(subject){
         return `${this.name} has begun spring challenge on ${subject}`
     }
+
+
 }
 
 const bambam = new Student({
@@ -63,7 +69,8 @@ const bambam = new Student({
     gender: 'male',
     previousBackground: 'bangin everthing',
     className:'4th Grade',
-    favSubjects: ['jerking one out','hitting it raw','pushing the turd thru']
+    favSubjects: ['jerking one out','hitting it raw','pushing the turd thru'],
+    grade: 95,
   });
 
   class ProjectManager extends Instructor{
@@ -111,9 +118,13 @@ const bambam = new Student({
   console.log(bambam.previousBackground)
   console.log(bambam.className)
   console.log(bambam.favSubjects)
+
+
   
   //********** List is not really working *************
-  bambam.listSubjects()
+  console.log(bambam.listSubjects())
+  
+  
   console.log(bambam.PRAssignment('hitting it raw'))
 
   //Testing PM
