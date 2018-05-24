@@ -1,87 +1,101 @@
 // CODE here for your Lambda Classes
 
-class GameObject{
-    constructor(options){
-        this.createdAt = options.createdAt;
-        this.dimensions = options.dimensions;
+class Person{
+    constructor(attributes){
+        this.name = attributes.name;
+        this.age = attributes.age;
+        this.location = attributes.location;
+        this.gender = attributes.gender;
     }
-    destroy(){
-        return `${this.name} was removed from the game.`;
-    }
-}
-
-class CharacterStats extends GameObject{
-    constructor(characterStatsOptions){
-        super(characterStatsOptions);
-        this.hp = characterStatsOptions.hp;
-        this.name = characterStatsOptions.name;
-    }
-    takeDamage(){
-        return `${this.name} took damage.`;
+    speak(){
+        return `Hello my name is ${this.name}, I am from ${this.location}.`;
     }
 }
 
-class Humanoid extends CharacterStats{
-    constructor(humanoidOptions){
-        super(humanoidOptions);
-        this.faction = humanoidOptions.faction;
-        this.weapons = humanoidOptions.weapons;
-        this.language = humanoidOptions.language;
+class Instructor extends Person{
+    constructor(attributes){
+        super(attributes);
+        this.specialty = attributes.specialty;
+        this.favLanguage = attributes.favLanguage;
+        this.catchPhrase = attributes.catchPhrase;
     }
-    greet(){
-        return `${this.name} offers a greeting in ${this.language}.`;
+    demo(subject){
+        return `Today we are learning about ${subject}.`;
+    }
+    grade(student, subject){
+        return `${student.name} receives a perfect score on ${subject}.`
     }
 }
 
-const mage = new Humanoid({
-    createdAt: new Date(),
-    dimensions: {
-      length: 2,
-      width: 1,
-      height: 1
-    },
-    hp: 5,
-    name: 'Bruce',
-    faction: 'Mage Guild',
-    weapons: ['Staff of Shamalama'],
-    language: 'Common Toungue'
-});
-  
-const swordsman = new Humanoid({
-    createdAt: new Date(),
-    dimensions: {
-      length: 2,
-      width: 2,
-      height: 2
-    },
-    hp: 15,
-    name: 'Sir Mustachio',
-    faction: 'The Round Table',
-    weapons: ['Giant Sword', 'Shield'],
-    language: 'Common Toungue'
-});
-  
-const archer = new Humanoid({
-    createdAt: new Date(),
-    dimensions: {
-      length: 1,
-      width: 2,
-      height: 4
-    },
-    hp: 10,
-    name: 'Lilith',
-    faction: 'Forest Kingdom',
-    weapons: ['Bow', 'Dagger'],
-    language: 'Elvish'
+class Student extends Person{
+    constructor(attributes){
+        super(attributes);
+        this.previousBackground = attributes.previousBackground;
+        this.className = attributes.className;
+        this.favSubjects = attributes.favSubjects;
+    }
+    listSubjects(){
+        return this.favSubjects;
+    }
+    PRAssignment(subject){
+        return `${this.name} has submitted a PR for ${subject}.`;
+    }
+    sprintChallenge(subject){
+        return `${this.name} has begun spring challenge on ${subject}.`;  
+    }
+}
+
+class ProjectManager extends Instructor{
+    constructor(attributes){
+        super(attributes);
+        this.gradClass = attributes.gradClass;
+        this.favInstructor = attributes.favInstructor;
+    }
+    standUp(channel){
+        return `${this.name} announces to ${channel}, @channel standy times!`;
+    }
+    debugsCode(student, subject){
+        return `${this.name} debugs ${student.name}'s code on ${subject}.`;
+    }
+}
+
+const fred = new Instructor({
+    name: 'Fred',
+    location: 'Bedrock',
+    age: 37,
+    gender: 'male',
+    favLanguage: 'JavaScript',
+    specialty: 'Front-end',
+    catchPhrase: `Don't forget the homies`
+  });
+
+const wilma = new Student({
+    name: 'Wilma',
+    location: 'Couchrock',
+    previousBackground: 'waitress',
+    className: 'CS132',
+    favSubjects: ['HTML', 'CSS', 'JavaScript']
 });
 
-console.log(mage.createdAt); // Today's date
-console.log(archer.dimensions); // { length: 1, width: 2, height: 4 }
-console.log(swordsman.hp); // 15
-console.log(mage.name); // Bruce
-console.log(swordsman.faction); // The Round Table
-console.log(mage.weapons); // Staff of Shamalama
-console.log(archer.language); // Elvish
-console.log(archer.greet()); // Lilith offers a greeting in Elvish.
-console.log(mage.takeDamage()); // Bruce took damage.
-console.log(swordsman.destroy()); // Sir Mustachio was removed from the game.
+const pebbles = new ProjectManager({
+    name: 'Pebbles',
+    location: 'Bedstone',
+    gradClass: 'CS1',
+    favInstructor: 'Sean'
+});
+
+console.log(fred);
+console.log(wilma);
+console.log(pebbles);
+console.log(fred.speak());
+console.log(wilma.speak());
+console.log(pebbles.speak());
+console.log(fred.demo("Redux"));
+console.log(fred.grade(wilma, "JavaScript"));
+console.log(wilma.listSubjects());
+console.log(wilma.PRAssignment("Python"));
+console.log(wilma.sprintChallenge("Elm"));
+console.log(pebbles.demo("HTML"));
+console.log(pebbles.grade(wilma, "CSS"));
+console.log(pebbles.standUp("CS132"));
+console.log(pebbles.debugsCode(wilma, "JavaScript"));
