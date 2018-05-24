@@ -26,6 +26,9 @@ class Instructor extends Person {
     grade(Student, subject) {
         return `${Student.name} receives a perfect score on ${subject}`;
     }
+    grading(Student){
+        return Math.random(.5,Student.grade) * 100;
+    }
 }
 
 class Student extends Person {
@@ -35,6 +38,7 @@ class Student extends Person {
         this.classname = stuattribute.classname;
         this.favSubjects = stuattribute.favSubjects;
         this.listsSubjects = stuattribute.listsSubjects;
+        this.grade = stuattribute.grade;
         
     }
     PRAssignment(subject) {
@@ -43,8 +47,14 @@ class Student extends Person {
     sprintChallenge(subject) {
         return `${this.name} has begun sprint challenge on ${subject}`;
     }
-
-
+    graduate() {
+        if (this.grade >= 70){
+        return `Congratulations, you can graduate!`;
+    } else {
+        return `Study more dummy`;
+    }
+    
+    }
 
 }
 
@@ -95,7 +105,8 @@ const james = new Student({
     gender: 'male',
     previousBackground:'Retail',
     className:'CS11',
-    favSubjects: ['Html', 'CSS', 'Javascript']
+    favSubjects: ['Html', 'CSS', 'Javascript'],
+    grade:89
     
 });
 
@@ -106,7 +117,8 @@ const jacob = new Student({
     gender: 'male',
     previousBackground:'Sales',
     className:'CS11',
-    favSubjects: ['Html', 'CSS', 'Javascript']
+    favSubjects: ['Html', 'CSS', 'Javascript'],
+    grade:99
     
 });
 
@@ -140,6 +152,47 @@ console.log(james.PRAssignment('python'));
 console.log(james.sprintChallenge('bootstrap'));
 console.log(sarah.standUp('CS11'));
 console.log(sarah.debugsCode(jacob,'javascript'));
+console.log(fred.grading(james));
+console.log(james.graduate(fred));
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // console.log(brian.standup('cs11'));
 // console.log(chang.grade(troy, "science"))
 // console.log(chang.grade(troy, "science"))
@@ -148,6 +201,10 @@ console.log(sarah.debugsCode(jacob,'javascript'));
 // console.log(brian.debugsCode(troy, "JavaScript"))
 // console.log(abed.listsSubjects())
 // console.log(troy.sprintChallenge("JavaScript"))
+
+
+
+
 
   
 
