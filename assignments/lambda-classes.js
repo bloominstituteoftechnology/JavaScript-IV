@@ -25,15 +25,18 @@ class Instructor extends Person{
     grade(student, subject){
         return `${student.name} receives a perfect score on ${subject}`
     }
-    manuplateGrade(student, refactor){
-        let randNum = Math.random() * 50;
-        if(typeof(refactor) !== String) return 'Please type add or subtract!';
+    manuplateGrade(student, refactor, randNum = Math.random() * 50){
+        if(!student.grade) return 'Student has no grade';
 
         if(refactor.toLowerCase() === 'add'){
             return student.grade + randNum;
-        }else if(refactor.toLowerCase() === 'subtract' ){
+        }else if(refactor.toLowerCase() === 'subtract') {
             return student.grade - randNum;
         }
+        else {
+            return 'Please type add or subtract!';
+        }
+
     }
 }
 
@@ -59,7 +62,7 @@ class Student extends Person{
     }
     graduate(){
         if(this.grade > 70){
-            return "graduate".toUpperCase();
+            return "graduate!!!!".toUpperCase();
         }else{
             this.grade += 10;
         }
@@ -80,12 +83,15 @@ class ProjectManagers extends Instructor{
     }
 }
 
-const fred = new Person({
+const fred = new Student({
     name: 'Fred',
     age: 37,
-    location: 'Bedrock'
+    location: 'Bedrock',
+    previousBackground: 'photographer',
+    className: 'cs11',
+    favSubjects: ['React', 'Redux', 'less', 'cryptography']
 });
-console.log(fred.speak());
+console.log(fred.graduate());
 
 const freds = new Instructor({
     name: 'Fred2',
@@ -96,6 +102,6 @@ const freds = new Instructor({
     specialty: 'Front-end',
     catchPhrase: `Don't forget the homies`
 });
-console.log(freds.grade({name:'sibhat'}, 'history'));
-
+console.log(freds.manuplateGrade(fred, 'subtract', 50));
+console.log(fred.graduate());
 
