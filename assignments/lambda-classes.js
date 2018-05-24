@@ -138,3 +138,14 @@ const dean = new ProjectManager({
   gradClassName: 'CS1',
   favInstructor: 'Dumbledore'
 });
+
+
+
+console.log(hagrid.age);// 55
+console.log(snape.grade(hermione,"Java"));//Hermione receives a perfect score on Java
+console.log(dumbledore.demo("C++"));//Today we are learning about C++
+console.log(harry. sprintChallenge("JavaScript"));//Harry has begun spring challenge on JavaScript
+console.log(hermione. listsSubjects());//Hermione's Favorite subjects are: Html,CSS,JavaScript,SQL
+console.log(harry.PRAssignment("Java"));//Harry has submitted a PR for Java
+console.log(ron.standUp('cs_11'));//Ron announces to cs_11, @channel standy times!
+console.log(dean.debugsCode(harry, "JavaScript"));//Dean debugs Harry's code on JavaScript
