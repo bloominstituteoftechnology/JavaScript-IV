@@ -72,6 +72,16 @@ const turner = new Instructor({
     catchPhrase: `I hate pythons but love Python.`
 });
 
+const simon = new Student({
+    name: 'Simon',
+    location: 'Georgia',
+    gender: 'male',
+    age: 40,
+    favSubjects: ['Javascript', 'Mathmatics'],
+    previousBackground: "Some JS experience",
+    className: "CS11",
+});
+
 const josh = new ProjectManagers({
     name: 'Josh',
     location: 'Alabama',
@@ -83,21 +93,11 @@ const josh = new ProjectManagers({
     favInstructor: 'Josh Knell',
 });
 
-
-const simon = new Student({
-    name: 'Simon',
-    location: 'Georgia',
-    gender: 'male',
-    age: 40,
-    favSubjects: ['Javascript', 'Mathmatics'],
-    previousBackground: "Some JS experience",
-    className: "CS11",
-});
-
 //Instructor tests
 console.log(turner.speak());
 console.log(turner.demo('HTML'));
 console.log(turner.grade(simon,'Javascript'));
+
 
 //Student tests
 console.log(simon.listsSubjects());
@@ -108,3 +108,4 @@ console.log(simon.sprintChallenge('Super Javascript'));
 //PM tests
 console.log(josh.standUp('CS11-Josh'));
 console.log(josh.debugsCode(simon, 'HTML'));
+
