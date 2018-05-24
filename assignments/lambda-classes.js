@@ -29,6 +29,22 @@ class Instructor extends Person {
   grade(studentIn, subject) {
     console.log(`${studentIn.name} receives a perfect score on ${subject}`);
   }
+
+  changeGrade(student) {
+    let positive = true;
+    if(Math.floor((Math.random() >= 0.5))){
+      student.grade += Math.floor((Math.random() * 100) + 1);
+      if(student.grade > 100)
+      { student.grade = 100;  }
+    }
+    else {
+      positive = false;
+      student.grade -= Math.floor((Math.random() * 50) + 1);
+      if(student.grade < 0)
+      { student.grade = 0;  }
+    }
+    console.log(`${student.name}'s grade was ${positive ? "raised" : "lowered"} to ${student.grade} by ${this.name}`);
+  }
 }
 
 class Student extends Person {
@@ -37,6 +53,7 @@ class Student extends Person {
     this.previousBackground = studentInfo.previousBackground;
     this.className = studentInfo.className;
     this.favSubjects = studentInfo.favSubjects;
+    this.grade = studentInfo.grade;
   }
 
   listsSubjects() {
@@ -52,6 +69,11 @@ class Student extends Person {
 
   sprintChallenge(subject) {
     console.log(`${this.name} has begun sprint challenge on ${subject}`);
+  }
+
+  graduate() {
+    if(this.grade >= 70)
+    { console.log(`${this.name} graduated!`); }
   }
 
 }
@@ -72,15 +94,15 @@ class ProjectManager extends Instructor {
   }
 }
 
-let me = new Student( {
+let me = new Student ({
   name :"Alex",
   age  : 33,
   location : "Seattle",
   gender : "M",
   previousBackground : "Perpetual Student",
   className : "CS11",
-  favSubjects : ["Python", "Back-End Development", "Javascript", "Cyber-Security"]
-
+  favSubjects : ["Python", "Back-End Development", "Javascript", "Cyber-Security"],
+  grade : Math.floor((Math.random() * 60) + 1)
 });
 
 let paul = new Student ({
@@ -88,11 +110,22 @@ let paul = new Student ({
   age  : 65,
   location : "Liverpool",
   gender : "M",
-  previousBackground : "Perpetual Student",
+  previousBackground : "Bass Player",
   className : "CS11",
-  favSubjects : ["Rockin-out", "Bootstrap", "Javascript", "Kickin-ass", "Taking names"]
+  favSubjects : ["Rockin-out", "Bootstrap", "Javascript", "Kickin-ass", "Taking names"],
+  grade : Math.floor((Math.random() * 60) + 1)
 });
 
+let jimmy = new Student ({
+  name :"Jimmy Paige",
+  age  : 72,
+  location : "Manchester",
+  gender : "M",
+  previousBackground : "Guitar Player",
+  className : "CS11",
+  favSubjects : ["Bootstrap", "Back-End Development", "React", "AngularJS"],
+  grade : Math.floor((Math.random() * 60) + 1)
+});
 
 let john = new Instructor ({
   name :"John Lennon",
@@ -139,3 +172,35 @@ john.grade(paul, "being my wingman");
 ringo.speak();
 ringo.standUp("Announcements");
 ringo.debugsCode(paul, "piano ballads");
+ringo.changeGrade(me);
+john.changeGrade(paul);
+jimmy.speak();
+
+
+students = [me,paul, jimmy];
+graders = [john, george, ringo];
+
+
+let keepGoing = true;
+while(keepGoing)
+{
+  // Check to see if students have graduated, and remove them if so
+  students.forEach((student) => { student.graduate();  });
+  students = students.filter(student => student.grade < 70);
+
+  //Get random grader from array
+  graderIndex = Math.floor(Math.random() * graders.length);
+
+  // get random student from array
+  studentIndex = Math.floor(Math.random() * students.length);
+
+  if(students.length <= 0){
+    keepGoing = false;
+  }
+  else {
+    // Grade our random student with our random grader
+    graders[graderIndex].changeGrade(students[studentIndex])
+  }
+
+
+}
