@@ -34,7 +34,7 @@ class Student extends Person {
         this.favSubjects = studentInfo.favSubjects;
     }
     listsSubjects() {
-        for(let i = 0; i < this.favSubjects.length; i++) {
+        for (let i = 0; i < this.favSubjects.length; i++) {
             console.log(this.favSubjects[i]);
         }
     }
@@ -52,10 +52,45 @@ class ProjectManagers extends Instructor {
         this.gradClassName = this.pmInfo;
         this.favInstructor = this.favInstructor;
     }
-    standUp (channel) {
+    standUp(channel) {
         console.log(`${this.name} announces to ${channel}, @channel standy times!`);
     }
-    debugsCode (studentObj, subject) {
+    debugsCode(studentObj, subject) {
         console.log(`${this.name} debugs ${studentObj.name}'s code on ${subject}`);
     }
 }
+
+
+
+const turner = new Instructor({
+    name: 'Turner',
+    location: 'Arizona',
+    age: 32,
+    gender: 'male',
+    favLanguage: 'Python',
+    specialty: 'Back-end',
+    catchPhrase: `I hate pythons but love Python.`
+});
+
+const josh = new ProjectManagers({
+    name: 'Josh',
+    location: 'Alabama',
+    gender: 'male',
+    specialty: 'front-end',
+    favLanguage: 'Javascript',
+    catchPhrase: 'It\'s mindblowing',
+    gradClassName: 'CS11',
+    favInstructor: 'Josh Knell',
+});
+
+
+const simon = new Student({
+    name: 'Simon',
+    location: 'Georgia',
+    gender: 'male',
+    age: 40,
+    favSubjects: ['Javascript', 'Mathmatics'],
+    previousBackground: "Some JS experience",
+    className: "CS11",
+});
+
