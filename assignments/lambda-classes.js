@@ -121,9 +121,8 @@ console.log(turner.changeScore(simon.grade));
 simon.listsSubjects();
 simon.PRAssignment('Javascript IV');
 simon.sprintChallenge('Super Javascript');
-
+simon.graduation();
 
 //PM tests
 josh.standUp('CS11-Josh');
 josh.debugsCode(simon, 'HTML');
-
