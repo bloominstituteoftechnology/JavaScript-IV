@@ -59,6 +59,19 @@ class CharacterStats extends GameObject{
   //return `${this.name} offers a greeting in ${this.language}.`;
 //};
 
+class Humanoid extends CharacterStats{
+  constructor(humanoidOptions){
+    super(humanoidOptions);
+    this.faction = humanoidOptions.faction;
+    this.weapons = humanoidOptions.weapons;
+    this.language = humanoidOptions.language;
+  }
+  greet(){
+      return `${this.name} offers a greeting in ${this.language}.`;
+  }
+}
+
+
 const mage = new Humanoid({
   createdAt: new Date(),
   dimensions: {
