@@ -111,7 +111,8 @@ const josh = new ProjectManagers({
 turner.speak();
 turner.demo('HTML');
 turner.grade(simon,'Javascript');
-
+// Simon's grade is 89 as the original and will change 1 to 5 points in either direction
+console.log(turner.changeScore(simon.grade));
 
 //Student tests
 simon.listsSubjects();
