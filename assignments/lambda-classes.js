@@ -86,11 +86,6 @@ class ProjectManager extends Instructor {
   debugsCode(student, subject) {
     return `${this.name} debugs ${student.name}'s code on ${subject}`;
   }
-
-  gradeAssignments(student) {
-    var instructor = new Instructor({});
-    instructor.gradeAssignments(student);
-  }
 }
 
 const alexis = new Student({
