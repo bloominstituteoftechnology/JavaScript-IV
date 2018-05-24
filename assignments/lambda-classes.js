@@ -22,10 +22,10 @@ class Instructor extends Person {
         this.catchPhrase = instructProps.catchPhrase;
         }
         demo(subject) {
-            return `Today we are learning about ${subject}.`
+            console.log(`Today we are learning about ${subject}.`);
         } 
         grade(student, subject) {
-            return `${student.name} receives a perfect score on ${subject}`;
+            console.log(`${student.name} receives a perfect score on ${subject}`);
         }
 }
 
@@ -38,14 +38,14 @@ class Student extends Person {
     }
     listSubjects() {
         this.favSubjects.forEach(function(subject){
-            return subject;
+            console.log(subject);
         })
     }
     PRAssignment(subject) {
-        console.log(`${this.student.name} has submitted a PR for ${subject}`)
+        console.log(`${this.name} has submitted a PR for ${subject}`)
     }
     sprintChallenge(subject) {
-        console.log(`${student.name} has begun sprint challenge on ${subject}`)
+        console.log(`${this.name} has begun sprint challenge on ${subject}`)
     }
 }
 
@@ -79,7 +79,7 @@ const megan = new Person({
 
 
 const josh = new Instructor({
-    name: "Josh",
+    name: "Josh Knell",
     age: 30,
     location: "Silicon Heaven, Utah",
     specialty: "Front End",
@@ -89,7 +89,7 @@ const josh = new Instructor({
 })
 
 const ben = new projectManager ({
-    name: "Ben",
+    name: "Ben Campbell",
     age: 27,
     location: "Heavenly Mexico",
     specialty: "React Awesomeness",
@@ -108,5 +108,33 @@ const kelley = new Student ({
     favSubjects: ["Anatomy", "Computer Science", "JavaScript"]
 })
 
+const ryan = new Instructor({
+    name: "Ryan",
+    age: 30,
+    location: "Somewhere, CA",
+    specialty: "codin'",
+    favLanguage: "JavaScript",
+    catchPhrase: "...I have a cool red beard?",
 
-console.log(kelley.listSubjects());
+})
+
+const perry = new projectManager ({
+    name: "perry",
+    age: 49,
+    location: "New York",
+    specialty: "HTML",
+    favLanguage: "English",
+    catchPhrase: "Don't get discouraged",
+    gradClassName: "CS20",
+    favInstructor: "Josh"
+}) 
+
+const eric = new Student ({
+    name: "Eric",
+    age: 29,
+    location: "Minnesota",
+    previousBackground: "Punk Rocker",
+    className: "CS -12",
+    favSubjects: ["Anatomy", "Computer Science", "Calculus", "Taekwondo"]
+})
+
