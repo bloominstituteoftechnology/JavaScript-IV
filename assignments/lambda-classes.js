@@ -20,6 +20,14 @@
       this.favLanguage = instructorAttributes.favLanguage;
       this.catchPhrase = instructorAttributes.catchPhrase;
     }
+    demo(subject) {
+        return `Today we are learning about ${subject}`;
+    }
+
+    grade(subject) {
+        return `${this.name} receives a perfect score on ${subject}`;
+    }
+
     // gradeAdjust() {
     //     if(this.grade >=70) {
     //         return `${this.name}, congratulations! You have graduated Lambda School!`; 
