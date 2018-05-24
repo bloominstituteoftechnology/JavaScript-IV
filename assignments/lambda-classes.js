@@ -25,14 +25,14 @@ class Instructor extends Person {
         console.log(`${studentObj.name} receives a perfect score on ${subject}`);
     }
     changeScore(grade) {
-        const randomPoints =     Math.floor(Math.random() * (5 - 1 + 1)) + 1;
+        const randomPoints = Math.floor(Math.random() * (5 - 1 + 1)) + 1;
 
         const randomGrading = Math.random();
         if(randomGrading >= .5) {
-            grade += 1;
+            grade += randomPoints;
         }
         else {
-            grade -= 1;
+            grade -= randomPoints;
         }
         return grade;
     }
