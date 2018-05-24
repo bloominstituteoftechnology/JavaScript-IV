@@ -22,10 +22,10 @@ class Instructor extends Person {
 		this.catchPhrase = childAttributes.catchPhrase;
 	}
 	demo(subject){
-		return `Today we are learning about ${this.subject}`;
+		return `Today we are learning about ${subject}`;
 	}
 	grade(student, subject) {
-		return `${this.student} ${this.name} receives a perfect score on {subject}`;
+		return `${student} receives a perfect score on ${subject}`;
 	}
 }
 
@@ -114,6 +114,7 @@ console.log(em);
 console.log(Johnathan.favInstructor);
 console.log(Johnathan.debugsCode());
 console.log(em.PRAssignment());
-console.log(em.sprintChallenge());
+console.log(em.sprintChallenge('today'));
 console.log(Johnathan.standUp());
-
+console.log(Josh.grade('LaLa', 'math'));
+console.log(Josh.grade('Rosco', 'music'));
