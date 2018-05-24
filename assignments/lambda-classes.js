@@ -112,7 +112,8 @@ const erin = new Student({
     previousBackground: 'none',
     className: 'CS11',
     favSubjects: ['CSS', 'Bootstrap', 'Javascript'],
-    grade: 100
+    grade: Math.floor(Math.random() *100)+1
+
 });
 
 const luke = new Student({
@@ -123,7 +124,7 @@ const luke = new Student({
     previousBackground: 'Moisture Farm Technician',
     className: 'CS11',
     favSubjects: ['Force 101', 'Lightsaber', 'X-wing piloting'],
-    grade: 87
+    grade: Math.floor(Math.random() *100)+1
 });
 
 const leia = new Student({
@@ -134,7 +135,8 @@ const leia = new Student({
     previousBackground: 'Imperial Senator',
     className: 'CS11',
     favSubjects: ['Advanced Blaster Techniques', 'Government', 'SQL'],
-    grade: 92
+    grade: Math.floor(Math.random() *100)+1
+
 });
 
 const joe = new ProjectManager({
