@@ -57,10 +57,18 @@ class Student extends Person {
         return `${this.name} has begun sprint challenge on ${subject}`;
     }
     graduate() {
+        let gen = '';
+        if(this.gender === 'male'){
+            gen = 'him';
+        }
+        else{
+            gen = 'her';
+        }
+        
         if (this.grade >= 70) {
             return `${this.name} is ready to graduate!!!!!`
         } else {
-            return `You have failed everyone who has ever cared about you`;
+            return `${this.name} has failed everyone who has ever cared about ${gen}`;
         }
     }
 }
