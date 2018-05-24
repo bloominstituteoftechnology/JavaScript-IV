@@ -35,11 +35,7 @@ class Instructor extends Person {
             student.grade = roundToDecimal(student.grade + gradeChange, .01);
             console.log (`${student.name}'s grade was changed by ${gradeChange}% as a result of the most recent assignment. ${student.name}'s new grade is ${student.grade}%.\n`)
         }
-        if (student.grade < 0) {
-            console.log(`${student.name} failed out. Fortunately ${student.name} won the lottery soon afterwards and became a professional figure skater.` );
-        } else {
-            console.log(`${student.name} graduated from Lambda School! In an unexpected twist, they abandoned programming for a career in figure skating.`);
-        }
+        student.graduate();
     }
 }
 
@@ -61,6 +57,13 @@ class Student extends Person {
     }
     sprintChallenge(subject) {
         console.log(`${this.name} has begun sprint challenge on ${subject}`);
+    }
+    graduate() {
+        if (this.grade < 0) {
+            console.log(`${this.name} failed out. Fortunately ${this.name} won the lottery soon afterwards and became a professional figure skater.` );
+        } else {
+            console.log(`${this.name} graduated from Lambda School! In an unexpected twist, they abandoned programming for a career in figure skating.`);
+        }
     }
 }
 
