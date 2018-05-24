@@ -25,7 +25,7 @@ class Instructor extends Person {
         return `${student.name} receives a perfect score on ${subject}.`;
     }
     points(student) {
-        var addSub =  [Math.floor(student.grade + (Math.random() * (100 - student.grade ))), Math.floor(student.grade - (Math.random() * (student.grade) + 1))];
+        var addSub =  [Math.floor(student.grade + (Math.random() * (100 - student.grade))), Math.floor(student.grade - (Math.random() * (student.grade)))];
          student.grade = addSub[Math.floor((Math.random() * addSub.length))];
          return student.grade;
          
@@ -49,11 +49,12 @@ class Student extends Person {
     sprintChallenge(subject) {
         return `${this.name} has begun sprint challenge on ${subject}.`;
     }
-    graduate() {
+    graduate(instructor) {
         if (this.grade >= 70) {
             return `Congratulations! ${this.name} has graduated!`;
         }
         else {
+          instructor.points(this);
             return `Keep trying to get your score up.`;
         }
     }
@@ -188,6 +189,6 @@ console.log(joe.points(luke));
 console.log(luke.grade);
 console.log(erin.grade);
 console.log(leia.grade);
-console.log(luke.graduate());
-console.log(erin.graduate());
-console.log(leia.graduate());
+console.log(luke.graduate(fred));
+console.log(erin.graduate(mary));
+console.log(leia.graduate(mike));
