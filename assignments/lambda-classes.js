@@ -25,7 +25,7 @@ class Instructor extends Person {
     return `${student.name} received a perfect score on ${subject}`;
   }
   points(student, grade) {
-    return student.grade + (Math.floor(Math.random() * 100) + (-100));
+    return student.grade + (Math.floor(Math.random() * 200) + (-100));
   }
 }
 
