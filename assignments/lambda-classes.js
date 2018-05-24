@@ -38,13 +38,31 @@ class Student extends Instructor {
 		this.favSubjects = grandChildAttributes.favSubjects;
 	}
 	listsSubject() {
-		return `These are my favorite subjects in Lambda School: ${this.favSubjects[0]} ${this.favSubjects[1]} ${this.favSubjects[2]}`;
+		return `These are my favorite subjects in Lambda School: ${this.favSubjects}`;
 		}
 	PRAssignment(){
-		return `${this.Student.name} has submitted a PR for ${this.subject}`;
+		return `${this.name} has submitted a PR for ${this.subject}`;
 	}
+	sprintChallenge(){
+		return `${this.name} has begun spring challenge ${this.subject}`;
+}
 }
 
+//Great-Grandchild Class
+
+class ProjectManager extends Student {
+	constructor(greatGrandChildAttributes) {
+		super(greatGrandChildAttributes);
+		this.gradClassName = greatGrandChildAttributes.gradClassName;
+		this.favInstructor = greatGrandChildAttributes.favInstructor;
+	}
+	standUp(channel) {
+		return `${this.name} announces to ${this.channel}, @channel standy times!​​​​​`;
+		}
+	debugsCode(){
+		return `${this.name} debugs ${em.name} 's code on ${this.subject}`;
+	}
+}
 
 //attributes
 const fred = new Person({
@@ -75,7 +93,7 @@ const em = new Student ({
   favSubjects: ["HTML", "CSS", "Javascript"],
 });
 
-const projectManager = new ProjectManager ({
+const Johnathan = new ProjectManager ({
 	name: 'Johnathan',
   location: 'Unknown',
   age: 100,
@@ -93,4 +111,9 @@ console.log(Josh);
 console.log(Josh.demo());
 console.log(em. listsSubject());
 console.log(em);
+console.log(Johnathan.favInstructor);
+console.log(Johnathan.debugsCode());
+console.log(em.PRAssignment());
+console.log(em.sprintChallenge());
+console.log(Johnathan.standUp());
 
