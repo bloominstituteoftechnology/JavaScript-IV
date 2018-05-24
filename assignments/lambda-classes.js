@@ -30,18 +30,16 @@ class Instructor extends Person {
 
   testScore(student) {
     let grade = student.grade;
-    if (grade >= 50) {
-      return `Awesome job! You passed this class with a grade of ${grade +
-        30}!`;
+    let random = Math.floor(Math.random() * 21);
+    let plusOrMinus = Math.random() < 0.5 ? -1 : 1;
+    let newRandom = random * plusOrMinus;
+    if (grade) {
+      return grade + newRandom;
     }
   }
   graduate(student) {
     let grade = student.grade;
-    if (this.grade >= 70) {
-      return `${this.name} has graduated.`;
-    } else {
-      return this.testScore(student);
-    }
+    return this.grade;
   }
 }
 
@@ -101,7 +99,7 @@ const dan = new Student({
   previousBackground: "MySQL",
   className: "CS11",
   favSubjects: ["Html", "CSS", "JavaScript"],
-  grade: 50
+  grade: 70
 });
 
 const perry = new ProjectManager({
@@ -130,3 +128,6 @@ console.log(perry.debugsCode(dan, "CS11"));
 // Stretch Goal
 console.log(fred.testScore(dan));
 console.log(fred.graduate(dan));
+console.log(fred.testScore(dan));
+console.log(fred.testScore(dan));
+console.log(fred.testScore(dan));
