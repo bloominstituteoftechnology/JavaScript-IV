@@ -26,6 +26,19 @@ class Instructor extends Person {
     grade(Student, subject){
         return `${Student.name} recieves a perfect score on ${subject}`;
     }
+    gradeAlter(Student){
+        let alterArr = ['+','-'];
+        let score = Math.random() * 10;
+        let gradeScore = alterArr[Math.round(Math.random())];
+        if(gradeScore === '+'){
+            return `${Student.name} is killin it with a ${Math.round(Student.grade += score)} in the class`;
+        }
+        else{
+            return `${Student.name} aint doing so hot with a ${Math.round(Student.grade = score)} in the class`;
+            
+        }
+    
+    }
 };
 
 class Student extends Person {
@@ -34,6 +47,7 @@ class Student extends Person {
         this.previousBackround = studInfo.previousBackround;
         this.className = studInfo.className;
         this.favSubjects = studInfo.favSubjects;
+        this.grade = studInfo.grade;
     }
     listsSubjects(){
         return this.favSubjects;
@@ -69,7 +83,15 @@ const josh = new Instructor({
     favLanguage: 'JavaScript, bootstrap',
     catchPhrase: 'I am here, and obey'
 });
-
+const frodo = new Instructor({
+    name: 'Bilbo',
+    age: '100',
+    location: 'The Shire',
+    gender: 'male',
+    specialty: 'Ring delivery',
+    favLanguage: 'Westron',
+    catchPhrase: 'The ring is mine'
+});
 const libby = new Student({
     name: 'Libby',
     age: 'That one',
@@ -77,8 +99,20 @@ const libby = new Student({
     gender: 'female',
     previousBackround: 'lion taming',
     className: 'CS11',
-    favSubjects: 'Inline-block, lion taming'
+    favSubjects: 'Inline-block, lion taming',
+    grade : 90,
 });
+const eric = new Student({
+    name: 'eric',
+    age: 'That one',
+    location: 'That place',
+    gender: 'male',
+    previousBackround: 'hockey player',
+    className: 'CS11',
+    favSubjects: 'Javascript',
+    grade : 90,
+});
+
 
 const ben = new ProjectManager({
     name: 'Ben',
@@ -92,11 +126,14 @@ const ben = new ProjectManager({
     favInstructor: 'Josh'
 })
 
-console.log(josh);
 console.log(josh.demo('java'));
 console.log(josh.grade(libby, 'arrayz'));
+console.log(frodo.demo('bootstrap'));
+console.log(frodo.grade(eric, 'react'));
 console.log(libby.listsSubjects());
 console.log(libby.PRAssignment('prototype'));
 console.log(libby.sprintChallenge('classes'));
 console.log(ben.standUp('cs11'));
 console.log(ben.debugsCode(libby, 'classes'));
+console.log(josh.gradeAlter(libby));
+console.log(josh.gradeAlter(eric));
