@@ -49,7 +49,7 @@ class Student extends Person {
     this.favSubjects = studentAttributes.favSubjects;
   }
     listsSubjects() {
-      return favSubjects.join(", ");
+      return `${this.name}'s favorite subjects are ${this.favSubjects.join(", ")}`;
     }
     PRAssignment(subject) {
       return `${this.name} has submitted a PR for ${subject}`;
@@ -159,11 +159,24 @@ const jerry = new Student ({
   "className": "Meeseeks",
   "favSubjects": ["Python", "C", "React"]
 });
+//test objects
+console.log(josh);
+console.log(jason);
+console.log(jennifer);
 
-// console.log(josh);
-// console.log(jason);
-// console.log(jennifer);
-
+//test instructor functions
 console.log(johnathan.speak());
 console.log(josh.demo("the class keyword"));
 console.log(patrick.grade(jerry, "interdimensional travel"));
+
+//test project manager functions
+console.log(jason.speak());
+console.log(rick.grade(jennifer, "node.js"));
+console.log(morty.standUp("cs11"));
+console.log(rick.debugsCode(jerry, "html"));
+
+//test student functions
+console.log(jennifer.speak());
+console.log(summer.listsSubjects());
+console.log(jerry.PRAssignment("Javascript-IV"));
+console.log(jennifer.sprintChallenge("Data Structures and Algorithms"));
