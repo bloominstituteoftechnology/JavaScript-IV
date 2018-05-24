@@ -16,6 +16,7 @@ class Student extends Person {
     this.className = studentOptions.className;
     this.favSubjects = studentOptions.favSubjects;
     this.grade = studentOptions.grade;
+    this.graduated = false;
   }
 
   listsSubjects() {
@@ -28,6 +29,13 @@ class Student extends Person {
 
   sprintChallenge(subject) {
     return `${this.name} has begun spring challenge on ${subject}`;
+  }
+
+  graduate() {
+    if(this.grade > 70) {
+      this.graduated = true;
+      return `Congratulation, ${this.name}! You just graduated from Lambda School`
+    }
   }
 }
 
@@ -45,6 +53,10 @@ class Instructor extends Person {
 
   grade(student, subject) {
     return `${student.name} receives a perfect score on ${subject}`;
+  }
+
+  gradeChange(student) {
+    (Math.floor(Math.random() * 2) === 0) ? student.grade += 5 : student.grade -= 5;
   }
 }
 
@@ -70,7 +82,8 @@ const gabe = new Student({
   age: 39,
   previousBackground: 'music',
   className: 'CS11',
-  favSubjects: ['JavaScript', 'React', 'CSS']
+  favSubjects: ['JavaScript', 'React', 'CSS'],
+  grade: 75
 });
 
 const alice = new Student({
@@ -79,7 +92,8 @@ const alice = new Student({
   age: 30,
   previousBackground: 'customer service',
   className: 'CS11',
-  favSubjects: ['JavaScript', 'React', 'CSS']
+  favSubjects: ['JavaScript', 'React', 'CSS'],
+  grade: 80
 });
 
 const fred = new Instructor({
@@ -122,3 +136,7 @@ console.log(fred.demo('HTML'));
 console.log(bill.grade(alice, 'CSS'));
 console.log(albert.standUp('cs_11'));
 console.log(sally.debugsCode(gabe, 'JavaScript-III'));
+console.log(gabe.grade);
+sally.gradeChange(gabe);
+console.log(gabe.grade);
+console.log(alice.graduate());
