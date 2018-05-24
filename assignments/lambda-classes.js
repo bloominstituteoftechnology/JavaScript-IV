@@ -25,6 +25,10 @@ class Instructor extends Person{
     grade(student,subject){
         console.log(`${student.name} receives a perfect score on ${subject}.`);
     }
+    changeGrade(student){
+       return student.grade += Math.random() * (10 - (-10)) + (-10);
+    }
+
 }
 
 class Student extends Person{
@@ -33,6 +37,7 @@ class Student extends Person{
         this.previousBackground = studentProps.previousBackground;
         this.className = studentProps.className;
         this.favSubjects = studentProps.favSubjects;
+        this.grade = studentProps.grade;
     }
     listsSubjects(){
         this.favSubjects.forEach(item => {console.log(item)});
@@ -42,6 +47,12 @@ class Student extends Person{
     }
     sprintChallenge(subject){
         console.log(`${this.name} has begun sprint challenge on ${subject}.`);
+    }
+    graduate(){
+        if(this.grade >= 70)
+            console.log(`${this.name} has graduated with a passing grade of ${this.grade}!`)
+        else
+            console.log(`${this.name} has a grade below 70% and needs to go back and work on it.`)
     }
 }
 
@@ -76,7 +87,8 @@ const daniel = new Student({
     gender: 'male',
     previousBackground: 'Karate student',
     className: 'CS44',
-    favSubjects: ['Data Structures', 'Algorithms', 'Web Design']
+    favSubjects: ['Data Structures', 'Algorithms', 'Web Design'],
+    grade: 72
 
 });
 
@@ -97,3 +109,9 @@ daniel.PRAssignment('Window Washing');
 daniel.sprintChallenge('Ethical Hacking');
 john.standUp('CS41-Python Kai');
 john.debugsCode(daniel, 'HTML');
+john.demo('Competitive coding');
+miyagi.changeGrade(daniel);
+miyagi.changeGrade(daniel);
+john.changeGrade(daniel);
+console.log(daniel);
+daniel.graduate();
