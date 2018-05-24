@@ -37,8 +37,7 @@ class Instructor extends Person {
             }
             return `${student.name}'s grade is now ${student.grade}%.`;
         }
-    }
-
+}
 
 class Student extends Person {
     constructor(student) {
@@ -131,7 +130,6 @@ const dalilah = new Student ({
     "favSubjects": ["Bootstrap", "JavaScript"],
     "grade": 70,
 })
-
 
 const chris = new ProjectManager ({
     "name": "Chris",
