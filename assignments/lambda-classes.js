@@ -23,6 +23,20 @@ class Instructor extends Person {
   grade(student, subject) {
     return `${student.name} receives a perfect score on ${subject}`;
   }
+  checkWork(student) {
+    if (Math.random() < 0.75) {
+      let grade = Math.floor(Math.random() * 10 + 1);
+      student.grade += grade;
+      return `${student.name} did great! ${
+        student.gender == 'male' ? 'He' : 'She'
+      } got ${grade} points and now has ${student.grade} points.`;
+    }
+    let grade = Math.floor(Math.random() * 10 + 1);
+    student.grade -= grade;
+    return `${student.name} had a rough go. ${
+      student.gender == 'male' ? 'He' : 'She'
+    } lost ${grade} points and now has ${student.grade} points.`;
+  }
 }
 
 class Student extends Person {
@@ -31,6 +45,7 @@ class Student extends Person {
     this.previousBackground = obj.previousBackground;
     this.className = obj.className;
     this.favSubjects = obj.favSubjects;
+    this.grade = Math.floor(Math.random() * 50 + 20);
   }
   listSubjects() {
     let subjects = '';
@@ -44,6 +59,20 @@ class Student extends Person {
   }
   sprintChallenge(subject) {
     return `${this.name} has begun sprint challenge on ${subject}`;
+  }
+  graduate() {
+    if (this.grade >= 70) {
+      return {
+        status: `Congratulations!! ${this.name} has graduated :)`,
+        grad: 1,
+      };
+    }
+    return {
+      status: `Sorry ${
+        this.name
+      }, you need to take a few more courses to graduate.`,
+      grad: 0,
+    };
   }
 }
 
@@ -93,6 +122,15 @@ const dino = new ProjectManager({
   favInstructor: 'Fred',
 });
 
+const bob = new Student({
+  name: 'Bob',
+  location: 'Bedrock',
+  age: 18,
+  gender: 'male',
+  previousBackground: 'partier',
+  className: 'CS12',
+  favSubjects: ['JavaScript', 'Node', 'React'],
+});
 // console.log(fred.speak());
 // console.log(`${fred.name} loves ${fred.favLanguage} on the ${fred.specialty}!`);
 // console.log(fred.demo('stone carving'));
@@ -105,3 +143,14 @@ const dino = new ProjectManager({
 // console.log(dino.favInstructor);
 // console.log(dino.standUp("Dino's Groupies"));
 // console.log(dino.debugsCode(pebbles, 'libuv'));
+
+console.log(
+  `Welcome to LambdaSchool, ${bob.name}! \nYou're current grade is: ${
+    bob.grade
+  }\n`,
+);
+while (!bob.graduate().grad) {
+  console.log(bob.graduate().status);
+  console.log(fred.checkWork(bob) + '\n');
+}
+console.log(bob.graduate().status);
