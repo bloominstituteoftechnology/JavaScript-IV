@@ -1,12 +1,12 @@
   // CODE here for your Lambda Classes
 
 
-class Person {
+  class Person {
     constructor(attributes) {
       this.name = attributes.name;
       this.age = attributes.age;
       this.gender = attributes.gender;
-      this.location = attributes.locale;
+      this.location = attributes.location;
     }
     speak() {
       return `Hello, my name is ${this.name} , I am from ${this.location}`;
@@ -42,12 +42,12 @@ class Person {
       return `${this.favSubjects}`;
     }
 
-    PRAssignment() {
-        return `${this.name} has submitted a PR for ${subject}`
+    PRAssignment(subject) {
+        return `${this.name} has submitted a PR for ${subject}`;
       }
 
-    sprintChallenge() {
-        return `${this.name} has begun the sprint challenge on ${subject}`
+    sprintChallenge(subject) {
+        return `${this.name} has begun the sprint challenge on ${subject}`;
       }
   }
   
@@ -58,11 +58,11 @@ class Person {
         this.favInstructor = projectManagerAttributes.favInstructor;
     }
 
-    standUp() {
+    standUp(channel) {
       return `${this.name} announces to ${channel}, @channel standy times!`;
     }
 
-    debugsCode() {
+    debugsCode(subject, student) {
       return `${this.name} debugs ${student.name}'s code on ${subject}`;
     }
   }
@@ -76,7 +76,7 @@ class Person {
       favLanguage: "JavaScript",
       catchPhrase: "The Gruesome-Twosome, in effect!",
       profession: "Conman"
-      }) 
+      });
       
       
       const dennis = new Instructor({
@@ -88,7 +88,7 @@ class Person {
       favLanguage: "Python",
       catchPhrase: "It's because of the implication.",
       previousBackground: "Owner of Paddy's Pub"
-      }) 
+      });
       
       const countryMac = new Instructor({
       name: "Country Mac",
@@ -99,7 +99,7 @@ class Person {
       favLanguage: "Python",
       catchPhrase: "I gave him an ocular patdown and assessed the threat level.",
       previousBackground: "Drifter"
-      }) 
+      });
       
       const charlie = new Student ({
       name: "Charlie",
@@ -112,8 +112,8 @@ class Person {
       previousBackground: "Janitor",
       className: "not sure",
       favSubjects: "Little green ghouls, magnets, kitten mittons",
-     // grade: "3"  //for the stretch
-      }) 
+      //grade: "3"  //for the stretch
+      });
       
       const ricketyCricket = new Student({
       name: "Rickety Cricket",
@@ -127,7 +127,7 @@ class Person {
       className: "cs13",
       favSubjects: "wrestling, being hunted, eating lemons",
       //grade: "87" //for the stretch
-      })
+      });
       
       const psychoPete = new Student({
       name: "Psycho Pete",
@@ -141,7 +141,7 @@ class Person {
       className: "cs11",
       favSubjects: "petting dogs, meditating, not cannibalism",
       //grade: "99" //for the stretch
-      }) 
+      });
       
       const sweetDee = new ProjectManager ({
       name: "Sweet Dee",
@@ -154,7 +154,7 @@ class Person {
       previousBackground: "Bartender/Actress",
       gradClassName: "cs4",
       favInstructor: "BEN CAMPBELL"
-      }) 
+      });
       
       const mac = new ProjectManager ({
       name: "Mac",
@@ -167,7 +167,7 @@ class Person {
       previousBackground: "Bodyguard",
       gradClassName: "cs5",
       favInstructor: "Josh Knell"
-      })
+      });
       
       const waitress = new ProjectManager ({
       name: "Waitress",
@@ -180,17 +180,14 @@ class Person {
       previousBackground: "Waitress",
       gradClassName: "cs7",
       favInstructor: "Mitchell Wright"
-      }) 
+      });
   
   
   console.log(waitress.speak());
   console.log(charlie.speak());
   console.log(frank.speak());
   console.log(psychoPete.listsSubjects());
-  console.log(ricketyCricket.PRAssignment());
-  console.log(charlie.sprintChallenge());
-  console.log(mac.debugsCode());
-  console.log(sweetDee.standUp());
-
-
-
+  console.log(ricketyCricket.PRAssignment('subject'));
+  console.log(charlie.sprintChallenge('subject'));
+  console.log(mac.debugsCode('subject', charlie));
+  console.log(sweetDee.standUp('channel'));
