@@ -25,7 +25,13 @@ class Instructor extends Person { // Inheriting from the Person class
         return (`${student.name} receives a perfect score on ${subject}`)
     }
     educate(student) {
-       student.grade = Math.floor(Math.random() * 101);
+       let newGrade = Math.random() * 100;
+       if (newGrade > 50) {
+           student.grade += 10;
+       } else {
+           student.grade -= 10;
+       }
+       return `${student.name}'s new grade is now ${student.grade}`
     }
 }
 
@@ -143,8 +149,8 @@ console.log(ted.favInstructor)
 console.log(ted.gradClassName)
 console.log(ted.standUp('#general'))
 console.log(ted.debugsCode(hannah, 'math'))
-console.log(hannah.graduate());
-console.log(ted.educate(hannah))
+console.log(hannah.grade)
 console.log(hannah.graduate())
+console.log(tina.educate(hannah))
 
 // Stretch Problem
