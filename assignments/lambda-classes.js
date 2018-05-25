@@ -24,17 +24,15 @@ class Instructor extends Person {
     grade(student, subject) {
         return `${student.name} receives a perfect score on ${subject}`;
     }
-    graduate(student) {
-        
-        if (this.grade > 70) {
-            return 'You have graduated!';
-        } else {
-            return 'You have failed!';
-        }
+    grade(student) {
+            return `${student.name} recieves a score of ${student.grade - (Math.floor(Math.random() * student.grade) + 1)}`
     }
-}
+  }
 
-class Student extends Instructor {
+
+
+
+class Student extends Person {
     constructor(studentStats) {
         super(studentStats);
         this.previousBackground = studentStats.previousBackground;
@@ -51,9 +49,16 @@ class Student extends Instructor {
     sprintChallenge(subject) {
         return `${this.name} has submitted a PR for {subject}`;
     }
+    graduate() {
+        if (this.grade > 70) {
+            return 'You have graduated!';
+        } else {
+            return 'Failure to achieve graduation! Please try again!';
+        }
+    }
 }
 
-class ProjectManager extends Student {
+class ProjectManager extends Instructor {
     constructor(PMstats) {
         super(PMstats);
         this.gradClassName = PMstats.gradClassName;
@@ -98,7 +103,7 @@ const mark = new Student({
     previousBackground: `Hack Reactor`,
     className: 'HR14',
     favSubjects: ['Math', 'Economics', 'Politics'],
-    grade: Math.floor(Math.random())
+    grade: 80
   });
 
   const stephanie = new ProjectManager({
@@ -125,8 +130,10 @@ const mark = new Student({
   console.log(stephanie.gradClassName);
   console.log(stephanie.standUp('random'));
   console.log(stephanie.debugsCode('mark', 'economics'));
-
+  console.log(mark.graduate());
+  console.log(mark.grade)
+  console.log(george.grade(mark));
   // Stretch
+s
 
-
-  
+ 
