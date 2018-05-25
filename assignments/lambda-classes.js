@@ -26,6 +26,28 @@ class Instructor extends Person{
     }
 }
 
+const Gene = new Instructor({
+    name: 'Gene Cousineau',
+    age: 65,
+    location: 'L.A.',
+    gender: 'M',
+    specialty: 'Teaching acting',
+    favLanguage: 'the language of Theatre',
+    catchPhrase: 'You\'re never going to see the inside of this acting class again!'
+});
+
+const Fuches = new Instructor({
+    name: 'Fuches',
+    age: 58,
+    location: 'L.A.',
+    gender: 'M',
+    specialty: 'handling the "business"',
+    favLanguage: 'money',
+    catchPhrase: 'BARRY, YOU\'RE ALIVE!',
+})
+
+
+
 class Student extends Person {
     constructor(studentAttrs) {
         super(studentAttrs);
@@ -34,7 +56,7 @@ class Student extends Person {
         this.favSubjects = studentAttrs.favSubjects;
     }
     listsSubjects(arr) {
-        return `${this.favSubjects};`
+        return `${this.favSubjects}; `
     }
     PRAssignment(subject) {
         return `${this.name} has submitted a PR for ${subject}`;
@@ -43,6 +65,26 @@ class Student extends Person {
         return `${this.name} has begun a sprint challenge on ${subject}`;
     }
 }
+
+const Barry = new Student({
+    name: 'Barry Berkman',
+    age: 35,
+    location: 'L.A.',
+    gender: 'M',
+    previousBackground: 'Hitman',
+    className: 'Cousineau\'s Acting Class',
+    favSubjects: ['Acting', 'Shooting guns', 'daydreaming about Sally'],
+});
+
+const Sally = new Student({
+    name: 'Sally Reed',
+    age: 29,
+    location: 'L.A.',
+    gender: 'F',
+    previousBackground: 'Acting',
+    className: 'Cousineau\'s Acting Class',
+    favSubjects: ['Acting', 'Auditioning'],
+})
 
 class ProjectManager extends Instructor {
     constructor(PMAttrs) {
@@ -58,11 +100,23 @@ class ProjectManager extends Instructor {
     }
 }
 
+const Hank = new ProjectManager ({
+    name: 'Noho Hank',
+    age: 32,
+    location: 'L.A.',
+    gender: 'M',
+    specialty: 'being a Mobster',
+    favLanguage: 'Chechen',
+    catchPhrase: 'We will find you, and we will kill you.',
+    gradClassName: 'right-hand man',
+    favInstructor: 'Goran Pazar',
+})
 
-console.log(Josh.demo('whatevs')); 
-console.log(Josh.grade(Katie, 'project'));
-console.log(Katie.listsSubjects(this.favSubjects));
-console.log(Katie.PRAssignment('LESS'));
-console.log(Katie.sprintChallenge('JavaScript'));
-console.log(Holly.standUp('CS11_Holly'));
-console.log(Holly.debugsCode(Katie, 'CSS'));
+
+console.log(Gene.demo('MacBeth')); 
+console.log(Fuches.grade(Barry, 'Killing the target'));
+console.log(Barry.listsSubjects(this.favSubjects));
+console.log(Sally.PRAssignment('playing MacBeth'));
+console.log(Barry.sprintChallenge('stopping Chris from saying anything'));
+console.log(Hank.standUp('the mobsters'));
+console.log(Hank.debugsCode(Barry, 'CSS'));
