@@ -31,19 +31,14 @@ class Instructor extends Person {
   }
 
   changeGrade(student) {
-    let positive = true;
-    if(Math.floor((Math.random() >= 0.5))){
-      student.grade += Math.floor((Math.random() * 100) + 1);
-      if(student.grade > 100)
-      { student.grade = 100;  }
-    }
-    else {
-      positive = false;
-      student.grade -= Math.floor((Math.random() * 50) + 1);
-      if(student.grade < 0)
-      { student.grade = 0;  }
-    }
-    console.log(`${student.name}'s grade was ${positive ? "raised" : "lowered"} to ${student.grade} by ${this.name}`);
+    // Credit for the following line goes to Ciara Burkett
+    let change = Math.floor((Math.random() * 200) + (-100));
+    student.grade += change;
+    if(student.grade > 100)
+    { student.grade = 100;  }
+    if(student.grade < 0)
+    { student.grade = 0;  }
+    console.log(`${student.name}'s grade was ${change > 0 ? "raised" : "lowered"} to ${student.grade} by ${this.name}`);
   }
 }
 
