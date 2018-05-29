@@ -41,13 +41,15 @@ const mage = new Humanoid({
   dimensions: {
     length: 2,
     width: 1,
-    height: 1
+    height: 1,
   },
   hp: 5,
-  name: 'Bruce',
-  faction: 'Mage Guild',
-  weapons: ['Staff of Shamalama'],
-  language: 'Common Toungue'
+  name: 'Thor',
+  faction: 'Asgardian',
+  weapons: [
+    'Mjolnir',
+  ],
+  language: 'Native Toungue',
 });
 
 const swordsman = new Humanoid({
@@ -55,13 +57,17 @@ const swordsman = new Humanoid({
   dimensions: {
     length: 2,
     width: 2,
-    height: 2
+    height: 2,
   },
   hp: 15,
-  name: 'Sir Mustachio',
-  faction: 'The Round Table',
-  weapons: ['Giant Sword', 'Shield'],
-  language: 'Common Toungue'
+  name: 'Deadpool',
+  faction: 'Mutant',
+  weapons: [
+    'Swords',
+    'Guns',
+    'More Guns',
+  ],
+  language: 'Sarcasm',
 });
 
 const archer = new Humanoid({
@@ -69,22 +75,25 @@ const archer = new Humanoid({
   dimensions: {
     length: 1,
     width: 2,
-    height: 4
+    height: 4,
   },
   hp: 10,
-  name: 'Lilith',
-  faction: 'Forest Kingdom',
-  weapons: ['Bow', 'Dagger'],
-  language: 'Elvish'
+  name: 'Joker',
+  faction: 'Arkham Patient ',
+  weapons: [
+    'Bombs',
+    'Guns',
+    'Mob',
+  ],
+  language: 'English 1940s street slang',
 });
 
-console.log(mage.createdAt); // Today's date
-console.log(archer.dimensions); // { length: 1, width: 2, height: 4 }
-console.log(swordsman.hp); // 15
-console.log(mage.name); // Bruce
-console.log(swordsman.faction); // The Round Table
-console.log(mage.weapons); // Staff of Shamalama
-console.log(archer.language); // Elvish
-console.log(archer.greet()); // Lilith offers a greeting in Elvish.
-console.log(mage.takeDamage()); // Bruce took damage.
-console.log(swordsman.destroy()); // Sir Mustachio was removed from the game.
+console.log(mage.createdAt); 
+console.log(archer.dimensions); 
+console.log(swordsman.hp); 
+console.log(swordsman.faction); 
+console.log(mage.weapons); 
+console.log(archer.language); 
+console.log(archer.greet()); 
+console.log(mage.takeDamage()); 
+console.log(swordsman.destroy()); 
