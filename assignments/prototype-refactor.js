@@ -21,7 +21,7 @@ class GameObject {
     this.dimensions = parentParams.dimensions ;
   }
   destroy() {
-    return `${this.name} was removed from the game!` ;
+    return `${this.name} was removed from the game!` ;//?
   } 
 }
 /*
