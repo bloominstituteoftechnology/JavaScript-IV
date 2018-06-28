@@ -24,6 +24,15 @@ class Instructor extends Person{
     grade(student, subject) {
         return `${student.name} receives a perfect score on ${subject}.`
     }
+    gradeAssignment(student) {
+        let score = Math.random()*10;
+        if(score >= 2.5){
+           return student.grade += 10;
+        }
+        else{
+            return student.grade -=10;
+        }        
+    }
 }
 
 class Student extends Person {
@@ -32,9 +41,10 @@ class Student extends Person {
         this.previousBackground = attributes.previousBackground;
         this.className = attributes.className;
         this.favSubjects = attributes.favSubjects;
+        this.grade = attributes.grade;
     }
     listSubjects(favSubjects1, favSubjects2, favSubjects3){
-        return `My favorite subjects are ${favSubjects1}, ${favSubjects2}, ${favSubjects3}.`;
+        return `My favorite subjects are ${favSubjects1}, ${favSubjects2}, and ${favSubjects3}.`;
         
     };
     PRAssingment(subject){
@@ -42,6 +52,14 @@ class Student extends Person {
     }
     sprintChallenge(subject){
         return `${this.name} has begun spring challenge on ${subject}.`
+    }
+    graduate(){
+        if(this.grade >= 70){
+            return `Hooray! You graduate!` 
+        }
+        else{
+            return `You are not yet ready. :(`
+        }
     }
 }
  
@@ -66,7 +84,7 @@ const josh = new Instructor({
     gender: `M`,
     specialty: `Web Devlopement`,
     favLanguage: `Javascript`,
-    catchPhrase: `I invoke thine function!`
+    catchPhrase: `I invoke thine function!`    
 })
 
 const james = new Student({
@@ -76,7 +94,8 @@ const james = new Student({
     gender: `M`,    
     previousBackground: `None`,
     className: `CS12`,
-    favSubjects: [`HTML`, `CSS`, `Javascript`]
+    favSubjects: [`HTML`, `CSS`, `Javascript`],
+    grade: 50
 })
 
 const mike = new ProjectManager({
@@ -100,3 +119,10 @@ console.log(james.PRAssingment(`Javascript-III`))
 console.log(james.sprintChallenge(`Javascript`))
 console.log(mike.standUp(`CS12-Michael`))
 console.log(mike.debugsCode(`Alex`, `Javascript`))
+console.log(james.graduate())
+console.log(josh.gradeAssignment(james))
+console.log(mike.gradeAssignment(james))
+console.log(mike.gradeAssignment(james))
+console.log(josh.gradeAssignment(james))
+console.log(james.graduate())
+
