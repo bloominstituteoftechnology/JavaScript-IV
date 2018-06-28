@@ -27,6 +27,12 @@ class Instructor extends Person {
         return `${student.name} receives a perfect score on ${subject}.`;
     };
 
+    pointSystem (){
+        let random = Math.floor((Math.random()*100) + 1);
+        let plusOrMinus = Math.random() < 0.5 ? -1 : 1;
+        random = random*plusOrMinus;
+        return random;
+    };
 };
 
 class Student extends Person{
@@ -35,6 +41,7 @@ class Student extends Person{
         this.previousBackground = studentAttributes.previousBackground;
         this.className = studentAttributes.className;
         this.favSubjects = studentAttributes.favSubjects;
+        this.grade = studentAttributes.grade;
     };
 
     listsSubjects () {
@@ -49,8 +56,8 @@ class Student extends Person{
     sprintChallenge (subject){
         return `${this.name} has begun sprint challenge for ${subject}.`;
     };
-
 };
+
 
 class Pm extends Instructor {
     constructor(pmAttributes){
@@ -67,7 +74,6 @@ class Pm extends Instructor {
         return `${this.name} debugs ${student.name}\'s code on ${subject}.`;
     };
 };
-
 
 //-------------- TESTING --------//
 
@@ -88,9 +94,8 @@ const das = new Student ({
     gender: 'M',
     previousBackground: 'Project Manager',
     favSubjects: ['CSS', 'JS', 'HTML'],
-    className: 'CS12'
-
-
+    className: 'CS12',
+    grade: Math.floor((Math.random()*100) + 1)
 });
 
 const calum = new Pm ({
@@ -111,6 +116,7 @@ console.log(josh.catchPhrase);
 //Methods
 console.log(josh.demo("Javascript"));
 console.log(josh.grade(das, "HTML"));
+console.log(josh.pointSystem());
 
 console.log(`\n//---------------------//\n`);
 
@@ -124,6 +130,7 @@ console.log(das.favSubjects);
 das.listsSubjects();
 console.log(das.PRAssignment("CSS"));
 console.log(das.sprintChallenge("JavaScript-IV"));
+console.log(das.grade);
 
 console.log(`\n//---------------------//\n`);
 
