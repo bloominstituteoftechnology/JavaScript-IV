@@ -3,6 +3,7 @@
 // The console.log() statements should still return what is expected of them.
 
 function GameObject(options) {
+  
   this.createdAt = options.createdAt;
   this.dimensions = options.dimensions;
 }
