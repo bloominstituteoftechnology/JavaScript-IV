@@ -54,7 +54,7 @@ class ProjectManager extends Instructor {
 		return `${this.name} announces to ${channel}, @channel standy times!`;
 	}
 	debugsCode(student, subject) {
-		return `${this.name} debugs ${student.name}'s code on ${subject}'`;
+		return `${this.name} debugs ${student.name}'s code on ${subject}`;
 	}
 }
 
@@ -73,9 +73,9 @@ const joe = new Student({
   location: 'Bedrock',
   age: 37,
   gender: 'male',
-  favLanguage: 'JavaScript',
-  specialty: 'Front-end',
-  catchPhrase: `Don't forget the homies`
+  previousBackground: 'Rapper',
+  className: 'CS100',
+  favSubjects: ['HTML', 'React', 'D3']
 });
 
 const steve = new ProjectManager({
@@ -83,11 +83,14 @@ const steve = new ProjectManager({
   location: 'Bedrock',
   age: 37,
   gender: 'male',
-  favLanguage: 'JavaScript',
-  specialty: 'Front-end',
-  catchPhrase: `Don't forget the homies`
+  gradClassName: 'CS1',
+  favInstructor: 'Josh'
 });
 
-console.log(fred.name);
-console.log(joe.name);
-console.log(steve.name);
+console.log(fred.demo('React'));
+console.log(fred.grade(joe, 'React'));
+joe.listSubjects();
+console.log(joe.PRAssignment('JavaScript'));
+console.log(joe.sprintChallenge('Python'));
+console.log(steve.standUp('CS12'));
+console.log(steve.debugsCode(joe, 'JavaScript'));
