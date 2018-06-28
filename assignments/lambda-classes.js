@@ -29,6 +29,10 @@ class Instructor extends Person{
   grade(student, subject){
       console.log(`${student.name} receives a perfect score on ${subject}`);
   }
+  gradeChanger(student){
+    student.grade = Math.floor(Math.random() * 100 + student.grade);
+    return student.grade;
+  }
 }
 
 //===STUDENT CLASS===//
@@ -39,6 +43,7 @@ class Student extends Person {
     this.previousBackground = studentOptions.previousBackground; //what Student used to do before Lambda School
     this.className = studentOptions.className; //i.e CS132
     this.favSubjects = studentOptions.favSubjects;
+    this.grade = studentOptions.grade;
     }
     listsSubjects(){
       this.favSubjects.forEach(element => {
@@ -47,6 +52,11 @@ class Student extends Person {
     }
     PRAssignment(subject){
       console.log(`${this.name} has begun spring challenge on ${subject}`);
+    }
+    graduate(){
+      if(this.grade > .7) {
+          return `${this.name} graduates from Lambda School!`;
+      } 
     }
 }
 
@@ -104,7 +114,8 @@ const instructor2 = new Instructor({
     gender: 'male',
     previousBackground:'Used to fight the steel dwarves on the planet Macktoo.' , 
     className:'CS12' ,
-    favSubjects:['JavaScript', 'HTML']
+    favSubjects:['JavaScript', 'HTML'],
+    grade: 97
   }); 
 
 
@@ -115,7 +126,8 @@ const instructor2 = new Instructor({
     gender: 'female',
     previousBackground:'Used to teach the Zobdarts how to bobblefingle.' , 
     className:'CS12' ,
-    favSubjects:['CSS', 'HTML' , 'C++']
+    favSubjects:['CSS', 'HTML' , 'C++'],
+    grade: 65
   }); 
 
   
@@ -126,7 +138,8 @@ const instructor2 = new Instructor({
     gender: 'female',
     previousBackground:'Used to train elephants in the circus.' , 
     className:'CS12',
-    favSubjects:['C++', 'Python', 'JavaScript', 'CSS']
+    favSubjects:['C++', 'Python', 'JavaScript', 'CSS'],
+    grade: 42
   }); 
 
   const projectManager1 = new ProjectManager({
@@ -170,3 +183,5 @@ const instructor2 = new Instructor({
   console.log(instructor2.grade(student1, 'Javascript'));
   console.log(projectManager3.debugsCode(student2,'HTML'));
   console.log(student2.listsSubjects());
+  console.log(instructor1.gradeChanger(student2));
+  console.log(student2.graduate());
