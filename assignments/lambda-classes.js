@@ -43,4 +43,49 @@ class Instructor extends Person {
     }
   }
 
-  
+  class PM extends Instructor {
+    constructor(pmAttributes){
+      super(pmAttributes);
+      this.gradClassName = pmAttributes.gradClasName;
+      this.favInstructor = pmAttributes.favInstructor;
+    }
+    standup(){
+      console.log(`${this.name} announces to
+        ${channel}, @channel standby times!`);
+    }
+    debugsCode(){
+      console.log(`${this.name} debugs
+        ${this[student].name}'s code on ${subject}'`)
+    }
+  }
+
+  //===================Persons
+
+  const Dan = new Instructor({
+    'name': 'Dan',
+    'age' : 30,
+    'location' : "Iowa",
+    'gender': "M",
+    'specialty': "Full-Stack",
+    'favLanguage': "JavaScript",
+    'catchPhrase': "Don't forget the homies",
+  });
+
+    const Jill = new Student({
+      'name': 'Jill',
+      'age' : 23,
+      'location' : 'Colorado',
+      'gender': 'F',
+      'previousBackground': 'none',
+      'className': 'CS12',
+      'favSubjects': 'CSS',
+    });
+
+    const Lauren = new PM({
+      'name': 'Lauren',
+      'age' : 34,
+      'location' : 'New York',
+      'gender': 'F',
+      'gradClass': 'CS3',
+      'favInstructor': 'Greg', 
+    })
