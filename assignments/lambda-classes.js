@@ -27,6 +27,10 @@ class Instructor extends Person {
     grade (student, subject){
         console.log(`${student} recives a perfect score on ${subject}`)
     }
+
+    grade (student){
+        student.grade = Math.random(100)
+    }
 }
 
 class Student extends Person {
@@ -35,6 +39,7 @@ class Student extends Person {
         this.previousBackground = studentOptions.previousBackground
         this.className = studentOptions.className
         this.favSubject = studentOptions.favSubject
+        this.grade = studentOptions.grade
     }
 
     listsSubjects() {
@@ -47,6 +52,13 @@ class Student extends Person {
 
     sprintChallange(subject) {
         console.log(`${this.name} has started sprint challange on ${subject}`)
+    }
+
+    graduate (){
+        if (this.grade > 70)
+            console.log(`You have graduated!`)
+        else
+            console.log(`You need more better grade graduate go back to  your assignments`)
     }
 }
 
@@ -126,7 +138,9 @@ const Kamal = new Student ({
 })
 
 Josh.grade(Kamal, 'HTML & CSS')
+Josh.grade(Kamal)
 Russell.grade(Kamal, 'JS')
+Russell.grade()
 Kamal.speak()
 Kamal.listsSubjects()
 Kamal.PRAssignment('JS')
@@ -143,6 +157,7 @@ const Erik = new Student({
 
 Josh.grade(Erik, 'HTML & CSS')
 Russell.grade(Erik, 'JS')
+Russell.grade()
 Erik.speak()
 Erik.PRAssignment('JS')
 Erik.sprintChallange('JS')
@@ -151,12 +166,12 @@ Erik.sprintChallange('JS')
 
 const Nathan = new ProjectManager({
     name: 'Nathan Daniel',
-    age: 28,
+    age: 38,
     location: 'USA',
     specialty: 'Everything on web :wink:',
     catchPhrase: '',
     gradClassName: 'CS10',
-    favInstructor: ''
+    favInstructor: ['Luis']
 })
 
 Nathan.speak();
