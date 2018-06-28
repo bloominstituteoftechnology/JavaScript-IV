@@ -23,7 +23,7 @@ class Person {
     demo (subject) {
         return `Today we are learning ${subject}.`;
     }
-    grade (studentObject, subject) { // STILL MISSING STUDENT OBJECT==========================
+    grade (Student, subject) { // STILL MISSING STUDENT OBJECT==========================
         return `${this.name} receives a perfect score on ${subject}`;
     }
   }// end of Instructor
@@ -37,7 +37,7 @@ class Person {
         this.favSubjects = skills.favSubjects;
     }
     listsSubjects () {
-        // LOGS OUT ALL OF THE STUDENTS FAVORITES SUBJECTS, ONE BY ONE.=======================
+        return this.favSubjects;
     }
     PRAssignment (subject) {
         return `${this.name} has submitted a PR for ${subject}.`;
@@ -54,10 +54,10 @@ class ProjectManager extends Instructor {
         this.gradClassName = props.gradClassName;
         this.favInstructor = props.favInstructor;
     }
-    standUp () {
+    standUp (channel) {
         return `${this.name} announces to ${channel}, @channel standy times!`;
     }
-    debugsCode () { // STILL MISSING STUDENT OBJECT ========================================
+    debugsCode (student.name, subject) { // STILL MISSING STUDENT OBJECT ========================================
         return `${this.name} debugs ${student.name}'s code on ${subject}`;
     }
 }
@@ -74,5 +74,66 @@ const fred = new Instructor({
     catchPhrase: `Don't forget the homies`
   });
 
+const luis = new Student({
+    name: 'Luis',
+    location: 'San Diego',
+    age: 27,
+    gender: 'male',
+    previousBackground: 'Civil Engineer',
+    className: 'CS-12',
+    favSubjects: [
+        "HTML",
+        "Bootstrap"
+    ]
+});
 
-  console.log(fred.demo('JavaScript')); // Today's date
+const ray = new ProjectManager({
+    name: 'Ray',
+    location: 'Los Angeles',
+    age: 31,
+    gender: 'male',
+    gradClassName: 'CS-06',
+    favInstructor: 'Fred',
+});
+
+const fernando = new Student({
+    name: 'Fernando',
+    location: 'Mexico',
+    age: 25,
+    gender: 'male',
+    previousBackground: 'Sales',
+    className: 'CS-10',
+    favSubjects: [
+        "HTML",
+        "Bootstrap",
+        "LESS",
+        "JavaScript"
+    ]
+});
+
+const steve = new Instructor({
+    name: 'Steve',
+    location: 'New York',
+    age: 45,
+    gender: 'male',
+    favLanguage: 'Python',
+    specialty: 'Back-end',
+    catchPhrase: `DAMN!`
+});
+
+const lilly = new ProjectManager({
+    name: 'Lilly',
+    location: 'Canada',
+    age: 28,
+    gender: 'female',
+    gradClassName: 'CS-02',
+    favInstructor: 'Steve',
+});
+
+
+console.log(fred.demo('JavaScript'));
+console.log(luis.listsSubjects());
+console.log(ray.standUp('Channel CS12'));
+console.log(fernando.PRAssignment('JavaScript'));
+console.log(steve.catchPhrase);
+console.log(lilly.gradClassName);
