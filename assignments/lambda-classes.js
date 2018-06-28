@@ -32,7 +32,7 @@ const garrett = new Person({
     age: 30,
     location: 'Chicago',
     gender: 'M'
-})
+});
 
 // console.log(garrett.age);
 // garrett.speak();
@@ -63,7 +63,7 @@ const josh = new Instructor({
     specialty: 'Front-end',
     favLanguage: 'JavaScript',
     catchPhrase: 'Caveman it!'
-})
+});
 
 // console.log(josh.location);
 // console.log(josh.age);
@@ -80,10 +80,57 @@ const diandra = new Instructor({
     specialty: 'Math',
     favLanguage: 'JavaScript',
     catchPhrase: 'Good evening!'
-})
+});
 
-console.log(diandra.name);
-console.log(diandra.favLanguage);
-console.log(diandra.gender);
-diandra.demo('JavaScript');
-diandra.grade(garrett, 'JavaScript');
+// console.log(diandra.name);
+// console.log(diandra.favLanguage);
+// console.log(diandra.gender);
+// diandra.demo('JavaScript');
+// diandra.grade(garrett, 'JavaScript');
+
+
+//Student Class
+
+class Student extends Person {
+    constructor(studentAttributes) {
+        super(studentAttributes);
+        this.previousBackground = studentAttributes.previousBackground;
+        this.className = studentAttributes.className;
+        this.favSubjects = studentAttributes.favSubjects;
+    }
+    listsSubjects() {
+        this.favSubjects.forEach(subject => { console.log(subject) });
+    }
+    PRAssignment(subject) {
+        console.log(`${this.name} has submitted a PR for ${subject}`);
+    }
+    sprintChallenge(subject) {
+        console.log(`${this.name} has begun sprint challenge on ${subject}`);
+    }
+}
+
+
+//Student objects
+
+const charles = new Student({
+    name: 'Charles',
+    age: 25,
+    location: 'New Hampshire',
+    gender: 'M',
+    previousBackground: 'teacher',
+    className: 'CS12',
+    favSubjects: ['HTML', 'CSS', 'JavaScript', 'Math', 'History']
+});
+
+// console.log(charles.name);
+// console.log(charles.location);
+// console.log(charles.previousBackground);
+// console.log(charles.favSubjects);
+// charles.listsSubjects();
+// charles.PRAssignment('JavaScript');
+// charles.sprintChallenge('CSS');
+
+
+
+//Project Manager Class
+
