@@ -57,6 +57,9 @@ class Student extends Person {
     while (this.grade <= 70) {
       instructor.grade(this, subject);
     }
+    console.log(
+      `${this.name} has successfully graduated by scoring ${this.grade}!`
+    );
   }
 }
 
