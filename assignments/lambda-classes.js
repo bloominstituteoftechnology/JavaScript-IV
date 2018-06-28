@@ -57,8 +57,8 @@ class Student extends Person {
         this.className = StudentAttributes.className;
         this.favSubjects = StudentAttributes.favSubjects;
     }
-    listsSubjects(subjectStr) {
-        console.log(`Today we are learning about ${subjectStr}.`)
+    listsSubjects() {
+
     }
     PRAssignment(subjectStr) {
         console.log(`${this.name} has submitted a PR for ${subjectStr}`)
@@ -69,20 +69,73 @@ class Student extends Person {
 }
 
 
-class ProjectManagers extends Instructor {
-    constructor(ProjectManagersAttributes) {
-    super(ProjectManagersAttributes);
-    this.gradClassName = StudentAttributes.gradClassName;
-    this.favInstructor = StudentAttributes.favInstructor;
+class ProjectManager extends Instructor {
+    constructor(ProjectManagerAttributes) {
+        super(ProjectManagerAttributes);
+        this.gradClassName = ProjectManagerAttributes.gradClassName;
+        this.favInstructor = ProjectManagerAttributes.favInstructor;
+    }
+
+    standUp(slackChannel) {
+        console.log(`${this.name} announces to ${slackChannel}, @channel standy times!​​​​​`)
+    }
+    debugsCode(studentObj, subject) {
+        console.log(`${this.name} debugs ${studentObj.name}'s code on ${subject}`)
+    }
 }
 
-standUp(slackChannel) {
-    console.log(`${this.name} announces to ${slackChannel}, @channel standy times!​​​​​`)
-}
-debugsCode(studentObj, subject) {
-    console.log(`${this.name} debugs ${studentObj.name}'s code on ${subject}`)
-}
-}
+
+const Justin = new Student({
+    'gender': 'M',
+    'age': 26,
+    'name': 'Justin',
+    'location': 'St. Louis',
+    previousBackground: "Data Entry",
+    className: "CS12",
+    favSubjects: ["HTML", "JS", "CSS", "Python"]
+
+});
+
+
+const Josh = new Instructor({
+    name: 'Josh',
+    location: 'Vegas',
+    age: 37,
+    gender: 'male',
+    favLanguage: 'JavaScript',
+    specialty: 'Front-end',
+    catchPhrase: "I'm the Vince Lombardi of Programming"
+});
+
+const Russell = new Instructor({
+    name: 'Russell',
+    location: 'Somewhere else',
+    age: 22,
+    gender: 'male',
+    favLanguage: 'React',
+    specialty: 'Backend',
+    catchPhrase: 'Foobar'
+});
+
+const Nathan = new ProjectManager({
+    name: 'Nathan',
+    location: 'Florida',
+    age: 28,
+    gender: 'male',
+    favLanguage: 'JavaScript',
+    specialty: 'Back-end',
+    catchPhrase: "Mid or I feed",
+    gradClassName: "CS7",
+    favInstructor: "Josh"
+});
+
+Justin.listsSubjects();
+Justin.PRAssignment("JavaScript");
+Justin.sprintChallenge("Front-End");
+Josh.demo("CSS");
+Josh.grade(Justin, "CSS");
+Nathan.standUp("CS12-Nate");
+Nathan.debugsCode(Justin , "Javascript");
 
 
 
