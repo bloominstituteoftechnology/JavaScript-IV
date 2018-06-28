@@ -167,3 +167,6 @@ const instructor2 = new Instructor({
 
 
   console.log(instructor1.name);
+  console.log(instructor2.grade(student1, 'Javascript'));
+  console.log(projectManager3.debugsCode(student2,'HTML'));
+  console.log(student2.listsSubjects());
