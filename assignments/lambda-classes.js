@@ -59,10 +59,10 @@ class Student extends Person {
     return `${this.name} has begun spring challenge on ${subject}`
   }
   graduateChecker () {
-    if (this.classGrade > 70) {
-      return `Congrats ${this.name}, you have graduated!`
-    } else if (this.classGrade > 100) {
+    if (this.classGrade > 100) {
       return `WOW! ${this.name} you have graduated with honers, CONGRATS!!`
+    } else if (this.classGrade > 70) {
+      return `Congrats ${this.name}, you have graduated!`
     } else if (this.classGrade < 70) {
       return `Still need some work, ${this.name}, contact your PM!`
     }
