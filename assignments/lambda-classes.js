@@ -81,7 +81,7 @@ const Twinkle = new Instructor ({
 
 const Bub = new Student ({
     "name": "Bubbba",
-    "favSubjects": "CSS and Cats",
+    "favSubjects": ["CSS", "Cats"],
     "grade": 60
 })
 
@@ -89,21 +89,21 @@ const TwinkleJunior = new ProjectManager ({
     "name": "TwinkleJunior"
 })
 
-// console.log(Twinkle.demo("JS"));
-// console.log(Twinkle.grade(Bub, "HTML"));
-// console.log(Bub.listsSubjects());
-// console.log(Bub.PRAssignments("CSS"));
-// console.log(Bub.sprintChallenge("JS IV"));
-// console.log(TwinkleJunior.standUp("CS100"));
-// console.log(TwinkleJunior.debugsCode(Bub, "Bootstrap"));
+console.log(Twinkle.demo("JS"));
+console.log(Twinkle.grade(Bub, "HTML"));
+console.log(Bub.listsSubjects());
+console.log(Bub.PRAssignments("CSS"));
+console.log(Bub.sprintChallenge("JS IV"));
+console.log(TwinkleJunior.standUp("CS100"));
+console.log(TwinkleJunior.debugsCode(Bub, "Bootstrap"));
 
 
-console.log(Bub.grade);
-Twinkle.points(Bub);
-console.log(Bub.grade);
-TwinkleJunior.graduate(Bub);
-Twinkle.points(Bub);
-console.log(Bub.grade);
-TwinkleJunior.graduate(Bub);
+// console.log(Bub.grade);
+// Twinkle.points(Bub);
+// console.log(Bub.grade);
+// TwinkleJunior.graduate(Bub);
+// Twinkle.points(Bub);
+// console.log(Bub.grade);
+// TwinkleJunior.graduate(Bub);
 
 
