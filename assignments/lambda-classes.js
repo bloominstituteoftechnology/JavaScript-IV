@@ -28,8 +28,10 @@ class Instructor extends Person {
         // return student + ` receives a perfect score on ` + subject + `.`;
         return `${student.name} receives a perfect score on ${subject}.`;
     }
-    randomizedMath () {
-
+    randomizedMath (student) {
+        // return student.grade + 5;
+        return `This method randomly changes ${student.name}'s grade of ${student.grade}.`
+        // I'll work on this more later (after I spend some time on the coding challenge)
     }
 }
 
@@ -122,4 +124,7 @@ const bryce = new Student({
   console.log(bryce.sprintChallenge('Bootstrap'));
   console.log(ben.standUp('CS12'));
   console.log(ben.debugsCode(bryce, 'Javascript'));
+  console.log(bryce.graduate());
+  console.log(fred.randomizedMath(bryce));
+  console.log(ben.randomizedMath(bryce));
   console.log(bryce.graduate());
