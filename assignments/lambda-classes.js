@@ -19,11 +19,11 @@ class Instructor extends Person {
       this.favLanguage = instructorAttributes.favLanguage;
       this.catchPhrase = instructorAttributes.catchPhrase;
     }
-    demo(){
+    demo(subject){
       console.log(`Today we are learning about ${subject}`)
     }
-    grade(){
-      console.log(`${this[student].name} recieves a perfect score on ${subject}`)
+    grade(student, subject){
+      console.log(`${student, subject} recieves a perfect score on ${subject}`)
     }
 }
 
@@ -34,10 +34,10 @@ class Instructor extends Person {
       this.className = studentAttributes.className;
       this.favSubjects = studentAttributes.favSubjects;
     }
-    PRAssignment(){
+    PRAssignment(subject){
       console.log(`${this.name} has submitted a PR for ${subject}`);
     }
-    sprintChallenge(){
+    sprintChallenge(subject){
       console.log(`${this.name} has begun sprint challenge on ${subject}`);
     }
     listsSubjects(){
@@ -51,13 +51,13 @@ class Instructor extends Person {
       this.gradClassName = pmAttributes.gradClasName;
       this.favInstructor = pmAttributes.favInstructor;
     }
-    standup(){
+    standup(channel){
       console.log(`${this.name} announces to
         ${channel}, @channel standby times!`);
     }
-    debugsCode(){
+    debugsCode(student, subject){
       console.log(`${this.name} debugs
-        ${this[student].name}'s code on ${subject}'`)
+        ${student}'s code on ${subject}'`)
     }
   }
 
@@ -85,9 +85,12 @@ class Instructor extends Person {
 
     const Lauren = new PM({
       'name': 'Lauren',
-      'age' : 34,
-      'location' : 'New York',
-      'gender': 'F',
-      'gradClass': 'CS3',
-      'favInstructor': 'Greg',
-    })
+       'age' : 34,
+       'location' : 'New York',
+       'gender': 'F',
+       'specialty':'CSS',
+       'favLanguage': 'CSS',
+       'catchPhrase': "Hi guys",
+       'gradClassName': 'CS3',
+       'favInstructor': 'Greg',
+     })
