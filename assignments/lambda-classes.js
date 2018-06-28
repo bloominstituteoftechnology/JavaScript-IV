@@ -57,7 +57,7 @@ class Student extends Person {
     }
 }
 
-//* PROJECT MANAGER CLASS
+//* PROJECT MANAGER CLASS 
 
 class ProjectManager extends Instructor {
     constructor(attributes) {
