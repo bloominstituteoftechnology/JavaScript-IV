@@ -1,6 +1,7 @@
 // Here we have a functioning solutoin to your challenge from yesterday.
 // Today your goal is to refactor all of this code to use ES6 Classes.
 // The console.log() statements should still return what is expected of them.
+//my comment
 
 function GameObject(options) {
   this.createdAt = options.createdAt;
