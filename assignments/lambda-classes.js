@@ -20,12 +20,29 @@ class Instructor extends Person {
     demo(subject) {
         console.log(`Today we are learning about ${subject}`);
     }
-    grade(student, subject) {
-        console.log(`${student.name} receives a perfect score on ${subject}`);
+    grade(student, subject, didWell) {
+        if (didWell) {
+            console.log(`${student.name} did a great job on the ${subject} assignment!`);
+            this.adjustGrade(student, true);
+        } else {
+            console.log(`${student.name} needs some more practice with ${subject}.`);
+            this.adjustGrade(student, false);
+        }
+        
     }
-    adjustGrade(student) {
-        student.grade += Math.round(Math.random()) * 2 - 1;
-        console.log(`${student.name}'s grade has been adjusted to ${student.grade}`)
+    adjustGrade(student, increaseGrade) {
+        console.log(student.grade);
+        if (increaseGrade) {
+            student.grade += Math.round(Math.random() * 5)+ 1;
+            console.log(`${student.name}'s grade has been increased to ${student.grade}`)
+            if (student.grade >= 100) {
+                student.graduate();
+            }
+        } else {
+            student.grade -= Math.round(Math.random() * 5) + 1;
+            console.log(`${student.name}'s grade has been decreased to ${student.grade}`)
+        }
+        
     }
 }
 
@@ -142,8 +159,8 @@ const fred = new Instructor({
   lauren.speak();
 
   fred.demo('BootStrap');
-  josh.grade(lauren, 'JavaScript');
-
+  josh.grade(lauren, 'JavaScript', true);
+  nathan.grade(lauren, 'UI', false);
   percy.listsSubjects();
   lauren.PRAssignment('BootStrap');
   lauren.sprintChallenge('JavaScript');
@@ -151,4 +168,4 @@ const fred = new Instructor({
 
   kate.standUp('CS_12');
   nathan.debugsCode(lauren, 'UI');
-  nathan.adjustGrade(lauren);
+  
