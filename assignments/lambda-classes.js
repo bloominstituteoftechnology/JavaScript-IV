@@ -33,14 +33,14 @@ class Student extends Person{
         this.className = learn.className;
         this.favSubjects = learn.favSubjects;
     }
-    listSubjects(){
-        console.log(....favSubjects);
+    listSubjects(...favSubject){
+        return `${this.name}'s favorite subjects are ${this.favSubjects}.`
     }
-    PRAssignments(subject){
-        return `${student.name} has submitted a PR for ${subject}.`
+    PRAssignment(subject){
+        return `${this.name} has submitted a PR for ${subject}.`
     }
     sprintChallenge(subject){
-        return `${student.name} has begun sprint challenge on ${subject}.`
+        return `${this.name} has begun sprint challenge on ${subject}.`
     }
 }
 
@@ -51,10 +51,10 @@ class ProjectManager extends Instructor{
         this.favInstructor = lead.favInstructor;
     }
     standUp(slackChannel){
-        return `${this.name} announce to ${this.channel}, @channel standy times!`
+        return `${this.name} announce to ${slackChannel}, @channel standy times!`
     }
     debugsCode(student, subject){
-    return `${this.name} debugs ${students.name}'s code on ${this.subject}.`
+    return `${this.name} debugs ${student.name}'s code on ${subject}.`
     }
 }
 
@@ -83,7 +83,7 @@ const Dixie = new ProjectManager({
     name: 'Dixie',
     age: 24,
     location: 'East Coast',
-    gender: 'F'
+    gender: 'F',
     specialty: 'Front-end',
     favLanguage: 'HTML CSS',
     catchPhrase: 'hi everyone',
@@ -95,7 +95,7 @@ const Terrie = new ProjectManager({
     name: 'Terrie',
     age: 26,
     location: 'West Coast',
-    gender: 'F'
+    gender: 'F',
     specialty: 'Back-end',
     favLanguage: 'C++',
     catchPhrase: 'AngryPanda',
@@ -122,3 +122,10 @@ const Nico = new Student({
     className: 'CS12',
     favSubjects: ['Python', 'C++', 'Django']
 })
+
+console.log(Josh.demo('JavaScript'));
+console.log(Patrick.grade(Nico,'HTML'));
+console.log(Dixie.standUp('CS12_Dixie'));
+console.log(Terrie.debugsCode(Holly, 'ReactJS'));
+console.log(Nico.listSubjects());
+console.log(Holly.PRAssignment('CSS'));
