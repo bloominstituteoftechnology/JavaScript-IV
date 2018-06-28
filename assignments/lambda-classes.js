@@ -2,13 +2,12 @@
 
 class Person {
   constructor(options){
-    super(options);
     this.name = options.name;
     this.location = options.locations;
     this.age = options.age;
     this.gender = options.gender;
   }
-  speak {
+  speak (){
     return `My name is ${this.name} and I'm from ${this.location}`;
   }
 }
@@ -37,13 +36,13 @@ class Instructor extends Person {
 class Student extends Person {
   constructor(wowOptions){
     super(wowOptions);
-    this.favLanguage = teachOptions.favLanguage;
-    this.specialty = teachOptions.specialty;
-    this.catchPhrase = wowOptions.specialty;
+    this.favLanguage = wowOptions.favLanguage;
+    this.specialty = wowOptions.specialty;
+    this.catchPhrase = wowOptions.catchPhrase;
     this.previousBackground = wowOptions.previousBackground;
     this.className = wowOptions.className;
   }
-  listsSubjects{
+  listsSubjects(){
     return `My favorite subjects is , ${this.favSubjects}`;
   }
   PRAssignment(subject){
@@ -55,11 +54,11 @@ class Student extends Person {
 }
 // End Student
 
-class ProjectManager extends Student {
+class ProjectManager extends Instructor{
   constructor(concludeOptions){
     super(concludeOptions);
-    this.favLanguage = teachOptions.favLanguage;
-    this.specialty = teachOptions.specialty;
+    this.favLanguage = concludeOptions.favLanguage;
+    this.specialty = concludeOptions.specialty;
     this.catchPhrase = concludeOptions.catchPhrase;
 
   }
@@ -114,3 +113,11 @@ const ginger = new ProjectManager({
   gradClassName: 'CS1',
   favInstructor: 'Joan'
 });
+
+
+
+
+/// console log
+
+console.log(ginger.catchPhrase);
+console.log(misty.catchPhrase);

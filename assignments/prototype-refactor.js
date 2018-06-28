@@ -8,7 +8,7 @@ class GameObject {
     this.dimensions = options.dimensions;
   }
   destroy() {
-    console.log(`Object was removed from the game.`);
+    return `Object was removed from the game.`;
   }
 }
 
@@ -23,7 +23,7 @@ class CharacterStats extends GameObject {
     this.name = characterStatsOptions.name;
   }
 takeDamage() {
-  console.log(`${this.name} took damage.`);
+  return `${this.name} took damage.`;
   }
 }
 
@@ -40,7 +40,7 @@ takeDamage() {
     this.language = humanoidOptions.language;
   }
 greet() {
-  console.log(`${this.name} offers a greeting in ${this.language}.`);
+  return `${this.name} offers a greeting in ${this.language}.`;
   }
 }
 
