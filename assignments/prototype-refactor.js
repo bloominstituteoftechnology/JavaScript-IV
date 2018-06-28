@@ -12,7 +12,7 @@ class GameObject {
     return `Object was removed from the game.`;
  
 };
-
+}
 
 class CharacterStats extends GameObject {
   constructor(characterStatsOptions) {
@@ -21,15 +21,15 @@ class CharacterStats extends GameObject {
     this.name = characterStatsOptions.name;
   }
  
+  takeDamage () {
+    return `${this.name} took damage.`;
 }
 
-CharacterStats.prototype = Object.create(GameObject.prototype);
 
-CharacterStats.prototype.takeDamage = function() {
-  return `${this.name} took damage.`;
+
 };
 
-function Humanoid(humanoidOptions) {
+class Humanoid extends CharacterStats {
   CharacterStats.call(this, humanoidOptions);
   this.faction = humanoidOptions.faction;
   this.weapons = humanoidOptions.weapons;
