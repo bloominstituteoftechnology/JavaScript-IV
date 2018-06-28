@@ -78,31 +78,25 @@ class Person {
   //Project Manager Ends
 
   //Object for Person
-  const fred = new Instructor({
+  const fred = new Person({
     name: 'Fred',
     location: 'Bedrock',
-    age: 37,
-    gender: 'male',
-    favLanguage: 'JavaScript',
-    specialty: 'Front-end',
-    catchPhrase: `Don't forget the homies`
+    age: 35,
+    gender: 'male'
   });
 
-  const fred = new Instructor({
-    name: 'Fred',
+  const wilma = new Person({
+    name: 'Wilma',
     location: 'Bedrock',
     age: 37,
-    gender: 'male',
-    favLanguage: 'JavaScript',
-    specialty: 'Front-end',
-    catchPhrase: `Don't forget the homies`
+    gender: 'female'
   });
   //Object for Person
 
   //Object for Instructor
-  const fred = new Instructor({
-    name: 'Fred',
-    location: 'Bedrock',
+  const tim = new Instructor({
+    name: 'tim',
+    location: 'Seattle',
     age: 37,
     gender: 'male',
     favLanguage: 'JavaScript',
@@ -110,57 +104,56 @@ class Person {
     catchPhrase: `Don't forget the homies`
   });
 
-  const fred = new Instructor({
-    name: 'Fred',
-    location: 'Bedrock',
-    age: 37,
+  const bob = new Instructor({
+    name: 'Bob',
+    location: 'NY',
+    age: 40,
     gender: 'male',
-    favLanguage: 'JavaScript',
-    specialty: 'Front-end',
-    catchPhrase: `Don't forget the homies`
+    favLanguage: 'C++',
+    specialty: 'Back-end',
+    catchPhrase: `Noice!`
   });
   //Object for Instructor
 
   //Object for Student
-  const fred = new Instructor({
-    name: 'Fred',
-    location: 'Bedrock',
-    age: 37,
-    gender: 'male',
-    favLanguage: 'JavaScript',
-    specialty: 'Front-end',
-    catchPhrase: `Don't forget the homies`
+  const susie = new Student({
+    name: 'Susie',
+    location: 'Florida',
+    age: 27,
+    gender: 'female',
+    previousBackground: 'Hair-stylist',
+    className: 'CS100',
+    favSubjects: ['Math', 'Java', 'Hair Cutting']
   });
 
-  const fred = new Instructor({
-    name: 'Fred',
-    location: 'Bedrock',
-    age: 37,
+  const jim = new Student({
+    name: 'Jim',
+    location: 'Texas',
+    age: 25,
     gender: 'male',
-    favLanguage: 'JavaScript',
-    specialty: 'Front-end',
-    catchPhrase: `Don't forget the homies`
+    previousBackground: 'FireFighter',
+    className: 'CS90',
+    favSubjects: ['English', 'HTML', 'Video Games']
+    
   });
   //Object for Student
 
   //Object for PM
-  const fred = new Instructor({
+  const fred = new ProjectManagers({
     name: 'Fred',
     location: 'Bedrock',
     age: 37,
     gender: 'male',
-    favLanguage: 'JavaScript',
-    specialty: 'Front-end',
-    catchPhrase: `Don't forget the homies`
+    gradClassName: 'CS25',
+    favInstructor: 'Josh'
   });
 
-  const fred = new Instructor({
+  const fred = new ProjectManagers({
     name: 'Fred',
     location: 'Bedrock',
     age: 37,
     gender: 'male',
-    favLanguage: 'JavaScript',
-    specialty: 'Front-end',
-    catchPhrase: `Don't forget the homies`
+    gradClassName: 'CS26',
+    favInstructor: 'Eric'
   });
   //Object for PM
