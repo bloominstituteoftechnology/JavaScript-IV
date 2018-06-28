@@ -172,3 +172,18 @@ const dani = new ProjectManager({
     gradClassName: 'CS11',
     favInstructor: 'Fins',
 });
+
+
+console.log(bill.name); 
+console.log(fred.age); 
+console.log(jess.gender); 
+console.log(bill.location); 
+console.log(josh.specialty); 
+console.log(ryan.catchPhrase); 
+console.log(fins.favLanguage); 
+console.log(steph.className); 
+console.log(klay.favSubjects); 
+console.log(spuds.previousBackground);
+console.log(eric.gradClassName);
+console.log(terri.favInstructor);
+console.log(dani.location);
