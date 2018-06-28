@@ -36,16 +36,56 @@
      }
  }
 
- class Student extends Person {
+ class Student extends Instructor {
      constructor(args){
          super(args);
          this.previousBackground = args.previousBackground;
          this.className = args.className;
-         this.listSubjects = args.subjects;
-         this.PRAssignment = args.PRAssignment;
+         this.favSubjects = args.favSubjects;
      }
      listSubjects(){
-         return ``
-        //  return `${this.name} `
+         this.favSubjects.forEach((sub)=>{
+             console.log(sub);
+         })
+     }
+     PRAssignment(){
+        console.log(`${this.name} has submitted a PR for ${this.subject}`);
+     }
+     sprintChallenge(){
+         console.log(`${this.name} has begun sprint challenge on ${this.subject}`);
+         
      }
  }
+
+ const erik = new Student({
+    name: 'Erik', 
+    subject: 'P5JS',
+    favSubjects: ['html', 'js']
+});
+
+class ProjectManager extends Instructor {
+    constructor(args){
+        super(args);
+        this.gradeClassName = args.gradeClassName;
+        this.favInstructor = args.favInstructor;
+        this.channel = args.channel;
+    }
+    standUp(){
+        console.log(`${this.name} announces to ${this.channel}, @channel standy times!`);
+    }
+    debugsCode(){
+        console.log(`${this.name} debugs ${this.student}'s code on ${this.subject}`);
+        
+    }
+}
+
+const amon = new ProjectManager({
+    name: 'Amon',
+    gradeClassName: 'CS12',
+    favInstructor: 'Lulu Bananas',
+    channel: 'HAckMastahZ',
+    student: 'Erik',
+    subject: 'D3JS',
+})
+amon.debugsCode();
+// amon.standUp()
