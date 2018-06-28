@@ -34,5 +34,17 @@ class student extends Person {
         this.className = learn.className;
         this.favSubjects = learn.favSubjects;
     }
-    
+    listsSubjects () {
+        this.favSubjects.forEach(function(subs) {
+            console.log(subs);
+        });
+    }
+    PRAssignments (subject) {
+        console.log(`${this.name} has submitted a PR for ${subject}`);
+    }
+    sprintChallenge (subject) {
+        console.log(`${this.name} has begun sprint challenge on ${subject}`);
+    }
 }
+
+
