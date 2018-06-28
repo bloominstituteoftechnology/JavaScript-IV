@@ -58,7 +58,10 @@ class Student extends Person {
         this.favSubjects = StudentAttributes.favSubjects;
     }
     listsSubjects() {
-
+        for (let i = 0 ; i < this.favSubjects.length ; i++) {
+            console.log(this.favSubjects[i])
+        }
+    
     }
     PRAssignment(subjectStr) {
         console.log(`${this.name} has submitted a PR for ${subjectStr}`)
@@ -135,7 +138,8 @@ Justin.sprintChallenge("Front-End");
 Josh.demo("CSS");
 Josh.grade(Justin, "CSS");
 Nathan.standUp("CS12-Nate");
-Nathan.debugsCode(Justin , "Javascript");
+Nathan.debugsCode(Justin, "Javascript");
+console.log(Nathan.catchPhrase);
 
 
 
