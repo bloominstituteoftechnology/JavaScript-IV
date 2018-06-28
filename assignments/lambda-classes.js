@@ -33,13 +33,15 @@ class Instructor extends Person {
       this.previousBackground = studentAttributes.previousBackground;
       this.className = studentAttributes.className;
       this.favSubjects = studentAttributes.favSubjects;
-      this.listsSubjects = studentAttributes.listsSubject;
     }
     PRAssignment(){
       console.log(`${this.name} has submitted a PR for ${subject}`);
     }
     sprintChallenge(){
       console.log(`${this.name} has begun sprint challenge on ${subject}`);
+    }
+    listsSubjects(){
+      console.log(`${this.favSubjects}`)
     }
   }
 
@@ -87,5 +89,5 @@ class Instructor extends Person {
       'location' : 'New York',
       'gender': 'F',
       'gradClass': 'CS3',
-      'favInstructor': 'Greg', 
+      'favInstructor': 'Greg',
     })
