@@ -38,7 +38,8 @@ class Student extends Person{
     };
 
     listsSubjects () {
-        return this.favSubjects;
+        this.favSubjects.forEach(subject => console.log(subject));       
+
     };
 
     PRAssignment (subject){
@@ -120,7 +121,7 @@ console.log(das.previousBackground);
 console.log(das.className);
 console.log(das.favSubjects);
 //Methods
-console.log(das.listsSubjects());
+das.listsSubjects();
 console.log(das.PRAssignment("CSS"));
 console.log(das.sprintChallenge("JavaScript-IV"));
 
