@@ -36,7 +36,7 @@
      }
      adjustGrade(student){
          let min = Math.ceil(1), max = Math.floor(100);
-         console.log(`${Math.floor(Math.random() * (max - min)) + min}`);
+         console.log(`${Math.floor(Math.random() * (max - min + 1)) + min}`);
      }
  }
 
