@@ -11,6 +11,7 @@ class Person {
 	}
 }
 
+
 class Instructor extends Person{
 	constructor(instructorAttributes){
 		super(instructorAttributes);
@@ -24,7 +25,9 @@ class Instructor extends Person{
 	grade(student, subject) {
 		return `${student.name} receives a perfect score on ${subject}`;
 	}
+
 }
+
 
 class Student extends Person {
 	constructor(studentAttributes){
@@ -44,6 +47,7 @@ class Student extends Person {
 	}
 }
 
+
 class ProjectManager extends Instructor {
 	constructor(projectManagerAttributes){
 		super(projectManagerAttributes);
@@ -56,20 +60,12 @@ class ProjectManager extends Instructor {
 	debugsCode(student, subject) {
 		return `${this.name} debugs ${student.name}'s code on ${subject}'`;
 	}
+
 }
+
 
 const fred = new Instructor({
   name: 'Fred',
-  location: 'Bedrock',
-  age: 37,
-  gender: 'male',
-  favLanguage: 'JavaScript',
-  specialty: 'Front-end',
-  catchPhrase: `Don't forget the homies`
-});
-
-const joe = new Student({
-  name: 'Joe',
   location: 'Bedrock',
   age: 37,
   gender: 'male',
@@ -88,6 +84,41 @@ const steve = new ProjectManager({
   catchPhrase: `Don't forget the homies`
 });
 
+const john = new Student({
+  name: 'Joe',
+  location: 'Bedrock',
+  age: 37,
+  gender: 'male',
+  favLanguage: 'JavaScript',
+  specialty: 'Front-end',
+  catchPhrase: `Don't forget the homies`
+});
+
+const joe = new Student({
+  name: 'Joe',
+  location: 'Bedrock',
+  age: 37,
+  gender: 'male',
+  favLanguage: 'JavaScript',
+  specialty: 'Front-end',
+  catchPhrase: `Don't forget the homies`
+});
+
+const josh = new Student({
+  name: 'Joe',
+  location: 'Bedrock',
+  age: 37,
+  gender: 'male',
+  favLanguage: 'JavaScript',
+  specialty: 'Front-end',
+  catchPhrase: `Don't forget the homies`
+});
+
+
+
+
 console.log(fred.name);
-console.log(joe.name);
 console.log(steve.name);
+console.log(joe.name);
+console.log(johnn.name);
+console.log(josh.name);
