@@ -24,6 +24,20 @@ class Instructor extends Person {
     grade(Student, subject) {
         return `${Student.name} receives a perfect score on ${subject}`
     }
+    points(Student) {
+        if (Math.random > .6) {
+            Student.grade = Student.grade - 10
+        } else {
+            Student.grade = Student.grade + 10
+        }
+    }
+    graduate(Student) {
+        if (Student.grade > 70) {
+            console.log(`You did it ${Student.name}! Find a job yo`)
+        } else {
+            console.log(`Not so fast, ${Student.name}. Study ur array methods more.`)
+        }
+    }
 }
 
 class Student extends Person {
@@ -32,6 +46,7 @@ class Student extends Person {
         this.previousBackground = studies.previousBackground;
         this.className = studies.className;
         this.favSubjects = studies.favSubjects;
+        this.grade = studies.grade;
     }
     listsSubjects() {
         return this.favSubjects;
@@ -66,17 +81,29 @@ const Twinkle = new Instructor ({
 
 const Bub = new Student ({
     "name": "Bubbba",
-    "favSubjects": "CSS and Cats"
+    "favSubjects": "CSS and Cats",
+    "grade": 60
 })
 
 const TwinkleJunior = new ProjectManager ({
     "name": "TwinkleJunior"
 })
 
-console.log(Twinkle.demo("JS"));
-console.log(Twinkle.grade(Bub, "HTML"));
-console.log(Bub.listsSubjects());
-console.log(Bub.PRAssignments("CSS"));
-console.log(Bub.sprintChallenge("JS IV"));
-console.log(TwinkleJunior.standUp("CS100"));
-console.log(TwinkleJunior.debugsCode(Bub, "Bootstrap"));
+// console.log(Twinkle.demo("JS"));
+// console.log(Twinkle.grade(Bub, "HTML"));
+// console.log(Bub.listsSubjects());
+// console.log(Bub.PRAssignments("CSS"));
+// console.log(Bub.sprintChallenge("JS IV"));
+// console.log(TwinkleJunior.standUp("CS100"));
+// console.log(TwinkleJunior.debugsCode(Bub, "Bootstrap"));
+
+
+console.log(Bub.grade);
+Twinkle.points(Bub);
+console.log(Bub.grade);
+TwinkleJunior.graduate(Bub);
+Twinkle.points(Bub);
+console.log(Bub.grade);
+TwinkleJunior.graduate(Bub);
+
+
