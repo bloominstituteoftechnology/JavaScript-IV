@@ -2,38 +2,37 @@
 // Today your goal is to refactor all of this code to use ES6 Classes.
 // The console.log() statements should still return what is expected of them.
 
-function GameObject(options) {
+class GameObject{
+  constructor(options){
   this.createdAt = options.createdAt;
   this.dimensions = options.dimensions;
 }
-
-GameObject.prototype.destroy = function() {
-  return `Object was removed from the game.`;
+}
+destroy() {
+  console.log(`Object was removed from the game.`);
 };
 
-function CharacterStats(characterStatsOptions) {
-  GameObject.call(this, characterStatsOptions);
+class CharacterStats{
+  constructor(characterStatsOptions) {
   this.hp = characterStatsOptions.hp;
   this.name = characterStatsOptions.name;
 }
+}
 
-CharacterStats.prototype = Object.create(GameObject.prototype);
-
-CharacterStats.prototype.takeDamage = function() {
-  return `${this.name} took damage.`;
+  takeDamage(){
+  console.log(`${this.name} took damage.`);
 };
 
-function Humanoid(humanoidOptions) {
-  CharacterStats.call(this, humanoidOptions);
+class Humanoid{
+  constructor(humanoidOptions) {
   this.faction = humanoidOptions.faction;
   this.weapons = humanoidOptions.weapons;
   this.language = humanoidOptions.language;
 }
+}
 
-Humanoid.prototype = Object.create(CharacterStats.prototype);
-
-Humanoid.prototype.greet = function() {
-  return `${this.name} offers a greeting in ${this.language}.`;
+  greet() {
+  console.log(`${this.name} offers a greeting in ${this.language}.`);
 };
 
 const mage = new Humanoid({
