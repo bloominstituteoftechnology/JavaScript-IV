@@ -18,7 +18,10 @@ class Person {
       super(instructorAttributes);
       this.speciality = instructorAttributes.speciality;
       this.favLanguage = instructorAttributes.favLanguage;
-      this.catchPhrase = 
+      this.catchPhrase = instructorAttributes.catchPhrase;
+    }
+    demo(subject) {
+        console.log(`Today we are learning about ${subject}`);
     }
   }
   //Instructor Class Ends
