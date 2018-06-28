@@ -17,6 +17,7 @@ function CharacterStats(characterStatsOptions) {
   this.name = characterStatsOptions.name;
 }
 
+
 CharacterStats.prototype = Object.create(GameObject.prototype);
 
 CharacterStats.prototype.takeDamage = function() {
