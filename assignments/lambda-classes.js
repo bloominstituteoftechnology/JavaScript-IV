@@ -47,6 +47,13 @@ class Student extends People {
   sprintChallenge (subject) {
     console.log(`${this.name} has begun sprint challenge on ${subject}.`)
   }
+  graduate () {
+    if (this.grade >= 70) {
+      console.log(`Congradulations ${this.name}! You have graduated Lambda School with a(n) ${this.grade}.`)
+    } else if (this.grade < 70) {
+      console.log(`Keep trying ${this.name}! And remember, it is completly random that you have a failing grade of ${this.grade}.`) 
+    }
+  }
 }
 class ProjectMananger extends Instructor {
   constructor (projectManagerAttributes){
@@ -106,3 +113,4 @@ mike.sprintChallenge('Javascript');
 josh.demo('less');
 josh.grade(mike, 'CSS');
 josh.sabatoge(mike);
+mike.graduate();
