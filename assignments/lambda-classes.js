@@ -30,6 +30,15 @@ class Instructor extends Person {
   grade (student, subject) {
     console.log(`${student.name} receives a perfect score on ${subject}`);
   }
+
+  gradeCheck (student) {
+    while (student.graduate() === false) {
+      console.log(`${student.name}'s grade is ${student.grade}. Keep grading`);
+      student.grade += Math.floor((Math.random() * (5 - (-4)) + (-4)));
+    }
+
+    console.log(`${student.name} is ready to graduate!`);
+  }
 }
 
 // *****Student Class *****
@@ -39,6 +48,7 @@ class Student extends Person {
     this.previousBackground = info.previousBackground;
     this.className = info.className;
     this.favSubjects = info.favSubjects;
+    this.grade = info.grade
   }
 
   listsSubjects () {
@@ -54,6 +64,14 @@ class Student extends Person {
 
   sprintChallenge (subject) {
     console.log(`${this.name} has begun sprint challenge on ${subject}`);
+  }
+
+  graduate () {
+    if (this.grade > 70) {
+      return true;
+    }
+
+    return false;
   }
 }
 
@@ -81,7 +99,8 @@ const josue = new Student ({
   gender: 'male',
   previousBackground: 'Warehouse Worker',
   className: 'CS12',
-  favSubjects: ['HTML', 'JavaScript']
+  favSubjects: ['HTML', 'JavaScript'],
+  grade: 60
 });
 
 const valerie = new Student ({
@@ -91,7 +110,8 @@ const valerie = new Student ({
   gender: 'female',
   previousBackground: 'Clothing Designer',
   className: 'CS 11',
-  favSubjects: ['CSS', 'Bootstrap', 'React']
+  favSubjects: ['CSS', 'Bootstrap', 'React'],
+  grade: 91
 });
 
 const fred = new Instructor({
@@ -171,3 +191,6 @@ angelo.standUp("CS12");
 
 levi.debugsCode(josue, "HTML");
 angelo.debugsCode(valerie, "CSS");
+
+sarah.gradeCheck(valerie);
+levi.gradeCheck(josue);
