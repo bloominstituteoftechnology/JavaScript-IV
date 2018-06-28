@@ -40,6 +40,11 @@ class Instructor extends Person {
     grade(student,subject){
         console.log(`${student.name} receives a perfect score on ${subject}`);
     }
+    gradeChanger(student){
+        let upOrDown=Math.floor(Math.random()*10);
+        upOrDown>5?student.grade+=Math.floor(Math.random()*5):student.grade-=Math.floor(Math.random*10);
+        console.log(`${student.name}'s current grade is ${student.grade}`);
+    }
 }
 const Dan=new Instructor ({
     'name': 'Dan',
@@ -70,6 +75,7 @@ class Student extends Person {
         this.previousBackground=studentInfo.previousBackground;
         this.className=studentInfo.className;
         this.favSubjects=studentInfo.favSubjects;
+        this.grade=studentInfo.grade;
     }
     listSubjects(){
         this.favSubjects.forEach(function(e){
@@ -82,6 +88,11 @@ class Student extends Person {
     sprintChallenge(subject){
         console.log(`${this.name} has begun sprint challenge on ${subject}`);
     }
+    graduate() {
+        if (this.grade>=70) {
+            console.log(`${this.name} graduates!`);
+        }
+    }
 }
 const William=new Student(
     {
@@ -91,7 +102,8 @@ const William=new Student(
     'gender': 'M',
     'previousBackground': 'Studying Biology at UCSB',
     'className': 'CS 12',
-    'favSubjects':['JavaScript','Python','Computer Science']
+    'favSubjects':['JavaScript','Python','Computer Science'],
+    'grade': 89
     }
 )
 const Victoria=new Student(
@@ -102,7 +114,8 @@ const Victoria=new Student(
         'gender': 'F',
         'previousBackground': 'ROTC',
         'className': 'CS tbd',
-        'favSubjects': ['R', 'Python', 'Ruby']
+        'favSubjects': ['R', 'Python', 'Ruby'],
+        'grade': 72
     }
 )
 William.listSubjects();
@@ -151,3 +164,7 @@ Jimmie.standUp('#general');
 Sean.standUp('#general');
 Jimmie.debugsCode(Will,'React');
 Sean.debugsCode(Dominique,'React');
+Sean.gradeChanger(William);
+Sean.gradeChanger(Victoria);
+William.graduate();
+Victoria.graduate();
