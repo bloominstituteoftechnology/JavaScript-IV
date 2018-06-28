@@ -28,6 +28,9 @@ class Instructor extends Person {
         // return student + ` receives a perfect score on ` + subject + `.`;
         return `${student.name} receives a perfect score on ${subject}.`;
     }
+    randomizedMath () {
+
+    }
 }
 
 class Student extends Person {
@@ -36,6 +39,7 @@ class Student extends Person {
         this.previousBackground = studentProps.previousBackground;
         this.className = studentProps.className;
         this.favSubjects = studentProps.favSubjects;
+        this.grade = studentProps.grade;
     }
     listsSubjects () {
         return `${this.favSubjects};`
@@ -49,7 +53,14 @@ class Student extends Person {
         return `${this.name} has begun sprint challenge on ${subject}.`
         // console.log(`${this.name} has begun sprint challnge on ` +subject);
     }
-}
+    graduate () {
+        if (this.grade >= 70) {
+            return `${this.name} is able to graduate!`;  
+        } else {
+            return `${this.name} is NOT able to graduate!`;  
+        }   
+    } /// end of graduate() method
+} // end of student
 
 class ProjectManager extends Instructor {
     constructor(pmProps) {
@@ -85,6 +96,7 @@ const bryce = new Student({
     previousBackground: 'Teacher',
     className: "CS 12",
     favSubjects: ['HTML','CSS'],
+    grade: 70,
   });
 
   const ben = new ProjectManager({
@@ -110,4 +122,4 @@ const bryce = new Student({
   console.log(bryce.sprintChallenge('Bootstrap'));
   console.log(ben.standUp('CS12'));
   console.log(ben.debugsCode(bryce, 'Javascript'));
-  
+  console.log(bryce.graduate());
