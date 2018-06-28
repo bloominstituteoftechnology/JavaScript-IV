@@ -20,10 +20,10 @@ class Instructor extends Person {
         this.catchPhrase = teach.catchPhrase;
     }
     demo (subject) {
-        console.log(`Today we are learning about ${subject}`);
+        return (`Today we are learning about ${subject}`);
     }
     grade (student, subject) {
-        console.log(`${student.name} receives a perfect score on ${subject}`);
+        return (`${student.name} receives a perfect score on ${subject}`);
     }
 }
 
@@ -35,15 +35,16 @@ class Student extends Person {
         this.favSubjects = learn.favSubjects;
     }
     listsSubjects () {
-        this.favSubjects.forEach(function(subs) {
-            console.log(subs);
-        });
+        // return this.favSubjects.forEach(function(subs) {
+        //     return subs;
+        // });
+        return this.favSubjects.join(', ');
     }
     PRAssignments (subject) {
-        console.log(`${this.name} has submitted a PR for ${subject}`);
+        return (`${this.name} has submitted a PR for ${subject}`);
     }
     sprintChallenge (subject) {
-        console.log(`${this.name} has begun sprint challenge on ${subject}`);
+        return (`${this.name} has begun sprint challenge on ${subject}`);
     }
 }
 
@@ -54,10 +55,10 @@ class ProjectManager extends Instructor {
         this.favInstructor = manage.favInstructor;
     }
     standUp (channel) {
-        console.log(`${this.name} announces to ${channel}, @channel standup time!​​​​​`);
+        return (`${this.name} announces to ${channel}, @channel standup time!​​​​​`);
     }
     debugsCode (student, subject) {
-        console.log(`${this.name} debugs ${student.name}'s code on ${subject}`);
+        return (`${this.name} debugs ${student.name}'s code on ${subject}`);
     }
 }
 
@@ -125,3 +126,13 @@ const sasha = new ProjectManager({
     favInstructor: 'Royce'
   });
 
+console.log(fred.specialty);
+console.log(sarah.catchPhrase);
+console.log(marco.previousBackground);
+console.log(fred.demo('Ruby'));
+console.log(sarah.grade(marco, 'CSS'));
+console.log(marco.listsSubjects());
+console.log(natalia.PRAssignments('Ruby'));
+console.log(natalia.sprintChallenge('React'));
+console.log(jake.standUp('cs15_Jake'));
+console.log(sasha.debugsCode(marco, 'Python'));
