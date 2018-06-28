@@ -94,5 +94,76 @@ const instructor2 = new Instructor({
     gender: 'female',
     specialty: 'Laptop repair',
     favLanguage: 'Faldonian',
-    catchPhrase: 'Gotta get those bobcats!'
+    catchPhrase: 'Party like it\'s 1999!'
   }); 
+
+  const student1 = new Student({
+    name: 'Mexican Pete',
+    age: 2, 
+    location: 'Foon',
+    gender: 'male',
+    previousBackground:'Used to fight the steel dwarves on the planet Macktoo.' , 
+    className:'CS12' ,
+    favSubjects:['JavaScript', 'HTML']
+  }); 
+
+
+  const student2 = new Student({
+    name: 'Frenchy Franchesca',
+    age: 7, 
+    location: 'Foon',
+    gender: 'female',
+    previousBackground:'Used to teach the Zobdarts how to bobblefingle.' , 
+    className:'CS12' ,
+    favSubjects:['CSS', 'HTML' , 'C++']
+  }); 
+
+  
+  const student3 = new Student({
+    name: 'Spanish Jane',
+    age: 4, 
+    location: 'Foon',
+    gender: 'female',
+    previousBackground:'Used to train elephants in the circus.' , 
+    className:'CS12',
+    favSubjects:['C++', 'Python', 'JavaScript', 'CSS']
+  }); 
+
+  const projectManager1 = new ProjectManager({
+    name: 'Mr. Socks',
+    age: 75, 
+    location: 'Foon',
+    gender: 'male',
+    specialty: 'Knitting',
+    favLanguage: 'Faldonian',
+    catchPhrase: 'SOCKS IN A BOX ARE SOCKS THAT ROCKS!',
+    gradClassName: 'CS2',
+    favInstructor: 'Mastofina'
+  }); 
+
+  const projectManager2 = new ProjectManager({
+    name: 'Mrs. Wallabee',
+    age: 76, 
+    location: 'Foon',
+    gender: 'female',
+    specialty: 'Drawing Cats',
+    favLanguage: 'Faldonian',
+    catchPhrase: 'I want mine . . . all the way!',
+    gradClassName: 'CS4',
+    favInstructor: 'Celadore'
+  }); 
+
+  const projectManager3 = new ProjectManager({
+    name: 'Mr. Waffles',
+    age: 83, 
+    location: 'Foon',
+    gender: 'male',
+    specialty: 'Skyrocketing',
+    favLanguage: 'Squendarlian',
+    catchPhrase: 'Pour on the syrup!',
+    gradClassName: 'CS1',
+    favInstructor: 'Celadore'
+  }); 
+
+
+  console.log(instructor1.name);
