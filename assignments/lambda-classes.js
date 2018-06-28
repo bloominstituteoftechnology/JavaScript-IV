@@ -38,10 +38,10 @@ class Student extends Person {
         })
     }
     PRAssignment(subject) {
-        console.log(`${student.name} has submitted a PR for ${subject}`);
+        console.log(`${this.name} has submitted a PR for ${subject}`);
     }
     sprintChallenge(subject) {
-        console.log(`${student.name} has begun sprint challenge on ${subject}`);
+        console.log(`${this.name} has begun sprint challenge on ${subject}`);
     }
 }
 
@@ -58,3 +58,81 @@ class ProjectManager extends Instructor {
         console.log(`${this.name} debugs ${student.name}'s code on ${subject}`);
     }
 }
+
+const fred = new Instructor({
+    name: 'Fred',
+    location: 'Bedrock',
+    age: 37,
+    gender: 'male',
+    favLanguage: 'Java',
+    specialty: 'Back-end',
+    catchPhrase: `Don't forget the homies`
+  });
+
+  const josh = new Instructor({
+    name: 'Josh',
+    location: 'Provo',
+    age: 37,
+    gender: 'male',
+    favLanguage: 'JavaScript',
+    specialty: 'Front-end',
+    catchPhrase: `DRY`
+  });
+
+  const nathan = new ProjectManager({
+    name: 'Nathan',
+    location: 'SomeTown',
+    age: 25,
+    gender: 'male',
+    favLanguage: 'Python',
+    specialty: 'Front-end',
+    catchPhrase: `Awesome job today`,
+    gradClassName: 'CS4',
+    favInstructor: 'josh'
+  });
+
+  const kate = new ProjectManager({
+    name: 'Kate',
+    location: 'NYC',
+    age: 26,
+    gender: 'female',
+    favLanguage: 'Javascript',
+    specialty: 'UI',
+    catchPhrase: `Don't repeat yourself!`,
+    gradClassName: 'CS3',
+    favInstructor: 'josh'
+  });
+
+  const lauren = new Student({
+    name: 'Lauren',
+    location: 'Seattle',
+    age: 24,
+    gender: 'female',
+    previousbackground: 'Java and swift',
+    className: 'CS12',
+    favSubjects: ['JavaScript', 'CSS', 'BootStrap']
+  });
+
+  const percy = new Student({
+    name: 'Percy',
+    location: `Lauren's house`,
+    age: 3,
+    gender: 'male',
+    previousbackground: 'being a cat',
+    className: 'CS12',
+    favSubjects: ['meowing', 'purring', 'cuddling']
+  });
+
+  fred.speak();
+  nathan.speak();
+  lauren.speak();
+
+  fred.demo('BootStrap');
+  josh.grade(lauren, 'JavaScript');
+
+  percy.listsSubjects();
+  lauren.PRAssignment('BootStrap');
+  lauren.sprintChallenge('JavaScript');
+
+  kate.standUp('CS_12');
+  nathan.debugsCode(lauren, 'UI');
