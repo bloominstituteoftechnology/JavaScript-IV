@@ -87,11 +87,11 @@ const fred = new Instructor({
 
 * Now that we have instructors and students, we'd be nowhere without our PM's
 * ProjectManagers are extensions of Instructors
-* ProjectManagers have the following uniqe props:
+* ProjectManagers have the following unique props:
   * `gradClassName`: i.e. CS1
   * `favInstructor`: i.e. Sean
 * ProjectManangers have the following Methods:
-  * `standUp` a method that takes in a slack channel and logs `{name} announces to {channel}, @channel standy times!​​​​​
+  * `standUp` a method that takes in a slack channel and logs `{name} announces to {channel}, @channel standup times!​​​​​
   * `debugsCode` a method that takes in a student object and a subject and logs out `{name} debugs {student.name}'s code on {subject}`
 
 #### Stretch Problem
@@ -100,4 +100,4 @@ const fred = new Instructor({
 * Now that our students have a grade build out a method on the Instructor (this will be used by _BOTH_ instructors and PM's) that will randomly add or subtract points to a student's grade. _Math.random_ will help.
 * Add a graduate method to a student.
   * This method, when called, will check the grade of the student and see if they're ready to graduate from Lambda School
-  * If the student's grade is above a 70% let them graduate! Otherswise go back to grading their assignments to increase their score.
+  * If the student's grade is above a 70% let them graduate! Otherwise go back to grading their assignments to increase their score.
