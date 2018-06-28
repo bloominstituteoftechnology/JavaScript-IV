@@ -2,6 +2,12 @@
 * Lambda Objects in Class Syntax
 **/
 /**
+ * Globals - We're getting funky here
+ */
+
+let instructorArray = [];
+
+/**
  * Constructors
  */
 //* BASE CLASS
@@ -25,7 +31,8 @@ class Instructor extends Person {
         super(attributes);
         this.speciality = attributes.speciality;
         this.favLanguage = attributes.favLanguage;
-        this.catchPhrase = attributes.catchPhrase;
+		this.catchPhrase = attributes.catchPhrase;
+		instructorArray.push(this);
     }
     demo(subject) {
         console.log(`Today we are learning about ${subject}.`);
@@ -34,7 +41,8 @@ class Instructor extends Person {
         console.log(`${student.name} receives a perfect score on ${subject}`);
 	}
 	mark(exampleStudent) {
-		console.log(`${exampleStudent.name}'s current grade is ${exampleStudent.grade}`);
+		console.log(`${this.name} is currently grading ${exampleStudent.name}`);
+		console.log(`${exampleStudent.name}'s previous was ${exampleStudent.grade}`);
 		const plusOrMinus = Math.random() < 0.5 ? -1 : 1;
 		exampleStudent.grade += Math.floor(Math.random()*10) * plusOrMinus;
 		if (exampleStudent.grade < 0) {
@@ -66,11 +74,12 @@ class Student extends Person {
     sprintChallenge(subject){
         console.log(`${this.name} has begun sprint challenge on ${subject}`);
 	}
-	graduate(instructorObject) {
+	graduate() {
 		if (this.grade < 70) {
-			instructorObject.mark(this);
+			let randominstructor = Math.floor(Math.random()*instructorArray.length)
+			instructorArray[randominstructor].mark(this);
 		} else {
-			console.log(`${this.name} passed!  I'm as surprised as you are.`)
+			console.log(`${this.name} passed!  I'm as surprised as you are.`);
 		}
 	}
 }
@@ -150,7 +159,10 @@ const Eric = new ProjectManager ({
     age: 26,
     gender: 'male',
     gradClassName: 'CS5',
-    favInstructor: 'Josh',
+	favInstructor: 'Josh',
+	favLanguage: 'Love',
+	speciality: 'MCU Continuity Errors',
+	catchPhrase: 'To infinity and beyond!'
 });
 
 const Terrie = new ProjectManager ({
@@ -159,10 +171,14 @@ const Terrie = new ProjectManager ({
     age: 24,
     gender: 'female',
     gradClassName: 'CS5',
-    favInstructor: 'Josh',
+	favInstructor: 'Josh',
+	favLanguage: 'Python',
+    speciality: 'Petting Cats',
+    catchPhrase: 'Turn in your goddamn airtables.'
 });
 
 Alberto.listsSubjects();
 console.log(Eric.name);
 console.log(Trevor.grade);
-Eric.mark(Trevor);
+console.log(instructorArray);
+Trevor.graduate();
