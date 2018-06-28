@@ -160,12 +160,12 @@ const dixie = new ProjectManager({
     favInstructor: 'Josh'
 }); 
 
-console.log(dixie.name);
-console.log(dixie.location);
-console.log(dixie.favLanguage);
-console.log(dixie.catchPhrase);
-console.log(dixie.gradClassName);
-console.log(dixie.favInstructor);
-dixie.demo('Data Structures!');
-dixie.standUp('cs12');
-dixie.debugsCode(charles, 'JavaScript');
+// console.log(dixie.name);
+// console.log(dixie.location);
+// console.log(dixie.favLanguage);
+// console.log(dixie.catchPhrase);
+// console.log(dixie.gradClassName);
+// console.log(dixie.favInstructor);
+// dixie.demo('Data Structures!');
+// dixie.standUp('cs12');
+// dixie.debugsCode(charles, 'JavaScript');
