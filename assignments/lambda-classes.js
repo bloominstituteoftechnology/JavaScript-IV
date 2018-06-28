@@ -28,8 +28,8 @@ class Person {
         return `Today we are learning about ${subject}`;
     }
     
-    grade(student, subject) {
-        return `${student.name} receives a perfect score on ${subject}`;
+    grade(subject) {
+        return `${this.name} receives a perfect score on ${subject}`;
     }
   }
   //Instructor Class Ends
@@ -45,15 +45,15 @@ class Person {
 
       //Methods
       listSubjects() {
-        return `${favSubjects}`;
+        return this.favSubjects.join(", ");
       }
 
       PRAssignments(subject) {
-        return `${student.name} has submitted a PR for ${subject}`;
+        return `${this.name} has submitted a PR for ${subject}`;
       }
 
       sprintChallenge(subject) {
-        return `${student.name} has begun spring challenge on ${subject}`;
+        return `${this.name} has begun spring challenge on ${subject}`;
       }
   }
   //Student Class Ends
@@ -71,8 +71,8 @@ class Person {
         return `${this.name} announces to ${slackChannel}, @channel standy times!`;
       }
 
-      debugsCode(student, subject) {
-        return `${this.name} debugs ${student.name}'s code on ${subject}`;
+      debugsCode(subject) {
+        return `${this.name} debugs ${this.name}'s code on ${subject}`;
       }
   }
   //Project Manager Ends
@@ -157,3 +157,15 @@ class Person {
     favInstructor: 'Eric'
   });
   //Object for PM
+
+// console.log(fred.name);
+// console.log(fred.location);
+// console.log(fred.age);
+// console.log(fred.gender);
+
+// console.log(wilma.name);
+// console.log(wilma.location);
+// console.log(wilma.age);
+// console.log(wilma.gender);
+
+// console.log(lilly.grade('math'));
