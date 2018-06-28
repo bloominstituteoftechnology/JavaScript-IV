@@ -34,6 +34,10 @@
      grade(){
          return `${this.student.name} receives a perfect score.`;
      }
+     adjustGrade(student){
+         let min = Math.ceil(1), max = Math.floor(100);
+         console.log(`${Math.floor(Math.random() * (max - min)) + min}`);
+     }
  }
 
  class Student extends Instructor {
@@ -42,6 +46,7 @@
          this.previousBackground = args.previousBackground;
          this.className = args.className;
          this.favSubjects = args.favSubjects;
+         this.grade = args.grade;
      }
      listSubjects(){
          this.favSubjects.forEach((sub)=>{
@@ -53,14 +58,14 @@
      }
      sprintChallenge(){
          console.log(`${this.name} has begun sprint challenge on ${this.subject}`);
-         
      }
  }
 
  const erik = new Student({
     name: 'Erik', 
     subject: 'P5JS',
-    favSubjects: ['html', 'js']
+    favSubjects: ['html', 'js'],
+    grade: 99
 });
 
 class ProjectManager extends Instructor {
@@ -78,6 +83,13 @@ class ProjectManager extends Instructor {
         
     }
 }
+
+const ornette = new Instructor({
+    name: 'Ornette'
+})
+console.log(erik.grade);
+
+ornette.adjustGrade(erik.grade)
 
 const amon = new ProjectManager({
     name: 'Amon',
