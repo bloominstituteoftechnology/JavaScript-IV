@@ -10,7 +10,7 @@ class Person {
   }
 
   speak () {
-    console.log(`Hello my name is ${this.name}, I am from Bedrock`);
+    console.log(`Hello my name is ${this.name}, I am from ${this.location}`);
   }
 }
 
@@ -42,6 +42,7 @@ class Student extends Person {
   }
 
   listsSubjects () {
+    console.log(`${this.name}'s favorite subjects are:`)
     for (let i = 0; i < this.favSubjects.length; i++) {
       console.log(this.favSubjects[i]);
     }
@@ -51,8 +52,8 @@ class Student extends Person {
     console.log(`${this.name} has submitted a PR for ${subject}`);
   }
 
-  sprintChallenge (subjec) {
-    console.log(`${this.name} has begun spring challenge on ${subject}`);
+  sprintChallenge (subject) {
+    console.log(`${this.name} has begun sprint challenge on ${subject}`);
   }
 }
 
@@ -64,7 +65,94 @@ class ProjectManager extends Instructor {
     this.favInstructor = info.favInstructor;
   }
 
-  standUp(channel) {
+  standUp (channel) {
     console.log(`${this.name} announces to ${channel}, @channel standup time!`);
   }
+
+  debugsCode (student, subject) {
+    console.log(`${this.name} debugs ${student.name}'s code on ${subject}`);
+  }
 }
+
+const josue = new Student ({
+  name: 'Josue',
+  location: 'Chicago',
+  age: '25',
+  gender: 'male',
+  previousBackground: 'Warehouse Worker',
+  className: 'CS12',
+  favSubjects: ['HTML', 'JavaScript']
+});
+
+const valerie = new Student ({
+  name: 'Valerie',
+  location: 'New York City',
+  age: '24',
+  gender: 'female',
+  previousBackground: 'Clothing Designer',
+  className: 'CS 11',
+  favSubjects: ['CSS', 'Bootstrap', 'React']
+});
+
+const fred = new Instructor({
+  name: 'Fred',
+  location: 'Bedrock',
+  age: 37,
+  gender: 'male',
+  favLanguage: 'JavaScript',
+  specialty: 'Front-end',
+  catchPhrase: `Don't forget the homies`
+});
+
+const sarah = new Instructor({
+  name: 'Sarah',
+  location: 'Seattle',
+  age: 26,
+  gender: 'female',
+  favLanguage: 'Python',
+  specialty: 'Back-end',
+  catchPhrase: 'Sisters before misters'
+});
+
+const levi = new ProjectManager ({
+  name: 'Levi',
+  location: 'Austin',
+  age: 29,
+  gender: 'male',
+  gradClassName: 'CS2',
+  favInstructor: 'Josh'
+});
+
+const angelo = new ProjectManager ({
+  name: 'Angelo',
+  location: 'L.A.',
+  age: 27,
+  gender: 'male',
+  gradClassName: 'CS3',
+  favInstructor: 'Sean'
+});
+
+josue.speak();
+valerie.speak();
+fred.speak();
+sarah.speak();
+levi.speak();
+angelo.speak();
+
+fred.demo("React");
+sarah.grade(valerie, "Bootstrap");
+
+josue.listsSubjects();
+valerie.listsSubjects();
+
+josue.PRAssignment("JavaScript");
+valerie.PRAssignment("React");
+
+josue.sprintChallenge("React");
+valerie.sprintChallenge("JavaScript");
+
+levi.standUp("CS12");
+angelo.standUp("CS12");
+
+levi.debugsCode(josue, "HTML");
+angelo.debugsCode(valerie, "CSS");
