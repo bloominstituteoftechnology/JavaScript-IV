@@ -23,6 +23,10 @@ class Instructor extends Person {
     grade(student, subject) {
         console.log(`${student.name} receives a perfect score on ${subject}`);
     }
+    adjustGrade(student) {
+        student.grade += Math.round(Math.random()) * 2 - 1;
+        console.log(`${student.name}'s grade has been adjusted to ${student.grade}`)
+    }
 }
 
 class Student extends Person {
@@ -31,6 +35,7 @@ class Student extends Person {
         this.previousBackground = attributes.previousBackground;
         this.className = attributes.className;
         this.favSubjects = attributes.favSubjects;
+        this.grade = attributes.grade;
     }
     listsSubjects() {
         this.favSubjects.forEach(function(subject){
@@ -42,6 +47,13 @@ class Student extends Person {
     }
     sprintChallenge(subject) {
         console.log(`${this.name} has begun sprint challenge on ${subject}`);
+    }
+    graduate() {
+        if (this.grade >= 70) {
+            console.log(`${this.name} has graduated!`);
+        } else {
+            console.log(`Sorry, ${this.name} still has work to do before they can graduate.`);
+        }
     }
 }
 
@@ -110,7 +122,8 @@ const fred = new Instructor({
     gender: 'female',
     previousbackground: 'Java and swift',
     className: 'CS12',
-    favSubjects: ['JavaScript', 'CSS', 'BootStrap']
+    favSubjects: ['JavaScript', 'CSS', 'BootStrap'],
+    grade: 90
   });
 
   const percy = new Student({
@@ -120,7 +133,8 @@ const fred = new Instructor({
     gender: 'male',
     previousbackground: 'being a cat',
     className: 'CS12',
-    favSubjects: ['meowing', 'purring', 'cuddling']
+    favSubjects: ['meowing', 'purring', 'cuddling'],
+    grade: 100
   });
 
   fred.speak();
@@ -133,6 +147,8 @@ const fred = new Instructor({
   percy.listsSubjects();
   lauren.PRAssignment('BootStrap');
   lauren.sprintChallenge('JavaScript');
+  lauren.graduate();
 
   kate.standUp('CS_12');
   nathan.debugsCode(lauren, 'UI');
+  nathan.adjustGrade(lauren);
