@@ -25,7 +25,10 @@ class Instructor extends Person {
   }
 
   grade(student, subject) {
-    console.log(`${student.name} receives a perfect score on ${subject}`);
+    let rand = Math.floor(-50 + Math.random() * 100);
+    student.grade += rand;
+    student.grade = Math.max(0, Math.min(student.grade, 100));
+    console.log(`${student.name} receives ${student.grade} on ${subject}`);
   }
 }
 
@@ -35,6 +38,7 @@ class Student extends Person {
     this.previousBackground = props.previousBackground;
     this.className = props.className;
     this.favSubjects = props.favSubjects;
+    this.grade = props.grade;
   }
 
   listsSubjects() {
@@ -47,6 +51,12 @@ class Student extends Person {
 
   sprintChallenge(subject) {
     console.log(`${this.name} has begun sprint challenge on ${subject}`);
+  }
+
+  graduate(instructor, subject) {
+    while (this.grade <= 70) {
+      instructor.grade(this, subject);
+    }
   }
 }
 
@@ -83,7 +93,8 @@ const dovahkin = new Student({
   gender: "male",
   className: "CS12",
   favSubjects: ["JavaScript", "C", "Python"],
-  previousBackground: "Dragon Slayer"
+  previousBackground: "Dragon Slayer",
+  grade: 70
 });
 
 const barney = new ProjectManager({
@@ -109,3 +120,4 @@ barney.speak();
 barney.demo("Data Structures");
 barney.standUp("#cs12");
 barney.debugsCode(dovahkin, "React");
+dovahkin.graduate(fred, "Computer Architecture");
