@@ -2,39 +2,94 @@
 // Today your goal is to refactor all of this code to use ES6 Classes.
 // The console.log() statements should still return what is expected of them.
 
-function GameObject(options) {
-  this.createdAt = options.createdAt;
-  this.dimensions = options.dimensions;
+/* in my stupid brain it goes Humanoid=parent
+character = child
+gamobjects = grandchild so that's what I'm going to write.
+but maybe that is wrong
+come to think of it if game objects inherits things from humanoid
+wouldn't humanoid be the most specifc of all the classes? 
+You know what it's easier to pretend the other way so let's do that
+first. 
+Yes I was right, so game object is the most general class, and hence my confusion
+from yesterday is put to rest and all is right with the world again. 
+*/
+
+/* so let's just delineate what's going on for future refereence
+GameObjects is a constructor, how do I know this, well it's capatlized :p
+but if I look closely I might be able to tell that one is clearly creating
+attributes and the other is clearly a method because it's returning something
+it's also not being set equal to something */
+
+class GameObject{
+	constructor(attributes){
+		this.createdAt = attributes.createdAt;
+		this.dimensions = attributes.dimensions;
+	}
+	destroy() {
+		return `${this.name} was removed from the game.`
+	}
 }
 
-GameObject.prototype.destroy = function() {
-  return `Object was removed from the game.`;
-};
 
-function CharacterStats(characterStatsOptions) {
-  GameObject.call(this, characterStatsOptions);
-  this.hp = characterStatsOptions.hp;
-  this.name = characterStatsOptions.name;
+// function GameObject(options) {
+//   this.createdAt = options.createdAt;
+//   this.dimensions = options.dimensions;
+// }
+
+// GameObject.prototype.destroy = function() {
+//   return `${this.name} was removed from the game.`;
+// };
+
+class CharacterStats extends GameObject{
+	constructor(char){
+		super(char);
+		this.hp = char.hp;
+		this.name = char.name;
+	}
+	takeDamage() {
+		return `${this.name} took damage.`
+	}
 }
 
-CharacterStats.prototype = Object.create(GameObject.prototype);
+// function CharacterStats(characterStatsOptions) {
+//   GameObject.call(this, characterStatsOptions);
+//   this.hp = characterStatsOptions.hp;
+//   this.name = characterStatsOptions.name;
+// }
 
-CharacterStats.prototype.takeDamage = function() {
-  return `${this.name} took damage.`;
-};
+// CharacterStats.prototype = Object.create(GameObject.prototype);
 
-function Humanoid(humanoidOptions) {
-  CharacterStats.call(this, humanoidOptions);
-  this.faction = humanoidOptions.faction;
-  this.weapons = humanoidOptions.weapons;
-  this.language = humanoidOptions.language;
+// CharacterStats.prototype.takeDamage = function() {
+//   return `${this.name} took damage.`;
+// };
+
+class Humanoid extends CharacterStats{
+	constructor(human){
+		super(human);
+		this.faction = human.faction;
+		this.weapons = human.weapons;
+		this.language = human.language;
+	}
+	greet(){
+		return `${this.name} offers a greeting in ${this.language}.`
+	}
 }
 
-Humanoid.prototype = Object.create(CharacterStats.prototype);
+// function Humanoid(humanoidOptions) {
+//   CharacterStats.call(this, humanoidOptions);
+//   this.faction = humanoidOptions.faction;
+//   this.weapons = humanoidOptions.weapons;
+//   this.language = humanoidOptions.language;
+// }
 
-Humanoid.prototype.greet = function() {
-  return `${this.name} offers a greeting in ${this.language}.`;
-};
+// Humanoid.prototype = Object.create(CharacterStats.prototype);
+
+// Humanoid.prototype.greet = function() {
+//   return `${this.name} offers a greeting in ${this.language}.`;
+// };
+
+
+/*the objects themslves are probably fine just need to refactor the classes */
 
 const mage = new Humanoid({
   createdAt: new Date(),
