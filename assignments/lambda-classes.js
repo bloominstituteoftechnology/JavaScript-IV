@@ -72,9 +72,9 @@ const holloway = new Student ({
     age: 32, 
     location: "MidWest", 
     gender: "Male", 
-    previousBackground: "Quality Assurance", 
-    className: "JavaScript Fundamentals",
-    favSubjects: ["Programming", "Creative Writing", "Finance"]
+    previousBackground: "Currency Trader", 
+    className: "CS12",
+    favSubjects: ["accounting", "Math", "Python"]
   })
 
 const josh = new Instructor ({
@@ -94,3 +94,36 @@ const fred = new Instructor({
     specialty: 'Front-end',
     catchPhrase: `Don't forget the homies`
   });
+const jack = new Person({
+    name: 'Jack',
+    age: 37,
+    location: 'Bedrock',
+    gender: 'male'
+  });
+const shelia = new Person ({
+    name: 'Jack',
+    age: 25,
+    location: 'Indiana',
+    gender: 'Female'
+  });
+const jordan = new ProjectManager ({
+    name: "Jordan", 
+    age: 28,
+    location: "Texas", 
+    gender: "Female", 
+    speciality: "Biology",
+    catchPhrase: "Attributes is a parameter",
+    gradClassName: "CS9", 
+    favInstructor: "Josh"
+})
+const Nathan = new ProjectManager ({
+    name: "Nathan", 
+    age: 30,
+    location: "Texas", 
+    gender: "Male", 
+    speciality: "Full-Stack",
+    catchPhrase: "that's what I want",
+    gradClassName: "CS9", 
+    favInstructor: "Josh"
+})
+
