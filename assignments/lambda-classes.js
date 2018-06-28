@@ -23,8 +23,11 @@ class Instructor extends Person {
     this.specialty = teachOptions.specialty;
     this.catchPhrase = teachOptions.catchPhrase;
   }
-  say {
-  return ` Hey , ${this.catchphrase}`;
+  demo(subject) {
+  return `Today we are learning about ${subject}`;
+  }
+  grade (subject){
+    return `${this.name} receives a perfect score on ${subject}`;
   }
 }
 
@@ -37,9 +40,17 @@ class Student extends Person {
     this.favLanguage = teachOptions.favLanguage;
     this.specialty = teachOptions.specialty;
     this.catchPhrase = wowOptions.specialty;
+    this.previousBackground = wowOptions.previousBackground;
+    this.className = wowOptions.className;
   }
-  shout{
-    return ` ${this.catchPhrase} , Hey Skeet , I got it !`;
+  listsSubjects{
+    return `My favorite subjects is , ${this.favSubjects}`;
+  }
+  PRAssignment(subject){
+    return `${this.name} has submitted a PR for ${subject}`;
+  }
+  sprintChallenge(subjects){
+    return  `${this.name} has begun spring challenge on ${subject}`;
   }
 }
 // End Student
@@ -52,8 +63,11 @@ class ProjectManager extends Student {
     this.catchPhrase = concludeOptions.catchPhrase;
 
   }
-  preach {
-    return `So you see Misty , ${this.catchPhrase}, trust the process!`
+   standUp (channel){
+    return ` ${this.name}announces to ${channel}, @channel standup times!​​​​​`;
+  }
+  debugsCode(studentsName,subject){
+return `${this.name} debugs ${this.name}'s code on ${subject}`;
   }
 }
 
@@ -82,16 +96,21 @@ const misty = new Student({
   gender: 'female',
   favLanguage: 'JavaScript',
   specialty: 'Front-end',
-  catchPhrase: `Oh that's right!`
+  catchPhrase: `Oh that's right!`,
+  previousBackground: 'Barista',
+  className: 'CS12',
+  favSubjects: ['Html','Css','JavaScript'];
 });
 
 
-const fred = new ProjectManager({
+const ginger = new ProjectManager({
   name: 'Ginger',
   location: 'Snap',
   age: 37,
   gender: 'female',
   favLanguage: 'JavaScript',
   specialty: 'Front-end',
-  catchPhrase: `First there's sour then there's sweet.`
+  catchPhrase: `First there's sour then there's sweet.`,
+  gradClassName: 'CS1',
+  favInstructor: 'Joan'
 });
