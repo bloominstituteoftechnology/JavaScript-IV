@@ -12,13 +12,6 @@ class Person {
 }
 
 
-const jimbo = new Person ({
-    name : "Jimbo",
-    age: 45,
-    location: "Boston",
-    gender: 'GQ',
-})
-jimbo.speak()
 
 class Instructor extends Person {
     constructor(iprops){
@@ -31,10 +24,12 @@ class Instructor extends Person {
     demo(subject){
         console.log (`Today we are learning about ${subject}`);
     }
-    grade(student,subject){
+    grade(student , subject){
         console.log (`${student.name} receives a perfect score on ${subject}`);
     }
 }
+
+
 
 class Student extends Person {
     constructor(sprops){
@@ -44,10 +39,8 @@ class Student extends Person {
         this.favSubjects = sprops.favSubjects;
     }
     listSubjects(){
-       for (let i=0; i< this.favSubjects.length; i++){
-
-        console.log(this.favSubjects[i]);
-    };}
+        console.log(`${this.favSubjects}`)
+    };
     PRAssignments(subject){
         console.log (`${this.name} has submitted a PR for ${subject}`);
     };
@@ -56,6 +49,7 @@ class Student extends Person {
         console.log (`${this.name} has begun sprint challenge on ${subject}`);
     };
 }
+
 
 class ProjectManager extends Instructor{
     constructor(pmprops){
@@ -72,3 +66,56 @@ debugsCode(student,subject) {
 
 };
 }
+
+
+const jimbo = new Person ({
+    name : "Jimbo",
+    age: 45,
+    location: "Boston",
+    gender: 'GQ',
+})
+jimbo.speak()
+
+
+const naaz = new Student ({
+    name : "naaz",
+    age: 30,
+    location: "Boston",
+    gender: 'GQ',
+    previousBackground: 'Business',
+    className: 'cs12',
+    favSubjects: 'somestuff, morestuff, catstuff',
+})
+naaz.listSubjects()
+naaz.PRAssignments('cc')
+naaz.sprintChallenge('JS')
+
+
+
+const josh = new Instructor ({
+    name : "Josh",
+    age: 40,
+    location: "cali",
+    gender: 'M',
+    specialty: 'tech',
+    favLanguage: 'JS',
+    catchPhrase: 'Its not magic',
+})
+josh.demo('js')
+josh.grade(naaz,'js')
+
+
+const nate = new ProjectManager ({
+    name : "NateDawg",
+    age: 13,
+    location: "boonies",
+    gender: 'M',
+    specialty: 'games',
+    favLanguage: 'JS',
+    catchPhrase: 'scope is like a limo',
+    gradClassName: 'CS4?',
+    favInstructor: "Josh",
+})
+
+nate.standUp('cs12_nate');
+nate.debugsCode(naaz,'js')
