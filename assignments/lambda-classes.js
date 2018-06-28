@@ -29,7 +29,7 @@ class Instructor extends Person {
     }
 
     grade (student){
-        student.grade = Math.random(100)
+        student.grade = Math.abs(student.grade - Math.random(100))
     }
 }
 
