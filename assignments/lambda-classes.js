@@ -1,3 +1,4 @@
+let webDevTopics = ['UI and Responsive Design', 'Web Tools and Frameworks', 'JavaScript', 'Applied JavaScript']
 class Person {
     constructor(attributes) {
         this.name = attributes.name;
@@ -6,7 +7,7 @@ class Person {
         this.gender = attributes.gender;
     }
     speak() {
-        console.log(`Hello my name is ${this.name}, I am from ${this.location}`);
+        return `Hello my name is ${this.name}, I am from ${this.location}`;
     }
 }
 
@@ -18,29 +19,27 @@ class Instructor extends Person {
         this.catchPhrase = attributes.catchPhrase;
     }
     demo(subject) {
-        console.log(`Today we are learning about ${subject}`);
+        return `Today we are learning about ${subject}`;
     }
     grade(student, subject, didWell) {
         if (didWell) {
-            console.log(`${student.name} did a great job on the ${subject} assignment!`);
-            this.adjustGrade(student, true);
+            return `${student.name} did a great job on the ${subject} assignment! ` + this.adjustGrade(student, true);
         } else {
-            console.log(`${student.name} needs some more practice with ${subject}.`);
-            this.adjustGrade(student, false);
+            return `${student.name} needs some more practice with ${subject}. ` + this.adjustGrade(student, false);
         }
         
     }
     adjustGrade(student, increaseGrade) {
-        console.log(student.grade);
         if (increaseGrade) {
             student.grade += Math.round(Math.random() * 5)+ 1;
-            console.log(`${student.name}'s grade has been increased to ${student.grade}`)
             if (student.grade >= 100) {
-                student.graduate();
+                return `${student.name}'s grade has been increased to ${student.grade}` + student.graduate();
+            } else {
+                return `${student.name}'s grade has been increased to ${student.grade}`;
             }
         } else {
             student.grade -= Math.round(Math.random() * 5) + 1;
-            console.log(`${student.name}'s grade has been decreased to ${student.grade}`)
+            return `${student.name}'s grade has been decreased to ${student.grade}`;
         }
         
     }
@@ -55,21 +54,19 @@ class Student extends Person {
         this.grade = attributes.grade;
     }
     listsSubjects() {
-        this.favSubjects.forEach(function(subject){
-            console.log(subject);
-        })
+        return this.favSubjects.join(", ");
     }
     PRAssignment(subject) {
-        console.log(`${this.name} has submitted a PR for ${subject}`);
+        return `${this.name} has submitted a PR for ${subject}`;
     }
     sprintChallenge(subject) {
-        console.log(`${this.name} has begun sprint challenge on ${subject}`);
+        return `${this.name} has begun sprint challenge on ${subject}`;
     }
     graduate() {
         if (this.grade >= 70) {
-            console.log(`${this.name} has graduated!`);
+            return `${this.name} has graduated!`;
         } else {
-            console.log(`Sorry, ${this.name} still has work to do before they can graduate.`);
+            return `Sorry, ${this.name} still has work to do before they can graduate.`;
         }
     }
 }
@@ -81,10 +78,10 @@ class ProjectManager extends Instructor {
         this.favInstructor = attributes.favInstructor;
     }
     standUp(channel) {
-        console.log(`${this.name} announces to ${channel}, @channel standy times!`);
+        return `${this.name} announces to ${channel}, @channel standy times!`;
     }
     debugsCode(student, subject) {
-        console.log(`${this.name} debugs ${student.name}'s code on ${subject}`);
+        return `${this.name} debugs ${student.name}'s code on ${subject}`;
     }
 }
 
@@ -154,18 +151,18 @@ const fred = new Instructor({
     grade: 100
   });
 
-  fred.speak();
-  nathan.speak();
-  lauren.speak();
+  console.log(fred.speak());
+  console.log(nathan.speak());
+  console.log(lauren.speak());
 
-  fred.demo('BootStrap');
-  josh.grade(lauren, 'JavaScript', true);
-  nathan.grade(lauren, 'UI', false);
-  percy.listsSubjects();
-  lauren.PRAssignment('BootStrap');
-  lauren.sprintChallenge('JavaScript');
-  lauren.graduate();
+  console.log(fred.demo('BootStrap'));
+  console.log(josh.grade(lauren, 'JavaScript', true));
+  console.log(nathan.grade(lauren, 'UI', false));
+  console.log(percy.listsSubjects());
+  console.log(lauren.PRAssignment('BootStrap'));
+  console.log(lauren.sprintChallenge('JavaScript'));
+  console.log(lauren.graduate());
 
-  kate.standUp('CS_12');
-  nathan.debugsCode(lauren, 'UI');
+  console.log(kate.standUp('CS_12'));
+  console.log(nathan.debugsCode(lauren, 'UI'));
   
