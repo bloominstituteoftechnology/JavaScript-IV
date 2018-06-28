@@ -12,6 +12,7 @@ class Person {
 }
 
 
+
 class Instructor extends Person{
 	constructor(instructorAttributes){
 		super(instructorAttributes);
@@ -122,3 +123,5 @@ console.log(steve.name);
 console.log(joe.name);
 console.log(johnn.name);
 console.log(josh.name);
+console.log(steve.name);
+
