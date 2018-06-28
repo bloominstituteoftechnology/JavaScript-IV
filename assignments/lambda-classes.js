@@ -33,6 +33,7 @@ class Student extends Person {
         super(props);
         this.previousBackground = props.previousBackground;
         this.favSubjects = props.favSubjects;
+        this.grade = props.grade;
     }
     // how does this class have access to the student 
     listsSubjects() {
@@ -78,9 +79,10 @@ const joe = new Student({
     age: 22,
     previousBackground: 'Designer',
     favSubjects: ['css', 'js', 'react'],
+    grade: 99,
   });
 
 // Tests
   console.log(fred.favLanguage);
   console.log(fred.demo(joe, 'react'));
-  console.log(joe.favSubjects, joe.speak())
+  console.log(joe.favSubjects, joe.speak(), joe.grade)
