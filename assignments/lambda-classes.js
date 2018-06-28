@@ -12,7 +12,7 @@ class Person {
         this.location = props.location;
     }
     speak() {
-        console.log(`Hello my name is ${this.name}, and I am from ${this.location}`);
+        return `Hello my name is ${this.name}, and I am from ${this.location}`;
     }
 }
 // Instructor
@@ -31,8 +31,8 @@ class Instructor extends Person {
         this.favLanguage = props.favLanguage;
         this.catchPhrase = props.catchPhrase;
     }
-    demo(subject) {
-        console.log(`${this.name} receives a perfect score on ${subject}`);
+    demo(student, subject) {
+        return `${student.name} receives a perfect score on ${subject}`;
     }
 }
 
@@ -64,6 +64,28 @@ class Student extends Person {
     }
 }
 
+// Now that we have instructors and students, we'd be nowhere without our PM's
+// ProjectManagers are extensions of Instructors
+// ProjectManagers have the following uniqe props:
+// gradClassName: i.e. CS1
+// favInstructor: i.e. Sean
+// ProjectManangers have the following Methods:
+// standUp a method that takes in a slack channel and logs `{name} announces to {channel}, @channel standy times!​​​​​
+// debugsCode a method that takes in a student object and a subject and logs out {name} debugs {student.name}'s code on {subject}
+
+class ProjectManager extends Instructor {
+    constructor(props) {
+        super(props);
+        this.gradClassName = props.gradClassName;
+        this.favInstructor = props.favInstructor;
+    }
+    standUp(slackChannel) {
+        console.log(`${this.name} announces to ${slackChannel}, @channel standy times!`);
+    }
+    debugsCode(student, subject) {
+        console.log(`${this.name} debugs ${student.name}'s code on ${subject}`);
+    }
+}
 
 
 
@@ -75,12 +97,26 @@ class Student extends Person {
 
 
 
-// const fred = new Instructor({
-//     name: 'Fred',
-//     location: 'Bedrock',
-//     age: 37,
-//     gender: 'male',
-//     favLanguage: 'JavaScript',
-//     specialty: 'Front-end',
-//     catchPhrase: `Don't forget the homies`
-//   });
+
+const fred = new Instructor({
+    name: 'Fred',
+    location: 'Bedrock',
+    age: 37,
+    favLanguage: 'JavaScript',
+    specialty: 'Front-end',
+    catchPhrase: `Don't forget the homies`
+  });
+
+
+const joe = new Student({
+    name: 'Joe',
+    location: 'Columbia',
+    age: 22,
+    previousBackground: 'Designer',
+    favSubjects: ['css', 'js', 'react'],
+  });
+
+
+  console.log(fred.favLanguage);
+  console.log(fred.demo(joe, 'react'));
+  console.log(joe.favSubjects, joe.speak())
