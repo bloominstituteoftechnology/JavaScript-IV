@@ -119,6 +119,9 @@ const levi = new ProjectManager ({
   location: 'Austin',
   age: 29,
   gender: 'male',
+  favLanguage: 'Ruby',
+  specialty: 'Front-end',
+  catchPhrase: 'Live with no regrets',
   gradClassName: 'CS2',
   favInstructor: 'Josh'
 });
@@ -128,9 +131,19 @@ const angelo = new ProjectManager ({
   location: 'L.A.',
   age: 27,
   gender: 'male',
+  favLanguage: 'Java',
+  specialty: 'Back-end',
+  catchPhrase: 'Just keep swimming',
   gradClassName: 'CS3',
   favInstructor: 'Sean'
 });
+
+console.log(fred);
+console.log(sarah);
+console.log(josue);
+console.log(valerie);
+console.log(levi);
+console.log(angelo);
 
 josue.speak();
 valerie.speak();
@@ -140,7 +153,9 @@ levi.speak();
 angelo.speak();
 
 fred.demo("React");
+levi.demo("CSS");
 sarah.grade(valerie, "Bootstrap");
+angelo.grade(josue, "CSS");
 
 josue.listsSubjects();
 valerie.listsSubjects();
