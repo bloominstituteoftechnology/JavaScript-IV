@@ -24,7 +24,13 @@ class Person{
     }
     grade(student, subject) {
         return `${student.name} receives a perfect score on ${subject}`;
-      }
+    }
+    changeGrade(student){
+        let plusOrMinus = Math.random() < 0.5 ? -1 : 1;
+        let points = Math.floor(Math.random() * 20);
+        let randomPoints = points * plusOrMinus;
+        return student.grade + randomPoints;
+    }
   }
   
   class Student extends Person{
@@ -158,3 +164,4 @@ const james = new ProjectManager({
 // console.log(fred.speak());
 //console.log(blossom.sprintChallenge('CSS'));
 //console.log(mia.standUp('cs12_help'));
+//console.log(fred.changeGrade(buttercup));
