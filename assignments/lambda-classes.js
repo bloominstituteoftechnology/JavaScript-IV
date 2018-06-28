@@ -39,10 +39,7 @@ class Student extends Instructor {
         this.favSubjects = studentAttributes.favSubjects;
     }
     listsSubjects () {
-        for (let i = 0; i < this.favSubjects.length; i++) {
-            console.log(this.favSubjects[i]);
-            console.log(favSubjects.push(this.favSubjects[i]))
-        }
+        return this.favSubjects.join(", ")
     }
     PRAssignment (subject) {
         return `${this.name} has submitted a PR for ${subject}`;
@@ -128,6 +125,7 @@ const steph = new Student({
     previousBackground: '3-pt',
     className: 'CS4',
     favSubjects: ['UI', 'C++', 'JavaScript'],
+
 });
 const klay = new Student({
     name: 'Klay',
