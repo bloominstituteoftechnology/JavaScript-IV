@@ -134,3 +134,38 @@ const charles = new Student({
 
 //Project Manager Class
 
+class ProjectManager extends Instructor {
+    constructor(projectManagerAttributes) {
+        super(projectManagerAttributes);
+        this.gradClassName = projectManagerAttributes.gradClassName;
+        this.favInstructor = projectManagerAttributes.favInstructor;
+    }
+    standUp(channel) {
+        console.log(`${this.name} announces to ${channel}, @channel standy times!`);
+    }
+    debugsCode(student, subject) {
+        console.log(`${this.name} debugs ${student.name}'s code on ${subject}`);
+    }
+}
+
+const dixie = new ProjectManager({
+    name: "Dixie",
+    age: 23,
+    location: "New Jersey",
+    gender: 'F',
+    specialty: 'Full-stack',
+    favLanguage: 'Python',
+    catchPhrase: 'Hi guys!',
+    gradClassName: 'CS5',
+    favInstructor: 'Josh'
+}); 
+
+console.log(dixie.name);
+console.log(dixie.location);
+console.log(dixie.favLanguage);
+console.log(dixie.catchPhrase);
+console.log(dixie.gradClassName);
+console.log(dixie.favInstructor);
+dixie.demo('Data Structures!');
+dixie.standUp('cs12');
+dixie.debugsCode(charles, 'JavaScript');
