@@ -27,16 +27,20 @@ class Instructor extends Person {
     }
     grade (subject) {
         return `${spuds.name} receives a perfect score on ${subject}`;
-    } 
+    }
+    doGrading (studentGrade) {
+        return studentGrade.grade + (Math.random()*20);
+    }
 }// End of Instructor
 
 // Start of Student class
-class Student extends Instructor {
+class Student extends Person {
     constructor(studentAttributes) {
         super(studentAttributes);
         this.previousBackground = studentAttributes.previousBackground;
         this.className = studentAttributes.className;
         this.favSubjects = studentAttributes.favSubjects;
+        this.grade = studentAttributes.grade;
     }
     listsSubjects () {
         return this.favSubjects.join(", ")
@@ -47,10 +51,19 @@ class Student extends Instructor {
     sprintChallenge () {
         return `${this.name} has begun sprint challenge on ${this.favSubjects}`;
     }
+    graduate () {
+        if (this.grade/100 >= .7) {
+            
+            return "Get out of here, you Graduate!"
+        }
+        else {
+            return "Time to start from the beginning"
+        }
+    }
 }// End of Student
 
 // Start of Project Manager class
-class ProjectManager extends Student {
+class ProjectManager extends Instructor {
     constructor(projectmanagerAttributes) {
         super(projectmanagerAttributes);
         this.gradClassName = projectmanagerAttributes.gradClassName;
@@ -125,7 +138,7 @@ const steph = new Student({
     previousBackground: '3-pt',
     className: 'CS4',
     favSubjects: ['UI', 'C++', 'JavaScript'],
-
+    grade: 72,
 });
 const klay = new Student({
     name: 'Klay',
@@ -135,6 +148,7 @@ const klay = new Student({
     previousBackground: 'Baller',
     className: 'CS7',
     favSubjects: ['Python', 'Scratch', 'English'],
+    grade: 85,
 });
 const spuds = new Student({
     name: 'Spuds',
@@ -144,6 +158,7 @@ const spuds = new Student({
     previousBackground: 'Teacher',
     className: 'CS10',
     favSubjects: ['Html', 'CSS', 'Color Theory'],
+    grade: 88,
 });
 
 // Project Managers Objects Eric, Terri, and Dani
@@ -194,3 +209,7 @@ console.log(klay.PRAssignment('JS-II'));
 console.log(spuds.sprintChallenge());
 console.log(eric.standUp('cryptotalk'));
 console.log(terri.debugsCode());
+
+console.log(josh.doGrading(steph));
+console.log(steph.graduate())
+console.log(steph.grade);
