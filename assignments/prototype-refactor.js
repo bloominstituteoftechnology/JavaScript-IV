@@ -26,9 +26,6 @@ class CharacterStats extends GameObject {
   }
 }
 
-
-};
-
 class Humanoid extends CharacterStats {
   constructor(humanoidOptions) {
   super(humanoidOptions);
