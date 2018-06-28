@@ -120,8 +120,8 @@ const Alberto = new Student ({
     gender: 'male',
     previousBackground: 'True Crime Novelist',
     className: 'CS12',
-    favSubjects: `All who live in Alberto's fiefdom are equal in his magnanimous eyes.`,
-})
+    favSubjects: ['Peasants','Dukes','Duchesses'],
+});
 
 
 //*PM Objects
@@ -133,7 +133,7 @@ const Eric = new ProjectManager ({
     gender: 'male',
     gradClassName: 'CS5',
     favInstructor: 'Josh',
-})
+});
 
 const Terrie = new ProjectManager ({
     name: 'Terrie',
@@ -142,4 +142,7 @@ const Terrie = new ProjectManager ({
     gender: 'female',
     gradClassName: 'CS5',
     favInstructor: 'Josh',
-})
+});
+
+Alberto.listsSubjects();
+console.log(Eric.name);
