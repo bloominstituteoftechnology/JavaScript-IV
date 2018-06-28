@@ -32,7 +32,7 @@ class Instructor extends Person {
   }
 
   gradeCheck (student) {
-    while (student.graduate() === false) {
+    while (!student.canGraduate()) {
       console.log(`${student.name}'s grade is ${student.grade}. Keep grading`);
       student.grade += Math.floor((Math.random() * (5 - (-4)) + (-4)));
     }
@@ -66,7 +66,7 @@ class Student extends Person {
     console.log(`${this.name} has begun sprint challenge on ${subject}`);
   }
 
-  graduate () {
+  canGraduate () {
     if (this.grade > 70) {
       return true;
     }
