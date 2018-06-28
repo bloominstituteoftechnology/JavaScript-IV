@@ -5,7 +5,7 @@
 function GameObject(options) {
   this.createdAt = options.createdAt;
   this.dimensions = options.dimensions;
-}
+}start
 
 GameObject.prototype.destroy = function() {
   return `Object was removed from the game.`;
