@@ -27,11 +27,12 @@ class Instructor extends Person {
         return `${student.name} receives a perfect score on ${subject}.`;
     };
 
-    pointSystem (){
+    finalGrade (student){
         let random = Math.floor((Math.random()*100) + 1);
         let plusOrMinus = Math.random() < 0.5 ? -1 : 1;
         random = random*plusOrMinus;
-        return random;
+        let finalGrade = student.grade + random;
+        return finalGrade;
     };
 };
 
@@ -56,6 +57,13 @@ class Student extends Person{
     sprintChallenge (subject){
         return `${this.name} has begun sprint challenge for ${subject}.`;
     };
+
+    graduate (){
+        if (Instructor.finalGrade < 70){
+            return `Sorry ${this.name}, but you are a crap student. Fix your code and will grade you again.`;
+        }
+        
+    }
 };
 
 
@@ -116,7 +124,7 @@ console.log(josh.catchPhrase);
 //Methods
 console.log(josh.demo("Javascript"));
 console.log(josh.grade(das, "HTML"));
-console.log(josh.pointSystem());
+console.log(`Final grade: ${josh.finalGrade(das)}`);
 
 console.log(`\n//---------------------//\n`);
 
@@ -126,11 +134,13 @@ console.log(`\n// Student Testing //\n`);
 console.log(das.previousBackground);
 console.log(das.className);
 console.log(das.favSubjects);
+console.log(das.grade);
 //Methods
 das.listsSubjects();
 console.log(das.PRAssignment("CSS"));
 console.log(das.sprintChallenge("JavaScript-IV"));
-console.log(das.grade);
+console.log(das.graduate());
+
 
 console.log(`\n//---------------------//\n`);
 
