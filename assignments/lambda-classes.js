@@ -67,4 +67,83 @@ class ProjectManager extends Person{
 }// End of Project Manager
 
 
+// Objects 
+
+// People Objects Bill, Fred, and Jess
+const fred = new Person({
+    name: 'Fred',
+    location: 'Bedrock',
+    age: 37,
+    gender: 'male',
+});
+const bill = new Person({
+    name: 'bill',
+    location: 'LA',
+    age: 33,
+    gender: 'male',
+});
+const jess = new Person({
+    name: 'Jessica',
+    location: 'NY',
+    age: 25,
+    gender: 'female',
+});
+
+// Instructor Objects Josh, Ryan, and Dr.Fins
+const josh = new Instructor({
+    name: 'Josh',
+    location: 'Mountains',
+    age: 35,
+    gender: 'male',
+    favLanguage: 'Python',
+    specialty: 'Back-End',
+    catchPhrase: `Don't forget the homies`,
+});
+const ryan = new Instructor({
+    name: 'Ryan',
+    location: 'Georgia',
+    age: 42,
+    gender: 'male',
+    favLanguage: 'C++',
+    specialty: 'UI',
+    catchPhrase: `Alright, alright, alright.`,
+});
+const fins = new Instructor({
+    name: 'Fins',
+    location: 'Tank',
+    age: 4,
+    gender: 'male',
+    favLanguage: 'FishScript',
+    specialty: 'Swimming',
+    catchPhrase: `blagh`,
+});
+
+// Student Objects Steph, Klay, and Spuds
+const steph = new Student({
+    name: 'Steph',
+    location: 'SF',
+    age: 31,
+    gender: 'male',
+    previousBackground: '3-pt',
+    className: 'CS4',
+    favSubjects: 'Spelling',
+});
+const klay = new Student({
+    name: 'Klay',
+    location: 'Cali',
+    age: 28,
+    gender: 'male',
+    previousBackground: 'Baller',
+    className: 'CS7',
+    favSubjects: 'English',
+});
+const spuds = new Student({
+    name: 'Spuds',
+    location: 'Underground',
+    age: 1,
+    gender: 'female',
+    previousBackground: 'Teacher',
+    className: 'CS10',
+    favSubjects: 'Math',
+});
 
