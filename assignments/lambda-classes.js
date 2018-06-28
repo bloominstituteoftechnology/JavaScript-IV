@@ -3,7 +3,7 @@
 class Person {
   constructor(options){
     this.name = options.name;
-    this.location = options.locations;
+    this.location = options.location;
     this.age = options.age;
     this.gender = options.gender;
   }
@@ -98,7 +98,7 @@ const misty = new Student({
   catchPhrase: `Oh that's right!`,
   previousBackground: 'Barista',
   className: 'CS12',
-  favSubjects: ['Html','Css','JavaScript'];
+  favSubjects: ['Html','Css','JavaScript']
 });
 
 
