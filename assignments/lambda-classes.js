@@ -32,8 +32,10 @@ class Student extends Person {
 		this.className = s.className;
 		this.favSubjects = s.favSubjects
 	}
-	listsubjects(element, index, arr){
-  return'a[' + index + '] = ' + element;
+	listsubjects(){
+	  for(z = 0; z<this.favSubjects; z++){
+	  	console.log(subject[i]);
+	}
 	}
 	PRAssignment(b){
 		return`${this.name} has submitted a PR for ${b}`
@@ -88,6 +90,7 @@ const joe = new Student({
   location: 'Bedrock',
   gender: 'male',
   favSubjects :['math', 'physics', 'chemistry'],
+  previousBackground : 'interloper'
 });
 
 const shawn = new Student({
@@ -95,7 +98,7 @@ const shawn = new Student({
   location: 'Bedrock',
   gender: 'mal',
   favSubjects :['math', 'physics', 'chemistry'],
-  previousBackground : "shiteater"
+  previousBackground : "resistancefighter"
 });
 
 const ishaan = new Student({
@@ -172,7 +175,8 @@ const freddest = new ProjectManager({
 console.log(norm.name); 
 console.log(orange.gender); 
 console.log(bob.speak()); 
-console.log(shawn.dimensions);
+console.log(shawn.gender);
+console.log(shawn.listsubjects());
 console.log(ishaan.sprintChallenge('second')); 
 console.log(joe.PRAssignment('first')); 
 console.log(fredd.catchPhrase); 
