@@ -26,7 +26,17 @@ class Instructor extends Person {
   }
 
   changeGrade(student) {
-    student.grade += Math.floor(Math.random() * Math.floor(20)) - 10; //changes grade by plus or minus 10
+    student.grade += Math.floor(Math.random() * Math.floor(20)) - 5; //changes grade by -5 to 15
+  }
+
+  graduate(student) {
+    if (student.grade < 70) {
+      console.log(`${student.grade} isn't enough to graduate. Keep trying ${student.name}!`);
+      return false;
+    } else {
+      console.log(`Congratulations! ${student.name} has graduated with a score of ${student.grade}`);
+      return true;
+    }
   }
 }
 
@@ -106,5 +116,7 @@ joe.listsSubjects();
 joe.PRAssignment('JavaScript-IV');
 joe.sprintChallenge('JavaScript Week');
 harry.standUp('DADA12');
-harry.debugsCode(joe, 'Charms')
-console.log(joe.grade);
+harry.debugsCode(joe, 'Charms');
+while (!fred.graduate(joe)) {
+  fred.changeGrade(joe);
+}
