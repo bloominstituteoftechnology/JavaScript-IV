@@ -9,7 +9,7 @@ class Person {
         this.gender = attributes.gender;
     }
     speak () {
-        console.log(`Hello my name is ${this.name}, I am from ${location}.`);
+        console.log(`Hello my name is ${this.name}, I am from ${this.location}.`);
     }
 }
 
@@ -24,8 +24,8 @@ class Instructor extends Person {
     demo (subject) {
         console.log(`Today we are learning about ${subject}.`);
     }
-    grade () {
-        console.log(`${student.name} receives a perfect score on ${subject}.`);
+    grade (student, subject) {
+        console.log(`${this.name} says ${student.name} receives a perfect score on ${subject}.`);
     }
 }
 
@@ -40,10 +40,10 @@ class Student extends Person {
     listsSubjects () {
         console.log(`${this.favSubjects}`);
     }
-    PRAssignment () {
+    PRAssignment (subject) {
         console.log(`${this.name} has submitted a PR for ${subject}.`);
     }
-    sprintChallenge () {
+    sprintChallenge (subject) {
         console.log(`${this.name} has begun sprint challenge on ${subject}.`)
 
     }
@@ -56,16 +56,16 @@ class ProjectManager extends Instructor {
         this.gradClassName = evenMoreUnique.gradClassName;
         this.favInstructor = evenMoreUnique.favInstructor;
     }
-    standUp () {
-        console.log(`${this.name} announces to ${this.channel}, @channel standup times!​​​​​`)
+    standUp (channel) {
+        console.log(`${this.name} announces to ${channel}, @channel standup times!​​​​​`)
     }
-    debugsCode () {
+    debugsCode (student, subject) {
         console.log(`${this.name} debugs ${student.name}'s code on ${subject}.`)
     }
 }
 
 const josh = new Instructor({
-    name: 'Jred',
+    name: 'Josh',
     location: 'Somewhere',
     age: 37,
     gender: 'male',
@@ -82,7 +82,7 @@ const josh = new Instructor({
     gender: 'male',
     favLanguage: 'All of them',
     specialty: 'Full-Stack',
-    catchPhrase: `Don't forget the neighborhood`
+    catchPhrase: `Don't forget the neighborhood`,
   });
 
 
@@ -113,7 +113,8 @@ const josh = new Instructor({
     gender: 'female',
     favLanguage: 'Love',
     specialty: 'Full-stack',
-    catchPhrase: `Pressing forward, forgetting the past`
+    catchPhrase: `Pressing forward, forgetting the past`,
+    favSubjects: "Science, Math, Lit",
   });
 
   const joseph = new Student({
@@ -124,8 +125,13 @@ const josh = new Instructor({
     favLanguage: 'Braille',
     specialty: 'Full-stack',
     catchPhrase: `Forget me not`,
-    favSubjects: "Science, Math, Lit",
   });
 
-
-console.log(joseph.listsSubjects());
+josh.speak();
+beej.demo("Computer Science");
+josh.grade(joseph, "Geometry");
+me.listsSubjects();
+joseph.PRAssignment("Science");
+me.sprintChallenge("Quilting");
+eric.standUp("#cs12_hech");
+dixie.debugsCode(me, "Art");
