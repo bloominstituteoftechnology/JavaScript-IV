@@ -23,6 +23,9 @@ class Instructor extends Person {
     grade (student, subject) {
         return `${student.name} recieves a perfect score on ${subject}`;
     }
+    gradingCurve(student){
+        student.grade += Math.floor(Math.random() * 5); 
+    }
 }
 
 class Student extends Person {
@@ -30,7 +33,8 @@ class Student extends Person {
         super(cprops);
         this.previousBackground = cprops.previousBackground;
         this.className = cprops.className;
-        this.favSubjects = cprops.favSubjects; 
+        this.favSubjects = cprops.favSubjects;
+        this.grade = cprops.grade;  
     }
     listSubjects () {
         return this.favSubjects.join(', '); 
@@ -40,6 +44,11 @@ class Student extends Person {
     }
     sprintChallenge (subject) {
         return `${this.name} has begun spring challege on ${subject}`;
+    }
+    graduate () {
+        if (this.grade > 70) { 
+         'Congratulations you have graduated'
+        } 
     }
 }
 class ProjectManager extends Instructor {
@@ -64,7 +73,8 @@ const jonathan = new Student ({
     gender: "Male", 
     previousBackground: "Quality Assurance", 
     className: "JavaScript Fundamentals",
-    favSubjects: ["Programming", "Creative Writing", "Finance"]
+    favSubjects: ["Programming", "Creative Writing", "Finance"],
+    grade: 92
   })
 const holloway = new Student ({
     name: "Holloway", 
@@ -73,7 +83,8 @@ const holloway = new Student ({
     gender: "Male", 
     previousBackground: "Currency Trader", 
     className: "CS12",
-    favSubjects: ["accounting", "Math", "Python"]
+    favSubjects: ["accounting", "Math", "Python"],
+    grade: 59
   })
 
 const josh = new Instructor ({
@@ -128,71 +139,74 @@ const nathan = new ProjectManager ({
     favInstructor: "Josh",
     favLanguage: "JavaScript"
 })
+
+
+
 // Person Classes 
-console.log(jack.name);
-console.log(jack.age); 
-console.log(jack.name, jack.age, jack.location, jack.gender); 
-console.log(jack.speak());
+// console.log(jack.name);
+// console.log(jack.age); 
+// console.log(jack.name, jack.age, jack.location, jack.gender); 
+// console.log(jack.speak());
 
-console.log(shelia.name);
-console.log(shelia.age); 
-console.log(shelia.name, shelia.age, shelia.location, shelia.gender); 
-console.log(shelia.speak());
+// console.log(shelia.name);
+// console.log(shelia.age); 
+// console.log(shelia.name, shelia.age, shelia.location, shelia.gender); 
+// console.log(shelia.speak());
 
-//Project Manager Classes 
-console.log(jordan.name);
-console.log(jordan.age); 
-console.log(jordan.name, jordan.age, jordan.location, jordan.gender); 
-console.log(jordan.speak());
-console.log(jordan.demo("JavaScript IV")); 
-console.log(jordan.standUp("CS12"));
-console.log(jordan.debugsCode(holloway, "JavaScript"));
-console.log(jordan.grade(holloway, "JavaScript"))
-console.log(jordan.favInstructor, jordan.speciality, jordan.catchPhrase);
-console.log(jordan.favLanguage);  
+// //Project Manager Classes 
+// console.log(jordan.name);
+// console.log(jordan.age); 
+// console.log(jordan.name, jordan.age, jordan.location, jordan.gender); 
+// console.log(jordan.speak());
+// console.log(jordan.demo("JavaScript IV")); 
+// console.log(jordan.standUp("CS12"));
+// console.log(jordan.debugsCode(holloway, "JavaScript"));
+// console.log(jordan.grade(holloway, "JavaScript"))
+// console.log(jordan.favInstructor, jordan.speciality, jordan.catchPhrase);
+// console.log(jordan.favLanguage);  
 
-console.log(nathan.name);
-console.log(nathan.age); 
-console.log(nathan.name, nathan.age, nathan.location, nathan.gender); 
-console.log(nathan.speak());
-console.log(nathan.standUp("CS12"));
-console.log(nathan.demo("JavaScript IV")); 
-console.log(nathan.debugsCode(jonathan, "JavaScript"));
-console.log(nathan.grade(jonathan, "JavaScript"));
-console.log(nathan.favInstructor, nathan.speciality, nathan.catchPhrase);
-console.log(nathan.favLanguage);  
+// console.log(nathan.name);
+// console.log(nathan.age); 
+// console.log(nathan.name, nathan.age, nathan.location, nathan.gender); 
+// console.log(nathan.speak());
+// console.log(nathan.standUp("CS12"));
+// console.log(nathan.demo("JavaScript IV")); 
+// console.log(nathan.debugsCode(jonathan, "JavaScript"));
+// console.log(nathan.grade(jonathan, "JavaScript"));
+// console.log(nathan.favInstructor, nathan.speciality, nathan.catchPhrase);
+// console.log(nathan.favLanguage);  
 
-// Student Classes 
-console.log(jonathan.name);
-console.log(jonathan.age); 
-console.log(jonathan.name, jonathan.age, jonathan.location, jonathan.gender); 
-console.log(jonathan.speak());
-console.log(jonathan.listSubjects());
-console.log(jonathan.PRAssignment("JavaScript"));
-console.log(jonathan.sprintChallenge("JavaScript"));
+// // Student Classes 
+// console.log(jonathan.name);
+// console.log(jonathan.age); 
+// console.log(jonathan.name, jonathan.age, jonathan.location, jonathan.gender); 
+// console.log(jonathan.speak());
+// console.log(jonathan.listSubjects());
+// console.log(jonathan.PRAssignment("JavaScript"));
+// console.log(jonathan.sprintChallenge("JavaScript"));
 
 
-console.log(holloway.name);
-console.log(holloway.age); 
-console.log(holloway.name, holloway.age, holloway.location, holloway.gender); 
-console.log(holloway.speak());
-console.log(holloway.listSubjects());
-console.log(holloway.PRAssignment("JavaScript"));
-console.log(holloway.sprintChallenge("JavaScript"));
+// console.log(holloway.name);
+// console.log(holloway.age); 
+// console.log(holloway.name, holloway.age, holloway.location, holloway.gender); 
+// console.log(holloway.speak());
+// console.log(holloway.listSubjects());
+// console.log(holloway.PRAssignment("JavaScript"));
+// console.log(holloway.sprintChallenge("JavaScript"));
 
-// Instructor Classes 
-console.log(fred.name);
-console.log(fred.age); 
-console.log(fred.name, fred.age, fred.location, fred.gender); 
-console.log(fred.speak());
-console.log(fred.demo("JavaScript IV"));
-console.log(fred.grade(holloway, "JavaScript"));
+// // Instructor Classes 
+// console.log(fred.name);
+// console.log(fred.age); 
+// console.log(fred.name, fred.age, fred.location, fred.gender); 
+// console.log(fred.speak());
+// console.log(fred.demo("JavaScript IV"));
+// console.log(fred.grade(holloway, "JavaScript"));
 
-console.log(josh.name);
-console.log(josh.age); 
-console.log(josh.name, josh.age, josh.location, josh.gender, josh.speciality); 
-console.log(josh.catchPhrase);
-console.log(josh.favLanguage);  
-console.log(josh.speak());
-console.log(josh.demo("JavaScript IV"));
-console.log(josh.grade(holloway, "JavaScript"));
+// console.log(josh.name);
+// console.log(josh.age); 
+// console.log(josh.name, josh.age, josh.location, josh.gender, josh.speciality); 
+// console.log(josh.catchPhrase);
+// console.log(josh.favLanguage);  
+// console.log(josh.speak());
+// console.log(josh.demo("JavaScript IV"));
+// console.log(josh.grade(holloway, "JavaScript"));
