@@ -21,8 +21,11 @@ class Instructor extends Person{
 	demo(subject) {
 		return `Today we are learning about ${subject}`;
 	}
-	grade(student, subject) {
-		return `${student.name} receives a perfect score on ${subject}`;
+	grade(student) {
+		let plusorMinus = Math.random() < 0.5 ? -1 : 1;
+		let random = Math.floor(Math.random() * 40);
+		student.grade = student.grade - (plusorMinus * random);
+		return `${student.name} currently has a grade of ${student.grade}`;
 	}
 }
 
@@ -32,6 +35,7 @@ class Student extends Person {
 		this.previousBackground = studentAttributes.previousBackground;
 		this.className = studentAttributes.className;
 		this.favSubjects = studentAttributes.favSubjects;
+		this.grade = studentAttributes.grade;
 	}
 	listSubjects() {
 		this.favSubjects.forEach(subject => console.log(subject));
@@ -41,6 +45,13 @@ class Student extends Person {
 	}
 	sprintChallenge(subject){
 		return `${this.name} has begun a sprint challenge on ${subject}`;
+	}
+	graduate() {
+		if (this.grade >= 70) {
+			return `${this.name} has a grade of ${this.grade} and is ready to graduate!`;
+		} else {
+			return 	`${this.name} has a grade of ${this.grade} and needs ${70-this.grade} more to graduate.`
+		}
 	}
 }
 
@@ -75,7 +86,8 @@ const joe = new Student({
   gender: 'male',
   previousBackground: 'Rapper',
   className: 'CS100',
-  favSubjects: ['HTML', 'React', 'D3']
+  favSubjects: ['HTML', 'React', 'D3'],
+  grade: 100
 });
 
 const steve = new ProjectManager({
@@ -94,3 +106,5 @@ console.log(joe.PRAssignment('JavaScript'));
 console.log(joe.sprintChallenge('Python'));
 console.log(steve.standUp('CS12'));
 console.log(steve.debugsCode(joe, 'JavaScript'));
+console.log(steve.grade(joe));
+console.log(joe.graduate());
