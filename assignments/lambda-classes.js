@@ -10,7 +10,7 @@ class Person {
         this.gender = personAttributes.gender;
     }
     speak () {
-        console.log(`Hello my name is ${this.name}, I am from ${this.location}`)
+        return `Hello my name is ${this.name}, I am from ${this.location}`;
     }
 }// End of Parent
 
@@ -23,15 +23,15 @@ class Instructor extends Person {
         this.catchPhrase = instructorAttributes.catchPhrase;
     }
     demo (subject) {
-        console.log(`Today we are learning about ${subject}`);
+        return `Today we are learning about ${subject}`;
     }
-    grade (student, subject) {
-        console.log(`${student} receives a perfect score on ${subject}`);
+    grade (subject) {
+        return `${spuds.name} receives a perfect score on ${subject}`;
     } 
 }// End of Instructor
 
 // Start of Student class
-class Student extends Person {
+class Student extends Instructor {
     constructor(studentAttributes) {
         super(studentAttributes);
         this.previousBackground = studentAttributes.previousBackground;
@@ -39,28 +39,31 @@ class Student extends Person {
         this.favSubjects = studentAttributes.favSubjects;
     }
     listsSubjects () {
-            console.log(this.favSubjects);
+        for (let i = 0; i < this.favSubjects.length; i++) {
+            console.log(this.favSubjects[i]);
+            console.log(favSubjects.push(this.favSubjects[i]))
+        }
     }
     PRAssignment (subject) {
-        console.log(`${this.name} has submitted a PR for ${this.favSubjects}`);
+        return `${this.name} has submitted a PR for ${subject}`;
     }
     sprintChallenge () {
-        console.log(`${this.name} has begun spring challenge on ${this.favSubjects}`);
+        return `${this.name} has begun sprint challenge on ${this.favSubjects}`;
     }
 }// End of Student
 
 // Start of Project Manager class
-class ProjectManager extends Person{
+class ProjectManager extends Student {
     constructor(projectmanagerAttributes) {
         super(projectmanagerAttributes);
         this.gradClassName = projectmanagerAttributes.gradClassName;
         this.favInstructor = projectmanagerAttributes.favInstructor;
     }
     standUp (channel) {
-        console.log(`${this.name} announces to ${channel}, @channel standy times!​​​​​`);
+        return `${this.name} announces to ${channel}, @channel standy times!​​​​​`;
     }
     debugsCode () {
-        console.log(`${this.name} debugs ${this.name}'s code on ${this.favInstructor}`)
+        return `${this.name} debugs ${steph.name}'s code on ${steph.favSubjects}`;
     }
 }// End of Project Manager
 
@@ -124,7 +127,7 @@ const steph = new Student({
     gender: 'male',
     previousBackground: '3-pt',
     className: 'CS4',
-    favSubjects: 'Spelling',
+    favSubjects: ['UI', 'C++', 'JavaScript'],
 });
 const klay = new Student({
     name: 'Klay',
@@ -133,7 +136,7 @@ const klay = new Student({
     gender: 'male',
     previousBackground: 'Baller',
     className: 'CS7',
-    favSubjects: 'English',
+    favSubjects: ['Python', 'Scratch', 'English'],
 });
 const spuds = new Student({
     name: 'Spuds',
@@ -142,7 +145,7 @@ const spuds = new Student({
     gender: 'female',
     previousBackground: 'Teacher',
     className: 'CS10',
-    favSubjects: 'Math',
+    favSubjects: ['Html', 'CSS', 'Color Theory'],
 });
 
 // Project Managers Objects Eric, Terri, and Dani
@@ -187,10 +190,9 @@ console.log(terri.favInstructor);
 console.log(dani.location);
 console.log(bill.speak());
 console.log(josh.demo('Web-Design'));
-console.log(fins.grade('George', 'math'));
+console.log(fins.grade('math'));
 console.log(steph.listsSubjects());
-console.log(klay.PRAssignment());
+console.log(klay.PRAssignment('JS-II'));
 console.log(spuds.sprintChallenge());
 console.log(eric.standUp('cryptotalk'));
 console.log(terri.debugsCode());
-console.log(spuds.sprintChallenge());
