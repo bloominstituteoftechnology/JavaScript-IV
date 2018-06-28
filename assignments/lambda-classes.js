@@ -23,18 +23,36 @@ class Instructor extends Person {
     grade (student, subject) {
         return `${student.name} recieves a perfect score on ${subject}`;
     }
+    graduate (student) {
+        if (this.grade > 70) { 
+         console.log('Congratulations you have graduated')
+        } else {
+          console.log(`${student.name} because your score is only at ${student.grade} you are still not ready to graduate..... ${student.name} pleads with his instructor please let me have another chance to improve`)
+          this.gradingCurve(student); 
+        } 
+    }
     gradingCurve(student){
-        student.grade += Math.floor(Math.random() * 5); 
+      let stringOut = (`${student.name} let me review your latest work`)
+      let randomGrade = Math.floor(Math.random() * 5); 
+      student.grade += randomGrade;
+      let stringOut2 = `Well ${student.name} you have completed this assignment and your score is now a ${student.grade}. That is an improvement of ${randomGrade} points`;
+      let arrayJoined = [stringOut, stringOut2];
+      if (student.grade >= 70) {
+        console.log(stringOUt); 
+        student.grade(student);
+      } else {
+      console.log(arrayJoined.join(" , .........")); 
+      this.grade(student);
     }
 }
-
+}
 class Student extends Person {
     constructor(cprops){
         super(cprops);
         this.previousBackground = cprops.previousBackground;
         this.className = cprops.className;
         this.favSubjects = cprops.favSubjects;
-        this.grade = cprops.grade;  
+        this.grade = cprops.grade;
     }
     listSubjects () {
         return this.favSubjects.join(', '); 
@@ -45,11 +63,7 @@ class Student extends Person {
     sprintChallenge (subject) {
         return `${this.name} has begun spring challege on ${subject}`;
     }
-    graduate () {
-        if (this.grade > 70) { 
-         'Congratulations you have graduated'
-        } 
-    }
+    
 }
 class ProjectManager extends Instructor {
     constructor(gcprops){
@@ -140,7 +154,7 @@ const nathan = new ProjectManager ({
     favLanguage: "JavaScript"
 })
 
-
+josh.graduate(holloway);
 
 // Person Classes 
 // console.log(jack.name);
