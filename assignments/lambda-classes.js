@@ -27,6 +27,17 @@ class Instructor extends Person {
     grade(student , subject){
         console.log (`${student.name} receives a perfect score on ${subject}`);
     }
+
+    gradeAdd(student){
+       let result = (Math.random() + student.grade);
+       student.grade = result;
+       console.log(student.grade);
+    }
+    gradeSubtract(student){
+        let result = (student.grade- Math.random());
+        student.grade = result;
+        console.log(student.grade);
+     }
 }
 
 
@@ -36,10 +47,13 @@ class Student extends Person {
         super(sprops);
         this.previousBackground = sprops.previousBackground;
         this.className = sprops.className;
-        this.favSubjects = sprops.favSubjects;
+        this.favSubjects = sprops.favSubjects.split(' ,');
+        this.grade = sprops.grade;
     }
     listSubjects(){
-        console.log(`${this.favSubjects}`)
+        // let fav= this.favSubjects.join(', ');
+        // console.log(`${this.favSubjects}`)
+        console.log(this.favSubjects)
     };
     PRAssignments(subject){
         console.log (`${this.name} has submitted a PR for ${subject}`);
@@ -48,6 +62,13 @@ class Student extends Person {
     sprintChallenge(subject){
         console.log (`${this.name} has begun sprint challenge on ${subject}`);
     };
+
+    graduate(){
+        if(this.grade > 70){
+            console.log (`${this.name} you\'ve graduated`)
+        } else {console.log (`${this.name} finish your assignments!`)}
+    }
+
 }
 
 
@@ -85,6 +106,7 @@ const naaz = new Student ({
     previousBackground: 'Business',
     className: 'cs12',
     favSubjects: 'somestuff, morestuff, catstuff',
+    grade: 88,
 })
 naaz.listSubjects()
 naaz.PRAssignments('cc')
@@ -119,3 +141,6 @@ const nate = new ProjectManager ({
 
 nate.standUp('cs12_nate');
 nate.debugsCode(naaz,'js')
+
+nate.gradeAdd(naaz)
+naaz.graduate();
