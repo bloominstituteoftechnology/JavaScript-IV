@@ -6,8 +6,8 @@
 
 class GameObject {
   constructor (options) {
-  this.createdAt = options.createdAt;
-  this.dimensions = options.dimensions;
+    this.createdAt = options.createdAt;
+    this.dimensions = options.dimensions;
   }
   destroy () {
     return `${this.name} was removed from the game.`;
