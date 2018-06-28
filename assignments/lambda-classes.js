@@ -33,8 +33,8 @@ class Student extends Person {
 		this.favSubjects = s.favSubjects
 	}
 	listsubjects(){
-	  for(z = 0; z<this.favSubjects; z++){
-	  	console.log(subject[i]);
+	  for(let z = 0; z<this.favSubjects.length; z++){
+	  	console.log(this.favSubjects[z]);
 	}
 	}
 	PRAssignment(b){
