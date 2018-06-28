@@ -2,18 +2,18 @@
 
 class Person {
     constructor(characteristics) {
-      this.name = characteristics.name;
-      this.age = characteristics.age;
-      this.location = characteristics.location;
-      this.gender = characteristics.gender;
+        this.name = characteristics.name;
+        this.age = characteristics.age;
+        this.location = characteristics.location;
+        this.gender = characteristics.gender;
     }
     speak () {
-      return `Hello my is ${this.name}, I am from ${this.location} .`;
+        return `Hello my is ${this.name}, I am from ${this.location} .`;
     }
-  }// end of Person
+}// end of Person
 
 
-  class Instructor extends Person{
+class Instructor extends Person{
     constructor(superPowers) {
         super(superPowers);
         this.specialty = superPowers.specialty;
@@ -26,15 +26,20 @@ class Person {
     grade (student, subject) {
         return `${student.name} receives a perfect score on ${subject}`;
     }
-  }// end of Instructor
+    grading (student) {
+        let randomNumber = Math.floor(Math.random() * 10);
+        return `${student.name} your grade is ${student.grade - randomNumber}`;
+    }
+}// end of Instructor
 
 
-  class Student extends Person {
+class Student extends Person {
     constructor(skills) {
         super(skills);
         this.previousBackground = skills.previousBackground;
         this.className = skills.className;
         this.favSubjects = skills.favSubjects;
+        this.grade = skills.grade;
     }
     listsSubjects () {
         return this.favSubjects.join(' , ');
@@ -72,7 +77,7 @@ const fred = new Instructor({
     favLanguage: 'JavaScript',
     specialty: 'Front-end',
     catchPhrase: `Don't forget the homies`
-  });
+});
 
 const luis = new Student({
     name: 'Luis',
@@ -84,7 +89,8 @@ const luis = new Student({
     favSubjects: [
         "HTML",
         "Bootstrap"
-    ]
+    ],
+    grade: 78,
 });
 
 const ray = new ProjectManager({
@@ -108,7 +114,8 @@ const fernando = new Student({
         "Bootstrap",
         "LESS",
         "JavaScript"
-    ]
+    ],
+    grade: 90,
 });
 
 const steve = new Instructor({
@@ -138,3 +145,5 @@ console.log(fernando.PRAssignment('JavaScript'));
 console.log(steve.catchPhrase);
 console.log(steve.grade(fernando, 'JavaScript'));
 console.log(lilly.debugsCode(fernando, 'HTML'));
+console.log(fred.grading(luis));
+console.log(lilly.grading(fernando));
