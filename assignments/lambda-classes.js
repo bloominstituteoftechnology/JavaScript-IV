@@ -25,6 +25,13 @@ class Instructor extends Person {
     grade (student, subject) {
         return (`${student.name} receives a perfect score on ${subject}`);
     }
+    gradeUpdate (student) {
+        let increment = Math.floor(Math.random()*10);
+        console.log(increment)
+        if(Math.random > .5) {
+            return `${student.name}'s new grade is ${student.grade += increment}`;
+        } else return `${student.name}'s new grade is ${student.grade -= increment}`;
+    }
 }
 
 class Student extends Person {
@@ -33,6 +40,7 @@ class Student extends Person {
         this.previousBackground = learn.previousBackground;
         this.className = learn.className;
         this.favSubjects = learn.favSubjects;
+        this.grade = learn.grade;
     }
     listsSubjects () {
         // return this.favSubjects.forEach(function(subs) {
@@ -45,6 +53,11 @@ class Student extends Person {
     }
     sprintChallenge (subject) {
         return (`${this.name} has begun sprint challenge on ${subject}`);
+    }
+    graduate () {
+        if (this.grade > 70) {
+            return `${this.name} is ready to graduate!`;
+        } else return `${this.name}'s grade isn't high enough to graduate yet.`;
     }
 }
 
@@ -89,7 +102,8 @@ const marco = new Student({
     gender: 'male',
     previousBackground: 'psychology',
     className: 'CS19',
-    favSubjects: ['Html', 'CSS', 'JavaScript']
+    favSubjects: ['Html', 'CSS', 'JavaScript'],
+    grade: 89
   });
 
 const natalia = new Student({
@@ -99,7 +113,8 @@ const natalia = new Student({
     gender: 'female',
     previousBackground: 'ballerina',
     className: 'CS29',
-    favSubjects: ['Ruby', 'Python', 'JavaScript']
+    favSubjects: ['Ruby', 'Python', 'JavaScript'],
+    grade: 94
   });
 
 const jake = new ProjectManager({
@@ -136,3 +151,14 @@ console.log(natalia.PRAssignments('Ruby'));
 console.log(natalia.sprintChallenge('React'));
 console.log(jake.standUp('cs15_Jake'));
 console.log(sasha.debugsCode(marco, 'Python'));
+console.log(marco.grade);
+console.log(fred.gradeUpdate(marco));
+console.log(marco.grade);
+console.log(natalia.grade);
+console.log(sarah.gradeUpdate(natalia));
+console.log(natalia.grade);
+console.log(sarah.gradeUpdate(natalia));
+console.log(sarah.gradeUpdate(natalia));
+console.log(natalia.graduate());
+console.log(sarah.gradeUpdate(natalia));
+console.log(natalia.graduate());
