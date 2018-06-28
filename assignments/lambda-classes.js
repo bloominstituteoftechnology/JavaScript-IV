@@ -32,7 +32,17 @@ class Instructor extends Person {
     }
     grade(student, subject) {
         console.log(`${student.name} receives a perfect score on ${subject}`);
-    }
+	}
+	mark(exampleStudent) {
+		console.log(`${exampleStudent.name}'s current grade is ${exampleStudent.grade}`);
+		const plusOrMinus = Math.random() < 0.5 ? -1 : 1;
+		exampleStudent.grade += Math.floor(Math.random()*10) * plusOrMinus;
+		if (exampleStudent.grade < 0) {
+			exampleStudent.grade = 0;
+		}
+		console.log(`${exampleStudent.name}'s current grade is ${exampleStudent.grade}`);
+		exampleStudent.graduate(this);
+	}
 }
 
 //* STUDENT CLASS
@@ -43,6 +53,7 @@ class Student extends Person {
         this.previousBackground = attributes.previousBackground;
         this.className = attributes.className;
         this.favSubjects = attributes.favSubjects;
+        this.grade =  Math.floor(Math.random()*100);
     }
     listsSubjects() {
         this.favSubjects.forEach(function(element) {
@@ -54,7 +65,14 @@ class Student extends Person {
     }
     sprintChallenge(subject){
         console.log(`${this.name} has begun sprint challenge on ${subject}`);
-    }
+	}
+	graduate(instructorObject) {
+		if (this.grade < 70) {
+			instructorObject.mark(this);
+		} else {
+			console.log(`${this.name} passed!  I'm as surprised as you are.`)
+		}
+	}
 }
 
 //* PROJECT MANAGER CLASS 
@@ -110,10 +128,10 @@ class ProjectManager extends Instructor {
      gender: 'male',
      previousBackground: 'Witness protection.  Wait, forget you read that',
      className: 'CS12',
-     favSubjects: 'The ones that come before objects and verbs.',
- });
-
-const Alberto = new Student ({
+     favSubjects: ['Literature', 'Music'],
+    });
+    
+    const Alberto = new Student ({
     name: 'Alberto',
     location: 'Everywhere and Nowhere',
     age: 26,
@@ -146,3 +164,5 @@ const Terrie = new ProjectManager ({
 
 Alberto.listsSubjects();
 console.log(Eric.name);
+console.log(Trevor.grade);
+Eric.mark(Trevor);
