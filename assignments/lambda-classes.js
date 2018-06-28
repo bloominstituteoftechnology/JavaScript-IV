@@ -138,7 +138,7 @@ class ProjectManager extends Instructor {
     gender: 'male',
     previousBackground: 'True Crime Novelist',
     className: 'CS12',
-    favSubjects: ['Peasants','Dukes','Duchesses'],
+    favSubjects: ['Peasants','Dukes','Blacksmiths'],
 });
 
 
