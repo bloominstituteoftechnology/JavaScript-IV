@@ -27,7 +27,7 @@ class Instructor extends People {
   }
   sabatoge(student){
     (student).grade = Math.floor(Math.random() * Math.floor(100));
-    console.log(`${(student).name} has recieved ${(student).grade}pts out of 100pts from ${this.name}.`)
+    console.log(`${student.name} has recieved ${(student).grade}pts out of 100pts from ${this.name}.`)
   }
 }
 class Student extends People {
@@ -51,7 +51,7 @@ class Student extends People {
     if (this.grade >= 70) {
       console.log(`Congradulations ${this.name}! You have graduated Lambda School with a(n) ${this.grade}.`)
     } else if (this.grade < 70) {
-      console.log(`Keep trying ${this.name}! And remember, it is completly random that you have a failing grade of ${this.grade}.`) 
+      console.log(`Keep trying ${this.name}! And remember, it is completly random that you have a failing grade of ${this.grade}.`)
     }
   }
 }
