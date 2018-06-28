@@ -10,7 +10,7 @@ class Person {
 		return `Hello my name is ${this.name}, I am from ${this.location}`;
 	}
 }
-
+}
 class Instructor extends Person{
 	constructor(instructorAttributes){
 		super(instructorAttributes);
