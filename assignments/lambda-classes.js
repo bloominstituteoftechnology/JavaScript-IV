@@ -26,7 +26,7 @@ class Instructor extends Person {
         console.log(`Today we are learning about ${subject}`);
     }
     grade (student, subject) {
-        console.log(`${student.name} receives a perfect score on ${subject}`);
+        console.log(`${student} receives a perfect score on ${subject}`);
     } 
 }// End of Instructor
 
@@ -39,15 +39,13 @@ class Student extends Person {
         this.favSubjects = studentAttributes.favSubjects;
     }
     listsSubjects () {
-        for (let i = 0; i < this.favSubjects.length; i++) {
-            console.log(this.favSubjects[i]);
-        }
+            console.log(this.favSubjects);
     }
     PRAssignment (subject) {
-        console.log(`${student.name} has submitted a PR for ${subject}`);
+        console.log(`${this.name} has submitted a PR for ${this.favSubjects}`);
     }
     sprintChallenge () {
-        console.log(`${student.name} has begun spring challenge on ${subject}`);
+        console.log(`${this.name} has begun spring challenge on ${this.favSubjects}`);
     }
 }// End of Student
 
@@ -59,10 +57,10 @@ class ProjectManager extends Person{
         this.favInstructor = projectmanagerAttributes.favInstructor;
     }
     standUp (channel) {
-        console.log(`${name} announces to ${channel}, @channel standy times!​​​​​`);
+        console.log(`${this.name} announces to ${channel}, @channel standy times!​​​​​`);
     }
     debugsCode () {
-        console.log(`${name} debugs {student.name}'s code on ${subject}`)
+        console.log(`${this.name} debugs ${this.name}'s code on ${this.favInstructor}`)
     }
 }// End of Project Manager
 
@@ -187,3 +185,12 @@ console.log(spuds.previousBackground);
 console.log(eric.gradClassName);
 console.log(terri.favInstructor);
 console.log(dani.location);
+console.log(bill.speak());
+console.log(josh.demo('Web-Design'));
+console.log(fins.grade('George', 'math'));
+console.log(steph.listsSubjects());
+console.log(klay.PRAssignment());
+console.log(spuds.sprintChallenge());
+console.log(eric.standUp('cryptotalk'));
+console.log(terri.debugsCode());
+console.log(spuds.sprintChallenge());
