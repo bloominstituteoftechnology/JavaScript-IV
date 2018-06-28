@@ -9,7 +9,7 @@ class Person {
 
     //Method
     speak() {
-      console.log(`Hello my name is ${this.name}, I am from ${this.location}`);
+      return `Hello my name is ${this.name}, I am from ${this.location}`;
     }
   }
   //Person Class Ends
@@ -25,11 +25,11 @@ class Person {
 
     //Methods
     demo(subject) {
-        console.log(`Today we are learning about ${subject}`);
+        return `Today we are learning about ${subject}`;
     }
     
     grade(student, subject) {
-        console.log(`${student.name} receives a perfect score on ${subject}`);
+        return `${student.name} receives a perfect score on ${subject}`;
     }
   }
   //Instructor Class Ends
@@ -45,15 +45,15 @@ class Person {
 
       //Methods
       listSubjects() {
-        console.log(`${favSubjects}`);
+        return `${favSubjects}`;
       }
 
       PRAssignments(subject) {
-        console.log(`${student.name} has submitted a PR for ${subject}`);
+        return `${student.name} has submitted a PR for ${subject}`;
       }
 
       sprintChallenge(subject) {
-        console.log(`${student.name} has begun spring challenge on ${subject}`);
+        return `${student.name} has begun spring challenge on ${subject}`;
       }
   }
   //Student Class Ends
@@ -68,11 +68,11 @@ class Person {
 
       //Methods
       standUP(slackChannel) {
-        console.log(`${this.name} announces to ${slackChannel}, @channel standy times!`);
+        return `${this.name} announces to ${slackChannel}, @channel standy times!`;
       }
 
       debugsCode(student, subject) {
-          console.log(`${this.name} debugs ${student.name}'s code on ${subject}`);
+        return `${this.name} debugs ${student.name}'s code on ${subject}`;
       }
   }
   //Project Manager Ends
@@ -139,20 +139,20 @@ class Person {
   //Object for Student
 
   //Object for PM
-  const fred = new ProjectManagers({
-    name: 'Fred',
-    location: 'Bedrock',
-    age: 37,
+  const kevin = new ProjectManagers({
+    name: 'Kevin',
+    location: 'California',
+    age: 20,
     gender: 'male',
     gradClassName: 'CS25',
     favInstructor: 'Josh'
   });
 
-  const fred = new ProjectManagers({
-    name: 'Fred',
-    location: 'Bedrock',
-    age: 37,
-    gender: 'male',
+  const lilly = new ProjectManagers({
+    name: 'Lilly',
+    location: 'North Carolina',
+    age: 22,
+    gender: 'female',
     gradClassName: 'CS26',
     favInstructor: 'Eric'
   });
