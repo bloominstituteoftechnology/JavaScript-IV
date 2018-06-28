@@ -86,5 +86,60 @@ class ProjectManager extends Instructor {
      gender: 'male',
      favLanguage: 'Esperanto',
      speciality: 'Karate',
-     catchPhrase: 'Calm down CS 12, just calm down.'
+     catchPhrase: 'Calm down CS 12, just calm down.',
  });
+
+ const Diandra = new Instructor ({
+     name: 'Diandra',
+     location: 'I think New Mexico',
+     age: 'Like...26?',
+     gender: 'female',
+     favLanguage: 'Bee Dance',
+     speciality: 'Teaching n00bs',
+     catchPhrase: 'For those of you just joining us let me tell you a little about Lambda School',
+ });
+
+
+
+ //*Student Objects
+
+ const Trevor = new Student ({
+     name: 'Trevor',
+     location: 'BEHIND YOU!',
+     age: 36,
+     gender: 'male',
+     previousBackground: 'Witness protection.  Wait, forget you read that',
+     className: 'CS12',
+     favSubjects: 'The ones that come before objects and verbs.',
+ });
+
+const Alberto = new Student ({
+    name: 'Alberto',
+    location: 'Everywhere and Nowhere',
+    age: 26,
+    gender: 'male',
+    previousBackground: 'True Crime Novelist',
+    className: 'CS12',
+    favSubjects: `All who live in Alberto's fiefdom are equal in his magnanimous eyes.`,
+})
+
+
+//*PM Objects
+
+const Eric = new ProjectManager ({
+    name: 'Eric',
+    location:'The middle of a storm',
+    age: 26,
+    gender: 'male',
+    gradClassName: 'CS5',
+    favInstructor: 'Josh',
+})
+
+const Terrie = new ProjectManager ({
+    name: 'Terrie',
+    location: 'Lurking',
+    age: 24,
+    gender: 'female',
+    gradClassName: 'CS5',
+    favInstructor: 'Josh',
+})
