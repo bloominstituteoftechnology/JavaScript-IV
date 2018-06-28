@@ -25,7 +25,7 @@ class Instructor extends Person {
         return `${Student.name} receives a perfect score on ${subject}`
     }
     points(Student) {
-        if (Math.random > .6) {
+        if (Math.random() > .6) {
             Student.grade = Student.grade - 10
         } else {
             Student.grade = Student.grade + 10
