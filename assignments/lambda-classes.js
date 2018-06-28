@@ -22,8 +22,8 @@ class Instructor extends Person{
     demo(subject){
         return `Today we are learning about ${subject}`;
     } 
-    grade(student,subject){
-        return `${student} receives a perfect score on ${subject}`;
+    grade(Student,subject){
+        return `${Student.name} receives a perfect score on ${subject}`;
     }   
 };
 
@@ -36,10 +36,8 @@ class Student extends Person{
             this.favSubjects = studentOptions.favSubjects;
         }
         listSubjects(){
-            for  (let i=0; i<this.favSubjects.length;i++){
-                console.log(this.favSubjects[i])
-            }
-        }; 
+            return `favorite subjects: ${this.favSubjects}`;
+        }
         PRAssignment(subject){
             return `${this.name} has submitted a PR for ${subject}`;
         }
@@ -58,12 +56,10 @@ class ProjectManager extends Instructor{
     standUp(channel){
         return `${this.name} announces to @${channel} standup times`;
     }
-    debugsCode(student, subject){
-        return `${this.name} debugs ${student.name}'s code on ${subject}`;
+    debugsCode(Student, subject){
+        return `${this.name} debugs ${Student.name}'s code on ${subject}`;
     }
 }
-
-
 
 
 const fred = new Instructor({
@@ -91,7 +87,7 @@ const simon = new Student({
 })
 
 console.log(simon.age)
-console.log(simon.listSubjects)
+console.log(simon.listSubjects())
 
 const friend = new ProjectManager({
     name: 'Friend',
