@@ -23,7 +23,11 @@ class Instructor extends People {
     console.log(`Today we are learning about ${subject}.`);
   }
   grade (student, subject) {
-    console.log(`${student} receives a perfect score on ${subject}.`)
+    console.log(`${(student).name} receives a perfect score on ${subject}.`)
+  }
+  sabatoge(student){
+    (student).grade = Math.floor(Math.random() * Math.floor(100));
+    console.log(`${(student).name} has recieved ${(student).grade}pts out of 100pts from ${this.name}.`)
   }
 }
 class Student extends People {
@@ -32,6 +36,7 @@ class Student extends People {
     this.previousBackground = studentAttributes.previousBackground;
     this.className = studentAttributes.className;
     this.favSubjects = studentAttributes.favSubjects;
+    this.grade = 100;
   }
   listsSubjects () {
     console.log(`${this.name}'s Favorite Subjects: ${this.favSubjects}.'`)
@@ -52,8 +57,8 @@ class ProjectMananger extends Instructor {
   standUp (slackChannel) {
     console.log(`${this.name} announces to ${slackChannel}: @channel Time for standup!`)
   }
-  debugsCode (name, subject ) {
-    console.log(`${this.name} debugs ${name}'s code on ${subject}.`);
+  debugsCode (student, subject ) {
+    console.log(`${this.name} debugs ${(student).name}'s code on ${subject}.`);
   }
 }
 
@@ -93,10 +98,11 @@ const dani = new ProjectMananger ({
 //instructor -- demo(subject), grade(student)
 
 dani.standUp('Mike');
-dani.debugsCode('Mike', 'Javascript');
+dani.debugsCode(mike, 'Javascript');
 mike.listsSubjects()
 mike.PRAssingment('Javasctipt');
 mike.speak();
 mike.sprintChallenge('Javascript');
 josh.demo('less');
-josh.grade('Mike', 'CSS');
+josh.grade(mike, 'CSS');
+josh.sabatoge(mike);
