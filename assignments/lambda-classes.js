@@ -23,8 +23,8 @@ class Person {
     demo (subject) {
         return `Today we are learning ${subject}.`;
     }
-    grade (Student, subject) { // STILL MISSING STUDENT OBJECT==========================
-        return `${this.name} receives a perfect score on ${subject}`;
+    grade (student, subject) {
+        return `${student.name} receives a perfect score on ${subject}`;
     }
   }// end of Instructor
 
@@ -37,7 +37,7 @@ class Person {
         this.favSubjects = skills.favSubjects;
     }
     listsSubjects () {
-        return this.favSubjects;
+        return this.favSubjects.join(' , ');
     }
     PRAssignment (subject) {
         return `${this.name} has submitted a PR for ${subject}.`;
@@ -57,7 +57,7 @@ class ProjectManager extends Instructor {
     standUp (channel) {
         return `${this.name} announces to ${channel}, @channel standy times!`;
     }
-    debugsCode (student.name, subject) { // STILL MISSING STUDENT OBJECT ========================================
+    debugsCode (student, subject) {
         return `${this.name} debugs ${student.name}'s code on ${subject}`;
     }
 }
@@ -136,4 +136,5 @@ console.log(luis.listsSubjects());
 console.log(ray.standUp('Channel CS12'));
 console.log(fernando.PRAssignment('JavaScript'));
 console.log(steve.catchPhrase);
-console.log(lilly.gradClassName);
+console.log(steve.grade(fernando, 'JavaScript'));
+console.log(lilly.debugsCode(fernando, 'HTML'));
