@@ -24,7 +24,7 @@ class Instructor extends Person {
         return `${student.name} recieves a perfect score on ${subject}`;
     }
     graduate (student) {
-        if (this.grade > 70) { 
+        if (student.grade >= 70) { 
          console.log('Congratulations you have graduated')
         } else {
           console.log(`${student.name} because your score is only at ${student.grade} you are still not ready to graduate..... ${student.name} pleads with his instructor please let me have another chance to improve`)
@@ -38,11 +38,11 @@ class Instructor extends Person {
       let stringOut2 = `Well ${student.name} you have completed this assignment and your score is now a ${student.grade}. That is an improvement of ${randomGrade} points`;
       let arrayJoined = [stringOut, stringOut2];
       if (student.grade >= 70) {
-        console.log(stringOUt); 
-        student.grade(student);
+        console.log(stringOut); 
+        this.graduate(student);
       } else {
       console.log(arrayJoined.join(" , .........")); 
-      this.grade(student);
+      this.graduate(student);
     }
 }
 }
@@ -155,6 +155,7 @@ const nathan = new ProjectManager ({
 })
 
 josh.graduate(holloway);
+
 
 // Person Classes 
 // console.log(jack.name);
