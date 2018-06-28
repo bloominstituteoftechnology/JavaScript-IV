@@ -2,39 +2,46 @@
 // Today your goal is to refactor all of this code to use ES6 Classes.
 // The console.log() statements should still return what is expected of them.
 
-function GameObject(options) {
-  this.createdAt = options.createdAt;
-  this.dimensions = options.dimensions;
+class GameObject {
+  constructor(options) {
+    this.createdAt = options.createdAt.toLocaleString('en-US');
+    this.dimensions = options.dimensions;
+  }
+
+  destroy() {
+    return `Object was removed from the game.`;
+  }
 }
 
-GameObject.prototype.destroy = function() {
-  return `Object was removed from the game.`;
-};
-
-function CharacterStats(characterStatsOptions) {
-  GameObject.call(this, characterStatsOptions);
-  this.hp = characterStatsOptions.hp;
-  this.name = characterStatsOptions.name;
+class CharacterStats extends GameObject {
+  constructor(characterStatsOptions) {
+   super(characterStatsOptions);
+    this.hp = characterStatsOptions.hp;
+    this.name = characterStatsOptions.name;
+  }
+  takeDamage(damage = 1) {
+    this.hp -= damage;
+    return `${this.name} took damage.`;
+  }
+  destroy() {
+    return `${this.name} was removed from the game.`;
+  }
 }
 
-CharacterStats.prototype = Object.create(GameObject.prototype);
-
-CharacterStats.prototype.takeDamage = function() {
-  return `${this.name} took damage.`;
-};
-
-function Humanoid(humanoidOptions) {
-  CharacterStats.call(this, humanoidOptions);
-  this.faction = humanoidOptions.faction;
-  this.weapons = humanoidOptions.weapons;
-  this.language = humanoidOptions.language;
+class Humanoid extends CharacterStats {
+  constructor(humanoidOptions) {
+    super(humanoidOptions);
+    this.faction = humanoidOptions.faction;
+    this.weapons = humanoidOptions.weapons;
+    this.language = humanoidOptions.language;
+  }
+  greet() {
+    return `${this.name} offers a greeting in ${this.language}.`;
+  }
+  taunt() {
+    return `${this.name} taunts its attacker!`;
+  }  
 }
-
-Humanoid.prototype = Object.create(CharacterStats.prototype);
-
-Humanoid.prototype.greet = function() {
-  return `${this.name} offers a greeting in ${this.language}.`;
-};
 
 const mage = new Humanoid({
   createdAt: new Date(),
@@ -88,3 +95,81 @@ console.log(archer.language); // Elvish
 console.log(archer.greet()); // Lilith offers a greeting in Elvish.
 console.log(mage.takeDamage()); // Bruce took damage.
 console.log(swordsman.destroy()); // Sir Mustachio was removed from the game.
+
+
+// Stretch from JS-III
+
+class Hero extends Humanoid {
+  constructor(attr) {
+    super(attr);
+  }
+  heavySwing(target) {
+    console.log(`${this.name} takes a heavy swing at ${target.name}!`);
+    console.log(target.takeDamage(5));
+    return (target.hp < 1 ? target.destroy() : target.taunt());
+  }
+  massiveSwing(target) {
+    console.log(`${this.name} takes a massive swing at ${target.name}!`);
+    console.log(target.takeDamage(10));
+    return (target.hp < 1 ? target.destroy() : target.taunt());
+  }
+}
+
+
+class Villain extends Humanoid {
+  constructor(attr) {
+    super(attr);
+  }
+  summonImp(target) {
+    console.log(`${this.name} summons an imp to attack ${target.name}!`);
+    console.log(target.takeDamage(7));
+    return (target.hp < 1 ? target.destroy() : target.taunt());
+  }
+  summonDragon(target) {
+    console.log(`${this.name} summons a dragon to attack ${target.name}!`);
+    console.log(target.takeDamage(15));
+    return (target.hp < 1 ? target.destroy() : target.taunt());
+  }
+}
+
+
+const hero = new Hero({
+  createdAt: new Date(),
+  dimensions: {
+    length: 3,
+    width: 4,
+    height: 3
+  },
+  hp: 40,
+  name: 'Gareth',
+  faction: 'The Common Good',
+  weapons: [
+    'Giant Sword',
+    'Shield',
+  ],
+  language: 'Common Tongue',
+});
+
+const villain = new Villain({
+  createdAt: new Date(),
+  dimensions: {
+    length: 2,
+    width: 2,
+    height: 2
+  },
+  hp: 15,
+  name: 'Gigi',
+  faction: 'The Common Evil',
+  weapons: [
+    'Great Staff',
+    'Orb of Destruction',
+  ],
+  language: 'Common Tongue',
+});
+
+console.log(villain.summonDragon(hero)); // surprise attack
+console.log(hero.heavySwing(villain)); // hero strikes back
+console.log(villain.summonImp(hero)); // villain needs to recover for another dragon
+console.log(hero.heavySwing(villain)); // hero strikes again
+console.log(villain.summonDragon(hero)); // hero kills dragons on the daily just to bring home some food
+console.log(hero.massiveSwing(villain)); // hero slays villain
