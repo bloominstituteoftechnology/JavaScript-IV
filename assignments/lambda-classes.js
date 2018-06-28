@@ -24,6 +24,10 @@ class Instructor extends Person {
   grade(student, subject) {
     console.log(`${student.name} receives a perfect score on ${subject}`);
   }
+
+  changeGrade(student) {
+    student.grade += Math.floor(Math.random() * Math.floor(20)) - 10; //changes grade by plus or minus 10
+  }
 }
 
 class Student extends Person {
@@ -32,6 +36,7 @@ class Student extends Person {
     this.previousBackground = attr.previousBackground;
     this.className = attr.className;
     this.favSubjects = attr.favSubjects;
+    this.grade = Math.floor(Math.random() * Math.floor(99)) + 1;
   }
 
   listsSubjects() {
@@ -102,3 +107,4 @@ joe.PRAssignment('JavaScript-IV');
 joe.sprintChallenge('JavaScript Week');
 harry.standUp('DADA12');
 harry.debugsCode(joe, 'Charms')
+console.log(joe.grade);
