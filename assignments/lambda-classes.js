@@ -24,6 +24,14 @@ class Instructor extends Person{
     grade(student, subject){
         return `${student.name} receives a perfect score on ${subject}.`
     }
+    gradePlusMinus(student){
+      if(student.grade <70){
+        return student.grade += (Math.floor(Math.random()*10));
+      }
+      else{
+        return student.grade -= (Math.floor(Math.random()*10));
+      }
+    }
 }
 
 class Student extends Person{
@@ -32,6 +40,7 @@ class Student extends Person{
         this.previousBackground = learn.previousBackground;
         this.className = learn.className;
         this.favSubjects = learn.favSubjects;
+        this.grade = learn.grade;
     }
     listSubjects(...favSubject){
         return `${this.name}'s favorite subjects are ${this.favSubjects}.`
@@ -41,6 +50,14 @@ class Student extends Person{
     }
     sprintChallenge(subject){
         return `${this.name} has begun sprint challenge on ${subject}.`
+    }
+    graduate(){
+        if(this.grade >= 70){
+            return `Congratulations!`
+        }
+        else{
+            return `Need to study more!`
+        }
     }
 }
 
@@ -110,7 +127,8 @@ const Holly = new Student({
     gender: 'F',
     previousBackground: 'Secretary',
     className: 'CS12',
-    favSubjects: ['ReactJS', 'JS', 'CSS']
+    favSubjects: ['ReactJS', 'JS', 'CSS'],
+    grade: 94
 })
 
 const Nico = new Student({
@@ -120,10 +138,13 @@ const Nico = new Student({
     gender: 'M',
     previousBackground: 'Surgery Tech',
     className: 'CS12',
-    favSubjects: ['Python', 'C++', 'Django']
+    favSubjects: ['Python', 'C++', 'Django'],
+    grade: 69
 })
 
 console.log(Josh.demo('JavaScript'));
+console.log(Josh.gradePlusMinus(Nico));
+console.log(Nico.graduate());
 console.log(Patrick.grade(Nico,'HTML'));
 console.log(Dixie.standUp('CS12_Dixie'));
 console.log(Terrie.debugsCode(Holly, 'ReactJS'));
