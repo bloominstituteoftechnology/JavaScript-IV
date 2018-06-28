@@ -23,6 +23,18 @@ class Instructor extends Person {
     grade (studentObj, subject) {
         return `${studentObj.name} receives a perfect score on ${subject}`;
     } 
+    scoring (studentObj) {
+        const randomNum = Math.random();
+        const startingGrade = studentObj.grade;
+        const scoreAmount = Math.floor(Math.floor(Math.random()*10));
+        if (randomNum < 0.5) {
+            studentObj.grade -= scoreAmount;
+            return `${studentObj.name}'s grade has changed from a ${startingGrade} to a ${studentObj.grade}`;
+        } else {
+            studentObj.grade += scoreAmount;
+            return `${studentObj.name}'s grade has changed from a ${startingGrade} to a ${studentObj.grade}`;
+        }
+    }
 }
 
 class Student extends Person {
@@ -31,6 +43,7 @@ class Student extends Person {
         this.previousBackground = studentAttributes.previousBackground;
         this.className = studentAttributes.className;
         this.favSubjects = studentAttributes.favSubjects;
+        this.grade = studentAttributes.grade;
       }
     listsSubjects () {
         return this.favSubjects;
@@ -41,6 +54,12 @@ class Student extends Person {
     sprintChallenge (subject) {
         return `${this.name} has begun sprint challenge on ${subject}`;
     } 
+    graduate () {
+        if (this.grade > 70) {
+            return `${this.name} has above a 70% and is ready to graduate from Lambda School!`;
+        }
+        return `${this.name} has below a 70% and needs to complete more assignments`;
+    }
 }
 
 class ProjectManager extends Instructor {
@@ -67,14 +86,36 @@ const terrance = new Instructor({
     catchPhrase: `I'm not your buddy friend.`
   });
 
+  const terrance = new Instructor({
+    name: 'Phillip',
+    location: 'Canada',
+    age: 32,
+    gender: 'male',
+    favLanguage: 'Perl',
+    specialty: 'Back-end',
+    catchPhrase: `I'm not your friend guy.`
+  });
+
   const eric = new Student({
     name: 'Eric',
     location: 'South Park',
     age: 8,
     gender: 'male',
     previousBackground: 'Just graduated 3rd grade',
+    className: 'End User',
+    favSubjects: ['Recess', 'Video Games', 'A-hole 101'],
+    grade: 70
+  });
+
+  const kyle = new Student({
+    name: 'Kyle',
+    location: 'South Park',
+    age: 8,
+    gender: 'male',
+    previousBackground: 'Just graduated 3rd grade',
     className: 'Full-Stack Web Dev',
-    favSubjects: ['Recess', 'Video Games', 'A-hole 101']
+    favSubjects: ['Math', 'English', 'Science'],
+    grade: 95
   });
 
   const al = new ProjectManager({
@@ -83,8 +124,20 @@ const terrance = new Instructor({
     age: 70,
     gender: 'male',
     favLanguage: 'CSS',
-    specialty: 'Full-Stack',
+    specialty: 'Web Pages',
     catchPhrase: `ManBearPig is half man, half bear, and half pig.`,
     gradClassName: 'CS12',
     favInstructor: 'Josh (of course)'
+  });
+
+  const garrison = new ProjectManager({
+    name: 'Mr Garrison',
+    location: 'South Park',
+    age: 55,
+    gender: 'male',
+    favLanguage: 'Python',
+    specialty: 'Front-end',
+    catchPhrase: `You can say that again, Mr. Hat`,
+    gradClassName: 'CS9',
+    favInstructor: 'Mr Hat'
   });
