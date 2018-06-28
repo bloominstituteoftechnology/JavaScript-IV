@@ -34,6 +34,7 @@ takeDamage() {
 
  class Humanoid extends CharacterStats{
   constructor (humanoidOptions){
+    super(humanoidOptions);
     this.faction = humanoidOptions.faction;
     this.weapons = humanoidOptions.weapons;
     this.language = humanoidOptions.language;
