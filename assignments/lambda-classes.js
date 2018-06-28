@@ -17,6 +17,7 @@ class Student extends Person {
         this.previousBackground = studentAttributes.previousBackground;
         this.className = studentAttributes.className;
         this.favSubjects = studentAttributes.favSubjects;
+        this.grade = studentAttributes.grade;
     }
     listSubjects () {
         return this.favSubjects.forEach(element => {console.log(element);});
@@ -26,6 +27,13 @@ class Student extends Person {
     }
     sprintChallenge (subject) {
         return `${this.name} has begun Sprint Challenge on ${subject}.`;
+    }
+    graduate (subject) {
+        if (this.grade >= 70) {
+            return `${this.name}, you are ready to graduate from Lambda School!`;
+        } else {
+            return `${this.name} continues to work on ${subject}.`;
+        }
     }
 }
 
@@ -41,6 +49,15 @@ class Instructor extends Person {
     }
     grade (student, subject) {
         return `${student.name} receives a perfect score on ${subject}.`;
+    }
+    addOrSubtract (student) {
+        let upOrDown = Math.random();
+        if (upOrDown > 0.5) {
+            student.grade += Math.ceil(10 * Math.random());
+        } else {
+            student.grade -= Math.ceil(10 * Math.random());
+        }
+        
     }
 }
 
@@ -69,7 +86,8 @@ const grant = new Student({
     'gender': 'M',
     'previousBackground': 'Casino',
     'className': 'CS12',
-    'favSubjects': ['JavaScript', 'React']
+    'favSubjects': ['JavaScript', 'React'],
+    'grade': 93
 });
 
 const frank = new Student({
@@ -80,7 +98,8 @@ const frank = new Student({
     'gender': 'M',
     'previousBackground': 'Healthcare',
     'className': 'CS11',
-    'favSubjects': ['HTML', 'CSS']
+    'favSubjects': ['HTML', 'CSS'],
+    'grade': 88
 });
 
 const lucy = new Student({
@@ -91,7 +110,8 @@ const lucy = new Student({
     'gender': 'non-binary',
     'previousBackground': 'Retail',
     'className': 'CS9',
-    'favSubjects': ['JavaScript', 'CSS']
+    'favSubjects': ['JavaScript', 'CSS'],
+    'grade': 89
 });
 
 // Instructors
@@ -161,6 +181,8 @@ const eric = new ProjectManager({
     'favInstructor': 'Josh Knell'
 });
 
+// Students
+
 console.log(grant.speak());
 grant.listSubjects();
 console.log(grant.PRAssignment('JS-I'));
@@ -177,7 +199,7 @@ console.log(lucy.PRAssignment('JS-III'));
 console.log(lucy.sprintChallenge('JS-III'));
 
 
-
+// Instructors
 
 console.log(josh.speak());
 console.log(josh.demo('CSS'));
@@ -192,7 +214,7 @@ console.log(ryan.demo('React'));
 console.log(ryan.grade(frank, 'React'));
 
 
-
+// Project Managers
 
 console.log(terrie.speak());
 console.log(terrie.standUp("CS12_terrie"));
@@ -205,3 +227,23 @@ console.log(nate.debugsCode(frank, 'Redux'));
 console.log(eric.speak());
 console.log(eric.standUp("CS12_eric"));
 console.log(eric.debugsCode(lucy, 'Python'));
+
+
+// Stretch
+console.log(grant.grade);
+console.log(frank.grade);
+console.log(lucy.grade);
+
+console.log(grant.grade);
+eric.addOrSubtract(grant);
+console.log(grant.grade);
+eric.addOrSubtract(grant);
+console.log(grant.grade);
+eric.addOrSubtract(grant);
+console.log(grant.grade);
+eric.addOrSubtract(grant);
+console.log(grant.grade);
+eric.addOrSubtract(grant);
+console.log(grant.grade);
+
+console.log(grant.graduate('C'));
