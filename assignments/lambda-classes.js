@@ -147,3 +147,28 @@ const spuds = new Student({
     favSubjects: 'Math',
 });
 
+// Project Managers Objects Eric, Terri, and Dani
+const eric = new ProjectManager({
+    name: 'Eric',
+    location: 'NC',
+    age: 26,
+    gender: 'male',
+    gradClassName: 'CS12',
+    favInstructor: 'Josh',
+});
+const terri = new ProjectManager({
+    name: 'Terri',
+    location: 'NV',
+    age: 25,
+    gender: 'female',
+    gradClassName: 'CS12',
+    favInstructor: 'Fins',
+});
+const dani = new ProjectManager({
+    name: 'Dani',
+    location: 'OH',
+    age: 24,
+    gender: 'female',
+    gradClassName: 'CS11',
+    favInstructor: 'Fins',
+});
