@@ -9,10 +9,10 @@ class People {
     this.gender = peopleAttributes.gender;
   }
   speak () {
-    console.log(`Hello, my name is ${this.name}, I am from ${this.location}`);
+    console.log(`Hello! My name is ${this.name} and I am from ${this.location}`);
   }
 }
-class Instructor {
+class Instructor extends People {
   constructor (instructorAttributes){
     super(instructorAttributes);
     this.specialty = instructorAttributes.specialty;
@@ -20,41 +20,44 @@ class Instructor {
     this.catchPhrase = instructorAttributes.catchPhrase;
   }
   demo (subject){
-    console.log(`Today we are learning about ${this.subject}.`);
+    console.log(`Today we are learning about ${subject}.`);
   }
-  grade (student) {
-    console.log(`${this.student} receives a perfect score on ${this.subject}.`)
+  grade (student, subject) {
+    console.log(`${student} receives a perfect score on ${subject}.`)
   }
 }
-class Student {
+class Student extends People {
   constructor (studentAttributes){
     super(studentAttributes);
-    this.previousBackground = instructorAttributes.previousBackground;
-    this.className = instructorAttributes.className;
-    this.favSubjects = instructorAttributes.favSubjects;
+    this.previousBackground = studentAttributes.previousBackground;
+    this.className = studentAttributes.className;
+    this.favSubjects = studentAttributes.favSubjects;
   }
   listsSubjects () {
     console.log(`${this.name}'s Favorite Subjects: ${this.favSubjects}.'`)
   }
   PRAssingment (subject) {
-    console.lot(`${this.name} has submitted a PR for ${this.subject}.`)
+    console.log(`${this.name} has submitted a PR for ${subject}.`)
+  }
+  sprintChallenge (subject) {
+    console.log(`${this.name} has begun sprint challenge on ${subject}.`)
   }
 }
 class ProjectMananger extends Instructor {
   constructor (projectManagerAttributes){
     super(projectManagerAttributes);
-    this.gradClassName = instructorAttributes.gradClassName;
-    this.favInstructor = instructorAttributes.favInstructor;
+    this.gradClassName = projectManagerAttributes.gradClassName;
+    this.favInstructor = projectManagerAttributes.favInstructor;
   }
   standUp (slackChannel) {
-    console.log(`${this.name} announces to ${this.slackChannel}: @channel Time for standup!`)
+    console.log(`${this.name} announces to ${slackChannel}: @channel Time for standup!`)
   }
-  debugsCode (student.name, subject ) {
-    console.log(`${this.name} debugs ${student.name}'s code on ${this.subject}.`);
+  debugsCode (name, subject ) {
+    console.log(`${this.name} debugs ${name}'s code on ${subject}.`);
   }
 }
 
-const Josh = new Instructor({
+const josh = new Instructor({
   name: 'Josh',
   location: 'Utah',
   age: 37,
@@ -64,25 +67,36 @@ const Josh = new Instructor({
   catchPhrase: `Don't forget the homies`
 });
 
-const Mike = new Student ({
+const mike = new Student ({
   name: 'Mike',
   location: 'New Mexico',
   age: 94,
   gender: 'male',
-  favLanguage: 'JavaScript',
-  specialty: 'Front-end',
-  catchPhrase: `I'm here to code.`
+  previousBackground: 'Film',
+  className: 'CS12',
+  favSubjects: [' HTML', ' CSS', ' JavaScript']
 })
 
-
-const Dani = new ProjectMananger ({
+const dani = new ProjectMananger ({
   name: 'Dani',
   location: 'Minnesota',
   age: 22,
   gender: 'female',
   favLanguage: 'All the languages',
   specialty: 'Front-end',
-  catchPhrase: `Hi`
+  catchPhrase: `Hi`,
+  gradClassName: 'CS6?',
+  favInstructor: 'josh'
 })
+//Project Manager --standUp(slackchannel), debugsCode(name,subject)
+//student --listsSubjects(), PRAssignment(subject), sprintChallenge(subject)
+//instructor -- demo(subject), grade(student)
 
- dani.standUp()
+dani.standUp('Mike');
+dani.debugsCode('Mike', 'Javascript');
+mike.listsSubjects()
+mike.PRAssingment('Javasctipt');
+mike.speak();
+mike.sprintChallenge('Javascript');
+josh.demo('less');
+josh.grade('Mike', 'CSS');
