@@ -88,3 +88,79 @@ console.log(archer.language); // Elvish
 console.log(archer.greet()); // Lilith offers a greeting in Elvish.
 console.log(mage.takeDamage()); // Bruce took damage.
 console.log(swordsman.destroy()); // Sir Mustachio was removed from the game.
+
+
+class Villian extends Humanoid {
+  constructor(villianAttributes) {
+    super(villianAttributes);
+    this.spells = villianAttributes.spells;
+  }
+  cast () {
+    return `${this.name} casts a ${this.spells} spell.`;
+  }
+}
+
+class Hero extends Humanoid {
+  constructor(heroAttributes) {
+    super(heroAttributes);
+    this.abilities = heroAttributes.abilities;
+  }
+  ability () {
+    return `${this.name} uses a ${this.abilities} ability.`;
+  }
+}
+
+const giant = new Villian({
+  createdAt: new Date(),
+  dimensions: {
+    length: 4,
+    width: 2,
+    height: 8,
+  },
+  hp: 25,
+  name: 'Forest Giant',
+  faction: 'Giant Clan',
+  weapons: [
+    'Club',
+    'Fist',
+  ],
+  language: 'Giantish',
+  spells: [
+    'curse',
+    'mock',
+  ],
+});
+
+const barbarian = new Hero({
+  createdAt: new Date(),
+  dimensions: {
+    length: 5,
+    width: 3,
+    height: 6,
+  },
+  hp: 20,
+  name: 'Connan',
+  faction: 'Barbarian Clan',
+  weapons: [
+    'sword',
+    'sheild',
+  ],
+  language: 'Barbarish',
+  abilities: 'defense',
+});
+
+
+console.log(giant.createdAt);
+console.log(barbarian.createdAt);
+console.log(barbarian.hp);
+console.log(giant.name);
+console.log(giant.faction);
+console.log(barbarian.weapons);
+console.log(giant.weapons);
+console.log(giant.spells);
+console.log(barbarian.abilities);
+console.log(giant.language);
+console.log(barbarian.greet());
+console.log(giant.takeDamage());
+console.log(giant.cast()); //Is there a way to define which of his spells he can cast?!?!
+console.log(barbarian.ability());
