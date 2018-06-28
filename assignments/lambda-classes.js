@@ -13,7 +13,7 @@ class Person {
 
 class Instructor extends Person {
     constructor(instrAttrs) {
-        super(attrs);
+        super(instrAttrs);
         this.specialty = instrAttrs.specialty;
         this.favLanguage = instrAttrs.favLanguage;
         this.catchPhrase = instrAttrs.catchPhrase;
@@ -31,12 +31,12 @@ class Instructor extends Person {
 }
 
 class Student extends Person {
-    constructor(studentAttrs) {
-        super(attrs);
-        this.previousBackground = instrAttrs.previousBackground;
+    constructor(StudentAttrs) {
+        super(StudentAttrs);
+        this.previousBackground = StudentAttrs.previousBackground;
         this.className = StudentAttrs.className;
         this.favSubjects = StudentAttrs.favSubjects;
-        grade = 90;
+        this.grade = StudentAttrs.grade;
     }
     listsSubjects() {
         console.log(this.favSubjects);
@@ -57,7 +57,7 @@ class Student extends Person {
 
 class ProjectManager extends Instructor {
     constructor(PMAttrs) {
-        super(InstrAttrs);
+        super(PMAttrs);
         this.gradClassName = PMAttrs.gradClassName;
         this.favInstructor = PMAttrs.favInstructor;
     }
@@ -69,3 +69,31 @@ class ProjectManager extends Instructor {
         console.log(`${this.name} debugs ${Student.name}'s code on {subject}`);
     }
 }
+
+const Arthur = new Student({
+    previousBackground: 'Graphic Design',
+    className: 'CS12',
+    favSubjects: 'JavaScript',
+    grade: 90
+});
+
+const Josh = new Instructor({
+    specialty: ['teaching', 'coding'],
+    favLanguage: ['C++', 'Python', 'redux'],
+    catchPhrase: "Don't forget the homies"
+});
+
+const Nathan = new ProjectManager({
+    gradClassName: 'CS7',
+    favInstructor: 'Josh',
+
+});
+
+console.log(Arthur.previousBackground);
+console.log(Arthur.grade);
+console.log(Josh.specialty);
+console.log(Josh.catchPhrase)
+console.log(Nathan.gradClassName);
+console.log(Arthur.speak());
+console.log(Nathan.standUp());
+console.log(Josh.grade(Arthur, JavaScript));
