@@ -28,8 +28,12 @@ class Person {
         return `Today we are learning about ${subject}`;
     }
     
-    grade(subject) {
-        return `${this.name} receives a perfect score on ${subject}`;
+    grade(student, subject) {
+        return `${student.name} receives a perfect score on ${subject}`;
+    }
+
+    calculate(student) {
+        return Math.floor(${student.grade} + Math.random());
     }
   }
   //Instructor Class Ends
@@ -41,6 +45,7 @@ class Person {
           this.previousBackground = studentAttributes.previousBackground;
           this.className = studentAttributes.className;
           this.favSubjects = studentAttributes.favSubjects;
+          this.grade = studentAttributes.grade;
       }
 
       //Methods
@@ -48,12 +53,12 @@ class Person {
         return this.favSubjects.join(", ");
       }
 
-      PRAssignments(subject) {
-        return `${this.name} has submitted a PR for ${subject}`;
+      PRAssignments(student, subject) {
+        return `${student.name} has submitted a PR for ${subject}`;
       }
 
-      sprintChallenge(subject) {
-        return `${this.name} has begun spring challenge on ${subject}`;
+      sprintChallenge(student, subject) {
+        return `${student.name} has begun spring challenge on ${subject}`;
       }
   }
   //Student Class Ends
@@ -71,8 +76,8 @@ class Person {
         return `${this.name} announces to ${slackChannel}, @channel standy times!`;
       }
 
-      debugsCode(subject) {
-        return `${this.name} debugs ${this.name}'s code on ${subject}`;
+      debugsCode(student ,subject) {
+        return `${this.name} debugs ${student.name}'s code on ${subject}`;
       }
   }
   //Project Manager Ends
@@ -82,14 +87,16 @@ class Person {
     name: 'Fred',
     location: 'Bedrock',
     age: 35,
-    gender: 'male'
+    gender: 'male',
+    grade: 80
   });
 
   const wilma = new Person({
     name: 'Wilma',
     location: 'Bedrock',
     age: 37,
-    gender: 'female'
+    gender: 'female',
+    grade: 50
   });
   //Object for Person
 
@@ -101,7 +108,8 @@ class Person {
     gender: 'male',
     favLanguage: 'JavaScript',
     specialty: 'Front-end',
-    catchPhrase: `Don't forget the homies`
+    catchPhrase: `Don't forget the homies`,
+    grade: 85
   });
 
   const bob = new Instructor({
@@ -111,7 +119,8 @@ class Person {
     gender: 'male',
     favLanguage: 'C++',
     specialty: 'Back-end',
-    catchPhrase: `Noice!`
+    catchPhrase: `Noice!`,
+    grade: 90
   });
   //Object for Instructor
 
@@ -123,7 +132,8 @@ class Person {
     gender: 'female',
     previousBackground: 'Hair-stylist',
     className: 'CS100',
-    favSubjects: ['Math', 'Java', 'Hair Cutting']
+    favSubjects: ['Math', 'Java', 'Hair Cutting'],
+    grade: 70
   });
 
   const jim = new Student({
@@ -133,7 +143,8 @@ class Person {
     gender: 'male',
     previousBackground: 'FireFighter',
     className: 'CS90',
-    favSubjects: ['English', 'HTML', 'Video Games']
+    favSubjects: ['English', 'HTML', 'Video Games'],
+    grade: 94
     
   });
   //Object for Student
@@ -145,7 +156,8 @@ class Person {
     age: 20,
     gender: 'male',
     gradClassName: 'CS25',
-    favInstructor: 'Josh'
+    favInstructor: 'Josh',
+    grade: 73
   });
 
   const lilly = new ProjectManagers({
@@ -154,18 +166,36 @@ class Person {
     age: 22,
     gender: 'female',
     gradClassName: 'CS26',
-    favInstructor: 'Eric'
+    favInstructor: 'Eric',
+    grade: 82
   });
   //Object for PM
 
-// console.log(fred.name);
-// console.log(fred.location);
-// console.log(fred.age);
-// console.log(fred.gender);
+console.log(fred.name);
+console.log(fred.location);
+console.log(fred.age);
+console.log(fred.gender);
 
-// console.log(wilma.name);
-// console.log(wilma.location);
-// console.log(wilma.age);
-// console.log(wilma.gender);
+console.log(wilma.name);
+console.log(wilma.location);
+console.log(wilma.age);
+console.log(wilma.gender);
 
-// console.log(lilly.grade('math'));
+console.log(lilly.grade(jim, 'math'));
+
+console.log(kevin.standUP('CS100'));
+console.log(kevin.debugsCode(jim, 'math'));
+
+console.log(bob.grade(kevin, 'english'));
+
+console.log(tim.demo('books'));
+
+console.log(bob.speak());
+
+console.log(susie.PRAssignments(jim, 'math'));
+
+console.log(jim.listSubjects());
+
+console.log(jim.sprintChallenge(fred, "reading"));
+
+console.log(calculate(jim));
