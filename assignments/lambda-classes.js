@@ -27,7 +27,16 @@
 // });                                        //
 ////////////////////////////////////////////////
 
-
+/*
+ 
+                                                                                                                                                                           
+   _____ _____ _____ _____ _____ _____ _____ _____ _____ _____ _____ _____ _____ _____ _____ _____ _____ _____ _____ _____ _____ _____ _____ _____ _____ _____ _____ _____ 
+  |_____|_____|_____|_____|_____|_____|_____|_____|_____|_____|_____|_____|_____|_____|_____|_____|_____|_____|_____|_____|_____|_____|_____|_____|_____|_____|_____|_____|
+  |_____|_____|_____|_____|_____|_____|_____|_____|_____|_____|_____|_____|_____|_____|_____|_____|_____|_____|_____|_____|_____|_____|_____|_____|_____|_____|_____|_____|
+                                                                                                                                                                           
+                                                                                                                                                                           
+ 
+*/
 
   class Person {
     constructor(base){
@@ -47,10 +56,14 @@
   class Instructor extends base {
     constructor(instructorBase){
         super(instructorBase);
+        this.specialty = instructorBase.specialty
         this.favLanguage = instructorBase.favLanguage
         this.catchPhrase = instructorBase.catchPhrase
 
-
+        demo () ;{
+            return (`Today we are learning about ${this.specialty}, and I am from ${this.location}`);
+            }
     }
     
   }
+  
