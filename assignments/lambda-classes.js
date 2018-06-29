@@ -6,7 +6,7 @@ class Person {
         this.location = options.location;
         this.gender = options.gender;
     }
-    speak() {
+    speak () {
         return `Hello my name is ${this.name}, I am from ${this.location}`; 
     }
 }
@@ -34,15 +34,15 @@ class Student extends Person {
     this.favSubject = stuOptions.favSubject;
     this.grade = stuOptions.grade;
     }
-    listsSubjects() {
+    listsSubjects () {
         for (let i = 0; i < this.favSubject.length; i++) {
             console.log(this.favSubject[i]);
         }
     }
-    PRAssignment(subject) {
+    PRAssignment (subject) {
         console.log(`${this.name} has submitted a PR for ${subject}`);
     }
-    sprintChallenge(subject) {
+    sprintChallenge (subject) {
         console.log(`${this.name} has begun sprint challenge on ${subject}`);
     }
 }
@@ -53,10 +53,10 @@ class ProjectManager extends Instructor {
         this.gradClassName = pmOptions.gradClassName;
         this.favInstructor = pmOptions.favInstructor;
     }
-    standUp(channel) {
+    standUp (channel) {
         console.log(`${this.name} announces to ${channel}, @channel standy times!`);
     }
-    debugsCode(student, subject) {
+    debugsCode (student, subject) {
         console.log(`${this.name} debugs ${student.name}'s code on ${subject}`);
     }
 }
@@ -112,4 +112,4 @@ const Nathan = new ProjectManager ({
 // console.log(Nathan)
 // Nathan.standUp('CS12')
 // Nathan.debugsCode(Jurgen, 'JS')
-Jurgen.listsSubjects();
+// Jurgen.listsSubjects();
