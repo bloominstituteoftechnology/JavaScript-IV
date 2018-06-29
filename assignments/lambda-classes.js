@@ -1,4 +1,6 @@
 // CODE here for your Lambda Classes
+
+// Person
 class Person {
     constructor (specs) {
         this.name = specs.name;
@@ -11,6 +13,7 @@ class Person {
     }
 }
 
+// Instructor
 class Instructor extends Person {
     constructor (childSpecs) {
         super(childSpecs);
@@ -22,10 +25,11 @@ class Instructor extends Person {
         console.log(`Today we are learning about ${subject}`)
     }
     grade (student, subject) {
-        console.log(`${student} receives a perfect score on ${subject}`);
+        console.log(`${student.name} receives a perfect score on ${subject}`);
     }
 }
 
+// Student
 class Student extends Person {
     constructor (childSpecs) {
         super(childSpecs);
@@ -45,14 +49,15 @@ class Student extends Person {
 }
 
 
-class ProjectManager extends Instructors {
+// Project Manager
+class ProjectManager extends Instructor {
     constructor (grandChildSpecs) {
         super(grandChildSpecs);
         this.gradClassName = grandChildSpecs.gradClassName;
         this.favInstructor = grandChildSpecs.favInstructor;
     }   
     standUp (slackChannel) {
-        console.log(`${this.name} announces to ${channel}, @channel standy times!`)
+        console.log(`${this.name} announces to ${slackChannel}, @channel standy times!`)
     }
     debugsCode (student, subject) {
         console.log(`${this.name} debugs ${student.name}'s code on ${subject}`)
@@ -80,4 +85,63 @@ const florentina = new Instructor({
     catchPhrase: 'Glorious'
 });
 
-// 
+// Students
+const Tereza = new Student({
+    name: 'Tereza',
+    age: '48',
+    location: 'Istanbul',
+    gender: 'F',
+    previousBackground: 'Reporter',
+    className: 'CS103',
+    favSubjects: ['HTML', 'React', 'MongoDB']
+});
+
+const Muirne = new Student({
+    name: 'Muirne',
+    age: '24',
+    location: 'Tainan',
+    gender: 'F',
+    previousBackground: 'Artist',
+    className: 'CS138',
+    favSubjects: ['Javascript', 'Redux', 'Python']
+});
+
+// Project Managers
+const anselmo = new ProjectManager({
+    name: 'Anselmo',
+    age: '36',
+    location: 'Hamburg',
+    gender: 'M',
+    specialty: 'Data Structures',
+    favLanguage: 'Django',
+    catchPhrase: 'Wicked',
+    gradClassName: 'CS92',
+    favInstructor: 'Agapetus'
+});
+
+const mat = new ProjectManager({
+    name: 'Mat',
+    age: '34',
+    location: 'Toronto',
+    gender: 'M',
+    specialty: 'Algorithms',
+    favLanguage: 'React',
+    catchPhrase: 'You know it',
+    gradClassName: 'CS53',
+    favInstructor: 'Rosalie'
+});
+
+// Test Code
+
+//console.log(florentina.specialty);
+//florentina.demo('HTML');
+//florentina.grade(Tereza, 'HTML');
+
+
+//console.log(Tereza.age);
+//Tereza.PRAssignment('HTML');
+//Tereza.sprintChallenge('HTML');
+
+//console.log(mat.name);
+//mat.standUp('cs12');
+//mat.debugsCode(Muirne, 'HTML')
