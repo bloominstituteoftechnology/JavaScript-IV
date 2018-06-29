@@ -23,17 +23,16 @@ class Instructor extends Person {
     demo (subject){
         return `Today we are learning about ${subject}.`;
     };
-    grade (student, subject) {
-        return `${student.name} receives a perfect score on ${subject}.`;
+    grade (Student, subject) {
+        return `${Student.name} receives a perfect score on ${subject}.`
     };
 
-    finalGrade (student){
+    /* finalGrade (Student){
         let random = Math.floor((Math.random()*100) + 1);
         let plusOrMinus = Math.random() < 0.5 ? -1 : 1;
         random = random*plusOrMinus;
-        let finalGrade = student.grade + random;
-        return finalGrade;
-    };
+    }  */
+    
 };
 
 class Student extends Person{
@@ -58,14 +57,15 @@ class Student extends Person{
         return `${this.name} has begun sprint challenge for ${subject}.`;
     };
 
-    graduate (){
-        if (Instructor.finalGrade < 70){
-            return `Sorry ${this.name}, but you are a crap student. Fix your code and will grade you again.`;
-        }
-        
-    }
-};
-
+    /* graduate (Instructor){
+        let newGrade = Instructor.finalGrade();
+        if (newGrade < 70){
+            return `You suck!`;
+        } else
+            return `You are aweosme!`; */
+    
+}; 
+    
 
 class Pm extends Instructor {
     constructor(pmAttributes){
@@ -103,7 +103,7 @@ const das = new Student ({
     previousBackground: 'Project Manager',
     favSubjects: ['CSS', 'JS', 'HTML'],
     className: 'CS12',
-    grade: Math.floor((Math.random()*100) + 1)
+    grade: Math.floor(Math.random()*100) + 1
 });
 
 const calum = new Pm ({
@@ -124,7 +124,7 @@ console.log(josh.catchPhrase);
 //Methods
 console.log(josh.demo("Javascript"));
 console.log(josh.grade(das, "HTML"));
-console.log(`Final grade: ${josh.finalGrade(das)}`);
+//josh.finalGrade(das);
 
 console.log(`\n//---------------------//\n`);
 
@@ -139,7 +139,7 @@ console.log(das.grade);
 das.listsSubjects();
 console.log(das.PRAssignment("CSS"));
 console.log(das.sprintChallenge("JavaScript-IV"));
-console.log(das.graduate());
+//console.log(das.graduate(josh));
 
 
 console.log(`\n//---------------------//\n`);
