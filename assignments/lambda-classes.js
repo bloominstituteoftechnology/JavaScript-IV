@@ -49,7 +49,7 @@ class Instructor extends Person {
 			exampleStudent.grade = 0;
 		}
 		console.log(`${exampleStudent.name}'s current grade is ${exampleStudent.grade}`);
-		exampleStudent.graduate(this);
+		exampleStudent.graduate();
 	}
 }
 
@@ -182,3 +182,21 @@ console.log(Eric.name);
 console.log(Trevor.grade);
 console.log(instructorArray);
 Trevor.graduate();
+
+
+const randomPastel = function() {
+    rndNum1 = Math.floor(((Math.random() * 55) + 200));
+    rndNum2 = Math.floor(((Math.random() * 55) + 200));
+    rndNum3 = Math.floor(((Math.random() * 55) + 200));
+
+    return `rgb(${rndNum1},${rndNum2},${rndNum3})`;
+}
+
+const randomColors = [];
+const pastelMachine = function(number){
+    for (let i = 0; i < number; i++){
+        randomColors.push(randomPastel());
+    }
+}
+pastelMachine(8);
+console.log(randomColors);
