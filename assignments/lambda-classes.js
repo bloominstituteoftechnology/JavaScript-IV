@@ -35,7 +35,9 @@ class Student extends Person {
     this.grade = stuOptions.grade;
     }
     listsSubjects() {
-        this.favSubject.forEach(element => console.log(element));
+        for (let i = 0; i < this.favSubject.length; i++) {
+            console.log(this.favSubject[i]);
+        }
     }
     PRAssignment(subject) {
         console.log(`${this.name} has submitted a PR for ${subject}`);
@@ -46,7 +48,7 @@ class Student extends Person {
 }
 
 class ProjectManager extends Instructor {
-    constructor(pmOptions){
+    constructor(pmOptions) {
         super(pmOptions);
         this.gradClassName = pmOptions.gradClassName;
         this.favInstructor = pmOptions.favInstructor;
@@ -90,7 +92,7 @@ const Jurgen = new Student ({
     grade: 70,
     previousBackground: 'FreeCodeCamp',
     className: 'CS12', 
-    favSubjects: ['Javascript', 'CSS', 'HTML']
+    favSubject: ['Javascript', 'CSS', 'HTML']
 })
 // console.log(Jurgen)
 // Jurgen.PRAssignment('JS IV')
