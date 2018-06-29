@@ -1,4 +1,3 @@
-// CODE here for your Lambda Classes
 class Person {
   constructor(personAttr){
     this.name = personAttr.name;
@@ -40,10 +39,10 @@ listsSubjects () {
 console.log(`My fave subjects ${this.favSubject}`);
 }
 PRAssignment (subject) {
-console.log (`${this.name}.name has submitted a PR for ${subject}`)
+console.log (`${this.name} has submitted a PR for ${subject}`)
 }
-sprintChallenge () {
-
+sprintChallenge (subject) {
+console.log(`${this.name} begins working hard on ${subject}`);
 }
 }
 
@@ -54,11 +53,13 @@ class Project_Manager extends Instructor{
     this.favInstructor = pmAttr.favInstructor;
   }
 
-  standUp () {
-
+  standUp (channel) {
+      console.log(`${this.name} announces to ${channel}, @channel standy times!`);
   }
 
-  debugsCode (){}
+  debugsCode (student, subject){
+    console.log(`${this.name} debugs ${student.name}'s code on ${subject}`);
+  }
 
 }
 
@@ -75,7 +76,7 @@ const fred = new Instructor({
 });
 
 const sean = new Student({
-  name: 'sprintChallenge',
+  name: 'Sean',
   location: 'New Bedrock',
   age: 22,
   gender: 'male',
@@ -105,11 +106,18 @@ const john = new Project_Manager({
   favInstructor: 'Sean',
   specialty: 'Front-end',
   })
-console.log(fred.demo()); 
-console.log(fred.greet(fred.favlanguage));
-console.log(joan.favSubjects);
-console.log(fred.grade(bob.name,bob.favSubjects));
-console.log(joan.PRAssignment(joan.favSubjects)) 
+
+
+john.greet();
+sean.greet();
+fred.greet();
+fred.demo(); 
+fred.greet(fred.favlanguage);
+joan.listsSubjects;
+fred.grade('bob','PreProcessors');
+joan.PRAssignment(joan.favSubjects);
+john.standUp('#CH12');
+sean.sprintChallenge('User Interface'); 
 // console.log(swordsman.hp); // 15
 // console.log(mage.name); // Bruce
 // console.log(swordsman.faction); // The Round Table
