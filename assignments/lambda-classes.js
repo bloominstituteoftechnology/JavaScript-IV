@@ -24,6 +24,9 @@ class Instructor extends Person {
     demo(student, subject) {
         return `${student.name} receives a perfect score on ${subject}`;
     }
+    adjustGrade(student) {
+        return `${student.grade.Math.random()}`;
+    }
 }
 
 // Student
@@ -62,6 +65,14 @@ class ProjectManager extends Instructor {
     }
 }
 
+
+// creating a new instructor named Fred
+const bro = new Person({
+    name: 'Bro',
+    location: 'Bedrock',
+    age: 37,
+  });
+  console.log(bro.name)
 // creating a new instructor named Fred
 const fred = new Instructor({
     name: 'Fred',
@@ -69,8 +80,21 @@ const fred = new Instructor({
     age: 37,
     favLanguage: 'JavaScript',
     specialty: 'Front-end',
-    catchPhrase: `Don't forget the homies`
+    catchPhrase: `Don't forget the homies`,
   });
+
+  // creating a new PM
+const eric = new ProjectManager({
+    name: 'Eric',
+    location: 'Seattle',
+    age: 68,
+    favLanguage: 'JavaScript',
+    specialty: 'Front-end',
+    catchPhrase: `YA BOI`,
+    gradClassName: 'CS12',
+    favInstructor: 'Josh'
+  });
+console.log(eric.catchPhrase)
 
 // creating a new student named Joe
 const joe = new Student({
