@@ -28,7 +28,7 @@ class Instructor extends Person {
     gradeUpdate (student) {
         let increment = Math.floor(Math.random()*10);
         console.log(increment)
-        if(Math.random > .5) {
+        if(Math.random() > .5) {
             return `${student.name}'s new grade is ${student.grade += increment}`;
         } else return `${student.name}'s new grade is ${student.grade -= increment}`;
     }
