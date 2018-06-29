@@ -19,7 +19,7 @@ constructor(instructorAttr) {
 
 }
   demo (subject) {
-    console.log (`Today we are learning about ${this.favLanguage}`);
+    console.log (`Today we are learning about ${subject}`);
   }
 
   grade (student,subject){
@@ -36,8 +36,11 @@ super(studentAttr);
     this.favSubjects = studentAttr.favSubjects;
 }
 listsSubjects () {
-console.log(`My fave subjects ${this.favSubject}`);
+  for (let i=0; i < this.favSubjects.length; i++){
+console.log(`My fave subjects ${this.favSubjects}`);
 }
+}
+
 PRAssignment (subject) {
 console.log (`${this.name} has submitted a PR for ${subject}`)
 }
@@ -68,7 +71,6 @@ const fred = new Instructor({
   location: 'Bedrock',
   age: 37,
   gender: 'male',
-  favLanguage: 'JavaScript',
   specialty: 'Front-end',
   catchPhrase: `Don't forget the homies`
   
@@ -80,7 +82,6 @@ const sean = new Student({
   location: 'New Bedrock',
   age: 22,
   gender: 'male',
-  favLanguage: ['CSS','HtML', 'Javascript'],
   specialty: 'Front-end',
   favSubjects:'HTML',
   className: 'CS132',
@@ -92,9 +93,9 @@ const joan = new Student({
   location: 'New Bedrock',
   age: 30,
   gender: 'female',
-  favLanguage: ['CSS','HtML', 'Javascript'],
+  favLanguage: 'C++',
   specialty: 'Front-end',
-  favSubjects:'Bootstrap 4',
+  favSubjects: ['CSS','HtML', 'Javascript'],
 })
 
 const john = new Project_Manager({
@@ -111,19 +112,9 @@ const john = new Project_Manager({
 john.greet();
 sean.greet();
 fred.greet();
-fred.demo(); 
-fred.greet(fred.favlanguage);
-joan.listsSubjects;
+fred.demo('Python'); 
+joan.listsSubjects();
 fred.grade('bob','PreProcessors');
 joan.PRAssignment(joan.favSubjects);
 john.standUp('#CH12');
 sean.sprintChallenge('User Interface'); 
-// console.log(swordsman.hp); // 15
-// console.log(mage.name); // Bruce
-// console.log(swordsman.faction); // The Round Table
-// console.log(mage.weapons); // Staff of Shamalama
-// console.log(archer.language); // Elvish
-// console.log(archer.greet()); // Lilith offers a greeting in Elvish.
-// console.log(mage.takeDamage()); // Bruce took damage.
-// console.log(swordsman.destroy()); // Sir Mustachio was removed from
-// the game.
