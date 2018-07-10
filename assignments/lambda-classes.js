@@ -29,8 +29,8 @@ class Instructor extends Person {
         return `${student.name} receives a perfect score on ${subject}.`;
     }
     randomizedMath (student) {
-        // return student.grade + 5;
-        return `This method randomly changes ${student.name}'s grade of ${student.grade}.`
+        return student.grade + 5;
+        // return `This method randomly changes ${student.name}'s grade of ${student.grade}.`
         // I'll work on this more later (after I spend some time on the coding challenge)
     }
 }
@@ -44,7 +44,10 @@ class Student extends Person {
         this.grade = studentProps.grade;
     }
     listsSubjects () {
-        return `${this.favSubjects};`
+        for (let i = 0; i < this.favSubjects.length; i++) {
+            return `${this.name} loves ${this.favSubjects[i]}.`;
+        }
+        // return `${this.favSubjects};`
         // console.log(`${this.favSubjects}`);
     }
     PRAssignment (subject) {
@@ -97,7 +100,7 @@ const bryce = new Student({
     gender: 'male',
     previousBackground: 'Teacher',
     className: "CS 12",
-    favSubjects: ['HTML','CSS'],
+    favSubjects: ['HTML', 'CSS'],
     grade: 70,
   });
 
