@@ -24,6 +24,16 @@ class Instructor extends Person {
   grade(student, subject) {
     return `${student.name} receives a perfect score on ${subject}.`;
   }
+  points(student) {
+    let newGrade = 0;
+    if (Math.random() > 0.5) {
+      newGrade = student.grade + Math.ceil(Math.random() * 5);
+    } else {
+      newGrade = student.grade - Math.floor(Math.random() * 3) ;
+    }
+    student.grade = newGrade;
+    return newGrade;
+  }
 }
 
 class Student extends Person {
@@ -32,6 +42,7 @@ class Student extends Person {
     this.previousBackground = studentAttributes.previousBackground;
     this.className = studentAttributes.className;
     this.favSubjects = studentAttributes.favSubjects;
+    this.grade = studentAttributes.grade;
   }
   listsSubjects() {
     this.favSubjects.forEach(function(item) {
@@ -43,6 +54,13 @@ class Student extends Person {
   }
   sprintChallenge(subject) {
     return `${this.name} has submitted a sprint challenge for ${subject}.`;
+  }
+  graduate() {
+    if(this.grade >= 70) {
+      return `Congrats ${this.name}, you grauated!`
+    } else {
+      return `Sorry ${this.name}, you have no graduated yet.`
+    }
   }
 }
 
@@ -88,7 +106,8 @@ const josie = new Student({
   gender: 'female',
   previousBackground: 'College',
   className: 'CS4',
-  favSubjects: ['Javascript', 'Python', 'HTML']
+  favSubjects: ['Javascript', 'Python', 'HTML'],
+  grade: 60
 });
 
 const steve = new Student({
@@ -98,7 +117,8 @@ const steve = new Student({
   gender: 'male',
   previousBackground: 'Teacher',
   className: 'CS11',
-  favSubjects: ['Javascript', 'CSS', 'HTML']
+  favSubjects: ['Javascript', 'CSS', 'HTML'],
+  grade: 80
 });
 
 const jeff = new ProjectManager({
@@ -124,4 +144,16 @@ const blake = new ProjectManager({
   gradClassName: 'CS4',
   favInstructor: 'Sean'
 });
+
+console.log(steve.graduate());
+console.log(lela.points(josie));
+console.log(lela.points(josie));
+console.log(lela.points(josie));
+console.log(lela.points(josie));
+console.log(lela.points(josie));
+console.log(lela.points(josie));
+console.log(lela.points(josie));
+console.log(lela.points(josie));
+console.log(lela.points(josie));
+console.log(josie.graduate());
 
