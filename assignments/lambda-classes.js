@@ -109,6 +109,13 @@ class Student extends Person {
     sprintChallenge(subject) {
         return `${this.name} has begun sprint challenge on ${subject}`;
     }
+    graduate() {
+        if (this.grade > 70) {
+            return `${this.name}'s grade is ${this.grade}! They are ready to graduate!!`;
+        } else {
+            return `${this.name}'s grade is ${this.grade}. They are not yet ready to graduate.`;
+        }
+    }
 }
 
 const erwin = new Student({
@@ -194,11 +201,19 @@ console.log(henry.debugsCode(erwin, "JavaScript"));
 
 console.log("\nTESTING STRETCH TASKS.")
 console.log(cindy.changeGrade(erwin));
+console.log(erwin.graduate());
 console.log(cindy.changeGrade(erwin));
+console.log(erwin.graduate());
 console.log(cindy.changeGrade(erwin));
+console.log(erwin.graduate());
 console.log(cindy.changeGrade(erwin));
+console.log(erwin.graduate());
 
 console.log(gladis.changeGrade(fred));
+console.log(fred.graduate());
 console.log(gladis.changeGrade(fred));
+console.log(fred.graduate());
 console.log(gladis.changeGrade(fred));
+console.log(fred.graduate());
 console.log(gladis.changeGrade(fred));
+console.log(fred.graduate());
