@@ -9,7 +9,7 @@ class Person {
   }
   speak() {
     // This method logs out a phrase Hello my name is Fred, I am from Bedrock where name and location are the object's own props
-    return (` Hello my name is ${this.name}, I am from ${this.location}`)
+    return console.log(` Hello my name is ${this.name}, I am from ${this.location}`)
   }
 }
 
@@ -22,11 +22,13 @@ class Instructor extends Person {
   }
   demo(subject) {
     // receives a subject string as an argument and logs out the phrase 'Today we are learning about {subject}' where subject is the param passed in.
-    return (`Today we are learning about ${subject}`)
+    // return console.log(`Today we are learning about ${subject}`)
+    return `Today we are learning about ${subject}`
   }
   grade(student, subject) {
     // grade receives a student object and a subject string as arguments and logs out '{student.name} receives a perfect score on {subject}'
-    return (`${student.name} receives a perfect score on ${subject}`)
+    // return console.log(`${student} receives a perfect score on ${subject}`)
+    return `${student} receives a perfect score on ${subject}`
   }
 }
 
@@ -39,6 +41,7 @@ class Student extends Instructor {
   }
   listsSubjects() {
     // a method that logs out all of the student's favoriteSubjects one by one.
+    return console.log(`${this.favSubjects}`) // NOT DONE
   }
   PRAssignment() {
     // a method that receives a subject as an argument and logs out that the student.name has submitted a PR for {subject}
@@ -72,4 +75,32 @@ const fred = new Instructor({
   catchPhrase: `Don't forget the homies`
 });
 
-console.log(fred.catchPhrase)
+const tom = new Student({
+  name: 'Tom',
+  location: 'Red Rock',
+  age: 26,
+  gender: 'male',
+  previousBackground: 'quarry yard',
+  className: 'CS-12',
+  favSubjects: 'archaeology'
+})
+
+const barney = new ProjectManager({
+  name: 'Barney',
+  location: 'Slate City',
+  age: 28,
+  gender: 'male',
+  gradClassName: 'CS1-BC',
+  favInstructor: 'Fred'
+})
+
+console.log(tom.grade('Tom', 'the test'));
+console.log(tom.demo('banjo'));
+
+console.log(fred.name);
+console.log(fred.catchPhrase);
+
+console.log(tom.favSubjects);
+console.log(tom.listsSubjects);
+console.log(tom.PRAssignment);
+console.log(tom.sprintChallenge);
