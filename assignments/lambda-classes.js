@@ -29,7 +29,12 @@ class Instructor extends Person
     }
     grade(student, subject)
     {
-        console.log(`${student.name} receives a pergect score on ${subject}`);
+        console.log(`${student.name} receives a perfect score on ${subject}`);
+    }
+    randomPoints(student)
+    {
+        let randomNumber = Math.floor(Math.random()*10)-3;
+        student.grade -= randomNumber;
     }
 }
 
@@ -41,6 +46,7 @@ class Student extends Person
         this.previousBackground = studentInformation.previousBackground;
         this.className = studentInformation.className;
         this.favSubjects = studentInformation.favSubjects;
+        this.grade = 50;
     }
     listsSubjects()
     {
@@ -49,6 +55,17 @@ class Student extends Person
     PRAssignment(subject)
     {
         console.log(`${this.name} has begun sprint challenge on ${subject}`);
+    }
+    graduate()
+    {
+        if(this.grade>70)
+        {
+            console.log(`${this.name} is ready to graduate.`);
+        }
+        else
+        {
+            console.log(`Go back to grading ${this.name}'s assignments.`);
+        }
     }
 }
 
@@ -70,6 +87,8 @@ class ProjectManager extends Instructor
     }
 }
 
+
+
 //tests
 const kev = new Student(
     {
@@ -83,8 +102,9 @@ const kev = new Student(
     }
 )
 kev.speak();
-kev.listsSubjects;
-kev.PRAssignment('javascript');
+kev.graduate();
+// kev.listsSubjects;
+// kev.PRAssignment('javascript');
 
 const josh = new Instructor(
     {
@@ -98,8 +118,8 @@ const josh = new Instructor(
     }
 );
 josh.speak();
-josh.demo('javascript');
-josh.grade(kev, 'Responsive Web Design');
+// josh.demo('javascript');
+// josh.grade(kev, 'Responsive Web Design');
 
 const zack = new ProjectManager(
     {
@@ -114,5 +134,6 @@ const zack = new ProjectManager(
     }
 )
 zack.speak();
-zack.standUp('cs13_zack');
-zack.debugsCode(kev, 'Javascript Prototypes');
+zack.randomPoints(kev);
+// zack.standUp('cs13_zack');
+// zack.debugsCode(kev, 'Javascript Prototypes');
