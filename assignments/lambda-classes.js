@@ -69,6 +69,25 @@ const josh = new Instructor({
     catchPhrase: `Don't forget the homies`
   });
 
+const marvin = new Instructor({
+    name: 'Marvin',
+    location: 'New York',
+    age: 55,
+    gender: 'Male',
+    favLanguage: 'C++',
+    specialty: 'Full-Stack',
+    catchPhrase: `what up SON!!`
+  });
+const libby = new Instructor({
+    name: 'Librada',
+    location: 'Texas',
+    age: 50,
+    gender: 'Female',
+    favLanguage: 'all of them',
+    specialty: 'Full-Stack',
+    catchPhrase: `Don't go breaking my heart!`
+  });
+
 const mike = new Student({
     name: 'Michael',
     location: 'Texas',
@@ -76,6 +95,26 @@ const mike = new Student({
     gender: 'Male',
     previousBackground:'played nothing but Magic the Gathering and Melee',
     className : 'CS13',
+    favSubjects:['Html', 'CSS', 'JavaScript'],
+  });
+
+  const hailey = new Student({
+    name: 'Hailey',
+    location: 'Texas',
+    age: 21,
+    gender: 'Female',
+    previousBackground:'Do my nails, eat food, and go clubing',
+    className : 'CS12',
+    favSubjects:['Html', 'CSS', 'JavaScript'],
+  });
+
+  const clarissa = new Student({
+    name: 'Clarissa',
+    location: 'Texas',
+    age: 24,
+    gender: 'Female',
+    previousBackground:'Studied to be a zooligist.',
+    className : 'CS14',
     favSubjects:['Html', 'CSS', 'JavaScript'],
   });
 
@@ -91,14 +130,23 @@ const zack = new ProjectManangers({
     catchPhrase: `I'm not creative`
 });
 
+const bob = new ProjectManangers({
+    name: 'Bobby',
+    location: 'buck**** no where!',
+    age: 38,
+    gender: 'Male',
+    gradClassName: 'CS1',
+    favInstructor: 'shelly',
+    favLanguage: 'HTML',
+    specialty: 'a lil of everything',
+    catchPhrase: `get err duune!`
+});
 
   console.log(josh.speak());
-  console.log(josh.demo('Html'));
-  console.log(josh.grade(mike,'CSS'));
+  console.log(marvin.demo('Html'));
+  console.log(libby.grade(mike,'CSS'));
   console.log(mike.listsSubjects());
-  console.log(mike.PRAssignment('HTML'));
-  console.log(mike.sprintChallenge('JavaScript'));
+  console.log(hailey.PRAssignment('HTML'));
+  console.log(clarissa.sprintChallenge('JavaScript'));
   console.log(zack.standUp('cs13_Zack'));
-  console.log(zack.debugsCode(mike,'JavaScript'));
-
-  
+  console.log(bob.debugsCode(mike,'JavaScript'));
