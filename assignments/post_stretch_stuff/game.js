@@ -58,6 +58,7 @@ class Player extends Humanoid {
     this.uiHP = attr.uiHP;
     this.uiAtkTxt = attr.uiAtkTxt;
     this.domObj = window.document;
+    this.uiStatus = attr.uiStatus;
   }
 
 
@@ -72,13 +73,11 @@ class Player extends Humanoid {
     enemy.hurt(damage);
   }
   // takes in an enemy object, a weaponID and updates the UI
-  uiAttack(enemy, weponID){
-    let hpVal = this.domObj.getElementById(enemy.uiHP);
-    let atkTxt = window.document.getElementById(this.uiAtkTxt);
+  uiAttack(enemy, weaponID){
     let damage = Math.floor((Math.random() * 100) + 1)
-    enemy.hurt(damage);
-    hpVal.innerHTML = enemy.hp;
-    atkTxt.innerHTML = `${this.name} uses his ${this.weapons[weaponID]} harm ${enemy.name}  doing ${damage} to ${enemy.name}.`;
+    this.domObj.getElementById(enemy.uiStatus).innerHTML = enemy.hurt(damage);
+    this.domObj.getElementById(enemy.uiHP).innerHTML = enemy.hp;
+    window.document.getElementById(this.uiAtkTxt).innerHTML = `${this.name} uses his ${this.weapons[weaponID]} harm ${enemy.name}  doing ${damage} to ${enemy.name}.`;
     return `${this.name} uses his ${this.weapons[weaponID]} harm ${enemy.name}  doing ${damage} to ${enemy.name}.`;
 }
 
@@ -90,9 +89,14 @@ class Player extends Humanoid {
 
   hurt(damage) {
     this.hp -= damage;
-    if(hp <= 0) {
+    if(this.hp <= 0) {
+      this.hp = 0;
       this.isAlive = false;
+      console.log(`${this.name} has died!`);
+      return `${this.name} has died!`;
     }
+    console.log(`${this.name} is alive!`);
+    return `${this.name} is alive!`;
   }
 
 }
@@ -144,6 +148,40 @@ const archer = new Humanoid({
   faction: "Forest Kingdom",
   weapons: ["Bow", "Dagger"],
   language: "Elvish"
+});
+
+const p1 = new Hero({
+  createdAt: new Date(),
+  dimensions: {
+    length: 1,
+    width: 2,
+    height: 4
+  },
+  hp: 300,
+  name: "Bob",
+  faction: "Kingstanding",
+  weapons: ["Bow", "Dagger"],
+  language: "Brummie",
+  uiAtkTxt: "p1-attack-message",
+  uiHP: "p1-hp",
+  uiStatus: "p1-status"
+});
+
+const p2 = new Hero({
+  createdAt: new Date(),
+  dimensions: {
+    length: 1,
+    width: 2,
+    height: 4
+  },
+  hp: 300,
+  name: "Dave",
+  faction: "Erdington",
+  weapons: ["Gun", "Dagger"],
+  language: "Brummie",
+  uiAtkTxt: "p2-attack-message",
+  uiHP: "p2-hp",
+  uiStatus: "p2-status"
 });
 
 console.log(mage.createdAt); // Today's date
