@@ -29,6 +29,35 @@ class Person {
 // * Instructor has the following methods:
 //   * `demo` receives a `subject` string as an argument and logs out the phrase 'Today we are learning about {subject}' where subject is the param passed in.
 //   * `grade` receives a `student` object and a `subject` string as arguments and logs out '{student.name} receives a perfect score on {subject}'
+class Instructor extends Person {
+    constructor(instructorAttributes){
+        super(instructorAttributes);
+        this.specialty = instructorAttributes.specialty;
+        this.favLanguage = instructorAttributes.favLanguage;
+        this.catchPhrase = instructorAttributes.catchPhrase;
+    }
+    demo(subject){
+        console.log(`Today we are learning about ${subject}`);
+    }
+    grade(student, subject){
+        console.log(`${student.name} receives a perfect score on ${subject}`)
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // #### Student
 
