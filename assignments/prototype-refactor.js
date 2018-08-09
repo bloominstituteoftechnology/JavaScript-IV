@@ -7,11 +7,10 @@ class GameObject {
     this.createdAt = options.createdAt;
     this.dimensions = options.dimensions;
   }
+  destroy() {
+    return `Object was removed from the game.`;
+  }
 }
-
-GameObject.prototype.destroy = function() {
-  return `Object was removed from the game.`;
-};
 
 function CharacterStats(characterStatsOptions) {
   GameObject.call(this, characterStatsOptions);
