@@ -90,50 +90,50 @@ class ProjectManager extends Instructor
 
 
 //tests
-const kev = new Student(
-    {
-        name: 'Kevin Nguyen',
-        age: 25,
-        location: 'Hayward, CA, USA',
-        gender: 'male',
-        previousBackground: 'Information Technology',
-        className: 'CS13',
-        favSubjects: ['javascript', 'OOP', 'C', 'Data Structures', 'Algorithms'],
-    }
-)
-kev.speak();
-kev.graduate();
+// const kev = new Student(
+//     {
+//         name: 'Kevin Nguyen',
+//         age: 25,
+//         location: 'Hayward, CA, USA',
+//         gender: 'male',
+//         previousBackground: 'Information Technology',
+//         className: 'CS13',
+//         favSubjects: ['javascript', 'OOP', 'C', 'Data Structures', 'Algorithms'],
+//     }
+// )
+// kev.speak();
+// kev.graduate();
 // kev.listsSubjects;
 // kev.PRAssignment('javascript');
 
-const josh = new Instructor(
-    {
-        name: 'Josh Knell',
-        age: 28,
-        location: 'Central United States',
-        gender: 'male',
-        specialty: 'Web Development',
-        favLanguage:'less',
-        catchPhrase: `I'm Detective Hopper!`,
-    }
-);
-josh.speak();
+// const josh = new Instructor(
+//     {
+//         name: 'Josh Knell',
+//         age: 28,
+//         location: 'Central United States',
+//         gender: 'male',
+//         specialty: 'Web Development',
+//         favLanguage:'less',
+//         catchPhrase: `I'm Detective Hopper!`,
+//     }
+// );
+// josh.speak();
 // josh.demo('javascript');
 // josh.grade(kev, 'Responsive Web Design');
 
-const zack = new ProjectManager(
-    {
-        name: 'Zack Hitchcock',
-        age: '27',
-        location: 'Bay Area, CA, USA',
-        gender: 'male',
-        specialty: 'project managing',
-        favLanguage: 'javascript',
-        catchPhrase: `The problem is not the problem, the problem is your attitude about the problem.`,
-        favInstructor: josh,
-    }
-)
-zack.speak();
-zack.randomPoints(kev);
+// const zack = new ProjectManager(
+//     {
+//         name: 'Zack Hitchcock',
+//         age: '27',
+//         location: 'Bay Area, CA, USA',
+//         gender: 'male',
+//         specialty: 'project managing',
+//         favLanguage: 'javascript',
+//         catchPhrase: `The problem is not the problem, the problem is your attitude about the problem.`,
+//         favInstructor: josh,
+//     }
+// )
+// zack.speak();
+// zack.randomPoints(kev);
 // zack.standUp('cs13_zack');
 // zack.debugsCode(kev, 'Javascript Prototypes');
