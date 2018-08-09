@@ -62,11 +62,15 @@ class ProjectManager extends Student {
     this.gradClassName = props.gradClassName,
     this.favInstructor = props.favInstructor
   }
-  standUp() {
+  standUp(slackChannel) {
     // a method that takes in a slack channel and logs `{name} announces to {channel}, @channel standy times!​​​​​
+    // return console.log(`${this.name} announces to ${channel}, @channel standy times!`)
+    return (`${this.name} announces to ${channel}, @channel standy times!`)
   }
-  debugsCode() {
+  debugsCode(student, subject) {
     // a method that takes in a student object and a subject and logs out {name} debugs {student.name}'s code on {subject}
+    // return console.log(`${this.name} debugs ${student.name}'s code on ${subject}.`)
+    return (`${this.name} debugs ${student.name}'s code on ${subject}.`)
   }
 }
 
