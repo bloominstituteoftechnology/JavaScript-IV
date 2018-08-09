@@ -14,7 +14,7 @@ class GameObject {
 
 class CharacterStats extends GameObject {
   constructor(characterStatsOptions) {
-    super(characterStatsOptions)
+    super(characterStatsOptions);
     this.hp = characterStatsOptions.hp;
     this.name = characterStatsOptions.name;
   }
@@ -25,7 +25,7 @@ class CharacterStats extends GameObject {
 
 class Humanoid extends CharacterStats {
   constructor(humanoidOptions) {
-    super(humanoidOptions)
+    super(humanoidOptions);
     this.faction = humanoidOptions.faction;
     this.weapons = humanoidOptions.weapons;
     this.language = humanoidOptions.language;
