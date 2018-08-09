@@ -126,9 +126,8 @@ console.log(kaitlyn.standUP('CS13-help'));
 console.log(kaitlyn.debugsCode(clint, 'js'));
 console.log(kaitlyn.superPower);
 console.log(josh.randomGrade(clint));
-console.log(josh.randomGrade(clint));
 console.log(clint.graduate());
-console.log(newGuy.graduate());
 console.log(josh.randomGrade(newGuy));
 console.log(newGuy.graduate());
 console.log(newGuy.listsSubjects());
+        
