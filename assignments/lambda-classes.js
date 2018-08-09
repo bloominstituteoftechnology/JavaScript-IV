@@ -30,10 +30,10 @@ class Instructor extends Person {
   }
 
   updateGrade(student) {
-    if(Math.floor(Math.random() * 2) === 0) {
-        student.grade += 10;
+    if (Math.floor(Math.random() * 2) === 0) {
+      student.grade += 10;
     } else {
-        student.grade -= 10;
+      student.grade -= 10;
     }
     return `${student.name}'s grade is now ${student.grade}`;
   }
@@ -47,6 +47,15 @@ class Student extends Person {
     this.className = attr.className;
     this.favSubjects = attr.favSubjects;
     this.grade = attr.grade;
+    this.hasGraduated = false;
+  }
+  graduate(caller) {
+    if (!this.hasGraduated && this.grade > 70) {
+      this.hasGraduated = true;
+      console.log(`Well Done, ${this.name}! You have graduated from Lambda School!!!`);
+    } else {
+      caller.updateGrade(this);
+    }
   }
 
   listsSubjects() {
@@ -73,7 +82,9 @@ class ProjectManager extends Instructor {
   }
 
   standUp(channel) {
-    console.log(`${this.name} announces to ${channel}, @channel standy times!​​​​​`);
+    console.log(
+      `${this.name} announces to ${channel}, @channel standy times!​​​​​`
+    );
   }
 
   debugCode(student, subject) {
@@ -91,7 +102,7 @@ const tom = new Student({
   previousBackground: "Network Security",
   className: "CS13",
   favSubjects: ["C++", "Assembly", "JuJitSu"],
-  grade: 50
+  grade: 70
 });
 
 // instructor to test on
@@ -107,12 +118,12 @@ const fred = new Instructor({
 
 // project manager to test on
 const barney = new ProjectManager({
-    name: 'Barney Rubble',
-    location: 'Bedrock',
-    age: 26,
-    gradClassName: 'CS13',
-    favInstructor: 'Fred'
-  });
+  name: "Barney Rubble",
+  location: "Bedrock",
+  age: 26,
+  gradClassName: "CS13",
+  favInstructor: "Fred"
+});
 
 fred.speak(); // --> Hello my name is Fred, I am from Bedrock
 tom.listsSubjects(); // --> C++ Assembly JuJitSu
@@ -121,3 +132,4 @@ barney.standUp("Food Tek with video Toasters"); // --> Barney Rubble announces t
 console.log(tom.grade); // --> 50
 fred.updateGrade(tom);
 console.log(tom.grade); // --> 40 or 60
+tom.graduate(fred);
