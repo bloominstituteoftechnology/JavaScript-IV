@@ -97,6 +97,7 @@ class Student extends Person {
         this.className = studentProps.className;
         this.favSubjects = studentProps.favSubjects;
         this.grade = studentProps.grade;
+        this.graduated = false;
     }
     listsSubjects() {
         this.favSubjects.forEach(subject => {
@@ -110,10 +111,13 @@ class Student extends Person {
         return `${this.name} has begun sprint challenge on ${subject}`;
     }
     graduate() {
-        if (this.grade > 70) {
+        if (this.grade > 70 && this.graduated === false) {
+            this.graduated = true;
             return `${this.name}'s grade is ${this.grade}! They are ready to graduate!!`;
-        } else {
+        } else if (this.graduated === false) {
             return `${this.name}'s grade is ${this.grade}. They are not yet ready to graduate.`;
+        } else if (this.graduated === true) {
+            return `${this.name} has already graduated! Stop grading their papers already.`;
         }
     }
 }
