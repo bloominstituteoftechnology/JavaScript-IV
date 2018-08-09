@@ -65,6 +65,7 @@ class Student extends Person{
         this.previousBackground = studentAttributes.previousBackground;
         this.className = studentAttributes.className;
         this.favSubjects = studentAttributes.favSubjects;
+        this.grade = studentAttributes.grade;
     }
     listsSubjects(favSubjects) {
         favSubjects.forEach(element => {
@@ -114,3 +115,15 @@ class ProjectManagers extends Instructor {
 // * Add a graduate method to a student.
 //   * This method, when called, will check the grade of the student and see if they're ready to graduate from Lambda School
 //   * If the student's grade is above a 70% let them graduate! Otherswise go back to grading their assignments to increase their score.
+
+
+const student1 = new Student({
+    name: 'Andrew',
+    age : 27,
+    location : 'New York, NY',
+    gender : 'M',
+    previousBackground : 'Healthcare',
+    className : 'JavaScript',
+    favSubjects : 'JavaScript, React.js, and Python',
+    grade : 95
+  });
