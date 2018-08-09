@@ -9,15 +9,8 @@
             * ** IMPORTANT ** - You'll need to create 2 - 3 objects for each class and test them according to their unique Attributes. For example:
 
                 ```js
-const fred = new Instructor({
-  name: 'Fred',
-  location: 'Bedrock',
-  age: 37,
-  gender: 'male',
-  favLanguage: 'JavaScript',
-  specialty: 'Front-end',
-  catchPhrase: `Don't forget the homies`
-});
+                */
+/*
 ```
 
 #### Person
@@ -136,7 +129,44 @@ class ProjectManager extends Instructor{
         }
     }
 
+const fred = new Instructor({
+    name: 'Fred',
+    location: 'Bedrock',
+    age: 37,
+    gender: 'male',
+    favLanguage: 'JavaScript',
+    specialty: 'Front-end',
+    catchPhrase: `Don't forget the homies`
+});
 
+console.log(fred.name)
+console.log(fred.gender)
+console.log(fred.demo("math"))
+
+const bela = new Student ({
+    name: 'Bela',
+    location: 'Bivalytanya',
+    age: 55,
+    gender: 'male',
+    previousBackground: 'cleaner',
+    className: 'CS2011',
+    favSubject: ["REACT" , "CSS", "functions"]
+});
+
+console.log(bela.name)
+console.log(bela.location)
+console.log(bela.favSubject)
+
+const Nusi = new ProjectManager({
+    name: 'Nusi,
+    location: 'Satoraljauhely',
+    age:99,
+    gender: 'female',
+    gradClassName: 'CS13',
+    favInstructor: 'Baba'
+    })
+
+    console.log(Nusi.standUp("CS13"))
 
 /*
 #### Stretch Problem
