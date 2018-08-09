@@ -33,16 +33,16 @@ class Person  {
         super(studentDetails)
         this.previousBackground = studentDetails.previousBackground;
         this.classname = studentDetails.classname;
-        this.faveSubjects = studentDetails.faveSubjects;
+        this.favSubjects = studentDetails.faveSubjects;
   }
         listsSubjects() {
-            return `${subject.name}`;
+            return `${this.favSubjects}`;
         }
         PRAssignement() {
-            return '${student.name} has submitted a PR for ${subject.name}'
+            return `${student.name} has submitted a PR for ${subject.name}`
         }
         sprintChallenge () {
-            return '${student.name} has begun sprint challenge on ${subject.name}' /////Look into the xxxx.name syntax////
+            return `${student.name} has begun sprint challenge on ${subject.name}` /////Look into the xxxx.name syntax////
         }
   };
   
@@ -62,13 +62,107 @@ class Person  {
 };
 
   
-  
-  
-  const fred = new Person({
+const fred = new Person({
     name: 'Fred',
     age: 104,
     location: 'Bedrock',
     gender: 'M'
+  });  
+
+const arlo = new Student({
+    name: 'Arlo',
+    age: 20,
+    location: 'Arksville',
+    gender: 'M',
+    previousBackground: 'Pro Bass Fisherman',
+    classname: 'CS90',
+    favSubjects: ['CompSci for n00bs', 'Torture Code', 'RocknRoll Smoke WiFi']
+  });
+
+  const guthrie = new Student({
+    name: 'Guthrie',
+    age: 32,
+    location: 'Londale',
+    gender: 'F',
+    previousBackground: 'Zoo Cat Keeper',
+    classname: 'CS93',
+    favSubjects: ['Rowdy Debugging 101', 'Torture Code', 'RocknRoll Smoke WiFi']
+  });
+
+  const monty = new Student({
+    name: 'Fred',
+    age: 90,
+    location: 'Nonletty Corner',
+    gender: 'F',
+    previousBackground: 'Member of the Skankin\'Pickles',
+    classname: 'CS90',
+    favSubjects: ['Rowdy Debugging 101', 'Hardware Buffet: Eating Right', 'RocknRoll Smoke WiFi']
+  });
+
+  const korko = new Instructor({
+    name: 'Korko',
+    age: 49,
+    location: 'Bakersfield',
+    gender: 'M',
+    specialty: 'HACK',
+    favLanguage: 'GO',
+    catchPhrase: 'There\'s never a good time to check the time.'
+  });
+
+  const slapdash = new Instructor({
+    name: 'Slapdash',
+    age: 10,
+    location: 'Riverdale',
+    gender: 'F',
+    specialty: 'Search Engines',
+    favLanguage: 'JavaScript',
+    catchPhrase: 'Score one for the old kipper.'
+  });
+
+  const chauncy = new Instructor({
+    name: 'Chauncy',
+    age: 36,
+    location: 'Dalton',
+    gender: 'F',
+    specialty: 'kernel bustin',
+    favLanguage: 'JavaScript',
+    catchPhrase: 'Rick Roll? Rick ROCK!'
+  });
+
+  const smeckleroot = new ProjectManager({
+    name: 'Smeckleroot',
+    age: 10000,
+    location: 'Mesopotamia',
+    gender: 'F',
+    specialty: 'Stick Craft',
+    favLanguage: 'StoneScript',
+    catchPhrase: 'Gold.',
+    gradClassName: 'CS5',
+    favInstructor: 'Nettion'
+  });
+
+  const rondo = new ProjectManager({
+    name: 'Rondo',
+    age: 22,
+    location: 'Manhattan',
+    gender: 'M',
+    specialty: 'redux',
+    favLanguage: 'Python',
+    catchPhrase: 'Solid and Liquid....Gas Man!',
+    gradClassName: 'CS1',
+    favInstructor: 'Tom from MySpace'
+  });
+
+  const rj = new ProjectManager({
+    name: 'RJ',
+    age: 23,
+    location: 'Mechnicsville',
+    gender: 'F',
+    specialty: 'Vue.js',
+    favLanguage: 'C++',
+    catchPhrase: 'I feel the need, the need for speed.',
+    gradClassName: 'CS4',
+    favInstructor: 'Austen'
   });
   
 //   const swordsman = new Humanoid({
@@ -109,3 +203,6 @@ class Person  {
 //   console.log(archer.greet()); // Lilith offers a greeting in Elvish.
 //   console.log(mage.takeDamage()); // Bruce took damage.
 //   console.log(swordsman.destroy()); // Sir Mustachio was removed from the game.
+console.log(fred.age);
+console.log(smeckleroot.catchPhrase);
+console.log(monty.listsSubjects);
