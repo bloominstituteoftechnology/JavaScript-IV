@@ -67,7 +67,7 @@ class Instructor extends Person{
     } //method2
     grade(student, subject){
         return `${student.name} receives a perfect score on ${subject}.`;
-    };
+    }
 }
 /*#### Student
 
@@ -104,7 +104,7 @@ class Student extends Person {
     sprintChallenge(subject) {
         return `${this.name} has begun sprint challenge on ${ subject }.`;
     } ;      
-    
+}
 /*
 #### Project Mananger
 
@@ -127,18 +127,17 @@ class ProjectManager extends Instructor{
         //method1
         standUp(channel){
             return `${this.name} announces to ${channel}, @channel standy times!`;
-        };
+        }
 
         //method2
     debugCode(student, subject) {
         return`${this.name } debugs ${ student.name } 's code on ${subject}`;
             
-        };
+        }
     }
 
 
 
-}
 /*
 #### Stretch Problem
 

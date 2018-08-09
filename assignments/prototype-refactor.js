@@ -35,9 +35,9 @@ class Humanoid extends CharacterStats {
 
   greet() {
     return `${this.name} offers a greeting in ${this.language}.`;
-  };
+  }
 
-const mage = new Humanoid({
+const mage = new Humanoid(){
   createdAt: new Date(),
   dimensions: {
     length: 2,
