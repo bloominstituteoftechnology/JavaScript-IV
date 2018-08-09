@@ -50,7 +50,7 @@ class Person {
 //   * [x] `catchPhrase` i.e. `Don't forget the homies`
 // * Instructor has the following methods:
 //   * [x] `demo` receives a `subject` string as an argument and logs out the phrase 'Today we are learning about {subject}' where subject is the param passed in.
-//   * [ ] `grade` receives a `student` object and a `subject` string as arguments and logs out '{student.name} receives a perfect score on {subject}'
+//   * [x] `grade` receives a `student` object and a `subject` string as arguments and logs out '{student.name} receives a perfect score on {subject}'
 
 class Instructor extends Person {
     constructor(instructorAttr) {
@@ -62,34 +62,70 @@ class Instructor extends Person {
     demo(subject) {
         return `Today we are learning about ${subject}`;
     }
-    grade(student, subject) {
-        return `${student.name} receives a perfect score on ${subject}`;
+    grade(studentObj, subject) {
+        return `${studentObj.name} receives a perfect score on ${subject}`;
     }
 }
 
 // #### Student
 
-// * [ ] Now we need some students!
-// * [ ] Student uses the same attributes that have been set up by Person
+// * [x] Now we need some students!
+// * [x] Student uses the same attributes that have been set up by Person
 // * Student has the following unique props:
-//   * [ ] `previousBackground` i.e. what the Student used to do before Lambda School
-//   * [ ] `className` i.e. CS132
-//   * [ ] `favSubjects`. i.e. an array of the student's favorite subjects ['Html', 'CSS', 'JavaScript']
+//   * [x] `previousBackground` i.e. what the Student used to do before Lambda School
+//   * [x] `className` i.e. CS132
+//   * [x] `favSubjects`. i.e. an array of the student's favorite subjects ['Html', 'CSS', 'JavaScript']
 // * Student has the following methods:
-//   * [ ] `listsSubjects` a method that logs out all of the student's favoriteSubjects one by one.
-//   * [ ] `PRAssignment` a method that receives a subject as an argument and logs out that the `student.name has submitted a PR for {subject}`
-//   * [ ] `sprintChallenge` similar to PRAssignment but logs out `student.name has begun sprint challenge on {subject}`
+//   * [x] `listsSubjects` a method that logs out all of the student's favoriteSubjects one by one.
+//   * [x] `PRAssignment` a method that receives a subject as an argument and logs out that the `student.name has submitted a PR for {subject}`
+//   * [x] `sprintChallenge` similar to PRAssignment but logs out `student.name has begun sprint challenge on {subject}`
+
+class Student extends Person {
+    constructor(constructorAttr) {
+        super(constructorAttr);
+        this.previousBackground = constructorAttr.previousBackground;
+        this.className = constructorAttr.className;
+        this.favSubjects = constructorAttr.favSubjects;
+    }
+    listsSubjects() {
+        this.favSubjects.forEach((subject) => console.log(subject));
+    }
+    PRAssignment(subject) {
+        console.log(`${this.name} has submitted a PR for ${subject}`);
+    }
+    sprintChallenge(subject) {
+        console.log(`${this.name} has begun sprint challenge on ${subject}`);
+    }
+}
 
 // #### Project Mananger
 
-// * [ ] Now that we have instructors and students, we'd be nowhere without our PM's
-// * [ ] ProjectManagers are extensions of Instructors
+// * [x] Now that we have instructors and students, we'd be nowhere without our PM's
+// * [x] ProjectManagers are extensions of Instructors
 // * ProjectManagers have the following uniqe props:
-//   * [ ] `gradClassName`: i.e. CS1
-//   * [ ] `favInstructor`: i.e. Sean
+//   * [x] `gradClassName`: i.e. CS1
+//   * [x] `favInstructor`: i.e. Sean
 // * ProjectManangers have the following Methods:
-//   * [ ] `standUp` a method that takes in a slack channel and logs `{name} announces to {channel}, @channel standy times!​​​​​
-//   * [ ] `debugsCode` a method that takes in a student object and a subject and logs out `{name} debugs {student.name}'s code on {subject}`
+//   * [x] `standUp` a method that takes in a slack channel and logs `{name} announces to {channel}, @channel standy times!​​​​​
+//   * [x] `debugsCode` a method that takes in a student object and a subject and logs out `{name} debugs {student.name}'s code on {subject}`
+
+class ProjectManagers extends Instructor {
+    constructor(pmAttr) {
+        super(pmAttr);
+        this.gradClassName = pmAttr.gradClassName;
+        this.favInstructor = pmAttr.favInstructor;
+    }
+    standUp(channel) {
+        console.log(`${this.name} announces to ${channel}, @channel standy times!`);
+    }
+    debugsCode(studentObj, subject) {
+        console.log(`${this.name} debugs ${studentObj.name}'s code on ${subject}`);
+    }
+}
+
+
+// #### Objects
+
 
 // #### Stretch Problem
 
