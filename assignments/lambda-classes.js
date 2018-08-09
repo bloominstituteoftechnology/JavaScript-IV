@@ -143,7 +143,8 @@ console.log(clarissa.gradeStudent(doug));
 
 //graduate
 doug.graduate = function() {
-  (this.grade >= 70) ? console.log(`${this.name} has graduated Lambda School. Congrats!`) : console.log(`${this.name} has more studying to do. Keep trying!`);
+  if (this.grade === 0) console.log(`${this.name} is a disgrace to Lambda School. You no future in web development. Get out.`);
+  else (this.grade >= 70) ? console.log(`${this.name} is ready to graduate from Lambda School. Congrats!`) : console.log(`${this.name} has more studying to do. Keep going!`);
 };
 
 console.log(fred.gradeStudent(doug));
