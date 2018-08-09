@@ -38,13 +38,13 @@ class Student extends Person {
     this.grade = 94;
   }
   listSubjects() {
-    return this.favSubjects
+    return this.favSubjects.forEach(subject => console.log(subject));
   }
   PRAssignment(subject) {
-    return `${Student.name} has submitted a PR for ${subject}.`
+    return `${this.name} has submitted a PR for ${subject}.`
   }
   sprintChallenge(subject) {
-    return `${Student.name} has begun sprint challenge on ${subject}.`
+    return `${this.name} has begun sprint challenge on ${subject}.`
   }
   graduate() {
     if (this.grade >= 70) {
@@ -87,8 +87,35 @@ const amalia = new Instructor ({
   'specialty': 'Front-End',
   'catchPhrase': 'The bells chimes for you',
 })
-
 // salvador.speak();
 // amalia.speak();
 // salvador.demo('React');
 // salvador.grade('Alan', 'NodeJS');
+
+///////////////
+// New Students
+///////////////
+const olga = new Student ({
+  'name': 'Olga',
+  'location': 'London',
+  'age': 28,
+  'gender': 'Female',
+	'previousBackground': 'Designer',
+	'className': 'CS14',
+	'favSubjects': ['HTML', 'CSS', 'Javascript']
+})
+
+const ken = new Student ({
+  'name': 'Ken',
+  'location': 'Whistler',
+  'age': 27,
+  'gender': 'Male',
+	'previousBackground': 'Guide',
+	'className': 'CS14',
+	'favSubjects': ['HTML', 'CSS', 'Python']
+})
+// olga.speak();
+// ken.speak();
+// olga.listSubjects();
+// olga.PRAssignment('prototype inheritance');
+// ken.sprintChallenge('javascript IV');
