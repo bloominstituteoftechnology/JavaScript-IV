@@ -15,7 +15,7 @@ class Instructor extends Person {
   constructor(instructorAttr){
     super(instructorAttr);
     this.specialty = instructorAttr.specialty;
-    this.favLanguage = instructorAttr.specialty;
+    this.favLanguage = instructorAttr.favLanguage;
     this.catchPhrase = instructorAttr.catchPhrase;
   }
   demo(subject) {
@@ -23,5 +23,20 @@ class Instructor extends Person {
   }
   grade(student, subject) {
     return `${student.name} receives a perfect score on ${subject}`
+  }
+}
+
+class Student extends Person {
+  constructor(studentAttr){
+    super(studentAttr);
+    this.previousBackground = studentAttr.previousBackground;
+    this.className = studentAttr.className;
+    this.favSubjects = studentAttr.favSubjects;
+  }
+  listSubjects() {
+    return this.favSubjects
+  }
+  PRAssignment(subject) {
+    return `${student.name} has begun sprint challenge on ${subject}`
   }
 }
