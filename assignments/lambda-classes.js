@@ -35,7 +35,7 @@ class Student extends Person {
     this.favSubjects = attr.favSubjects;
     }
     listsSubjects() {
-      console.log(favSubjects);
+      console.log(this.favSubjects);
     }
     PRAssignment(subject) {
       console.log(`${student.name} has submitted a PR for ${subject}`);
@@ -59,6 +59,20 @@ class ProjectManager extends Instructor {
   }
 }
 
+const michael = new Student({
+  name: 'Michael',
+  age: 32,
+  location: 'Arkansas',
+  gender: 'Male',
+  previousBackground: 'Technical Support',
+  className: 'CS13',
+  favSubjects: [
+    'JavaScript',
+    'LESS',
+    'Lunch'
+  ],
+});
+
 const teacherMan = new Instructor({
   name: 'Mr. Teacher',
   age: 37,
@@ -67,3 +81,22 @@ const teacherMan = new Instructor({
   specialty: 'UI design',
   favLanguage: 'JavaScript',
   catchPhrase: "Now you're thinking with functions!" });
+
+  const goose = new ProjectManager({
+    name: 'Goose',
+    age: 25,
+    location: 'Lambda Land',
+    gender: 'Female',
+    specialty: 'Inspiring Presence',
+    favLanguage: 'C',
+    catchPhrase: "Make sure to commit and push!",
+    gradClassName: 'CS8',
+    favInstructor: 'Josh'
+  });
+
+  goose.standUp('cs13');
+  teacherMan.demo('CSS');
+  michael.listsSubjects();
+  goose.grade(michael, 'JavaScript');
+  teacherMan.speak();
+  goose.speak();
