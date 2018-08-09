@@ -46,6 +46,18 @@ class Instructor extends Person {
     grade(student, subject) {
         return `${student.name} receives a perfect score on ${subject}`;
     }
+    changeGrade(student) {
+        const x = Math.round(Math.random());
+        const y = Math.floor((Math.random() * 10) + 1);
+        const oldStudentGrade = student.grade;
+        if (x === 1) {
+            student.grade += y;
+            return `${this.name} has increased ${student.name}'s grade from ${oldStudentGrade} to ${student.grade}`;
+        } else {
+            student.grade -= y;
+            return `${this.name} has decreased ${student.name}'s grade from ${oldStudentGrade} to ${student.grade}`;
+        }
+    }
 }
 
 const cindy = new Instructor({
@@ -135,7 +147,7 @@ console.log(fred.PRAssignment("HTML"));
 console.log(erwin.sprintChallenge("CSS"));
 
 
-// Instructor class
+// ProjectManager class
 class ProjectManager extends Instructor {
     constructor(projectManagerProps) {
         super(projectManagerProps);
@@ -179,3 +191,14 @@ console.log(gladis);
 console.log(henry);
 console.log(gladis.standUp("cs13_help"));
 console.log(henry.debugsCode(erwin, "JavaScript"));
+
+console.log("\nTESTING STRETCH TASKS.")
+console.log(cindy.changeGrade(erwin));
+console.log(cindy.changeGrade(erwin));
+console.log(cindy.changeGrade(erwin));
+console.log(cindy.changeGrade(erwin));
+
+console.log(gladis.changeGrade(fred));
+console.log(gladis.changeGrade(fred));
+console.log(gladis.changeGrade(fred));
+console.log(gladis.changeGrade(fred));
