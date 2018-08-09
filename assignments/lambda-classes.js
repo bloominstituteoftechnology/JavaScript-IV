@@ -33,7 +33,14 @@ class Instructor extends Person {
       console.log(`${student.name} gained ${this.name}'s favor and earned ${randomNum} points on their grade!`);
     } else {
       student.grade -= randomNum;
-      console.log(`${student} failed to grasp the curriculum, and lost ${randomNum} points on their grade!`);
+      console.log(`${student.name} failed to grasp the curriculum, and lost ${randomNum} points on their grade!`);
+    }
+  }
+  graduate(student) {
+    if (student.grade >= 70) {
+      console.log(`Congratulations ${student.name}! You graduated!`);
+    } else {
+      console.log(`I'm sorry ${student.name}, you need to go study some more...`);
     }
   }
 }
@@ -67,8 +74,9 @@ class ProjectManager extends Instructor {
     console.log(`${this.name} announces to ${channel}, @channel standy times!`);
   }
   debugsCode(student, subject) {
-    console.log(`{this.name} debugs ${student.name}'s code on ${subject}`);
+    console.log(`${this.name} debugs ${student.name}'s code on ${subject}`);
   }
+
 }
 
 const michael = new Student({
@@ -114,4 +122,8 @@ const teacherMan = new Instructor({
   teacherMan.speak();
   goose.speak();
   teacherMan.hijinx(michael);
-  console.log(michael.grade)
+  teacherMan.hijinx(michael);
+  goose.hijinx(michael);
+  goose.hijinx(michael);
+  console.log(michael.grade);
+  goose.graduate(michael);
