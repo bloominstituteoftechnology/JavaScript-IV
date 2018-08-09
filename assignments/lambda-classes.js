@@ -84,6 +84,7 @@ class Student extends Person {
         this.previousBackground = studentProps.previousBackground;
         this.className = studentProps.className;
         this.favSubjects = studentProps.favSubjects;
+        this.grade = studentProps.grade;
     }
     listsSubjects() {
         this.favSubjects.forEach(subject => {
@@ -109,6 +110,7 @@ const erwin = new Student({
     "previousBackground": "Secret Agent",
     "className": "CS13",
     "favSubjects": ["Html", "CSS", "JavaScript"],
+    "grade": 60,
 });
 
 const fred = new Student({
@@ -122,6 +124,7 @@ const fred = new Student({
     "previousBackground": "Astronaut",
     "className": "CS132",
     "favSubjects": ["LESS", "React", "SQL"],
+    "grade": 90,
 });
 
 console.log("\nTESTING STUDENT CLASS.")
@@ -155,9 +158,6 @@ const gladis = new ProjectManager({
     "specialty": "JavaScript",
     "favLanguage": "C#",
     "catchPhrase": "The cake was a lie.",
-    "previousBackground": "Theoretical Physicist",
-    "className": "CS14",
-    "favSubjects": ["SQL", "React", "Redux"],
     "gradClassname": "CS1",
     "favInstructor": "Cindy",
 });
@@ -170,9 +170,6 @@ const henry = new ProjectManager({
     "specialty": "React",
     "favLanguage": "Python",
     "catchPhrase": "Omar coming!",
-    "previousBackground": "POTUS",
-    "className": "CS15",
-    "favSubjects": ["CSS", "Redux", "JavaScript"],
     "gradClassname": "CS2",
     "favInstructor": "David",
 });
