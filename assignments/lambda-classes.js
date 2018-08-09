@@ -30,6 +30,16 @@ class Instructor extends Person {
         console.log(gradePhrase);
         return gradePhrase;
     }
+
+    //Stetch Task
+    gradingSystem(Student) {
+        if (Math.random() > .5) {
+            Student.grade - 3;
+        } else {
+            Student.grade + 3;
+        }
+        return Student.grade;
+    }
 }
 
 class Student extends Person {
@@ -38,11 +48,14 @@ class Student extends Person {
         this.previousBackground = studAttr.previousBackground;
         this.className = studAttr.className;
         this.favSubjects = studAttr.favSubjects;
+        //Stetch Task
+        this.grade = studAttr.grade;
     }
     listSubjects() {
-        const subjectsPhrase = `${this.favSubjects}`;
-        console.log(subjectsPhrase);
-        return subjectsPhrase;
+        for (let i = 0; i < this.favSubjects.length; i++) {
+        console.log(`${this.name}'s favorite subjects are ${this.favSubjects[i]}`);
+        }
+        
     }
     prAssignments(subject) {
         const assignPhrase = `${this.name} has submitted a PR for ${subject}`
@@ -115,7 +128,8 @@ const piney = new Student({
     gender: 'male',
     previousBackground: 'lumberjack',
     className: 'CS11',
-    favSubjects:['html', 'css']
+    favSubjects:['html', 'css'],
+    grade: 63
 });
 
 const palm = new Student({
@@ -125,7 +139,8 @@ const palm = new Student({
     gender: 'female',
     previousBackground: 'lifeguard',
     className: 'CS13',
-    favSubjects: ['JavaScript', 'LESS']
+    favSubjects: ['JavaScript', 'LESS'],
+    grade: 82
 });
 
 // ProjectManager Objects
@@ -160,3 +175,9 @@ console.log(msOrange.standUp(`Ms. Orange's Group`));
 console.log(palm.sprintChallenge('Web Development for Trees'));
 console.log(mrPineapple.speak());
 console.log(piney.listSubjects());
+
+msApple.gradingSystem(piney);
+msApple.gradingSystem(piney);
+msApple.gradingSystem(piney);
+
+console.log(msApple.gradingSystem(piney))
