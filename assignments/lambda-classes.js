@@ -23,6 +23,12 @@ class Instructor extends Person{
     grade(student, subject){
         console.log(student + ' receives a perfect score on ' + subject)
     };
+    classPoints(student) {
+		let random = ((Math.random() * 100) + 1);
+		student.grade = student.grade - random;
+		console.log(`${student.name} currently has a grade of ${student.grade}`);
+	};
+        
 }
 
 class Student extends Person{
@@ -31,6 +37,7 @@ class Student extends Person{
         this.previousBackground = studentOptions.previousBackground;
         this.className = studentOptions.className;
         this.favSubjects = studentOptions.favSubjects;
+        this.grade = studentOptions.grade;
     };
     listsSubjects(){
         console.log(`${this.favSubjects}`)
@@ -41,6 +48,13 @@ class Student extends Person{
     sprintChallenge(subject){
         console.log(`${this.name} has begun sprint challenge on ` + subject)
     };
+    graduate() {
+		if (this.grade >= 70) {
+			console.log(`${this.name} has a grade of ${this.grade} and is ready to graduate!`);
+		} else {
+			console.log(`${this.name} has a grade of ${this.grade} and needs ${70-this.grade} more to graduate.`);
+		}
+	}
 }
 
 class ProjectManager extends Instructor{
@@ -151,9 +165,9 @@ const Kevin = new Student({
     gender: 'M',
     previousBackground: 'student',
     className: 'CS12',
-    favSubjects: 'HTML, CSS'
-
-});
+    favSubjects: 'HTML, CSS',
+    grade: 89
+})
 
 const Sara = new Student({
     name: 'Sara',
@@ -162,7 +176,8 @@ const Sara = new Student({
     gender: 'F',
     previousBackground: 'Accounting',
     className: 'CS12',
-    favSubjects: 'Javascript and Node'
+    favSubjects: 'Javascript and Node',
+    grade: 94
 });
 
 const Julie = new Student({
@@ -172,15 +187,18 @@ const Julie = new Student({
     gender: 'F',
     previousBackground: 'Writer',
     className: 'CS12',
-    favSubjects: 'Not Sure'
+    favSubjects: 'Not Sure',
+    grade: 78
 });
 
 Greg.speak();
 Keith.demo('HTML');
 John.grade('Julie', 'JavaScript');
-Julie.listsSubjects();
+Sara.listsSubjects();
 Sara.PRAssignment('CSS');
 Kevin.sprintChallenge('JavaScript');
 Pam.standUp('Pam');
 Megan.debugsCode('Kevin', 'React');
-
+Lisa.classPoints(Sara);
+Juan.classPoints(Kevin);
+Julie.graduate();
