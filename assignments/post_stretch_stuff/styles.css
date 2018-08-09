@@ -20,9 +20,23 @@ section.player1 {
     text-align: center;
     margin-left: 20%;
 }
+section {
+    background-color: #eee;
+    border: 2px solid cornflowerblue;
+}
+section h1 {
+    color: cornflowerblue;
+}
 
 section.player2 {
     float: right;
     text-align: center;
     margin-right: 20%;
+}
+button {
+    background-color: cornflowerblue;
+    color: #fff;
+    font-size: 3rem;
+    width: 450px;
+    height: 100px;
 }
