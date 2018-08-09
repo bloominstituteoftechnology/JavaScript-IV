@@ -24,6 +24,24 @@ class Instructor extends Person {
   grade(student, subject) {
     return `${student.name} receives a perfect score on ${subject}`;
   }
+  changeGrade(student)  {
+    let gradePoints = null;
+    const oldGrade = student.grade;
+    if (Math.random() < .5) {
+      gradePoints = 1 * (Math.floor(Math.random() * 10));
+    } else {
+      gradePoints = -1 * (Math.floor(Math.random() * 10));
+    }
+
+    student.grade = student.grade + gradePoints;
+    
+    if (student.grade > 100) {
+      student.grade = 100;
+    } else if  (student.grade < 0)  {
+      student.grade = 0;
+    }
+    return `${this.name} changed ${student.name}'s grade from ${oldGrade} to ${student.grade}`;
+  }
 }
 
 class Student extends Person  {
@@ -32,6 +50,7 @@ class Student extends Person  {
     this.previousBackground = studentInfo.previousBackground;
     this.className = studentInfo.className;
     this.favSubjects = studentInfo.favSubjects;
+    this.grade = studentInfo.grade;
   }
   listsSubjects() {
     return this.favSubjects.forEach(element => {
@@ -43,6 +62,13 @@ class Student extends Person  {
   }
   sprintChallenge(subject)  {
     return `${this.name} has begun sprint challenge on ${subject}`;
+  }
+  graduate()  {
+    if  (this.grade > 70)  {
+      return `Congratulations ${this.name}! You pass!`
+    } else  {
+      return `Keep working to increase your grade, ${this.name}`
+    }
   }
 }
 
@@ -82,7 +108,8 @@ const caleb = new Student({
   catchPhrase: `Goodness gracious! Gee wilikers`,
   previousBackground: 'Pizza Hut General Manager',
   className: 'CS13',
-  favSubjects: ['Html', 'CSS', 'JavaScript']
+  favSubjects: ['Html', 'CSS', 'JavaScript'],
+  grade: 70
 });
 
 const bob = new ProjectManager({
@@ -110,3 +137,8 @@ console.log(bob.gradClassName);
 console.log(bob.debugsCode(caleb, 'HTML'));
 console.log(bob.standUp('My_Channel'));
 console.log(bob.grade(caleb, 'CSS'));
+console.log(fred.changeGrade(caleb));
+console.log(fred.changeGrade(caleb));
+console.log(fred.changeGrade(caleb));
+console.log(caleb.grade);
+console.log(caleb.graduate());
