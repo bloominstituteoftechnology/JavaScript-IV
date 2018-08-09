@@ -70,38 +70,60 @@ class Humanoid extends CharacterStats {
 /*
   === Hero ===
 */
-function Hero(heroAttr) {
-	Humanoid.call(this, heroAttr);
-}
+// function Hero(heroAttr) {
+// 	Humanoid.call(this, heroAttr);
+// }
 
-Hero.prototype = Object.create(Humanoid.prototype);
+// Hero.prototype = Object.create(Humanoid.prototype);
 
-Hero.prototype.heal = function(target) {
-  target.hp += 2;
-  return `${this.name} heals ${target.name} for 2hp`;
+// Hero.prototype.heal = function(target) {
+//   target.hp += 2;
+//   return `${this.name} heals ${target.name} for 2hp`;
+// }
+class Hero extends Humanoid {
+  constructor(heroAttr){
+    super(heroAttr);
+  }
+  heal(target) {
+    target.hp += 2;
+    return `${this.name} heals ${target.name} for 2hp`;
+  }
 }
 
 /*
   === Villain ===
 */
-function Villain(villainAttr) {
-	Humanoid.call(this, villainAttr);
-}
+// function Villain(villainAttr) {
+// 	Humanoid.call(this, villainAttr);
+// }
 
-Villain.prototype = Object.create(Humanoid.prototype);
+// Villain.prototype = Object.create(Humanoid.prototype);
 
-Villain.prototype.facePie = function(target) {
-  target.hp -= 2;
-	if (target.hp <= 0) {
-		return target.destroy();
-	} else {
-		return `${this.name} expels a pie from hand and harms ${target.name} for 2hp`;
-	}
+// Villain.prototype.facePie = function(target) {
+//   target.hp -= 2;
+// 	if (target.hp <= 0) {
+// 		return target.destroy();
+// 	} else {
+// 		return `${this.name} expels a pie from hand and harms ${target.name} for 2hp`;
+// 	}
+// }
+class Villain extends Humanoid {
+  constructor(villainAttr){
+    super(villainAttr);
+  }
+  facePie(target) {
+    target.hp -= 2;
+    if (target.hp <= 0) {
+      return target.destroy();
+    } else {
+      return `${this.name} expels a pie from hand and harms ${target.name} for 2hp`;
+    }
+  }
 }
 
 
 // New Character Objects
-const mage = new Humanoid({
+const mage = new Hero({
   createdAt: new Date(),
   dimensions: {
     length: 2,
@@ -115,7 +137,7 @@ const mage = new Humanoid({
   language: 'Common Toungue'
 });
 
-const swordsman = new Humanoid({
+const swordsman = new Villain({
   createdAt: new Date(),
   dimensions: {
     length: 2,
