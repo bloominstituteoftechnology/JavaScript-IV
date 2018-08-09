@@ -19,28 +19,28 @@ class Instructor extends Person {
         this.catchPhrase = instructorProps.catchPhrase;
     }
     demo(subject){
-        return `Today we are learning about ${subject}.`
+        console.log (`Today we are learning about ${subject}.`)
     }
     grade(student, subject){
-        return `${student.name} receives a perfect score on ${subject}.`
+        console.log (`${student.name} receives a perfect score on ${subject}.`)
     }
 }
 
 class Student extends Person {
     constructor(studentProps){
-        super(studentprops);
+        super(studentProps);
         this.previousBackground = studentProps.previousBackground;
         this.className = studentProps.className;
-        this.favsubject = studentProps.favSubject;
+        this.favSubjects = studentProps.favSubjects;
     }
     listsSubjects(){
-        return `${this.favSubjects}`
+        console.log (`${this.favSubjects}`);
     }
     PRAssignments(subject){
-        return `${this.name} has submitted a PR for ${subject}`
+        console.log (`${this.name} has submitted a PR for ${subject}.`)
     }
     sprintChallenge(subject){
-        return `${this.name} has begun sprint challenge on ${subject}`
+        console.log (`${this.name} has begun sprint challenge on ${subject}.`)
     }
 }
 
@@ -51,10 +51,10 @@ class ProjectManager extends Instructor {
             this.favInstructor = pmProps.favInstructor;
         }
         standup(channel){
-            return `${this.name} announces to ${channel} standby times!`
+            console.log (`${this.name} announces to ${channel}, @channel standby times!`)
         }
         debugsCode(student, subject){
-            return `${this.name} debugs ${student}'s code on ${subject}.`
+            console.log (`${this.name} debugs ${student}'s code on ${subject}.`)
         }
     }
 
@@ -74,17 +74,17 @@ const fred = new Student({
 
   });
 
-  const jeff = new Student({
-    name: 'Jeff',
-    location: 'Bedrock',
+  const janette = new Student({
+    name: 'Janette',
+    location: 'Rock',
     age: 45,
-    gender: 'male',
+    gender: 'female',
     favLanguage: 'JavaScript',
     specialty: 'Front-end',
-    catchPhrase: `Don't forget the homies`
+    catchPhrase: `Don't forget the homies`,
     previousBackground: 'Transformer',
     className: 'CS13',
-    favSubjects: ['Python', 'Java']
+    favSubjects: ['Java', 'CSS']
   });
 
   const frank = new Instructor({
@@ -92,18 +92,53 @@ const fred = new Student({
     location: 'Towns',
     age: 88,
     gender: 'male',
-    favLanguage: 'JavaScript',
+    favLanguage: 'Ruby',
     specialty: 'Front-end',
     catchPhrase: `Rowdy`
   });
 
-const frannie = new Instructor({
-    name: 'Frannie',
+const jiller = new Instructor({
+    name: 'Jiller',
     location: 'Aways',
     age: 65,
     gender: 'Female',
-    favLanguage: 'JavaScript',
+    favLanguage: 'English',
     specialty: 'Front-end',
     catchPhrase: 'Lets GO!'
     
-})
+});
+
+const fil = new ProjectManager({
+    name: 'Fil',
+    location: 'here',
+    age: 92,
+    gender: 'male',
+    favLanguage: 'English',
+    specialty: 'Front-end',
+    catchPhrase: 'Lets GO!',
+    gradClassName: 'preCS',
+    favInstructor: 'Jillian'
+});
+
+const jill = new ProjectManager({
+    name: 'Jill',
+    location: 'faaar',
+    age: 99,
+    gender: 'Female',
+    favLanguage: 'English',
+    specialty: 'Front-end',
+    catchPhrase: 'Lets GO!',
+    gradClassName: 'preCS',
+    favInstructor: 'phillup'
+});
+
+fred.PRAssignments('JavaScript');
+fred.speak();
+janette.listsSubjects();
+janette.sprintChallenge('Python basics')
+frank.demo('hacking');
+jiller.grade(fred, 'basic html');
+fil.standup('CS13');
+jill.debugsCode('Janette', 'Java')
+
+
