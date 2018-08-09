@@ -37,7 +37,7 @@ class Student extends Person {
         this.previousBackground = stuTraits.previousBackground;
         this.className = stuTraits.className;
         this.favSubjects = stuTraits.favSubjects;
-        this.stuTraits = stuTraits.grade;
+        this.grade = stuTraits.grade;
     }
     listsSubjects() {
         this.favSubjects.forEach(subject => console.log(subject));
