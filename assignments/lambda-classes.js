@@ -23,7 +23,11 @@ class Instructor extends Person {
         return `Today we are learning about ${subject}`;
     }
     grade(student, subject) {
-        return`${student.name} receives a perfect score on ${subject}`;
+        return `${student.name} receives a perfect score on ${subject}`;
+    }
+    assessment(student) {
+        student.grade = Math.floor((Math.random() * 100) + 1);
+        return `${student.name} received ${student.grade}`;
     }
 }
 
@@ -33,6 +37,7 @@ class Student extends Person {
         this.previousBackground = stuTraits.previousBackground;
         this.className = stuTraits.className;
         this.favSubjects = stuTraits.favSubjects;
+        this.stuTraits = stuTraits.grade;
     }
     listsSubjects() {
         this.favSubjects.forEach(subject => console.log(subject));
@@ -42,6 +47,13 @@ class Student extends Person {
     }
     sprintChallenge(subject) {
         return `${this.name} has begun sprint challenge on ${subject}`;
+    }
+    graduate() {
+        if (this.grade >= 70) {
+            return `You succesfully completed the course work for Lambda with a score of ${this.grade}, good luck on your job search!`;
+        } else {
+            return `Unfortunately your grade is ${this.grade} and you must keep plugging away before we let you leave.`;
+        }
     }
 }
 
@@ -91,6 +103,7 @@ const sam = new Student({
     catchPhrase: `All women are queens`,
     previousBackground: 'C++ college course',
     className: 'CS12',
+    grade: 56,
     favSubjects: ['Python', 'C++', 'Java']
 });
 
@@ -104,6 +117,7 @@ const lauren = new Student({
     catchPhrase: `I love cats`,
     previousBackground: 'none',
     className: 'CS13',
+    grade: 100,
     favSubjects: ['Html', 'CSS', 'JavaScript']
 });
 
@@ -135,3 +149,6 @@ console.log(ryan.gradClassName);
 console.log(ryan.favInstructor);
 console.log(ryan.standUp(`CS13_ryan`));
 console.log(ryan.debugsCode(sam, `CSS`));
+console.log(tom.assessment(lauren));
+console.log(ryan.assessment(lauren));
+console.log(lauren.graduate());
