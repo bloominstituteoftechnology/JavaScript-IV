@@ -5,7 +5,8 @@ class Person {
         this.name = options.name;
         this.age = options.age;
         this.location = options.location;
-        this.gender = options.gender
+        this.gender = options.gender;
+        this.pronoun = options.pronoun
     }
     speak() {
         return `Hello my name is ${this.name}, I am from ${this.location}.`
@@ -53,6 +54,12 @@ class Student extends Person {
     sprintChallenge(subject) {
         return `${this.name} has begun sprint challenge on ${subject}.`;
     }
+    graduate() {
+        if (this.grade > 70) {
+            return `${this.name} is ready to graduate!`
+        }
+        return `${this.name} needs to submit more assignments to improve ${this.pronoun} grade.`
+    }
 }
 
 class ProjectManager extends Instructor {
@@ -76,19 +83,21 @@ const stark = new Instructor({
     'gender': 'Male',
     'specialty': 'Object Oriented Programming',
     'favLanguage': 'Starkscript',
-    'catchPhrase': 'I am Iron Man.'
+    'catchPhrase': 'I am Iron Man.',
+    'pronoun': 'his'
 });
 
 const vision = new ProjectManager({
     'name': 'The Vision',
     'age': '3',
     'location': 'the Internet',
-    'gender': 'Robot',
+    'gender': '404: gender not found',
     'specialty': 'Computer Architecture',
     'favLanguage': 'Python',
     'catchPhrase': 'Challenge incites conflict, and conflict breeds catastrophe.',
     'gradClassName': 'CS13',
-    'favInstructor': 'Bruce Banner'
+    'favInstructor': 'J.A.R.V.I.S',
+    'pronoun': 'his'
 });
 
 const parker = new Student({
@@ -99,7 +108,8 @@ const parker = new Student({
     'previousBackground': 'Arachnology',
     'className': 'CS62',
     'favSubjects': ['Parkour', 'Theatre', 'Biology'],
-    'grade': 92
+    'grade': 92,
+    'pronoun': 'his'
 });
 
 const leeds = new Student({
@@ -110,7 +120,8 @@ const leeds = new Student({
     'previousBackground': 'Guy in the Chair',
     'className': 'CS62',
     'favSubjects': ['GPS', 'Google', 'Bluetooth'],
-    'grade': 89
+    'grade': 50,
+    'pronoun': 'his'
 });
 
 const princess = new Student({
@@ -121,8 +132,11 @@ const princess = new Student({
     'previousBackground': 'Science',
     'className': 'CS62',
     'favSubjects': ['Infinitystonesectemy', 'Data Science', 'Holograms'],
-    'grade': 9001
+    'grade': 9001,
+    'prounoun': 'her'
 });
+
+
 
 console.log(stark);
 console.log(vision);
@@ -155,3 +169,14 @@ console.log(stark.changeGrade(princess));
 console.log(vision.changeGrade(princess));
 console.log(princess.grade);
 console.log(vision.grade(princess, 'removing an Infinity Stone from my skull'))
+console.log(princess.graduate());
+console.log(parker.graduate());
+console.log(leeds.graduate());
+console.log(stark.changeGrade(leeds));
+console.log(stark.changeGrade(leeds));
+console.log(stark.changeGrade(leeds));
+console.log(stark.changeGrade(leeds));
+console.log(stark.changeGrade(leeds));
+console.log(stark.changeGrade(leeds));
+console.log(stark.changeGrade(leeds));
+console.log(leeds.graduate());
