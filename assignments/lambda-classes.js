@@ -1,4 +1,4 @@
-// CODE here for your Lambda Classes
+//====Classes====
 
 //Person
 class Person {
@@ -55,6 +55,7 @@ class Student extends Person {
   }
 }
 
+//ProjectManager
 class ProjectManager extends Instructor {
   constructor(props) {
     super(props);
@@ -68,6 +69,8 @@ class ProjectManager extends Instructor {
     console.log(`${this.name} debugs ${student.name}'s code on ${subject}`)
   }
 }
+
+//====Tests====
 
 //Test Person
 const bert = new Person({
@@ -89,7 +92,7 @@ const doug = new Student({
   previousBackground: 'php',
   className: 'CS13',
   favSubjects: ['User Interface', 'Web APIs'],
-  grade: 86
+  grade: 52
 })
 
 doug.speak();
@@ -117,7 +120,7 @@ fred.grade(doug, 'React')
 //Test ProjectManager
 const clarissa = new ProjectManager({
   name: 'Clarissa',
-  location: 'Some Suburban Town',
+  location: 'some suburban town',
   age: '14',
   gender: 'female',
   gradClassName: 'CS4',
@@ -131,7 +134,23 @@ clarissa.debugsCode(doug, 'Relational Databases')
 console.log(clarissa.gradClassName);
 console.log(clarissa.gender);
 
-//Stretch
+//====Stretch Goals====
+
+//gradeStudent
 console.log(doug.grade);
 console.log(fred.gradeStudent(doug));
 console.log(clarissa.gradeStudent(doug));
+
+//graduate
+doug.graduate = function() {
+  (this.grade >= 70) ? console.log(`${this.name} has graduated Lambda School. Congrats!`) : console.log(`${this.name} has more studying to do. Keep trying!`);
+};
+
+console.log(fred.gradeStudent(doug));
+doug.graduate();
+console.log(clarissa.gradeStudent(doug));
+doug.graduate();
+console.log(fred.gradeStudent(doug));
+doug.graduate();
+console.log(clarissa.gradeStudent(doug));
+doug.graduate();
