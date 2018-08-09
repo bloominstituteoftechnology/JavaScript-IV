@@ -25,7 +25,7 @@ class CharacterStats extends GameObject {
   constructor(characterStatsOptions) {
     super(characterStatsOptions);
     this.hp = characterStatsOptions.hp;
-  this.name = characterStatsOptions.name;
+    this.name = characterStatsOptions.name;
   }
 
   takeDamage() {
