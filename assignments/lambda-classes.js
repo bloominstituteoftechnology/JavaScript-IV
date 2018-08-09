@@ -42,7 +42,6 @@ class Student extends Person {
     this.previousBackground = stAttr.previousBackground;
     this.className = stAttr.className;
     this.favSubjects = stAttr.favSubjects;
-    //this.studentName = stAttr.studentName;
   }
 
   listsSubjects() {
