@@ -55,7 +55,11 @@ class Player extends Humanoid {
     super(attr);
     this.inventory = attr.inventory; // an array of items
     this.attacks = attr.attacks; // an array of attack objects
+    this.uiHP = attr.uiHP;
+    this.uiAtkTxt = attr.uiAtkTxt;
+    this.domObj = window.document;
   }
+
 
   /* 
   * takes in a weapon object and a enemy calculates 
@@ -67,6 +71,16 @@ class Player extends Humanoid {
     let damage = weapon.power * (Math.floor(Math.random(2)) + 1);
     enemy.hurt(damage);
   }
+  // takes in an enemy object, a weaponID and updates the UI
+  uiAttack(enemy, weponID){
+    let hpVal = this.domObj.getElementById(enemy.uiHP);
+    let atkTxt = window.document.getElementById(this.uiAtkTxt);
+    let damage = Math.floor((Math.random() * 100) + 1)
+    enemy.hurt(damage);
+    hpVal.innerHTML = enemy.hp;
+    atkTxt.innerHTML = `${this.name} uses his ${this.weapons[weaponID]} harm ${enemy.name}  doing ${damage} to ${enemy.name}.`;
+    return `${this.name} uses his ${this.weapons[weaponID]} harm ${enemy.name}  doing ${damage} to ${enemy.name}.`;
+}
 
   /* 
   * takes in damage as a parameter decrements hp 
@@ -88,6 +102,7 @@ class Hero extends Player {
     super(attr);
   }
 }
+
 
 const mage = new Humanoid({
   createdAt: new Date(),
