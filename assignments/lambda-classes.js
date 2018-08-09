@@ -5,10 +5,11 @@ class Person {
         this.name = generalInfo.name;
         this.age = generalInfo.age;
         this.location = generalInfo.location;
+        this.gender = generalInfo.gender;
     }
 
     speak() {
-        return `Hello my name is ${this.name} and I am from ${this.location}.`;
+        console.log(`Hello my name is ${this.name} and I am from ${this.location}.`); 
     }
 }
 
@@ -23,7 +24,7 @@ class Instructor extends Person {
         console.log(`Today we are learning about ${subject}.`);
     }
     grade(studentObj, subject) {
-        console.log(`${student.name} receives a perfect score on ${subject}.`);
+        console.log(`${studentObj.name} receives a perfect score on ${subject}.`);
     }
 }
 
@@ -37,7 +38,7 @@ class Student extends Person {
 
     listsSubjects() {
         this.favSubjects.forEach(subject => {
-            console.log(subject));
+            console.log(subject);
         });
     }
 
@@ -45,7 +46,7 @@ class Student extends Person {
         console.log(`${this.name} has submitted a PR for ${subject}`);
     }
 
-    springChallenge(subject) {
+    sprintChallenge(subject) {
         console.log(`${this.name} has begun sprint challenege on ${subject}`);
     }
 }
@@ -58,7 +59,7 @@ class ProjectManager extends Instructor {
     }
 
     standUp(slackChannel) {
-        console.log(`${this.name} announces to ${SlackChannel}, @channel standy times!​​​​​`);
+        console.log(`${this.name} announces to ${slackChannel}, @channel standy times!​​​​​`);
     }
 
     debugsCode(studentObj, subject) {
@@ -66,14 +67,116 @@ class ProjectManager extends Instructor {
     }
 }
 
-const fred = new Instructor({
-    name: 'Fred',
-    location: 'Bedrock',
-    age: 37,
-    gender: 'male',
-    favLanguage: 'JavaScript',
-    specialty: 'Front-end',
-    catchPhrase: `Don't forget the homies`
-  });
 
-console.log(Instructor.demo('Javascript IV'));
+
+
+// Students
+
+const wonjae = new Student({
+    'name': 'Wonjae',
+    'age': 24,
+    'location': 'Red Bluff, Ca',
+    'gender': 'M',
+    'previousbackground': 'Waiter',
+    'className': 'CS13',
+    'favSubjects': ['HTML', 'CSS', 'Javascript'],
+});
+
+const emily = new Student({
+        'name': 'Emily',
+        'age': 34,
+        'location': 'New York, Ny',
+        'gender': 'F',
+        'previousbackground': 'Teacher',
+        'className': 'CS13',
+        'favSubjects': ['Less', 'Node', 'HTML'],
+    });
+
+
+// Instructors 
+
+const bobby = new Instructor({
+        'name': 'Bobby',
+        'age': 40,
+        'location': 'Killeen, Tx',
+        'gender': 'M',
+        'previousbackground': 'Janitor',
+        'favSubjects': ['Less', 'Node', 'HTML'],
+        'specialty': 'Architecture',
+        'favLanguage': 'Javascript',
+        'catchPhrase': 'Howdy yall'
+    });
+
+const roman = new Instructor({
+        'name': 'Roman',
+        'age': 29,
+        'location': 'New York, Ny',
+        'gender': 'M',
+        'previousbackground': 'Teacher',
+        'favSubjects': ['Less', 'Node', 'HTML', 'CSS', 'Javascript'],
+        'specialty': 'Typing',
+        'favLanguage': 'HTML',
+        'catchPhrase': 'Rome was not built in a day'
+    });
+
+
+// Project Managers
+
+const berry = new ProjectManager({
+        'name': 'Berry',
+        'age': 29,
+        'location': 'Denver, Co',
+        'gender': 'M',
+        'previousbackground': 'Marathon Runner',
+        'favSubjects': ['Less', 'Node', 'HTML', 'CSS', 'Javascript'],
+        'specialty': 'Typing',
+        'favLanguage': 'C++',
+        'catchPhrase': 'The early bird catches the worm',
+        'gradClassName': 'CS10',
+        'favInstructor': 'Roman'
+    });
+
+const lee = new ProjectManager({
+        'name': 'Lee',
+        'age': 26,
+        'location': 'Los Angeles, Ca',
+        'gender': 'M',
+        'previousbackground': 'Window Cleaner',
+        'favSubjects': ['Less', 'Node', 'HTML', 'CSS', 'Javascript'],
+        'specialty': 'Communication',
+        'favLanguage': 'CSS',
+        'catchPhrase': 'Holy Smokes!!!',
+        'gradClassName': 'CS4',
+        'favInstructor': 'Bobby'
+    });
+
+// Testing 
+
+wonjae.speak();  
+wonjae.PRassignment('Javascript');
+
+emily.listsSubjects();
+emily.sprintChallenge('HTML');
+console.log(emily.age);
+console.log(emily.location);
+console.log(emily.favSubjects);
+
+
+roman.speak();
+roman.demo('PHP');
+roman.grade(wonjae, 'Less');
+
+bobby.speak();
+bobby.grade(emily, 'Node.js');
+
+
+berry.speak();
+console.log(berry.gradClassName);
+console.log(berry.catchPhrase);
+console.log(berry.favLanguage);
+berry.standUp('after-hours');
+berry.debugsCode(emily, 'Java');
+
+lee.speak();
+console.log(lee.gradClassName);
+lee.debugsCode(roman, 'Python');
