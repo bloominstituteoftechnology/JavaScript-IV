@@ -2,9 +2,11 @@
 // Today your goal is to refactor all of this code to use ES6 Classes.
 // The console.log() statements should still return what is expected of them.
 
-function GameObject(options) {
-  this.createdAt = options.createdAt;
-  this.dimensions = options.dimensions;
+class GameObject {
+  constructor(options) {
+    this.createdAt = options.createdAt;
+    this.dimensions = options.dimensions;
+  }
 }
 
 GameObject.prototype.destroy = function() {
@@ -44,10 +46,10 @@ const mage = new Humanoid({
     height: 1
   },
   hp: 5,
-  name: 'Bruce',
-  faction: 'Mage Guild',
-  weapons: ['Staff of Shamalama'],
-  language: 'Common Toungue'
+  name: "Bruce",
+  faction: "Mage Guild",
+  weapons: ["Staff of Shamalama"],
+  language: "Common Toungue"
 });
 
 const swordsman = new Humanoid({
@@ -58,10 +60,10 @@ const swordsman = new Humanoid({
     height: 2
   },
   hp: 15,
-  name: 'Sir Mustachio',
-  faction: 'The Round Table',
-  weapons: ['Giant Sword', 'Shield'],
-  language: 'Common Toungue'
+  name: "Sir Mustachio",
+  faction: "The Round Table",
+  weapons: ["Giant Sword", "Shield"],
+  language: "Common Toungue"
 });
 
 const archer = new Humanoid({
@@ -72,10 +74,10 @@ const archer = new Humanoid({
     height: 4
   },
   hp: 10,
-  name: 'Lilith',
-  faction: 'Forest Kingdom',
-  weapons: ['Bow', 'Dagger'],
-  language: 'Elvish'
+  name: "Lilith",
+  faction: "Forest Kingdom",
+  weapons: ["Bow", "Dagger"],
+  language: "Elvish"
 });
 
 console.log(mage.createdAt); // Today's date
