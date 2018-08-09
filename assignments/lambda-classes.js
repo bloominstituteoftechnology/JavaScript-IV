@@ -2,10 +2,10 @@
 
 class Person {
   constructor(props){
-    this.name = props.name,
-    this.age = props.age,
-    this.location = props.location,
-    this.gender = props.gender
+    this.name = props.name;
+    this.age = props.age;
+    this.location = props.location;
+    this.gender = props.gender;
   }
   speak() {
     // This method logs out a phrase Hello my name is Fred, I am from Bedrock where name and location are the object's own props
@@ -16,9 +16,9 @@ class Person {
 class Instructor extends Person {
   constructor(props){
     super(props);
-    this.specialty = props.specialty,
-    this.favLanguage = props.favLanguage,
-    this.catchPhrase = props.catchPhrase
+    this.specialty = props.specialty;
+    this.favLanguage = props.favLanguage;
+    this.catchPhrase = props.catchPhrase;
   }
   demo(subject) {
     return console.log(`Today we are learning about ${subject}.`)
@@ -26,14 +26,19 @@ class Instructor extends Person {
   grade(student, subject) {
     return console.log(`${student} receives a perfect score on ${subject}.`)
   }
+  evaluate(student) {
+    student.grade += (Math.random() < 0.5 ? -1 : 1)*(Math.round(Math.random() * 10));
+    return student.grade;
+  }
 }
 
-class Student extends Instructor {
+class Student extends Person {
   constructor(props){
     super(props);
-    this.previousBackground = props.previousBackground,
-    this.className = props.className,
-    this.favSubjects = props.favSubjects
+    this.previousBackground = props.previousBackground;
+    this.className = props.className;
+    this.favSubjects = props.favSubjects;
+    this.grade = props.grade;
   }
   listsSubjects() {
     return this.favSubjects.forEach(subject => {console.log(subject)})
@@ -46,11 +51,11 @@ class Student extends Instructor {
   }
 }
 
-class ProjectManager extends Student {
+class ProjectManager extends Instructor {
   constructor(props){
     super(props);
-    this.gradClassName = props.gradClassName,
-    this.favInstructor = props.favInstructor
+    this.gradClassName = props.gradClassName;
+    this.favInstructor = props.favInstructor;
   }
   standUp(channel) {
     return console.log(`${this.name} announces to ${channel}, @channel standy times!`)
@@ -79,7 +84,8 @@ const arnold = new Student({
   className: 'CS-12',
   favSubjects: [
     'archaeology', 'paleontology', 'gerontology'
-  ]
+  ],
+  grade: 85
 })
 
 const barney = new ProjectManager({
@@ -95,7 +101,7 @@ const barney = new ProjectManager({
 | Test Output |
 -------------*/
 
-fred.speak();
+console.log(fred.evaluate(arnold));
 arnold.speak();
 barney.speak();
 fred.demo('BC+');
@@ -103,5 +109,7 @@ fred.grade('Tom', 'the test');
 arnold.listsSubjects();
 arnold.PRAssignment('Python');
 arnold.sprintChallenge('Ruby');
+console.log(arnold.grade);
+console.log(barney.gradClassName);
 barney.standUp('cs13_barneys-group');
 barney.debugsCode('Arnold', 'StoneScript');
