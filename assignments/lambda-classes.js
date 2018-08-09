@@ -25,6 +25,17 @@ class Instructor extends Person {
   grade(student, subject) {
     console.log(`${student.name} receives a perfect score on ${subject}`);
   }
+  hijinx(student) {
+    let luckyNum = Math.random() * (100);
+    let randomNum = Math.random() * (10);
+    if (luckyNum > 49) {
+      student.grade += randomNum;
+      console.log(`${student.name} gained ${this.name}'s favor and earned ${randomNum} points on their grade!`);
+    } else {
+      student.grade -= randomNum;
+      console.log(`${student} failed to grasp the curriculum, and lost ${randomNum} points on their grade!`);
+    }
+  }
 }
 
 class Student extends Person {
@@ -76,13 +87,13 @@ const michael = new Student({
 });
 
 const teacherMan = new Instructor({
-  name: 'Mr. Teacher',
-  age: 37,
-  location: 'Classroom',
+  name: 'Mr. Garrison',
+  age: 40,
+  location: 'South Park',
   gender: 'Male',
-  specialty: 'UI design',
+  specialty: 'Public Speaking',
   favLanguage: 'JavaScript',
-  catchPhrase: "Now you're thinking with functions!" });
+  catchPhrase: "Oh, geez!" });
 
   const goose = new ProjectManager({
     name: 'Goose',
@@ -102,3 +113,5 @@ const teacherMan = new Instructor({
   goose.grade(michael, 'JavaScript');
   teacherMan.speak();
   goose.speak();
+  teacherMan.hijinx(michael);
+  console.log(michael.grade)
