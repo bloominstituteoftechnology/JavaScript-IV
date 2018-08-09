@@ -38,8 +38,10 @@ class Student extends Person {
     this.favSubjects = StudentOptions.favSubjects;
     this.grade = StudentOptions.grade;
     }
-    listsSubjects(favSubjects1, favSubjects2, favSubjects3) {
-        return `${favSubjects1} ${favSubjects2} ${favSubjects3}`;
+    listsSubjects() {
+        for (let i = 0; i < this.favSubjects.length; i++) {
+            console.log(this.favSubjects[i]);
+        };
     }
     PRAssignment(subject) {
         return `${this.name} has submitted a PR for ${subject}`;
@@ -128,4 +130,4 @@ console.log(clint.graduate());
 console.log(newGuy.graduate());
 console.log(josh.randomGrade(newGuy));
 console.log(newGuy.graduate());
-console.log(newGuy.listsSubjects.call(newGuy, ...newGuy.favSubjects));
+console.log(newGuy.listsSubjects());
