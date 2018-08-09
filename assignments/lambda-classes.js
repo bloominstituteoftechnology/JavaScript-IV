@@ -24,6 +24,10 @@ class Instructor extends Person {
     grade(student, subject) {
         return `${student.name} receives a perfect score on ${subject}.`;
     }
+    percentage(student) {
+        student.grade += (Math.round((Math.random() + 0.2) * 30));
+        return student.grade;
+    }
 }
 
 class Student extends Person {
@@ -32,6 +36,7 @@ class Student extends Person {
         this.previousBackground = studAttr.previousBackground;
         this.className = studAttr.className;
         this.favSubjects = studAttr.favSubjects;
+        this.grade = 85;
     }
     listsSibjects() {
         return `${this.favSubjects}.`;
@@ -41,6 +46,14 @@ class Student extends Person {
     }
     sprintChallenge(student, subject) {
         return `${student.name} has begun spring challenge on ${subject}.`;
+    }
+    graduate(student) {
+        if(this.grade >= 70) {
+            return `Congrats ${student.name} you graduated!`
+        }
+        else {
+            return `Sorry ${student.name} you did not graduate. You can take next cohort available.`
+        }
     }
 }
 
@@ -132,3 +145,5 @@ console.log(Linda.previousBackground);
 console.log(Kevin.sprintChallenge(Kevin, 'User Interface'));
 console.log(Josh.standUp('pmjosh'));
 console.log(Jenny.debugsCode(Linda, 'JavaScript-IV'));
+console.log(Josh.percentage(Kevin));
+console.log(Kevin.graduate(Kevin));
