@@ -7,7 +7,9 @@ class Person {
         this.gender = attr.gender;
     }
     speak() {
-        console.log(`Hello my name is ${this.name}, I am from ${this.location}.`)
+        const phrase = `Hello my name is ${this.name}, I am from ${this.location}.`
+        console.log(phrase)
+        return phrase;
     }
 }
 
@@ -19,14 +21,18 @@ class Instructor extends Person {
         this.catchPhrase = instAttr.catchPhrase;
     }
     demo(subject) {
-        console.log(`Today we are learning about ${subject}.`);
+        const demoPhrase = `Today we are learning about ${subject}.`;
+        console.log(demoPhrase);
+        return demoPhrase;
     }
     grade(Student, subject) {
-        console.log(`${Student.name} receives a perfect score on ${subject}`);
+        const gradePhrase = `${Student.name} receives a perfect score on ${subject}`;
+        console.log(gradePhrase);
+        return gradePhrase;
     }
 }
 
-class Students extends Person {
+class Student extends Person {
     constructor(studAttr) {
         super(studAttr);
         this.previousBackground = studAttr.previousBackground;
@@ -34,13 +40,19 @@ class Students extends Person {
         this.favSubjects = studAttr.favSubjects;
     }
     listSubjects() {
-        console.log(`${this.favSubjects}`);
+        const subjectsPhrase = `${this.favSubjects}`;
+        console.log(subjectsPhrase);
+        return subjectsPhrase;
     }
     prAssignments(subject) {
-        console.log(`${this.name} has submitted a PR for ${subject}`)
+        const assignPhrase = `${this.name} has submitted a PR for ${subject}`
+        console.log(assignPhrase);
+        return assignPhrase;
     }
     sprintChallenge(subject) {
-        console.log(`${this.name} has begun the sprint challenge on ${subject}`)
+        const sprintPhrase = `${this.name} has begun the sprint challenge on ${subject}`;
+        console.log(sprintPhrase);
+        return sprintPhrase;
     }
 }
 
@@ -51,9 +63,100 @@ class ProjectManager extends Instructor {
         this.favInstructor = pmAttr.favInstructor;
     }
     standUp(slackChannel) {
-        console.log(`${this.name} announces to ${slackChannel}, @channel standy times!`);
+        const standPhrase = `${this.name} announces to ${slackChannel}, @channel standy times!`;
+        console.log(standPhrase);
+        return standPhrase;
     }
     debugsCode(Student,subject) {
-        console.log(`${this.name} debugs ${Student.name}'s code on ${subject}.`);
+        const debugPhrase = `${this.name} debugs ${Student.name}'s code on ${subject}.`;
+        console.log(debugPhrase);
+        return debugPhrase;
     }
 }
+
+// Instructor Objects
+
+const mrBanana = new Instructor({
+    name: 'Mr.Banana',
+    location: 'Chiquita',
+    age: 35,
+    gender: 'male',
+    favLanguage: 'Swift',
+    specialty: 'Mac OS apps',
+    catchPhrase: `I am a banana-person.`
+});
+
+const msApple = new Instructor({
+    name: 'Ms.Apple',
+    location: 'McIntosh',
+    age: 30,
+    gender: 'female',
+    favLanguage: 'Ruby',
+    specialty: 'OOP',
+    catchPhrase: `If you wish to make an apple pie from scratch, you must first invent the universe.`
+});
+
+const msCherry = new Instructor({
+    name: 'Ms. Cherry',
+    location: 'Maraschino',
+    age: 37,
+    gender: 'female',
+    favLanguage: 'JavaScript',
+    specialty: 'Front-end',
+    catchPhrase: `I'm cherry good at web development.`
+});
+
+//Student Objects
+
+const piney = new Student({
+    name: 'Piney',
+    location: 'Florida',
+    age: 52,
+    gender: 'male',
+    previousBackground: 'lumberjack',
+    className: 'CS11',
+    favSubjects:['html', 'css']
+});
+
+const palm = new Student({
+    name: 'Palm',
+    location: 'Florida',
+    age: 19,
+    gender: 'female',
+    previousBackground: 'lifeguard',
+    className: 'CS13',
+    favSubjects: ['JavaScript', 'LESS']
+});
+
+// ProjectManager Objects
+
+const msOrange = new ProjectManager({
+    name: 'Ms. Orange',
+    location: 'California',
+    age: 37,
+    gender: 'female',
+    gradClassName: 'CS1',
+    favInstructor: 'Ms. Cherry'
+});
+
+const mrPineapple = new ProjectManager({
+    name: 'Mr. Pineapple',
+    location: 'Bikini Bottom',
+    age: 28,
+    gender: 'male',
+    gradClassName: 'CS1',
+    favInstructor: 'Mr. Banana'
+});
+
+
+//Console.logs to check work
+
+console.log(mrBanana.speak());
+console.log(msApple.favLanguage);
+console.log(msCherry.catchPhrase);
+console.log(piney.favSubjects);
+console.log(mrPineapple.debugsCode(palm, 'JavaScript'));
+console.log(msOrange.standUp(`Ms. Orange's Group`));
+console.log(palm.sprintChallenge('Web Development for Trees'));
+console.log(mrPineapple.speak());
+console.log(piney.listSubjects());
