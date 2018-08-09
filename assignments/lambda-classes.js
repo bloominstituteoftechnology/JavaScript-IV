@@ -1,4 +1,6 @@
+/////////////////
 // Create classes
+/////////////////
 class Person  {
   constructor(info) {
     this.name = info.name;
@@ -6,6 +8,7 @@ class Person  {
     this.age = info.age;
     this.gender = info.gender;
   }
+
   speak() {
     return `Hello my name is ${this.name}, I am from ${this.location}`;
   }
@@ -18,12 +21,15 @@ class Instructor extends Person {
     this.favLanguage = instructorInfo.favLanguage;
     this.catchPhrase = instructorInfo.catchPhrase;
   }
+
   demo(subject)  {
     return `Today we are learning about ${subject}`;
   }
+
   grade(student, subject) {
     return `${student.name} receives a perfect score on ${subject}`;
   }
+
   changeGrade(student)  {
     let gradePoints = null;
     const oldGrade = student.grade;
@@ -52,17 +58,21 @@ class Student extends Person  {
     this.favSubjects = studentInfo.favSubjects;
     this.grade = studentInfo.grade;
   }
+
   listsSubjects() {
     return this.favSubjects.forEach(element => {
       console.log(element);
     });
   }
+
   PRAssignment(subject) {
     return `${this.name} has submitted a PR for ${subject}`;
   }
+
   sprintChallenge(subject)  {
     return `${this.name} has begun sprint challenge on ${subject}`;
   }
+
   graduate()  {
     if  (this.grade > 70)  {
       return `Congratulations ${this.name}! You pass!`
@@ -78,16 +88,19 @@ class ProjectManager extends Instructor {
     this.gradClassName = projectManagerInfo.gradClassName;
     this.favInstructor = projectManagerInfo.favInstructor;
   }
+  
   standUp(slackChannel) {
     return `${this.name} announces to ${slackChannel}, @channel standy times!`
   }
+  
   debugsCode(student, subject)  {
     return `${this.name} debugs ${student.name}'s code on ${subject}`
   }
 }
 
-
+/////////////////
 // Create objects
+/////////////////
 const fred = new Instructor({
   name: 'Fred',
   location: 'Bedrock',
@@ -123,8 +136,9 @@ const bob = new ProjectManager({
   gradClassName: 'CS3',
   favInstructor: 'Josh'
 });
-
+/////////////////
 // console.logs to test
+/////////////////
 console.log(fred.name);
 console.log(fred.speak());
 console.log(fred.demo('math'));
