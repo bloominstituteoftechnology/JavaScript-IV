@@ -28,10 +28,10 @@ class Instructor extends Person {
 
 class Student extends Person {
   constructor(studentAttr){
-    super(studentAttr);
-    this.previousBackground = studentAttr.previousBackground;
-    this.className = studentAttr.className;
-    this.favSubjects = studentAttr.favSubjects;
+    super(studentAttr)
+    this.previousBackground = studentAttr.previousBackground
+    this.className = studentAttr.className
+    this.favSubjects = studentAttr.favSubjects
   }
   listSubjects() {
     return this.favSubjects
@@ -41,5 +41,19 @@ class Student extends Person {
   }
   sprintChallenge(subject) {
     return `${student.name} has begun sprint challengeon ${subject}`
+  }
+}
+
+class ProjectManagers extends Instructor {
+  constructor(pmAttr) {
+    super(pmAttr)
+    this.gradClassName = pmAttr.gradClassName
+    this.favInstructor = pmAttr.favInstructor
+  }
+  standUp(channel) {
+    return `${projectmanager.name} announces to ${channel}, @${channel} standy times!`
+  }
+  debugsCode(student, subject) {
+    return `${projectmanager.name} debugs ${student.name}'s code on ${subject}`
   }
 }
