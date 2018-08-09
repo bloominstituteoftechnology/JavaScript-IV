@@ -3,11 +3,11 @@
 // ## `lambda-classes` - We need a roster of Lambda School personnel. Build it!
 
 // * We have a school to build here! This project will get you used to thinking about classes in JavaScript and building them from a brand new data set.
-// * [ ] Lambda personnel can be broken down into three different types of `people`.
-//   * [ ] **Instructors** - extensions of Person
-//   * [ ] **Students** - extensions of Person
-//   * [ ] **Project Managers** - extensions of Instructors
-// * [ ] **IMPORTANT** - You'll need to create 2 - 3 objects for each class and test them according to their unique Attributes. For example:
+// * [x] Lambda personnel can be broken down into three different types of `people`.
+//   * [x] **Instructors** - extensions of Person
+//   * [x] **Students** - extensions of Person
+//   * [x] **Project Managers** - extensions of Instructors
+// * [x] **IMPORTANT** - You'll need to create 2 - 3 objects for each class and test them according to their unique Attributes. For example:
 
 // ```js
 // const fred = new Instructor({
@@ -36,7 +36,7 @@ class Person {
         this.gender = personAttr.gender;
     }
     speak() {
-        return `Hello, my name is ${this.name}. I am from ${this.location}.`;
+        console.log(`Hello, my name is ${this.name}. I am from ${this.location}.`);
     }
 }
 
@@ -60,10 +60,10 @@ class Instructor extends Person {
         this.catchPhrase = instructorAttr.catchPhrase;
     }
     demo(subject) {
-        return `Today we are learning about ${subject}`;
+        console.log(`Today we are learning about ${subject}`);
     }
     grade(studentObj, subject) {
-        return `${studentObj.name} receives a perfect score on ${subject}`;
+        console.log(`${studentObj.name} receives a perfect score on ${subject}`);
     }
 }
 
@@ -109,7 +109,7 @@ class Student extends Person {
 //   * [x] `standUp` a method that takes in a slack channel and logs `{name} announces to {channel}, @channel standy times!​​​​​
 //   * [x] `debugsCode` a method that takes in a student object and a subject and logs out `{name} debugs {student.name}'s code on {subject}`
 
-class ProjectManagers extends Instructor {
+class ProjectManager extends Instructor {
     constructor(pmAttr) {
         super(pmAttr);
         this.gradClassName = pmAttr.gradClassName;
@@ -124,8 +124,62 @@ class ProjectManagers extends Instructor {
 }
 
 
-// #### Objects
+// #### Objects ####
+const fred = new Person({
+    'name': 'Fred',
+    'age': 37,
+    'location': 'Bedrock',
+    'gender': 'male'
+});
 
+const wilma = new Instructor({
+    'name': 'Wilma',
+    'location': 'Bedrock',
+    'age': 35,
+    'gender': 'female',
+    'favLanguage': 'JavaScript',
+    'specialty': 'Front-end',
+    'catchPhrase': `Don't forget the homies`
+});
+
+const pebbles = new Student({
+    'name': 'Pebbles',
+    'location': 'Bedrock',
+    'age': 15,
+    'gender': 'female',
+    'previousBackground': 'primary student',
+    'className': 'CS 9001',
+    'favSubjects': ['Computer Science', 'Ancient History', 'Paleontology']
+});
+
+const barney = new ProjectManager({
+    'name': 'Barney',
+    'location': 'Bedrock',
+    'age': 40,
+    'gender': 'nonbinary',
+    'favLanguage': 'C++',
+    'specialty': 'Back-end',
+    'catchPhrase': `Hue hue hue`,
+    'gradClassName': 'CS 13',
+    'favInstructor': 'Josh'
+});
+
+// #### Tests ####
+console.log(barney.name);
+console.log(fred.location);
+console.log(pebbles.className);
+console.log(barney.catchPhrase);
+barney.speak();
+pebbles.speak();
+wilma.speak();
+fred.speak();
+barney.demo('JSON');
+barney.grade(pebbles, 'XHTML');
+pebbles.listsSubjects();
+pebbles.PRAssignment('Javascript II');
+pebbles.sprintChallenge('CSS 9000');
+barney.standUp('#cats');
+barney.debugsCode(pebbles, 'React I');
 
 // #### Stretch Problem
 
