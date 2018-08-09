@@ -72,7 +72,7 @@ const Alexandra = new Student({
     'gender': 'Female',
     'previousBackground': 'none',
     'className': 'CS13',
-    'favSubjects': 'JavaScript',
+    'favSubjects': ['JavaScript', 'LESS', 'CSS flexbox'],
     'grade': 90
 });
 
@@ -101,3 +101,4 @@ console.log(Dave.debugsCode(Alexandra, '.this keyword'));
 console.log(Toby.demo('JS class syntax'));
 console.log(Toby.grade(Alexandra, 'JS class syntax'));
 console.log(Alexandra.graduate());
+console.log(`${Alexandra.favSubjects[0]}, ${Alexandra.favSubjects[1]}, ${Alexandra.favSubjects[2]}`);
