@@ -36,8 +36,11 @@ class Student extends Person {
 		this.className = studentOptions.className;
 		this.favSubjects = studentOptions.favSubjects;
 	}
+
 	listsSubjects() {
-		console.log(this.favSubjects);
+	    for (let i = 0; i < this.favSubjects.length; i++) {
+	      console.log(this.favSubjects[i]);
+	  	}
 	};
 
 	PRAssignment(subject) {
