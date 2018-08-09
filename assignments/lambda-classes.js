@@ -65,6 +65,15 @@ class Instructor extends Person {
     grade(studentObj, subject) {
         console.log(`${studentObj.name} receives a perfect score on ${subject}`);
     }
+    adjustGrade(studentObj) {
+        let grade = studentObj.grade;
+        if(Math.random() > 0.5) {
+            grade = grade + Math.floor(Math.random() * Math.floor(20));
+        } else {
+            grade = grade - Math.floor(Math.random() * Math.floor(20));
+        }
+        studentObj.grade = grade;
+    }
 }
 
 // #### Student
@@ -81,11 +90,12 @@ class Instructor extends Person {
 //   * [x] `sprintChallenge` similar to PRAssignment but logs out `student.name has begun sprint challenge on {subject}`
 
 class Student extends Person {
-    constructor(constructorAttr) {
-        super(constructorAttr);
-        this.previousBackground = constructorAttr.previousBackground;
-        this.className = constructorAttr.className;
-        this.favSubjects = constructorAttr.favSubjects;
+    constructor(studentAttr) {
+        super(studentAttr);
+        this.previousBackground = studentAttr.previousBackground;
+        this.className = studentAttr.className;
+        this.favSubjects = studentAttr.favSubjects;
+        this.grade = studentAttr.grade;
     }
     listsSubjects() {
         this.favSubjects.forEach((subject) => console.log(subject));
@@ -95,6 +105,13 @@ class Student extends Person {
     }
     sprintChallenge(subject) {
         console.log(`${this.name} has begun sprint challenge on ${subject}`);
+    }
+    graduate() {
+        if(this.grade >= 70) {
+            console.log(`${this.name} graduated!`);
+        } else {
+            console.log(`${this.name} should try turning in more assignments to get their grade of ${this.grade}% above 70%`);
+        }
     }
 }
 
@@ -149,7 +166,19 @@ const pebbles = new Student({
     'gender': 'female',
     'previousBackground': 'primary student',
     'className': 'CS 9001',
-    'favSubjects': ['Computer Science', 'Ancient History', 'Paleontology']
+    'favSubjects': ['Computer Science', 'Ancient History', 'Paleontology'],
+    'grade': 97
+});
+
+const bambam = new Student({
+    'name': 'BamBam',
+    'location': 'Bedrock',
+    'age': 15,
+    'gender': 'male',
+    'previousBackground': 'primary student',
+    'className': 'CS 9001',
+    'favSubjects': ['Gym', 'Ancient History', 'English'],
+    'grade': 68
 });
 
 const barney = new ProjectManager({
@@ -180,11 +209,16 @@ pebbles.PRAssignment('Javascript II');
 pebbles.sprintChallenge('CSS 9000');
 barney.standUp('#cats');
 barney.debugsCode(pebbles, 'React I');
+console.log(bambam.grade);
+barney.adjustGrade(bambam);
+console.log(bambam.grade);
+pebbles.graduate();
+bambam.graduate();
 
 // #### Stretch Problem
 
-// * [ ] Extend the functionality of the Student by adding a prop called grade and setting it equal to a number between 1-100.
-// * [ ] Now that our students have a grade build out a method on the Instructor (this will be used by _BOTH_ instructors and PM's) that will randomly add or subtract points to a student's grade. _Math.random_ will help.
-// * [ ] Add a graduate method to a student.
-//   * [ ] This method, when called, will check the grade of the student and see if they're ready to graduate from Lambda School
-//   * [ ] If the student's grade is above a 70% let them graduate! Otherswise go back to grading their assignments to increase their score.
+// * [x] Extend the functionality of the Student by adding a prop called grade and setting it equal to a number between 1-100.
+// * [x] Now that our students have a grade build out a method on the Instructor (this will be used by _BOTH_ instructors and PM's) that will randomly add or subtract points to a student's grade. _Math.random_ will help.
+// * [x] Add a graduate method to a student.
+//   * [x] This method, when called, will check the grade of the student and see if they're ready to graduate from Lambda School
+//   * [x] If the student's grade is above a 70% let them graduate! Otherswise go back to grading their assignments to increase their score.

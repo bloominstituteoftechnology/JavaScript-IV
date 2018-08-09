@@ -37,7 +37,7 @@ const fred = new Person({
   * [x] **Instructors** - extensions of Person
   * [x] **Students** - extensions of Person
   * [x] **Project Managers** - extensions of Instructors
-* [ ] **IMPORTANT** - You'll need to create 2 - 3 objects for each class and test them according to their unique Attributes. For example:
+* [x] **IMPORTANT** - You'll need to create 2 - 3 objects for each class and test them according to their unique Attributes. For example:
 
 ```js
 const fred = new Instructor({
