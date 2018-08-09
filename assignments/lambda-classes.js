@@ -18,12 +18,16 @@ class Person  {
         this.favLanguage = detailsOfInstructor.favLanguage;
         this.catchPhrase = detailsOfInstructor.catchPhrase;
   }
-      demo() {
-        return `Today we are learning about ${subject.name}`
+      demo(subject) {
+        return `Today we are learning about ${subject}`
       }
 
-      grade() {
-        return `${student.name} receives a perfect score on ${subject.name}`  
+      grade(student,subject) {
+        return `${student.name} receives a perfect score on ${subject}`  
+      }
+
+      scoreIt(student) {
+        return student.grade * Math.random
       }
   };
   
@@ -33,16 +37,16 @@ class Person  {
         super(studentDetails)
         this.previousBackground = studentDetails.previousBackground;
         this.classname = studentDetails.classname;
-        this.favSubjects = studentDetails.faveSubjects;
+        this.favSubjects = studentDetails.favSubjects;
   }
         listsSubjects() {
             return `${this.favSubjects}`;
         }
-        PRAssignement() {
-            return `${student.name} has submitted a PR for ${subject.name}`
+        PRAssignement(subject) {
+            return `${this.name} has submitted a PR for ${subject}`
         }
-        sprintChallenge () {
-            return `${student.name} has begun sprint challenge on ${subject.name}` /////Look into the xxxx.name syntax////
+        sprintChallenge (subject) {
+            return `${this.name} has begun sprint challenge on ${subject}` /////Look into the xxxx.name syntax////
         }
   };
   
@@ -52,12 +56,12 @@ class Person  {
       this.gradClassName = detailsOfPm.gradClassName;
       this.favInstructor = detailsOfPm.favInstructor;
 }
-    standUp() {
-      return `${student.name} announces to ${channel.name}, @channel standy times!`
+    standUp(slackchannel) {
+      return `${this.name} announces to ${slackchannel}, @channel standy times!`
     }
 
-    debugsCode() {
-      return `${PM.name} debugs ${student.name}'s code on ${subject.name}.`  
+    debugsCode(student, subject) {
+      return `${this.name} debugs ${student.name}'s code on ${subject}.`  
     }
 };
 
@@ -76,7 +80,8 @@ const arlo = new Student({
     gender: 'M',
     previousBackground: 'Pro Bass Fisherman',
     classname: 'CS90',
-    favSubjects: ['CompSci for n00bs', 'Torture Code', 'RocknRoll Smoke WiFi']
+    favSubjects: ['CompSci for n00bs', 'Torture Code', 'RocknRoll Smoke WiFi'],
+    grade: 78
   });
 
   const guthrie = new Student({
@@ -86,17 +91,19 @@ const arlo = new Student({
     gender: 'F',
     previousBackground: 'Zoo Cat Keeper',
     classname: 'CS93',
-    favSubjects: ['Rowdy Debugging 101', 'Torture Code', 'RocknRoll Smoke WiFi']
+    favSubjects: ['Rowdy Debugging 101', 'Torture Code', 'RocknRoll Smoke WiFi'],
+    grade: 82
   });
 
   const monty = new Student({
-    name: 'Fred',
+    name: 'Monty',
     age: 90,
     location: 'Nonletty Corner',
     gender: 'F',
     previousBackground: 'Member of the Skankin\'Pickles',
     classname: 'CS90',
-    favSubjects: ['Rowdy Debugging 101', 'Hardware Buffet: Eating Right', 'RocknRoll Smoke WiFi']
+    favSubjects: ['Rowdy Debugging 101', 'Hardware Buffet: Eating Right', 'RocknRoll Smoke WiFi'],
+    grade: 98
   });
 
   const korko = new Instructor({
@@ -164,45 +171,11 @@ const arlo = new Student({
     gradClassName: 'CS4',
     favInstructor: 'Austen'
   });
-  
-//   const swordsman = new Humanoid({
-//     createdAt: new Date(),
-//     dimensions: {
-//       length: 2,
-//       width: 2,
-//       height: 2
-//     },
-//     hp: 15,
-//     name: 'Sir Mustachio',
-//     faction: 'The Round Table',
-//     weapons: ['Giant Sword', 'Shield'],
-//     language: 'Common Toungue'
-//   });
-  
-//   const archer = new Humanoid({
-//     createdAt: new Date(),
-//     dimensions: {
-//       length: 1,
-//       width: 2,
-//       height: 4
-//     },
-//     hp: 10,
-//     name: 'Lilith',
-//     faction: 'Forest Kingdom',
-//     weapons: ['Bow', 'Dagger'],
-//     language: 'Elvish'
-//   });
-  
-//   console.log(mage.createdAt); // Today's date
-//   console.log(archer.dimensions); // { length: 1, width: 2, height: 4 }
-//   console.log(swordsman.hp); // 15
-//   console.log(mage.name); // Bruce
-//   console.log(swordsman.faction); // The Round Table
-//   console.log(mage.weapons); // Staff of Shamalama
-//   console.log(archer.language); // Elvish
-//   console.log(archer.greet()); // Lilith offers a greeting in Elvish.
-//   console.log(mage.takeDamage()); // Bruce took damage.
-//   console.log(swordsman.destroy()); // Sir Mustachio was removed from the game.
 console.log(fred.age);
 console.log(smeckleroot.catchPhrase);
-console.log(monty.listsSubjects);
+console.log(monty.listsSubjects());
+console.log(monty.PRAssignement('FlexBox'));
+console.log(slapdash.grade(monty,'java'));
+console.log(rondo.debugsCode(guthrie, 'JS'));
+console.log(rondo.speak());
+console.log(rj.demo('Go'));
