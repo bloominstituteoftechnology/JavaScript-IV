@@ -37,4 +37,33 @@ class Student extends Person {
     listsSubjects() {
       console.log(favSubjects);
     }
+    PRAssignment(subject) {
+      console.log(`${student.name} has submitted a PR for ${subject}`);
+    }
+    sprintChallenge(subject) {
+      console.log(`${student.name} has begun sprint challenge on ${subject}`);
+    }
 }
+
+class ProjectManager extends Instructor {
+  constructor(attr) {
+    super(attr);
+    this.gradClassName = attr.gradClassName;
+    this.favInstructor = attr.favInstructor;
+  }
+  standUp(channel) {
+    console.log(`${this.name} announces to ${channel}, @channel standy times!`);
+  }
+  debugsCode(student, subject) {
+    console.log(`{this.name} debugs ${student.name}'s code on ${subject}`);
+  }
+}
+
+const teacherMan = new Instructor({
+  name: 'Mr. Teacher',
+  age: 37,
+  location: 'Classroom',
+  gender: 'Male',
+  specialty: 'UI design',
+  favLanguage: 'JavaScript',
+  catchPhrase: "Now you're thinking with functions!" });
