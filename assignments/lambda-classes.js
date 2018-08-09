@@ -27,6 +27,10 @@ class Instructor extends Person {
   grade(student, subject) {
     console.log(`${student.name} receives a perfect score on ${subject}`);
   }
+  gradeStudent(student) {
+    student.grade += (Math.round(Math.random() * 10));
+    return student.grade;
+  }
 }
 
 //Student
@@ -36,9 +40,10 @@ class Student extends Person {
     this.previousBackground = props.previousBackground;
     this.className = props.className;
     this.favSubjects = props.favSubjects;
+    this.grade = props.grade;
   }
   listSubjects() {
-    this.favSubjects.forEach(subject => console.log(subject));
+    return this.favSubjects.forEach(subject => {console.log(subject)});
   }
   PRAssignment(subject) {
     console.log(`${this.name} has submitted a PR for ${subject}`);
@@ -81,7 +86,8 @@ const doug = new Student({
   gender: 'male',
   previousBackground: 'php',
   className: 'CS13',
-  favSubjects: ['User Interface', 'Web APIs']
+  favSubjects: ['User Interface', 'Web APIs'],
+  grade: 86
 })
 
 doug.speak();
@@ -119,4 +125,11 @@ const clarissa = new ProjectManager({
 clarissa.speak();
 clarissa.demo('Node');
 clarissa.standUp('cs13_clarissa');
-clarissa.debugsCode
+clarissa.debugsCode(doug, 'Relational Databases')
+console.log(clarissa.gradClassName);
+console.log(clarissa.gender);
+
+//Stretch
+console.log(doug.grade);
+console.log(fred.gradeStudent(doug));
+console.log(clarissa.gradeStudent(doug));
