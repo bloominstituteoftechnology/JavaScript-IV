@@ -28,7 +28,9 @@ class Instructor extends Person {
     console.log(`${student.name} receives a perfect score on ${subject}`);
   }
   gradeStudent(student) {
-    student.grade += (Math.round(Math.random() * 10));
+    student.grade += (Math.round((Math.random() - 0.5) * 40));
+    if (student.grade < 0) student.grade = 0;
+    if (student.grade > 100) student.grade = 100;
     return student.grade;
   }
 }
