@@ -43,11 +43,16 @@ class Student extends Instructor {
     // a method that logs out all of the student's favoriteSubjects one by one.
     return console.log(`${this.favSubjects}`) // NOT DONE
   }
-  PRAssignment() {
+  PRAssignment(subject) {
     // a method that receives a subject as an argument and logs out that the student.name has submitted a PR for {subject}
+    // return console.log(`${this.name} has submitted a PR for ${subject}`)
+    return (`${this.name} has submitted a PR for ${subject}.`)
+    
   }
   sprintChallenge() {
     // similar to PRAssignment but logs out student.name has begun sprint challenge on {subject}
+    // return console.log(`${this.name} has begun sprint challenge on ${subject}.`)
+    return (`${this.name} has begun sprint challenge on ${subject}.`)
   }
 }
 
