@@ -35,6 +35,7 @@ class Student extends Person {
     this.previousBackground = studentOptions.previousBackground;
     this.className = studentOptions.className;
     this.favSubjects = studentOptions.favSubjects;
+    this.grade = studentOptions.grade;
   }
   listSubjects() {
     return `${this.favSubjects}`;
@@ -44,6 +45,11 @@ class Student extends Person {
   }
   sprintChallenge(subject) {
     return `${this.name} has begun sprint challenge on ${subject}`;
+  }
+  graduate() {
+    if (this.grade > 70) {
+        return `${this.name} has graduated with a grade of ${this.grade}!`;
+    }
   }
 }
 
@@ -90,6 +96,7 @@ const george = new Student({
   previousBackground: 'UX-Design',
   favSubjects: 'JavaScript,  Python, HTML, CSS',
   className: 'CS13',
+  grade: 80
 });
 
 const amanda = new Student({
@@ -100,6 +107,7 @@ const amanda = new Student({
   previousBackground: 'UX-Design',
   favSubjects: 'HTML, CSS, LESS, Web-Design',
   className: 'CS13',
+  grade: 90
 });
 
 const ron = new ProjectManager({
@@ -130,3 +138,4 @@ console.log(lucy.standUp('#cs13-lucy-team'));
 console.log(john.demo('JS Classes'));
 console.log(amanda.PRAssignment("Javascript-II"));
 console.log(amanda.listSubjects());
+console.log(george.graduate());
