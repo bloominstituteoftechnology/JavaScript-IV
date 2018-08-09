@@ -24,6 +24,13 @@ class Instructor extends Person {
     grade(Student, subject) {
         return `${Student.name} receives a perfect score on ${subject}`;
     }
+    finalGrade() {
+        return (this.grade + function getRandomInt(min, max) {
+            min = Math.ceil(min);
+            max = Math.floor(max);
+            return Math.floor(Math.random() * (max-min)) + min;
+        })
+    }
 }
 
 class Student extends Person {
