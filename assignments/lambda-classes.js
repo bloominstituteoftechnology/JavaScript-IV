@@ -94,7 +94,7 @@ const jonathan = new Student({
     'previousBackground': 'High School Graduate',
     'className': 'CS13',
     'favSubjects': ['HTML', 'CSS', 'LESS', 'JS'],
-    'grade': 95
+    'grade': 0
 });
 
 const drewMoody = new ProjectManager({
