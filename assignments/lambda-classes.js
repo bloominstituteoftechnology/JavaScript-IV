@@ -28,6 +28,15 @@ class Instructor extends Person {
   grade(student, subject) {
     console.log(`${student.name} receives a perfect score on ${subject}`);
   }
+
+  updateGrade(student) {
+    if(Math.floor(Math.random() * 2) === 0) {
+        student.grade += 10;
+    } else {
+        student.grade -= 10;
+    }
+    return `${student.name}'s grade is now ${student.grade}`;
+  }
 }
 
 // Student Class inherits from person class
@@ -37,6 +46,7 @@ class Student extends Person {
     this.previousBackground = attr.previousBackground;
     this.className = attr.className;
     this.favSubjects = attr.favSubjects;
+    this.grade = attr.grade;
   }
 
   listsSubjects() {
@@ -108,3 +118,6 @@ fred.speak(); // --> Hello my name is Fred, I am from Bedrock
 tom.listsSubjects(); // --> C++ Assembly JuJitSu
 fred.demo("The way of the porcupine III"); // --> Today we are learning about The way of the porcupine III
 barney.standUp("Food Tek with video Toasters"); // --> Barney Rubble announces to Food Tek with video Toasters, @channel standy times!​​​​​
+console.log(tom.grade); // --> 50
+fred.updateGrade(tom);
+console.log(tom.grade); // --> 40 or 60
