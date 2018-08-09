@@ -60,10 +60,10 @@ class ProjectManagers extends Instructor {
     this.favInstructor = pmAttr.favInstructor
   }
   standUp(channel) {
-    return `${ProjectManagers.name} announces to ${channel}, @${channel} standy times!`
+    return `${this.name} announces to ${channel}, @${channel} standy times!`
   }
   debugsCode(student, subject) {
-    return `${ProjectManagers.name} debugs ${student.name}'s code on ${subject}`
+    return `${this.name} debugs ${student}'s code on ${subject}.`
   }
 }
 
@@ -119,3 +119,30 @@ const ken = new Student ({
 // olga.listSubjects();
 // olga.PRAssignment('prototype inheritance');
 // ken.sprintChallenge('javascript IV');
+
+///////////////
+// New Project Managers
+///////////////
+const juan = new ProjectManagers ({
+  'name': 'Juan',
+  'location': 'Leesburg',
+  'age': 23,
+  'gender': 'Male',
+	'gradClassName': 'CS3',
+	'favInstructor': 'Amalia',
+})
+
+const alex = new ProjectManagers ({
+  'name': 'Alex',
+  'location': 'Austin',
+  'age': 22,
+  'gender': 'Female',
+	'gradClassName': 'CS5',
+	'favInstructor': 'Salvador',
+})
+// juan.speak();
+// alex.speak();
+// juan.demo('React');
+// juan.grade('Brian', 'PassportJS');
+// juan.standUp('CS11');
+// alex.debugsCode('Brian', 'Mongoose');
