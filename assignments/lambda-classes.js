@@ -1,3 +1,8 @@
+/** Classes */
+
+/** Person
+ * Base Person class
+ */
 class Person {
     constructor (params) {
         this.name = params.name;
@@ -11,6 +16,10 @@ class Person {
     }
 }
 
+/** Instructor
+ * Base Instructor class - extends from
+ * person
+ */
 class Instructor extends Person {
     constructor (params) {
         super(params);
@@ -26,14 +35,39 @@ class Instructor extends Person {
     grade(student, subject) {
         return `${student.name} receives a perfect score on ${subject}.`;
     }
+
+    /** Grades the student with a random number and adds or subtracts based
+     * on the number given
+     */
+    gradeStudent(student) {
+        const result = getRandomInt(1, 2);
+
+        if (result === 1) {
+            student.grade += getRandomInt(1, 100);
+            if (student.grade >= 100) { student.grade = 100;}
+
+            return `${student.name} has been graded.`;
+        }
+        else if (result === 2) {
+            student.grade -= getRandomInt(1, 100);
+            if (student.grade <= 0) { student.grade = 0;}
+            
+            return `${student.name} has been graded.`;
+        }
+    }
 }
 
+/** Student
+ * Base Student class - extends from
+ * person
+ */
 class Student extends Person {
     constructor(params) {
         super(params);
         this.previousBackground = params.previousBackground;
         this.className = params.className;
         this.favSubjects = params.favSubjects;
+        this.grade = params.grade;
     }
 
     listsSubjects() {
@@ -47,8 +81,22 @@ class Student extends Person {
     sprintChallenge(subject) {
         return `${this.name} has begun sprint challenge on ${subject}.`;
     }
+
+    /** Checks if the student can graduate */
+    graduate() {
+        if (this.grade >= 70) {
+            return `${this.name} has graduated!`;
+        }
+        else {
+            return `${this.name} has not graduated...`;
+        }
+    }
 }
 
+/** ProjectManager
+ * Base ProjectManager class - extends from
+ * Instructor
+ */
 class ProjectManager extends Instructor {
     constructor(params) {
         super(params);
@@ -65,6 +113,12 @@ class ProjectManager extends Instructor {
     }
 }
 
+function getRandomInt(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+/** Objects
+ */
 const mary = new Instructor({
     'name': 'Mary',
     'age': 32,
@@ -100,12 +154,16 @@ const jeremy = new Student({
     'gender': 'Male',
     'previousBackground': 'Stock Clerk',
     'className': 'CS13',
-    'favSubjects': ['Web Dev', 'Computer Science']
+    'favSubjects': ['Web Dev', 'Computer Science'],
+    'grade': getRandomInt(1, 100)
 });
 
+/** Test Suit */
 console.log(mary.speak());
 console.log(mary.demo('JS'));
 console.log(mary.grade(jeremy, 'JS'));
+
+console.log(mary.gradeStudent(jeremy));
 
 console.log('\n');
 
@@ -119,3 +177,5 @@ console.log(jeremy.speak());
 console.log(jeremy.listsSubjects());
 console.log(jeremy.PRAssignment('JS'));
 console.log(jeremy.sprintChallenge('User Interface'));
+console.log(jeremy.grade);
+console.log(jeremy.graduate());
