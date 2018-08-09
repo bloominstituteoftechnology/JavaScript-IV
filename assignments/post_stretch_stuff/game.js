@@ -77,8 +77,8 @@ class Player extends Humanoid {
     let damage = Math.floor((Math.random() * 100) + 1)
     this.domObj.getElementById(enemy.uiStatus).innerHTML = enemy.hurt(damage);
     this.domObj.getElementById(enemy.uiHP).innerHTML = enemy.hp;
-    window.document.getElementById(this.uiAtkTxt).innerHTML = `${this.name} uses his ${this.weapons[weaponID]} harm ${enemy.name}  doing ${damage} to ${enemy.name}.`;
-    return `${this.name} uses his ${this.weapons[weaponID]} harm ${enemy.name}  doing ${damage} to ${enemy.name}.`;
+    window.document.getElementById(this.uiAtkTxt).innerHTML = `${this.name} uses his ${this.weapons[weaponID]} to harm ${enemy.name} doing ${damage} damage.`;
+    return `${this.name} uses his ${this.weapons[weaponID]} to harm ${enemy.name} doing ${damage} damage.`;
 }
 
   /* 
