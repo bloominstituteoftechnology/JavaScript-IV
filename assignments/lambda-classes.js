@@ -5,11 +5,10 @@ class Person {
     this.age = attributes.age;
     this.location = attributes.location;
     this.gender = attributes.gender;
-    this.subject = attributes.subject;
   }
 
   speak() {
-    console.log(`Hello my name is ${this.name}, I am from ${this.location}`);
+    return`Hello my name is ${this.name}, I am from ${this.location}`;
   };
 } //end of Person Class
 
@@ -29,9 +28,9 @@ class Instructor extends Person {
   };
 
   
-  grade(student) {
+  grade(student, subject) {
     
-    return `student receives a perfect score on ${this.subject}`;
+    return `${student.name} receives a perfect score on ${subject}`;
   };
 
 }//end of Instructor Class
@@ -70,8 +69,8 @@ class ProjectManager extends Instructor {
     return `${this.name} announces to ${this.channel}, @channel standy times!`
   }
 
-  debugsCode() {
-    return `${this.name} debugs ${this.name}'s code on ${this.subject}`
+  debugsCode(student, subject) {
+    return `${student.name} debugs ${this.name}'s code on ${subject}`
   }
 
 }//end of ProjectManager Class 
@@ -86,7 +85,7 @@ const fred = new Instructor({
   favLanguage: 'JavaScript',
   specialty: 'Front-end',
   catchPhrase: `Don't forget the homies`,
-  subject : 'JavaScript Classes '
+  
 });
 
 const michelle = new Student({
@@ -97,8 +96,6 @@ const michelle = new Student({
   favLanguage: 'Still thinking about it',
   specialty: 'TBD',
   catchPhrase: `Let's do this`,
-  subject : 'JavaScript Classes',
-  //studentName : 'Michelle',
   previousBackground :'none',
   className : 'CS13',
   favSubjects : ['Html', 'CSS', 'JavaScript']
@@ -123,12 +120,8 @@ console.log(char.speak())
 console.log(fred.speak())
 
 console.log(fred.name)
-// console.log(fred.gender)
-// console.log(fred.favLanguage)
-// console.log(fred.specialty)
-// console.log(fred.catchPhrase)
 console.log(fred.demo()) 
-console.log(fred.grade()) // need student name to reflect
+console.log(fred.grade(michelle, 'JavaScript'))
 console.log(michelle.name)
 console.log(michelle.className)
 console.log(michelle.listsSubjects())
@@ -137,7 +130,7 @@ console.log(michelle.sprintChallenge())
 console.log(char.catchPhrase)
 console.log(char.favInstructor)
 console.log(char.standUp())
-console.log(char.debugsCode()) //needs to reference student's name 
+console.log(char.debugsCode(michelle, 'CSS-LESS'))
 
 
 
