@@ -51,6 +51,11 @@ class Instructor extends Person {
         const y = Math.floor((Math.random() * 10) + 1);
         const oldStudentGrade = student.grade;
         if (x === 1) {
+            if (student.grade + y > 100) {
+                const newStudentGrade = student.grade + y;
+                student.grade = 100;
+                return `${this.name} wants to increase ${student.name}'s grade from ${oldStudentGrade} to ${newStudentGrade}, but instead, it will remain at the max cap of 100.`;
+            }
             student.grade += y;
             return `${this.name} has increased ${student.name}'s grade from ${oldStudentGrade} to ${student.grade}`;
         } else {
