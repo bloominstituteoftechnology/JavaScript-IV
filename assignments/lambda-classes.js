@@ -5,14 +5,38 @@ class Person {
     this.age = attributes.age;
     this.location = attributes.location;
     this.gender = attributes.gender;
+    this.subject = attributes.subject;
   }
 
   speak() {
-    return `Hello my name is ${this.name}, I am from ${this.location}`;
+    console.log(`Hello my name is ${this.name}, I am from ${this.location}`);
   };
 } //end of Person Class
 
-class Instructor extends Person {
+class Student extends Person {
+  constructor(stAttr) {
+    super(stAttr);
+    this.previousBackground = stAttr.previousBackground;
+    this.className = stAttr.className;
+    this.favSubjects = stAttr.favSubjects;
+    //this.studentName = stAttr.studentName;
+  }
+
+  listsSubjects() {
+    return `${this.favSubjects}`;
+  };
+
+  PRAssignment() {
+    return `${this.name} has submitted a PR for ${this.subject}`;
+  };
+
+  sprintChallenge() {
+    return `${this.name} has begun sprint challenge on ${this.subject}`;
+  };
+
+}//end of Student Class
+
+class Instructor extends Student {
   constructor(insAttr) {
     super(insAttr);
     this.specialty = insAttr.specialty;
@@ -31,28 +55,24 @@ class Instructor extends Person {
 
 }//end of Instructor Class
 
-class Student extends Person {
-  constructor(stAttr) {
-    super(stsAttr);
-    this.previousBackground = stAttr.previousBackground;
-    this.className = stAttr.className;
-    this.favSubjects = stAttr.favSubjects;
+
+
+
+class ProjectManager extends Instructor {
+  constructor(pmAttr) {
+    super(pmAttr);
+    this.gradClassName = pmAttr.gradClassName;
+    this.favInstructor = pmAttr.favInstructor;
+  }
+  standUp() {
+    return `${this.name} announces to {channel}, @channel standy times!`
   }
 
-  listsSubjects() {
-    return `${this.favSubjects}`;
-  };
+  debugsCode() {
+    return `${this.name} debugs ${this.name}'s code on ${this.subject}`
+  }
 
-  PRAssignment() {
-    return `${this.name} has submitted a PR for ${this.subject}`;
-  };
-
-  sprintChallenge() {
-    return `${this.name} has begun sprint challenge on ${this.subject}`;
-  };
-
-}//end of Student Class
-
+}//end of ProjectManager Class 
 
 
 
@@ -63,21 +83,54 @@ const fred = new Instructor({
   gender: 'male',
   favLanguage: 'JavaScript',
   specialty: 'Front-end',
-  catchPhrase: `Don't forget the homies`
+  catchPhrase: `Don't forget the homies`,
+  subject : 'JavaScript Classes '
 });
 
-const Michelle = new Student({
-  name: 'Michelle',
+const michelle = new Student({
+  name : 'Michelle',
   location: 'SoCal',
   age: 39,
-  gender: 'Female',
+  gender: 'female',
   favLanguage: 'Still thinking about it',
-  specialty: 'none yet',
+  specialty: 'TBD',
   catchPhrase: `Let's do this`,
+  subject : 'JavaScript Classes',
+  //studentName : 'Michelle',
   previousBackground :'none',
   className : 'CS13',
   favSubjects : ['Html', 'CSS', 'JavaScript']
 });
 
+const char = new ProjectManager({
+  name: 'Char',
+  location: 'Boston',
+  age: 35,
+  gender: 'female',
+  favLanguage: 'Redux',
+  specialty: 'Back-end',
+  catchPhrase: `You can do it because I say so`,
+  gradClassName : 'CS8',
+  favInstructor: 'Josh Knell'
+});
 
+
+console.log(char.speak())
 console.log(fred.speak())
+
+console.log(fred.name)
+// console.log(fred.gender)
+// console.log(fred.favLanguage)
+// console.log(fred.specialty)
+// console.log(fred.catchPhrase)
+console.log(fred.demo()) 
+console.log(fred.grade()) // need student name to reflect
+console.log(michelle.name)
+console.log(michelle.className)
+console.log(michelle.listsSubjects()) // needs to list one by one
+console.log(michelle.PRAssignment())
+console.log(michelle.sprintChallenge())
+console.log(char.catchPhrase)
+console.log(char.favInstructor)
+console.log(char.standUp())
+console.log(char.debugsCode()) //needs to reference student's name and {subject}
