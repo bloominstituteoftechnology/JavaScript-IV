@@ -92,6 +92,19 @@ class Student extends Person{
 //   * `standUp` a method that takes in a slack channel and logs `{name} announces to {channel}, @channel standy times!​​​​​
 //   * `debugsCode` a method that takes in a student object and a subject and logs out `{name} debugs {student.name}'s code on {subject}`
 
+class ProjectManagers extends Instructor {
+    constructor(projectManagersAttributes){
+        super(projectManagersAttributes);
+        this.gradClassName = projectManagersAttributes.className;
+        this.favInstructor = projectManagersAttributes.favInstructor;
+    }
+    standUp(channel){
+        console.log(`${this.name} announces to ${channel}, @channel standup times!`);
+    }
+    debugsCode(student, subject){
+        console.log(`${this.name} debugs ${this.student.name}'s code on ${subject}`);
+    }
+}
 
 
 // #### Stretch Problem
