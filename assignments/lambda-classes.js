@@ -54,7 +54,7 @@ speak(){
   * `demo` receives a`subject` string as an argument and logs out the phrase 'Today we are learning about {subject}' where subject is the param passed in.
   * `grade` receives a`student` object and a`subject` string as arguments and logs out '{student.name} receives a perfect score on {subject}'
 */
-class Instructer extends Person{
+class Instructor extends Person{
     constructor(attr){
         super(attr);
         this.specialty= attr.specialty;
@@ -113,10 +113,33 @@ class Student extends Person {
             * ProjectManagers have the following uniqe props:
   * `gradClassName`: i.e.CS1
     * `favInstructor`: i.e.Sean
-        * ProjectManangers have the following Methods:
+        * ProjectManagers have the following Methods:
   * `standUp` a method that takes in a slack channel and logs`{name} announces to {channel}, @channel standy times!​​​​​
   * `debugsCode` a method that takes in a student object and a subject and logs out `{ name } debugs { student.name } 's code on {subject}`
+*/
+class ProjectManager extends Instructor{
+    constructor(pm){
+        super(pm);
+        this.gradClassName = pm.gradClassName;
+        this.favInstructor = pm.favInstructor;
+        }
 
+        //method1
+        standUp(channel){
+            return `${this.name} announces to ${channel}, @channel standy times!`;
+        };
+
+        //method2
+    debugCode(student, subject) {
+        return`${this.name } debugs ${ student.name } 's code on ${subject}`;
+            
+        };
+    }
+
+
+
+}
+/*
 #### Stretch Problem
 
     * Extend the functionality of the Student by adding a prop called grade and setting it equal to a number between 1 - 100.
