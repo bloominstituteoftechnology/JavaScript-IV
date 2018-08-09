@@ -31,6 +31,7 @@ class Instructor extends Person {
         let min = Math.ceil(-50);
   let max = Math.floor(50);
   const change = Math.floor(Math.random() * (max - min)) + min;
+  return `${this.name} changed ${student.name}'s grade by ${change} points`;
         
         student.grade += change;        
         return `${change} points to ${student.name}'s grade`;
@@ -174,9 +175,9 @@ console.log(parker.graduate());
 console.log(leeds.graduate());
 console.log(stark.changeGrade(leeds));
 console.log(stark.changeGrade(leeds));
+console.log(vision.changeGrade(leeds));
 console.log(stark.changeGrade(leeds));
 console.log(stark.changeGrade(leeds));
-console.log(stark.changeGrade(leeds));
-console.log(stark.changeGrade(leeds));
-console.log(stark.changeGrade(leeds));
+console.log(vision.changeGrade(leeds));
+console.log(vision.changeGrade(leeds));
 console.log(leeds.graduate());
