@@ -85,9 +85,10 @@ const arnold = new Student({
   favSubjects: [
     'archaeology', 'paleontology', 'gerontology'
   ],
-  grade: 85
+  grade: 75,
 })
-
+arnold.graduate = function() {return this.grade > 70 ? console.log(`${this.name} has graduated with a ${this.grade}!`) : console.log(`${this.name} did not pass and was re-evaluated to score ${fred.evaluate(arnold)}`)}
+arnold.speak = function(){}
 const barney = new ProjectManager({
   name: 'Barney',
   location: 'Slate City',
@@ -113,3 +114,5 @@ console.log(arnold.grade);
 console.log(barney.gradClassName);
 barney.standUp('cs13_barneys-group');
 barney.debugsCode('Arnold', 'StoneScript');
+
+arnold.graduate()
