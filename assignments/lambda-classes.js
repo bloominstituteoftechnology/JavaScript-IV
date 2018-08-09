@@ -37,6 +37,9 @@ class Student extends Person {
     return this.favSubjects
   }
   PRAssignment(subject) {
-    return `${student.name} has begun sprint challenge on ${subject}`
+    return `${student.name} has submitted a PR for ${subject}`
+  }
+  sprintChallenge(subject) {
+    return `${student.name} has begun sprint challengeon ${subject}`
   }
 }
