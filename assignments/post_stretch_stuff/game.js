@@ -25,6 +25,17 @@ class CharacterStats extends GameObject {
   };
 };
 
+// Item stats abstract interface class for items to derive from
+class ItemStats extends GameObject {
+  constructor(attr) {
+    super(attr);
+    this.power = attr.power;
+    this.weight = attr.weight;
+    this.isWearable = attr.isWearable;
+    this.isConsumable = attr.isConsumable;
+  }
+}
+
 
 class Humanoid extends CharacterStats {
   constructor(humanoidOptions){
@@ -42,7 +53,8 @@ class Humanoid extends CharacterStats {
 class Player extends Humanoid {
   constructor(attr) {
     super(attr);
-    this.inventory = attr.inventory;
+    this.inventory = attr.inventory; // an array of items
+    this.attacks = attr.attacks; // an array of attack objects
   }
 
   /* 
