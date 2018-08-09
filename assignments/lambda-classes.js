@@ -26,6 +26,18 @@ class Instructor extends Person {
   grade(student, subject) {
     return `${student.name} receives a perfect score on ${subject}` ;
   }
+  gradeAdd(student){
+    const grade = Math.round(Math.random(100) * 100);
+    student.grade += grade;
+    student.assignmentCounter += 1;
+    return `${student.name}'s grade is ${student.grade} after scoring a grade of ${grade} on the assignment`;
+  }
+  gradeSubtract(student){
+    const grade = Math.round(Math.random(100) * 100);
+    student.grade -= Math.round(Math.random(100) * 100);
+    student.assignmentCounter += 1;
+    return `${student.name}'s grade is ${student.grade} after scoring a grade of ${grade} on the assignment`;
+  }
 }
 
 //=============STUDENT CLASS=============
@@ -36,6 +48,7 @@ class Student extends Person {
     this.className = studentOptions.className;
     this.favSubjects = studentOptions.favSubjects;
     this.grade = studentOptions.grade;
+    this.assignmentCounter = 0;
   }
   listSubjects() {
     return `${this.favSubjects}`;
@@ -138,4 +151,5 @@ console.log(lucy.standUp('#cs13-lucy-team'));
 console.log(john.demo('JS Classes'));
 console.log(amanda.PRAssignment("Javascript-II"));
 console.log(amanda.listSubjects());
+console.log(ron.gradeAdd(george));
 console.log(george.graduate());
