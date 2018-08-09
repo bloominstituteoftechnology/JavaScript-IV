@@ -98,8 +98,17 @@ let clint = new Student ({
     'gender': 'M',
     'previousBackground': 'Sourcing',
     'className': 'CS 13',
-    'grade': '',
+    'grade': '100',
     'favSubjects': ['HTML', 'CSS', 'JavaScript'],
+});
+
+let newGuy = new Student ({
+    'name': 'Dude',
+    'location': 'Montana',
+    'age': '14',
+    'gender': 'M',
+    'grade': '100',
+    'favSubjects': ['Bears', 'Beets', 'Battle Star Gallactic', 'Michael']
 });
 
 console.log(josh.speak());
@@ -116,3 +125,7 @@ console.log(kaitlyn.superPower);
 console.log(josh.randomGrade(clint));
 console.log(josh.randomGrade(clint));
 console.log(clint.graduate());
+console.log(newGuy.graduate());
+console.log(josh.randomGrade(newGuy));
+console.log(newGuy.graduate());
+console.log(newGuy.listsSubjects.call(newGuy, ...newGuy.favSubjects));
