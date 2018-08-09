@@ -36,39 +36,7 @@ class Humanoid extends CharacterStats {
   }
 }
 
-// function GameObject(options) {
-//   this.createdAt = options.createdAt;
-//   this.dimensions = options.dimensions;
-// }
 
-// GameObject.prototype.destroy = function() {
-//   return `Object was removed from the game.`;
-// };
-
-// function CharacterStats(characterStatsOptions) {
-//   GameObject.call(this, characterStatsOptions);
-//   this.hp = characterStatsOptions.hp;
-//   this.name = characterStatsOptions.name;
-// }
-
-// CharacterStats.prototype = Object.create(GameObject.prototype);
-
-// CharacterStats.prototype.takeDamage = function() {
-//   return `${this.name} took damage.`;
-// };
-
-// function Humanoid(humanoidOptions) {
-//   CharacterStats.call(this, humanoidOptions);
-//   this.faction = humanoidOptions.faction;
-//   this.weapons = humanoidOptions.weapons;
-//   this.language = humanoidOptions.language;
-// }
-
-// Humanoid.prototype = Object.create(CharacterStats.prototype);
-
-// Humanoid.prototype.greet = function() {
-//   return `${this.name} offers a greeting in ${this.language}.`;
-// };
 
 const mage = new Humanoid({
   createdAt: new Date(),
