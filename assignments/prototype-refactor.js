@@ -2,39 +2,51 @@
 // Today your goal is to refactor all of this code to use ES6 Classes.
 // The console.log() statements should still return what is expected of them.
 
-function GameObject(options) {
-  this.createdAt = options.createdAt;
-  this.dimensions = options.dimensions;
+//Constructor Function
+class GameObject {
+  constructor(options){
+   //Properties
+   this.createdAt = options.createdAt;
+   this.dimensions = options.dimensions;
 }
-
-GameObject.prototype.destroy = function() {
-  return `Object was removed from the game.`;
-};
-
-function CharacterStats(characterStatsOptions) {
-  GameObject.call(this, characterStatsOptions);
-  this.hp = characterStatsOptions.hp;
-  this.name = characterStatsOptions.name;
+//Methods
+destroy() {
+  return `${this.name} was removed from the game.`;
 }
+} //end of GameObjects Class
 
-CharacterStats.prototype = Object.create(GameObject.prototype);
-
-CharacterStats.prototype.takeDamage = function() {
+//Constructor Function
+class CharacterStats extends GameObject {
+  constructor(characterStatsOptions) {
+    //Bind properties from GameObject into here
+    super(characterStatsOptions);
+    //Properties
+    this.hp = characterStatsOptions.hp;
+    this.name = characterStatsOptions.name;
+}
+//Methods
+takeDamage() {
   return `${this.name} took damage.`;
 };
 
-function Humanoid(humanoidOptions) {
-  CharacterStats.call(this, humanoidOptions);
-  this.faction = humanoidOptions.faction;
-  this.weapons = humanoidOptions.weapons;
-  this.language = humanoidOptions.language;
+} //end of CharacterStats Class
+
+//Constructor Function
+class Humanoid extends CharacterStats {
+  constructor(humanoidOptions) {
+    //Bind properties from GameObject into here
+    super(humanoidOptions);
+    //Properties
+    this.faction = humanoidOptions.faction;
+    this.weapons = humanoidOptions.weapons;
+    this.language = humanoidOptions.language;
 }
-
-Humanoid.prototype = Object.create(CharacterStats.prototype);
-
-Humanoid.prototype.greet = function() {
+//Methods
+greet() {
   return `${this.name} offers a greeting in ${this.language}.`;
 };
+
+} //end of Humanoid Class
 
 const mage = new Humanoid({
   createdAt: new Date(),
