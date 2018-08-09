@@ -2,39 +2,42 @@
 // Today your goal is to refactor all of this code to use ES6 Classes.
 // The console.log() statements should still return what is expected of them.
 
-function GameObject(options) {
-  this.createdAt = options.createdAt;
-  this.dimensions = options.dimensions;
+
+class GameObject {
+  constructor(attributes){
+  this.createdAt = attributes.createdAt;
+  this.dimensions = attributes.dimensions;
+  }
+  destroy (){
+    return('Object was removed from the game.'); 
+  }
+
 }
 
-GameObject.prototype.destroy = function() {
-  return `Object was removed from the game.`;
-};
-
-function CharacterStats(characterStatsOptions) {
-  GameObject.call(this, characterStatsOptions);
-  this.hp = characterStatsOptions.hp;
-  this.name = characterStatsOptions.name;
+class CharacterStats extends GameObject{
+  constructor(attributes) {
+    super(GameObject);
+    this.hp = attributes.hp;
+    this.name = attributes.name
+  }
+  takeDamage() {
+    return(`${this.name} took damage`)
+  }
 }
 
-CharacterStats.prototype = Object.create(GameObject.prototype);
 
-CharacterStats.prototype.takeDamage = function() {
-  return `${this.name} took damage.`;
-};
 
-function Humanoid(humanoidOptions) {
-  CharacterStats.call(this, humanoidOptions);
-  this.faction = humanoidOptions.faction;
-  this.weapons = humanoidOptions.weapons;
-  this.language = humanoidOptions.language;
+class Humanoid extends CharacterStats{
+  constructor(attributes) {
+    super(attributes)
+    this.faction = attributes.faction;
+  this.weapons = attributes.weapons;
+  this.language = attributes.language;
+  }
+  greet(){
+    return(`Hello! My name is ${this.name}`); 
+  } 
 }
-
-Humanoid.prototype = Object.create(CharacterStats.prototype);
-
-Humanoid.prototype.greet = function() {
-  return `${this.name} offers a greeting in ${this.language}.`;
-};
 
 const mage = new Humanoid({
   createdAt: new Date(),
