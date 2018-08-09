@@ -71,6 +71,16 @@ const fred = new Instructor({
   catchPhrase: `Don't forget the homies`
 });
 
+const lela = new Instructor({
+  name: 'Lela',
+  location: 'England',
+  age: 26,
+  gender: 'female',
+  favLanguage: 'CSS',
+  specialty: 'Front-end',
+  catchPhrase: `Yo`
+});
+
 const josie = new Student({
   name: 'Josie',
   location: 'Cali',
@@ -79,6 +89,16 @@ const josie = new Student({
   previousBackground: 'College',
   className: 'CS4',
   favSubjects: ['Javascript', 'Python', 'HTML']
+});
+
+const steve = new Student({
+  name: 'Steve',
+  location: 'Alabama',
+  age: 30,
+  gender: 'male',
+  previousBackground: 'Teacher',
+  className: 'CS11',
+  favSubjects: ['Javascript', 'CSS', 'HTML']
 });
 
 const jeff = new ProjectManager({
@@ -93,4 +113,15 @@ const jeff = new ProjectManager({
   favInstructor: 'Sean'
 });
 
-console.log(jeff.debugsCode(josie, 'C++'))
+const blake = new ProjectManager({
+  name: 'Blake',
+  location: 'Here',
+  age: 27,
+  gender: 'male',
+  favLanguage: 'Pythom',
+  specialty: 'Back-end',
+  catchPhrase: 'What up?', 
+  gradClassName: 'CS4',
+  favInstructor: 'Sean'
+});
+
