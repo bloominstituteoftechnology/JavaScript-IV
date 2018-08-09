@@ -33,6 +33,7 @@ class Student extends Person {
     this.previousBackground = attr.previousBackground;
     this.className = attr.className;
     this.favSubjects = attr.favSubjects;
+    this.grade = attr.grade;
     }
     listsSubjects() {
       console.log(this.favSubjects);
@@ -71,6 +72,7 @@ const michael = new Student({
     'LESS',
     'Lunch'
   ],
+  grade: 100,
 });
 
 const teacherMan = new Instructor({
