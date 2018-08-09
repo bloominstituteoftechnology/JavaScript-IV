@@ -27,17 +27,18 @@ class Person  {
       }
 
       scoreIt(student) {
-        return student.grade * Math.random
+        return ( student.grade + (Math.random() * 100) / 2);
       }
   };
   
   
-  class Student extends Person {
+   class Student extends Person {
       constructor(studentDetails) {
         super(studentDetails)
         this.previousBackground = studentDetails.previousBackground;
         this.classname = studentDetails.classname;
         this.favSubjects = studentDetails.favSubjects;
+        this.grade = studentDetails.grade;
   }
         listsSubjects() {
             return `${this.favSubjects}`;
@@ -46,7 +47,7 @@ class Person  {
             return `${this.name} has submitted a PR for ${subject}`
         }
         sprintChallenge (subject) {
-            return `${this.name} has begun sprint challenge on ${subject}` /////Look into the xxxx.name syntax////
+            return `${this.name} has begun sprint challenge on ${subject}`
         }
   };
   
@@ -76,12 +77,13 @@ const fred = new Person({
 const arlo = new Student({
     name: 'Arlo',
     age: 20,
+    momname: 'Becky',
     location: 'Arksville',
     gender: 'M',
     previousBackground: 'Pro Bass Fisherman',
     classname: 'CS90',
-    favSubjects: ['CompSci for n00bs', 'Torture Code', 'RocknRoll Smoke WiFi'],
-    grade: 78
+    favSubjects: ['CompSci for n00bs', 'Torture Code', 'RocknRoll WiFi'],
+    grade: 67
   });
 
   const guthrie = new Student({
@@ -91,7 +93,7 @@ const arlo = new Student({
     gender: 'F',
     previousBackground: 'Zoo Cat Keeper',
     classname: 'CS93',
-    favSubjects: ['Rowdy Debugging 101', 'Torture Code', 'RocknRoll Smoke WiFi'],
+    favSubjects: ['Rowdy Debugging 101', 'Torture Code', 'RocknRoll WiFi'],
     grade: 82
   });
 
@@ -102,7 +104,7 @@ const arlo = new Student({
     gender: 'F',
     previousBackground: 'Member of the Skankin\'Pickles',
     classname: 'CS90',
-    favSubjects: ['Rowdy Debugging 101', 'Hardware Buffet: Eating Right', 'RocknRoll Smoke WiFi'],
+    favSubjects: ['Rowdy Debugging 101', 'Hardware Buffet: Eating Right', 'RocknRoll WiFi'],
     grade: 98
   });
 
@@ -179,3 +181,5 @@ console.log(slapdash.grade(monty,'java'));
 console.log(rondo.debugsCode(guthrie, 'JS'));
 console.log(rondo.speak());
 console.log(rj.demo('Go'));
+console.log(korko.scoreIt(arlo));
+console.log(rj.grade(arlo, 'The Maths'));
