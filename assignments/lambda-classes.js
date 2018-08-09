@@ -24,6 +24,10 @@ class Instructor extends Person{
     grade (student, subject) {
         return `${student.name} receives a perfect score on ${subject}`;
     }
+    randomGrade (student) {
+        student.grade = Math.round(Math.random()*100);
+        return `${student.name} your new score is %${student.grade}`
+    }
 }//Instructor class
 
 class Student extends Person {
@@ -32,6 +36,7 @@ class Student extends Person {
     this.previousBackground = StudentOptions.previousBackground;
     this.className = StudentOptions.className;
     this.favSubjects = StudentOptions.favSubjects;
+    this.grade = StudentOptions.grade;
     }
     listsSubjects(favSubjects1, favSubjects2, favSubjects3) {
         return `${favSubjects1} ${favSubjects2} ${favSubjects3}`;
@@ -41,6 +46,13 @@ class Student extends Person {
     }
     sprintChallenge(subject) {
         return `${this.name} has begun sprint challenge on ${subject}`;
+    }
+    graduate() {
+        if (this.grade > 70) {
+            return `Congratulations you graduated, your grade is a ${this.grade}`;
+        } else {
+            return `Sorry, you failed. See if the Instructor or Project Manager will grade your assignments again.`
+        }
     }
 }//Student class
 
@@ -79,14 +91,15 @@ const kaitlyn = new ProjectManager ({
     'superPower': 'x-ray code vision',
 });
 
-const clint = new Student ({
+let clint = new Student ({
     'name': 'Clint',
     'location': 'Idaho',
     'age': '27',
     'gender': 'M',
     'previousBackground': 'Sourcing',
     'className': 'CS 13',
-    'favSubjects': ['HTML', 'CSS', 'JavaScript']
+    'grade': '',
+    'favSubjects': ['HTML', 'CSS', 'JavaScript'],
 });
 
 console.log(josh.speak());
@@ -100,3 +113,6 @@ console.log(clint.sprintChallenge('the Banjo'));
 console.log(kaitlyn.standUP('CS13-help'));
 console.log(kaitlyn.debugsCode(clint, 'js'));
 console.log(kaitlyn.superPower);
+console.log(josh.randomGrade(clint));
+console.log(josh.randomGrade(clint));
+console.log(clint.graduate());
