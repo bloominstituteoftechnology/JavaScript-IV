@@ -56,8 +56,26 @@ class Student extends Person {
 }
 
 
+// ProjectManager class extends Instructor class
+class ProjectManager extends Instructor {
+    constructor(attr) {
+        super(attr);
+        this.gradeClassName = attr.gradeClassName;
+        this.favInstructor = attr.faveInstructor;
+    }
+
+    standup(slackChannel) {
+        console.log(`${name} announces to ${channel}, @channel standy times!​​​​​`);
+    }
+
+    debugCode(student, subject) {
+        console.log(`${name} debugs ${student.name}'s code on ${subject}`);
+    }
+}
+
 
 // starting the tests 
+
 
 const fred = new Instructor({
     name: 'Fred',
