@@ -36,7 +36,7 @@ class Humanoid extends CharacterStats {
   greet() {
     return `${this.name} offers a greeting in ${this.language}.`;
   };
-  
+
 const mage = new Humanoid({
   createdAt: new Date(),
   dimensions: {
@@ -71,7 +71,7 @@ const archer = new Humanoid({
     length: 1,
     width: 2,
     height: 4
-  },
+  }),
   hp: 10,
   name: 'Lilith',
   faction: 'Forest Kingdom',
