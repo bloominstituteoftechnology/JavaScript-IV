@@ -91,7 +91,7 @@ const michael = new Student({
     'LESS',
     'Lunch'
   ],
-  grade: 100,
+  grade: 80,
 });
 
 const teacherMan = new Instructor({
