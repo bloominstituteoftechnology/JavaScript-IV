@@ -37,10 +37,10 @@ class Student extends Person {
     return this.favSubjects
   }
   PRAssignment(subject) {
-    return `${student.name} has submitted a PR for ${subject}`
+    return `${Student.name} has submitted a PR for ${subject}`
   }
   sprintChallenge(subject) {
-    return `${student.name} has begun sprint challengeon ${subject}`
+    return `${Student.name} has begun sprint challengeon ${subject}`
   }
 }
 
@@ -51,9 +51,9 @@ class ProjectManagers extends Instructor {
     this.favInstructor = pmAttr.favInstructor
   }
   standUp(channel) {
-    return `${projectmanager.name} announces to ${channel}, @${channel} standy times!`
+    return `${ProjectManagers.name} announces to ${channel}, @${channel} standy times!`
   }
   debugsCode(student, subject) {
-    return `${projectmanager.name} debugs ${student.name}'s code on ${subject}`
+    return `${ProjectManagers.name} debugs ${student.name}'s code on ${subject}`
   }
 }
