@@ -4,7 +4,7 @@
 
 
 class GameObject {
-  constructor(options){
+  constructor(options) {
     this.createdAt = options.createdAt;
     this.dimensions = options.dimensions;
   }
