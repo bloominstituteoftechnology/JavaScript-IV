@@ -54,7 +54,7 @@ class Student extends Person {
     this.grade = attr.grade;
     }
     listsSubjects() {
-      console.log(this.favSubjects);
+      this.favSubjects.forEach(subject => console.log(`I love ${subject}!`));
     }
     PRAssignment(subject) {
       console.log(`${student.name} has submitted a PR for ${subject}`);
@@ -74,7 +74,7 @@ class ProjectManager extends Instructor {
     console.log(`${this.name} announces to ${channel}, @channel standy times!`);
   }
   debugsCode(student, subject) {
-    console.log(`${this.name} debugs ${student.name}'s code on ${subject}`);
+    console.log(`${this.name} debugs ${student.name}s code on ${subject}`);
   }
 
 }
