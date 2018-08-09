@@ -1,3 +1,4 @@
+// Person Class
 class Person {
     constructor(attr) {
         this.name = attr.name;
@@ -11,7 +12,7 @@ class Person {
     }
 }
 
-
+// Instructor Class inherits from Person Class
 class Instructor extends Person {
     constructor(attr) {
         super(attr);
@@ -29,6 +30,31 @@ class Instructor extends Person {
         console.log(`${student.name} receives a perfect score on ${subject}`);
     }
 }
+
+// Student Class inherits from person class
+class Student extends Person {
+    constructor(attr) {
+        super(attr);
+        this.previousBackground = attr.previousBackground;
+        this.className = attr.className;
+        this.favSubjects = attr.favSubjects;
+    }
+
+    listsSubjects() {
+        this.favSubjects.forEach((subject) => {
+            console.log(subject);
+        });
+    }
+
+    PRAssignment(subject) {
+        console.log(`${this.name} has submitted a PR for ${subject}`);
+    }
+
+    sprintChallenge(subject) {
+        console.log(`${this.name} has begun sprint challenge on ${subject}`);
+    }
+}
+
 
 
 // starting the tests 
