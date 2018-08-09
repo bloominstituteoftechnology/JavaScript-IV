@@ -26,7 +26,19 @@ class Instructor extends Person {
     }
 
     grade(student, subject) {
-        return (`${student} receives a perfect score on ${subject}`);
+        return (`${student.name} receives a perfect score on ${subject}`);
+    }
+
+    addOrSubtractPoints(student) {
+        const min = Math.ceil(1);
+        const max = Math.floor(10);
+        let points = Math.floor(Math.random() * (max - min)) + min;
+
+        const negOrPos = Math.random() < .5 ? -1 : 1;
+        const pointsNegOrPos = negOrPos * points;
+
+        student.grade = parseInt(student.grade) + pointsNegOrPos;
+        return (student.grade);
     }
 }
 
@@ -37,6 +49,7 @@ class Student extends Person {
         this.previousBackground = studentAttribs.previousBackground;
         this.className = studentAttribs.className;
         this.favSubjects = studentAttribs.favSubjects;
+        this.grade = studentAttribs.grade;
     }
 
     listsSubjects() {
@@ -53,6 +66,14 @@ class Student extends Person {
 
     sprintChallenge(subject) {
         return (`${this.name} has begun sprint challenge on ${subject}`);
+    }
+
+    graduate() {
+        if (this.grade >= 70) {
+            return (`${this.name} has graduated!`);
+        } else {
+            return (`${this.name} did not graduate. :(`);
+        }
     }
 }
 
@@ -97,7 +118,8 @@ const josephina = new Student({
     gender: 'female',
     previousBackground: 'nothing',
     className: 'CS13',
-    favSubjects: ['MongoDB', 'JavaScript']
+    favSubjects: ['MongoDB', 'JavaScript'],
+    grade: 100
 });
 
 const sally = new ProjectManager({
@@ -127,7 +149,8 @@ console.log(john.favLanguage);
 console.log(john.specialty);
 console.log(john.catchPhrase);
 console.log(john.demo('Bootstrap'));
-console.log(john.grade('Keiran', 'Javascript'));
+console.log(john.grade(josephina, 'Javascript'));
+console.log(john.addOrSubtractPoints(josephina));
 
 console.log(josephina.name);
 console.log(josephina.age);
@@ -140,6 +163,7 @@ console.log(josephina.favSubjects);
 console.log(josephina.listsSubjects());
 console.log(josephina.PRAssignments('jQuery'));
 console.log(josephina.sprintChallenge('Responsive Design'));
+console.log(josephina.graduate());
 
 console.log(sally.name);
 console.log(sally.age);
@@ -148,5 +172,8 @@ console.log(sally.gender);
 console.log(sally.speak());
 console.log(sally.gradClassName);
 console.log(sally.favInstructor);
+console.log(john.demo('Bootstrap'));
+console.log(john.grade(josephina, 'Javascript'));
+console.log(john.addOrSubtractPoints(josephina));
 console.log(sally.standUp('CS13-Megan'));
 console.log(sally.debugsCode('Keiran', 'Javascript'));
