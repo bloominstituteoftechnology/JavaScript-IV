@@ -3,11 +3,11 @@ class Person {
   constructor(personAttr){
     this.name = personAttr.name
     this.age = personAttr.age
-    this.location = personAttr.locaiton
+    this.location = personAttr.location
     this.gender = personAttr.name
   }
   speak() {
-    return `Hello my name is ${this.name}, I am from ${this.location}`
+    return `Hello my name is ${this.name}, I am from ${this.location}.`
   }
 }
 
@@ -19,10 +19,10 @@ class Instructor extends Person {
     this.catchPhrase = instructorAttr.catchPhrase
   }
   demo(subject) {
-    return `Today we are learning about ${subject}`
+    return `Today we are learning about ${subject}.`
   }
   grade(student, subject) {
-    return `${student.name} receives a perfect score on ${subject}`
+    return `${student} receives a perfect score on ${subject}.`
   }
   grading(prop){
     prop += Math.floor(Math.random()*100)
@@ -41,13 +41,10 @@ class Student extends Person {
     return this.favSubjects
   }
   PRAssignment(subject) {
-    return `${Student.name} has submitted a PR for ${subject}`
+    return `${Student.name} has submitted a PR for ${subject}.`
   }
   sprintChallenge(subject) {
-    return `${Student.name} has begun sprint challengeon ${subject}`
-  }
-  grade() {
-    return this.grade
+    return `${Student.name} has begun sprint challenge on ${subject}.`
   }
   graduate() {
     if (this.grade >= 70) {
@@ -69,3 +66,29 @@ class ProjectManagers extends Instructor {
     return `${ProjectManagers.name} debugs ${student.name}'s code on ${subject}`
   }
 }
+
+//////////////////
+// New Instructors
+//////////////////
+const salvador = new Instructor ({
+  'name':'Salvador',
+  'location': 'Cuenca',
+  'age': 38,
+  'gender': 'Male',
+  'specialty': 'Back-End',
+  'catchPhrase': 'Want more?',
+})
+
+const amalia = new Instructor ({
+  'name':'Amalia',
+  'location': 'Cuenca',
+  'age': 34,
+  'gender': 'Female',
+  'specialty': 'Front-End',
+  'catchPhrase': 'The bells chimes for you',
+})
+
+// salvador.speak();
+// amalia.speak();
+// salvador.demo('React');
+// salvador.grade('Alan', 'NodeJS');
