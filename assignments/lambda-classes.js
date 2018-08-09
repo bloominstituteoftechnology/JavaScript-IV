@@ -13,7 +13,7 @@ class Person {
         this.gender = personAttributes.gender;
     }
     introduction(){
-        console.log(`Hello my name is ${name}, I am from ${location}`);
+        console.log(`Hello my name is ${this.name}, I am from ${this.location}`);
     }
 }
 
@@ -46,19 +46,6 @@ class Instructor extends Person {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 // #### Student
 
 // * Now we need some students!
@@ -72,6 +59,28 @@ class Instructor extends Person {
 //   * `PRAssignment` a method that receives a subject as an argument and logs out that the `student.name has submitted a PR for {subject}`
 //   * `sprintChallenge` similar to PRAssignment but logs out `student.name has begun sprint challenge on {subject}`
 
+class Student extends Person{
+    constructor(studentAttributes){
+        super(studentAttributes);
+        this.previousBackground = studentAttributes.previousBackground;
+        this.className = studentAttributes.className;
+        this.favSubjects = studentAttributes.favSubjects;
+    }
+    listsSubjects(favSubjects) {
+        favSubjects.forEach(element => {
+            console.log(element)
+        });
+    }
+    PRAssignment(subject){
+        console.log(`${this.student.name} has submitted a PR for ${this.subject}`);
+    }
+    sprintChallenge(subject){
+        console.log(`${this.student.name} has begun sprint challenge on ${this.subject}`);
+    }
+}
+
+
+
 // #### Project Mananger
 
 // * Now that we have instructors and students, we'd be nowhere without our PM's
@@ -82,6 +91,8 @@ class Instructor extends Person {
 // * ProjectManangers have the following Methods:
 //   * `standUp` a method that takes in a slack channel and logs `{name} announces to {channel}, @channel standy times!​​​​​
 //   * `debugsCode` a method that takes in a student object and a subject and logs out `{name} debugs {student.name}'s code on {subject}`
+
+
 
 // #### Stretch Problem
 
