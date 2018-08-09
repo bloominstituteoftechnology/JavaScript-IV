@@ -6,6 +6,7 @@ class GameObject {
   constructor(options) {
     this.createdAt = options.createdAt;
     this.dimensions = options.dimensions;
+    this.name = options.name;
   }
   destroy() {
     return `${this.name} was removed from the game.`;
@@ -16,7 +17,6 @@ class CharacterStats extends GameObject{
   constructor(characterStatsOptions) {
     super(characterStatsOptions);
     this.hp = characterStatsOptions.hp;
-    this.name = characterStatsOptions.name;
   }
   takeDamage() {
     return `${this.name} took damage.`;
