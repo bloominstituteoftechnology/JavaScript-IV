@@ -24,8 +24,10 @@ class Instructor extends Person {
   grade(student, subject) {
     return `${student} receives a perfect score on ${subject}.`
   }
-  grading(prop){
-    prop += Math.floor(Math.random()*100)
+  grading(student){
+		let sign = (Math.random() * 2) == 1 ? 1 : -1
+    student.grade += Math.floor(Math.random()*30) * sign;
+		return student.grade
   }
 }
 
@@ -48,8 +50,10 @@ class Student extends Person {
   }
   graduate() {
     if (this.grade >= 70) {
-      return `Student can graduate`
-    }
+      return `${this.name} can graduate with a ${this.grade}.`
+    } else {
+			return `${this.name} still needs to be graded with a ${this.grade}.`
+		}
   }
 }
 
@@ -146,3 +150,5 @@ const alex = new ProjectManagers ({
 // juan.grade('Brian', 'PassportJS');
 // juan.standUp('CS11');
 // alex.debugsCode('Brian', 'Mongoose');
+// juan.grading(olga);
+// ken.graduate();
