@@ -1,3 +1,4 @@
+// Person class
 class Person {
     constructor(personProps) {
         this.name = personProps.name;
@@ -14,33 +15,63 @@ const alice = new Person({
     "name": "Alice",
     "age": 18,
     "location": "Alaska",
-    "gender": "Female"
+    "gender": "Female",
 });
 
 const bob = new Person({
     "name": "Bob",
     "age": 25,
     "location": "Bolivia",
-    "gender": "Male"
+    "gender": "Male",
 });
 
+console.log("TESTING PERSON CLASS.")
 console.log(alice);
 console.log(bob);
 console.log(alice.speak());
 console.log(bob.speak());
 
 
-// Now that we have a Person as our base class, we'll build our Instructor class.
-// Instructor uses the same attributes that have been set up by Person
-// Instructor has the following unique props:
-// specialty what the Instructor is good at i.e. 'redux'
-// favLanguage i.e. 'JavaScript, Python, Elm etc.'
-// catchPhrase i.e. Don't forget the homies
-// Instructor has the following methods:
-// demo receives a subject string as an argument and logs out the phrase 'Today we are learning about {subject}' where subject is the param passed in.
-// grade receives a student object and a subject string as arguments and logs out '{student.name} receives a perfect score on {subject}'
+// Instructor class
 class Instructor extends Person {
     constructor(instructorProps) {
         super(instructorProps);
+        this.specialty = instructorProps.specialty;
+        this.favLanguage = instructorProps.favLanguage;
+        this.catchPhrase = instructorProps.catchPhrase;
+    }
+    demo(subject) {
+        return `Today we are learning about ${subject}`;
+    }
+    grade(student, subject) {
+        return `${student.name} receives a perfect score on ${subject}`;
     }
 }
+
+const cindy = new Instructor({
+    "name": "Cindy",
+    "age": 28,
+    "location": "California",
+    "gender": "Female",
+    "specialty": "Redux",
+    "favLanguage": "JavaScript",
+    "catchPhrase": "Don't forget the homies",
+});
+
+const david = new Instructor({
+    "name": "David",
+    "age": 30,
+    "location": "Delaware",
+    "gender": "Male",
+    "specialty": "React",
+    "favLanguage": "Python",
+    "catchPhrase": "I forgot the homies",
+});
+
+console.log("\nTESTING INSTRUCTOR CLASS.")
+console.log(cindy);
+console.log(david);
+console.log(cindy.demo("Classes"));
+console.log(david.grade({
+    "name": "Dave",
+}, "Geography"));
