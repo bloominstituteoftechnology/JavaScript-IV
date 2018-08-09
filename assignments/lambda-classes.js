@@ -25,6 +25,15 @@ class Instructor extends Person {
     grade(student, subject) { //student object, subject string
         return `${student.name} receives a perfect score on ${subject}.`;
     }
+    changeGrade(student) {
+        //const change = Math.random() * (10 - -10) + -10;
+        let min = Math.ceil(-50);
+  let max = Math.floor(50);
+  const change = Math.floor(Math.random() * (max - min)) + min;
+        
+        student.grade += change;        
+        return `${change} points to ${student.name}'s grade`;
+    }
 }
 
 class Student extends Person {
@@ -33,6 +42,7 @@ class Student extends Person {
         this.previousBackground = studOptions.previousBackground;
         this.className = studOptions.className;
         this.favSubjects = studOptions.favSubjects; //an array
+        this.grade = studOptions.grade;
     }
     listsSubjects() {
         return  `${this.favSubjects}`
@@ -88,26 +98,60 @@ const parker = new Student({
     'gender': 'Male',
     'previousBackground': 'Arachnology',
     'className': 'CS62',
-    'favSubjects': ['Python', 'Javascript', 'HTML/CSS']
+    'favSubjects': ['Parkour', 'Theatre', 'Biology'],
+    'grade': 92
+});
+
+const leeds = new Student({
+    'name': 'Ned',
+    'age': '15',
+    'location': 'Queens',
+    'gender': 'Male',
+    'previousBackground': 'Guy in the Chair',
+    'className': 'CS62',
+    'favSubjects': ['GPS', 'Google', 'Bluetooth'],
+    'grade': 89
+});
+
+const princess = new Student({
+    'name': 'Shuri',
+    'age': '16',
+    'location': 'Wakanda',
+    'gender': 'Female',
+    'previousBackground': 'Science',
+    'className': 'CS62',
+    'favSubjects': ['Infinitystonesectemy', 'Data Science', 'Holograms'],
+    'grade': 9001
 });
 
 console.log(stark);
 console.log(vision);
 console.log(parker);
+console.log(leeds);
+console.log(princess);
 console.log(stark.location);
 console.log(vision.gender);
 console.log(parker.previousBackground);
 console.log(stark.speak());
 console.log(vision.speak());
-console.log(parker.speak());
+console.log(princess.speak());
 console.log(parker.listsSubjects());
 console.log(stark.favLanguage);
 console.log(stark.demo('hacking into government databases'));
 console.log(stark.grade(parker, 'artificial intelligence communications'));
 console.log(vision.standup('cs62_memesquad'));
 console.log(vision.debugsCode(parker, 'Javascript'));
-console.log(parker.PRAssignment('CSS'));
+console.log(princess.PRAssignment('CSS'));
 console.log(parker.sprintChallenge('React'));
 console.log(stark.catchPhrase);
 console.log(vision.catchPhrase);
 console.log(vision.favInstructor);
+console.log(parker.grade);
+console.log(stark.changeGrade(parker));
+console.log(parker.grade);
+console.log(vision.changeGrade(parker))
+console.log(princess.grade);
+console.log(stark.changeGrade(princess));
+console.log(vision.changeGrade(princess));
+console.log(princess.grade);
+console.log(vision.grade(princess, 'removing an Infinity Stone from my skull'))
