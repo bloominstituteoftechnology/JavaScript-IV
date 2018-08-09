@@ -72,21 +72,12 @@ console.log("\nTESTING INSTRUCTOR CLASS.")
 console.log(cindy);
 console.log(david);
 console.log(cindy.demo("Classes"));
-console.log(david.grade({
+console.log(david.grade({ // made a student object here because student classes haven't been created yet
     "name": "Dave",
 }, "Geography"));
 
 
-// Now we need some students!
-// Student uses the same attributes that have been set up by Person
-// Student has the following unique props:
-// previousBackground i.e. what the Student used to do before Lambda School
-// className i.e. CS132
-// favSubjects. i.e. an array of the student's favorite subjects ['Html', 'CSS', 'JavaScript']
-// Student has the following methods:
-// listsSubjects a method that logs out all of the student's favoriteSubjects one by one.
-// PRAssignment a method that receives a subject as an argument and logs out that the student.name has submitted a PR for {subject}
-// sprintChallenge similar to PRAssignment but logs out student.name has begun sprint challenge on {subject}
+// Student class
 class Student extends Person {
     constructor(studentProps) {
         super(studentProps);
@@ -139,3 +130,55 @@ console.log(fred);
 erwin.listsSubjects();
 console.log(fred.PRAssignment("HTML"));
 console.log(erwin.sprintChallenge("CSS"));
+
+
+// Instructor class
+class ProjectManager extends Instructor {
+    constructor(projectManagerProps) {
+        super(projectManagerProps);
+        this.gradClassname = projectManagerProps.gradClassname;
+        this.favInstructor = projectManagerProps.favInstructor;
+    }
+    standUp(channel) {
+        return `${this.name} announces to ${channel}, @${channel} standup times!`;
+    }
+    debugsCode(student, subject) {
+        return `${this.name} debugs ${student.name}'s code on ${subject}`;
+    }
+}
+
+const gladis = new ProjectManager({
+    "name": "Gladis",
+    "age": 37,
+    "location": "Germany",
+    "gender": "Female",
+    "specialty": "JavaScript",
+    "favLanguage": "C#",
+    "catchPhrase": "The cake was a lie.",
+    "previousBackground": "Theoretical Physicist",
+    "className": "CS14",
+    "favSubjects": ["SQL", "React", "Redux"],
+    "gradClassname": "CS1",
+    "favInstructor": "Cindy",
+});
+
+const henry = new ProjectManager({
+    "name": "Henry",
+    "age": 32,
+    "location": "Honduras",
+    "gender": "Male",
+    "specialty": "React",
+    "favLanguage": "Python",
+    "catchPhrase": "Omar coming!",
+    "previousBackground": "POTUS",
+    "className": "CS15",
+    "favSubjects": ["CSS", "Redux", "JavaScript"],
+    "gradClassname": "CS2",
+    "favInstructor": "David",
+});
+
+console.log("\nTESTING PROJECTMANAGER CLASS.")
+console.log(gladis);
+console.log(henry);
+console.log(gladis.standUp("cs13_help"));
+console.log(henry.debugsCode(erwin, "JavaScript"));
