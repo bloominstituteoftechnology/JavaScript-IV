@@ -13,6 +13,29 @@ class Person {
   };
 } //end of Person Class
 
+
+
+class Instructor extends Person {
+  constructor(insAttr) {
+    super(insAttr);
+    this.specialty = insAttr.specialty;
+    this.favLanguage = insAttr.favLanguage;
+    this.catchPhrase = insAttr.catchPhrase;
+  }
+
+  demo() {
+    return `Today we are learning about ${this.subject}`;
+
+  };
+
+  
+  grade(student) {
+    
+    return `student receives a perfect score on ${this.subject}`;
+  };
+
+}//end of Instructor Class
+
 class Student extends Person {
   constructor(stAttr) {
     super(stAttr);
@@ -36,36 +59,16 @@ class Student extends Person {
 
 }//end of Student Class
 
-class Instructor extends Student {
-  constructor(insAttr) {
-    super(insAttr);
-    this.specialty = insAttr.specialty;
-    this.favLanguage = insAttr.favLanguage;
-    this.catchPhrase = insAttr.catchPhrase;
-  }
-
-  demo() {
-    return `Today we are learning about ${this.subject}`;
-
-  };
-
-  grade() {
-    return `${this.name} receives a perfect score on ${this.subject}`;
-  };
-
-}//end of Instructor Class
-
-
-
 
 class ProjectManager extends Instructor {
   constructor(pmAttr) {
     super(pmAttr);
     this.gradClassName = pmAttr.gradClassName;
     this.favInstructor = pmAttr.favInstructor;
+    this.channel = pmAttr.channel;
   }
   standUp() {
-    return `${this.name} announces to {channel}, @channel standy times!`
+    return `${this.name} announces to ${this.channel}, @channel standy times!`
   }
 
   debugsCode() {
@@ -111,7 +114,9 @@ const char = new ProjectManager({
   specialty: 'Back-end',
   catchPhrase: `You can do it because I say so`,
   gradClassName : 'CS8',
-  favInstructor: 'Josh Knell'
+  favInstructor: 'Josh Knell',
+  subject : 'CSS-LESS',
+  channel : 'CS13_TheCoolOnes'
 });
 
 
@@ -127,10 +132,15 @@ console.log(fred.demo())
 console.log(fred.grade()) // need student name to reflect
 console.log(michelle.name)
 console.log(michelle.className)
-console.log(michelle.listsSubjects()) // needs to list one by one
+console.log(michelle.listsSubjects())
 console.log(michelle.PRAssignment())
 console.log(michelle.sprintChallenge())
 console.log(char.catchPhrase)
 console.log(char.favInstructor)
 console.log(char.standUp())
-console.log(char.debugsCode()) //needs to reference student's name and {subject}
+console.log(char.debugsCode()) //needs to reference student's name 
+
+
+
+
+
