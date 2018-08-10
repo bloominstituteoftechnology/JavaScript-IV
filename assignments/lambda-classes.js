@@ -20,11 +20,19 @@ class Student extends Person {
     this.favSubjects = sAttributes.favSubjects;
   }
 
-  listSubjects(arr) {}
+  listSubjects() {
+    for (let i = 0; i < this.favSubjects.length; i++) {
+      return `${this.name} studies ${this.favSubjects[i]}`;
+    }
+  }
 
-  PRAssignment() {}
+  PRAssignment(subject) {
+    return `${this.name} has sumbitted a PR for ${subject}`;
+  }
 
-  sprintChallenge() {}
+  sprintChallenge(subject) {
+    return `${this.name} has begun sprint challenge on ${subject}`;
+  }
 }
 
 class Instructor extends Person {
@@ -36,11 +44,11 @@ class Instructor extends Person {
   }
 
   demo(subject) {
-    return `Today we are learning about ${this.subject}`;
+    return `Today we are learning about ${subject}`;
   }
 
   grade(student, subject) {
-    return `${this.student} receives a perfect score on ${this.subject}`;
+    return `${student} receives a perfect score on ${subject}`;
   }
 }
 
@@ -51,9 +59,13 @@ class ProjectManager extends Instructor {
     this.favInstructor = pmAttributes.favInstructor;
   }
 
-  standUp() {}
+  standUp(channel) {
+    return `${this.name} announces to ${channel} @channel standup time!`;
+  }
 
-  debugsCode() {}
+  debugsCode(student, subject) {
+    return `${this.name} debugs ${student}'s code on ${subject}`;
+  }
 }
 
 const Tibby = new Person({
@@ -133,4 +145,4 @@ console.log(Aeron.listSubjects());
 console.log(Ayomide.favLanguage);
 console.log(Nsonowa.grade("Aeron", "English"));
 console.log(Guanyu.catchPhrase);
-console.log(Alinafe.standUp());
+console.log(Alinafe.standUp("CS20"));
