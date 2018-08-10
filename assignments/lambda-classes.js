@@ -157,30 +157,38 @@ const david = new ProjectManager({
 
 });
 
+fred.speak();
 fred.demo('JavaScript'); 
 fred.grade(michelle, 'JavaScript');
 
-
+jim.speak();
 jim.demo('CSS'); 
 jim.grade(casey, 'CSS');
 
-
+michelle.speak();
 michelle.listsSubjects();
 michelle.PRAssignment('CSS-LESS');
 michelle.sprintChallenge('JS Classes');
 
+casey.speak();
 casey.listsSubjects();
 casey.PRAssignment('JS-III');
 casey.sprintChallenge('JS-II');
 
+kevin.speak();
 kevin.listsSubjects();
 kevin.PRAssignment('JS-I');
 kevin.sprintChallenge('User Interface');
 
-
+char.speak();
+char.demo('CSS'); 
+char.grade(casey, 'CSS');
 char.standUp('CS13_TheCoolOnes');
 char.debugsCode(michelle, 'CSS-LESS');
 
+david.speak();
+david.demo('CSS'); 
+david.grade(casey, 'CSS');
 david.standUp('CS13_RnR');
 david.debugsCode(kevin, 'JS-IV');
 
