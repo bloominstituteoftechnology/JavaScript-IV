@@ -25,7 +25,14 @@ class Instructor extends Person {
     grade(student, subject){
       return `${student.name} receives a perfect score on ${subject}`
     }
+    alter(student) {
+      Math.random() > .5 ?
+      student.grade += Math.floor(Math.random()*50) :
+      student.grade -= Math.floor(Math.random()*50)
+    }
 }
+
+
 
 class Student extends Person {
   constructor(studentParams) {
@@ -33,6 +40,7 @@ class Student extends Person {
     this.previousBackground = studentParams.previousBackground;
     this.className = studentParams.className;
     this.favSubjects = studentParams.favSubjects;
+    this.grade = Math.floor(Math.random()*100)
   }
 
   listsSubjects(skill1, skill2, skill3){
@@ -44,7 +52,11 @@ class Student extends Person {
   sprintChallenge(subject){
     return `${this.name} has begun sprint challenge on ${subject}`
   }
-
+  graduate(){
+    return this.grade > 70  ?
+     `${this.name} is ready to graduate! Congrats!` :
+    `${this.name} needs to study a bit more! Just ${70-this.grade} more points!`
+  }
 }
 
 class ProjectManager extends Instructor {
@@ -113,3 +125,9 @@ console.log(jimmy.PRAssignment('friendly'));
 console.log(jimmy.sprintChallenge());
 console.log(angus.standUp());
 console.log(angus.debugsCode(jimmy));
+console.log('SPACE');
+console.log(jimmy);
+console.log(jimmy.graduate());
+console.log(angus.alter(jimmy));
+console.log(jimmy);
+console.log(jimmy.graduate());
