@@ -22,7 +22,17 @@ class Instructor extends Person{
     return `Today we are learning about ${subject}`;
   }
   grade(student, subject) {
-    return `${student} receives a perfect score on ${subject}`
+    return `${student.name} receives a perfect score on ${subject}`
+  }
+  final(student) {
+    let newGrade = 0;
+    if (Math.random() > 0.5) {
+      newGrade = student.grade - Math.round(Math.random() * 5);
+    } else {
+      newGrade = student.grade + Math.round(Math.random() * 5);
+    }
+    student.grade = newGrade;
+    return newGrade;
   }
 }
 
@@ -32,6 +42,7 @@ class Student extends Person {
     this.previousBackground = studentAttr.previousBackground;
     this.className = studentAttr.className;
     this.favSubjects = studentAttr.favSubjects;
+    this.grade = studentAttr.grade;
   }
   listsSubjects() {
     return (this.favSubjects);
@@ -42,6 +53,13 @@ class Student extends Person {
   sprintChallenge(subject) {
     return `${this.name} has begun sprint challenge on ${subject}`
   }
+  graduate() {
+    if(this.grade >= 70) {
+      return `Congratulations ${this.name}! You graduated!`
+    } else {
+      return `Sorry ${this.name}, you have not graduated yet.`
+    }
+  }
 }
 
 class PM extends Instructor {
@@ -51,10 +69,10 @@ class PM extends Instructor {
     this.favInstructor = pmAttr.favInstructor;
   }
   standUp(channel) {
-    return `${this.name} announces to ${channel}, @${channel} standy times!`
+    return `${this.name} announces to ${channel}, @channel standy times!`
   }
   debugsCode(student, subject) {
-    return `${this.name} debugs ${student}'s code on ${subject}`
+    return `${this.name} debugs ${student.name}'s code on ${subject}`
   }
 }
 
@@ -88,7 +106,8 @@ const mae = new Student({
   'gender': 'Female',
   'previousBackground': 'business management',
   'className': 'CS13',
-  'favSubjects': ['LESS', 'HTML', 'JavaScript']
+  'favSubjects': ['LESS', 'HTML', 'JavaScript'],
+  'grade': 75
 });
 
 console.log(fred);
@@ -96,11 +115,14 @@ console.log(leslie);
 console.log(mae);
 console.log(fred.speak());
 console.log(fred.demo('Javascript'));
-console.log(fred.grade('Hunter', 'HTML'));
+console.log(fred.grade(mae, 'HTML'));
 console.log(leslie.speak());
 console.log(leslie.standUp('lescode'));
-console.log(leslie.debugsCode('Brooke', 'CSS'));
+console.log(leslie.debugsCode(mae, 'CSS'));
 console.log(mae.speak());
 console.log(mae.prAssignment('CSS'));
 console.log(mae.sprintChallenge('CSS'));
 console.log(mae.listsSubjects());
+
+console.log(fred.final(mae));
+console.log(mae.graduate());
