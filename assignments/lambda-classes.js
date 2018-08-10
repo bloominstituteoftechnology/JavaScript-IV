@@ -1,1 +1,163 @@
 // CODE here for your Lambda Classes
+
+class Person {
+  constructor(attributes) {
+    this.name = attributes.name;
+    this.age = attributes.age;
+    this.location = attributes.location;
+  }
+
+  speak() {
+    return `Hello my name is ${this.name}, I am from ${this.location}.`;
+  }
+}
+
+class Instructor extends Person {
+  constructor(iAttributes) {
+    super(iAttributes);
+    this.specialty = iAttributes.specialty;
+    this.favLanguage = iAttributes.favLanguage;
+    this.catchPhrase = iAttributes.catchPhrase;
+  }
+
+  demo(subject) {
+    return `Today we are learning about ${subject}`;
+  }
+
+  grade(student, subject) {
+    let random = student.grade + Math.round(Math.random() * 15);
+    let plusOrMinus = Math.random() < 0.5 ? -1 : 1;
+    random = random * plusOrMinus;
+    return `${student.name} receives a ${random} on ${subject}`;
+  }
+}
+
+class Student extends Person {
+  constructor(sAttributes) {
+    super(sAttributes);
+    this.previousBackground = sAttributes.previousBackground;
+    this.className = sAttributes.className;
+    this.favSubjects = sAttributes.favSubjects;
+    this.grade = sAttributes.grade;
+  }
+
+  listSubjects() {
+    for (let i = 0; i < this.favSubjects.length; i++) {
+      return `${this.name} studies ${this.favSubjects[i]}`;
+    }
+  }
+
+  PRAssignment(subject) {
+    return `${this.name} has sumbitted a PR for ${subject}`;
+  }
+
+  sprintChallenge(subject) {
+    return `${this.name} has begun sprint challenge on ${subject}`;
+  }
+
+  graduate() {
+    if (this.grade > 70) {
+      return `${this.name} can graduate!`;
+    } else {
+      return `${this.name} cannot graduate yet!`;
+    }
+  }
+}
+
+class ProjectManager extends Instructor {
+  constructor(pmAttributes) {
+    super(pmAttributes);
+    this.gradClassName = pmAttributes.gradClassName;
+    this.favInstructor = pmAttributes.favInstructor;
+  }
+
+  standUp(channel) {
+    return `${this.name} announces to ${channel} @channel standup time!`;
+  }
+
+  debugsCode(student, subject) {
+    return `${this.name} debugs ${student}'s code on ${subject}`;
+  }
+}
+
+const Tibby = new Person({
+  name: "Tibby",
+  age: 21,
+  location: "Missouri"
+});
+
+const Leith = new Person({
+  name: "Leith",
+  age: 39,
+  location: "Texas"
+});
+
+const Ayomide = new Instructor({
+  name: "Ayomide",
+  age: 26,
+  location: "Washington",
+  specialty: "UI/UX",
+  favLanguage: "Ruby",
+  catchPhrase: "I sing like a designer"
+});
+
+const Nsonowa = new Instructor({
+  name: "Nsonowa",
+  age: 32,
+  location: "Maine",
+  specialty: "React",
+  favLanguage: "JavaScript",
+  catchPhrase: "I take online dancing classes"
+});
+
+const Adetokunbo = new Student({
+  name: "Adetokunbo",
+  age: 27,
+  location: "Louisiana",
+  previousBackground: "Mechanical Engineering",
+  className: "CS43",
+  favSubjects: ["PostgreSQL", "MongoDB"],
+  grade: 82
+});
+
+const Aeron = new Student({
+  name: "Aeron",
+  age: 31,
+  location: "Kentucky",
+  previousBackground: "Financial Advisor",
+  className: "CS60",
+  favSubjects: ["JavaScipt", "Node"],
+  grade: 64
+});
+
+const Guanyu = new ProjectManager({
+  name: "Guanyu",
+  age: 45,
+  location: "Maryland",
+  specialty: "Node",
+  favLanguage: "JavaScript",
+  catchPhrase: "I node everything",
+  gradClassName: "CS28",
+  favInstructor: "Nsonowa"
+});
+
+const Alinafe = new ProjectManager({
+  name: "Alinafe",
+  age: 25,
+  location: "Iowa",
+  specialty: "C++",
+  favLanguage: "C",
+  catchPhrase: "Master of adding functions",
+  gradClassName: "CS35",
+  favInstructor: "Nsonowa"
+});
+
+console.log(Tibby.age);
+console.log(Leith.speak());
+console.log(Ayomide.favLanguage);
+console.log(Nsonowa.grade(Aeron, "English"));
+console.log(Adetokunbo.previousBackground);
+console.log(Aeron.listSubjects());
+console.log(Adetokunbo.graduate());
+console.log(Guanyu.catchPhrase);
+console.log(Alinafe.standUp("CS20"));
