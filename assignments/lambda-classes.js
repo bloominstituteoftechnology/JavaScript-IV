@@ -12,12 +12,33 @@ class Person {
   }
 }
 
+class Instructor extends Person {
+  constructor(iAttributes) {
+    super(iAttributes);
+    this.specialty = iAttributes.specialty;
+    this.favLanguage = iAttributes.favLanguage;
+    this.catchPhrase = iAttributes.catchPhrase;
+  }
+
+  demo(subject) {
+    return `Today we are learning about ${subject}`;
+  }
+
+  grade(student, subject) {
+    let random = student.grade + Math.round(Math.random() * 15);
+    let plusOrMinus = Math.random() < 0.5 ? -1 : 1;
+    random = random * plusOrMinus;
+    return `${student.name} receives a ${random} on ${subject}`;
+  }
+}
+
 class Student extends Person {
   constructor(sAttributes) {
     super(sAttributes);
     this.previousBackground = sAttributes.previousBackground;
     this.className = sAttributes.className;
     this.favSubjects = sAttributes.favSubjects;
+    this.grade = sAttributes.grade;
   }
 
   listSubjects() {
@@ -33,22 +54,13 @@ class Student extends Person {
   sprintChallenge(subject) {
     return `${this.name} has begun sprint challenge on ${subject}`;
   }
-}
 
-class Instructor extends Person {
-  constructor(iAttributes) {
-    super(iAttributes);
-    this.specialty = iAttributes.specialty;
-    this.favLanguage = iAttributes.favLanguage;
-    this.catchPhrase = iAttributes.catchPhrase;
-  }
-
-  demo(subject) {
-    return `Today we are learning about ${subject}`;
-  }
-
-  grade(student, subject) {
-    return `${student} receives a perfect score on ${subject}`;
+  graduate() {
+    if (this.grade > 70) {
+      return `${this.name} can graduate!`;
+    } else {
+      return `${this.name} cannot graduate yet!`;
+    }
   }
 }
 
@@ -80,24 +92,6 @@ const Leith = new Person({
   location: "Texas"
 });
 
-const Adetokunbo = new Student({
-  name: "Adetokunbo",
-  age: 27,
-  location: "Louisiana",
-  previousBackground: "Mechanical Engineering",
-  className: "CS43",
-  favSubjects: ["PostgreSQL", "MongoDB"]
-});
-
-const Aeron = new Student({
-  name: "Aeron",
-  age: 31,
-  location: "Kentucky",
-  previousBackground: "Financial Advisor",
-  className: "CS60",
-  favSubjects: ["JavaScipt", "Node"]
-});
-
 const Ayomide = new Instructor({
   name: "Ayomide",
   age: 26,
@@ -114,6 +108,26 @@ const Nsonowa = new Instructor({
   specialty: "React",
   favLanguage: "JavaScript",
   catchPhrase: "I take online dancing classes"
+});
+
+const Adetokunbo = new Student({
+  name: "Adetokunbo",
+  age: 27,
+  location: "Louisiana",
+  previousBackground: "Mechanical Engineering",
+  className: "CS43",
+  favSubjects: ["PostgreSQL", "MongoDB"],
+  grade: 82
+});
+
+const Aeron = new Student({
+  name: "Aeron",
+  age: 31,
+  location: "Kentucky",
+  previousBackground: "Financial Advisor",
+  className: "CS60",
+  favSubjects: ["JavaScipt", "Node"],
+  grade: 64
 });
 
 const Guanyu = new ProjectManager({
@@ -140,9 +154,10 @@ const Alinafe = new ProjectManager({
 
 console.log(Tibby.age);
 console.log(Leith.speak());
+console.log(Ayomide.favLanguage);
+console.log(Nsonowa.grade(Aeron, "English"));
 console.log(Adetokunbo.previousBackground);
 console.log(Aeron.listSubjects());
-console.log(Ayomide.favLanguage);
-console.log(Nsonowa.grade("Aeron", "English"));
+console.log(Adetokunbo.graduate());
 console.log(Guanyu.catchPhrase);
 console.log(Alinafe.standUp("CS20"));
