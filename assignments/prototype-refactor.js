@@ -41,7 +41,7 @@ class CharacterStats extends GameObject{
    if (this.hp <= 0){
    console.log(`${this.name} dead Jim! No returning. And now has ${this.hp} remaining.`);
    } 
-   return `${this.name} took damage and now has ${this.hp} remaining.`;
+  console.log(`${this.name} took damage and now has ${this.hp} remaining.`);
  };
  
 }
@@ -54,7 +54,7 @@ class Humanoid extends CharacterStats {
    this.faction = human.faction;
    this.weapons = human.weapons;
    this.language = human.language;
-   // Hitpoints.call(this, human);
+
   //return this {};
  }
  greet() {
