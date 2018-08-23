@@ -14,9 +14,9 @@ GameObject.prototype.destroy = function() {
 
 // refactored GameObject
 class GameObject {
-  constructor(GameObject_attributes) {
-    this.createdAt = GameObject_attributes.createdAt;
-    this.dimensions = GameObject_attributes.dimensions;
+  constructor(gameObject_attributes) {
+    this.createdAt = gameObject_attributes.createdAt;
+    this.dimensions = gameObject_attributes.dimensions;
   }
 
   destroy() {
@@ -80,7 +80,6 @@ class Humanoid extends CharacterStats {
   }
 
 }
-
 
 
 const mage = new Humanoid({
