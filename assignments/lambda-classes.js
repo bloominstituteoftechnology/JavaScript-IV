@@ -81,6 +81,18 @@ const fred = new Instructor({
     catchPhrase: `Don't forget the homies`
   });
 
+  const analogy = new ProjectManagers({
+    name: 'Anthony',
+    location: 'Tweed',
+    age: 37,
+    gender: 'male',
+    favLanguage: 'JavaScript',
+    specialty: 'Front-end',
+    catchPhrase: `Alright, Alright!`
+  });
+
+
+
 
 
   fred.speak();
