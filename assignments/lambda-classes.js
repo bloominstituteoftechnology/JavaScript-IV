@@ -110,3 +110,39 @@ const fred = new Instructor({
     specialty: 'Front-end',
     catchPhrase: `Don't forget the homies`
 });
+
+const kevin = new ProjectManager({
+    name: 'Kevin',
+    location: 'Atlanta',
+    age: 44,
+    gender: 'male',
+    favLanguage: ['JavaScript', 'C', 'HTMLCSS', 'React'],
+    specialty: 'Full Stack',
+    catchPhrase: `Dull catchphrase`,
+    gradClassName: 'CS1',
+    favInstructor: "Dan"
+});
+
+
+//STUDENTS CALL OUTS
+console.log(mark.listsSubjects());
+// console.log(mark.speak());
+// console.log(mark.PRAssignment("Javascript"));
+// console.log(carissa.sprintChallenge("LESS"));
+// console.log(carissa.speak());
+// console.log(carissa.listsSubjects());
+
+
+// //INSTRUCTOR CALLOUTS
+// console.log(fred.speak());
+// console.log(fred.demo("Knitting"));
+// console.log(fred.grade(mark, "HTML"));
+// console.log(fred.grade(carissa, "java"));
+
+// //PM CALLOUTS
+// console.log(kevin.speak());
+// console.log(kevin.demo("React"));
+// console.log(kevin.standUp("cspt2-kevin"));
+// console.log(kevin.debugsCode(fred, "JavaScript"));   //TRY the error
+// console.log(kevin.debugsCode(mark, "JavaScript"));
+// console.log(kevin.debugsCode(carissa, "LESS"));
