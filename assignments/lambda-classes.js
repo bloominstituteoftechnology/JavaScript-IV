@@ -29,12 +29,9 @@ class Instructor extends Person {
     console.log(`${student.name} recieves a perfect score on ${subject}`);
   }
   gradeing(student) {
-    let upOrDown = 1;
-    if (Math.random() < 0.65) {
-      upOrDown = -1;
-    }
-    let adjustment = Math.ceil(Math.random() * 10);
-    student.grade -= adjustment * upOrDown;
+   
+ 
+    student.grade = Math.ceil(Math.random() * 100);
 
     console.log(`${this.name} updates receives a new grade ${student.grade}`);
   }
@@ -61,26 +58,26 @@ class Students extends Person {
   }
   graduate(allInstruct) {
       //will refactor this latter
-    for (let i = 0; i >= 0; i++) {
-      if (this.grade >= 70) {
-        console.log(`${this.name} has graduated thanks to ${allInstruct.name}`);
-        break;
-      } else if (this.grade <= 40) {
-        console.log(
-          `${allInstruct.name} has determined that ${
-            this.name
-          } need to go back to increase ${this.name} score`
-        );
-        break;
-      } else {
-        allInstruct.gradeing(this);
-        console.log(
-          `${allInstruct.name} has adjusted ${this.name}'s grade to ${
-            this.grade
-          }`
-        );
+      for (let i = 0; i >= 0; i++) {
+          if (this.grade >= 70) {
+              console.log(`${this.name} has graduated thanks to ${allInstruct.name}`);
+              break;
+          } else if (this.grade <= 40) {
+              console.log(
+                  `${allInstruct.name} has determined that ${
+                  this.name
+                  } need to go back to increase ${this.name} score`
+              );
+              break;
+          } else {
+              allInstruct.gradeing(this);
+              console.log(
+                  `${allInstruct.name} has adjusted ${this.name}'s grade to ${
+                  this.grade
+                  }`
+              );
+          }
       }
-    }
   }
 }
 
@@ -100,7 +97,7 @@ class ProjectManagers extends Instructor {
     );
   }
   debugsCode(student, subject) {
-    console.log(`${this.name} debugs ${student}'s code on ${subject}`);
+    console.log(`${this.name} debugs ${student.name}'s code on ${subject}`);
   }
 }
 
