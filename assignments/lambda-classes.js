@@ -24,6 +24,13 @@ class Instructors extends Person {
     grade(student, subject) {
         return `${student.name} receives a perfect score on ${subject}`;
     };
+    gradingStudents(student) {
+        let random = Math.floor(Math.random()*15);
+        let addOrSubstract = Math.random() > 0.5 ? 1 : -1;
+        random = random * addOrSubstract;
+        student.grade += random;
+        student.grade >= 100 ? student.grade = 100 : student.grade +1;
+    };
 }
 
 class Students extends Person {
@@ -32,6 +39,7 @@ class Students extends Person {
         this.previousBackground = studentsOptions.previousBackground;
         this.className = studentsOptions.className;
         this.favSubjects = studentsOptions.favSubjects;
+        this.grade = studentsOptions.grade;
     }
     listsSubjects() {        
         return this.favSubjects.forEach(item => {console.log(item)});
@@ -42,6 +50,11 @@ class Students extends Person {
     sprintChallenge(subject) {
         return `${this.name} has begun sprint challenge on ${subject}.`;
     };
+    checkGraduation() {
+        const success = `${this.name} has been graded by Jacob with ${this.grade} points and is ready for graduating from Lambda School! Congratulations!!!`;
+        const defeat = `Jacob think that ${this.name} needs to keep studying for being able to graduate.`;
+        return this.grade >= 70 ? success : defeat;
+    }
 }
 
 class ProjectManagers extends Instructors {
@@ -66,6 +79,7 @@ const jorge = new Students ({
     previousBackground: 'Chess Player',
     className: 'CSPT2',
     favSubjects: ['Javascript', 'Less', 'Flexbox'],
+    grade: 85,
 });
 
 const abigayle = new Students ({
@@ -76,6 +90,7 @@ const abigayle = new Students ({
     previousBackground: 'Good designer',
     className: 'CSPT2',
     favSubjects: ['CSS','Javascript', 'UI/UX Design', 'CSS again!', 'Helping us'],
+    grade: 100,
 });
 
 const ryan = new Students ({
@@ -86,6 +101,7 @@ const ryan = new Students ({
     previousBackground: 'Javascript student',
     className: 'CSPT2',
     favSubjects: ['CSS','Javascript', 'Code Challenges', 'Cats', 'Painting'],
+    grade: 90
 });
 
 const dan = new Instructors ({
@@ -167,3 +183,20 @@ console.log(jacob.debugsCode(jorge, 'Code Challenge'));
 console.log(messi.standUp('CSPT2-Team-Jacob!'));
 console.log(jacob.grade(jorge, 'JS-IV'));
 console.log(messi.speak());
+console.log(jorge.grade);
+jacob.gradingStudents(jorge);
+console.log(jorge.grade);
+jacob.gradingStudents(jorge);
+console.log(jorge.grade);
+jacob.gradingStudents(jorge);
+console.log(jorge.grade);
+jacob.gradingStudents(jorge);
+console.log(jorge.grade);
+jacob.gradingStudents(jorge);
+console.log(jorge.grade);
+jacob.gradingStudents(jorge);
+console.log(jorge.grade);
+jacob.gradingStudents(jorge);
+console.log(jorge.grade);
+jacob.gradingStudents(jorge);
+console.log(jorge.checkGraduation());
