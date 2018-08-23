@@ -27,8 +27,8 @@ class Instructor extends Person {
     }
 
     //Remember this is for students only
-    grade(this, subject){
-        return `${this.name} receives a perfect score on ${subject}`;
+    grade(Student, subject){
+        return `${Student.name} receives a perfect score on ${subject}`;
     }
 }
 
@@ -53,5 +53,22 @@ class Student extends Person {
         return `${this.name} has begun sprint challenge on ${subject}`;
     }
 
+}
+
+class ProjectManager extends Instructor {
+    
+    constructor(pmProp) {
+        super(instrucProp);
+        this.gradClassName = pmProp.gradClassName;
+        this.favInstructor = pmProp.favInstructor;
+    }
+
+    standUp(channel) {
+        return `${this.name} announces to ${channel}, @channel standby times!`
+    }
+
+    debugsCode(Student, subject) {
+        `${Student.name}'s code on ${subject}`;
+    }
 }
 
