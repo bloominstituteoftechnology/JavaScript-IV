@@ -6,10 +6,11 @@ class GameObject {
   constructor(options) {
     this.createdAt = options.createdAt;
     this.dimensions = options.dimensions;
-  }
+  };
+
   destroy() {
-    `${this.name} was removed from the game`;
-  }
+    return `${this.name} was removed from the game.`;
+  };
 }
 // function GameObject(options) {
 //   this.createdAt = options.createdAt;
@@ -24,10 +25,11 @@ class CharacterStats extends GameObject {
     super(characterStatsOptions)
     this.hp = characterStatsOptions.hp;
     this.name = characterStatsOptions.name;
-  }
+  };
+
   takeDamage() {
     return `${this.name} took damage.`;
-  }
+  };
 }
 // function CharacterStats(characterStatsOptions) {
 //   GameObject.call(this, characterStatsOptions);
@@ -46,10 +48,11 @@ class Humanoid  extends CharacterStats {
     this.faction = humanoidOptions.faction;
     this.weapons = humanoidOptions.weapons;
     this.language = humanoidOptions.language;
-  }
+  };
+
   greet() {
     return `${this.name} offers a greeting in ${this.language}.`;
-  }
+  };
 }
 // function Humanoid(humanoidOptions) {
 //   CharacterStats.call(this, humanoidOptions);
@@ -72,7 +75,7 @@ const mage = new Humanoid({
   hp: 5,
   name: 'Bruce',
   faction: 'Mage Guild',
-  weapons: ['Staff of Shamalama'],
+  weapons: 'Staff of Shamalama',
   language: 'Common Toungue'
 });
 
