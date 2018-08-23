@@ -1,5 +1,7 @@
 // CODE here for your Lambda Classes
 
+
+// PERSON CLASS
 class Person {
 
     constructor(allPeps){
@@ -14,6 +16,7 @@ class Person {
     }
 }
 
+// INSTRUCTOR CLASS 
 class Instructor extends Person {
 
     constructor(instructors){
@@ -33,6 +36,8 @@ class Instructor extends Person {
     }
 
 }
+
+// STUDENTS CLASS
 class Students extends Person {
     constructor (student){
         super(student);
@@ -54,6 +59,8 @@ class Students extends Person {
 
 }
 
+// PROJECT MANAGERS CLASS
+
 class ProjectManagers extends Instructor {
 
     constructor(pmInstructor){
@@ -71,7 +78,7 @@ class ProjectManagers extends Instructor {
       }
 }
 
-
+// Instructors Starts Here
 const fred = new Instructor({
     name: 'Fred',
     location: 'Bedrock',
@@ -93,7 +100,7 @@ const fred = new Instructor({
     catchPhrase: `Don't forget the homies`
   });
 
-
+// Students Start Here
   const stefan = new Students({
     name: 'Stefan Clem',
     location: 'Phoenix',
@@ -120,6 +127,7 @@ const fred = new Instructor({
     catchPhrase: `You got dis!`
   });
 
+// Project Managers Start Here
 
   const analogy = new ProjectManagers({
     name: 'Anthony Tweed',
