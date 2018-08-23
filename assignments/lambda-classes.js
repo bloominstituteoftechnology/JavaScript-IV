@@ -34,6 +34,10 @@ class Instructor extends Person {
     grade(student, subject){
         return `${student.name} receives a perfect score on ${subject}.`
     }
+
+    addGrade(student, grade){
+        return `${student.name} is now receiving this grade: ${grade - (Math.random*100)} for Math.`
+    }
 }
 
 class Student extends Person {
@@ -43,6 +47,7 @@ class Student extends Person {
         this.previousBackground = previousBackground;
         this.className = className;
         this.favSubjects = favSubjects; //supposed to be array?
+        this.grade = 99;
     }
 
     listsSubjects(){
@@ -57,6 +62,13 @@ class Student extends Person {
 
     sprintChallenge(subject){
         return `${student.name} has begun sprint challenge on ${subject}.`
+    }
+
+    graduate(){
+        if(student.grade > 70) {
+            return `Pomp and circumstance! Go graduate!`
+        }
+        return this.grade();
     }
 }
 
@@ -85,4 +97,5 @@ const wilma = new Instructor ({
     catchPhrase: 'picture me rollin',
 })
 
-console.log(wilma);
+console.log(wilma.grade('john','math'));
+console.log(wilma.addGrade('john', 98));
