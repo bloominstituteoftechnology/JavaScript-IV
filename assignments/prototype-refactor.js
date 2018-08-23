@@ -2,9 +2,9 @@
 // Today your goal is to refactor all of this code to use ES6 Classes.
 // The console.log() statements should still return what is expected of them.
 class GameObject {
-  constructor(obj) {
-    this.createdAt = obj.createdAt;
-    this.dimensions = obj.dimensions;
+  constructor(options) {
+    this.createdAt = options.createdAt;
+    this.dimensions = options.dimensions;
   }
   destroy() {
     return `${this.name} was removed from the game.`;
@@ -12,10 +12,10 @@ class GameObject {
 }
 
 class CharacterStats extends GameObject {
-  constructor(obj) {
-    super(obj)
-    this.hp = obj.hp;
-    this.name = obj.name;
+  constructor(characterStatsOptions) {
+    super(characterStatsOptions)
+    this.hp = characterStatsOptions.hp;
+    this.name = characterStatsOptions.name;
   }
   takeDamage() {
     return `${this.name} took damage.`;
@@ -23,16 +23,17 @@ class CharacterStats extends GameObject {
 }
 
 class Humanoid extends CharacterStats {
-  constructor(obj) {
-    super(obj)
-    this.faction = obj.faction;
-    this.weapons = obj.weapons;
-    this.language = obj.language;
+  constructor(humanoidOptions) {
+    super(humanoidOptions)
+    this.faction = humanoidOptions.faction;
+    this.weapons = humanoidOptions.weapons;
+    this.language = humanoidOptions.language;
   }
   greet() {
     return `${this.name} offers a greeting in ${this.language}.`;
   };
 }
+
 
 
 
