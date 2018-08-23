@@ -9,14 +9,14 @@ class Person {
     }
 
     speak(){
-        return `Hello my name is ${this.name}, I aam from ${this.location}`;
+        return `Hello my name is ${this.name}, I am from ${this.location}`;
     }
 }
 
 class Instructor extends Person {
     
     constructor(instrucProp) {
-        super(personProp);
+        super(instrucProp);
         this.specialty = instrucProp.specialty;
         this.favLanguage = instrucProp.favLanguage; //Array of objects in an object
         this.catchPhrase = instrucProp.catchPhrase;
@@ -35,14 +35,17 @@ class Instructor extends Person {
 class Student extends Person {
     
     constructor(studentProp) {
-        super(personProp);
+        super(studentProp);
         this.previousBackground = studentProp.previousBackground;
         this.className = studentProp.className;
         this.favSubjects = studentProp.favSubjects;     //Array of objects in an object
     }
 
     listsSubjects(){
-        return this.favSubjects.forEach(item => item);
+        for (let i = 0; i < this.favSubjects.length; i++){
+            console.log(this.favSubjects[i]);
+        }
+        // return this.favSubjects.forEach(item => Array.all(item));
     }
 
     PRAssignment(subject){
@@ -58,7 +61,7 @@ class Student extends Person {
 class ProjectManager extends Instructor {
     
     constructor(pmProp) {
-        super(instrucProp);
+        super(pmProp);
         this.gradClassName = pmProp.gradClassName;
         this.favInstructor = pmProp.favInstructor;
     }
@@ -68,7 +71,7 @@ class ProjectManager extends Instructor {
     }
 
     debugsCode(Student, subject) {
-        `${Student.name}'s code on ${subject}`;
+        return `${Student.name}'s code on ${subject}`;
     }
 }
 
@@ -125,24 +128,30 @@ const kevin = new ProjectManager({
 
 
 //STUDENTS CALL OUTS
+console.log("\n=======STUDENT - MARK - CALLOUTS HERE=======\n")
+console.log(mark);
 console.log(mark.listsSubjects());
-// console.log(mark.speak());
-// console.log(mark.PRAssignment("Javascript"));
-// console.log(carissa.sprintChallenge("LESS"));
-// console.log(carissa.speak());
-// console.log(carissa.listsSubjects());
+console.log(mark.speak());
+console.log(mark.PRAssignment("Javascript"));
+
+console.log("\n=======STUDENT - CARISSA - CALLOUTS HERE=======\n")
+console.log(carissa.sprintChallenge("LESS"));
+console.log(carissa.speak());
+console.log(carissa.listsSubjects());
 
 
 // //INSTRUCTOR CALLOUTS
-// console.log(fred.speak());
-// console.log(fred.demo("Knitting"));
-// console.log(fred.grade(mark, "HTML"));
-// console.log(fred.grade(carissa, "java"));
+console.log("\n=======INSTRUCTOR CALLOUTS HERE=======\n")
+console.log(fred.speak());
+console.log(fred.demo("Knitting"));
+console.log(fred.grade(mark, "HTML"));
+console.log(fred.grade(carissa, "java"));
 
 // //PM CALLOUTS
-// console.log(kevin.speak());
-// console.log(kevin.demo("React"));
-// console.log(kevin.standUp("cspt2-kevin"));
-// console.log(kevin.debugsCode(fred, "JavaScript"));   //TRY the error
-// console.log(kevin.debugsCode(mark, "JavaScript"));
-// console.log(kevin.debugsCode(carissa, "LESS"));
+console.log("\n=======PM CALLOUTS HERE=======\n")
+console.log(kevin.speak());
+console.log(kevin.demo("React"));
+console.log(kevin.standUp("cspt2-kevin"));
+console.log(kevin.debugsCode(fred, "JavaScript"));   //TRY the error
+console.log(kevin.debugsCode(mark, "JavaScript"));
+console.log(kevin.debugsCode(carissa, "LESS"));
