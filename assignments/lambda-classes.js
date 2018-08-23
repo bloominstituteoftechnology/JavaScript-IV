@@ -45,11 +45,11 @@ class Students extends Person {
 
     }
     PRAssignment(subject){
-        console.log(`${this.name}, as submitted a PR for ${this.subject}`)
+        console.log(`${this.name}, as submitted a PR for ${subject}`)
     }
     
     sprintChallenge(subject){
-        console.log(`${this.name} has begun sprint challenge on ${this.subject} `)
+        console.log(`${this.name} has begun sprint challenge on ${subject} `)
     }
 
 }
@@ -66,7 +66,7 @@ class ProjectManagers extends Instructor {
         console.log(`${this.name} announces to ${slackChannel}, @channel standby times!`)
     }
       debugsCode(student, subject) {
-          console.log(`${this.name} debugs ${student.name}'s code on ${this.subject}`)
+          console.log(`${this.name} debugs ${student.name}'s code on ${subject}`)
       }
 }
 
@@ -81,13 +81,26 @@ const fred = new Instructor({
     catchPhrase: `Don't forget the homies`
   });
 
+  const stefan = new Students({
+    name: 'Stefan Clem',
+    location: 'Phoenix',
+    age: 40,
+    gender: 'male',
+    favLanguage: 'JavaScript',
+    specialty: 'Full Stack Developer',
+    prevBackground: 'Jr QA Engineer',
+    className: 'CSPT2',
+    favSubjects: ['LESS', 'Syntax','Electron Apps'],
+    catchPhrase: `Better to burn out then to fade away!`
+  });
+
   const analogy = new ProjectManagers({
-    name: 'Anthony',
-    location: 'Tweed',
+    name: 'Anthony Tweed',
+    location: 'Gorgia',
     age: 37,
     gender: 'male',
     favLanguage: 'JavaScript',
-    specialty: 'Front-end',
+    specialty: 'Full Stack Developer',
     catchPhrase: `Alright, Alright!`
   });
 
@@ -96,3 +109,8 @@ const fred = new Instructor({
 
 
   fred.speak();
+  analogy.speak();
+  analogy.standUp('#cspt2_anthony');
+  stefan.speak();
+  stefan.listsSubjects();
+  stefan.PRAssignment('Javascript IV Sprint Challenge');
