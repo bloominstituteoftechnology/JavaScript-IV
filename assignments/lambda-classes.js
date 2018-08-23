@@ -42,9 +42,16 @@ class Student extends Person {
     }
 
     listsSubjects(){
-        this.favSubjects.forEach(item => item);
+        return this.favSubjects.forEach(item => item);
     }
 
-    
+    PRAssignment(subject){
+        return `${this.name} has submitted a PR for ${subject}`;
+    }
+
+    sprintChallenge(subject){
+        return `${this.name} has begun sprint challenge on ${subject}`;
+    }
 
 }
+
