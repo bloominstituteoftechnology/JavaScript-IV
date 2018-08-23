@@ -24,12 +24,12 @@ class Instructor extends Person {
     };
 
     demo(subject) {
-       console.log(`Today we are learning about ${this.subject}`);
+       console.log(`Today we are learning about ${subject}`);
 
     }
-    grade(student, subject)
+    grade(subject)
     {
-        console.log(`${students.name} recieves a perfect score on ${this.subject}`)
+        console.log(`${stefan.name} recieves a perfect score on ${subject}`)
     }
 
 }
@@ -41,7 +41,7 @@ class Students extends Person {
         this.favSubjects = student.favSubjects;  
     }
     listsSubjects(){
-        console.log(`This list of subjects ${this.favSubjects}`)
+        console.log(`${this.name} favorite subjects are: ${this.favSubjects}`)
 
     }
     PRAssignment(subject){
@@ -58,6 +58,7 @@ class ProjectManagers extends Instructor {
 
     constructor(pmInstructor){
         super(pmInstructor);
+    
         this.gradClassName = pmInstructor.gradClassName;
         this.favInstructor = pmInstructor.favInstructor;
     }
@@ -65,8 +66,8 @@ class ProjectManagers extends Instructor {
     standUp(slackChannel){
         console.log(`${this.name} announces to ${slackChannel}, @channel standby times!`)
     }
-      debugsCode(student, subject) {
-          console.log(`${this.name} debugs ${student.name}'s code on ${subject}`)
+      debugsCode(subject) {
+          console.log(`${this.name} debugs ${stefan.name}'s code on ${subject}`)
       }
 }
 
@@ -81,6 +82,18 @@ const fred = new Instructor({
     catchPhrase: `Don't forget the homies`
   });
 
+
+  const dan = new Instructor({
+    name: 'Dan Frehner',
+    location: 'SLC',
+    age: 37,
+    gender: 'male',
+    favLanguage: 'JavaScript',
+    specialty: 'Front-end',
+    catchPhrase: `Don't forget the homies`
+  });
+
+
   const stefan = new Students({
     name: 'Stefan Clem',
     location: 'Phoenix',
@@ -94,6 +107,20 @@ const fred = new Instructor({
     catchPhrase: `Better to burn out then to fade away!`
   });
 
+  const jerald = new Students({
+    name: 'Jerald Greenfelder',
+    location: 'North Dakota',
+    age:30,
+    gender: 'male',
+    favLanguage: 'C#',
+    specialty: 'Back-End',
+    prevBackground: 'None',
+    className: 'CSPT2',
+    favSubjects: ['Javascript', 'Math','Redux'],
+    catchPhrase: `You got dis!`
+  });
+
+
   const analogy = new ProjectManagers({
     name: 'Anthony Tweed',
     location: 'Gorgia',
@@ -101,16 +128,26 @@ const fred = new Instructor({
     gender: 'male',
     favLanguage: 'JavaScript',
     specialty: 'Full Stack Developer',
+    gradClassName: `CS1`,
+    favInstructor: `Dan`,
     catchPhrase: `Alright, Alright!`
   });
 
 
 
 
-
+// Instructors 
   fred.speak();
-  analogy.speak();
-  analogy.standUp('#cspt2_anthony');
+  dan.speak();
+  dan.demo(`Javascript Classes!!!`);
+  dan.grade(`Javscript IV`);
+  // Students
   stefan.speak();
   stefan.listsSubjects();
   stefan.PRAssignment('Javascript IV Sprint Challenge');
+  stefan.sprintChallenge('Javascript Challenge');
+  jerald.speak();
+// Project Managers
+  analogy.speak();
+  analogy.standUp('#cspt2_anthony');
+ analogy.debugsCode('push method');
