@@ -1,5 +1,5 @@
 class Person{
-
+    
     constructor(personAttributes){
         this.name = personAttributes.name;
         this.age = personAttributes.age;
@@ -12,6 +12,7 @@ class Person{
 }
 
 class Instructor extends Person {
+
     constructor(attributes){
         super(attributes)
         this.speciality = attributes.specialty;
@@ -26,22 +27,27 @@ class Instructor extends Person {
     grade(student, subject){
         console.log(`${student.name} receives a perfect score on ${subject}`)
     }
+
+    studentGrade(student){
+      let grade  = student.grade - Math.round(Math.random(100) * 100);
+      console.log(`${student.name} score ${grade} `)
+      return grade;
+    }        
 }
 
 class Student extends Person{
+
     constructor(attributes){
         super(attributes)
         this.previousBackground = attributes.previousBackground;
         this.className = attributes.className;
         this.favSubjects = attributes.favSubjects;
+        this.grade = Math.round(Math.random(100)* 100);
     }
 
     listSubjects(){
-      let subjects =this.favSubjects;
-      const cb =(item, index, array) => {
-         console.log(array[index]);
-      }
-      return subjects.map(cb);
+      let subjects = this.favSubjects;
+      return subjects.forEach(element => console.log(element));
     }
 
     PRAssignment(subject){
@@ -50,6 +56,14 @@ class Student extends Person{
 
     sprintChallenge(subject){
         console.log(`${this.name} has begun a sprint challenge on ${subject}`)
+    }
+
+    graduate(){
+      if(this.grade > 70 ){
+       console.log (`${this.name } is ready to graduate`)
+      }else{
+        console.log(`${this.name} need more study time`)
+      }
     }
 }
 
@@ -104,10 +118,15 @@ console.log(jerry.listSubjects());
 console.log(jerry);
 jerry.sprintChallenge("less");
 jerry.speak();
-jerry.PRAssignment('LESS')
+jerry.graduate();
+
+console.log(/********************************/)
 console.log(fred);
 fred.grade(jerry,'JavaScript');
+fred.studentGrade(jerry);
+
+console.log(/*********************************/)
 console.log(luis);
 luis.debugsCode(jerry,'JavaScript');
 luis.standUp();
-luis.demo('Javascript');
+luis.studentGrade(jerry);
