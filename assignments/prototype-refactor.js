@@ -3,39 +3,87 @@
 // The console.log() statements should still return what is expected of them.
 // start
 
-function GameObject(options) {
-  this.createdAt = options.createdAt;
-  this.dimensions = options.dimensions;
+class GameObject {
+  constructor(createdAt, dimensions) {
+    // this = {}
+    this.createdAt = createdAt;
+    this.dimensions = dimensions;
+    // return this
+  }
+
+  destroy() {
+    return `Object was removed from the game.`;
+  }
 }
 
-GameObject.prototype.destroy = function() {
-  return `Object was removed from the game.`;
-};
+class CharacterStats extends GameObject {
+  // extends -> CharacterStats.prototype = Object.create(GameObject.prototype);
+  constructor(hp, name) {
+    // super calls the GameObject constructor passing in the context automatically
+    // super -> GameObject.call(this, characterStatsOptions)
+    super(hp, name)  // ? or characterStatsOptions
+    this.hp = hp;
+    this.name = name;
+  }
 
-function CharacterStats(characterStatsOptions) {
-  GameObject.call(this, characterStatsOptions);
-  this.hp = characterStatsOptions.hp;
-  this.name = characterStatsOptions.name;
+  takeDamage() {
+    return `${this.name} took damage.`;
+  }
 }
 
-CharacterStats.prototype = Object.create(GameObject.prototype);
 
-CharacterStats.prototype.takeDamage = function() {
-  return `${this.name} took damage.`;
-};
 
-function Humanoid(humanoidOptions) {
-  CharacterStats.call(this, humanoidOptions);
-  this.faction = humanoidOptions.faction;
-  this.weapons = humanoidOptions.weapons;
-  this.language = humanoidOptions.language;
+// function GameObject(options) {
+//   this.createdAt = options.createdAt;
+//   this.dimensions = options.dimensions;
+// }
+
+// GameObject.prototype.destroy = function() {
+//   return `Object was removed from the game.`;
+// };
+
+// function CharacterStats(characterStatsOptions) {
+//   GameObject.call(this, characterStatsOptions);
+//   this.hp = characterStatsOptions.hp;
+//   this.name = characterStatsOptions.name;
+// }
+
+// CharacterStats.prototype = Object.create(GameObject.prototype);
+
+// CharacterStats.prototype.takeDamage = function() {
+//   return `${this.name} took damage.`;
+// };
+
+class Humanoid extends CharacterStats {
+  // extends -> Humanoid.prototype = Object.create(CharacterStats.prototype);
+  constructor(faction, weapons, language) {
+    // calls the parent constructor - CharacterStats - passing in the context automatically
+    // super -> CharacterStats.call(this, humanoidOptions)
+    super(faction, weapons, language)
+    this.faction = faction;
+    this.weapons = weapons;
+    this.language = language;
+  }
+
+  greet(){
+    return `${this.name} offers a greeting in ${this.language}.`;
+  }
 }
 
-Humanoid.prototype = Object.create(CharacterStats.prototype);
+// function Humanoid(humanoidOptions) {
+//   CharacterStats.call(this, humanoidOptions);
+//   this.faction = humanoidOptions.faction;
+//   this.weapons = humanoidOptions.weapons;
+//   this.language = humanoidOptions.language;
+// }
 
-Humanoid.prototype.greet = function() {
-  return `${this.name} offers a greeting in ${this.language}.`;
-};
+// Humanoid.prototype = Object.create(CharacterStats.prototype);
+
+// Humanoid.prototype.greet = function() {
+//   return `${this.name} offers a greeting in ${this.language}.`;
+// };
+
+
 
 const mage = new Humanoid({
   createdAt: new Date(),
