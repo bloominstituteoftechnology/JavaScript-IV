@@ -72,3 +72,41 @@ class ProjectManager extends Instructor {
     }
 }
 
+//CREATE OBJECTS TO TEST:
+
+const somePerson = new Person({
+    name: 'Julia',
+    age: 90,
+    location: 'Washington',
+    gender: 'female'
+});
+
+const mark = new Student({
+    name: "Mark",
+    age: 22,
+    location: 'Chicago',
+    gender: 'male',
+    previousBackground: 'Unknown',
+    className: 'CS132',
+    favSubjects: ['JS', 'LESS', 'HTML', 'CSS', 'React']
+})
+
+const carissa = new Student({
+    name: "Carissa",
+    age: 30,
+    location: 'Los Angeles',
+    gender: 'female',
+    previousBackground: 'Coding Dojo',
+    className: 'CSPT2',
+    favSubjects: ['C', 'CSS', 'React']
+})
+
+const fred = new Instructor({
+    name: 'Fred',
+    location: 'Bedrock',
+    age: 37,
+    gender: 'male',
+    favLanguage: ['JavaScript', 'C', 'Delphi'],
+    specialty: 'Front-end',
+    catchPhrase: `Don't forget the homies`
+});
