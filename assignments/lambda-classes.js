@@ -4,12 +4,12 @@ class Person {
     constructor(personAttr) {
         this.name = personAttr.name;
         this.age = personAttr.age;
-        this.location = personAttr.age;
+        this.location = personAttr.location;
         this.gender = personAttr.gender;
     }
 
     speak() {
-        return `Hello my name is ${this.name}, I am from ${this.location}.`
+        console.log(`Hello my name is ${this.name}, I am from ${this.location}.`);
     }
 }
 
@@ -25,14 +25,14 @@ class Instructor extends Person {
     // 'Today we are learning about {subject}' where subject is the param passed in.
     // TODO: make sure this is the right way to use subject
     demo(subject) {
-        return `Today we are learning about ${subject}.`;
+        console.log(`Today we are learning about ${subject}.`);
     }
 
     // `grade` receives a `student` object and a `subject` string as arguments and 
     // logs out '{student.name} receives a perfect score on {subject}'
     // TODO: make sure this is the right way to use student and subject
     grade(student, subject) {
-        return `${student.name} receives a perfect score on ${subject}.`;
+        console.log(`${student.name} receives a perfect score on ${subject}.`);
     }
 }
 
@@ -55,14 +55,14 @@ class Student extends Person {
     // `student.name has submitted a PR for {subject}`
     // TODO: make sure this is the right way to use student and subject
     PRAssignment(subject) {
-        return `${this.name} has submitted a PR for ${subject}.`;
+        console.log(`${this.name} has submitted a PR for ${subject}.`);
     }
 
     // `sprintChallenge` similar to PRAssignment but logs out 
     // `student.name has begun sprint challenge on {subject}`
     // TODO: make sure this is the right way to use student and subject
     sprintChallenge() {
-        return `${this.name} has begun sprint challenge on ${subject}.`;
+        console.log(`${this.name} has begun sprint challenge on ${subject}.`);
     }
 }
 
@@ -77,14 +77,22 @@ class ProjectManager extends Instructor {
     // @channel standy times!​​​​​
     // TODO: make sure this is the right way to use channel
     standUp(channel) {
-        return `${this.name} announces to ${channel}: @${channel} standy times!​​​​​`;
+        console.log(`${this.name} announces to ${channel}: @${channel} standy times!​​​​​`);
     }
 
     // `debugsCode` a method that takes in a student object and a subject and logs out `{name} debugs 
     // {student.name}'s code on {subject}`
     // TODO: make sure this is the right way to use student and subject    
     debugsCode(student, subject) {
-        return `${this.name} debugs ${student.name}'s code on ${subject}`;
+        console.log(`${this.name} debugs ${student.name}'s code on ${subject}`);
     }
 }
 
+const AustenA = new Person ({
+    name: "Austen Allred",
+    age: 35,
+    location: "San Francisco",
+    gender: "Male",
+});
+
+AustenA.speak();
