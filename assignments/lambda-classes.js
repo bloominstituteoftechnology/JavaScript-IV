@@ -146,12 +146,13 @@ console.log(fred.speak());
 console.log(fred.demo("Knitting"));
 console.log(fred.grade(mark, "HTML"));
 console.log(fred.grade(carissa, "java"));
+// console.log(fred.debugsCode(mark, "Ruby"));   //TRY this error - Returns an error, correct
 
 // //PM CALLOUTS
 console.log("\n=======PM CALLOUTS HERE=======\n")
 console.log(kevin.speak());
 console.log(kevin.demo("React"));
 console.log(kevin.standUp("cspt2-kevin"));
-console.log(kevin.debugsCode(fred, "JavaScript"));   //TRY the error
+console.log(kevin.debugsCode(fred, "JavaScript"));   //TRY this
 console.log(kevin.debugsCode(mark, "JavaScript"));
 console.log(kevin.debugsCode(carissa, "LESS"));
