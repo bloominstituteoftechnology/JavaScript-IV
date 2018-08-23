@@ -23,13 +23,6 @@ class CharacterStats extends GameObject {
   }
 }
 
-function Humanoid(humanoidOptions) {
-  CharacterStats.call(this, humanoidOptions);
-  this.faction = humanoidOptions.faction;
-  this.weapons = humanoidOptions.weapons;
-  this.language = humanoidOptions.language;
-}
-
 class Humanoid extends CharacterStats {
   constructor(humanoidOptions) {
     super(humanoidOptions);
