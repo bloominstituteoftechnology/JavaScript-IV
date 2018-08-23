@@ -7,7 +7,7 @@ class GameObject {
   this.createdAt = options.createdAt;
   this.dimensions = options.dimensions;
   }
-  destroy(){ return `Object was removed from the game.`; }
+  destroy(){ return `${this.name} was removed from the game.`; }
 }
 
 class CharacterStats extends GameObject {
