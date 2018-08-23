@@ -1,13 +1,30 @@
 class Person {
-    constructor (personProps) {
-        this.name = personProps.name;
-        this.age = personProps.age;
-        this.location = personProps.location;
-        this.gender = personProps.gender;
+    constructor (personProperties) {
+        this.name = personProperties.name;
+        this.age = personProperties.age;
+        this.location = personProperties.location;
+        this.gender = personProperties.gender;
     }
 
     speak () {
         console.log(`Hello my name is ${this.name}, I am from ${this.location}`)
+    }
+}
+
+class Instructor extends Person {
+    constructor (professorProperties) {
+        super(professorProperties);
+        this.specialty = professorProperties.specialty;
+        this.favLanguage = professorProperties.favLanguage;
+        this.catchPhrase = professorProperties.catchPhrase;
+    }
+
+    demo(subject) {
+        console.log(`Today we are learning about ${subject}`)
+    }
+
+    grade(student, subject) {
+        console.log(`${student.name} receives a perfect score on ${subject}`)
     }
 }
 
@@ -20,3 +37,16 @@ const fred = new Instructor({
     specialty: 'Front-end',
     catchPhrase: `Don't forget the homies`
   })
+
+const bruce = new Person({
+    name: 'Bruce',
+    location: 'Arizona',
+    age: 28,
+    gender: 'genderqueer',
+    favLanguage: 'HTML',
+    specialty: 'back-end',
+    catchPhrase: `Don't forget the bromies`
+})
+
+  fred.grade(bruce, 'English');
+
