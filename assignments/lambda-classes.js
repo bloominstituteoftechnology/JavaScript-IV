@@ -9,7 +9,7 @@ class Person {
     }
 
     speak() {
-        console.log(`Hello my name is ${this.name}, I am from ${this.location}.`);
+        return `Hello my name is ${this.name}, I am from ${this.location}.`;
     }
 }
 
@@ -23,16 +23,14 @@ class Instructor extends Person {
 
     // `demo` receives a `subject` string as an argument and logs out the phrase 
     // 'Today we are learning about {subject}' where subject is the param passed in.
-    // TODO: make sure this is the right way to use subject
     demo(subject) {
-        console.log(`Today we are learning about ${subject}.`);
+        return `Today we are learning about ${subject}.`;
     }
 
     // `grade` receives a `student` object and a `subject` string as arguments and 
     // logs out '{student.name} receives a perfect score on {subject}'
-    // TODO: make sure this is the right way to use student and subject
     grade(student, subject) {
-        console.log(`${student.name} receives a perfect score on ${subject}.`);
+        return `${student.name} receives a perfect score on ${subject}.`;
     }
 }
 
@@ -45,24 +43,22 @@ class Student extends Person {
     }
 
     // `listsSubjects` a method that logs out all of the student's favoriteSubjects one by one.
-    // TODO: return each subject, maybe using map?
     listsSubjects() {
-        let subjects = this.favSubjects;
-        subjects.forEach(element => {console.log(`${element}`)}) 
+        this.favSubjects.forEach(function(subject) {
+            console.log(`One favorite subject is: ${subject}`);
+        });
     }
 
     // `PRAssignment` a method that receives a subject as an argument and logs out that the 
     // `student.name has submitted a PR for {subject}`
-    // TODO: make sure this is the right way to use student and subject
     PRAssignment(subject) {
-        console.log(`${this.name} has submitted a PR for ${subject}.`);
+        return `${this.name} has submitted a PR for ${subject}.`;
     }
 
     // `sprintChallenge` similar to PRAssignment but logs out 
     // `student.name has begun sprint challenge on {subject}`
-    // TODO: make sure this is the right way to use student and subject
-    sprintChallenge() {
-        console.log(`${this.name} has begun sprint challenge on ${subject}.`);
+    sprintChallenge(subject) {
+        return `${this.name} has begun sprint challenge on ${subject}.`;
     }
 }
 
@@ -75,16 +71,14 @@ class ProjectManager extends Instructor {
 
     // `standUp` a method that takes in a slack channel and logs `{name} announces to {channel}, 
     // @channel standy times!​​​​​
-    // TODO: make sure this is the right way to use channel
     standUp(channel) {
-        console.log(`${this.name} announces to ${channel}: @${channel} standy times!​​​​​`);
+        return `${this.name} announces to ${channel}: #${channel} standy times!​​​​​`;
     }
 
     // `debugsCode` a method that takes in a student object and a subject and logs out `{name} debugs 
-    // {student.name}'s code on {subject}`
-    // TODO: make sure this is the right way to use student and subject    
+    // {student.name}'s code on {subject}`    
     debugsCode(student, subject) {
-        console.log(`${this.name} debugs ${student.name}'s code on ${subject}`);
+        return `${this.name} debugs ${student.name}'s code on ${subject}`;
     }
 }
 
@@ -96,3 +90,47 @@ const AustenA = new Person ({
 });
 
 AustenA.speak();
+
+const Colin = new Student ({
+    name: "Colin Dismuke",
+    age: 31,
+    location: "Houston",
+    gender: "Male",
+    previousBackground: "Ocean Engineer",
+    className: "CSPT2",
+    favSubjects: ["Neural networks", "CFD", "financial engineering"],
+});
+
+console.log(Colin.speak());
+console.log(Colin.listsSubjects());
+console.log(Colin.PRAssignment("Python"));
+console.log(Colin.sprintChallenge("React"));
+
+const John = new ProjectManager ({
+    name: "John Spraul",
+    age: 25,
+    location: "Moon",
+    gender: "Male",
+    specialty: "Software Engineering",
+    favLanguage: "React",
+    catchPhrase: "It's dark!",
+    gradClassName: "CS??",
+    favInstructor: "Dan",
+});
+
+const Dan = new Instructor ({
+    name: "Dan Frehner",
+    age: 35,
+    location: "Wyoming",
+    gender: "Male",
+    specialty: "Web Development",
+    favLanguage: "JavaScript",
+    catchPhrase: "La Croix!",
+});
+
+console.log(John.speak());
+console.log(Dan.speak());
+console.log(John.standUp("pm_standup_john"))
+console.log(John.debugsCode(Colin, "CSS"))
+console.log(Dan.demo("LESS"));
+console.log(Dan.grade(Colin, "Responsive Web Design"));
