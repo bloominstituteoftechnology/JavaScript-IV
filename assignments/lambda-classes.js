@@ -18,4 +18,13 @@ class Instructor extends Person{
     this.favLanguage = instructorInfo.favLanguage; 
     this.catchPhrase = instructorInfo.catchPhrase; 
   }
+  demo(subject){
+    return `Today we are learning about ${subject}`;
+  }
+  grade(student, subject){
+     return `${student} received a perfect score on ${subject}`;
+  }
 }
+
+let james = new Instructor("jumping", "english", "hey man"); 
+console.log(james.grade("james", 23)); 
