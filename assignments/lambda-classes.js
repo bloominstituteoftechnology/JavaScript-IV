@@ -27,6 +27,13 @@ class Instructor extends Person{
     grade(student, subject){
         console.log(`${student.name} receives a perfect score on ${subject}.`)
     }
+
+    gradeAssignment(student){
+        const min = 40;
+        const max = 100;
+        student.gradedAssignments.push(Math.floor(Math.random() * (max - min) + min));
+        student.grade = Math.floor(student.gradedAssignments.reduce((total, element) => {return total + element;}) / student.gradedAssignments.length);
+    }
 }
 
 class Student extends Person{
@@ -35,6 +42,8 @@ class Student extends Person{
         this.previousBackground = obj.previousBackground;
         this.className = obj.className;
         this.favSubjects = obj.favSubjects;
+        this.grade = 0;
+        this.gradedAssignments = [];
     }
 
     listsSubjects(){
@@ -50,6 +59,16 @@ class Student extends Person{
 
     sprintChallenge(subject){
         console.log(`${this.name} has begun sprint challenge on ${subject}.`);
+    }
+
+    graduate(){
+        if(this.grade > 70){
+            console.log(`${this.name} has graduated from Lambda School!`);
+            return true;
+        }
+
+        console.log(`${this.name} isn't ready for graduation yet.`);
+        return false;
     }
 }
 
@@ -128,3 +147,9 @@ charlie.debugsCode(eric, 'Javascript');
 
 
 // Testing Stretch Goals
+while(!eric.graduate()){
+    bob.gradeAssignment(eric);
+    console.log(`${eric.name}'s current grade: ${eric.grade}`);
+}
+
+console.log(eric.gradedAssignments);
