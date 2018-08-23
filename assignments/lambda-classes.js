@@ -29,7 +29,7 @@ class Instructor extends Person{
     }
 
     gradeAssignment(student){
-        const min = 40;
+        const min = 45;
         const max = 100;
         student.gradedAssignments.push(Math.floor(Math.random() * (max - min) + min));
         student.grade = Math.floor(student.gradedAssignments.reduce((total, element) => {return total + element;}) / student.gradedAssignments.length);
@@ -124,7 +124,7 @@ const charlie = new ProjectManager({
     favLanguage: 'Javascript',
     catchPhrase: 'When you stay classy, \'this\' happens',
     gradClassName: 'CS1',
-    favInstructor: 'Dan \'Lambda Swap\' Frehner'
+    favInstructor: 'Dan \'Lambda Swag\' Frehner'
 });
 
 // Testing Objects
@@ -147,9 +147,9 @@ charlie.debugsCode(eric, 'Javascript');
 
 
 // Testing Stretch Goals
+let count = 0;
 while(!eric.graduate()){
     bob.gradeAssignment(eric);
     console.log(`${eric.name}'s current grade: ${eric.grade}`);
+    console.log(eric.gradedAssignments);
 }
-
-console.log(eric.gradedAssignments);
