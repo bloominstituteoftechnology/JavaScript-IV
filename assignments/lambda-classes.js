@@ -72,11 +72,11 @@ class ProjectManager extends Instructor{
 const genericPerson = new Person({
     name: 'Liam',
     age: 14,
-    location: 'In Bed',
+    location: 'Texas',
     gender: 'Male'
 });
 
-const genericPerson = new Instructor({
+const bob = new Instructor({
     name: 'Bob',
     age: 36,
     location: 'Mount Everest',
@@ -86,7 +86,7 @@ const genericPerson = new Instructor({
     catchPhrase: 'JavaScript is at the top of the World'
 });
 
-const genericPerson = new Student({
+const eric = new Student({
     name: 'Eric',
     age: 41,
     location: 'Maricopa, AZ',
@@ -96,7 +96,7 @@ const genericPerson = new Student({
     favSubjects: ['JavaScript', 'HTML', 'React']
 });
 
-const genericPerson = new ProjectManager({
+const charlie = new ProjectManager({
     name: 'Charlie',
     age: 24,
     location: 'A beach somewhere',
@@ -107,3 +107,24 @@ const genericPerson = new ProjectManager({
     gradClassName: 'CS1',
     favInstructor: 'Dan \'Lambda Swap\' Frehner'
 });
+
+// Testing Objects
+genericPerson.speak();
+
+bob.speak();
+bob.demo('data structures');
+bob.grade(eric, 'Javascript');
+
+eric.speak();
+eric.listsSubjects();
+eric.PRAssignment('Python');
+eric.sprintChallenge('React');
+
+charlie.speak();
+charlie.demo('algorithms');
+charlie.grade(eric, 'MongoDB');
+charlie.standUp('CSPT2_Charlie');
+charlie.debugsCode(eric, 'Javascript');
+
+
+// Testing Stretch Goals
