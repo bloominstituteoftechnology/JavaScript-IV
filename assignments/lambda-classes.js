@@ -62,7 +62,7 @@ class Students extends Person {
 	constructor(studentObject) {
 		super(studentObject); 
 		this.previousBackground = studentObject.previousBackground;
-		this.cName = studentObject.cName;
+		this.className = studentObject.className;
 		this.favSubjects = studentObject.favSubjects;
 		this.listsSubjects = studentObject.listsSubjects;
 
@@ -188,3 +188,9 @@ console.log(fred.name);
 console.log(fred.favLanguage);
 console.log(dan.demo('C#'));
 console.log(dan.grade(venky, "Python"));
+
+//Students
+console.log(venky.location);
+console.log(venky.favSubjects);
+console.log(venky.listsSubjects());
+console.log(venky.PRAssignment("JavaScript"));
