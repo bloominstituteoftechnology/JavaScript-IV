@@ -1,9 +1,9 @@
 class Person {
-    constructor (personProperties) {
-        this.name = personProperties.name;
-        this.age = personProperties.age;
-        this.location = personProperties.location;
-        this.gender = personProperties.gender;
+    constructor (personProps) {
+        this.name = personProps.name;
+        this.age = personProps.age;
+        this.location = personProps.location;
+        this.gender = personProps.gender;
     }
 
     speak () {
@@ -28,6 +28,28 @@ class Instructor extends Person {
     }
 }
 
+class Student extends Person {
+    constructor (pupilProperties) {
+        super(pupilProperties);
+        this.previousBackground = pupilProperties.previousBackground;
+        this.className = pupilProperties.className;
+        this.favSubjects = pupilProperties.favSubjects;
+    }
+
+    listsSubjects() {
+      console.log(this.favSubjects.toString())
+    }
+
+    PRAssignment(subject) {
+      console.log(`${this.name} has submitted a PR for ${subject}`)
+    }
+
+    sprintChallenge(subject) {
+      console.log(`${this.name} has begun sprint challenge on ${subject}`)
+    }
+
+}
+
 const fred = new Instructor({
     name: 'Fred',
     location: 'Bedrock',
@@ -38,15 +60,17 @@ const fred = new Instructor({
     catchPhrase: `Don't forget the homies`
   })
 
-const bruce = new Person({
+const bruce = new Student({
     name: 'Bruce',
     location: 'Arizona',
     age: 28,
     gender: 'genderqueer',
     favLanguage: 'HTML',
     specialty: 'back-end',
-    catchPhrase: `Don't forget the bromies`
+    catchPhrase: `Don't forget the bro-mies`,
+    favSubjects: ['HTML','CSS', 'JavaScript']
 })
 
-  fred.grade(bruce, 'English');
-
+bruce.listsSubjects();
+bruce.PRAssignment('Javascript');
+bruce.sprintChallenge('HTML');
