@@ -2,6 +2,11 @@
 // Today your goal is to refactor all of this code to use ES6 Classes.
 // The console.log() statements should still return what is expected of them.
 
+/*=== GameObject ===
+* createdAt
+* dimensions
+* destroy() // prototype method -> returns the string: 'Object was removed from the game.'
+*/
 
 class GameObject {
   constructor(options) {
@@ -13,7 +18,13 @@ class GameObject {
   };
 }
 
-
+/*
+  === CharacterStats ===
+  * hp
+  * name
+  * takeDamage() // prototype method -> returns the string '<object name> took damage.'
+  * should inherit destroy() from GameObject's prototype
+*/
 
 class CharacterStats extends GameObject{
   constructor(characterStatsOptions){
@@ -27,7 +38,15 @@ class CharacterStats extends GameObject{
   };
 }
 
-
+/*
+  === Humanoid ===
+  * faction
+  * weapons
+  * language
+  * greet() // prototype method -> returns the string '<object name> offers a greeting in <object language>.'
+  * should inherit destroy() from GameObject through CharacterStats
+  * should inherit takeDamage() from CharacterStats
+*/
 
 
   class Humanoid extends CharacterStats {
