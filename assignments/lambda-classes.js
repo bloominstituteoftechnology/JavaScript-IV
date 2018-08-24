@@ -84,7 +84,7 @@ class ProjectManager extends Instructor {
     }
 
     standUp(channel) {
-        return `${this.name} announces to ${channel}, @${channel} standup time!`;
+        return `${this.name} announces to ${channel}, @channel standup time!`;
     }
 
     debugsCode(student, subject) {
@@ -94,3 +94,5 @@ class ProjectManager extends Instructor {
 
 const Sarah = new ProjectManager({name: "Sarah Leeks", age: 26, location: "Honolulu, HI", gender: "F", specialty: "Javascript", favLanguage: "Javascript", catchPhrase: "I am the greatest!"});
 const Ricky = new ProjectManager({name: "Ricky Welk", age: 30, location: "Asheville, NC", gender: "M", specialty: "LESS", favLanguage: "CSS", catchPhrase: "Gotcha!"});
+
+console.log(Sarah.standUp("cspt2_sarah"));
