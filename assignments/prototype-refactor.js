@@ -22,7 +22,7 @@ class CharacterStats extends GameObject{
       return `${this.name} took damage.`;
     }
 
-};
+}
 
 class Humanoid extends CharacterStats{
   constructor (humanoidOptions){ 
@@ -49,7 +49,7 @@ const mage = new Humanoid({
   weapons: ['Staff of Shamalama'],
   language: 'Common Toungue'
 });
-cl(mage.dimensions.length);
+console.log(mage.dimensions);
 const swordsman = new Humanoid({
   createdAt: new Date(),
   dimensions: {
