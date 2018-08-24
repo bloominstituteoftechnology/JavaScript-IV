@@ -11,7 +11,7 @@ class Person {
 
 class Instructor extends Person{
 	constructor(instructorStuff){
-		super(Instructor.name, Instructor.age, Instructor.location)
+		super(instructorStuff.name, instructorStuff.age, instructorStuff.location)
     // this.firstName = instructorStuff.firstName;
     // this.currentAge = instructorStuff.currentAge;
     // this.livesAt = instructorStuff.livesAt;
@@ -24,14 +24,14 @@ class Instructor extends Person{
 		return `Today we are learning about ${subject}.`;
 	}
 
-	grade(student){
-		return `${student.name} receives a perfect score on ${subject}.`;
+	grade(student, subject){
+		return `${student} receives a perfect score on ${subject}.`;
 	}
 }
 
 class Student extends Person{
 	constructor(personStuff){
-		super(Student.name, Student.age, Student.location)
+		super(personStuff.name, personStuff.age, personStuff.location)
 		this.previousBackground = personStuff.previousBackground;
 		this.className = personStuff.className;
 		this.favSubjects = personStuff.favSubjects;
@@ -54,7 +54,7 @@ class Student extends Person{
 
 class PM extends Person {
 	constructor(pmStuff){
-		super(PM.name, PM.age, PM.location)
+		super(pmStuff.name, pmStuff.age, pmStuff.location)
 		this.gradClassName = pmStuff.gradClassName;
 		this.favInstructor = pmStuff.favInstructor;
 	}
@@ -69,37 +69,38 @@ class PM extends Person {
 }
 //Instructor Add Area
 const Dan = new Instructor({name: 'Dan', age: 35,location: 'Utah', specialty: 'Being Awesome', favLanguage: 'JavaScript', catchPhrase: 'Lets Get started.'});
-Dan.name = 'Dan';
-Dan.age = 35;
-Dan.location = 'Utah';
+// Dan.name = 'Dan';
+// Dan.age = 35;
+// Dan.location = 'Utah';
 
 //Student Add Area
 const Joe = new Student({name: 'Joe', age: 48, location: 'Haverhill', previousBackground: 'PC Support', className: 'CSPT2', favSubjects: ['HTML', 'CSS', 'LESS']});
-Joe.name = 'Joe';
-Joe.age = 48;
-Joe.location = 'Haverhill';
+// Joe.name = 'Joe';
+// Joe.age = 48;
+// Joe.location = 'Haverhill';
 
 //Project Manager Area
 const Camila = new PM({name: 'Camila', age: 'A lady never tells.', location: 'Somewhere in the US.', gradClassName: 'Team Camila', favInstructor: 'Herself of course.'});
-Camila.name = 'Camila';
-Camila.age = 'A lady never tells.';
-Camila.location = 'Somewhere in the USA.';
+// Camila.name = 'Camila';
+// Camila.age = 'A lady never tells.';
+// Camila.location = 'Somewhere in the USA.';
 
 
 
 console.log(Dan);
 console.log(Dan.speak())
 console.log(Dan.catchPhrase)
-Dan.demo('JavaScript');
+console.log(Dan.demo('JavaScript'));
+console.log(Dan.grade('Joe', 'JavaScript III'));
 
 console.log(Joe);
 console.log(Joe.speak())
 console.log(Joe.favSubjects)
-Joe.sprintChallenge('JavaScript IV');
+console.log(Joe.sprintChallenge('JavaScript IV'));
 console.log(Joe.listSubjects()) // Review
+console.log(Joe.PRAssignment('Applied JavaScript'));
 
 console.log(Camila);
 console.log(Camila.speak())
 console.log(Camila.standUp('CSPT2_Camila'))
 console.log(Camila.debugsCode('Robin', 'JavaScript IV'));
-
