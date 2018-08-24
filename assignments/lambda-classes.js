@@ -21,13 +21,36 @@ class Instructor extends Person {
     };
 
     demo(subject) {
-        console.log(`Today we are learning about ${subject}`)
+        return `Today we are learning about ${subject}`;
     };
 
     grade(student, subject) {
-        console.log(`${student.name} receives a perfect score on ${subject}`)
+        return `${student.name} receives a perfect score on ${subject}`;
     };
-}
+
+    gradeStudent(student){
+        let currentGrade = student.grade;
+        console.log(`${student.name}'s current grade is ${currentGrade}.  Let's hope ${this.name} can help Him/Her get that grade up!`)
+        while (currentGrade < 100) {
+            let points = Math.floor((Math.random() * 10) + 1);
+            if (Math.random() > 0.4) {
+                currentGrade += points;
+                console.log(`${this.name} has added ${points} to ${student.name}'s grade. His/Her current grade is ${currentGrade}`)
+            } else {
+                currentGrade -= points;
+                console.log(`${this.name} has subtracted ${points} from ${student.name}'s grade. His/Her current grade is ${currentGrade}`)
+            };
+
+            if (currentGrade >= 100) {
+                return `${student.name} has GRADUATED!`
+            }; 
+                if (currentGrade <= 0) {
+                    return `${student.name} has FAILED =(`;
+                };
+        
+            }
+        }
+    };
 
 class Student extends Person {
     constructor(obj) {
@@ -35,18 +58,19 @@ class Student extends Person {
         this.previousBackground = obj.previousBackground;
         this.className = obj.className;
         this.favSubjects = obj.favSubjects;
+        this.grade = obj.grade;
     };
 
     listsSubjects() {
-        console.log(this.favSubjects);  //needs to split up an array?
+        return this.favSubjects.toString();  
     };
 
     PRAssignment(subject) {
-        console.log(`${this.name} has submitted a PR for ${subject}`)
+        return `${this.name} has submitted a PR for ${subject}`;
     };
 
     sprintChallenge(subject) {
-        console.log(`${this.name} has begun sprint challenge on ${subject}`)
+        return `${this.name} has begun sprint challenge on ${subject}`;
     };
 }
 
@@ -57,12 +81,12 @@ class ProjectManager extends Instructor {
         this.favInstructor = obj.favInstructor;
     };
 
-    standUp() {
-        console.log(`${this.name} announces to {channel}, @channel standy times!`)
+    standUp(channel) {
+        return `${this.name} announces to ${channel}, @channel standy times!`;
     };
 
     debugsCode(student, subject) {
-        console.log(`${this.name} debugs ${student.name}'s code on ${subject}`)
+        return `${this.name} debugs ${student.name}'s code on ${subject}`;
     };
 }
 
@@ -93,15 +117,15 @@ const Fred = new Instructor({
   // **************Project Managers
 
   const Jacob = new ProjectManager({
-    name: 'Dan',
-    location: 'Salt Lake City',
-    age: 62,
+    name: 'Jacob',
+    location: 'Germany',
+    age: 30,
     gender: 'male',
-    favLanguage: 'HTML',
-    specialty: 'Stick death animations',
-    catchPhrase: `All right everybody`,
+    favLanguage: 'React',
+    specialty: 'Group Leading',
+    catchPhrase: `Did I do that?`,
     gradClassName: 'CSPT6',
-    favInstructor: 'Dan',
+    favInstructor: 'Austin',
 
   });
 
@@ -124,13 +148,14 @@ const Fred = new Instructor({
 // **************Students
 
   const Brandon = new Student({
-    name: 'Dan',
-    location: 'Salt Lake City',
-    age: 62,
+    name: 'Brandon',
+    location: 'Dallas',
+    age: 32,
     gender: 'male',
-    favLanguage: 'HTML',
-    className: 'Stick death animations',
-    favSubjects: `All right everybody`
+    favLanguage: 'JavaScript',
+    className: 'CSPT2',
+    favSubjects: ['JavaScript', 'HTML', 'CSS'],
+    grade: Math.floor((Math.random() * 100) + 1),
   });
 
   const Lily = new Student({
@@ -140,9 +165,10 @@ const Fred = new Instructor({
     gender: 'Female',
     favLanguage: 'English',
     className: 'Crossfit',
-    favSubjects: `Snatches`
+    favSubjects: ['Snatches', 'Cleans', 'Deadlifts'], 
+    grade: Math.floor((Math.random() * 100) + 1),
   });
 
 
 
-  console.log(fred.speak());
+  console.log(Dan.gradeStudent(Brandon));
