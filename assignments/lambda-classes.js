@@ -1,7 +1,7 @@
 // CODE here for your Lambda Classes
 
 //****** NOTE: I put it all in a function so i cant ever *********/
-//******     accidently create global variables                  */
+//******     accidentally create global variables                  */
 //*****      Let me know if this is not OK                       */
 //************************************************************** */
 function school() {
