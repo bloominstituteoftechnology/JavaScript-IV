@@ -28,7 +28,7 @@ class Instructor extends Person {
     }
 
     updateGradebook(student) {
-        const assignmentGrade = Math.floor(Math.random()*14) - 5;
+        const assignmentGrade = Math.floor(Math.random() * 11 - 10);
         let newGrade = student.grade + assignmentGrade;
         return newGrade;
         console.log(`${student.name}'s assignment has been graded. ${student.name}'s new grade is ${newGrade}`); 
@@ -39,12 +39,13 @@ const Joe = new Instructor({name: "Joe Schmoe", age: 36, location: "Spokane, WA"
 const Margaret = new Instructor({name: "Margaret Jackson", age: 32, location: "Miami, FL", gender: "F", specialty: "LESS", favLanguage: "CSS", catchPhrase: "It's all good."});
 
 class Student extends Person {
-    constructor(studentInfo) {
+    constructor(studentInfo, grade) {
         super(studentInfo);
         this.previousBackground = studentInfo.previousBackground;
         this.className = studentInfo.className;
         this.favSubjects = studentInfo.favSubjects;
-        this.grade = studentInfo.grade;
+        grade = Math.floor(Math.random() * 81 + 10);
+        this.grade = grade;
     }
 
     listsSubjects() {
@@ -63,8 +64,8 @@ class Student extends Person {
 
     graduate(instructor) {
         if (this.grade > 70) {
-            return `${this.name} is ready to graduate from Lambda School!`
-        }
+            return `${this.name}'s grade is ${this.grade}%. ${this.name} is ready to graduate from Lambda School!`
+      }
         else {
             this.grade = instructor.updateGradebook(this);
             return `${this.name}'s grade is ${this.grade}. ${this.name} is not ready to graduate yet.`
@@ -73,8 +74,8 @@ class Student extends Person {
 
 }
 
-const Sira = new Student({name: "Sira Martinez", age: 23, location: "Austin, TX", gender: "F", previousBackground: "Substitute Teacher", className: "CSPT2", favSubjects: ["HTML", "LESS", "React"], grade: 40});
-const Leanne = new Student({name: "Leanne Williams", age: 18, location: "Indiannapolis, IN", gender: "F", previousBackground: "Cashier", className: "CSPT1", favSubjects: ["React, Redux, jQuery"], grade: 70});
+const Sira = new Student({name: "Sira Martinez", age: 23, location: "Austin, TX", gender: "F", previousBackground: "Substitute Teacher", className: "CSPT2", favSubjects: ["HTML", "LESS", "React"],});
+const Leanne = new Student({name: "Leanne Williams", age: 18, location: "Indiannapolis, IN", gender: "F", previousBackground: "Cashier", className: "CSPT1", favSubjects: ["React, Redux, jQuery"],});
 
 class ProjectManager extends Instructor {
     constructor(pmInfo) {
