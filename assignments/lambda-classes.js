@@ -64,7 +64,7 @@ const lulu = new Instructor({
     name: 'Lulu',
     location: 'Chicago',
     age: 21,
-    gender: 'non-binary',
+    gender: 'Non-binary',
     favLanguage: 'Ruby',
     specialty: 'Front-end',
     catchPhrase: `A real bobby-dazzler`,
@@ -80,7 +80,7 @@ const delphine = new Student ({
     favSubjects: 'Math',
   });
 
-  const Joey = new ProjectManager ({
+  const joey = new ProjectManager ({
       name: 'Joey',
       location: 'Honolulu',
       age: 41,
@@ -92,3 +92,13 @@ const delphine = new Student ({
       favInstructor: 'Dan',
  });
 
+console.log(joey.name);
+console.log(delphine.location);
+console.log(joey.favLanguage);
+console.log(lulu.gender);
+console.log(lulu.catchPhrase);
+console.log(lulu.specialty);
+console.log(joey.catchPhrase);
+
+
+//WooooHooooo I love this stuff!
