@@ -34,6 +34,9 @@ class Instructor extends Person{
     grade(student,subject){
         console.log(`${student.name} gets a perfect grade in a${subject}`);
     }
+    changeGrade(student){
+        student.grade=student.grade +Math.floor((Math.random()*10));
+    }
 }
 
 const instructorOne={
@@ -57,6 +60,7 @@ class Student extends Person{
         this.previousBackground=studentInfo.previousBackground;
         this.className=studentInfo.className;
         this.favSubjects=studentInfo.favSubjects;
+        this.grade=studentInfo.grade;
     }
     listsSubjects(){
         this.favSubjects.forEach(function (item){
@@ -69,6 +73,10 @@ class Student extends Person{
     sprintChallenge(subject){
         console.log(`${this.name} has begun a sprint challenge for ${subject}`)
     }
+    graduate(){
+        if(this.grade<70) {console.log(`Your grade is ${this.grade} better do some more work!`)
+
+    }else{console.log("congrats you passed!")}}
 
     };
 
@@ -79,7 +87,8 @@ class Student extends Person{
        gender:"f",
        previousBackground:"soccer coach",
        className:"CSPT3",
-       favSubjects:["lunch","recess","spelling"]
+       favSubjects:["lunch","recess","spelling"],
+       grade:1,
     }
 
     const susanAnswer=new Student(susan);
