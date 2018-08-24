@@ -63,11 +63,14 @@ class Student extends Person {
     }
     graduate(Instructor){
         for (let i=0; i >= 0; i++) {
-          if (this.grade >= 70) {
+          if (this.grade > 69) {
             return `${this.name} has graduated with a score of ${this.grade}!`
           } else {
-            Instructor.toughGrader(this);
+            if (Instructor.toughGrader(this) > 69) {
+              return `${this.name} has graduated with a score of ${this.grade}!`;
+            } else {
             console.log(`${Instructor.name} gave ${this.name} a score of ${this.grade}. ${this.name} needs to keep working hard to graduate.`)
+            }
           }
         }
     }
@@ -127,4 +130,6 @@ const fred = new Instructor({
 console.log(fred.toughGrader(Julie))
 console.log(fred.toughGrader(Julie))
 console.log(fred.toughGrader(Julie))
+console.log(Julie.graduate(fred));
+
 
