@@ -66,7 +66,7 @@ const fred = new Instructor({
     gender: 'male',
     favLanguage: 'JavaScript',
     specialty: 'Front-end',
-    catchPhrase: `Don't forget the homies`
+    catchPhrase: `Don't forget the Alamo`
 });
 
 const wilma = new Instructor({
@@ -78,10 +78,6 @@ const wilma = new Instructor({
     specialty: 'Debugging',
     catchPhrase: `No`
 });
-
-// fred.speak();
-// fred.demo('english');
-// fred.grade({name: 'Doug',age: 32},"english");
 
 const barry = new Student({
     name: 'Barry',
@@ -145,6 +141,7 @@ const carl = new Person({
     age: 100,
     gender: 'male',
 });
+
 fred.demo('Less');
 wilma.grade(gary, 'Less');
 carl.speak();
