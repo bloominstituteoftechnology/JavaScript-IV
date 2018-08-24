@@ -37,9 +37,8 @@ class Student extends Person {
         this.favSubjects = learn.favSubjects;
     };
 
-    listsSubjects(arr) {
-        arr = this.favSubjects.toString();
-        return arr;
+    listsSubjects() {
+        return this.favSubjects.toString();;
    };
 
    PRAssignment(subject) {
@@ -62,8 +61,8 @@ class ProjectManager extends Instructor {
         return `${this.name} announces to ${channel}: @channel standy times!`;
     };
 
-    debugsCode(student, subject) {
-        return `${this.name} debugs ${student.name}'s code on ${subject}`;
+    debugsCode(Student, subject) {
+        return `${this.name} debugs ${Student.name}'s code on ${subject}`;
     };
 };
 
@@ -84,7 +83,7 @@ const fred = new Instructor({
     age: 23,
     gender: 'Male',
     previousBackground: 'Nada',
-    Classname: 'CSPT2',
+    className: 'CSPT2',
     favSubjects: ['CSS' , 'HTML' , 'Javascript']
   });
 
@@ -101,4 +100,12 @@ const fred = new Instructor({
   });
 
 
-
+  // console.log(thisGuy);
+  console.log(fred.introduction());
+  console.log(fred.demo('Javascript'));
+  console.log(fred.grade(thisGuy, 'CSS'));
+  console.log(thisGuy.listsSubjects());
+  console.log(thisGuy.PRAssignment('LESS'));
+  console.log(thisGuy.sprintChallenge('Memes'));
+  console.log(otherGuy.standUp('CSPT2'));
+  console.log(otherGuy.debugsCode(thisGuy, 'Memes'));
