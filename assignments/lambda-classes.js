@@ -5,9 +5,13 @@ class Person {
         this.age = stats.age;
         this.gender = stats.gender;
         this.location = stats.location;
+        this.grades = function() {
+            return Math.floor(Math.random() * (100 - 1)) + 1;
+        }
+        
     }
     speak() {
-      return `Hello my name is ${stats.name}, I am from ${stats.location}`;
+      return `Hello my name is ${this.name}, I am from ${this.location}`
     }
 };
 
@@ -24,6 +28,10 @@ class Instructor extends Person {
     grade() {
         return `${this.name} receives a perfect score on ${this.specialty}`;
     }
+    addPoints() {
+        let newPoints = Math.floor(Math.random() * (100 - 1)) + 1;
+        return `Students grade was ${this.grades()} and now after new grade is added, it is ${this.grades() + newPoints} `;
+    }
 };
 
 class Student extends Person {
@@ -32,6 +40,7 @@ class Student extends Person {
         this.previousBackground = details.previousBackground;
         this.className = details.className;
         this.favSubject = details.favSubject;
+       
     }
 
     listSubject() {                   
@@ -45,6 +54,7 @@ class Student extends Person {
         return `${this.name} has begun sprint challenge on ${this.favSubject}`;
     } 
 };
+
 
 class ProjectManagers extends Instructor {
     constructor(manDetails) {
@@ -92,10 +102,12 @@ const raymond = new ProjectManagers({
     favInstructor: 'Buelah'
 });
 
-console.log(burt.age);  
+console.log(burt.speak());  
+console.log(burt.grades());  
 console.log(burt.listSubject()); //21
 console.log(raymond.specialty);
 console.log(beualah.demo());
 console.log(beualah.grade());
 console.log(raymond.standUp());
 console.log(raymond.debugsCode());
+console.log(beualah.addPoints());
