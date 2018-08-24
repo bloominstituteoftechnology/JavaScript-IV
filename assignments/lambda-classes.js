@@ -59,7 +59,7 @@ class Student extends Person {
         return `${this.name} has submitted a PR for ${subject}.`
     }
     sprintChallenge(subject){
-        return `${this.name} has begun spring challenge on ${subject}.`
+        return `${this.name} has begun sprint challenge on ${subject}.`
     }
     graduate(Instructor){
         for (let i=0; i >= 0; i++) {
@@ -187,3 +187,9 @@ console.log(Grendal.toughGrader(Andy))
 
 console.log(Bethany.graduate(Raymond))
 
+console.log(Julie.PRAssignment('Javascript'));
+console.log(Andy.listsSubjects());
+console.log(Bethany.sprintChallenge('React'));
+
+console.log(Grendal.standUp('cspt2Grendal'));
+console.log(Raymond.debugsCode(Julie, 'Javascript'));
