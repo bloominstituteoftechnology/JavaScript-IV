@@ -26,6 +26,20 @@ class Instructor extends Person {
     grade(student, subject) {
         console.log(`${student.name} receives a perfect score on ${subject}`)
     }
+
+    reviewSprint(student) {
+      if (student.grade < 70) {
+        let addOrSubtract = Math.random();
+        if (addOrSubtract < 0.5) {
+          student.grade = student.grade - (addOrSubtract * 10);
+        }
+        else {
+          student.grade = student.grade + (addOrSubtract * 10);
+        }
+        console.log(`The results are in...and ${student.name}'s current grade is ${student.grade}!`);
+      }
+      else console.log(`No more Sprints! ${student.name} is ready to leave Lambda!`)
+    }
 }
 
 class Student extends Person {
@@ -54,7 +68,7 @@ class Student extends Person {
             console.log(`${this.name} is officially a graduate of Lambda School!!`)
         }
         else {
-            console.log(`${this.name} is not quite ready to leave Lambda just yet...`)
+            console.log(`${this.name} is not quite ready to leave Lambda yet...`)
         }
     }
 }
@@ -94,7 +108,14 @@ const bruce = new Student({
     specialty: 'back-end',
     catchPhrase: `Don't forget the bro-mies`,
     favSubjects: ['HTML','CSS', 'JavaScript'],
-    grade: 75
+    grade: 50
 })
 
+fred.reviewSprint(bruce);
+bruce.graduate();
+fred.reviewSprint(bruce);
+bruce.graduate();
+fred.reviewSprint(bruce);
+bruce.graduate();
+fred.reviewSprint(bruce);
 bruce.graduate();
