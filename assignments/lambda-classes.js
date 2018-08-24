@@ -85,6 +85,15 @@ class ProjectManagers extends Instructor {
 	}
 }
 
+const fred = new Instructor({
+  name: 'Fred',
+  location: 'Bedrock',
+  age: 37,
+  gender: 'male',
+  favLanguage: 'JavaScript',
+  specialty: 'Front-end',
+  catchPhrase: `Don't forget the homies`
+});
 
 const me = new Student({
 	name: "Jason",
@@ -97,7 +106,7 @@ const me = new Student({
 });
 const camila = new ProjectManagers({
 	name: "Camila",
-	age: 27,
+	age: undefined,
 	location: "Texas",
 	specialty: "Java",
 	favLanguage: "Java",
