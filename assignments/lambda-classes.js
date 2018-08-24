@@ -27,6 +27,29 @@ class Instructor extends Person {
     grade(student, subject) {
         console.log(`${student.name} receives a perfect score on ${subject}.`);
     }
+
+    changeGrade(student) {
+        let beforeChange = student.grade;
+        let gradeChange = '';
+        const changeFormula = Math.floor(Math.random() * 15);
+        const upOrDown = Math.floor(Math.random() * 100);
+        if(upOrDown % 2 === 0) {
+            gradeChange = 'increased';
+            student.grade += changeFormula;
+        }
+
+        else {
+            gradeChange = 'decreased';
+            student.grade -= changeFormula;
+        }
+
+        let difference = Math.abs(beforeChange - student.grade);
+        console.log(`${student.name}'s score ${gradeChange} by ${difference} to ${student.grade}.`);
+
+        if(student.grade > 70) {
+            student.graduate();
+        }
+    }
 }
 
 class Student extends Person {
@@ -35,19 +58,27 @@ class Student extends Person {
         this.previousBackground = studentStuff.previousBackground;
         this.className = studentStuff.className;
         this.favSubjects = studentStuff.favSubjects;
+        this.grade = studentStuff.grade; 
     }
 
     listsSubjects() {
         let list = this.favSubjects;
-        list.forEach(element => {console.log(`${element}`)});
+        list.forEach(element => {console.log(element)});
     }
 
     PRAssignment(subject) {
-        console.log(`${this.name} has submitted a PR for ${subject}.`)
+        console.log(`${this.name} has submitted a PR for ${subject}.`);
     }
 
     sprintChallenge(subject) {
-        console.log(`${this.name} has begun a sprint challenge on ${subject}.`)
+        console.log(`${this.name} has begun a sprint challenge on ${subject}.`);
+    }
+
+    graduate() {
+        if(this.grade > 70) {
+            console.log(`Congrats, ${this.name} has graduated with a grade of ${this.grade}.`);
+            return this.grade;
+        }
     }
 } 
 
@@ -58,7 +89,7 @@ class ProjectMananager extends Instructor {
         this.favInstructor = pMStuff.favInstructor;
     }
 
-    standUp(slack) {
+    standUp(channel) {
         console.log(`${this.name} announces to ${channel}, @channel standy times!`);
     }
 
@@ -76,6 +107,7 @@ const abdiel = new Student({
     previousBackground: 'Java',
     className: 'CSPT2',
     favSubjects: ['Batman', 'Superman', 'Flash'],
+    grade: 80,
 })
 
 const eric = new Student({
@@ -86,6 +118,7 @@ const eric = new Student({
     previousBackground: 'unknown',
     className: 'CSPT2',
     favSubjects: ['Helping others', 'Petting Dogs', 'Growing a Great Beard'],
+    grade: 90,
 })
 
 const brendon = new Student({
@@ -96,6 +129,7 @@ const brendon = new Student({
     previousBackground: 'unknown',
     className: 'CSPT2',
     favSubjects: ['group', 'of', 'arrays'],
+    grade: 55,
 })
 
 const chris = new ProjectMananager({
@@ -135,3 +169,14 @@ console.log(abdiel);
 console.log(eric);
 console.log(dan);
 console.log(chris);
+abdiel.listsSubjects();
+dan.grade(abdiel, 'Javascript');
+chris.demo('JavaScript');
+moises.debugsCode(eric, 'Potato.pancake');
+brendon.speak();
+abdiel.PRAssignment('javascript');
+eric.sprintChallenge('JS IV');
+chris.standUp('Number 1');
+eric.graduate();
+dan.changeGrade(brendon);
+chris.changeGrade(brendon);
