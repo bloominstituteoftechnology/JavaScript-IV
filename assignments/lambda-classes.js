@@ -30,6 +30,12 @@ class Instructor extends Person {
     grade(studentObj, subject){
         return `${studentObj.name} receives a perfect score on ${subject}`;
     }
+
+    changeStudentGrade(studentObj){
+        //change grade either by adding 2 or subtracting 2
+        studentObj.grade += (Math.round(Math.random()) * 4 - 2);
+        return `${studentObj.name}'s new grade is ${studentObj.grade}`;
+    }
 }
 
 class ProjectManager extends Instructor {
@@ -56,6 +62,7 @@ class Student extends Person {
         this.previousBackground = studentProps.previousBackground;
         this.className = studentProps.className;
         this.favSubjects = studentProps.favSubjects;
+        this.grade = studentProps.grade;
 
     }
 
@@ -85,7 +92,7 @@ console.log(myPerson.speak(), '\n');
 
 console.log('***************** STUDENT *******************************\n\n');
 
-let myStudent = new Student({ name: 'Christopher', age: 45, location: 'Tennessee', gender: 'Male', previousBackground: 'Accounting', className: 'Javascript-IV', favSubjects: ['JS Prototypes', 'JS classes', 'CSS mixins'] });
+let myStudent = new Student({ name: 'Christopher', age: 45, location: 'Tennessee', gender: 'Male', previousBackground: 'Accounting', className: 'Javascript-IV', favSubjects: ['JS Prototypes', 'JS classes', 'CSS mixins'], grade: 92 });
 console.log('Student object properties: ');
 for (k in myStudent) {
     console.log(k, ': ', myStudent[k]);
@@ -103,7 +110,9 @@ for (k in myInstructor) {
     console.log(k, ': ', myInstructor[k]);
 }
 console.log(myInstructor.demo('JS Classes'));
-console.log(myInstructor.grade(myStudent, 'CSS'), '\n');
+console.log(myInstructor.grade(myStudent, 'CSS'));
+console.log(myInstructor.changeStudentGrade(myStudent));
+console.log('\n');
 
 console.log('****************** PROJECT MANAGER *****************************\n\n');
 
@@ -113,7 +122,8 @@ for (k in myProjectManager) {
     console.log(k, ': ', myProjectManager[k]);
 }
 console.log(myProjectManager.standUp('cspt2-help'));
-console.log(myProjectManager.debugsCode(myStudent, 'JS callbacks'));
+console.log(myProjectManager.debugsCode(myStudent), 'JS callbacks');
+console.log(myProjectManager.changeStudentGrade(myStudent));
 
 
 
