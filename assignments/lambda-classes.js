@@ -27,6 +27,12 @@ class Instructor extends Person {
 	grade(student, subject) {
 		return `${student.name} receives a perfect score on ${subject}`;
 	}
+	
+	gradeAssignment(student) {
+		let score = Math.floor(Math.random() * 10) + 1;
+		score *= Math.floor(Math.random()*2) == 1 ? 1 : -1;		
+		return score;
+	}
 }
 
 class Student extends Person {
@@ -52,6 +58,14 @@ class Student extends Person {
 	sprintChallenge(subject) {
 		console.log(`${this.name} has begun sprint challenge on ${subject}`);
 		return `${this.name} has begun sprint challenge on ${subject}`;
+	}
+	
+	graduate() {
+		if (me.grade >= 70) {
+			console.log(`Congratulations ${this.name} has graduated!`);
+			return true;
+		}
+		return false;
 	}
 }
 
@@ -79,7 +93,7 @@ const me = new Student({
 	previousBackground: "Manufacturing",
 	className: "Web Development",
 	favSubjects: ["JavaScript", "C#"],
-	grade: 80,
+	grade: 0,
 });
 const camila = new ProjectManagers({
 	name: "Camila",
@@ -98,5 +112,7 @@ me.sprintChallenge("JavaScript");
 camila.standUp("cspt2_camila");
 console.log(camila.debugsCode(me, "JavaScript"));
 
-
-
+while(me.graduate() != true) {
+	me.grade += camila.gradeAssignment(me);
+	console.log(`My current grade is ${me.grade}`);
+}
