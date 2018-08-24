@@ -34,13 +34,13 @@ class GameObject {
 // };
 
 class CharacterStats extends GameObject {
-    constructor(GameObject) {
-        super(GameObject);
-        this.hp = GameObject.hp;
-        this.name = GameObject.name;
+    constructor(characterStatsOptions) {
+        super(characterStatsOptions);
+        this.hp = characterStatsOptions.hp;
+        this.name = characterStatsOptions.name;
     }
     takeDamage() {
-        return `${this.name} took damage.`;
+        return `${ this.name } took damage.`;
     }
 }
 
@@ -58,11 +58,11 @@ class CharacterStats extends GameObject {
 // };
 
 class Humanoid extends CharacterStats {
-    constructor(CharacterStats) {
-        super(CharacterStats);
-        this.faction = CharacterStats.faction;
-        this.weapons = CharacterStats.weapons;
-        this.language = CharacterStats.language;
+    constructor(humanoidOptions) {
+        super(humanoidOptions);
+        this.faction = humanoidOptions.faction;
+        this.weapons = humanoidOptions.weapons;
+        this.language = humanoidOptions.language;
     }
     greet() {
         return `${ this.name } offers a greeting in ${ this.language }`;
