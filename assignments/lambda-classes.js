@@ -35,6 +35,7 @@ class Student extends Person {
 		this.previousBackground = attributes.previousBackground;
 		this.className = attributes.className;
 		this.favSubjects = attributes.favSubjects;
+		this.grade = attributes.grade;
 	}
 	
 	listsSubjects() {
@@ -45,10 +46,12 @@ class Student extends Person {
 	
 	PRAssignment(subject) {
 		console.log(`${this.name} has submitted a PR for ${subject}`);
+		return `${this.name} has submitted a PR for ${subject}`;
 	}
 	
 	sprintChallenge(subject) {
 		console.log(`${this.name} has begun sprint challenge on ${subject}`);
+		return `${this.name} has begun sprint challenge on ${subject}`;
 	}
 }
 
@@ -60,13 +63,15 @@ class ProjectManagers extends Instructor {
 	}
 	standUp(channel) {
 		console.log(`${this.name} announces to ${channel}, @channel standy times!`);
+		return `${this.name} announces to ${channel}, @channel standy times!`;
 	}
 	debugsCode(student, subject) {
 		console.log(`${this.name} debugs ${student.name}'s code on ${subject}`);
+		return `${this.name} debugs ${student.name}'s code on ${subject}`;
 	}
 }
 
-/*
+
 const me = new Student({
 	name: "Jason",
 	age: 35,
@@ -74,6 +79,7 @@ const me = new Student({
 	previousBackground: "Manufacturing",
 	className: "Web Development",
 	favSubjects: ["JavaScript", "C#"],
+	grade: 80,
 });
 const camila = new ProjectManagers({
 	name: "Camila",
@@ -90,7 +96,7 @@ me.listsSubjects();
 me.PRAssignment("JavaScript");
 me.sprintChallenge("JavaScript");
 camila.standUp("cspt2_camila");
-camila.debugsCode(me, "JavaScript");
-*/
+console.log(camila.debugsCode(me, "JavaScript"));
+
 
 
