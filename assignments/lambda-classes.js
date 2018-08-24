@@ -6,7 +6,7 @@ class Person {
         this.gender = personProps.gender;
     }
 
-    speak () {
+    speak() {
         console.log(`Hello my name is ${this.name}, I am from ${this.location}`)
     }
 }
@@ -23,7 +23,7 @@ class Instructor extends Person {
         console.log(`Today we are learning about ${subject}`)
     }
 
-    grade (student, subject) {
+    grade(student, subject) {
         console.log(`${student.name} receives a perfect score on ${subject}`)
     }
 }
@@ -34,6 +34,7 @@ class Student extends Person {
         this.previousBackground = pupilProperties.previousBackground;
         this.className = pupilProperties.className;
         this.favSubjects = pupilProperties.favSubjects;
+        this.grade = pupilProperties.grade;
     }
 
     listsSubjects() {
@@ -47,10 +48,19 @@ class Student extends Person {
     sprintChallenge(subject) {
       console.log(`${this.name} has begun sprint challenge on ${subject}`)
     }
+
+    graduate() {
+        if (this.grade > 70) {
+            console.log(`${this.name} is officially a graduate of Lambda School!!`)
+        }
+        else {
+            console.log(`${this.name} is not quite ready to leave Lambda just yet...`)
+        }
+    }
 }
 
 class ProjectManager extends Instructor {
-    constructor (PMProperties) {
+    constructor(PMProperties) {
         super(PMProperties);
         this.gradClassName = PMProperties.gradClassName;
         this.favInstructor = PMProperties.favInstructor;
@@ -73,7 +83,7 @@ const fred = new ProjectManager({
     favLanguage: 'JavaScript',
     specialty: 'Front-end',
     catchPhrase: `Don't forget the homies`
-  })
+})
 
 const bruce = new Student({
     name: 'Bruce',
@@ -83,8 +93,8 @@ const bruce = new Student({
     favLanguage: 'HTML',
     specialty: 'back-end',
     catchPhrase: `Don't forget the bro-mies`,
-    favSubjects: ['HTML','CSS', 'JavaScript']
+    favSubjects: ['HTML','CSS', 'JavaScript'],
+    grade: 75
 })
 
-fred.standUp('CSPT2');
-fred.debugsCode(bruce, 'Javascript');
+bruce.graduate();
