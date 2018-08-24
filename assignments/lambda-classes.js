@@ -21,7 +21,15 @@ class Instructor extends Person {
   demo(subject) {
     return `Today we are learning about ${subject}`;
   }
-  grade(student, subject) {
+  grade(Student, subject) {
     `${student.name} recieves a perfect score on ${subject}`;
+  }
+}
+
+class Student extends Person {
+  constructor(stuAttr) {
+    super(stuAttr);
+    this.previousBackground = stuAttr.previousBackground;
+    this.favSubjects = stuAttr.favSubjects;
   }
 }
