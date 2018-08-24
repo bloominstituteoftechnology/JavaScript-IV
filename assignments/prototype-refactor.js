@@ -15,7 +15,6 @@ class GameObject {
   }
 }
 
-// const newGameObject = new GameObject(Date.now(), {length: '12', height: '12', width: '34'})
 
 class CharacterStats extends GameObject {
   // extends -> CharacterStats.prototype = Object.create(GameObject.prototype);
@@ -33,28 +32,6 @@ class CharacterStats extends GameObject {
 }
 
 
-
-// function GameObject(options) {
-//   this.createdAt = options.createdAt;
-//   this.dimensions = options.dimensions;
-// }
-
-// GameObject.prototype.destroy = function() {
-//   return `Object was removed from the game.`;
-// };
-
-// function CharacterStats(characterStatsOptions) {
-//   GameObject.call(this, characterStatsOptions);
-//   this.hp = characterStatsOptions.hp;
-//   this.name = characterStatsOptions.name;
-// }
-
-// CharacterStats.prototype = Object.create(GameObject.prototype);
-
-// CharacterStats.prototype.takeDamage = function() {
-//   return `${this.name} took damage.`;
-// };
-
 class Humanoid extends CharacterStats {
   // extends -> Humanoid.prototype = Object.create(CharacterStats.prototype);
   constructor(humanAttribute) {
@@ -70,19 +47,6 @@ class Humanoid extends CharacterStats {
     return `${this.name} offers a greeting in ${this.language}.`;
   }
 }
-
-// function Humanoid(humanoidOptions) {
-//   CharacterStats.call(this, humanoidOptions);
-//   this.faction = humanoidOptions.faction;
-//   this.weapons = humanoidOptions.weapons;
-//   this.language = humanoidOptions.language;
-// }
-
-// Humanoid.prototype = Object.create(CharacterStats.prototype);
-
-// Humanoid.prototype.greet = function() {
-//   return `${this.name} offers a greeting in ${this.language}.`;
-// };
 
 
 
@@ -116,33 +80,33 @@ const swordsman = new Humanoid({
 
 const archer = new Humanoid({createdAt: new Date(), dimensions: {length: 1,width: 2,height: 4},hp: 10,name: 'Lilith',faction: 'Forest Kingdom',weapons: ['Bow', 'Dagger'],language: 'Elvish'},'hello'); 
 
-const human = new Humanoid({createdAt: new Date(), dimensions: {length:3, width:4, height:5}, name:'Jordan', faction:'NBA', weapons:['Hands', 'Feet'], language:'English'});
-// const human = new Humanoid();
-// human.createdAt = Date.now();
-// human.dimensions = {length:3, width:4, height:5};
+const human = new Humanoid({createdAt: new Date(), dimensions: {length:3, width:4, height:5}, hp: 23, name:'Jordan', faction:'NBA', weapons:['Hands', 'Feet'], language:'English'});
 
-console.log(human);
-console.log(human.createdAt); 
-console.log(human.dimensions);
+
+// console.log(human);
+// console.log(human.createdAt); 
+// console.log(human.dimensions);
 console.log(human.hp);
-console.log(human.name);
-console.log(human.faction);
-console.log(human.weapons);
-console.log(human.language);
-console.log(human.destroy());
-console.log(human.greet());
+// console.log(human.name);
+// console.log(human.faction);
+// console.log(human.weapons);
+// console.log(human.language);
+// console.log(human.destroy());
+// console.log(human.greet());
+
+// console.log(human.dimensions.height)
 
 
-console.log(mage.createdAt); // Today's date
-console.log(archer.dimensions); // { length: 1, width: 2, height: 4 }
-console.log(swordsman.hp); // 15
-console.log(mage.name); // Bruce
-console.log(swordsman.faction); // The Round Table
-console.log(mage.weapons); // Staff of Shamalama
-console.log(archer.language); // Elvish
-console.log(archer.greet()); // Lilith offers a greeting in Elvish.
-console.log(mage.takeDamage()); // Bruce took damage.
-console.log(swordsman.destroy()); // Sir Mustachio was removed from the game.
+// console.log(mage.createdAt); // Today's date
+// console.log(archer.dimensions); // { length: 1, width: 2, height: 4 }
+// console.log(swordsman.hp); // 15
+// console.log(mage.name); // Bruce
+// console.log(swordsman.faction); // The Round Table
+// console.log(mage.weapons); // Staff of Shamalama
+// console.log(archer.language); // Elvish
+// console.log(archer.greet()); // Lilith offers a greeting in Elvish.
+// console.log(mage.takeDamage()); // Bruce took damage.
+// console.log(swordsman.destroy()); // Sir Mustachio was removed from the game.
 
 
 
@@ -152,6 +116,25 @@ console.log(swordsman.destroy()); // Sir Mustachio was removed from the game.
   // * Give the Hero and Villians different methods that could be used to remove health points from objects which could result in destruction if health gets to 0 or drops below 0;
   // * Create two new objects, one a villian and one a hero and fight it out with methods!
 
+
+class Villain extends Humanoid {
+  constructor(villainAttribute){
+    super(villainAttribute)
+    this.laugh = villainAttribute.laugh;
+  }
+
+  removeHP(obj, hp){
+    console.log(obj.hp - 1);
+    return 'ahaha';
+  }
+}
+
+// const archer = new Humanoid({createdAt: new Date(), dimensions: {length: 1,width: 2,height: 4},hp: 10,name: 'Lilith',faction: 'Forest Kingdom',weapons: ['Bow', 'Dagger'],language: 'Elvish'},'hello'); 
+
+const drevil = new Villain({createdAt: new Date(), dimensions: {length: 10,width: 10,height: 10},hp: 15,name: 'Dr. Evil',faction: 'Dark Web', weapons: ['Hacking', 'Spam'],language: 'Javascript', laugh: 'Evil Laugh'});
+
+console.log(drevil);
+console.log(drevil.removeHP(archer, 10))
 // class Villain {
 //   constructor(hp){
 //     // super calls the Humanoid constructor passing in the context automatically
