@@ -23,8 +23,17 @@ class Instructor extends Person {
         console.log(`Today we are learning about ${subject}`)
     }
 
-    grade(student, subject) {
-        console.log(`${student.name} receives a perfect score on ${subject}`)
+    grade(student) {
+        console.log(`${student.name}'s current grade is ${student.grade}`);
+    }
+
+    score(student, subject) {
+        //////////////////////
+        //      Stretch     //
+        //////////////////////
+        let score = Math.floor(Math.random() * 100) + 1, diff = score - student.grade;
+        console.log(`${student.name} received a score of ${score} on ${subject}`);
+        return student.grade + diff;
     }
 }
 
@@ -34,6 +43,7 @@ class Student extends Person {
         this.previousBackground = props.previousBackground;
         this.className = props.className;
         this.favSubjects = props.favSubjects;
+        this.grade = 100;
     }
 
     listsSubjects() {
@@ -48,6 +58,14 @@ class Student extends Person {
 
     sprintChallenge(student, subject) {
         console.log(`${student.name} has begun sprint challenge on ${subject}`)
+    }
+
+    graduate() {
+        //////////////////////
+        //      Stretch     //
+        //////////////////////
+        
+        console.log(this.grade > 70 ? `${this.name} is ready to graduate!` : `${this.name} is not ready to graduate :(`)
     }
 }
 
@@ -67,7 +85,7 @@ class ProjectManager extends Instructor {
     }
 }
 
-const student = new Student({
+let student = new Student({
     name: "Kyle",
     location: "Washington State"
 });
@@ -81,4 +99,12 @@ student.speak();
 student.PRAssignment(student, "ES6 Classes");
 pm.speak();
 pm.debugsCode(student, "ES6 Classes");
-pm.grade(student, "ES6 Classes");
+
+pm.grade(student);
+student.grade = pm.score(student, "ES6 Classes");
+pm.grade(student);
+
+
+student.grade = pm.score(student, "React");
+pm.grade(student);
+student.graduate();
