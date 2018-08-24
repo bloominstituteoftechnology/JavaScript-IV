@@ -5,7 +5,7 @@ class Person {
         this.location = peopleInfo.location;
         this.gender = peopleInfo.gender;
     }
-    
+
     speak() {
         return `Hello my name is ${this.name}, I am from ${this.location}`
     }
@@ -18,11 +18,11 @@ class Instructor extends Person {
         this.favLanguage = instructorInfo.favLanguage;
         this.catchPhrase = instructorInfo.catchPhrase;
     }
-    
+
     demo(subject) {
         return `Today we are learning about ${subject}`
     }
-    
+
     grade(student, subject) {
         return `${student.name} receives a perfect score on ${subject}`
     }
@@ -35,15 +35,17 @@ class Student extends Person {
         this.className = studentInfo.className;
         this.favSubjects = studentInfo.favSubjects;
     }
-    
+
     listSubjects() {
-            this.favSubjects.forEach(function(loop){console.log(loop)});
+        this.favSubjects.forEach(function (loop) {
+            console.log(loop)
+        });
     }
-    
+
     PRAssignment(subject) {
         return `${this.name} has submitted a PR for ${subject}`;
     }
-    
+
     sprintChallenge(subject) {
         return `${this.name} has begun sprint challenge on ${subject}`;
     }
@@ -55,11 +57,11 @@ class ProjectManager extends Instructor {
         this.gradClassName = PMinfo.gradClassName;
         this.favInstructor = PMinfo.favInstructor;
     }
-    
+
     standUp(channel) {
         return `${this.name} announces to ${channel}, @${channel} standy times!`
     }
-    
+
     debugsCode(student, subject) {
         return `${this.name} debugs ${student.name}'s code on ${subject}`
     }
@@ -91,7 +93,7 @@ const alex = new Student({
     previousBackground: 'System Administrator',
     className: 'CSPT2',
     favSubjects: ['JavaScript', 'CSS', 'C']
-})
+});
 
 const kia = new ProjectManager({
     name: 'Kia',
