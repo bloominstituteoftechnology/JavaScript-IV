@@ -61,8 +61,15 @@ class Student extends Person {
     sprintChallenge(subject){
         return `${this.name} has begun spring challenge on ${subject}.`
     }
-    graduate(){
-
+    graduate(Instructor){
+        for (let i=0; i >= 0; i++) {
+          if (this.grade >= 70) {
+            return `${this.name} has graduated with a score of ${this.grade}!`
+          } else {
+            Instructor.toughGrader(this);
+            console.log(`${Instructor.name} gave ${this.name} a score of ${this.grade}. ${this.name} needs to keep working hard to graduate.`)
+          }
+        }
     }
 }
 
