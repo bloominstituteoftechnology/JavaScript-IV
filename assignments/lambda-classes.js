@@ -22,7 +22,7 @@ class Instructor extends Person {
     return `Today we are learning about ${subject}`;
   }
   grade(Student, subject) {
-    `${student.name} recieves a perfect score on ${subject}`;
+    `${Student.name} recieves a perfect score on ${subject}`;
   }
 }
 
@@ -30,6 +30,13 @@ class Student extends Person {
   constructor(stuAttr) {
     super(stuAttr);
     this.previousBackground = stuAttr.previousBackground;
+    this.className = stuAttr.className;
     this.favSubjects = stuAttr.favSubjects;
+  }
+  listSubjects() {
+    return this.favSubjects;
+  }
+  PRAssignment(subject) {
+    return `${this.name} has submitted a PR for ${subject}`;
   }
 }
