@@ -116,5 +116,7 @@ const fred = new Instructor({
     gradeClassName: 'CSPT2',
     favInstructor: "Frank Zappa" 
   }); 
-  
-console.log(Ryan.listsSubjects()); //undefined
+
+console.log(Ryan.listsSubjects()); 
+console.log(Hermes.standUp("CSPT2")); 
+console.log(frank.demo("Calculus in Computer Programming"))
