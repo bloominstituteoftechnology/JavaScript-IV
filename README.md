@@ -1,7 +1,7 @@
 # JavaScript IV
 
 This challenge focuses on classes in JavaScript using the new `class` keyword.
-
+// TEST TEST TEST TEST
 ## Assignment Description
 
 You already pretty much know all about classes but you're used to seeing them built in the following context:
