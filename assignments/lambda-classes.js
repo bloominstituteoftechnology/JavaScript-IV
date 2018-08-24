@@ -79,6 +79,13 @@ class Student extends Person {
     sprintChallenge(subject){
         return `${this.name} has begun the sprint challenge on ${subject}`;
     }
+
+    graduate(){
+        if(this.grade > 70){
+            return `Congratulations!! ${this.name}, you are ready to graduate!`;
+        }
+        return `${this.name} hasn't yet qualified to graduate.`;
+    }
 }
 
 //************PERSON OBJECT************** */
@@ -92,7 +99,7 @@ console.log(myPerson.speak(), '\n');
 
 console.log('***************** STUDENT *******************************\n\n');
 
-let myStudent = new Student({ name: 'Christopher', age: 45, location: 'Tennessee', gender: 'Male', previousBackground: 'Accounting', className: 'Javascript-IV', favSubjects: ['JS Prototypes', 'JS classes', 'CSS mixins'], grade: 92 });
+let myStudent = new Student({ name: 'Christopher', age: 45, location: 'Tennessee', gender: 'Male', previousBackground: 'Accounting', className: 'Javascript-IV', favSubjects: ['JS Prototypes', 'JS classes', 'CSS mixins'], grade: 70 });
 console.log('Student object properties: ');
 for (k in myStudent) {
     console.log(k, ': ', myStudent[k]);
@@ -122,8 +129,12 @@ for (k in myProjectManager) {
     console.log(k, ': ', myProjectManager[k]);
 }
 console.log(myProjectManager.standUp('cspt2-help'));
-console.log(myProjectManager.debugsCode(myStudent), 'JS callbacks');
+console.log(myProjectManager.debugsCode(myStudent, 'JS callbacks'));
 console.log(myProjectManager.changeStudentGrade(myStudent));
+
+console.log('\n\n****************************************');
+console.log(myInstructor.changeStudentGrade(myStudent));
+console.log(myStudent.graduate());
 
 
 
