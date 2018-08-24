@@ -69,6 +69,16 @@ const fred = new Instructor({
     catchPhrase: `Don't forget the homies`,
   });
 
+  const frank = new Instructor({
+    name: 'Frank Zappa',
+    location: 'TBD',
+    age: 47,
+    gender: 'female',
+    favLanguage: 'JavaScript',
+    specialty: 'Lead Guitar',
+    catchPhrase: `Help! I'm a rock!`,
+  });
+
   const Ryan = new Student({
     name: 'Ryan',
     location: 'Dallas',
@@ -79,5 +89,32 @@ const fred = new Instructor({
     favSubjects: `Javascript, Less/Css `
   });
 
+  const Neil = new Student({
+    name: 'Neil Young',
+    location: 'Los Angeles',
+    age: 74,
+    gender: 'male',
+    previousBackground: 'Hit-maker', 
+    className: "CSPT2",
+    favSubjects: `Machine learning, Data Science`
+  });
 
+  const Richard = new projectManager({
+    name: 'Richard Feynman',
+    location: 'Mountain View',
+    age: 85,
+    gender: 'male',
+    gradeClassName: 'CSPT2',
+    favInstructor: "Frank Zappa"
+  }); 
+
+  const Hermes = new projectManager({
+    name: 'Hermes',
+    location: 'Greece',
+    age: 2000,
+    gender: 'male',
+    gradeClassName: 'CSPT2',
+    favInstructor: "Frank Zappa" 
+  }); 
+  
 console.log(Ryan.listsSubjects()); //undefined
