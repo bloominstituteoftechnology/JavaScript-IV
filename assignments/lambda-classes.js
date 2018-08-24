@@ -22,10 +22,14 @@ class Instructor extends Person {
     this.subject = subject;
     return `Today we are learning about ${this.subject}`;
   }
-  grade(student, subject) {
-    this.student = student;
-    this.subject = subject;
-    return `${this.student.name} receives a perfect score on ${this.subject}`
+  grade(student) {
+    this.percent = Math.random() < 0.5 ? -1 : 1;
+    this.gradeChange = Math.round(Math.random() * 15) * this.percent;
+    student.grade += this.gradeChange;
+    if (student.grade >= 100) {
+      return student.graduate(this.student.grade);
+    }
+    return`${student.name} receives a change of ${this.gradeChange} points, and a new grade of ${student.grade}`;
   }
 }
 
@@ -35,6 +39,7 @@ class Student extends Person {
     this.previousBackground = obj.previousBackground;
     this.className = obj.className;
     this.favSubjects = obj.favSubjects;
+    this.grade = obj.grade;
   }
   listsSubjects(favSubjects) {
     this.favSubjects = favSubjects;
@@ -48,8 +53,12 @@ class Student extends Person {
     this.subject = subject;
     return `${this.name} has begun a sprint challenge on ${subject}`;
   }
-}
+  graduate(instructor) {
 
+    let graduate = this.grade >= 70 ? "Congratulations! You are ready to be a software developer" : instructor.grade(this.grade);
+    return graduate;
+}
+}
 class ProjectManager extends Instructor {
   constructor(obj) {
     super(obj);
@@ -68,24 +77,63 @@ class ProjectManager extends Instructor {
 }
 
 // Classes end here ------------------
-const fred = new Instructor({
-  name: 'Fred',
-  location: 'Bedrock',
-  age: 37,
+
+
+// Instructors
+
+const James = new Instructor({
+  name: 'James',
+  location: 'Arizona',
+  age: 22,
   gender: 'male',
-  favLanguage: 'JavaScript',
+  favLanguage: 'Node',
+  specialty: 'Back-end',
+  catchPhrase: `Cali baby`
+});
+const Dan = new Instructor({
+  name: 'Dan',
+  location: 'Ohio',
+  age: 38,
+  gender: 'male',
+  favLanguage: 'Python',
   specialty: 'Front-end',
-  catchPhrase: `Don't forget the homies`
+  catchPhrase: `Every day is a new challenge`
+});
+const Beth = new Instructor({
+  name: 'Beth',
+  location: 'Bedrock',
+  age: 34,
+  gender: 'female',
+  favLanguage: 'Ruby',
+  specialty: 'IOS',
+  catchPhrase: `Keep on coding!`
 });
 
-const jim = new Student({
-  name: 'jim',
+// Students
+let Jim = new Student({
+  name: 'Jim',
   location: 'Bedrock',
-  age: 27,
+  age: 34,
   gender: 'male',
-  favLanguage: 'JavaScript',
-  specialty: 'Front-end',
-  catchPhrase: `forget the homies`
+  favLanguage: 'Ruby'
 });
-console.log(fred.demo('math'));
-console.log(fred.grade(jim, 'math'));
+let Aaron = new Student({
+  name: 'Aaron',
+  location: 'Bedrock',
+  age: 34,
+  gender: 'female',
+  favLanguage: 'Ruby'
+});
+let Sam = new Student({
+  name: 'Sam',
+  location: 'Bedrock',
+  age: 34,
+  gender: 'female',
+  favLanguage: 'Ruby',
+  previousBackground : 'Banker',
+  grade : 65
+});
+
+
+// PM's
+console.log(Beth.grade(Sam));
