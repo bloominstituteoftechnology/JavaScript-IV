@@ -82,7 +82,7 @@ class ProjectManagers extends Person {
 }
 
 const dan = new Instructors({name: 'Dan', location: 'SLC', age: 'Unknown', gender: 'M', favLanguage: 'JavaScript', specialty: 'ReactJS', catchPhrase: 'I love JS'})
-const jesse = new Students({name: 'Jesse', location: 'St. Paul', age: 27, gender: 'M', previousBackground: 'COBOL', className: 'CSPT2', favSubjects: ['CSS', 'JavaScript'], grade: 90})
+const jesse = new Students({name: 'Jesse', location: 'St. Paul', age: 27, gender: 'M', previousBackground: 'COBOL', className: 'CSPT2', favSubjects: ['CSS', 'JavaScript'], grade: 50})
 const julian = new ProjectManagers({name: 'Julian', location: 'Maryland', age: 'unknown', gender: 'M', gradClassName: 'CS6', favInstructor: 'Dan'})
 
 console.log(dan.speak());
