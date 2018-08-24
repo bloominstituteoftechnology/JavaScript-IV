@@ -1,6 +1,7 @@
 // CODE here for your Lambda Classes
-function school() {
-    let instructorThis = "";            //kind of messy way of calling sibling functions
+function school() {                     //****** NOTE: I put it all in a function so i cant ever accidently create global variables *********/
+                                        //******     Let me know if this is not OK                                                          */
+    let instructorThis = "";            //kind of messy way of calling sibling functions 
     let studentThis = "";               //kind of messy way of calling sibling functions
     let isReady = false;
 
