@@ -24,6 +24,11 @@ class Instructor extends Person {
     grade(student, subject) {
         return console.log(`${student.name} receives a perfect score on ${subject}`)
     }
+    adjustGrade(student)    {
+        let adjustAmount = Math.round(Math.random()*10)
+        Math.floor(Math.random()*2) == 1 ? student.grade += adjustAmount : student.grade -= adjustAmount
+        return console.log(`${this.name} adjusts ${student.name}'s grade to ${student.grade}.`);
+    }
 }
 
 class Student extends Person    {
@@ -32,6 +37,7 @@ class Student extends Person    {
         this.previousBackground = studentObject.previousBackground;
         this.className = studentObject.className;
         this.favSubjects = studentObject.favSubjects;
+        this.grade = studentObject.grade;
     }
     listsSubjects() {
         return this.favSubjects.forEach((val)   =>  {
@@ -43,6 +49,9 @@ class Student extends Person    {
     }
     sprintChallenge(subject)   {
         return console.log(`${this.name} has begun sprint challenge on ${subject}`);
+    }
+    graduate() {
+        return (this.grade >= 70) ? console.log(`${this.name} graduates from LambdaSchool!`) : console.log(`${this.name} needs to continue their time at Lambda.`)
     }
 }
 
@@ -67,6 +76,7 @@ const Ryan = new Student({
     previousBackground: "Customer Service",
     className: "CSPT2",
     favSubjects: ["JavaScript", "React", "Node"],
+    grade: Math.round((Math.random()*100)),
 });
 
 Ryan.listsSubjects();
@@ -88,3 +98,17 @@ Jacob.standUp("cspt2_Jacob");
 Jacob.debugsCode(Ryan, "React");
 Jacob.demo("React");
 Jacob.grade(Ryan, "React");
+console.log(Ryan.grade);
+const timeAtLambda = (student, projectManager)  =>  {
+    for(i = 0; i < 52; i++) {
+        projectManager.adjustGrade(student);
+        if(student.grade >= 70) {
+            return student.graduate();
+        }
+            student.graduate();
+    }
+    return console.log(`${student.name} has flunked out of Lambda School`)
+}
+Jacob.adjustGrade(Ryan);
+Ryan.graduate();
+timeAtLambda(Ryan, Jacob);
