@@ -86,6 +86,10 @@ const JonSnow = new Instructor({
     favLanguage: "Python",
     catchPhrase: "Winter is coming"
 })
+console.log(JonSnow);
+console.log(JonSnow.speak());
+console.log(JonSnow.catchPhrase);
+console.log(JonSnow.age);
 
 // Instructor # 2
 const DeadPool = new Instructor({
@@ -96,10 +100,6 @@ const DeadPool = new Instructor({
     specialty: "Java",
     catchPhrase: "Fourth wall break inside of a fourth wall break? That's like... 16 walls!"
 })
-console.log(JonSnow);
-console.log(JonSnow.speak());
-console.log(JonSnow.catchPhrase);
-console.log(JonSnow.age);
 console.log(DeadPool);
 console.log(DeadPool.speak());
 console.log(DeadPool.catchPhrase);
@@ -115,20 +115,52 @@ class Students extends Person {
         this.className = students.className;
         this.favSubjects = students.favSubjects;
     }
-    listsSubjects(favSubjects) {
-        console.log(this.favSubjects);
+    listsSubjects() {
+        return(this.favSubjects);
     }
     PRAssignment(subject) {
-        console.log(`${ student.name } has submitted a PR for ${ subject }`)
+        return(`${ this.name } has submitted a PR for ${ subject }`)
     }
     sprintChallenge(subject) {
-        console.log(`${ student.name } has begun a sprint challenge on ${ subject }`)
+        return(`${ this.name } has begun a sprint challenge on ${ subject }`)
     }
 
 }
 
-// class ProjectManagers extends Instructor {
-//     constructor(gradClassName, favInstructor)
-//     this.gradClassName = gradClassName;
-//     this.favInstructor = favInstructor;
-// }
+// Student # 1
+const DarthVader = new Students({
+    name: "Darth Vader",
+    age: 80,
+    location: "Death Star",
+    gender: "male",
+    previousBackground: "Jedi",
+    className: "CS2PT",
+    favSubjects: ["algebra", "chemistry", "history of music"]
+})
+console.log(DarthVader);
+console.log(DarthVader.listsSubjects());
+console.log(DarthVader.PRAssignment("chemistry"));
+console.log(DarthVader.sprintChallenge("Python"));
+
+// Student # 2
+const Thor = new Students({
+    name: "Thor",
+    age: 30,
+    location: "Valhalla",
+    gender: "male",
+    previousBackground: "Norse God",
+    className: "CS2PT",
+    favSubjects: ["norse history", "javascript", "Oden"]
+})
+console.log(Thor);
+console.log(Thor.listsSubjects());
+console.log(Thor.PRAssignment("javascript"));
+console.log(Thor.sprintChallenge("Java"));
+
+ class ProjectManagers extends Instructor {
+     constructor(PM){
+         super(PM);
+         this.gradClassName = PM.gradClassName;
+         this.favInstructor = PM.favInstructor;
+     }
+ }
