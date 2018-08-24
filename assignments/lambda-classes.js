@@ -16,6 +16,10 @@ function Instructor(personAttributes)  {
     this.specialty = personAttributes.specialty;
     this.favLanguage = personAttributes.favLanguage;
     this.catchPhrase = personAttributes.catchPhrase;
+    this.gradeStudent = function (student) {
+        student.grade = Math.floor(Math.random() * 101);
+        console.log(`${this.name} graded ${student.name}'s assignment!`);
+    };
     this.demo = function (subject) {
         console.log(`Today we are learning about ${subject}`)};
     this.grade = function (student, subject) {
@@ -27,6 +31,15 @@ function Student(personAttributes)  {
     this.previousBackground = personAttributes.previousBackground;
     this.className = personAttributes.className;
     this.favSubjects = personAttributes.favSubjects;
+    this.grade = 50;
+    this.graduate = function () {
+        if(this.grade > 70){
+            console.log(`${this.name} is ready to graduate!`);
+        }
+        else {
+            console.log(`${this.name} is not ready to graduate, maybe they could use more tutoring.`)
+        };
+    };
     this.listsSubjects = function (favSubjects) {
         favSubjects.forEach(function(element) {
             console.log(element);
@@ -82,3 +95,10 @@ const Jake = new Instructor({
   console.log(Jake);
   console.log(Jess);
   console.log(Jun);
+
+  console.log(Jess.grade);
+  while (Jess.grade < 70) {
+    Jake.gradeStudent(Jess);
+    console.log(Jess.grade);
+    Jess.graduate();
+  }
