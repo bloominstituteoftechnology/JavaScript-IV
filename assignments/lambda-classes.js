@@ -10,6 +10,13 @@ class Person {
     speak(){
         return `Hello my name is ${this.name}, I am from ${this.location}.`;
     }
+
+    adjustGrade(student){
+        const addOrSub = Math.random() < .7 ? 1 : -1;
+        const adjustment = Math.ceil(15 * Math.random() * addOrSub);
+        student.grade + adjustment >= 100 ? student.grade = 100 : student.grade +=  adjustment;
+        return `${this.name} has adjusted ${student.name}'s grade by ${adjustment} points. ${student.name} has a new grade of ${student.grade}`;
+    }
 }
 
 class Instructors extends Person {
@@ -27,6 +34,7 @@ class Instructors extends Person {
     grade(student, subject){
         return `${student.name} receives a perfect score on ${subject}.`;
     }
+
 }
 
 class Students extends Person {
@@ -34,7 +42,8 @@ class Students extends Person {
         super(studentObj),
         this.previousBackground = studentObj.previousBackground,
         this.className = studentObj.className,
-        this.favSubjects = studentObj.favSubjects
+        this.favSubjects = studentObj.favSubjects,
+        this.grade = studentObj.grade
     }
 
     listSubjects(){
@@ -47,6 +56,12 @@ class Students extends Person {
 
     sprintChallenge(subject){
         return `${this.name} has begun sprint challenge on ${subject}.`;
+    }
+
+    readyToGraduate(){
+        const ready = `With a grade of ${this.grade}, ${this.name} is ready to graduate!`;
+        const notReady = `${this.name} needs to put in some more work before being eligable for graduation.`;
+        return this.grade >= 70 ? ready : notReady;
     }
 }
 
@@ -67,7 +82,7 @@ class ProjectManagers extends Person {
 }
 
 const dan = new Instructors({name: 'Dan', location: 'SLC', age: 'Unknown', gender: 'M', favLanguage: 'JavaScript', specialty: 'ReactJS', catchPhrase: 'I love JS'})
-const jesse = new Students({name: 'Jesse', location: 'St. Paul', age: 27, gender: 'M', previousBackground: 'COBOL', className: 'CSPT2', favSubjects: ['CSS', 'JavaScript']})
+const jesse = new Students({name: 'Jesse', location: 'St. Paul', age: 27, gender: 'M', previousBackground: 'COBOL', className: 'CSPT2', favSubjects: ['CSS', 'JavaScript'], grade: 90})
 const julian = new ProjectManagers({name: 'Julian', location: 'Maryland', age: 'unknown', gender: 'M', gradClassName: 'CS6', favInstructor: 'Dan'})
 
 console.log(dan.speak());
@@ -76,4 +91,14 @@ console.log(dan.grade(jesse, 'JSIV'));
 console.log(jesse.listSubjects());
 console.log(julian.standUp('cspt2_Julian'))
 console.log(julian.debugsCode(jesse, 'React'));
-
+console.log(dan.adjustGrade(jesse));
+console.log(julian.adjustGrade(jesse));
+console.log(dan.adjustGrade(jesse));
+console.log(dan.adjustGrade(jesse));
+console.log(julian.adjustGrade(jesse));
+console.log(julian.adjustGrade(jesse));
+console.log(julian.adjustGrade(jesse));
+console.log(julian.adjustGrade(jesse));
+console.log(dan.adjustGrade(jesse));
+console.log(dan.adjustGrade(jesse));
+console.log(jesse.readyToGraduate())
