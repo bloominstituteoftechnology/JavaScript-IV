@@ -39,4 +39,19 @@ class Student extends Person {
   PRAssignment(subject) {
     return `${this.name} has submitted a PR for ${subject}`;
   }
+  sprintChallenge(subject) {
+    return `${this.name} has begun sprint challenge on ${subject}`;
+  }
+}
+
+class ProjectManager extends Instructor {
+  constructor(PMAttr) {
+    super(PMAttr);
+    this.gradClassName = PMAttr.gradClassName;
+    this.favInstructor = PMAttr.favInstructor;
+  }
+  standUp(channel) {
+    return `${this.name} announces ${channel}, @channel standy times`;
+  }
+  debugsCode;
 }
