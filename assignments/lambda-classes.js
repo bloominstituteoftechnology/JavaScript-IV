@@ -37,16 +37,16 @@ class Student extends Person {
   }
   listsSubjects() {
     // for (let i = 0; i < favSubjects.length; i++) {
-      return this.favSubjects;
+    return this.favSubjects;
     // }
   }
 
   PRAssignment(subject) {
-    return `${student.name} has submitted a PR for ${this.subject}`;
+    return `${this.name} has submitted a PR for ${subject}`;
   }
 
   sprintChallenge(subject) {
-    return `${student.name} has begun sprint challenge on ${this.subject}`;
+    return `${this.name} has begun sprint challenge on ${subject}`;
   }
 }
 
@@ -57,7 +57,7 @@ class ProjectManager extends Instructor {
     this.favInstructor = favInstructor;
   }
   standUp(channel) {
-    return `{$this.name} announces to ${channel}, @channel standy times!​​​​​`;
+    return `${this.name} announces to ${channel}, @channel standy times!​​​​​`;
   }
 
   debugsCode(student, subject) {
@@ -65,18 +65,8 @@ class ProjectManager extends Instructor {
   }
 }
 
-const fred = new Instructor(
-'Fred',
-'Bedrock',
-37,
-  'male',
-  'JavaScript',
-'Front-end',
-`Don't forget the homies`
-);
+const fred = new Instructor('Fred', 37, 'male', 'Bedrock', 'JavaScript', `Don't forget the homies`);
 
-const pascale = new Student('Pascale', 30, 'female', 'New York', 'artist', 'CSPT2', [
-  'math', 'science', 'english'
-]);
+const pascale = new Student('Pascale', 30, 'female', 'New York', 'artist', 'CSPT2', ['math', 'science', 'english']);
 
-console.log(pascale);
+console.log(fred.grade('pascale','math'));
