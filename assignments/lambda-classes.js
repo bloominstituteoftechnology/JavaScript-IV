@@ -8,7 +8,7 @@ class Person {
     }
     speak() {
         console.log(`Hello my name is ${this.name}, I am from ${this.location}.`);
-    }
+    };
 }
 
 class Instructor extends Person{
@@ -24,6 +24,18 @@ class Instructor extends Person{
     grade(student, subject) {
         console.log(`${student.name} receives a perfect score on ${subject}.`)
     }
+    giveGrade(student, grade) {
+        return `${student.name}s current grade is ${grade - (Math.random * 100)}.`;
+    }
+    randomlyGrade(student) {
+        const randomNum = Math.floor(Math.random() * 21) - 10;
+        if (student.grade + randomNum >= 100) {
+            return student.grade = 100;
+        } else {
+            return student.grade = student.grade + randomNum;
+        }
+    }
+
 }
 
 class Student extends Person {
@@ -32,6 +44,7 @@ class Student extends Person {
         this.previousBackground = obj.previousBackground;
         this.className = obj.className;
         this.favSubjects = obj.favSubjects;
+        this.grade = obj.grade;
     }
     listsSubjects() {
         console.log(student.favSubjects);
@@ -42,6 +55,13 @@ class Student extends Person {
     sprintChallenge(subject) {
         console.log(`${this.name} has begun sprint challenge on ${subject}`);
     };
+    graduate() {
+        if(this.grade > 70) {
+            console.log(`You are ready to graduate from Lambda School.`);
+        } else {
+        console.log(`You aren't quite ready to graduate.`);
+        }
+    }
 }
 
 class ProjectManager  extends Instructor {
@@ -78,6 +98,7 @@ const delphine = new Student ({
     previousBackground: 'Barista',
     className: 'CSPT3',
     favSubjects: 'Math',
+    grade: 78,
   });
 
   const joey = new ProjectManager ({
@@ -99,6 +120,12 @@ console.log(lulu.gender);
 console.log(lulu.catchPhrase);
 console.log(lulu.specialty);
 console.log(joey.catchPhrase);
+console.log(delphine.grade)
+console.log(lulu.randomlyGrade(delphine));
+console.log(delphine.graduate());
+console.log(delphine.speak());
+console.log(delphine.PRAssignment());
+console.log(joey.standUp());
 
 
-//WooooHooooo I love this stuff!
+
