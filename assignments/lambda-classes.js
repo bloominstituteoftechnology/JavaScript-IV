@@ -26,6 +26,22 @@ class Instructor extends Person {
     grade(student, subject){
         return `${student.name} receives a perfect score on ${subject}.`
     }
+    toughGrader(student){
+        let randomAmount = Math.floor(Math.random() * (10)) + 1; //ensures it adds/subtracts a whole integer
+        let odds = randomAmount; //gives us a randomizer to make add or subtract 50/50 chances
+        if (odds %2 === 0) {
+          if (student.grade - randomAmount <= 0) {
+            student.grade = 0;
+          } student.grade = (student.grade - randomAmount);
+
+        } else if (odds%2 !== 0) {
+          if ((student.grade*1) + (randomAmount*1) > 100) {
+            student.grade = 100;
+          } else { 
+          student.grade = ((student.grade*1) + (randomAmount*1));
+          }
+        } return student.grade;
+    } 
 }
 
 class Student extends Person {
@@ -34,6 +50,7 @@ class Student extends Person {
         this.previousBackground = obj.previousBackground;
         this.className = obj.className;
         this.favSubjects = obj.favSubjects;
+        this.grade = obj.grade; //grade must be an array
     }
     listsSubjects(){
         return this.favSubjects;
@@ -43,6 +60,9 @@ class Student extends Person {
     }
     sprintChallenge(subject){
         return `${this.name} has begun spring challenge on ${subject}.`
+    }
+    graduate(){
+
     }
 }
 
@@ -54,9 +74,10 @@ const Julie = new Student({
     previousBackground: 'Event planner',
     className: 'cspt2',
     favSubjects: ['English', 'World Geography', 'CSS',],
+    grade: [46],
 })
 
-console.log(Julie.PRAssignment('HTML'));
+// console.log(Julie.PRAssignment('HTML'));
 
 class ProjectManager extends Instructor {
     constructor(obj){
@@ -96,4 +117,7 @@ const fred = new Instructor({
     catchPhrase: `Don't forget the homies`
   });
 
-  
+console.log(fred.toughGrader(Julie))
+console.log(fred.toughGrader(Julie))
+console.log(fred.toughGrader(Julie))
+
