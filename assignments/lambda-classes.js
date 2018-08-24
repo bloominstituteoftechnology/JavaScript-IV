@@ -53,5 +53,28 @@ class ProjectManager extends Instructor {
   standUp(channel) {
     return `${this.name} announces ${channel}, @channel standy times`;
   }
-  debugsCode;
+  debugsCode(subject) {
+    return `${this.name} debugs ${Student.name}'s code on ${subject}`;
+  }
 }
+
+//Instructor Objects
+const fred = new Instructor({
+  name: "Fred",
+  location: "Bedrock",
+  age: 37,
+  gender: "male",
+  favLanguage: "JavaScript",
+  specialty: "Front-end",
+  catchPhrase: `Don't forget the homies`
+});
+
+const bob = new Instructor({
+  name: "Bob",
+  location: "Austin",
+  age: 42,
+  gender: "male",
+  favLanguage: "React",
+  specialty: "Front-end",
+  catchPhrase: `yep I'm Bob`
+});
