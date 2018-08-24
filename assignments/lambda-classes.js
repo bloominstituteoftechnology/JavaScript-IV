@@ -1,4 +1,6 @@
 // CODE here for your Lambda Classes
+function school() {
+    let ourThis = "";
 class Person {
     constructor(stats) {
         this.name = stats.name;
@@ -18,6 +20,7 @@ class Instructor extends Person {
         this.specialty = isGoodAt.specialty;
         this.favLanguage = isGoodAt.favLanguage;
         this.catchPhrase = isGoodAt.catchPhrase;
+        ourThis = this;
     }
     demo() {
         return `Today we are learning about ${this.specialty}`;
@@ -56,7 +59,7 @@ class Student extends Person {
       if (this.grade > 70) {
         return `It's time to graduate, your grade is ${this.grade}%.`;
       } else {
-        let modPoints = beualah.addPoints(this.grade);
+        let modPoints = ourThis.addPoints(this.grade);
         if (modPoints > 70) {
            return `It's time to graduate, your grade is ${modPoints}%.`;
         }
@@ -123,3 +126,7 @@ console.log(beualah.demo());
 console.log(beualah.grades());
 console.log(raymond.standUp());
 console.log(raymond.debugsCode());
+
+};
+
+school();
