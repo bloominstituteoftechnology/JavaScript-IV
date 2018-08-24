@@ -15,7 +15,7 @@ class Person {
         const addOrSub = Math.random() < .7 ? 1 : -1;
         const adjustment = Math.ceil(15 * Math.random() * addOrSub);
         student.grade + adjustment >= 100 ? student.grade = 100 : student.grade +=  adjustment;
-        return `${this.name} has adjusted ${student.name}'s grade by ${adjustment} points. ${student.name} has a new grade of ${student.grade}`;
+        return `${this.name} has adjusted ${student.name}'s grade by ${adjustment} points. ${student.name} has a new grade of ${student.grade}.`;
     }
 }
 
@@ -47,7 +47,10 @@ class Students extends Person {
     }
 
     listSubjects(){
-       this.favSubjects.forEach(s=>console.log(s));
+        // const subjArr = [];
+        // this.favSubjects.forEach(s=>subjArr.push(s));
+        // return subjArr;
+        return this.favSubjects.map(x=> x)
     }
 
     PRAssignment(subject){
@@ -82,7 +85,7 @@ class ProjectManagers extends Person {
 }
 
 const dan = new Instructors({name: 'Dan', location: 'SLC', age: 'Unknown', gender: 'M', favLanguage: 'JavaScript', specialty: 'ReactJS', catchPhrase: 'I love JS'})
-const jesse = new Students({name: 'Jesse', location: 'St. Paul', age: 27, gender: 'M', previousBackground: 'COBOL', className: 'CSPT2', favSubjects: ['CSS', 'JavaScript'], grade: 50})
+const jesse = new Students({name: 'Jesse', location: 'St. Paul', age: 27, gender: 'M', previousBackground: 'COBOL', className: 'CSPT2', favSubjects: ['CSS', 'JavaScript'], grade: 20})
 const julian = new ProjectManagers({name: 'Julian', location: 'Maryland', age: 'unknown', gender: 'M', gradClassName: 'CS6', favInstructor: 'Dan'})
 
 console.log(dan.speak());
