@@ -21,8 +21,8 @@ class Instructor extends Person {
   demo(subject) {
     return `Today we are learning about ${subject}`;
   }
-  grade(Student, subject) {
-    `${Student.name} recieves a perfect score on ${subject}`;
+  grade(student, subject) {
+    return `${student.name} recieves a perfect score on ${subject}`;
   }
 }
 
@@ -53,8 +53,8 @@ class ProjectManager extends Instructor {
   standUp(channel) {
     return `${this.name} announces ${channel}, @channel standy times`;
   }
-  debugsCode(subject) {
-    return `${this.name} debugs ${Student.name}'s code on ${subject}`;
+  debugsCode(student, subject) {
+    return `${this.name} debugs ${student.name}'s code on ${subject}`;
   }
 }
 
@@ -91,8 +91,8 @@ const marguel = new Student({
   favSubjects: "JavaScript"
 });
 
-const Jessica = new Student({
-  name: "Jesiica",
+const jessica = new Student({
+  name: "Jessica",
   location: "New York",
   age: 33,
   gender: "Female",
@@ -100,3 +100,45 @@ const Jessica = new Student({
   className: "CSPT2",
   favSubjects: "CSS"
 });
+
+//Project Managers Objects
+
+const jack = new ProjectManager({
+  name: "Jack",
+  location: "Seattle",
+  age: 32,
+  gender: "male",
+  favLanguage: "React",
+  specialty: "front-end",
+  catchPhrase: `Hi`,
+  gradClassName: "CS5",
+  favInstructor: "Fred"
+});
+
+const violet = new ProjectManager({
+  name: "Violet",
+  location: "San Francisco",
+  age: 35,
+  gender: "Female",
+  favLanguage: "CSS",
+  specialty: "back-end",
+  catchPhrase: `WUT UP`,
+  gradClassName: "CS7",
+  favInstructor: "Bob"
+});
+
+//Instructor tests
+console.log(bob.location);
+console.log(fred.demo("javascript"));
+console.log(bob.grade(jessica, "java"));
+
+//Student Tests
+console.log(marguel.name);
+console.log(marguel.listSubjects());
+console.log(jessica.PRAssignment("css"));
+console.log(marguel.sprintChallenge("Javascript"));
+
+//Project Manager Tests
+console.log(jack.catchPhrase);
+console.log(jack.standUp("Swag"));
+console.log(violet.debugsCode(marguel, "CSS"));
