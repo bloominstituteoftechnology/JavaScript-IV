@@ -21,7 +21,7 @@ Mason.speak();
 
 class Instructor extends Person {
     constructor(instructor) {
-        super(Person);
+        super(instructor);
         this.speciality = instructor.speciality;
         this.favLanguage = instructor.favLanguage;
         this.catchPhrase = instructor.catchPhrase;
@@ -35,8 +35,8 @@ class Instructor extends Person {
         console.log(`${student.name} receives a perfect score on ${subject}`);
     }
 
-    catchPhrase(){
-        console.log(Dan.catchPhrase);
+    sayCatchPhrase(){
+        console.log(this.catchPhrase);
     }
 }
 
@@ -45,13 +45,15 @@ var DanF = new Instructor ({
 })
 
 DanF.demo(`JS4`)
-DanF.catchPhrase() // this doesn't work yet, but will reexamine tomorrow.
+// console.log(DanF.catchPhrase);
+DanF.sayCatchPhrase() // this doesn't work yet, but will reexamine tomorrow.
 
 class Student extends Person {
-    constructor(attributes) {
-        this.previousbackground = studentOptions.previousbackground;
-        this.className = studentOptions.className;
-        this.favSubjects = studentOptions.favSubjects;
+    constructor(student) {
+        super(student)
+        this.previousbackground = student.previousbackground;
+        this.className = student.className;
+        this.favSubjects = student.favSubjects;
     }
 
     prAssignment(subject) { 
