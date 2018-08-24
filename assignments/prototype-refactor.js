@@ -1,14 +1,14 @@
-// Here we have a functioning solutoin to your challenge from yesterday.
-// Today your goal is to refactor all of this code to use ES6 Classes.
+// Here we have a functioning solution to your challenge from yesterday.
+// Today your goal is to refractor all of this code to use ES6 Classes.
 // The console.log() statements should still return what is expected of them.
 
-function GameObject(options) {
+/* function GameObject(options) {
   this.createdAt = options.createdAt;
   this.dimensions = options.dimensions;
 }
 
 GameObject.prototype.destroy = function() {
-  return `Object was removed from the game.`;
+  return `${this.name} was removed from the game.`;
 };
 
 function CharacterStats(characterStatsOptions) {
@@ -34,7 +34,41 @@ Humanoid.prototype = Object.create(CharacterStats.prototype);
 
 Humanoid.prototype.greet = function() {
   return `${this.name} offers a greeting in ${this.language}.`;
+}; */
+
+class GameObject {
+  constructor(obj){
+    this.createdAt = obj.createdAt;
+    this.dimensions = obj.dimensions;
+  }
+  destroy(){
+    return `${this.name} was removed from the game.`;
+  };
 };
+
+class CharacterStats extends GameObject {
+  constructor(obj){
+    super(obj);
+    this.hp = obj.hp;
+    this.name = obj.name;
+  }
+  takeDamage(){
+    return `${this.name} took damage.`;
+  };
+};
+
+class Humanoid extends CharacterStats {
+  constructor(obj){
+    super(obj);
+    this.faction = obj.faction;
+    this.weapons = obj.weapons;
+    this.language = obj.language;
+  }
+  greet(){
+    return `${this.name} offers a greeting in ${this.language}.`;
+  };
+};
+
 
 const mage = new Humanoid({
   createdAt: new Date(),
