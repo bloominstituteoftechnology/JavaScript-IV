@@ -34,8 +34,6 @@ class Instructor extends Person {
     }
 
     gradeStudents(student) {
-        // let random = Math.floor(Math.random()*20);
-        // let addOrSubstract = Math.random() > 0.5 ? 1 : -1;
         let random = (Math.floor(Math.random()*20)) * (Math.random() > 0.5 ? 1 : -1);
         student.grade += random;
         student.grade >= 100 ? student.grade = 100 : student.grade + 1;
