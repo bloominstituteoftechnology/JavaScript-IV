@@ -32,6 +32,14 @@ class Instructor extends Person {
     grade(student, subject) {
         return `${student.name} receives a perfect score on ${subject}.`;
     }
+
+    gradeStudents(student) {
+        // let random = Math.floor(Math.random()*20);
+        // let addOrSubstract = Math.random() > 0.5 ? 1 : -1;
+        let random = (Math.floor(Math.random()*20)) * (Math.random() > 0.5 ? 1 : -1);
+        student.grade += random;
+        student.grade >= 100 ? student.grade = 100 : student.grade + 1;
+    };
 }
 
 class Student extends Person {
@@ -40,6 +48,7 @@ class Student extends Person {
         this.previousBackground = studentAttr.previousBackground;
         this.className = studentAttr.className;
         this.favSubjects = studentAttr.favSubjects;
+        this.grade = studentAttr.grade;
     }
 
     // `listsSubjects` a method that logs out all of the student's favoriteSubjects one by one.
@@ -59,6 +68,12 @@ class Student extends Person {
     // `student.name has begun sprint challenge on {subject}`
     sprintChallenge(subject) {
         return `${this.name} has begun sprint challenge on ${subject}.`;
+    }
+
+    checkGraduation() {
+        const graduate = `${this.name} has received a grade of ${this.grade} and John Spraul ordains that he is ready to graduate from Lambda School! 🍻`;
+        const dontGraduate = `${this.name} needs to work harder to graduate. Better luck next time.`;
+        return this.grade >= 70 ? graduate : dontGraduate;
     }
 }
 
@@ -99,12 +114,14 @@ const Colin = new Student ({
     previousBackground: "Ocean Engineer",
     className: "CSPT2",
     favSubjects: ["Neural networks", "CFD", "financial engineering"],
+    grade: 95,
 });
 
 console.log(Colin.speak());
 console.log(Colin.listsSubjects());
 console.log(Colin.PRAssignment("Python"));
 console.log(Colin.sprintChallenge("React"));
+console.log(Colin.grade)
 
 const John = new ProjectManager ({
     name: "John Spraul",
@@ -134,3 +151,6 @@ console.log(John.standUp("pm_standup_john"))
 console.log(John.debugsCode(Colin, "CSS"))
 console.log(Dan.demo("LESS"));
 console.log(Dan.grade(Colin, "Responsive Web Design"));
+John.gradeStudents(Colin)
+console.log(Colin.grade)
+console.log(Colin.checkGraduation())
