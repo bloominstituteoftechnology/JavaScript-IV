@@ -23,13 +23,13 @@ class Instructor extends Person {
     return `Today we are learning about ${this.subject}`;
   }
   grade(student) {
-    this.percent = Math.random() < 0.5 ? -1 : 1;
-    this.gradeChange = Math.round(Math.random() * 15) * this.percent;
-    student.grade += this.gradeChange;
-    if (student.grade >= 100) {
-      return student.graduate(this.student.grade);
-    }
-    return`${student.name} receives a change of ${this.gradeChange} points, and a new grade of ${student.grade}`;
+    let percent = Math.random() < 0.5 ? -1 : 1;
+    let gradeChange = Math.round(Math.random() * 15) * percent;
+    student.grade = student.grade + gradeChange;
+
+    console.log(`${student.name} receives a change of ${student.grade} points, and a new grade of ${student.grade}`);
+
+      return student.graduate(this, student.grade);
   }
 }
 
@@ -54,8 +54,7 @@ class Student extends Person {
     return `${this.name} has begun a sprint challenge on ${subject}`;
   }
   graduate(instructor) {
-
-    let graduate = this.grade >= 70 ? "Congratulations! You are ready to be a software developer" : instructor.grade(this.grade);
+    let graduate = this.grade >= 70 ? "Congratulations! You are ready to be a software developer" : instructor.grade(this);
     return graduate;
 }
 }
@@ -115,25 +114,69 @@ let Jim = new Student({
   location: 'Bedrock',
   age: 34,
   gender: 'male',
-  favLanguage: 'Ruby'
+  previousBackground : 'Train Mechanic',
+  className : 'CS7',
+  favSubjects : ['JavaScript','Perl'],
+  grade : 46
 });
+
 let Aaron = new Student({
   name: 'Aaron',
   location: 'Bedrock',
   age: 34,
   gender: 'female',
-  favLanguage: 'Ruby'
+  previousBackground : 'Gymnist',
+  className : "CSPT1",
+  favSubjects : ["Ruby", "PHP"],
+  grade : 68
 });
+
 let Sam = new Student({
   name: 'Sam',
   location: 'Bedrock',
   age: 34,
   gender: 'female',
-  favLanguage: 'Ruby',
   previousBackground : 'Banker',
+  className : 'CSPT2',
+  favSubjects : ['Node', 'Python'],
   grade : 65
 });
 
 
 // PM's
-console.log(Beth.grade(Sam));
+
+const Jeff = new ProjectManager({
+  name: 'Jeff',
+  location: 'Arizona',
+  age: 31,
+  gender: 'male',
+  favLanguage: 'Perl',
+  specialty: 'Debugging',
+  catchPhrase: `Cali baby`,
+  gradClassName: 'CS1',
+  favInstructor : 'Moises'
+});
+
+const Amanda = new ProjectManager({
+  name: 'Amanda',
+  location: 'New York',
+  age: 20,
+  gender: 'female',
+  favLanguage: 'C++',
+  specialty: 'Operating System Design',
+  catchPhrase: `Sometimes deleting code is better than debugging code.`,
+  gradClassName: 'CS1',
+  favInstructor : 'Dan'
+});
+
+const Rachel = new ProjectManager({
+  name: 'Rachel',
+  location: 'Colorado',
+  age: 27,
+  gender: 'female',
+  favLanguage: 'JavaScript',
+  specialty: 'UI',
+  catchPhrase: `beauty is what you see!`,
+  gradClassName: 'CS4',
+  favInstructor : 'Beth'
+});
