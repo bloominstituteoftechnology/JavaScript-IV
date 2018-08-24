@@ -77,7 +77,7 @@ const fred = new Person({
 
 const dan = new Instructor({
     name: 'Dan',
-    age: 35,
+    age: 32,
     location: 'SLC',
     gender: 'Male',
     specialty: 'JavaScript',
