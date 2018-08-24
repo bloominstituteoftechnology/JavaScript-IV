@@ -54,6 +54,10 @@ class Student extends Person {
     return `${this.name} has begun a sprint challenge on ${subject}`;
   }
   graduate(instructor) {
+    // set default- to avoid calling without an instructor instance
+    if (instructor === undefined) {
+      instructor = Beth;
+    }
     let graduate = this.grade >= 70 ? "Congratulations! You are ready to be a software developer" : instructor.grade(this);
     return graduate;
 }
@@ -180,3 +184,5 @@ const Rachel = new ProjectManager({
   gradClassName: 'CS4',
   favInstructor : 'Beth'
 });
+
+console.log(Jim.graduate());
