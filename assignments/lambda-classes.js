@@ -5,10 +5,7 @@ class Person {
         this.age = stats.age;
         this.gender = stats.gender;
         this.location = stats.location;
-        this.grades = function() {
-            return Math.floor(Math.random() * (100 - 1)) + 1;
-        }
-        
+        this.grade = stats.grade      
     }
     speak() {
       return `Hello my name is ${this.name}, I am from ${this.location}`
@@ -25,12 +22,14 @@ class Instructor extends Person {
     demo() {
         return `Today we are learning about ${this.specialty}`;
     }
-    grade() {
+    grades() {
         return `${this.name} receives a perfect score on ${this.specialty}`;
     }
-    addPoints() {
+    addPoints(orig) {
         let newPoints = Math.floor(Math.random() * (100 - 1)) + 1;
-        return `Students grade was ${this.grades()} and now after new grade is added, it is ${this.grades() + newPoints} `;
+        //let newPoints = 0
+        console.log(`Students grade was ${orig} and now after new grade is added, it is ${orig += newPoints} `);
+        return orig;
     }
 };
 
@@ -40,7 +39,7 @@ class Student extends Person {
         this.previousBackground = details.previousBackground;
         this.className = details.className;
         this.favSubject = details.favSubject;
-       
+            
     }
 
     listSubject() {                   
@@ -53,6 +52,18 @@ class Student extends Person {
     sprintChallenge() {
         return `${this.name} has begun sprint challenge on ${this.favSubject}`;
     } 
+    graduate() {
+      if (this.grade > 70) {
+        return `It's time to graduate, your grade is ${this.grade}%.`;
+      } else {
+        let modPoints = beualah.addPoints(this.grade);
+        if (modPoints > 70) {
+           return `It's time to graduate, your grade is ${modPoints}%.`;
+        }
+        return modPoints;
+        //this.graduate();
+      }
+    }
 };
 
 
@@ -75,6 +86,7 @@ const burt = new Student({
     age: 21,
     gender: 'male',
     location: 'California',
+    grade: 60,
     previousBackground: 'electrician',
     className: 'CS2',
     favSubject: ['JS', 'Science']
@@ -85,6 +97,7 @@ const beualah = new Instructor({
     age: 42,
     gender: 'female',
     location: 'California',
+    grade: 80,
     specialty: 'physical eduction',
     favLanguage: 'english',
     catchPhrase: 'Whats up' 
@@ -95,6 +108,7 @@ const raymond = new ProjectManagers({
     age: 23,
     gender: 'male',
     location: 'Notsureville',
+    grade: 90,
     specialty: 'JavaScript',
     favLanguage: 'JS',
     catchPhrase: 'PM me if you need help',
@@ -103,11 +117,10 @@ const raymond = new ProjectManagers({
 });
 
 console.log(burt.speak());  
-console.log(burt.grades());  
+console.log(burt.graduate());  
 console.log(burt.listSubject()); //21
 console.log(raymond.specialty);
 console.log(beualah.demo());
-console.log(beualah.grade());
+console.log(beualah.grades());
 console.log(raymond.standUp());
 console.log(raymond.debugsCode());
-console.log(beualah.addPoints());
