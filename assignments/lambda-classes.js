@@ -68,7 +68,7 @@ class Student extends Person {
     }
 
     graduate(instructor) {
-        if (this.grade > 70) {
+        if (this.grade >= 70) {
             console.log(`${this.name} is officially a graduate of Lambda School!!`)
         }
         else {
