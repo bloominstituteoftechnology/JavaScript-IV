@@ -23,6 +23,30 @@ class Instructor extends Person {
   grade(student, subject) {
     console.log(`${student.name} receives a perfect score on ${subject}`);
   }
+  adjustGradeUp(student, points) {
+    let pointsAdjusted = Math.floor(Math.random() * Math.floor(100));
+    let newGrade = student.grade + pointsAdjusted;
+    student.grade = newGrade;
+    newGrade > 100 ? (student.grade = 100) : (newGrade = student.grade);
+    console.log(
+      `${this.name} adjusted ${student.name}'s grade up by ${pointsAdjusted} ${
+        student.name
+      }'s new grade is ${student.grade}`
+    );
+  }
+  adjustGradeDown(student, points) {
+    let pointsAdjusted = Math.floor(Math.random() * Math.floor(100));
+    let newGrade = student.grade - pointsAdjusted;
+    student.grade = newGrade;
+    newGrade < 0 ? (student.grade = 0) : (newGrade = student.grade);
+    console.log(
+      `${this.name} adjusted ${
+        student.name
+      }'s grade down by ${pointsAdjusted} ${student.name}'s new grade is ${
+        student.grade
+      }`
+    );
+  }
 }
 
 class Student extends Person {
@@ -31,6 +55,7 @@ class Student extends Person {
     this.previousBackground = studentOptions.previousBackground;
     this.className = studentOptions.className;
     this.favoriteSubjects = studentOptions.favoriteSubjects;
+    this.grade = studentOptions.grade;
   }
   listSubjects() {
     for (i = 0; i < this.favoriteSubjects.length; i++) {
@@ -42,6 +67,15 @@ class Student extends Person {
   }
   spintChallenge(stuent, subject) {
     console.log(`${studnet.name} has begun sprint challenge on ${subject}`);
+  }
+  graduate() {
+    this.grade >= 70
+      ? console.log(`You are ready to graduate with a grade of ${this.grade}`)
+      : console.log(
+          `Oh no your grade is only ${
+            this.grade
+          } you need a 70 or better to graudate better keep studying`
+        );
   }
 }
 
@@ -69,7 +103,7 @@ const Joe = new Instructor({
   catchPhrase: `Debug! Debug! Debug!`
 });
 
-const Michael = new Instructor({
+const Michael = new Student({
   name: "Michael",
   location: "Akron,Ohio",
   age: 29,
@@ -99,13 +133,13 @@ const Nick = new Student({
   favoriteSubjects: ["Math", "History", "Trigonometry"]
 });
 
-const Jack = new ProjectManager({
-  name: "Jack",
+const Julian = new ProjectManager({
+  name: "Julian",
   location: "Orlando, Florida",
   age: 27,
   gender: "male",
   gradClassName: "CS8",
-  favInstructor: "Dan Frehner"
+  favInstructor: "Everyone"
 });
 
 const Judy = new ProjectManager({
@@ -118,4 +152,13 @@ const Judy = new ProjectManager({
 });
 
 console.log(Michelle.favoriteSubjects);
-console.log(Jack.speak());
+console.log(Julian.speak());
+Michael.grade = 87;
+console.log(Michael.grade);
+console.log(Julian.adjustGradeUp(Michael));
+console.log(Julian.adjustGradeDown(Michael));
+console.log(Julian.adjustGradeUp(Michael));
+console.log(Julian.adjustGradeDown(Michael));
+console.log(Julian.adjustGradeUp(Michael));
+console.log(Julian.adjustGradeDown(Michael));
+console.log(Michael.graduate());
