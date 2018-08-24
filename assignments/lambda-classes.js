@@ -7,7 +7,7 @@ class Person {
         this.gender = obj.gender;
     }
     speak() {
-        console.log(`Hello my name is ${this.name}, I am from ${this.location}.`);
+        return `Hello my name is ${this.name}, I am from ${this.location}.`;
     };
 }
 
@@ -19,10 +19,10 @@ class Instructor extends Person{
         this.catchPhrase = obj.catchPhrase;
     }
     demo(subject) {
-        console.log(`Today we are learning about ${subject}.`);
+        return `Today we are learning about ${subject}.`;
     }
     grade(student, subject) {
-        console.log(`${student.name} receives a perfect score on ${subject}.`)
+        return `${student.name} receives a perfect score on ${subject}.`;
     }
     giveGrade(student, grade) {
         return `${student.name}s current grade is ${grade - (Math.random * 100)}.`;
@@ -47,19 +47,19 @@ class Student extends Person {
         this.grade = obj.grade;
     }
     listsSubjects() {
-        console.log(student.favSubjects);
+        return student.favSubjects;
     }
     PRAssignment(subject) {
-        console.log(`${this.name} has submitted a PR for ${subject}.`);
+        return `${this.name} has submitted a PR for ${subject}.`;
     };
     sprintChallenge(subject) {
-        console.log(`${this.name} has begun sprint challenge on ${subject}`);
+        return `${this.name} has begun sprint challenge on ${subject}`;
     };
     graduate() {
         if(this.grade > 70) {
-            console.log(`You are ready to graduate from Lambda School.`);
+            return `You are ready to graduate from Lambda School.`;
         } else {
-        console.log(`You aren't quite ready to graduate.`);
+        return `You aren't quite ready to graduate.`;
         }
     }
 }
@@ -71,10 +71,10 @@ class ProjectManager  extends Instructor {
         this.favInstructor = obj.favInstructor;
     }
     standUp(channel) {
-        console.log(`${this.name} announces to ${channel}, @channel standy times!​​​​​`)
+        return `${this.name} announces to ${channel}, @channel standy times!​​​​​`
     }
     debugsCode({student}, subject) {
-        console.logs(`${this.name} debugs ${student.name}'s code on ${subject}`);
+        return `${this.name} debugs ${student.name}'s code on ${subject}`;
     }
 }
 
