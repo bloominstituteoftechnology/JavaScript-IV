@@ -57,6 +57,16 @@ class PM extends Instructor{
 
 
 // Person Test
+const Bobby = new Person({
+	name:"Bobby Johns",
+	age:35,
+	Location:"New Yawk"
+});
+
+console.log(Bobby.name);
+console.log(Bobby.age);
+console.log(Bobby.Location);
+console.log(Bobby.speak());
 
 // Instructor Test
 
