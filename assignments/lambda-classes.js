@@ -1,5 +1,3 @@
-// CODE here for your Lambda Classes
-
 class Person {
     constructor(human){
       this.name = human.name;
@@ -12,7 +10,6 @@ class Person {
     }
   };
   
-  // console.log(Person);
   
   class Instructor extends Person {
     constructor(teacher){
@@ -33,13 +30,29 @@ class Person {
       this.className = learner.className;
       this.favSubjects = learner.className;
     }
-    listSubjects(){
-      console.log(this.favSubjects);
-    }
+    listsSubjects(){
+      favSubjects.forEach(function(item){
+      copy.push(item) 
+      })
+    };
     PRAssignment(subject){
       return `${this.name} has submitted a PR for ${subject}.`
     }
     sprintChallenge(subject){
       return `${this.name} has begun sprint challenge on {subject}`
+    }
+  }
+  
+  class ProjectManager extends Student {
+    constructor (PM) {
+      super(PM) 
+      this.gradClassName = PM.gradClassName;
+      this.favInstructor = PM.favInstructor;
+    }
+    standUp(channel){
+      return `${this.name} announces to ${channel} @channel standy times!`
+    }
+    debugsCode(subject){
+      return `${this.name} debuggs ${this.name}'s code on ${subject}.`
     }
   }
