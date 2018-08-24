@@ -118,7 +118,7 @@ const eric = new Student({
 const charlie = new ProjectManager({
     name: 'Charlie',
     age: 24,
-    location: 'A beach somewhere',
+    location: 'New York',
     gender: 'Female',
     specialty: 'Teaching React',
     favLanguage: 'Javascript',
@@ -147,7 +147,6 @@ charlie.debugsCode(eric, 'Javascript');
 
 
 // Testing Stretch Goals
-let count = 0;
 while(!eric.graduate()){
     bob.gradeAssignment(eric);
     console.log(`${eric.name}'s current grade: ${eric.grade}`);
