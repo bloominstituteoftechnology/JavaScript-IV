@@ -78,3 +78,25 @@ const bob = new Instructor({
   specialty: "Front-end",
   catchPhrase: `yep I'm Bob`
 });
+
+//Student Objects
+
+const marguel = new Student({
+  name: "Marguel",
+  location: "College Station",
+  age: 21,
+  gender: "male",
+  previousBackground: "Student",
+  className: "CSPT2",
+  favSubjects: "JavaScript"
+});
+
+const Jessica = new Student({
+  name: "Jesiica",
+  location: "New York",
+  age: 33,
+  gender: "Female",
+  previousBackground: "Student",
+  className: "CSPT2",
+  favSubjects: "CSS"
+});
