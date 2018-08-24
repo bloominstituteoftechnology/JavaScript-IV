@@ -24,7 +24,7 @@ class Instructor extends Person {
         return `Today we are learning about ${subject}.`;
     }
     grade(student, subject){
-        return `${student.name} receives a perfect score on ${subject}.`
+        return `${student.name} received a perfect score on ${subject}.`
     }
     toughGrader(student){
         let randomAmount = Math.floor(Math.random() * (10)) + 1; //ensures it adds/subtracts a whole integer
@@ -76,19 +76,6 @@ class Student extends Person {
     }
 }
 
-const Julie = new Student({
-    name: 'Julie',
-    age: '25',
-    location: 'Houston',
-    gender: 'Female',
-    previousBackground: 'Event planner',
-    className: 'cspt2',
-    favSubjects: ['English', 'World Geography', 'CSS',],
-    grade: [46],
-})
-
-// console.log(Julie.PRAssignment('HTML'));
-
 class ProjectManager extends Instructor {
     constructor(obj){
         super(obj)
@@ -103,7 +90,28 @@ class ProjectManager extends Instructor {
     }
 }
 
-const Raymond = new ProjectManager ({
+
+const Fred = new Instructor({
+    name: 'Fred',
+    location: 'Bedrock',
+    age: 37,
+    gender: 'Male',
+    favLanguage: 'JavaScript',
+    specialty: 'Front-end',
+    catchPhrase: `Don't forget the homies`
+  });
+
+const Amber = new Instructor ({
+    name: 'Amber',
+    location: 'Venus',
+    age: 42,
+    gender: 'Female',
+    favLanguage: 'Python',
+    specialty: 'UI/UX',
+    catchPhrase: 'Bloop, bloop, bloop!'
+});
+
+  const Raymond = new ProjectManager ({
     name: 'Raymond',
     age: 'Wise',
     location: 'Texas',
@@ -113,23 +121,69 @@ const Raymond = new ProjectManager ({
     catchPhrase: '@here Get in here!',
     gradClassName: 'cs11',
     favInstructor: 'Dan',
+});
+
+const Grendal = new ProjectManager ({
+    name: 'Grendal',
+    age: 9,
+    location: 'Eugene, Oregon',
+    gender: 'Male',
+    specialty: 'Growling',
+    favLanguage: 'Ruby',
+    catchPhrase: 'Is that your final answer?',
+    gradClassName: 'cs21',
+    favInstructor: 'Amber',
+});
+
+  const Julie = new Student({
+    name: 'Julie',
+    age: 25,
+    location: 'Houston',
+    gender: 'Female',
+    previousBackground: 'Event planner',
+    className: 'cspt2',
+    favSubjects: ['English', 'World Geography', 'CSS',],
+    grade: [75],
+});
+
+const Andy = new Student ({
+    name: 'Andy',
+    age: 38,
+    location: 'Houston',
+    gender: 'Male',
+    previousBackground: 'ATT',
+    className: 'Unenrolled',
+    favSubjects: ['Volleyball', 'Eating'],
+    grade: [21],
+}); 
+
+const Bethany = new Student ({
+    name: 'Bethany',
+    age: 25,
+    location: 'Killeen',
+    gender: 'Female',
+    previousBackground: 'Music Teacher',
+    className: 'cs18',
+    favSubjects: ['Music', 'Choir', 'Singing', 'Yoga',],
+    grade: [56],
 })
 
+
+console.log(Amber.demo('CSS Grid'));
+console.log(Amber.grade(Julie, 'React'));
+
+
+  
 console.log(Raymond.debugsCode(Julie, 'HTML'))
+console.log(Julie.PRAssignment('HTML'));
 
-const fred = new Instructor({
-    name: 'Fred',
-    location: 'Bedrock',
-    age: 37,
-    gender: 'male',
-    favLanguage: 'JavaScript',
-    specialty: 'Front-end',
-    catchPhrase: `Don't forget the homies`
-  });
+console.log(Fred.toughGrader(Julie))
+console.log(Fred.toughGrader(Julie))
+console.log(Fred.toughGrader(Julie))
 
-console.log(fred.toughGrader(Julie))
-console.log(fred.toughGrader(Julie))
-console.log(fred.toughGrader(Julie))
-console.log(Julie.graduate(fred));
+console.log(Julie.graduate(Fred));
 
+console.log(Grendal.toughGrader(Andy))
+
+console.log(Bethany.graduate(Raymond))
 
