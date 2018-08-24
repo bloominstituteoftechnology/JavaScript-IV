@@ -30,8 +30,7 @@ class Instructor extends Person {
     updateGradebook(student) {
         const assignmentGrade = Math.floor(Math.random() * 11 - 10);
         let newGrade = student.grade + assignmentGrade;
-        return newGrade;
-        console.log(`${student.name}'s assignment has been graded. ${student.name}'s new grade is ${newGrade}`); 
+        return `${student.name}'s assignment has been graded. ${student.name}'s new grade is ${newGrade}`; 
     }
 }
 
