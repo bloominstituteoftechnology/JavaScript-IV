@@ -8,7 +8,7 @@ class Person {
     }
 
     speak() {
-        console.log(`Hello my name is ${this.name}, I am from ${this.location}.`)
+        console.log(`Hello my name is ${this.name}, I am from ${this.location}.`);
     }
 }
 
@@ -66,3 +66,72 @@ class ProjectMananager extends Instructor {
         console.log(`${this.name} debugs ${student.name}'s code on ${subject}`);
     }
 }
+
+
+const abdiel = new Student({
+    name: 'Abdiel Fernandez',
+    age: 22,
+    location: 'East Coast',
+    gender: 'male',
+    previousBackground: 'Java',
+    className: 'CSPT2',
+    favSubjects: ['Batman', 'Superman', 'Flash'],
+})
+
+const eric = new Student({
+    name: 'Eric Whitcomb',
+    age: 33,
+    location: 'Mountain Time',
+    gender: 'male',
+    previousBackground: 'unknown',
+    className: 'CSPT2',
+    favSubjects: ['Helping others', 'Petting Dogs', 'Growing a Great Beard'],
+})
+
+const brendon = new Student({
+    name: 'Brendon Kutz',
+    age: 25,
+    location: 'Central Time',
+    gender: 'male',
+    previousBackground: 'unknown',
+    className: 'CSPT2',
+    favSubjects: ['group', 'of', 'arrays'],
+})
+
+const chris = new ProjectMananager({
+    name: 'Chris Atoki',
+    age: 27,
+    location: 'East Coast',
+    gender: 'male',
+    specialty: 'helping newbies',
+    favLanguage: 'JS',
+    catchPhrase: 'Please put your favorite emoji on this message.',
+    gradClassName: 'CS3',
+    favInstructor: 'Dan',
+})
+
+const moises = new ProjectMananager({
+    name: 'Moises Dobarganes',
+    age: 25,
+    location: 'East Coast',
+    gender: 'male',
+    specialty: 'Getting hired by Google',
+    favLanguage: 'JS',
+    catchPhrase: 'Do a little dance',
+    gradClassName: 'unknown',
+    favInstructor: 'Dan',
+})
+
+const dan = new Instructor({
+    name: 'Dan Frehner',
+    age: 30,
+    location: 'West Coast',
+    gender: 'male',
+    specialty: 'Growing a great beard',
+    favLanguage: 'JS',
+    catchPhrase: 'It is turtle time',
+})
+console.log(abdiel);
+console.log(eric);
+console.log(dan);
+console.log(chris);
