@@ -26,7 +26,10 @@ class Instructor extends Person {
     }
     adjustGrade(student)    {
         let adjustAmount = Math.round(Math.random()*10)
-        Math.floor(Math.random()*2) == 1 ? student.grade += adjustAmount : student.grade -= adjustAmount
+        Math.floor(Math.random()*2) == 1 ? student.grade += adjustAmount : student.grade -= adjustAmount;
+        if(student.grade > 100) {
+            student.grade = 100;
+        }
         return console.log(`${this.name} adjusts ${student.name}'s grade to ${student.grade}.`);
     }
 }
@@ -100,15 +103,17 @@ Jacob.demo("React");
 Jacob.grade(Ryan, "React");
 console.log(Ryan.grade);
 const timeAtLambda = (student, projectManager)  =>  {
+    let flunkOut = `${student.name} has flunked out of Lambda School`
     for(i = 0; i < 52; i++) {
         projectManager.adjustGrade(student);
         if(student.grade >= 70) {
             return student.graduate();
+        }   else if(student.grade <= 0) {
+                return console.log(flunkOut);
+        }   else {
+                student.graduate;
         }
-            student.graduate();
     }
-    return console.log(`${student.name} has flunked out of Lambda School`)
+    return console.log(flunkOut);
 }
-Jacob.adjustGrade(Ryan);
-Ryan.graduate();
 timeAtLambda(Ryan, Jacob);
