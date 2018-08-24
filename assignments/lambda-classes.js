@@ -18,6 +18,7 @@ class Person {
       this.previousBackground = aboutStudent.previousBackground;
       this.className = aboutStudent.className;
       this.favSubjects = aboutStudent.favSubjects;
+      this.grade = aboutStudent.grade; //stretch goal
     }
     listsSubjects(student){
       return `${student.favSubjects}`
@@ -27,6 +28,14 @@ class Person {
     }
     sprintChallenge(subject){
       return `${this.name} has begun sprint challenge on ${subject}`
+    }
+    //stretch goal
+    graduate(){
+      if(this.grade >= 70) {
+        return `${this.name} has qualified to graduate from Lambda School!`
+      } else {
+        return `Need a higher score ${this.name}. Better luck next time!`
+      }
     }
   };
   
@@ -42,6 +51,10 @@ class Person {
     }
     grade(student, subject){
       return `${student.name} recieves a perfect score on ${subject}.`
+    }
+    // stretch goal
+    randomAddSubtract(student){
+      return Math.round(Math.random(student.grade) * 100)
     }
   };
   
@@ -79,6 +92,7 @@ class Person {
     previousBackground: 'Construction Manager',
     className: 'CSPT2',
     favSubjects: ['HTML', 'CSS', 'JavaScript'],
+    grade: 88, //stretch goal
   });
   
   const anthonyGuessed = new ProjectManager({
