@@ -8,7 +8,7 @@ class Person {
     };
 
     speak() {
-        console.log(`Hello my name is ${this.name}, I am from ${this.location}`)
+        return `Hello my name is ${this.name}, I am from ${this.location}`;
     };
 }
 
@@ -66,3 +66,83 @@ class ProjectManager extends Instructor {
     };
 }
 
+
+//Objects created after here
+
+// **************Instructors
+const Fred = new Instructor({
+    name: 'Fred',
+    location: 'Bedrock',
+    age: 37,
+    gender: 'male',
+    favLanguage: 'JavaScript',
+    specialty: 'Front-end',
+    catchPhrase: `Don't forget the homies`,
+  });
+
+  const Dan = new Instructor({
+    name: 'Dan',
+    location: 'Salt Lake City',
+    age: 62,
+    gender: 'male',
+    favLanguage: 'HTML',
+    specialty: 'Stick death animations',
+    catchPhrase: `All right everybody`,
+  });
+
+  // **************Project Managers
+
+  const Jacob = new ProjectManager({
+    name: 'Dan',
+    location: 'Salt Lake City',
+    age: 62,
+    gender: 'male',
+    favLanguage: 'HTML',
+    specialty: 'Stick death animations',
+    catchPhrase: `All right everybody`,
+    gradClassName: 'CSPT6',
+    favInstructor: 'Dan',
+
+  });
+
+  const Moises = new ProjectManager({
+    name: 'Moises',
+    location: 'Canada',
+    age: 21,
+    gender: 'male',
+    favLanguage: 'CSS',
+    specialty: 'VSCode',
+    catchPhrase: `All right everybody`,
+    gradClassName: 'CSPT6',
+    favInstructor: 'Dan',
+
+  });
+
+
+  
+
+// **************Students
+
+  const Brandon = new Student({
+    name: 'Dan',
+    location: 'Salt Lake City',
+    age: 62,
+    gender: 'male',
+    favLanguage: 'HTML',
+    className: 'Stick death animations',
+    favSubjects: `All right everybody`
+  });
+
+  const Lily = new Student({
+    name: 'Lily',
+    location: 'El Salvador',
+    age: 22,
+    gender: 'Female',
+    favLanguage: 'English',
+    className: 'Crossfit',
+    favSubjects: `Snatches`
+  });
+
+
+
+  console.log(fred.speak());
