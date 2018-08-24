@@ -12,7 +12,7 @@ class Person {
 }
 
 class Instructor extends Person {
-    constructor (professorProperties) {
+    constructor(professorProperties) {
         super(professorProperties);
         this.specialty = professorProperties.specialty;
         this.favLanguage = professorProperties.favLanguage;
@@ -23,13 +23,13 @@ class Instructor extends Person {
         console.log(`Today we are learning about ${subject}`)
     }
 
-    grade(student, subject) {
+    grade (student, subject) {
         console.log(`${student.name} receives a perfect score on ${subject}`)
     }
 }
 
 class Student extends Person {
-    constructor (pupilProperties) {
+    constructor(pupilProperties) {
         super(pupilProperties);
         this.previousBackground = pupilProperties.previousBackground;
         this.className = pupilProperties.className;
@@ -47,10 +47,25 @@ class Student extends Person {
     sprintChallenge(subject) {
       console.log(`${this.name} has begun sprint challenge on ${subject}`)
     }
-
 }
 
-const fred = new Instructor({
+class ProjectManager extends Instructor {
+    constructor (PMProperties) {
+        super(PMProperties);
+        this.gradClassName = PMProperties.gradClassName;
+        this.favInstructor = PMProperties.favInstructor;
+    }
+
+    standUp(channel) {
+        console.log(`${this.name} announces to ${channel}, @channel standy times!`)
+    }
+
+    debugsCode(student, subject) {
+        console.log(`${this.name} debugs ${student.name}'s code on ${subject}`)
+    }
+}
+
+const fred = new ProjectManager({
     name: 'Fred',
     location: 'Bedrock',
     age: 37,
@@ -64,13 +79,12 @@ const bruce = new Student({
     name: 'Bruce',
     location: 'Arizona',
     age: 28,
-    gender: 'genderqueer',
+    gender: 'male',
     favLanguage: 'HTML',
     specialty: 'back-end',
     catchPhrase: `Don't forget the bro-mies`,
     favSubjects: ['HTML','CSS', 'JavaScript']
 })
 
-bruce.listsSubjects();
-bruce.PRAssignment('Javascript');
-bruce.sprintChallenge('HTML');
+fred.standUp('CSPT2');
+fred.debugsCode(bruce, 'Javascript');
