@@ -1,0 +1,104 @@
+
+function Fruit(fruitStuff){
+
+  this.type = fruitStuff.type;
+  this.geoArea = fruitStuff.geoArea;
+  // return this
+}
+
+Fruit.prototype.needsHeat = function(){
+  if(this.geoArea === 'tropical'){
+    return true;
+  }
+  return false;
+}
+
+function Apple(appleStuff){
+  // this = Apple {}
+  console.log("At the begining:", this)
+  Fruit.call(this, appleStuff);
+  //inherit
+  console.log("Halfway through:", this)
+  this.variety = appleStuff.variety;
+  this.color = appleStuff.color;
+  this.type = 'treefruit';
+  console.log("Right before return", this);
+  // return this
+}
+
+Apple.prototype = Object.create(Fruit.prototype)
+Apple.prototype.isGoodInPie = function(){
+  return true;
+}
+
+
+const banana = new Fruit('Banana', 'tropical');
+const apple1 = new Apple({variety: 'Honeycrisp', color: 'Orangered', type: 'Apple', geoArea: 'Northern Equitorial' });
+// console.log("After the constructor: ", apple)
+apple1.needsHeat()
+apple1.isGoodInPie()
+banana.needsHeat()
+
+
+
+
+
+
+
+
+// <- ES6 Classes -> 
+
+class Fruit {
+  constructor(type, geoArea){
+    // this = {}
+    this.type = type;
+    this.geoArea = geoArea;
+    // return this
+  }
+  needsHeat(){
+    if(this.geoArea === 'tropical'){
+      return true;
+    }
+    return false;
+  }
+  isAFruit(){ 
+    return true; 
+  }
+}
+
+class Apple extends Fruit {
+  // extends -> Apple.prototype = Object.create(Fruit.prototype);
+  constructor(variety, color){
+    // super calls the parents constructor passing in the context automatically
+    // super -> Fruit.call(this, 'Apple', 'Northern Equitorial');
+    super('Apple', 'Northern Equitorial')
+    this.variety = variety;
+    this.color = color;
+    this.type = 'treefruit';
+  }
+
+  isGoodInPie(){ 
+    return true; 
+  }
+}
+
+class UMN extends Apple {
+  // extends -> UMN.prototype = Object.create(Apple.prototype);
+  constructor(variety, color){
+    super(variety, color)
+    // super -> Apple.call(this, variety, color);
+  }
+
+  createdAtUniveristyofMN(){
+    return true;
+  }
+}
+
+
+const banana = new Fruit('Banana', 'tropical');
+console.log(banana.isAFruit());
+const hcrisp = new UMN('Honeycrisp', 'Orangered');
+const gsmith = new Apple('Granny Smith', 'Green');
+console.log(hcrisp.isAFruit())
+console.log(hcrisp.isGoodInPie())
+console.log(hcrisp.createdAtUniveristyofMN())
