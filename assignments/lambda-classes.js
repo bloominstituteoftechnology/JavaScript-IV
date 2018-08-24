@@ -56,9 +56,19 @@ const Willis = new Student({
   favSubjects: ['JavaScript', 'CSS'],
 })
 
+const Phil = new Student({
+  name: 'Phillip',
+  age: 12,
+  location: 'Montanta',
+  gender: 'Male',
+  previousBackground: 'ballerina',
+  className: 'CSPT2',
+  favSubjects: ['JavaScript', 'CSS'],
+})
+
 console.log(Willis.PRAssignment('CSS'));
 console.log(Willis.speak());
-console.log(Willis.sprintChallenge('Ruby'));
+console.log(Phil.sprintChallenge('Ruby'));
 
 class ProjectManager extends Instructor{
   constructor(pmDetails){
@@ -85,4 +95,17 @@ const Ron = new ProjectManager({
   favInstructor: 'Flitwick',
 })
 
+const Jamm = new ProjectManager({
+  name: "Jeremy Jamm",
+  age: 40,
+  location: 'Pawnee',
+  gender: 'Male',
+  speciality: 'Less',
+  favLanguage: 'React',
+  catchPhrase: 'You got Jammed!',
+  gradClassName: "CS2",
+  favInstructor: 'Dan the man',
+})
+
 console.log(Ron.standUp('channel 2'));
+console.log(Jamm.debugCode(Willis, 'Less'));
