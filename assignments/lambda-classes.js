@@ -81,7 +81,7 @@ const camila = new ProjectManagers({
 	location: "Texas",
 	specialty: "Java",
 	favLanguage: "Java",
-	catchPhrase: " ",
+	catchPhrase: "Shoot for the moon. Even if you miss, you'll land among the stars.",
 	gradClassName: " ",
 	favInstructor: " ",
 });
