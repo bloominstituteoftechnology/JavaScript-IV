@@ -31,14 +31,18 @@ class Instructor extends Person {
       if (student.grade < 70) {
         let addOrSubtract = Math.random();
         if (addOrSubtract < 0.5) {
-          student.grade = student.grade - (addOrSubtract * 10);
+          student.grade = Math.round(student.grade - (addOrSubtract * 10));
         }
         else {
-          student.grade = student.grade + (addOrSubtract * 10);
+          student.grade = Math.round(student.grade + (addOrSubtract * 10));
         }
         console.log(`The results are in...and ${student.name}'s current grade is ${student.grade}!`);
+        student.graduate(this);
       }
-      else console.log(`No more Sprints! ${student.name} is ready to leave Lambda!`)
+      else {
+          console.log(`No more Sprints! ${student.name} is ready to leave Lambda!`)
+          student.graduate(this);
+      }
     }
 }
 
@@ -63,12 +67,13 @@ class Student extends Person {
       console.log(`${this.name} has begun sprint challenge on ${subject}`)
     }
 
-    graduate() {
+    graduate(instructor) {
         if (this.grade > 70) {
             console.log(`${this.name} is officially a graduate of Lambda School!!`)
         }
         else {
-            console.log(`${this.name} is not quite ready to leave Lambda yet...`)
+            console.log(`${this.name} is not quite ready to leave Lambda yet...${instructor.name} has to grade another Sprint!`);
+            instructor.reviewSprint(this);
         }
     }
 }
@@ -111,11 +116,4 @@ const bruce = new Student({
     grade: 50
 })
 
-fred.reviewSprint(bruce);
-bruce.graduate();
-fred.reviewSprint(bruce);
-bruce.graduate();
-fred.reviewSprint(bruce);
-bruce.graduate();
-fred.reviewSprint(bruce);
-bruce.graduate();
+bruce.graduate(fred);
