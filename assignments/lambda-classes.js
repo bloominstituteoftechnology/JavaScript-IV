@@ -61,8 +61,7 @@ class Student extends Person {
            return `It's time to graduate, your grade is ${modPoints}%.`;
         }
         return modPoints;
-        //this.graduate();
-      }
+       }
     }
 };
 
@@ -98,7 +97,7 @@ const beualah = new Instructor({
     gender: 'female',
     location: 'California',
     grade: 80,
-    specialty: 'physical eduction',
+    specialty: 'physical education',
     favLanguage: 'english',
     catchPhrase: 'Whats up' 
 });
