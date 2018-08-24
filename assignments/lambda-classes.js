@@ -40,7 +40,7 @@ class Instructor extends Person {
           } else { 
           student.grade = ((student.grade*1) + (randomAmount*1));
           }
-        } return student.grade;
+        } return `After ${this.name} graded ${student.name}'s assignment, ${student.name}'s new score is ${student.grade}.`;
     } 
 }
 
