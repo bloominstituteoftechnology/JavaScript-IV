@@ -36,9 +36,14 @@ class Student extends Person {
     this.favSubjects = favSubjects;
   }
   listsSubjects() {
-    // for (let i = 0; i < favSubjects.length; i++) {
-    return this.favSubjects;
-    // }
+    let favorites = this.favSubjects;
+
+//     for (var i = 0; i < favorites.length ; i++) {
+// console.log(favorites[i]);
+// }
+
+favorites.forEach(favorite =>
+              console.log( favorite));
   }
 
   PRAssignment(subject) {
@@ -69,4 +74,4 @@ const fred = new Instructor('Fred', 37, 'male', 'Bedrock', 'JavaScript', `Don't 
 
 const pascale = new Student('Pascale', 30, 'female', 'New York', 'artist', 'CSPT2', ['math', 'science', 'english']);
 
-console.log(fred.grade('pascale','math'));
+pascale.listsSubjects();
