@@ -8,7 +8,7 @@ class Person {
     }
 
     speak() {
-        console.log(`Hello my name is ${this.name}, I am from ${this.location}.`)
+        return `Hello my name is ${this.name}, I am from ${this.location}.`
     }
 }
 
@@ -21,10 +21,14 @@ class Instructor extends Person {
     }
 
     demo(subject) {
-        console.log(`Today we are learning about ${subject}`)
+        return `Today we are learning about ${subject}`
     }
     grade(student) {
-        console.log(`${student.name} receives a perfect score on ${subject}`)
+        creturn`${student.name} receives a perfect score on ${subject}`
+    }
+    test(student) {
+        student.grade += 10;
+        student.graduate(this);
     }
 }
 
@@ -34,6 +38,7 @@ class Student extends Person {
         this.previousBackground = stuAtt.previousBackground;
         this.className = stuAtt.className;
         this.favSubjects = stuAtt.favSubjects;
+        this.grade = stuAtt.grade;
     }
 
     listsSubjects() {
@@ -41,11 +46,20 @@ class Student extends Person {
     }
 
     PRAssignment(subject) {
-        cnosole.log(`${this.name} has submitted a PR for ${subject}`)
+        return `${this.name} has submitted a PR for ${subject}`
     }
-    
+
     sprintChallenge(subject) {
-        console.log(`${student.name} has begun sprint challenge on ${subject}`)
+        return `${student.name} has begun sprint challenge on ${subject}`
+    }
+
+    graduate(instructor) {
+        if (this.grade > 70) {
+            return `Hooray! ${this.name} has graduated from Lambda School!`
+        }
+        else {
+            instructor.test(this);
+        }
     }
 }
 
@@ -57,9 +71,9 @@ class ProjectManagers extends Instructor {
     }
 
     standUp(channel) {
-        console.log(`${this.name} announces to ${channel}, @channel standy times!​​​​​`)
+        return `${this.name} announces to ${channel}, @channel standy times!​​​​​`
     }
     debugsCode(subject) {
-        console.log(`this.${name} debugs ${student.name}'s code on ${subject}`)
+        return `this.${name} debugs ${student.name}'s code on ${subject}`
     }
 }
