@@ -163,4 +163,42 @@ console.log(Thor.sprintChallenge("Java"));
          this.gradClassName = PM.gradClassName;
          this.favInstructor = PM.favInstructor;
      }
+     standUp(slackChannel) {
+         return(`${ this. name } announces to ${ slackChannel } @channel standy times!​​​​​`)
+     }
+     debugsCode(student, subject) {
+         return(`${this.name } debugs ${ student. name }'s code on ${ subject }`)
+     }
  }
+
+// PM # 1
+const WonderWoman = new ProjectManagers({
+    name: "Diana",
+    age: 28,
+    location: "Amazons",
+    gender: "female",
+    specialty: "Lasso of truth and C++",
+    favLanguage: "C#",
+    catchPhrase: "I’m willing to fight for those who cannot fight for themselves",
+    gradClassName: "CS2PT",
+    favInstructor: "Dan Frehner"
+})
+console.log(WonderWoman);
+console.log(WonderWoman.standUp("http://slack.channel/WonderWoman"));
+console.log(WonderWoman.debugsCode(Thor, "Python"));
+
+// PM # 2
+const SuperGirl = new ProjectManagers({
+    name: "Kara",
+    age: 22,
+    location: "Minneapolis",
+    gender: "female",
+    specialty: "Freeze breath and news reports",
+    favLanguage: "Ruby",
+    catchPhrase: "85% chance of punching",
+    gradClassName: "CS2PT",
+    favInstructor: "Dan Frehner"
+})
+console.log(SuperGirl);
+console.log(SuperGirl.standUp("http://slack.channel/SuperGirl"));
+console.log(SuperGirl.debugsCode(DeadPool, "javasscript"));
