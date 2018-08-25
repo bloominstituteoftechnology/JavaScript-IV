@@ -45,7 +45,23 @@ class Person  {
       return `${this.name} has begun sprint challenge on ${subject}`;
     }
   }
+
+  class ProjectManager extends Instructor {
+    constructor(projectManagerInfo) {
+      super(projectManagerInfo);
+      this.gradClassName = projectManagerInfo.gradClassName;
+      this.favInstructor = projectManagerInfo.favInstructor;
+    }
+    standUp(slackChannel) {
+      return `${this.name} announces to ${slackChannel}, @channel standy times!`
+    }
+    debugsCode(student, subject)  {
+      return `${this.name} debugs ${student.name}'s code on ${subject}`
+    }
+  }
   
+
+  //create objects
   const dan = new Instructor({
     name: 'Dan',
     location: 'California',
@@ -68,6 +84,20 @@ class Person  {
     className: 'CSPT2',
     favSubjects: ['Html', 'CSS', 'JavaScript']
   });
+
+  const camila = new ProjectManager({
+    name: 'Camila',
+    location: '',
+    age: 23,
+    gender: 'female',
+    favLanguage: 'javascript',
+    specialty: 'Back-end',
+    catchPhrase: `Shoot for the moon. Even if you miss, you'll land among the stars`,
+    gradClassName: 'CS6',
+    favInstructor: 'Ben'
+  });
+  
+  // console.logs to test
   console.log(dan.name);
   console.log(dan.speak());
   console.log(dan.demo('math'));
@@ -75,3 +105,8 @@ class Person  {
   robin.listsSubjects();
   console.log(robin.PRAssignment('JavaScript'));
   console.log(robin.sprintChallenge('HTML'))
+  console.log(dan.grade(robin, 'math'));
+  console.log(camila.gradClassName);
+  console.log(camila.debugsCode(robin, 'HTML'));
+  console.log(camila.standUp('My_Channel'));
+  console.log(camila.grade(robin, 'CSS'));
