@@ -8,7 +8,6 @@ function school() {
     //**** Variables ****/
     let instructorThis = "";            //kind of messy way of calling sibling functions 
     let studentThis = "";               //kind of messy way of calling sibling functions
-    let isReady = false;
 
     class Person {
         constructor(stats) {
@@ -16,7 +15,6 @@ function school() {
             this.age = stats.age;
             this.gender = stats.gender;
             this.location = stats.location;
-            this.grade = stats.grade
         }
         speak() {
             return `Hello my name is ${this.name}, I am from ${this.location}`
@@ -44,11 +42,9 @@ function school() {
             return origPoints;                                         //returns the new student grade to graduate function in student
         }
         checkGrades() {                                                //uses the 'this' from the student to run the graduate function
-            let gradFlag = studentThis.graduate(studentThis.grade);    //checks the graduation flag
-            if (gradFlag) {
+            if (studentThis.graduate(studentThis.grade)) {
                 return `It's time to graduate, your grade is ${studentThis.grade}%.`;
             }
-
             return `${studentThis.name} isnt ready to graduate yet`;
         }
     };
@@ -61,6 +57,7 @@ function school() {
             this.favSubject = details.favSubject;
             this.instructor = details.instructor;
             this.pm = details.pm;
+            this.grade = details.grade;
             studentThis = this;                                        //save the 'this' value for the student
         }
 
@@ -76,13 +73,15 @@ function school() {
         }
         //checks the grade and returns true if ready for graduation
         graduate(origPoints) {
-            if (origPoints > 70) {
-                isReady = true;                               
-                return isReady;
+            if (origPoints > 70) {                              
+                return true;
             } else {
                 this.grade = instructorThis.addPoints(origPoints); //not ready to graduate so instrctor checks grades again
+                if (this.grade > 100) {
+                    this.grade = 100;
+                }
                 if (this.grade > 70) {
-                    return isReady = true;
+                    return true;
                 }
                 return false;
             }
@@ -121,7 +120,6 @@ function school() {
         age: 42,
         gender: 'female',
         location: 'California',
-        grade: 80,
         student: 'burt',
         specialty: 'physical education',
         favLanguage: 'english',
@@ -133,7 +131,6 @@ function school() {
         age: 23,
         gender: 'male',
         location: 'Notsureville',
-        grade: 90,
         student: 'burt',
         specialty: 'JavaScript',
         favLanguage: 'JS',
@@ -148,6 +145,7 @@ function school() {
     console.log(beulah.demo());
     console.log(raymond.standUp());
     console.log(raymond.debugsCode());
+    console.log(burt.sprintChallenge());
     console.log(beulah.checkGrades()); //checks the grades and is initiated by the instructor
 
 };
