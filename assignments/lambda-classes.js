@@ -24,7 +24,7 @@ class Instructor extends Person {
         return `Today we are learning about ${subject}`
     }
     grade(student) {
-        creturn`${student.name} receives a perfect score on ${subject}`
+        return`${student.name} receives a perfect score on ${subject}`
     }
     test(student) {
         student.grade += 10;
@@ -74,6 +74,6 @@ class ProjectManagers extends Instructor {
         return `${this.name} announces to ${channel}, @channel standy times!​​​​​`
     }
     debugsCode(subject) {
-        return `this.${name} debugs ${student.name}'s code on ${subject}`
+        return `${this.name} debugs ${student.name}'s code on ${subject}`
     }
 }
