@@ -9,13 +9,14 @@ function GameObject(options) {
 
 GameObject.prototype.destroy = function() {
   return `Object was removed from the game.`;
-};
+}
 
 function CharacterStats(characterStatsOptions) {
   GameObject.call(this, characterStatsOptions);
   this.hp = characterStatsOptions.hp;
   this.name = characterStatsOptions.name;
 }
+
 
 CharacterStats.prototype = Object.create(GameObject.prototype);
 
