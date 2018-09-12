@@ -37,7 +37,7 @@ class Student extends Instructor {
     console.log(`${this.name} has submitted a PR for ${subhject}`);
   }
   sprintChallenge(subject) {
-    console.log(`${this.name} has begun to spring challenge on ${subject}`
+    console.log(`${this.name} has begun to spring challenge on ${subject}`)
   }
 }
 
@@ -57,7 +57,6 @@ class ProjectManagers {
 
 
 const person1 = new Person ({
-{
 "first_name": "Dan",
 "last_name": "Smith",
 "location": "Oklahoma",
@@ -79,7 +78,7 @@ const steve = new Student({
   'last_name': 'Cowen',
   'location': 'Alabama',
   'gender': 'male',
-  'dob':  1985;
+  'dob':  1985,
   'previousBackground': 'Researcher',
   'className': 'CS13',
   'favSubjects': ['History', 'CSS', 'javaScript'],
@@ -97,7 +96,7 @@ const person3 = new Instructor({
 
 const frank = new ProjectManager({
     'first_name': 'Frank',
-    'last_name': 'Smith'
+    'last_name': 'Smith',
     'location': 'Dallas',
     'gender': 'male',
     'dob': 1994,
