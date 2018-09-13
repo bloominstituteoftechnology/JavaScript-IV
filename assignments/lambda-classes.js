@@ -14,7 +14,7 @@ class Person{
         return `Hello my name is ${this.name}, I am from ${this.location}.`;
     }
 }
-//end Class Person
+//End - Class Person
 
 //Class Instructor
 class Instructor extends Person{
@@ -28,30 +28,144 @@ class Instructor extends Person{
 
     demo(subject){
         console.log(`Today we are learning about ${subject}.`);
+        return `Today we are learning about ${subject}.`;
+    }
+    grade(student, subject){
+        //come back and make sure correct
+        console.log(`${student.name} receives a perfect score on ${subject}`);
+        return `${student.name} receives a perfect score on ${subject}`;
+    }
+}
+// End - Class Instructor
+
+//Class Student
+class Student extends Person{
+    //constructor
+    constructor(studentAttributes){
+        super(studentAttributes);
+        this.previousBackground = studentAttributes.previousBackground;
+        this.className = studentAttributes.className;
+        this.favSubjects = studentAttributes.favSubjects;
     }
 
-    grade(student, subject){
-        console.log(`${student.name} receives a perfect score on ${subject}`);
+    //methods
+    listsSubjects(){
+        for(let i = 0; i < this.favSubjects.length; i++){
+            console.log(this.favSubjects[i]);
+            return this.favSubjects[i];
+        }
+    }
+
+    PRAassignment(subject){
+        console.log(`${this.name} has submitted a PR for ${subject}`);
+        return `${this.name} has submitted a PR for ${subject}`;
+    }
+
+    sprintChallenge(subject){
+        console.log(`${this.name} has begun sprint challenge on ${subject}`);
+        return `${this.name} has begun sprint challenge on ${subject}`;
+    }
+}// End - Class Student
+
+
+//Class PM
+class ProjectManager extends Instructor{
+    //constructor
+    constructor(projectMgrAttributes){
+        super(projectMgrAttributes);
+        this.gradClassName = projectMgrAttributes.gradClassName;
+        this.favInstructor = projectMgrAttributes.favInstructor;
+    }
+
+    //methods
+    standUp(channel){
+        console.log(`${this.name} announces to ${channel}, @channel standy times!​​​​​`);
+        return `${this.name} announces to ${channel}, @channel standy times!​​​​​`;
+    }
+
+    debugsCode(student, subject){
+        console.log(`${this.name} debugs ${student.name}'s code on ${subject}`);
+        return `${this.name} debugs ${student.name}'s code on ${subject}`;
     }
 }
 
-const testPerson = new Instructor({
-    "name":"Corey",
-    "age": 41,
-    "gender": 'M',
-    "location" : "New York City",
-    "specialty" : "Django",
-    "favLanguage": "Python",
-    "catchPhrase": "Chile Please!"
-})
 
-console.log(testPerson.name);
-console.log(testPerson.age);
-console.log(testPerson.location);
-console.log(testPerson.gender);
-console.log(testPerson.speak());
-console.log(testPerson.specialty);
-console.log(testPerson.favLanguage);
-console.log(testPerson.catchPhrase);
-//console.log(testPerson.demo("classes"));
-//console.log(testPerson.grade('Corey', 'classes'));
+
+///TEST CASES
+
+//Class Person
+const basePerson = new Person({
+    "name" : "John",
+    "age" : 23,
+    "gender" : "male",
+    "location" : "New York City"
+}); 
+
+console.log(basePerson.name);
+console.log(basePerson.age);
+console.log(basePerson.gender);
+console.log(basePerson.location);
+console.log(basePerson.speak());
+
+
+//Class Student
+const studentPerson =  new Student({
+    "name" : "Janice",
+    "age" : 21,
+    "gender" : "female",
+    "location" : "Seattle",
+    "previousBackground" : "",
+    "className" : "FSW14",
+    "favSubjects" : ["History", "Science", "Math"]
+});
+
+console.log(studentPerson.name);
+console.log(studentPerson.age);
+console.log(studentPerson.gender);
+console.log(studentPerson.location);
+console.log(studentPerson.listsSubjects());
+console.log(studentPerson.PRAassignment("classes"));
+console.log(studentPerson.sprintChallenge("classes"));
+
+
+//Class Instructor
+const instructPerson = new Instructor({
+    "name" : "Margaret",
+    "age" : 35,
+    "gender" : "female",
+    "location" : "Orlando",
+    "specialty" : "Web Development",
+    "favLanguage" : "JavaScript,Python, CSS, HTML",
+    "catchPhrase" : "Wait'll they get a load of me."
+}); 
+
+console.log(instructPerson.name);
+console.log(instructPerson.age);
+console.log(instructPerson.gender);
+console.log(instructPerson.location);
+console.log(instructPerson.specialty);
+console.log(instructPerson.favLanguage);
+console.log(instructPerson.catchPhrase);
+console.log(instructPerson.speak());
+console.log(instructPerson.demo(studentPerson.favSubjects[0]));
+console.log(instructPerson.grade(studentPerson, studentPerson.favSubjects[0]));
+
+
+//Class ProjectManager
+const pmPerson = new ProjectManager({
+    "name" : "Mike",
+    "age" : 45,
+    "gender" : "male",
+    "location" : "Mexico City",
+    "gradClassName" : "FSW14",
+    "favInstructor" : instructPerson.name
+});
+
+console.log(pmPerson.name);
+console.log(pmPerson.age);
+console.log(pmPerson.gender);
+console.log(pmPerson.location);
+console.log(pmPerson.gradClassName);
+console.log(pmPerson.favInstructor);
+console.log(pmPerson.standUp('fsw14'));
+console.log(pmPerson.debugsCode(studentPerson, studentPerson.favSubjects[2]));
