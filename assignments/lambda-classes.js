@@ -152,8 +152,8 @@ const joe = new ProjectManagers({
 
 });
 
-const liam = new ProjectManagers({
-    'name': 'Liam',
+const ed = new ProjectManagers({
+    'name': 'Eddy',
     'age': 100,
     'location': 'Space',
     'gender': 'M',
