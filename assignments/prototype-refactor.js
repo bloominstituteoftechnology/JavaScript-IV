@@ -28,7 +28,7 @@ GameObject.prototype.destroy = function() {
 //   this.name = characterStatsOptions.name;
 // }
 
-class CharacterStats {
+class CharacterStats extends GameObject{
   constructor(characterStatsOptions){
     super(characterStatsOptions);
     this.hp = characterStatsOptions.hp;
@@ -52,7 +52,7 @@ CharacterStats.prototype.takeDamage = function() {
 //   this.language = humanoidOptions.language;
 // }
 
-class Humanoid {
+class Humanoid extends CharacterStats{
   constructor(humanoidOptions){
   super(humanoidOptions);
   this.faction = humanoidOptions.faction;
