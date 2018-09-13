@@ -1,5 +1,3 @@
-// CODE here for your Lambda Classes
-
 // Here we have a functioning solutoin to your challenge from yesterday.
 // Today your goal is to refactor all of this code to use ES6 Classes.
 // The console.log() statements should still return what is expected of them.
@@ -11,7 +9,7 @@ class GameObject {
     }
   
   destroy() {
-    return `Object was removed from the game.`;
+    return `${this.name} was removed from the game.`;
   };}
   
  class CharacterStats extends GameObject {
@@ -20,7 +18,7 @@ class GameObject {
         this.hp = characterStatsOptions.hp;
         this.name = characterStatsOptions.name;
   }
-  
+
 
   
   takeDamage() {
@@ -35,8 +33,7 @@ class GameObject {
         this.weapons = humanoidOptions.weapons;
         this.language = humanoidOptions.language;    
     }
-  
-  
+
   
   greet() {
     return `${this.name} offers a greeting in ${this.language}.`;
