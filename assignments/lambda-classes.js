@@ -96,7 +96,7 @@ console.log(bill.standUp("fsw14_bill"));
 console.log(bill.gradClassName);
 console.log(riley.previousBackground);
 console.log(riley.favSubjects);
-console.log(riley.listSubjects(riley.favSubjects));
+riley.listSubjects(riley.favSubjects);
 console.log(riley.PRAssignment("JavaScript IV"));
 console.log(riley.sprintChallenge("JavaScript Fundamentals"));
 console.log(bill.debugsCode("Riley", "Closures"));
