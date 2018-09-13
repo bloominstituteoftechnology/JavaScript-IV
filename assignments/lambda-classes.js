@@ -61,3 +61,63 @@ class ProjectManagers extends Instructor {
         return `${this.name} debugs ${student.name}'s code on ${subject}`;
     }
 }// End of ProjectManagers Class
+
+
+const josh = new Instructor({
+    name: 'Josh',
+    age: 28,
+    location: 'Utah',
+    gender: 'M',
+    specialty: 'HTML and CSS',
+    favLanguage: 'Python',
+    catchPhrase: 'Ye',
+});
+const harry = new Instructor({
+    name: 'Harry',
+    age: 25,
+    location: 'Florida',
+    gender: 'M',
+    specialty: 'UI/UX',
+    favLanguage: 'CSS',
+    catchPhrase: 'uhhhhh',
+});
+const brandon = new Student({
+    name: 'Brandon',
+    age: 20,
+    location: 'Olathe, KS',
+    gender: 'M',
+    previousBackground: 'I was working as an automotive tech',
+    className: 'FSW14',
+    favSubjects: ['HTML', 'CSS', 'JS',],
+});
+const anthony = new Student({
+    name: 'Anthony',
+    age: 19,
+    location: 'Olathe, KS',
+    gender: 'M',
+    previousBackground: 'I was a Uni student',
+    className: 'FSW14',
+    favSubjects: ['HTML', 'CSS', 'JS',],
+});
+const cesar = new ProjectManagers({
+    name: 'Cesar',
+    age: 23,
+    location: 'Somewhere',
+    gender: 'M',
+    specialty: 'React',
+    favLanguage: 'JS',
+    catchPhrase: 'ye',
+    gradClassName: 'CS10',
+    favInstructor: 'Josh',
+});
+const jake = new ProjectManagers({
+    name: 'Jake',
+    age: 26,
+    location: 'Somewhere',
+    gender: 'M',
+    specialty: 'Redux',
+    favLanguage: 'JS',
+    catchPhrase: 'Bruh',
+    gradClassName: 'CS11',
+    favInstructor: 'Josh',
+});
