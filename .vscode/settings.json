@@ -1,0 +1,5 @@
+{
+    "files.autoSave": "onFocusChange",
+    "editor.renderWhitespace": "boundary",
+    "editor.wordWrap": "bounded"
+}
