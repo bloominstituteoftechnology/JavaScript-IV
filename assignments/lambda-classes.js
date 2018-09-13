@@ -36,10 +36,10 @@ class Student extends Person{
         return `${this.name}'s favorite subjects are ${this.favSubjects}`;
     }
     PRAssignment(subject){
-        return `${student.name} has submitted a PR for ${subject}`;
+        return `${this.name} has submitted a PR for ${subject}`;
     }
-    sprintChallenge(){
-        return `${student.name} has begun sprint challenge on ${subject}`;
+    sprintChallenge(subject){
+        return `${this.name} has begun sprint challenge on ${subject}`;
     }
 }
 class ProjectManager extends Instructor{
@@ -94,7 +94,7 @@ const richard = new Student({
     className: "CS40",
     favSubjects:["Flexbox", "JavaScript", "Python"]
 });
-const nayeli = new Student({
+const ana = new Student({
     name: "Ana Hoffman",
     age: "19",
     location: "California",
@@ -122,4 +122,13 @@ const robin = new ProjectManager({
     favInstructor: "Sarah Vega"
 });
 
-console.log(sarah.demo("react"));
+//=====TEST=====
+// console.log(robin.name);
+// console.log(`Favorite Instructor: ${robin.favInstructor}`);
+// console.log(kevin.standUp("FSW78"));
+// console.log(kevin.debugsCode(ana, "Python"));
+// console.log(sarah.demo("JavaScript"));
+// console.log(richard.favSubjects);
+// console.log(ana.listSubjects());
+// console.log(richard.PRAssignment("Python"));
+// console.log(ana.sprintChallenge("Flexbox"));
