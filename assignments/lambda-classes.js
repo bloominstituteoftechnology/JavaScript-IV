@@ -160,3 +160,13 @@ chance.sprintChallenge("Redux");
 tai.standUp("FSW14-tai");
 zach.debugsCode(david, "C#");
 
+josh.changeGrade(chance);
+console.log(chance.grade);
+
+chance.graduate(chance);
+
+
+
+
+
+
