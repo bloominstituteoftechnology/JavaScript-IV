@@ -2,11 +2,12 @@
 // Today your goal is to refactor all of this code to use ES6 Classes.
 // The console.log() statements should still return what is expected of them.
 
-function GameObject(options) {
+class GameObject {
+  constructor (options){
   this.createdAt = options.createdAt;
   this.dimensions = options.dimensions;
-}
-
+}}
+//finish where you left off
 GameObject.prototype.destroy = function() {
   return `Object was removed from the game.`;
 };
