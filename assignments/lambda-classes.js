@@ -55,6 +55,13 @@ class Student extends Person {
     sprintChallenge(subject) {
         return `${this.name} has begun sprint challenge on ${subject}`
     }
+    graduate() {
+        if(this.grade > 70) {
+            return `${this.name} can now graduate!`;
+        }   else {
+            return `${this.name} can not graduate :(`
+        }
+    }
 }// End of Student Class
 
 class ProjectManagers extends Instructor {
