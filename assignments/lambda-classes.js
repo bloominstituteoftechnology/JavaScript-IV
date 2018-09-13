@@ -1,5 +1,11 @@
 // CODE here for your Lambda Classes
 
+// Stretch
+function generateRandomNum(min, max) {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+// console.log(generateRandomNum(1, 20));
+
 // base-class
 class Person {
   constructor(props) {
@@ -30,11 +36,26 @@ class Instructor extends Person {
   grade(student, subject) { // student => obj, subject => str
     return `${student.name} receives a perfect score on ${subject}.`
   }
+
+  // stretch
+  scoreGrade(studentGrade) { // studentGrade => obj prop's grade
+    let addOrMinus = generateRandomNum(1, 2);
+    let points = generateRandomNum(10, 50);
+
+    if (addOrMinus === 1) {
+      studentGrade.grade += points;
+      if (studentGrade.grade > 100) {
+        studentGrade.grade = 100;
+        return `${studentGrade.name}, your final grade is ${studentGrade.grade}. You are excellent!`;
+      } else {
+        return `${studentGrade.name}, your final grade is ${studentGrade.grade}. It was increased by ${points} points!`;
+      }
+    } else if (addOrMinus === 2) {
+      studentGrade.grade -= points;
+      return `${studentGrade.name}, your final grade is ${studentGrade.grade}. It went down by ${points} points.`;
+    }
+  }
 }
-
-
-
-
 
 // Person > Student
 class Student extends Person {
@@ -43,6 +64,8 @@ class Student extends Person {
     this.previousBackground = props.previousBackground;
     this.className = props.className;
     this.favSubjects = props.favSubjects;
+    // stretch
+    this.grade = props.grade;
   }
 
   listsSubjects() {
@@ -55,6 +78,15 @@ class Student extends Person {
 
   sprintChallenge(subject) { // subject => str
     return `${this.name} has begun sprint challenge on ${subject}.`;
+  }
+
+  // stretch
+  graduate() {
+    if (this.grade > 70) {
+      return `Congratulations ${this.name}, you passed with a grade of ${this.grade}. See Ms. Karen Zachery for graduation details.`;
+    } else {
+      return `Unfortunately ${this.name}, you got a failing grade of ${this.grade}. Keep working!`;
+    }
   }
 }
 
@@ -197,3 +229,27 @@ console.log(hagrid.debugsCode(hermione, hagrid.favLanguage[0]));
 console.log('--------------------------------------------------------------------------');
 console.log('Project Manager\'s name:', filch.name);
 console.log(filch.debugsCode(malfoy, filch.favLanguage[1]));
+console.log('==========================================================================\n');
+
+// STRETCH
+const harry = new Student({
+  'name': 'Harry Potter',
+  'grade': 90
+});
+
+const neville = new Student({
+  'name': 'Neville Longbottom',
+  'grade': 51
+});
+
+console.log(`${harry.name}'s current grade: ${harry.grade}`);
+console.log(`${dumbledore.name} graded ${harry.name}: "${snape.scoreGrade(harry)}"`);
+console.log(harry.graduate());
+console.log('--------------------------------------------------------------------------');
+console.log(`${neville.name}'s current grade: ${neville.grade}`);
+console.log(`${snape.name} graded ${neville.name}: "${snape.scoreGrade(neville)}"`);
+console.log(neville.graduate());
+
+console.log(`${neville.name}'s current grade: ${neville.grade}`);
+console.log(`${snape.name} graded ${neville.name}: "${snape.scoreGrade(neville)}"`);
+console.log(neville.graduate());
