@@ -76,6 +76,7 @@ const sam = new Student({
   name: 'Sam',
   location: 'Montana',
   age: 27,
+  previousBackground: 'Cook',
   className: 'CS14',
   favSubjects: ['Javascript', '3D', 'VR'],
   gender: 'female',
@@ -89,6 +90,8 @@ const ralph = new Project_Manager({
   location: 'Seattle',
   age: 30,
   gender: 'male',
+  gradClassName: 'CS11',
+  favInstructor: 'Josh Knell',
   favLanguage: 'Javascript',
   specialty: 'Front-end',
   catchPhrase: `Now that's a bug`
