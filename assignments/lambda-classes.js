@@ -55,13 +55,16 @@ class Student extends Person {
   sprintChallenge(subject){
     console.log(`${this.name} has begun sprint challenge on ${subject}`)
   };
-  graduate(){
+  graduate(inst){
     if (this.grade >= 70){
       this.status = 'Graduate';
       console.log(`Congratulations, ${this.name}! You are now a graduate!`);
     }
-    if (this.grade < 70){
-      console.log( `Really dive into your studies, ${this.name}. I know you can do it!`);
+    else {
+      while (this.grade < 70){
+        console.log( `Really dive into your studies, ${this.name}. I know you can do it!`);
+        inst.gradeStudent(this);
+    }
     }
   }
 }//end Student
@@ -186,3 +189,4 @@ const langly = new Student({
 // console.log(mulder.status);
 // langly.graduate();
 // console.log(langly.status);
+mulder.graduate(scully);
