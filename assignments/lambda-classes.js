@@ -7,20 +7,41 @@ class Person{
         this.gender = attributes.gender;
     }
     speak(){
-        console.log(`Hellow my ${this.name}, I am from ${this.location}`);
+        return `Hellow my ${this.name}, I am from ${this.location}`;
     }
 }
 class Instructor extends Person{
     constructor(instructorAttrs){
         super(instructorAttrs);
-        this.specialty = "React and Redux";
-        this.favLanguage = "JavaScript";
-        this.catchPhrase = "Don't forget the homies"
+        this.specialty = instructorAttrs.specialty;
+        this.favLanguage = instructorAttrs.favLanguage;
+        this.catchPhrase = instructorAttrs.catchPhrase;
     }
     demo(subject){
-        console.log(`Today we are learning about ${subject}`);
+        return `Today we are learning about ${subject}`;
     }
     grade(student, subject){
-        console.log(`${student.name} receives a perfect score on ${subject}`)
+        return `${student.name} receives a perfect score on ${subject}`
     }
 }
+
+class Student extends Person{
+    constructor(studentAtrr){
+        super(studentAtrr);
+        this.previousBackground = studentAtrr.previousBackground;
+        this.className = studentAtrr.className;
+        this.favSubjects = studentAtrr.favSubjects;
+    }
+    listSubjects(){
+        //logs out all of the student's favoriteSubjects one by one.
+    }
+    PRAssignment(subject){
+        return `${student.name} has submitted a PR for ${subject}`;
+    }
+    sprintChallenge(){
+        return `${student.name} has begun sprint challenge on ${subject}`;
+    }
+}
+
+//Objects
+
