@@ -1,0 +1,19 @@
+{
+  "name": "js4",
+  "version": "1.0.0",
+  "description": "Lambdaschool JS4",
+  "main": "prototype-refactor.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ssmodish/JavaScript-IV.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ssmodish/JavaScript-IV/issues"
+  },
+  "homepage": "https://github.com/ssmodish/JavaScript-IV#readme"
+}
