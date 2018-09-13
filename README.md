@@ -25,7 +25,7 @@ const fred = new Person({
 * **Fork** and clone this repository.
 * **Complete** all of the exercises found in the assignment files.
 
-## `prototype-refactor` - Take existing code and make it modern.
+# `prototype-refactor` - Take existing code and make it modern.
 
 * You're going to work with your prototypes assignment you built out yesterday. Only this time you're going to actually have a solution built out for you.
 * `Challenge:` **Convert** all of your constructors into ES6 Classes using the `class` and `extends` keywords. You should be able to run your same logs and they should build out the proper expected behaviors.
