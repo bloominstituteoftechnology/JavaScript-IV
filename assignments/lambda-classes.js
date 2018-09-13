@@ -26,6 +26,13 @@ class Instructor extends Person{
     grade(student, subject){
         console.log(` ${student.name} receives a perfect score on ${subject} `); 
     }
+    adjustGrade(student){
+        let newGrade = Math.floor(Math.random()*40) -20;
+        student.grade += newGrade;
+        console.log(` ${student.name}'s grade is adjusted by ${newGrade}.  Current grade is ${student.grade} `); 
+
+    }
+
 }
 
 class Student extends Person{
@@ -34,6 +41,7 @@ class Student extends Person{
         this.previousBackground = params.previousBackground ;     
         this.className = params.className ;     
         this.favSubjects = params.favSubjects ;    
+         this.grade = Math.floor(Math.random()*100);
     }
 
     listsSubjects(){
@@ -47,6 +55,11 @@ class Student extends Person{
     printChallenge(subject){
         console.log(`${this.name} has begun sprint challenge on  ${subject}`)
     }
+
+    graduate(){
+        if(this.grade > 70) console.log(`Congratulation!  You grade`);
+        else console.log(`your grade is ${this.grade}.  You're grade needs to be 70 or higher to graduate`);
+    }
 }
 
 class ProjectManager extends Instructor{
@@ -54,6 +67,7 @@ class ProjectManager extends Instructor{
         super(params);
         this.gradClassName = params.gradClassName;
         this.favInstructor = params.favInstructor;
+       
     }
 
     standUp(slack){
@@ -63,6 +77,7 @@ class ProjectManager extends Instructor{
     debugsCode(student, subject){
         console.log(`${this.name} debugs ${student.name}'s code on ${subject}`)
     }
+    
 }
 
 // const person1 = new Person({'name':'Tom', 'age':30, 'location':"USA", 'gender':"M"});
@@ -79,3 +94,8 @@ student1.listsSubjects();
 student1.PRAssignment('eco');
 pm1.standUp('fsw14');
 pm1.debugsCode(student1, "math");
+
+student1.graduate();
+instructor1.adjustGrade(student1);
+instructor1.adjustGrade(student1);
+pm1.adjustGrade(student1);
