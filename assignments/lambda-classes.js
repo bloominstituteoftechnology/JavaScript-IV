@@ -89,6 +89,34 @@ const laura = new Instructor({
     catchPhrase: `Where's The Beef`
 });
 
+const jake = new Student({
+  name: "jake",
+  age: 20,
+  location: "Nevada",
+  gender: "male",
+  previousBackground: ["FreeCodeCamp"],
+  className: "FSW 15",
+  favSubjects: ['HTML', 'CSS', 'JavaScript']
+});
 
+const fran = new Student({
+    name: "Fran",
+    age: 42,
+    location: "Colorado",
+    gender: "female",
+    previousBackground: ["Corporate CEO"],
+    className: "FSW 15",
+    favSubjects: ['CSS', 'JavaScript']
+});
+
+const amber = new Student({
+  name: "Amber",
+  age: 19,
+  location: "New York",
+  gender: "female",
+  previousBackground: ["HTML"],
+  className: "FSW 15",
+  favSubjects: ['HTML']
+});
 
 console.log(fred);
