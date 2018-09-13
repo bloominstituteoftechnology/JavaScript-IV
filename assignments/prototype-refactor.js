@@ -6,7 +6,7 @@
   
   Each constructor function has unique properites and methods that are defined in their block comments below:
 */
-  
+
 
 /*
   === GameObject ===
@@ -15,12 +15,12 @@
   * destroy() // prototype method -> returns the string 'Object was removed from the game.'
 */
 
-class GameObject { 
+class GameObject {
   constructor(attributes) {
-  this.createdAt = attributes.createdAt;
-  this.dimensions = attributes.dimensions;
+    this.createdAt = attributes.createdAt;
+    this.dimensions = attributes.dimensions;
   }
-  destroy() { 
+  destroy() {
     return `${this.name} was removed from the game.`;
   };
 }
@@ -33,11 +33,11 @@ class GameObject {
   * should inherit destroy() from GameObject's prototype
 */
 
-class CharacterStats extends GameObject { 
+class CharacterStats extends GameObject {
   constructor(statsAttributes) {
-  super(statsAttributes);
-  this.hp = statsAttributes.hp;
-  this.name = statsAttributes.name;
+    super(statsAttributes);
+    this.hp = statsAttributes.hp;
+    this.name = statsAttributes.name;
   }
   takeDamage() {
     return `${this.name} took damage.`;
@@ -55,60 +55,60 @@ class CharacterStats extends GameObject {
   * should inherit takeDamage() from CharacterStats
 */
 
-class Humanoid extends CharacterStats { 
+class Humanoid extends CharacterStats {
   constructor(humanoidAttributes) {
-  super(humanoidAttributes);
-  this.faction = humanoidAttributes.faction;
-  this.weapons = humanoidAttributes.weapons;
-  this.language = humanoidAttributes.language;
+    super(humanoidAttributes);
+    this.faction = humanoidAttributes.faction;
+    this.weapons = humanoidAttributes.weapons;
+    this.language = humanoidAttributes.language;
   }
   greet() {
     return `${this.name} offers a greeting in ${this.language}.`;
   }
-} 
+}
 
 
 
 
 
 /*
-  * Inheritance chain: Humanoid -> CharacterStats -> GameObject
-  * Instances of Humanoid should have all of the same properties as CharacterStats and GameObject.
-  * Instances of CharacterStats should have all of the same properties as GameObject.
-*/
+ * Inheritance chain: Humanoid -> CharacterStats -> GameObject
+ * Instances of Humanoid should have all of the same properties as CharacterStats and GameObject.
+ * Instances of CharacterStats should have all of the same properties as GameObject.
+ */
 
 class Hero extends Humanoid {
   constructor(heroAttributes) {
-  super(heroAttributes);
+    super(heroAttributes);
   }
-  swordSlash(){
+  swordSlash() {
     demonHp -= Math.floor(Math.random() * 100);
-    if (heroHp > 0 && demonHp > 0){
-        return (`${demon.name}'s hp has been sword slashed to ${demonHp}!`)
-    }else if(demonHp < 1) {
-        return `Hey man, the demon is already dead!`;
-    }else{
+    if (heroHp > 0 && demonHp > 0) {
+      return (`${demon.name}'s hp has been sword slashed to ${demonHp}!`)
+    } else if (demonHp < 1) {
+      return `Hey man, the demon is already dead!`;
+    } else {
       return `${highKnight.name} is already slain.`;
     }
   }
 }
 
 
-class Villain extends Humanoid { 
+class Villain extends Humanoid {
   constructor(villainAttributes) {
-  super(villainAttributes);
+    super(villainAttributes);
   }
   curse() {
     heroHp -= Math.floor(Math.random() * 50);
-    if (heroHp > 0 && demonHp > 0){
-        return (`${highKnight.name} has been cursed to ${heroHp}!`);
-    }else if(heroHp < 1){
-        return `You've slain the High Knight already VILE DEMON!`;
-      }else{
-          return `The demon is DEAD!`;
+    if (heroHp > 0 && demonHp > 0) {
+      return (`${highKnight.name} has been cursed to ${heroHp}!`);
+    } else if (heroHp < 1) {
+      return `You've slain the High Knight already VILE DEMON!`;
+    } else {
+      return `The demon is DEAD!`;
     }
-  } 
-}   
+  }
+}
 
 
 
