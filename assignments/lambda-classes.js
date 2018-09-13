@@ -1,3 +1,6 @@
+//Corey Gumbs 
+//Sept 13, 2018
+
 // CODE here for your Lambda Classes
 
 //Class Person - Base Class
