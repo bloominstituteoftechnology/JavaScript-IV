@@ -21,17 +21,28 @@ class GameObject {
   }
 }
 
-function CharacterStats(characterStatsOptions) {
-  GameObject.call(this, characterStatsOptions);
-  this.hp = characterStatsOptions.hp;
-  this.name = characterStatsOptions.name;
+// function CharacterStats(characterStatsOptions) {
+//   GameObject.call(this, characterStatsOptions);
+//   this.hp = characterStatsOptions.hp;
+//   this.name = characterStatsOptions.name;
+// }
+
+// CharacterStats.prototype = Object.create(GameObject.prototype);
+
+// CharacterStats.prototype.takeDamage = function() {
+//   return `${this.name} took damage.`;
+// };
+
+class CharacterStats {
+  constructor(characterStatsOptions) {
+    super(characterStatsOptions);
+    this.hp = characterStatsOptions.hp;
+    this.name = characterStatsOptions.name;
+  }
+  takeDamage() {
+    return `${this.name} took damage.`;
+  }
 }
-
-CharacterStats.prototype = Object.create(GameObject.prototype);
-
-CharacterStats.prototype.takeDamage = function() {
-  return `${this.name} took damage.`;
-};
 
 function Humanoid(humanoidOptions) {
   CharacterStats.call(this, humanoidOptions);
