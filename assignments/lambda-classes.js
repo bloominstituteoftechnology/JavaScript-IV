@@ -27,6 +27,25 @@ class Instructor extends Person {
     grade(student, subject) {
         console.log(`${student.name} receives a perfect score on ${subject}.`);
     }
+
+    sinkOrSwim(student) {
+        student.grade += Math.floor(Math.random() * 201) - 100;
+    }
+
+    sinkOrSwim(student) {
+        const factor = Math.floor(Math.random() * 201) - 100;
+        let grade = student.grade + factor;
+
+        if (grade < 0) {
+            grade = 0
+        } else if ( grade > 100) {
+            grade = 100;
+        }
+
+        student.grade = grade;
+        console.log(`\n${student.name} was graded by ${this.name}\nHis new grade: ${student.grade}`)
+    }
+
 }
 
 class Student extends Person {
@@ -35,6 +54,7 @@ class Student extends Person {
         this.previousBackground = studentDetails.previousBackground;
         this.className = studentDetails.className;
         this.favSubjects = studentDetails.favSubjects;
+        this.grade = studentDetails.grade;
     }
 
     listsSubjects() {
@@ -48,9 +68,17 @@ class Student extends Person {
     sprintChallenge(subject) {
         console.log(`${this.name} has begun sprint challenge on ${subject}.`);
     }
+
+    graduate(){
+        if(this.grade > 70) {
+            console.log(`${this.name} is ready to graduate from Lambda School with a grade of ${this.grade}!!!!!`);
+        } else {
+            console.log(`${this.name} is not ready to graduate from Lambda with a grade of ${this.grade}`);
+        }
+    }
 }
 
-class ProjectManagers extends Person {
+class ProjectManagers extends Instructor {
     constructor(pmDetails) {
         super(pmDetails);
         this.gradClassName = pmDetails.gradClassName;
@@ -74,6 +102,7 @@ const chris = new Student({
     previousBackground: 'Freelance Websites',
     className: 'FSW 14',
     favSubjects: ['CSS / LESS', 'Javascript', 'Node.JS', 'Python'],
+    grade: 100
 })
 
 const bill = new ProjectManagers({
@@ -85,7 +114,7 @@ const bill = new ProjectManagers({
     favInstructor: 'Batman Josh',
 });
 
-const fred = new Instructor({
+const josh = new Instructor({
     name: 'Josh',
     location: 'Utah',
     age: 29,
@@ -104,6 +133,14 @@ bill.speak();
 bill.standUp('fsw14_bill');
 bill.debugsCode(chris, 'Javascript');
 
-fred.speak();
-fred.demo('Javascript');
-fred.grade(chris, 'Javascript');
+josh.speak();
+josh.demo('Javascript');
+josh.grade(chris, 'Javascript');
+
+
+josh.sinkOrSwim(chris);
+josh.sinkOrSwim(chris);
+bill.sinkOrSwim(chris);
+bill.sinkOrSwim(chris);
+
+chris.graduate();
