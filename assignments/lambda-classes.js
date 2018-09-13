@@ -38,6 +38,18 @@ class Instructor extends Person{
         console.log(`${student.name} receives a perfect score on ${subject}`);
         return `${student.name} receives a perfect score on ${subject}`;
     }
+
+    gradeStudent(student){
+        let random = Math.random();
+
+        if(Math.random() < 0.5){
+            console.log("add");
+            return 'add';
+        }else{
+            console.log('subtract');
+            return 'subtract';
+        }
+    }
 }
 // End - Class Instructor
 
@@ -49,6 +61,7 @@ class Student extends Person{
         this.previousBackground = studentAttributes.previousBackground;
         this.className = studentAttributes.className;
         this.favSubjects = studentAttributes.favSubjects;
+        this.grade = studentAttributes.grade;
     }
 
     //methods
@@ -119,7 +132,8 @@ const studentPerson =  new Student({
     "location" : "Seattle",
     "previousBackground" : "",
     "className" : "FSW14",
-    "favSubjects" : ["History", "Science", "Math"]
+    "favSubjects" : ["History", "Science", "Math"],
+    "grade" : 100
 });
 
 console.log(studentPerson.name);
@@ -129,7 +143,6 @@ console.log(studentPerson.location);
 console.log(studentPerson.listsSubjects());
 console.log(studentPerson.PRAassignment("classes"));
 console.log(studentPerson.sprintChallenge("classes"));
-
 
 //Class Instructor
 const instructPerson = new Instructor({
@@ -152,7 +165,7 @@ console.log(instructPerson.catchPhrase);
 console.log(instructPerson.speak());
 console.log(instructPerson.demo(studentPerson.favSubjects[0]));
 console.log(instructPerson.grade(studentPerson, studentPerson.favSubjects[0]));
-
+console.log(instructPerson.gradeStudent());
 
 //Class ProjectManager
 const pmPerson = new ProjectManager({
@@ -171,4 +184,4 @@ console.log(pmPerson.location);
 console.log(pmPerson.gradClassName);
 console.log(pmPerson.favInstructor);
 console.log(pmPerson.standUp('fsw14'));
-console.log(pmPerson.debugsCode(studentPerson, studentPerson.favSubjects[2]));
+console.log(pmPerson.debugsCode(studentPerson, studentPerson.favSubjects[2]))
