@@ -73,7 +73,7 @@ class ProjectManager extends Instructor {
     this.favInstructor = projectManagerOptions. favInstructor;
   }
   standUp(channel){
-    console.log(`${this.name} announces to #${channel}, @${channel} standy times!`);
+    console.log(`${this.name} announces to #${channel}, @channel standy times!`);
   }
   debugsCode(student, subject){
     console.log(`${this.name} debugs ${student.name}'s code on ${subject}`);
