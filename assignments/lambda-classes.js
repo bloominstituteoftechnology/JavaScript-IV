@@ -111,14 +111,14 @@ const david = new Student({
     'favSubjects': ['HTML', 'CSS', 'Javascript'],
 });
 
-const  = new Student({
-    'name': 'David',
-    'age': 22,
-    'location': 'Texas',
+const mickey = new Student({
+    'name': 'Mickey',
+    'age': 21,
+    'location': 'Florida',
     'gender': 'M',
-    'previousBackground': 'Customer Service',
+    'previousBackground': 'Animation',
     'className': 'FSW14',
-    'favSubjects': ['HTML', 'CSS', 'Javascript'],
+    'favSubjects': ['Art', '', 'Javascript'],
 });
 
 const david = new Student({
