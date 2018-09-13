@@ -25,6 +25,11 @@ class Instructor extends Person {
     grade(stu, topic) {
         console.log(`${stu.name} receives a perfect score on ${topic}`);
     }
+    alterGrade(stu) {
+        stu.grade = Math.floor(stu.grade + 2 * randn() + 1);
+        stu.grade = Math.max(stu.grade, 0);
+        stu.grade = Math.min(stu.grade, 100);
+    }
 }
 
 class Student extends Person {
@@ -33,6 +38,8 @@ class Student extends Person {
         this.previousBackground = studentProperties.previousBackground;
         this.className = studentProperties.className;
         this.favSubjects = studentProperties.favSubjects;
+        this.grade = Math.floor(Math.random() * 101);
+        console.log(`${this.name}'s grade: ${this.grade}`);
     }
     listsSubjects() {
         this.favSubjects.forEach(function(subject) {
@@ -44,6 +51,13 @@ class Student extends Person {
     }
     sprintChallenge(topic) {
         console.log(`${this.name} has begun sprint challenge on ${topic}`);
+    }
+    graduate() {
+        if (this.grade >= 70) {
+            console.log(`${this.name} graduates! Congratulations!`);
+        } else {
+            console.log(`${this.name} has a grade of ${this.grade} and is not ready to graduate--keep trying!`);
+        }
     }
 }
 
@@ -139,3 +153,21 @@ console.log(mckay.className);
 julio.speak();
 julio.grade(jenny, "punctuality");
 mckay.PRAssignment("DOM");
+
+function randn() { // Normal distribution, mean 0, std deviation 1, using the Box-Muller Transform
+    let u = 0, v = 0;
+    while (u === 0) u = Math.random(); // Converts [0,1) to (0,1)
+    while (v === 0) v = Math.random();
+    return Math.sqrt( -2.0 * Math.log(u)) * Math.cos( 2.0 * Math.PI * v);
+}
+
+for (let i = 0; i < 40; i++) {
+  sharon.alterGrade(jenny);
+}
+jenny.graduate();
+
+while (true) {
+  mckay.graduate();
+  if (mckay.grade >= 70) break;
+  jeff.alterGrade(mckay);
+}
