@@ -27,3 +27,22 @@ class Instructor extends Person {
         return `${student.name} receives a perfect score on ${subject}`;
     }
 }// End of Instructor Class
+
+class Student extends Person {
+    constructor(studentAttrs) {
+        super(studentAttrs);
+        this.previousBackground = studentAttrs.previousBackground;
+        this.className = studentAttrs.className;
+        this.favSubject = studentAttrs.favSubject;
+    }// End of Student Constructor
+    // Student Methods
+    listsSubject(subjects) {
+        return ``;
+    }
+    PRAssignment() {
+        return `${this.name} has submitted a PR for ${subject}`;
+    }
+    sprintChallenge(subject) {
+        return `${this.name} has begun sprint challenge on ${subject}`
+    }
+}// End of Student Class
