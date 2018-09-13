@@ -67,8 +67,7 @@ const swordsman = new Humanoid({
   language: 'Common Toungue'
 });
 
-const archer = new Humanoid({
-  createdAt: new Date(),
+const archer = new Humanoid({ createdAt: new Date(),
   dimensions: {
     length: 1,
     width: 2,
