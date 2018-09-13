@@ -127,3 +127,8 @@ const evilLuis = new ProjectManager({
   gradClassName: 'CS100',
   favInstructor: 'Hsoj',
 });
+
+josh.speak();
+evilJosh.demo('Evil JS');
+zach.listsSubjects();
+evilLuis.debugsCode(zach, 'flexbox');
