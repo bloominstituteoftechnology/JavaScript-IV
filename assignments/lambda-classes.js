@@ -17,11 +17,16 @@ class Instructor extends Person {
   constructor(constructorStuff) {
     super(constructorStuff);
   }
-  demo() {
-    return `Today we are learning about ${this.subject}`
+  demo(subject) {
+    return `Today we are learning about ${subject}`
   }
-  grade() {
-    return `${this.name} receives a perfect score on ${this.subject}`
+  grade(student, subject) {
+    return `${student.name} receives a perfect score on ${subject}`
+  }
+  points(student) {
+    student.grade += Math.ceil(Math.random() * 15)
+    student.grade -= Math.ceil(Math.random() * 15)
+    return `${this.name} changed ${student.name}'s grade to ${student.grade}`
   }
 };
 
@@ -31,15 +36,23 @@ class Student extends Person {
     this.previousBackground = studentStuff.previousBackground;
     this.className = studentStuff.className;
     this.favSubjects = studentStuff.favSubjects;
+    this.grade = Math.ceil(Math.random() * 100);
   }
   listsSubjects() {
-    return this.favSubjects;
+    return this.favSubjects.toString();
   }
   PRAssignment(subject) {
     return `${this.name} has submitted a PR for ${subject}`;
   }
   sprintChallenge(subject) {
     return `${this.name} has begun sprint challenge on ${subject}`;
+  }
+  graduate(student) {
+    if (student.grade >= 70) {
+      return 'You Graduated!'
+    } else {
+      return 'Keep working to get your grade up'
+    }
   }
 }
 
@@ -52,8 +65,8 @@ class ProjectManager extends Instructor {
   standUp(channel) {
     return `${this.name} announces to ${channel} '@channel standy times!​​​​​'`
   }
-  debugsCode() {
-    return ``
+  debugsCode(student, subject) {
+    return `${this.name} debugs ${student.name}'s code on ${subject}`
   }
 }
 
@@ -168,3 +181,12 @@ console.log(adam.PRAssignment('math'));
 console.log(john.sprintChallenge('Node'));
 console.log(cesar.standUp('FSW14'));
 console.log(adam.listsSubjects());
+console.log(josh.grade(adam, 'Web Dev'));
+console.log(bill.demo('how to code from your Mom\'s basement'));
+console.log(cesar.debugsCode(john, 'JavaScript'));
+console.log(adam.grade);
+console.log(josh.points(adam));
+console.log(adam.graduate(adam));
+
+
+// console.log(grade(adam, 'Web Dev'));
