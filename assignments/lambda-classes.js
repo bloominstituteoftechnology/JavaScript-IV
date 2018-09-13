@@ -36,30 +36,27 @@ console.log(demo)
 console.log(grade)
 class PMs extends Instructors {
     constructor(pmQualities) {
-        super(qualities);
-        this.specialty = instrQualities.specialty;
-        this.favLanguage = instrQualities.favLanguage;
-        this.catchPhrase = instrQualities.catchPhrase;
-
+        super(pmQualities);
+        this.gradClassName = pmQualities.gradClassName;
+        this.favInstructor = pmQualities.favInstructor;
     };
 
-    demo() {
-        return ('Today we are learning about'
-            `${.subject}`)
+    standUp() {
+        return (`${.channel} '@channel it's time for standup!'`)
     };
 
-    grade() {
-        return (`${student.name} 'receives a perfect score on' {.subject}`);
+    debugsCode() {
+        return (`${this.name} debugs ${student.name} 'code on' {.subject}`);
     };
 };
 
-console.log(demo)
-console.log(grade)
+console.log(standUp)
+console.log(debugsCode)
 
 class Student extends Person {
     constructor(stuQualities) {
         super(stuQualities);
-        this.previousBackground =stuQualities.previousBackground;
+        this.previousBackground = stuQualities.previousBackground;
         this.className = stuQualities.className;
         this.favSubjects = stuQualities.favSubjects;
     };
