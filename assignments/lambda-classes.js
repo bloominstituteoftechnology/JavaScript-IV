@@ -59,14 +59,14 @@ class PM extends Instructor {
     }
 }
 
-const person1 = new Person({
+const davis = new Person({
     'age': 75,
     'name': 'Jefferson Davis',
     'location': 'New Orleans',
     'gender': 'M'
 })
 
-const person2 = new Person({
+const lincoln = new Person({
     'age': 55,
     'name': 'Abraham Lincoln',
     'location': 'Washington DC',
@@ -120,6 +120,9 @@ const arthur = new PM({
     'name': 'Chester A. Arthur',
     'location': 'Fairfield, VT',
     'gender': 'M',
+    'specialty': 'reforming the federal patronage system',
+    'favLanguage': 'old-Java',
+    'catchPhrase': 'I\'m racist against the Chinese!',
     'gradClassName':'21st',
     'favInstructor': 'Roscoe Conkling'
 })
@@ -129,6 +132,20 @@ const cleveland = new PM({
     'name': 'Grover Cleveland',
     'location': 'Caldwell, NJ',
     'gender': 'M',
+    'specialty': 'classical liberalism',
+    'favLanguage': 'old-CSS',
+    'catchPhrase': 'I\'m a formidable policy maker!',
     'gradClassName':'22nd',
     'favInstructor': 'Daniel Manning'
 })
+
+davis.speak();
+lincoln.speak();
+johnson.listsSubjects();
+grant.PRAssignments('artillary');
+cleveland.sprintChallenge('budgeting');
+garfield.standUp('#former-presidents');
+lincoln.debugCode(davis, 'confederacy');
+johnson.demo('Civil War regiments');
+hayes.grade(grant, 'agricultural technology');
+
