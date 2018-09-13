@@ -15,12 +15,15 @@
   * destroy() // prototype method -> returns the string 'Object was removed from the game.'
 */
 
-function GameObject (attributes) {
+class GameObject { 
+  constructor(attributes) {
   this.createdAt = attributes.createdAt;
   this.dimensions = attributes.dimensions;
+  }
+  destroy() { 
+    return `${this.name} was removed from the game.`;
+  };
 }
-GameObject.prototype.destroy = function () {return `${this.name} was removed from the game.`;};
-
 
 /*
   === CharacterStats ===
@@ -30,16 +33,15 @@ GameObject.prototype.destroy = function () {return `${this.name} was removed fro
   * should inherit destroy() from GameObject's prototype
 */
 
-function CharacterStats (statsAttributes) {
-  GameObject.call(this, statsAttributes);
+class CharacterStats extends GameObject { 
+  constructor(statsAttributes) {
+  super(statsAttributes);
   this.hp = statsAttributes.hp;
   this.name = statsAttributes.name;
-}
-CharacterStats.prototype =
-Object.create(GameObject.prototype);
-
-CharacterStats.prototype.takeDamage = function() {
-  return `${this.name} took damage.`;
+  }
+  takeDamage() {
+    return `${this.name} took damage.`;
+  }
 };
 
 
@@ -53,17 +55,20 @@ CharacterStats.prototype.takeDamage = function() {
   * should inherit takeDamage() from CharacterStats
 */
 
-function Humanoid (humanoidAttributes) {
-  CharacterStats.call(this, humanoidAttributes);
+class Humanoid extends CharacterStats { 
+  constructor(humanoidAttributes) {
+  super(humanoidAttributes);
   this.faction = humanoidAttributes.faction;
   this.weapons = humanoidAttributes.weapons;
   this.language = humanoidAttributes.language;
-}
-Humanoid.prototype = 
-Object.create(CharacterStats.prototype);
+  }
+  greet() {
+    return `${this.name} offers a greeting in ${this.language}.`;
+  }
+} 
 
-Humanoid.prototype.greet = function () {
-  return `${this.name} offers a greeting in ${this.language}.`;};
+
+
 
 
 /*
@@ -72,43 +77,43 @@ Humanoid.prototype.greet = function () {
   * Instances of CharacterStats should have all of the same properties as GameObject.
 */
 
-function Hero (heroAttributes) {
-  Humanoid.call(this, heroAttributes);
-  
-}
-
-Hero.prototype = 
-Object.create(Humanoid.prototype);
-
-Hero.prototype.swordSlash = function(){
-  demonHp -= Math.floor(Math.random() * 100);
-  if (heroHp > 0 && demonHp > 0){
-      return (`${demon.name}'s hp has been sword slashed to ${demonHp}!`)
-  }else if(demonHp < 1) {
-      return `Hey man, the demon is already dead!`;
-  }else{
-    return `${highKnight.name} is already slain.`;
+class Hero extends Humanoid {
+  constructor(heroAttributes) {
+  super(heroAttributes);
   }
-}
-
-function Villain (villainAttributes) {
-  CharacterStats.call(this, villainAttributes);
-  
-}
-
-Villain.prototype = 
-Object.create(Humanoid.prototype);
-
-Villain.prototype.curse = function(){
-  heroHp -= Math.floor(Math.random() * 50);
-  if (heroHp > 0 && demonHp > 0){
-      return (`${highKnight.name} has been cursed to ${heroHp}!`);
-  }else if(heroHp < 1){
-      return `You've slain the High Knight already VILE DEMON!`;
+  swordSlash(){
+    demonHp -= Math.floor(Math.random() * 100);
+    if (heroHp > 0 && demonHp > 0){
+        return (`${demon.name}'s hp has been sword slashed to ${demonHp}!`)
+    }else if(demonHp < 1) {
+        return `Hey man, the demon is already dead!`;
     }else{
-        return `The demon is DEAD!`;
+      return `${highKnight.name} is already slain.`;
+    }
   }
 }
+
+
+class Villain extends Humanoid { 
+  constructor(villainAttributes) {
+  super(villainAttributes);
+  }
+  curse() {
+    heroHp -= Math.floor(Math.random() * 50);
+    if (heroHp > 0 && demonHp > 0){
+        return (`${highKnight.name} has been cursed to ${heroHp}!`);
+    }else if(heroHp < 1){
+        return `You've slain the High Knight already VILE DEMON!`;
+      }else{
+          return `The demon is DEAD!`;
+    }
+  } 
+}   
+
+
+
+
+
 
 
 
