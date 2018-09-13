@@ -39,7 +39,6 @@ class Humanoid extends CharacterStats {
   this.language = humanoidOptions.language;
 }
 
-Humanoid.prototype = Object.create(CharacterStats.prototype);
 
 greet() {
   return `${this.name} offers a greeting in ${this.language}.`;
