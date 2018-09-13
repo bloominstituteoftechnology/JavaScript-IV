@@ -1,4 +1,6 @@
 // CODE here for your Lambda Classes
+//Person Constructor
+
 class Person {
     constructor(props){
     this.name = props.name;
@@ -12,6 +14,7 @@ speak(){
 }
 }
 
+//Instructor Constructor
 class Instructor extends Person {
     constructor(props){
         super(props);
@@ -19,6 +22,25 @@ class Instructor extends Person {
         this.favLanguage = props.favLanguage;
         this.catchPhrase = props.catchPhrase;
     
+    }
+
+    gradeBlaster(student){
+        let addOrSub = Math.random()* 3;
+        let randomPoints = Math.floor(Math.random()* 20);
+        let newGrade; 
+        if(addOrSub > 1){
+            newGrade = student.grade += randomPoints;
+            if(newGrade > 100){
+                newGrade = 100;
+                
+            }
+            console.log(`${student.name}'s grade jumped to a ${newGrade}!`); 
+        }
+        else if(addOrSub < 1){
+            newGrade = student.grade -= randomPoints;
+            console.log(`${student.name}'s grade dropped to a ${newGrade}.`); 
+        }
+
     }
 
     demo(subject){
@@ -30,13 +52,36 @@ class Instructor extends Person {
     }
 } 
 
+//Student Constructor
 class Student extends Person {constructor(props){
     super(props);
     this.previousBackground = props.previousBackground;
     this.className = props.className;
-    this.favSubjects = props.favSubjects;   
+    this.favSubjects = props.favSubjects;
+    /* Below I meant set up a conditional that would prevent the grade prop from 
+    ever exceeding 100. The cap didn't work but it also didn't mess up setting the
+    prop so..could it work if written differently? I'm aware I could program 
+    Instructor.gradeBlaster() to return a value of 100 if it exceeds, but am curious 
+    if there's a way to set a conditional within the constructor that would ensure 
+    the value could never be over 100. 
+    */ 
+    if(props.grade > 100){    
+        props.grade = 100;        
+        this.grade = props.grade;
+    }
+    else {
+        this.grade = props.grade;  
+    }     
 }
 
+graduate(){
+    if(this.grade > 70){
+        console.log(`Congratulations, ${this.name}. You've graduated!`)
+    }
+    else{
+        console.log(`Keep learning! You're almost there.`)
+    }
+}
 
 listsSubjects(){
     let favSubs = this.favSubjects;
@@ -53,7 +98,7 @@ sprintChallenge(subject){
 
 }
 
-
+//PM Constructor
 class ProjectManager extends Instructor {
     constructor(props){
     super(props);
@@ -74,7 +119,7 @@ class ProjectManager extends Instructor {
 
 }
 
-//Instructor Instance
+//Instructor Instances
 
 const Knellbert = new Instructor({
     name: 'Knellbert',
@@ -95,7 +140,7 @@ const Knellbert = new Instructor({
     catchPhrase: `Don't remember, think I blacked out.`
   });
 
-  //Student Instance
+  //Student Instances
 
   const Pellby = new Student({
     name: 'Pellby',
@@ -104,7 +149,8 @@ const Knellbert = new Instructor({
     gender: 'female',
     previousBackground: 'Champion Race-Walker',
     className: 'FSW19',
-    favSubjects: ['Front-End', 'Back-end', 'Side-End']
+    favSubjects: ['Front-End', 'Back-end', 'Side-End'],
+    grade: 90
   });
   const Ken = new Student({
     name: 'Ken',
@@ -113,10 +159,11 @@ const Knellbert = new Instructor({
     gender: 'male',
     previousBackground: 'Anime Illustrator',
     className: 'FSW19',
-    favSubjects: ['UI/UX', 'C', 'Back-End']
+    favSubjects: ['UI/UX', 'C', 'Back-End'],
+    grade: 83
   });
 
-  //Project Manager Instance
+  //Project Manager Instances
 
   const Scroopy = new ProjectManager({
     name: 'Scroopy',
@@ -141,6 +188,8 @@ const Knellbert = new Instructor({
     gradClassName: 'FSW18',
     favInstructor: 'Knellbert'
   });
+
+  //Console Logs
   
   console.log(Knellbert.grade(Pellby,'DOM CXVII'));
   console.log(Joshbert.demo('Node.js'));
@@ -150,6 +199,9 @@ const Knellbert = new Instructor({
   Ken.listsSubjects();
   console.log(Pellby.PRAssignment('DOM CXVII'));
   console.log(Ken.sprintChallenge('JS XXI'));
+  Knellbert.gradeBlaster(Pellby); 
+  console.log(Pellby.grade); 
+  Ken.graduate();
 
   
   
