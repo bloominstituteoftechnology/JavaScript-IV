@@ -2,7 +2,7 @@
 // Today your goal is to refactor all of this code to use ES6 Classes.
 // The console.log() statements should still return what is expected of them.
 
-/* Previous
+/* **************************** Previous GameObject
  function GameObject(options) {
    this.createdAt = options.createdAt;
    this.dimensions = options.dimensions;
@@ -12,7 +12,7 @@
    return `Object was removed from the game.`;
  };*/
 
- //Refactored GameObject
+ // ========================== Refactored GameObject
   class GameObject {
     constructor(options) {
     this.createdAt = options.createdAt;
@@ -22,7 +22,7 @@
     return(`${this.name} was removed from the game.`);
   }
 }
-
+/* **************************** Previous CharacterStats
  /*function CharacterStats(characterStatsOptions) {
    GameObject.call(this, characterStatsOptions);
    this.hp = characterStatsOptions.hp;
@@ -35,7 +35,7 @@
   return `${this.name} took damage.`;
 };*/
 
-
+ // ========================== Refactored CharacterStats
 class CharacterStats extends GameObject {
   constructor(characterStatsOptions) {
     super(characterStatsOptions);
@@ -47,6 +47,7 @@ class CharacterStats extends GameObject {
   }
 }
 
+/* **************************** Previous Humanoid
 /*function Humanoid(humanoidOptions) {
   CharacterStats.call(this, humanoidOptions);
   this.faction = humanoidOptions.faction;
@@ -60,7 +61,7 @@ Humanoid.prototype.greet = function() {
   return `${this.name} offers a greeting in ${this.language}.`;
 };*/
 
-
+ // ========================== Refactored Humanoid
 class Humanoid extends CharacterStats {
   constructor(humanoidOptions) {
     super(humanoidOptions);
@@ -72,8 +73,6 @@ class Humanoid extends CharacterStats {
     return (`${this.name} offers a greeting in ${this.language}`);
   }
 }
-
-
 
 
 const mage = new Humanoid({
