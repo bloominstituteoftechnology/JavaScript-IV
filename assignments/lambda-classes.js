@@ -11,11 +11,11 @@ class Person{
     }
 }
 class Instructor extends Person{
-    constructor(instructorAttrs){
+    constructor(instructorAttributes){
         super(instructorAttrs);
-        this.specialty = instructorAttrs.specialty;
-        this.favLanguage = instructorAttrs.favLanguage;
-        this.catchPhrase = instructorAttrs.catchPhrase;
+        this.specialty = instructorAttributes.specialty;
+        this.favLanguage = instructorAttributes.favLanguage;
+        this.catchPhrase = instructorAttributes.catchPhrase;
     }
     demo(subject){
         return `Today we are learning about ${subject}`;
@@ -26,11 +26,11 @@ class Instructor extends Person{
 }
 
 class Student extends Person{
-    constructor(studentAtrr){
-        super(studentAtrr);
-        this.previousBackground = studentAtrr.previousBackground;
-        this.className = studentAtrr.className;
-        this.favSubjects = studentAtrr.favSubjects;
+    constructor(studentAttributes){
+        super(studentAttributes);
+        this.previousBackground = studentAttributes.previousBackground;
+        this.className = studentAttributes.className;
+        this.favSubjects = studentAttributes.favSubjects;
     }
     listSubjects(){
         //logs out all of the student's favoriteSubjects one by one.
@@ -42,6 +42,18 @@ class Student extends Person{
         return `${student.name} has begun sprint challenge on ${subject}`;
     }
 }
-
+class ProjectManagers extends Instructor{
+    constructor(PmAttributes){
+        super(PmAttributes);
+        this.gradClassName = PmAttributes.gradClassName;
+        this.favInstructor = PmAttributes.favInstructor;
+    }
+    standUp(slackChannel){
+        return `${this.name} announces to ${slackChannel}, @${slackChannel} standy times!​​​​​`
+    }
+    debugsCode(student, subject){
+        return `${this.name} debugs ${student.name} code on ${subject}`
+    }
+}
 //Objects
 
