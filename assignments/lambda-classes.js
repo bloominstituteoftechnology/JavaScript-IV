@@ -11,3 +11,19 @@ class Person {
     }
 }
 
+class Instructor extends Person {
+    constructor(instructorAttributes){
+        super(instructorAttributes)
+        this.specialty = instructorAttributes.specialty;
+        this.favLanguage = instructorAttributes.favLanguage;
+        this.catchPhrase = instructorAttributes.catchPhrase;
+    }
+    demo(subject){
+        console.log(`Today we are learning about ${subject}`);
+    }
+    grade(student,subject){
+        console.log(`${student.name} recieves a perfect score on ${subject}`);
+    }
+}
+
+class 
