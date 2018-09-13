@@ -7,9 +7,9 @@ class Person {
     this.gender = props.gender;
   }
   speak() {
-    return `Hello my name is ${this.name}, I am from ${this.location}.`;
+    console.log(`Hello my name is ${this.name}, I am from ${this.location}.`);
   }
-} //end Person class
+} // end Person class
 
 class Instructor extends Person {
   constructor(instructorProps) {
@@ -19,9 +19,29 @@ class Instructor extends Person {
     this.catchPhrase = instructorProps.catchPhrase;
   }
   demo(subject) {
-    return `Today we are learning about ${subject}`;
+    console.log(`Today we are learning about ${subject}`);
   }
   grade(student, subject) {
-    return `${student.name} receives a perfect score on ${subject}`;
+    console.log(`${student.name} receives a perfect score on ${subject}`);
   }
-}
+} // end Instructor class
+
+class Student extends Person {
+  constructor(studentProps) {
+    super(studentProps);
+    this.previousBackground = studentProps.previousBackground;
+    this.className = studentProps.className;
+    this.favSubjects = studentProps.favSubjects;
+  }
+  listsSubjects() {
+    this.favSubjects.forEach(subj => {
+      console.log(subj);
+    });
+  }
+  PRAssignment(subject) {
+    console.log(`${this.name} has submitted a PR for ${subject}.`);
+  }
+  sprintChallenge(subject) {
+    console.log(`${this.name} has begun sprint challenge on ${subject}`);
+  }
+} // end Student class
