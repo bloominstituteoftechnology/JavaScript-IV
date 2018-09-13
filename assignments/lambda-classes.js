@@ -1,1 +1,94 @@
 // CODE here for your Lambda Classes
+
+class Person {
+    constructor(personalData) {
+        this.name = personalData.name;
+        this.age = personalData.age;
+        this.location = personalData.location;
+        this.gender = personalData.gender;
+    };
+    speak() {
+        return `Hello my name is ${this.name}, I am from ${this.location}`;
+    };
+};
+
+class Instructor extends Person {
+    constructor(instructorQualities) {
+        super(instructorQualities);
+        this.specialty = instructorQualities.specialty;
+        this.favLanguage = instructorQualities.favLanguage;
+        this.catchPhrase = instructorQualities.catchPhrase;
+    };
+    demo(subject) {
+        return `Today we are learning about ${this.subject}`
+    };
+    grade(student, subject) {
+        return `${student.name} receives a perfect score on ${subject}`
+    };
+};
+
+class Student extends Person {
+    constructor(studentAttributes) {
+        super(studentAttributes);
+        this.previousBackground = studentAttributes.previousBackground;
+        this.className = studentAttributes.className;
+        this.favSubjects = studentAttributes.favSubjects;
+    };
+    listsSubjects(subjects) {
+        subjects.forEach(subject => console.log(subject));
+    };
+    PRAssignment(subject) {
+        return `${this.name} has submitted a PR for ${subject}`;
+    };
+    sprintChallenge(subject) {
+        return `${this.name} has begun sprint challenge on ${subject}`;
+    };
+};
+
+class Project_Manager extends Instructor {
+    constructor(pmAttributes) {
+        super(pmAttributes);
+        this.gradClassName = pmAttributes.gradClassName;
+        this.favInstructor = pmAttributes.favInstructor;
+    };
+    standUp(channel) {
+        return `${this.name} announces to ${channel} @channel standy times!`;
+    };
+    debugsCode(student, subject) {
+        return `${this.name} debugs ${student.name}'s code on ${subject}`;
+    };
+}
+
+const fred = new Instructor({
+    name: 'Fred',
+    location: 'California',
+    age: 37,
+    gender: 'male',
+    favLanguage: 'JavaScript',
+    specialty: 'Front-end',
+    catchPhrase: `Don't forget the homies`
+});
+
+const bob = new Instructor({
+    name: "Bob",
+    location: "Arizona",
+    age: 87,
+    gender: "male",
+    favLanguage: "HTML",
+    specialty: "Front-end",
+    catchPhrase: `Did I do that?`
+});
+
+const laura = new Instructor({
+    name: "Laura",
+    location: "Oregon",
+    age: 28,
+    gender: "female",
+    favLanguage: "CSS",
+    specialty: "Front-end",
+    catchPhrase: `Where's The Beef`
+});
+
+
+
+console.log(fred);
