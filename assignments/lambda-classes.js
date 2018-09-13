@@ -110,6 +110,9 @@ const bill = new ProjectManagers({
     location: 'City of a State',
     age: 23,
     gender: 'male',
+    specialty: 'Fantasy Football',
+    favLanguage: 'Si++',
+    catchPhrase: 'Codewars anyone?... anyone at all?',
     gradClassName: 'FSW 14',
     favInstructor: 'Batman Josh',
 });
