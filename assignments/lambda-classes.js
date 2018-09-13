@@ -53,8 +53,8 @@ class Project_Manager extends Instructor {
     this.gradClassName = PM_Attributes.gradClassName;
     this.favInstructor = PM_Attributes.favInstructor;
   }
-  standUp() {
-    return `${this.name} announces to {channel}, @channel standy times!​​​`
+  standUp(channel) {
+    return `${this.name} announces to ${channel}, @channel standy times!​​​`
   }
   debugsCode(student, subject) {
     return `${this.name} debugs ${student.name}'s code on ${subject}`;
@@ -103,6 +103,6 @@ console.log(fred.grade(sam, 'html'))
 console.log(sam.listsSubjects())
 console.log(sam.sprintChallenge('React'))
 console.log(sam.PRAssignment('Redux'))
-console.log(ralph.standUp())
+console.log(ralph.standUp('fsw14_ralph'))
 console.log(ralph.debugsCode(sam, 'html'))
 console.log(ralph.speak())
