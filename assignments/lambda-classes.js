@@ -37,6 +37,7 @@ class Student extends Person {
             this.previousBg = studentAttributes.previousBg;
             this.className = studentAttributes.className;
             this.favSubjects = studentAttributes.favSubjects;
+            this.grade = 79;
         }
     listsSubjects() {
         return this.favSubjects.forEach(subject => subject);
@@ -50,8 +51,11 @@ class Student extends Person {
         return (`${this.name} has begun sprint challenge on ${subject}`);
     }
 
+    newGrade() {
+        console.log(this.grade > 75 ? `Congratulations!` : `You are now a Software Engineer Ninja!`);
+      }
 }
-
+  
 
 //  Project Managers
 class ProjectManagers extends Instructor {
@@ -98,7 +102,7 @@ const sam = new Student ({
 });
 
 // Project Manager
-const rinzler = new projectManager ({
+const rinzler = new ProjectManagers ({
     name:'Rinzler',
     location: 'The Grid',
     age: 45,
@@ -109,3 +113,4 @@ const rinzler = new projectManager ({
 
 kevin.speak();
 kevin.demo('creating the perfect system');
+sam.newGrade();
