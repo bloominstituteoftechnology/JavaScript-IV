@@ -23,16 +23,24 @@ class Instructor extends Person {
         console.log(`Today we are learning about ${subject}`);
     };
     grade(student, subject) {
-        console.log(`${student.name} receives a perfect score on ${subject}`)
+        let points = Math.floor(Math.random()*30);
+        if (Math.random() > 0.5) {
+            student.grade+= points;
+        }
+        else {
+            student.grade-= points;
+        }
+        console.log(`${student.name} has a score of ${student.grade} on ${subject}`)
     };
-}
-  
+}    
+         
 class Student extends Person {
     constructor(studentAttr) {
         super(studentAttr);
         this.previousBackground = studentAttr.previousBackground;
         this.className = studentAttr.className;
         this.favSubjects = studentAttr.favSubjects;
+        this.grade = studentAttr.grade;
     };
     listsSubjects() {
         this.favSubjects.forEach(item => console.log(item));
@@ -43,8 +51,15 @@ class Student extends Person {
     sprintChallenge(subject) {
         console.log(`${this.name} has begun sprint challenge on ${subject}`);
     };
+    graduate() {
+        if (this.grade > 70) {
+            console.log(`${this.name} is ready to graduate!`);
+        }
+        else {
+            console.log(`${this.name} needs to study more`)
+        }
+    };
 }
-
 class ProjectManager extends Instructor {
     constructor(pmAttr) {
         super(pmAttr);
@@ -87,6 +102,7 @@ const rahul = new Student({
     previousBackground: 'Strategy Consulting',
     className: 'FSW14',
     favSubjects: ['CSS', 'HTML'],
+    grade: 82,
 });
 
 const bob = new Student({
@@ -97,6 +113,7 @@ const bob = new Student({
     previousBackground: 'Retail Sales',
     className: 'FSW14',
     favSubjects: ['JS', 'HTML'],
+    grade: 97,
 });
 
 const tai = new ProjectManager({
@@ -133,6 +150,7 @@ josh.speak();
 console.log(rahul.previousBackground);
 rahul.listsSubjects();
 rahul.PRAssignment('Responsive Web');
+rahul.graduate();
 
 console.log(bob.className);
 bob.sprintChallenge('Applied Javascript');
