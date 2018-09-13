@@ -22,11 +22,16 @@ class Instructor extends Person {
     this.catchPhrase = instAttr.catchPhrase;
   }
   // Methods go here:
+  getGrade(student) {
+    const randomNum = Math.floor(Math.random() * Math.floor(15) + 1);
+    let newGrade = student - randomNum;
+    console.log(newGrade);
+  }
   demo(subject) {
     console.log(`Today we are learning about ${subject}.`);
   } // end of demo
-  grade(subject) {
-    console.log(`${student.name} receives a perfect score on ${subject}`);
+  grade(student, subject) {
+    console.log(`${student} receives a perfect score on ${subject}`);
   } // end of grade
 }// end of Instructor class
 
@@ -37,6 +42,7 @@ class Student extends Person {
     this.previousBackground = studAttr.previousBackground;
     this.className = studAttr.className;
     this.favSubjects = studAttr.favSubjects;
+    this.grade = studAttr.grade;
   }
   // Methods go here:
   listSubjects() {
@@ -85,7 +91,8 @@ const christopher = new ProjectManager({
   favLanguage: 'Python',
   catchPhrase: "I just gotta have more cowbells!"
 });
-
+christopher.demo('Cowbells');
+christopher.grade('Dwayne Johnson', 'Cowbells');
 // Students
 
 const carlos = new Student({
@@ -96,7 +103,8 @@ const carlos = new Student({
   //==== end of Person details
   previousBackground: 'Quality Inspector',
   className: 'FSW14',
-  favSubjects: ['JavaScript', 'ReactJS', 'Node']
+  favSubjects: ['JavaScript', 'ReactJS', 'Node'],
+  grade: 97
 });
 
 const theRock = new Student({
@@ -107,7 +115,8 @@ const theRock = new Student({
   //==== end of Person details
   previousBackground: 'Movie Actor',
   className: 'FSW14',
-  favSubjects: ['HTML', 'CSS', 'LESS']
+  favSubjects: ['HTML', 'CSS', 'LESS'],
+  grade: 72
 });
 
 carlos.listSubjects(); // no param
@@ -133,6 +142,8 @@ const wonderWoman = new ProjectManager({
   location: 'Paradise',
   gender: 'female',
   // =========== end of Person details
-})
+  gradClass: 'CS1',
+  favInstructor: 'The Amazons'
+});
 
-
+christopher.getGrade(carlos.grade);
