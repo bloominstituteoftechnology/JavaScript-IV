@@ -41,9 +41,9 @@ class Student extends Person{
     this.favSubjects = studentAttributes.favSubjects;
     }
 
-    listsSubjects() {
-        for (let i = 0; i < subjectsArr.length; i++) {
-            console.log(subjectsArr[i]);
+    listsSubjects(subject) {
+        for (let i = 0; i < subject.length; i++) {
+            console.log(subject[i]);
         }        
     }
 
@@ -72,7 +72,7 @@ class ProjectManager extends Instructor{
     }
 }
 
-const fred = new Instructor({
+const josh = new Instructor({
     name: 'Josh',
     location: 'Utah',
     age: 30,
@@ -82,7 +82,7 @@ const fred = new Instructor({
     catchPhrase: `Remember we could always just use Bannana's`
   });
 
-  const fred = new Instructor({
+  const joe = new Instructor({
     name: 'Joe',
     location: 'Somewhere',
     age: 50,
@@ -92,7 +92,7 @@ const fred = new Instructor({
     catchPhrase: `Study Study Study`
   });
 
-  const fred = new Student({
+  const shawn = new Student({
     name: 'Shawn',
     location: 'Los Angeles',
     age: 30,
@@ -105,7 +105,7 @@ const fred = new Instructor({
     favSubjects: subjectsArr
   });
 
-  const fred = new Student({
+  const jill = new Student({
     name: 'Jill',
     location: 'New York',
     age: 31,
@@ -118,7 +118,7 @@ const fred = new Instructor({
     favSubjects: healthArr
   });
 
-  const fred = new ProjectManager({
+  const kam = new ProjectManager({
     name: 'Kam',
     location: 'San Fransico',
     age: 28,
@@ -129,7 +129,7 @@ const fred = new Instructor({
     gradClassName: 'CS13'
   });
 
-  const fred = new ProjectManager({
+  const darren = new ProjectManager({
     name: 'Darren',
     location: 'Maine',
     age: 37,
@@ -139,3 +139,34 @@ const fred = new Instructor({
     catchPhrase: `Don't forget the homies`,
     gradClassName: 'CS12'
   });
+
+// ---Speak logs
+
+// josh.speak();
+// joe.speak();
+// shawn.speak();
+// jill.speak();
+// kam.speak();
+// darren.speak();
+
+// ---Instructor logs
+
+// josh.demo('Closure');
+// josh.grade('Shawn', 'Javascript IV');
+
+// ---Student logs
+
+// shawn.listsSubjects(subjectsArr);
+// shawn.PRAssignment('Javascript IV');
+// shawn.sprintChallenge('Javascript IV');
+
+// jill.listsSubjects(healthArr);
+// jill.PRAssignment('Javascript IV');
+// jill.sprintChallenge('Javascript IV');
+
+// ---Project Managers logs
+
+kam.standUp('#fsw14-kam');
+darren.standUp('#cs11');
+kam.debugsCode(shawn, 'JavaScript-IV');
+kam.debugsCode(jill, 'HTML-I');
