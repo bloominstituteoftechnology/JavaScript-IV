@@ -58,3 +58,77 @@ class PM extends Instructor {
         console.log(`${this.name} debugs ${this.student.name}'s code on ${this.subject}`);
     }
 }
+
+const person1 = new Person({
+    'age': 75,
+    'name': 'Jefferson Davis',
+    'location': 'New Orleans',
+    'gender': 'M'
+})
+
+const person2 = new Person({
+    'age': 55,
+    'name': 'Abraham Lincoln',
+    'location': 'Washington DC',
+    'gender': 'M'
+})
+
+const johnson = new Student({
+    'age': 55,
+    'name': 'Andrew Johnson',
+    'location': 'Raleigh, NC',
+    'gender': 'M',
+    'previousBackground': 'Union Army, Brigadier General',
+    'className': '17th',
+    'favSubjects': 'American Civil War',
+    'grade':'85'
+})
+
+const grant = new Student({
+    'age': 40,
+    'name': 'Ulysses S. Grant',
+    'location': 'Point Pleasant, OH',
+    'gender': 'M',
+    'previousBackground': 'Union Army, General',
+    'className': '18th',
+    'favSubjects': 'Mexican American War',
+    'grade':'90'
+})
+
+const hayes = new Instructor({
+    'age': 43,
+    'name': 'Rutherford B. Hayes',
+    'location': 'Delaware, OH',
+    'gender': 'M',
+    'specialty': 'Battle of South Mountain',
+    'favLanguage': 'old-Javascript',
+    'catchPhrase': 'I love modest civil service reforms!'
+})
+
+const garfield = new Instructor({
+    'age': 39,
+    'name': 'James A. Garfield',
+    'location': 'Moreland Hills, OH',
+    'gender': 'M',
+    'specialty': 'canal boating',
+    'favLanguage': 'old-HTML',
+    'catchPhrase': 'I prefer an educated electorate!'
+})
+
+const arthur = new PM({
+    'age': 51,
+    'name': 'Chester A. Arthur',
+    'location': 'Fairfield, VT',
+    'gender': 'M',
+    'gradClassName':'21st',
+    'favInstructor': 'Roscoe Conkling'
+})
+
+const cleveland = new PM({
+    'age': 47,
+    'name': 'Grover Cleveland',
+    'location': 'Caldwell, NJ',
+    'gender': 'M',
+    'gradClassName':'22nd',
+    'favInstructor': 'Daniel Manning'
+})
