@@ -21,11 +21,11 @@ class Instructor extends Person{
     this.favLanguage = instructor.favLanguage
     this.catchPhrase = instructor.catchPhrase
   }
-  demo() {
-    return `Today we are learning about ${this.specialty}.`
+  demo(subject) {
+    return `Today we are learning about ${subject}.`
   }
-  grade(subject) {
-    return `${this.name} receives a perfect score on ${subject}`
+  grade(student, subject) {
+    return `${student.name} receives a perfect score on ${subject}`
   }
 }
 
@@ -39,12 +39,12 @@ class Student extends Person{
   }
   listsSubjects(){
     this.favSubjects.forEach(subject => {
-      console.log(subject)
+      return subject
     });
   }
 
   PRAssignment() {
-    return `${this.name} has submitted a PR for SUBJECT`
+    return `${this.name} has submitted a PR for ${this.className}`
   }
 
   sprintChallenge() {
@@ -103,8 +103,8 @@ const ellen = new Instructor({
 });
 
 console.log(fred.speak())
-console.log(dan.demo())
-console.log(ellen.grade('Javascript-I'))
+console.log(dan.demo('LESS'))
+console.log(ellen.grade(wanda, 'Responsive Web Design-II'))
 
 // //PROJECT MANAGER
 const john = new ProjectManager({
