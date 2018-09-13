@@ -24,6 +24,12 @@ class Instructor extends Person {
     grade(student, subject) {
         return `${student.name} receives a perfect score on ${subject}`;
     }
+    finalGrade(student) {
+        let min = Math.ceil(1);
+        let max = Math.floor(100);
+        let newGrade = Math.floor(Math.random() * (max - min + 1)) + min;
+        student.grade = newGrade;
+    }
 }
 
 class Student extends Person {
@@ -32,6 +38,7 @@ class Student extends Person {
         this.previousBackground = studentInfo.previousBackground;
         this.className = studentInfo.className;
         this.favSubjects = studentInfo.favSubjects;
+        this.grade = studentInfo.grade;
     }
     listsSubjects() {
         JSON.stringify(this.favSubjects, null, "  ");
@@ -43,6 +50,14 @@ class Student extends Person {
     sprintChallenge(subject) {
         return `${this.name} has begun sprint challenge on ${subject}`;
     }
+    graduate() {
+        if (this.grade >= 70) {
+            console.log(`${this.name} graduates!`)
+        } else {
+            console.log(`Keep working and get a better grade!`);
+        }
+    }
+
 }
 
 class ProjectManager extends Instructor {
@@ -76,7 +91,8 @@ const knox = new Student({
     age: 24,
     gender: 'male',
     className: 'cs14',
-    favSubjects: ["js", "css", "food"]
+    favSubjects: ["js", "css", "food"],
+    grade: 70
 })
 
 const elloise = new ProjectManager({
@@ -93,4 +109,7 @@ const elloise = new ProjectManager({
 
 console.log(elloise.standUp('cs14_elloise'));
 console.log(knox.sprintChallenge('javascript'));
-console.log(harry.grade(elloise, 'html'));
+console.log(harry.grade(knox, 'html'));
+elloise.finalGrade(knox);
+console.log(knox.grade);
+knox.graduate();
