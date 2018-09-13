@@ -18,10 +18,10 @@ class Instructors extends Person {
     this.catchPhrase = instructorOptions.catchPhrase;
   }
   demo(subject) {
-    return `Today we are learning about ${subject}`
+    console.log(`Today we are learning about ${subject}`);
   }
-  grade(student, subject) {
-    return `${student.name} recieves a perfect score on ${subject}`
+  grade(subject) {
+    console.log(`${this.name} recieves a perfect score on ${subject}`);
   }
 
 }
@@ -39,11 +39,11 @@ class Students extends Instructors {
 
   }
   PRAssignment(subject){
-    console.log(`${students.name} has submitted a PR for ${subject}`)
+    console.log(`${this.name} has submitted a PR for ${subject}`)
   }
 
   sprintChallenge(subject){
-    console.log(`${student.name} has begun sprint challenge on ${subject}`)
+    console.log(`${this.name} has begun sprint challenge on ${subject}`)
   }
 
 }
@@ -58,8 +58,8 @@ class ProjectManagers extends Students {
   standUp(channel){
     console.log(`${this.name} announces to ${channel}, @channel standy times!`)
   }
-  debugsCode(subject){
-    console.log(`${this.name} debugs ${student.name}'s code on ${subject}`)
+  debugsCode(subject, students){
+    console.log(`${this.name} debugs ${students.name}'s code on ${subject}`)
   }
 }
 
@@ -161,6 +161,6 @@ rhett.demo('javaScript');
 rhett.grade(jake, 'javaScript')
 jake.listsSubjects();
 jake.PRAssignment();
-jake.sprintChallenge(Python);
-tiffany.standUp(FSW14);
-tiffany.debugsCode(HTML);
+jake.sprintChallenge('Python');
+tiffany.standUp('FSW14');
+tiffany.debugsCode('HTML', jake);
