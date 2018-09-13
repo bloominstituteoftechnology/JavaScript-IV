@@ -1,40 +1,41 @@
 // Here we have a functioning solutoin to your challenge from yesterday.
 // Today your goal is to refactor all of this code to use ES6 Classes.
 // The console.log() statements should still return what is expected of them.
+// ======CLASSES======
+class GameObject {
+  constructor(options) {
+    this.createdAt = options.createdAt;
+    this.dimensions = options.dimensions;
+  }
+  destroy() {
+    return `${this.name} was removed from the game.`;
+  }
+} // GameObject
 
-function GameObject(options) {
-  this.createdAt = options.createdAt;
-  this.dimensions = options.dimensions;
-}
+class CharacterStats extends GameObject {
+  constructor(characterStatsOptions) {
+    super(characterStatsOptions);
+    this.hp = characterStatsOptions.hp;
+    this.name = characterStatsOptions.name;
+  }
+  takeDamage() {
+    return `${this.name} took damage.`;
+  }
+} // CharacterStats
 
-GameObject.prototype.destroy = function() {
-  return `Object was removed from the game.`;
-};
+class Humanoid extends CharacterStats {
+  constructor(humanoidOptions) {
+    super(humanoidOptions);
+    this.faction = humanoidOptions.faction;
+    this.weapons = humanoidOptions.weapons;
+    this.language = humanoidOptions.language;
+  }
+  greet() {
+    return `${this.name} offers a greeting in ${this.language}.`;
+  }
+} // Humanoid
 
-function CharacterStats(characterStatsOptions) {
-  GameObject.call(this, characterStatsOptions);
-  this.hp = characterStatsOptions.hp;
-  this.name = characterStatsOptions.name;
-}
-
-CharacterStats.prototype = Object.create(GameObject.prototype);
-
-CharacterStats.prototype.takeDamage = function() {
-  return `${this.name} took damage.`;
-};
-
-function Humanoid(humanoidOptions) {
-  CharacterStats.call(this, humanoidOptions);
-  this.faction = humanoidOptions.faction;
-  this.weapons = humanoidOptions.weapons;
-  this.language = humanoidOptions.language;
-}
-
-Humanoid.prototype = Object.create(CharacterStats.prototype);
-
-Humanoid.prototype.greet = function() {
-  return `${this.name} offers a greeting in ${this.language}.`;
-};
+// ======OBJECTS======
 
 const mage = new Humanoid({
   createdAt: new Date(),
@@ -44,10 +45,10 @@ const mage = new Humanoid({
     height: 1
   },
   hp: 5,
-  name: 'Bruce',
-  faction: 'Mage Guild',
-  weapons: ['Staff of Shamalama'],
-  language: 'Common Toungue'
+  name: "Bruce",
+  faction: "Mage Guild",
+  weapons: ["Staff of Shamalama"],
+  language: "Common Toungue"
 });
 
 const swordsman = new Humanoid({
@@ -58,10 +59,10 @@ const swordsman = new Humanoid({
     height: 2
   },
   hp: 15,
-  name: 'Sir Mustachio',
-  faction: 'The Round Table',
-  weapons: ['Giant Sword', 'Shield'],
-  language: 'Common Toungue'
+  name: "Sir Mustachio",
+  faction: "The Round Table",
+  weapons: ["Giant Sword", "Shield"],
+  language: "Common Toungue"
 });
 
 const archer = new Humanoid({
@@ -72,10 +73,10 @@ const archer = new Humanoid({
     height: 4
   },
   hp: 10,
-  name: 'Lilith',
-  faction: 'Forest Kingdom',
-  weapons: ['Bow', 'Dagger'],
-  language: 'Elvish'
+  name: "Lilith",
+  faction: "Forest Kingdom",
+  weapons: ["Bow", "Dagger"],
+  language: "Elvish"
 });
 
 console.log(mage.createdAt); // Today's date
