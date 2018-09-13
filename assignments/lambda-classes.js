@@ -111,7 +111,7 @@ const carlos = new Student({
   previousBackground: 'Quality Inspector',
   className: 'FSW14',
   favSubjects: ['JavaScript', 'ReactJS', 'Node'],
-  grade: 40
+  grade: 85
 });
 
 const theRock = new Student({
