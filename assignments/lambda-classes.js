@@ -1,4 +1,7 @@
 // CODE here for your Lambda Classes
+//=====================================================================================
+//  CLASSES
+//=====================================================================================
 class Person {
     constructor(personAttrs) {
         this.name = personAttrs.name;
@@ -77,8 +80,12 @@ class ProjectManagers extends Instructor {
     debugsCode(student, subject) {
         return `${this.name} debugs ${student.name}'s code on ${subject}`;
     }
+
 }// End of ProjectManagers Class
 
+//=====================================================================================
+//  OBJECTS CREATED
+//=====================================================================================
 
 const josh = new Instructor({
     name: 'Josh',
@@ -141,6 +148,9 @@ const jake = new ProjectManagers({
     favInstructor: 'Josh',
 });
 
+//=====================================================================================
+//  CONSOLE LOG TESTS
+//=====================================================================================
 // Object Test
 console.log(josh);
 console.log(harry);
