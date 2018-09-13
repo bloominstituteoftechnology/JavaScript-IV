@@ -1,5 +1,7 @@
 // CODE here for your Lambda Classes
-const subjectsArr = ['HTML', 'CSS', 'JavaScript']
+const subjectsArr = ['HTML', 'CSS', 'JavaScript'];
+
+const healthArr = ['CPR', 'First-aid', 'Surgery'];
 
 class Person {
     constructor(attributes) {
@@ -53,3 +55,87 @@ class Student extends Person{
         console.log(`${this.name} has begun sprint challenge on ${subject}.`);
     }
 }
+
+class ProjectManager extends Instructor{
+    constructor(projectManagerAttributes) {
+        super(projectManagerAttributes);
+        this.gradClassName = projectManagerAttributes.gradClassName;
+        this.favInstructor = projectManagerAttributes.favInstructor;
+    }
+
+    standUp(channel) {
+        console.log(`${this.name} announces to ${channel}, @channel standy times!`);
+    }
+
+    debugsCode(student, subject) {
+        console.log(`${this.name} debugs ${student.name}'s code on ${subject}.`);
+    }
+}
+
+const fred = new Instructor({
+    name: 'Josh',
+    location: 'Utah',
+    age: 30,
+    gender: 'male',
+    favLanguage: 'JavaScript',
+    specialty: 'Front-end',
+    catchPhrase: `Remember we could always just use Bannana's`
+  });
+
+  const fred = new Instructor({
+    name: 'Joe',
+    location: 'Somewhere',
+    age: 50,
+    gender: 'male',
+    favLanguage: 'Python',
+    specialty: 'Back-end',
+    catchPhrase: `Study Study Study`
+  });
+
+  const fred = new Student({
+    name: 'Shawn',
+    location: 'Los Angeles',
+    age: 30,
+    gender: 'male',
+    favLanguage: 'JavaScript',
+    specialty: 'Front-end & Back-end',
+    catchPhrase: `Learn, rinse, repeat`,
+    previousBackground: 'Unity',
+    className: "FSW-14",
+    favSubjects: subjectsArr
+  });
+
+  const fred = new Student({
+    name: 'Jill',
+    location: 'New York',
+    age: 31,
+    gender: 'female',
+    favLanguage: 'English',
+    specialty: 'Nurse',
+    catchPhrase: `I'll fix you up!`,
+    previousBackground: 'janitor',
+    className: "Nursing-101",
+    favSubjects: healthArr
+  });
+
+  const fred = new ProjectManager({
+    name: 'Kam',
+    location: 'San Fransico',
+    age: 28,
+    gender: 'male',
+    favLanguage: 'JavaScript',
+    specialty: 'Front-end',
+    catchPhrase: `Let's see that code!`,
+    gradClassName: 'CS13'
+  });
+
+  const fred = new ProjectManager({
+    name: 'Darren',
+    location: 'Maine',
+    age: 37,
+    gender: 'male',
+    favLanguage: 'C++',
+    specialty: 'Back-end',
+    catchPhrase: `Don't forget the homies`,
+    gradClassName: 'CS12'
+  });
