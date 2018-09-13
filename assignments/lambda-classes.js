@@ -39,15 +39,18 @@ class Instructor extends Person{
         return `${student.name} receives a perfect score on ${subject}`;
     }
 
+    //stretch
     gradeStudent(student){
-        let random = Math.random();
+        let points = Math.floor(Math.random() * (10-5)) + 5;
+        let addPoints = (points + student.grade);
+        console.log(points) ;
 
         if(Math.random() < 0.5){
-            console.log("add");
-            return 'add';
+            console.log(addPoints);
+            return (addPoints);
         }else{
-            console.log('subtract');
-            return 'subtract';
+            console.log((student.grade - points));
+            return (student.grade - points);
         }
     }
 }
@@ -80,6 +83,17 @@ class Student extends Person{
     sprintChallenge(subject){
         console.log(`${this.name} has begun sprint challenge on ${subject}`);
         return `${this.name} has begun sprint challenge on ${subject}`;
+    }
+
+    //stretch
+    graduate(grade){
+        if(grade < 70){
+            console.log(`Sorry, ${this.name}. You did not graduate. Your grade was ${grade}%`);
+            return `Sorry, ${this.name}. You did not graduate. Your grade was ${grade}%`
+        }else{
+            console.log(`Congrats!!! ${this.name}, you graduated from Lambda with a grade of ${grade}%`);
+            return `Congrats!!! ${this.name}, you graduated from Lambda with a grade of ${grade}%`
+        }
     }
 }// End - Class Student
 
@@ -133,13 +147,15 @@ const studentPerson =  new Student({
     "previousBackground" : "",
     "className" : "FSW14",
     "favSubjects" : ["History", "Science", "Math"],
-    "grade" : 100
+    //stretch
+    "grade" : (Math.floor(Math.random() * (100 - 50 + 1)) + 50)
 });
 
 console.log(studentPerson.name);
 console.log(studentPerson.age);
 console.log(studentPerson.gender);
 console.log(studentPerson.location);
+console.log(studentPerson.grade);
 console.log(studentPerson.listsSubjects());
 console.log(studentPerson.PRAassignment("classes"));
 console.log(studentPerson.sprintChallenge("classes"));
@@ -165,7 +181,7 @@ console.log(instructPerson.catchPhrase);
 console.log(instructPerson.speak());
 console.log(instructPerson.demo(studentPerson.favSubjects[0]));
 console.log(instructPerson.grade(studentPerson, studentPerson.favSubjects[0]));
-console.log(instructPerson.gradeStudent());
+console.log(instructPerson.gradeStudent(studentPerson));
 
 //Class ProjectManager
 const pmPerson = new ProjectManager({
@@ -185,3 +201,11 @@ console.log(pmPerson.gradClassName);
 console.log(pmPerson.favInstructor);
 console.log(pmPerson.standUp('fsw14'));
 console.log(pmPerson.debugsCode(studentPerson, studentPerson.favSubjects[2]))
+console.log(pmPerson.gradeStudent(studentPerson));
+
+//graduation or no?!
+//using Project Manager Grading
+console.log(studentPerson.graduate(pmPerson.gradeStudent(studentPerson)));
+
+//using instructor grading
+console.log(studentPerson.graduate(instructPerson.gradeStudent(studentPerson)));
