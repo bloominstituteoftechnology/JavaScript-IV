@@ -25,18 +25,18 @@ class CharacterStats extends GameObject {
   }
 }// End of CharacterStats Class
 
-function Humanoid(humanoidOptions) {
-  CharacterStats.call(this, humanoidOptions);
-  this.faction = humanoidOptions.faction;
-  this.weapons = humanoidOptions.weapons;
-  this.language = humanoidOptions.language;
-}
-
-Humanoid.prototype = Object.create(CharacterStats.prototype);
-
-Humanoid.prototype.greet = function() {
-  return `${this.name} offers a greeting in ${this.language}.`;
-};
+class Humanoid extends CharacterStats {
+  constructor(humanoidOptions) {
+    super(humanoidOptions);
+    this.faction = humanoidOptions.faction;
+    this.weapons = humanoidOptions.weapons;
+    this.language = humanoidOptions.language;
+  }// End of Humanoid Constructor
+  // Humanoid Methods
+  greet() {
+    return `${this.name} offers a greeting in ${this.language}.`;
+  }
+}// End of Humanoid Class
 
 const mage = new Humanoid({
   createdAt: new Date(),
