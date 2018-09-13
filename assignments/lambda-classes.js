@@ -24,6 +24,22 @@ class Instructor extends Person {
     grade(student, subject) {
         console.log(`${student.name} receives a perfect score on ${subject}`);
     }
+    reviewSprint(student) {
+        let evaluate = Math.floor((Math.random() * 101) - 50);
+        let pointsValue = "";
+        if (evaluate > 0) {
+            pointsValue = `add ${evaluate} points!`;
+            student.grade += evaluate;
+        }
+        else if (evaluate < 0) {
+            pointsValue = `subtract ${evaluate} points`;
+            student.grade -= evaluate;
+        }
+        else if (evaluate == 0) {
+            pointsValue = `see more work before making a decision`
+        }
+        console.log(`After reviewing your work, ${student.name}, we're going to have to ${pointsValue}`)
+    }
 }
 
 class Student extends Person {
@@ -32,6 +48,7 @@ class Student extends Person {
         this.previousBackground = studentStuff.previousBackground;
         this.className = studentStuff.className;
         this.favSubjects = studentStuff.favSubjects;
+        this.grade = studentStuff.grade;
     }
     listsSubjects() {
         console.log(`${this.favSubjects}`);
@@ -41,6 +58,14 @@ class Student extends Person {
     }
     sprintChallenge(subject) {
         console.log(`${this.name} has begun sprint challenge on ${subject}`);
+    }
+    graduate() {
+        if (this.grade > 70) {
+            console.log(`Congratulations, ${this.name}, you get to graduate!`);
+        }
+        else if (this.grade < 70) {
+            console.log(`Sorry, ${this.name}, we're gonna need to see more work first.`);
+        }
     }
 }
 
@@ -80,6 +105,7 @@ const andre = new Student({
     previousBackground: "Boring stuff",
     className: "FSW14",
     favSubjects: ["HTML", "CSS", "JavaScript"],
+    grade: 50,
 })
 
 josh.grade(andre, "JavaScript");
@@ -102,3 +128,5 @@ joe.demo("JavaScript");
 joe.grade(andre, "JavaScript");
 joe.standUp("fsw14_joe");
 joe.debugsCode(andre, "JavaScript");
+joe.reviewSprint(andre);
+andre.graduate()
