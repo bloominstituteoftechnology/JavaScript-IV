@@ -13,17 +13,17 @@ class GameObject {
   }
 }// End of GameObject Class
 
-function CharacterStats(characterStatsOptions) {
-  GameObject.call(this, characterStatsOptions);
-  this.hp = characterStatsOptions.hp;
-  this.name = characterStatsOptions.name;
-}
-
-CharacterStats.prototype = Object.create(GameObject.prototype);
-
-CharacterStats.prototype.takeDamage = function() {
-  return `${this.name} took damage.`;
-};
+class CharacterStats extends GameObject {
+  constructor(characterStatsOptions) {
+    super(characterStatsOptions);
+    this.hp = characterStatsOptions.hp;
+    this.name = characterStatsOptions.name;
+  }// End of CharacterStats Constructor 
+  // CharacterStats Methods
+  takeDamage() {
+    return `${this.name} took damage.`
+  }
+}// End of CharacterStats Class
 
 function Humanoid(humanoidOptions) {
   CharacterStats.call(this, humanoidOptions);
