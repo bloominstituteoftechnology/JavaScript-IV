@@ -39,9 +39,25 @@ class Student extends Person {
     });
   }
   PRAssignment(subject) {
-    console.log(`${this.name} has submitted a PR for ${subject}.`);
+    console.log(`${this.name} has submitted a PR for ${subject}`);
   }
   sprintChallenge(subject) {
     console.log(`${this.name} has begun sprint challenge on ${subject}`);
   }
 } // end Student class
+
+class ProjectManager extends Instructor {
+  constructor(PMProps) {
+    super(PMProps);
+    this.gradClassName = PMProps.gradClassName;
+    this.favInstructor = PMProps.favInstructor;
+  }
+  standup(slackChannel) {
+    console.log(
+      `${this.name} announces to ${slackChannel}, @channel standy times!`
+    );
+  }
+  debugsCode(student, subject) {
+    console.log(`${this.name} debugs ${student.name}'s code on ${subject}`);
+  }
+} // end of ProjectManager class
