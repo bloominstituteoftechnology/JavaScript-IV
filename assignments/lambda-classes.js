@@ -49,7 +49,7 @@ class Student extends Person {
     listsSubject(subjects) {
         return ``;
     }
-    PRAssignment() {
+    PRAssignment(subject) {
         return `${this.name} has submitted a PR for ${subject}`;
     }
     sprintChallenge(subject) {
@@ -140,3 +140,31 @@ const jake = new ProjectManagers({
     gradClassName: 'CS11',
     favInstructor: 'Josh',
 });
+
+// Object Test
+console.log(josh);
+console.log(harry);
+console.log(cesar);
+console.log(jake);
+console.log(brandon);
+console.log(anthony);
+// Graduate method tested;
+console.log(brandon.graduate());
+console.log(anthony.graduate());
+// Instructor Method test
+console.log(josh.demo('JS'));
+console.log(josh.grade(brandon, 'JS'));
+console.log(josh.gradeProject(brandon));
+console.log(josh.gradeProject(brandon));
+// Person Method test
+console.log(josh.speak());
+console.log(brandon.speak());
+console.log(cesar.speak());
+// Project Managers Method test
+console.log(cesar.standUp('FSW14 Cesar'));
+console.log(cesar.debugsCode(brandon, 'JS'));
+console.log(cesar.gradeProject(brandon));
+// Student Method test 
+console.log(brandon.PRAssignment());
+console.log(brandon.sprintChallenge('JS'));
+console.log(brandon.graduate());
