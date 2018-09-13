@@ -20,10 +20,10 @@ class Instructor extends Person {
 
     }
     demo(subject) {
-        return `Today we are learning about ${subject}`
-    }
+        console.log(`Today we are learning about ${subject}`)
+;    }
     grade(subject) {
-        return `${this.name} recieves a perfect score on ${subject}`
+        console.log(`${this.name} recieves a perfect score on ${subject}`);
     }
 }
 
@@ -34,14 +34,14 @@ class Student extends Instructor {
         this.className = studentAttributes.className;
         this.favSubjects = studentAttributes.favSubjects;
     }
-    listsSubjects(student) {
-        return `Here is a list of ${student.name}s favorite subjects: ${this.favSubjects}`
+    listsSubjects() {
+        console.log(`Here is a list of ${this.name}s favorite subjects: ${this.favSubjects}`);
     }
     PRAssignment(subject) {
-        return `${this.name} has submitted a PR for ${subject}`
+        console.log(`${this.name} has submitted a PR for ${subject}`);
     }
     sprintChallenge() {
-        return `${this.name} has begun sprint challenge on ${this.subject}`
+        console.log(`${this.name} has begun sprint challenge on ${this.subject}`);
     }
 }
 
@@ -53,10 +53,10 @@ class ProjectManager extends Student {
 
     }
     standUp(channel) {
-        return `${this.name} announces to ${channel} @channel standy times!`
+        console.log(`${this.name} announces to ${channel} @channel standy times!`);
     }
     debugsCode(student, subject) {
-        return `${this.name} debugs ${student.name}s code on ${subject}`
+        console.log(`${this.name} debugs ${student.name}s code on ${subject}`);
     }
 }
 
@@ -170,7 +170,7 @@ const dave = new ProjectManager({
 john.speak();
 carl.demo('Java');
 doug.grade(phil, 'HTML');
-phil.listsSubjects(phil);
+phil.listsSubjects();
 tessa.PRAssignment('Python');
 phil.grade('React');
 lynn.standUp('FSW14');
