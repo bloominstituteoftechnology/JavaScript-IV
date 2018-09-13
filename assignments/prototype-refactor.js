@@ -2,39 +2,42 @@
 // Today your goal is to refactor all of this code to use ES6 Classes.
 // The console.log() statements should still return what is expected of them.
 
-function GameObject(options) {
-  this.createdAt = options.createdAt;
-  this.dimensions = options.dimensions;
+class GameObject {
+  constructor(gameAttributes) {
+    this.createdAt = gameAttributes.createdAt;
+    this.dimensions = gameAttributes.dimensions;
+  }
+
+  destroy() {
+   return `${this.name} was removed from the game!`;
+  }
 }
 
-GameObject.prototype.destroy = function() {
-  return `Object was removed from the game.`;
-};
+class Character extends GameObject {
+  constructor(stats) {
+    super(stats);
+    this.hp = stats.hp;
+    this.name = stats.name;
+  }
 
-function CharacterStats(characterStatsOptions) {
-  GameObject.call(this, characterStatsOptions);
-  this.hp = characterStatsOptions.hp;
-  this.name = characterStatsOptions.name;
+  takeDamage() {
+    return `${this.name} took damage!`;
+  }
 }
 
-CharacterStats.prototype = Object.create(GameObject.prototype);
+class Humanoid extends Character {
+  constructor(attributes) {
+    super(attributes);
+    this.faction = attributes.faction;
+    this.weapons = attributes.weapons;
+    this.language = attributes.language;
+  }
 
-CharacterStats.prototype.takeDamage = function() {
-  return `${this.name} took damage.`;
-};
-
-function Humanoid(humanoidOptions) {
-  CharacterStats.call(this, humanoidOptions);
-  this.faction = humanoidOptions.faction;
-  this.weapons = humanoidOptions.weapons;
-  this.language = humanoidOptions.language;
+  greet() {
+    return `${this.name} offers a greeting in ${this.language}`
+  }
 }
 
-Humanoid.prototype = Object.create(CharacterStats.prototype);
-
-Humanoid.prototype.greet = function() {
-  return `${this.name} offers a greeting in ${this.language}.`;
-};
 
 const mage = new Humanoid({
   createdAt: new Date(),
@@ -64,8 +67,7 @@ const swordsman = new Humanoid({
   language: 'Common Toungue'
 });
 
-const archer = new Humanoid({
-  createdAt: new Date(),
+const archer = new Humanoid({ createdAt: new Date(),
   dimensions: {
     length: 1,
     width: 2,
