@@ -84,7 +84,7 @@ const tim = new Instructor({
 const mei = new Student({
     name: "Mei",
     age: 18,
-    location: 'Denver',
+    location: 'Oregen',
     gender: 'Female',
     previousBackground: 'Computer Science',
     className: 'CS14',
@@ -114,7 +114,7 @@ const hui = new Student({
 const kam = new ProjectManange({
     name: "Kam",
     age: 23,
-    location: 'Oregen',
+    location: 'Denver',
     gender: 'Male',
     gradClassName: 'CS10',
     favInstructor: 'Josh'
@@ -134,11 +134,9 @@ mei.speak();
 kam.speak();
 
 josh.demo('Javascript!!');
-josh.grade(hui,'history');
+josh.grade(hui,'Front-End');
 
 hui.listsSubjects(hui.favSubjects);
-mei.listsSubjects(mei.favSubjects);
-
 
 hui.PrAssignment('PE');
 hui.sprintChallenge('Javascript-III');
