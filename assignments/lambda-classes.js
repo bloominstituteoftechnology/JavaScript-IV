@@ -20,7 +20,7 @@ class Instructor extends Person {
         this.catchPhrase = instructorQualities.catchPhrase;
     };
     demo(subject) {
-        return `Today we are learning about ${this.subject}`
+        return `Today we are learning about ${subject}`
     };
     grade(student, subject) {
         return `${student.name} receives a perfect score on ${subject}`
@@ -155,4 +155,58 @@ const susan = new Project_Manager({
     favInstructor: 'Bob'
 });
 
-console.log(fred);
+// checking all objects creations
+/*
+// ============ instructors
+console.dir(fred);
+console.dir(bob);
+console.dir(laura);
+
+// ============ students
+console.dir(jake);
+console.dir(fran);
+console.dir(amber);
+
+// ============ project managers
+console.dir(leslie);
+console.dir(todd);
+console.dir(susan);
+*/
+
+// checking all speak methods
+/*
+
+console.log(fred.speak());
+console.log(laura.speak());
+console.log(bob.speak());
+
+console.log(jake.speak());
+console.log(fran.speak());
+console.log(amber.speak());
+
+console.log(leslie.speak());
+console.log(todd.speak());
+console.log(susan.speak());
+*/
+
+// ============ instructors
+console.log(fred.demo('Javascript'));
+console.log(bob.demo('HTML'));
+console.log(laura.demo('CSS'));
+
+// ============ project managers
+console.log(leslie.demo('Ruby'));
+console.log(todd.demo('Python'));
+console.log(susan.demo('Javascript'));
+
+// person - speak;
+// instructor - demo(subject), grade(student, subject);
+// student - listsSubjects(subjects),
+//   PRAssignment(subject),
+//   sprintChallenge(subject);
+// pm - standup(channel), debugsCode(student, subject);
+
+// students - jake, fran, amber
+// instrctors - fred, bob, laura
+// pm - todd, leslie, susan
+
