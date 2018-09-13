@@ -120,39 +120,39 @@ const amber = new Student({
 });
 
 const todd = new Project_Manager({
-    name: 'Todd';
-    age: 34;
-    location: 'Texas';
-    gender: 'male';
-    specialty: 'Back-end';
-    favLanguage: 'Python';
-    catchPhrase: 'You can do it!';
-    gradClassName: 'FSW 5';
-    favInstructor: 'Fred';
+    name: 'Todd',
+    age: 34,
+    location: 'Texas',
+    gender: 'male',
+    specialty: 'Back-end',
+    favLanguage: 'Python',
+    catchPhrase: 'You can do it!',
+    gradClassName: 'FSW 5',
+    favInstructor: 'Fred'
 });
 
 const leslie = new Project_Manager({
-    name: 'Leslie';
-    age: 22;
-    location: 'Ohio';
-    gender: 'female';
-    specialty: 'Back-end';
-    favLanguage: 'Ruby';
-    catchPhrase: 'Ill get you my pretties';
-    gradClassName: 'FSW 13';
-    favInstructor: 'Laura';
+    name: 'Leslie',
+    age: 22,
+    location: 'Ohio',
+    gender: 'female',
+    specialty: 'Back-end',
+    favLanguage: 'Ruby',
+    catchPhrase: 'Ill get you my pretties',
+    gradClassName: 'FSW 13',
+    favInstructor: 'Laura'
 });
 
 const susan = new Project_Manager({
-    name: 'Susan';
-    age: 47;
-    location: 'Mississippi';
-    gender: 'female';
-    specialty: 'Front-end';
-    favLanguage: 'Javascript';
-    catchPhrase: 'Id rather give you my...';
-    gradClassName: 'FSW 8';
-    favInstructor: 'Bob';
+    name: 'Susan',
+    age: 47,
+    location: 'Mississippi',
+    gender: 'female',
+    specialty: 'Front-end',
+    favLanguage: 'Javascript',
+    catchPhrase: 'Id rather give you my...',
+    gradClassName: 'FSW 8',
+    favInstructor: 'Bob'
 });
 
 console.log(fred);
