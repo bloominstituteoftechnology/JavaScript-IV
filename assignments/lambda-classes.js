@@ -24,6 +24,16 @@ class Instructor extends Person {
     grade(student, subject) {
         return `${student.name} receives a perfect score on ${subject}.`;
     }
+    distributePoints(student) {
+        let addOrSubtract = Math.random();
+        if (addOrSubtract > 0.5) {
+            student.grade += Math.floor(Math.random() * Math.random() * 10);
+            return `Points awarded to ${student.name}! Current grade: ${student.grade}`;
+        } else {
+            student.grade -= Math.floor(Math.random() * Math.random() * 10);
+            return `Points deducted from ${student.name}! Current grade: ${student.grade}`;
+        }
+    }
 }
 
 class Student extends Person {
@@ -32,6 +42,7 @@ class Student extends Person {
         this.previousBackground = studentAttr.previousBackground;
         this.className = studentAttr.className;
         this.favSubjects = studentAttr.favSubjects;
+        this.grade = studentAttr.grade;
     }
     listsSubjects() {
         return this.favSubjects.toString();
@@ -41,6 +52,9 @@ class Student extends Person {
     }
     sprintChallenge(subject) {
         return `${this.name} has begun sprint challenge on ${subject}.`;
+    }
+    graduate() {
+        return (this.grade < 70 ? 'You didn\'t graduate! ~_~ Try again!' : 'You graduated! :D');
     }
 }
 
@@ -85,7 +99,8 @@ const lola = new Student({
     gender: 'female',
     previousBackground: 'Pre-med student; just finished B.S. in Health Sciences',
     className: 'FSW14',
-    favSubjects: ['Flexbox', 'LESS', 'JS Classes', 'JS Array Methods']
+    favSubjects: ['Flexbox', 'LESS', 'JS Classes', 'JS Array Methods'],
+    grade: 90
 });
 
 const stuart = new Student({
@@ -95,7 +110,8 @@ const stuart = new Student({
     gender: 'male',
     previousBackground: 'Anthropomorphic mouse',
     className: 'FSW20',
-    favSubjects: ['HTML', 'CSS', 'JavaScript']
+    favSubjects: ['HTML', 'CSS', 'JavaScript'],
+    grade: 50
 });
 
 const bill = new ProjectManager({
@@ -130,3 +146,6 @@ console.log(stuart.sprintChallenge('JavaScript'));
 console.log(bill.standUp('#FSW14_bill'));
 console.log(geralt.debugsCode(stuart, 'closures'));
 console.log(geralt.speak());
+console.log(bigBoss.distributePoints(stuart));
+console.log(lola.graduate());
+console.log(stuart.graduate());
