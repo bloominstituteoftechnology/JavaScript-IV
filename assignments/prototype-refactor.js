@@ -8,7 +8,7 @@ class GameObject {
     this.dimensions = options.dimensions;
   }
   destroy() {
-    return (`${this.name} was removed from the game.`);
+    return `${this.name} was removed from the game.`;
   }
 };
 
@@ -17,7 +17,7 @@ class GameObject {
 
 class CharacterStats extends GameObject {
   constructor(characterStatsOptions) {
-    super(characterStatsOptions)
+    super(characterStatsOptions);
     this.hp = characterStatsOptions.hp;
     this.name = characterStatsOptions.name;
   }
