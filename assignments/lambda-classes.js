@@ -33,7 +33,7 @@ class Student extends Person{
         this.favSubjects = studentAttributes.favSubjects;
     }
     listSubjects(){
-        //logs out all of the student's favoriteSubjects one by one.
+        return `${this.name}'s favorite subjects are ${this.favSubjects}`;
     }
     PRAssignment(subject){
         return `${student.name} has submitted a PR for ${subject}`;
@@ -42,7 +42,7 @@ class Student extends Person{
         return `${student.name} has begun sprint challenge on ${subject}`;
     }
 }
-class ProjectManagers extends Instructor{
+class ProjectManager extends Instructor{
     constructor(PmAttributes){
         super(PmAttributes);
         this.gradClassName = PmAttributes.gradClassName;
@@ -55,7 +55,7 @@ class ProjectManagers extends Instructor{
         return `${this.name} debugs ${student.name} code on ${subject}`
     }
 }
-//Objects
+//Instructor Objects
 const andrew = new Instructor({
     name: "Andrew Mendez",
     age: "38",
@@ -83,6 +83,43 @@ const sarah = new Instructor({
     specialty: "C",
     favLanguage: "C#",
     catchPhrase: "Idk!!!!"
+});
+//Student Objects
+const richard = new Student({
+    name: "Richard Velasco",
+    age: "20",
+    location: "Louisiana",
+    gender: "Male",
+    previousBackground: "Real Estate Broker",
+    className: "CS40",
+    favSubjects:["Flexbox", "JavaScript", "Python"]
+});
+const nayeli = new Student({
+    name: "Ana Hoffman",
+    age: "19",
+    location: "California",
+    gender: "Female",
+    previousBackground: "College Student",
+    className: "CS30",
+    favSubjects: ["JavaScript", "C"]
+});
+
+//Project Manager Objects
+const kevin = new ProjectManager({
+    name: "Kevin Hart",
+    age: "39",
+    location: "Philadelphia",
+    gender: "Male",
+    gradClassName:"CS8",
+    favInstructor: "Aaron Swartz"
+});
+const robin = new ProjectManager({
+    name: "Robin Haney",
+    age: "26",
+    location: "Florida",
+    gender: "Male",
+    gradClassName: "CS9",
+    favInstructor: "Sarah Vega"
 });
 
 console.log(sarah.demo("react"));
