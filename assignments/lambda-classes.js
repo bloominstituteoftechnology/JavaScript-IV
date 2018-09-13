@@ -26,6 +26,15 @@ class Instructor extends Person {
     grade(student, subject) {
         return `${student.name} receives a perfect score on ${subject}`;
     }
+    gradeProject(student) {
+        const chance = Math.random();
+        const grade = Math.ceil(Math.random() * 5);
+        if (chance > .3) {
+            return student.grade += grade;
+        }   else {
+            return student.grade -= grade;
+        }
+    }
 }// End of Instructor Class
 
 class Student extends Person {
