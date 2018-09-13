@@ -13,12 +13,16 @@ class GameObject {
     this.createdAt = options.createdAt;
     this.dimensions = options.dimensions;
   }
+destroy(){
+  return 'Object was removed from the game';
 }
+} // End of GameObject class
 
 
-GameObject.prototype.destroy = function() {
-  return `Object was removed from the game.`;
-};
+
+// GameObject.prototype.destroy = function() {
+//   return `Object was removed from the game.`;
+// };
 
 
 // ORIGINAL 
@@ -34,14 +38,18 @@ class CharacterStats extends GameObject{
     this.hp = characterStatsOptions.hp;
     this.name = characterStatsOptions.name;
   }
-}
+
+  takeDamage(){
+    return "${this.name} took damage";
+  }
+} // End of CharacterStats class
 
 
-CharacterStats.prototype = Object.create(GameObject.prototype);
+// CharacterStats.prototype = Object.create(GameObject.prototype);
 
-CharacterStats.prototype.takeDamage = function() {
-  return `${this.name} took damage.`;
-};
+// CharacterStats.prototype.takeDamage = function() {
+//   return `${this.name} took damage.`;
+// };
 
 
 // ORIGINAL
@@ -59,13 +67,17 @@ class Humanoid extends CharacterStats{
   this.weapons = humanoidOptions.weapons;
   this.language = humanoidOptions.language;
   }
-}
 
-Humanoid.prototype = Object.create(CharacterStats.prototype);
+  greet(){
+    return "${this.name} offers a greeing in ${this.language}";
+  }
+} // End of Humanoid Class
 
-Humanoid.prototype.greet = function() {
-  return `${this.name} offers a greeting in ${this.language}.`;
-};
+// Humanoid.prototype = Object.create(CharacterStats.prototype);
+
+// Humanoid.prototype.greet = function() {
+//   return `${this.name} offers a greeting in ${this.language}.`;
+// };
 
 const mage = new Humanoid({
   createdAt: new Date(),
