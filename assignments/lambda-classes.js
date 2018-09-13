@@ -7,12 +7,12 @@ class Person{
         this.gender = attributes.gender;
     }
     speak(){
-        return `Hellow my ${this.name}, I am from ${this.location}`;
+        return `Hello my ${this.name}, I am from ${this.location}`;
     }
 }
 class Instructor extends Person{
     constructor(instructorAttributes){
-        super(instructorAttrs);
+        super(instructorAttributes);
         this.specialty = instructorAttributes.specialty;
         this.favLanguage = instructorAttributes.favLanguage;
         this.catchPhrase = instructorAttributes.catchPhrase;
@@ -56,4 +56,33 @@ class ProjectManagers extends Instructor{
     }
 }
 //Objects
+const andrew = new Instructor({
+    name: "Andrew Mendez",
+    age: "38",
+    location: "Australia",
+    gender: "Male",
+    specialty: "React",
+    favLanguage: "JavaScript",
+    catchPhrase: "Don't forget the homies!"
+});
 
+const aaron = new Instructor({
+    name: "Aaron Swartz",
+    age: "27",
+    location: "New York",
+    gender: "Male",
+    specialty: "Python",
+    favLanguage: "C++",
+    catchPhrase: "IDKKK!!!"
+});
+const sarah = new Instructor({
+    name: "Sarah Vega",
+    age: "31",
+    location: "Spain",
+    gender: "Female",
+    specialty: "C",
+    favLanguage: "C#",
+    catchPhrase: "Idk!!!!"
+});
+
+console.log(sarah.demo("react"));
