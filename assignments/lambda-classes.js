@@ -39,7 +39,7 @@ class Student extends Person {
   }
 
   listSubjects() {
-    this.favSubjects.forEach(subject => subject);
+    return `${this.name}'s favorite subjects are ${this.favSubjects.join(', ')}`;
   }
 
   PRAssignment(subject) {
@@ -116,6 +116,9 @@ const luke = new Student({
   gender: 'male',
   favLanguage: 'English',
   catchPhrase: 'But I was going into Tosche Station to pick up some power converters!',
+  previousBackground: 'Moisture farmer',
+  className: 'FSW1',
+  favSubjects: ['Droids', 'the Force', 'Jedi training'],
 });
 
 
@@ -126,6 +129,33 @@ const justin = new Student({
   gender: 'male',
   favLanguage: 'Python',
   catchPhrase: 'I don\'t have a catchphrase.',
+  previousBackground: 'publishing',
+  className: 'FSW14',
+  favSubjects: ['CSS', 'JavaScript', 'Python'],
+});
+
+// PM objects
+
+const jeffery = new PM({
+  name: 'Jeffery',
+  age: 30,
+  location: 'LA',
+  gender: 'male',
+  favLanguage: 'React',
+  catchPhrase: 'Do or do not. There is no try.',
+  gradClassName: 'CS11',
+  favInstructor: 'Yoda',
+});
+
+const allen = new PM({
+  name: 'Allen',
+  age: 29,
+  location: 'Someplace',
+  gender: 'male',
+  favLanguage: 'Go',
+  catchPhrase: 'Do or do not. There is no try.',
+  gradClassName: 'CS11',
+  favInstructor: 'Socrates',
 });
 
 // tests
@@ -135,4 +165,14 @@ const justin = new Student({
   console.log(instructor.grade(justin, 'javascript'));
 });
 
+[jeffery, allen].forEach(function(pm) {
+  console.log(pm);
+  console.log(pm.standUp('FSW14'));
+  console.log(pm.debugsCode(justin, 'CSS'));
+});
 
+[justin, luke].forEach(function(student) {
+  console.log(student.listSubjects());
+  console.log(student.PRAssignment('Javascript IV'));
+  console.log(student.sprintChallenge('the Force'));
+});
