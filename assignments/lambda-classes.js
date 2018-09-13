@@ -72,6 +72,16 @@ class Person {
             catchPhrase: `Don't forget the homies`
           });
 
+       const joe = new Instructor({
+            name: 'Joe',
+            location: 'Bedrock',
+            age: 37,
+            gender: 'male',
+            favLanguage: 'HTML',
+            specialty: 'Front-end',
+            catchPhrase: `HTML rules`
+          });
+
 
           const bob = new Student({
             name: 'Bob',
@@ -80,15 +90,63 @@ class Person {
             gender: 'male',
             previousBackground: 'college student',
             className: 'CS14',
-            favSubjects: ['HTML', 'CSS', 'JS']
+            favSubjects: ['HTML ', 'CSS ', 'JS']
+          });
+
+          const beth = new Student({
+            name: 'Beth',
+            location: 'Bedrock',
+            age: 37,
+            gender: 'female',
+            previousBackground: 'Cashier',
+            className: 'CS13',
+            favSubjects: ['HTML ', 'React ', 'operating sytems']
           });
 
 
-          const fred = new PM({
-            name: 'Fred',
+          const ted = new PM({
+            name: 'Ted',
             location: 'Bedrock',
             age: 37,
             gender: 'male',
             gradClassName: 'CS2',
             favInstructor: 'Sean'
           });
+
+
+         const lizzy = new PM({
+            name: 'Lizzy',
+            location: 'Bedrock',
+            age: 37,
+            gender: 'female',
+            gradClassName: 'CS4',
+            favInstructor: 'Josh'
+          });
+
+
+console.log(fred.name); 
+console.log(joe.favLanguage); 
+console.log(fred.demo('math')); 
+console.log(joe.demo('CSS')); 
+console.log(fred.grade( bob, 'Python')); 
+console.log(joe.grade( beth, 'HTML'));
+console.log(bob.name); 
+console.log(bob.className); 
+console.log(bob.listSubjects()); 
+console.log(bob.PRAssignment('JS')); 
+console.log(bob.sprintChallenge('CSS'));
+console.log(beth.name); 
+console.log(beth.className); 
+console.log(beth.listSubjects()); 
+console.log(beth.PRAssignment('Python')); 
+console.log(beth.sprintChallenge('HTML'));
+console.log(ted.name); 
+console.log(ted.gradClassName); 
+console.log(ted.favInstructor); 
+console.log(ted.standUp('fsw14'));
+console.log(ted.debugsCode(bob, 'JS')); 
+console.log(lizzy.name); 
+console.log(lizzy.gradClassName); 
+console.log(lizzy.favInstructor); 
+console.log(lizzy.standUp('fsw14 help'));
+console.log(lizzy.debugsCode(beth, 'JS')); 
