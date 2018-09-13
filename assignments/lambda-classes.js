@@ -75,7 +75,7 @@ class Person {
        const joe = new Instructor({
             name: 'Joe',
             location: 'Bedrock',
-            age: 37,
+            age: 35,
             gender: 'male',
             favLanguage: 'HTML',
             specialty: 'Front-end',
@@ -86,7 +86,7 @@ class Person {
           const bob = new Student({
             name: 'Bob',
             location: 'Bedrock',
-            age: 37,
+            age: 25,
             gender: 'male',
             previousBackground: 'college student',
             className: 'CS14',
@@ -96,7 +96,7 @@ class Person {
           const beth = new Student({
             name: 'Beth',
             location: 'Bedrock',
-            age: 37,
+            age: 23,
             gender: 'female',
             previousBackground: 'Cashier',
             className: 'CS13',
@@ -107,7 +107,7 @@ class Person {
           const ted = new PM({
             name: 'Ted',
             location: 'Bedrock',
-            age: 37,
+            age: 30,
             gender: 'male',
             gradClassName: 'CS2',
             favInstructor: 'Sean'
@@ -117,7 +117,7 @@ class Person {
          const lizzy = new PM({
             name: 'Lizzy',
             location: 'Bedrock',
-            age: 37,
+            age: 32,
             gender: 'female',
             gradClassName: 'CS4',
             favInstructor: 'Josh'
