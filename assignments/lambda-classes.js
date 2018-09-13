@@ -23,10 +23,10 @@ class Student extends Person {
         console.log(`${this.favSubjects}`);
     }
     PRAssignments(subject) {
-        console.log(`${this.student.name} has submitted a PR for ${this.subject}`);
+        console.log(`${this.name} has submitted a PR for ${subject}`);
     }
     sprintChallenge(subject) {
-        console.log(`${this.student.name} has begun sprint challenge on ${this.subject}`);
+        console.log(`${this.name} has begun sprint challenge on ${subject}`);
     }
 }
 
@@ -38,10 +38,19 @@ class Instructor extends Person {
         this.catchPhrase = instructorAttributes.catchPhrase;
     }
     demo(subject) {
-        console.log(`Today we are learning about ${this.subject}`);
+        console.log(`Today we are learning about ${subject}`);
     }
     grade(student, subject) {
-        console.log(`${this.student.name} receives a perfect score on ${subject}`);
+        console.log(`${student} receives a perfect score on ${subject}`);
+    }
+    changeGrade(student) {
+      let randomNum = Math.random();
+      if (randomNum > 0.5) {
+        student.score - (Math.random() * 10);
+      }
+      else {
+        student.score + (Math.random() * 10);
+      }
     }
 }
 
@@ -52,10 +61,10 @@ class PM extends Instructor {
         this.favInstructor = pmAttributes.favInstructor;
     }
     standUp(slackChannel) {
-        console.log(`${this.name} announces to ${this.slackChannel}, @channel standup time!`)
+        console.log(`${this.name} announces to ${slackChannel}, @channel standup time!`)
     }
     debugCode(student, subject) {
-        console.log(`${this.name} debugs ${this.student.name}'s code on ${this.subject}`);
+        console.log(`${this.name} debugs ${student}'s code on ${subject}`);
     }
 }
 
@@ -80,8 +89,8 @@ const johnson = new Student({
     'gender': 'M',
     'previousBackground': 'Union Army, Brigadier General',
     'className': '17th',
-    'favSubjects': 'American Civil War',
-    'grade':'85'
+    'favSubjects': ['American Civil War', ' Cavalry Management', ' Fiscal Conservativism'],
+    'score':'85'
 })
 
 const grant = new Student({
@@ -92,7 +101,7 @@ const grant = new Student({
     'previousBackground': 'Union Army, General',
     'className': '18th',
     'favSubjects': 'Mexican American War',
-    'grade':'90'
+    'score':'90'
 })
 
 const hayes = new Instructor({
@@ -139,13 +148,20 @@ const cleveland = new PM({
     'favInstructor': 'Daniel Manning'
 })
 
+console.log(cleveland.catchPhrase);
+console.log(arthur.catchPhrase);
+
 davis.speak();
 lincoln.speak();
 johnson.listsSubjects();
 grant.PRAssignments('artillary');
-cleveland.sprintChallenge('budgeting');
-garfield.standUp('#former-presidents');
-lincoln.debugCode(davis, 'confederacy');
-johnson.demo('Civil War regiments');
-hayes.grade(grant, 'agricultural technology');
+johnson.sprintChallenge('budgeting');
+cleveland.standUp('#former-presidents');
+arthur.debugCode('Davis', 'confederacy');
+arthur.demo('Civil War regiments');
+hayes.grade('Grant', 'agricultural technology');
+
+garfield.changeGrade(grant);
+console.log(grant.score);
+
 
