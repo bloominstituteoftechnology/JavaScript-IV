@@ -34,7 +34,7 @@ class Person {
     this.gender = property.gender;
   }
   speak() {
-    return `Hello, may name is ${this.name}, I am from ${this.location}.`;
+    console.log `Hello, may name is ${this.name}, I am from ${this.location}.`;
   }
 }
 
@@ -49,6 +49,20 @@ class Person {
 // demo receives a subject string as an argument and logs out the phrase 'Today we are learning about {subject}' where subject is the param passed in.
 // grade receives a student object and a subject string as arguments and logs out '{student.name} receives a perfect score on {subject}'
 
+class Instructor extends Person {
+  constructor(instructorproperty) {
+    super(instructorproperty);
+    this.specialty = instructorproperty.specialty;
+    this.favLanguage = instructorproperty.favLanguage;
+    this.catchPhrase = instructorproperty.catchPhrase;
+  }
+  demo(subject) {
+    console.log `Today we are learning about ${subject}.`;
+  }
+  grade(Student, subject) {
+    console.log `${Student.name} receives a perfect score on ${subject}.`;
+  }
+}
 
 // Student
 // Now we need some students!
@@ -61,6 +75,25 @@ class Person {
 // listsSubjects a method that logs out all of the student's favoriteSubjects one by one.
 // PRAssignment a method that receives a subject as an argument and logs out that the student.name has submitted a PR for {subject}
 // sprintChallenge similar to PRAssignment but logs out student.name has begun sprint challenge on {subject}
+
+class Student extends Person {
+  constructor(studentproperty) {
+    super(studentproperty);
+    this.previousBackground = studentproperty.previousBackground;
+    this.classsName = studentproperty.classsName;
+    this.favSubjects = studentproperty.favSubjects;
+  }
+  listSubjects() {
+    console.log(`${this.favSubjects}`);
+  }
+  PRAssignment(subject) {
+    console.log `${Student.name} has submitted a PR for ${subject}.`;
+  }
+  sprintChallenge(Student, subject) {
+    console.log `${Student.name} has begun sprint challenge on ${subject}.`;
+  }
+}
+
 
 // Project Mananger
 // Now that we have instructors and students, we'd be nowhere without our PM's
