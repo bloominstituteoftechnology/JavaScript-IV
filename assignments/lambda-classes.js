@@ -4,6 +4,7 @@ class Person {
     this.name = props.name;
     this.age = props.age;
     this.location = props.location;
+    this.gender = props.gender;
   }
   speak() {
     return `Hello my name is ${this.name}, I am from ${this.location}`
@@ -24,7 +25,11 @@ class Instructor extends Person {
     return `${student.name} receives a perfect score on ${subject}`;
   }
   changeGrade(student) {
-    student.grade ['+','-'][Math.floor(Math.random() * 2)]= Math.floor(Math.random() * 11)
+    let sign = ['+','-'][Math.floor(Math.random() * 2)];
+    let points = Math.floor(Math.random() * 11);
+    console.log(sign)
+    student.grade += points;
+    return `${this.name} changed ${student.name}'s grade by ${points} points!`
   }
 }
 
@@ -50,7 +55,7 @@ class Student extends Person {
   }
 }
 
-class ProjectManagers extends Instructor {
+class ProjectManager extends Instructor {
   constructor(pmProps) {
     super(pmProps);
     this.gradClassName = pmProps.gradClassName;
@@ -63,3 +68,37 @@ class ProjectManagers extends Instructor {
     return `${this.name} debugs ${student.name}'s code on ${subject}`
   }
 }
+
+const student = new Student({
+  name: 'Peter Pham',
+  age: 26,
+  location: 'Colorado',
+  gender: 'male',
+  previousBackground: 'Pharmacy',
+  className: 'FSW14',
+  favSubjects: ['React.js','Python']
+})
+
+const projectManager = new ProjectManager ({
+  name: 'Luis Martinez',
+  age: '23',
+  location: 'California',
+  gender: 'male',
+  specialty: 'CSS',
+  favLanguage: 'JavaScript',
+  catchphrase: 'I\'ll catch you all later then.',
+  gradClassName: 'FSW11',
+  favInstructor: 'Josh Knell'
+})
+
+console.log(student.speak());
+console.log(student.listSubjects());
+console.log(student.PRAssignment('Python'));
+console.log(student.sprintChallenge('JavaScript'));
+console.log(student.graduate())
+console.log(projectManager.speak());
+console.log(projectManager.demo('JavaScript'));
+console.log(projectManager.grade(student, 'HTML'))
+console.log(projectManager.changeGrade(student))
+console.log(projectManager.standUp('@fsw_luis'));
+console.log(projectManager.debugsCode(student,'CSS'))
