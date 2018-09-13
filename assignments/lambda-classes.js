@@ -1,3 +1,5 @@
+// define objects, properties, and methods
+
 class Person {
   constructor(attributes) {
     this.name = attributes.name
@@ -41,11 +43,11 @@ class Student extends Person {
   }
 
   PRAssignment(subject) {
-    console.log(`${student.name} has submitted a PR for ${subject}`)
+    console.log(`${this.name} has submitted a PR for ${subject}`)
   }
 
   sprintChallenge(subject) {
-    console.log(`${student.name} has begun sprint challenge on ${subject}`)
+    console.log(`${this.name} has begun sprint challenge on ${subject}`)
   }
 }
 
@@ -67,27 +69,95 @@ class ProjectManager extends Instructor {
   }
 }
 
-/*
+// instantiate objects
 
-## `lambda-classes` - We need a roster of Lambda School personnel. Build it!
+// instructors
 
-* We have a school to build here! This project will get you used to thinking about classes in JavaScript and building them from a brand new data set.
-* Lambda personnel can be broken down into three different types of `people`.
-  * **Instructors** - extensions of Person
-  * **Students** - extensions of Person
-  * **Project Managers** - extensions of Instructors
-* **IMPORTANT** - You'll need to create 2 - 3 objects for each class and test them according to their unique Attributes. For example:
+const Glorthox = new Instructor({
+  name: 'Glorthox',
+  location: 'Jupiter',
+  age: 456,
+  gender: 'male',
+  favLanguage: 'Haskell',
+  specialty: 'DevOps',
+  catchPhrase: `Blergle dirgle daaa!!`
+})
 
-```js
-const fred = new Instructor({
-  name: 'Fred',
-  location: 'Bedrock',
-  age: 37,
+const Zergle = new Instructor({
+  name: 'Zergle',
+  location: 'Pluto',
+  age: 345,
+  gender: 'female',
+  favLanguage: 'Clojure',
+  specialty: 'Cloud',
+  catchPhrase: `My name is Zergle, m'kay?`
+})
+
+// students
+
+const Jeff = new Student({
+  name: 'Jeff',
+  location: 'Berlin',
+  age: 17,
+  gender: 'male',
+  previousBackground: 'JavaScript, CSS, and multivariate calculus',
+  className: 'FSW14',
+  favSubjects: ['a', 'b', 'c']
+})
+
+const Jennifer = new Student({
+  name: 'Jennifer',
+  location: 'Stockholm',
+  age: 43,
+  gender: 'female',
+  previousBackground: 'Life Experience',
+  className: 'FSW87',
+  favSubjects: [`All of them`]
+})
+
+const Constantine = new Student({
+  name: 'Constantine',
+  location: 'Rome',
+  age: 43,
+  gender: 'male',
+  previousBackground: 'Being emperor',
+  className: 'FSW14',
+  favSubjects: ['Algorithms', 'CS']
+})
+
+// PMs
+
+const GiantSquid = new ProjectManager({
+  name: 'GiantSquid',
+  location: 'The Mariana Trench',
+  age: Number.POSITIVE_INFINITY,
+  gender: 'female',
+  favLanguage: 'SquidScript',
+  specialty: 'Sinking ships',
+  catchPhrase: `I am the Krakken`,
+  gradClassName: 'AIMLDSTHLES3000',
+  favInstructor: 'Glorthox'
+})
+
+const Tiger = new ProjectManager({
+  name: 'Tiger',
+  location: 'Siberia',
+  age: 20,
   gender: 'male',
   favLanguage: 'JavaScript',
   specialty: 'Front-end',
-  catchPhrase: `Don't forget the homies`
-});
-```
+  catchPhrase: `Rar`,
+  gradClassName: 'FSW14',
+  favInstructor: 'Zergle'
+})
 
-  */
+// testing
+
+Glorthox.demo(Glorthox.favLanguage)
+Zergle.grade(Jennifer, Zergle.specialty)
+Jeff.listSubjects()
+Jennifer.PRAssignment('JavaScript LVI')
+Constantine.sprintChallenge('CSS Least')
+console.log(GiantSquid.age)
+GiantSquid.standUp('#PM-GiandSquid')
+Tiger.debugsCode(Constantine, 'Ruling')
