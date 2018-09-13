@@ -31,6 +31,10 @@ class Instructor extends Person{
     grade(student, subject) {
         console.log(`${student} receives a perfect score on ${subject}`);
     }
+
+    giveGrade(student) {
+        student.grade += Math.floor((Math.random() * 40));
+    }
 }
 
 class Student extends Person{
@@ -39,6 +43,7 @@ class Student extends Person{
     this.previousBackground = studentAttributes.previousBackground;
     this.className = studentAttributes.className;
     this.favSubjects = studentAttributes.favSubjects;
+    this.grade = studentAttributes.grade;
     }
 
     listsSubjects(subject) {
@@ -53,6 +58,15 @@ class Student extends Person{
 
     sprintChallenge(subject) {
         console.log(`${this.name} has begun sprint challenge on ${subject}.`);
+    }
+
+    graduate() {
+        if (this.grade >= 70) {
+            console.log(`Your Grade is: ${this.grade} you Graduate Lambda!!!`)
+        } else {
+            console.log(`Your Grade is: ${this.grade} Please study some more.`)
+            return;
+        }
     }
 }
 
@@ -102,7 +116,8 @@ const josh = new Instructor({
     catchPhrase: `Learn, rinse, repeat`,
     previousBackground: 'Unity',
     className: "FSW-14",
-    favSubjects: subjectsArr
+    favSubjects: subjectsArr,
+    grade: 60
   });
 
   const jill = new Student({
@@ -115,7 +130,8 @@ const josh = new Instructor({
     catchPhrase: `I'll fix you up!`,
     previousBackground: 'janitor',
     className: "Nursing-101",
-    favSubjects: healthArr
+    favSubjects: healthArr,
+    grade: 60
   });
 
   const kam = new ProjectManager({
@@ -166,7 +182,12 @@ const josh = new Instructor({
 
 // ---Project Managers logs
 
-kam.standUp('#fsw14-kam');
-darren.standUp('#cs11');
-kam.debugsCode(shawn, 'JavaScript-IV');
-kam.debugsCode(jill, 'HTML-I');
+// kam.standUp('#fsw14-kam');
+// darren.standUp('#cs11');
+// kam.debugsCode(shawn, 'JavaScript-IV');
+// kam.debugsCode(jill, 'HTML-I');
+
+// ---Stretch
+
+kam.giveGrade(shawn);
+shawn.graduate();
