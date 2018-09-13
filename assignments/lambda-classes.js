@@ -25,11 +25,10 @@ class Instructor extends Person {
     return `${student.name} receives a perfect score on ${subject}`;
   }
   changeGrade(student) {
-    let sign = ['+','-'][Math.floor(Math.random() * 2)];
+    let sign = Math.random() > 0.5 ? 1 : -1;
     let points = Math.floor(Math.random() * 11);
-    console.log(sign)
-    student.grade += points;
-    return `${this.name} changed ${student.name}'s grade by ${points} points!`
+    student.grade += points * sign;
+    return `${this.name} changed ${student.name}'s grade by ${points * sign} points!`
   }
 }
 
@@ -42,7 +41,7 @@ class Student extends Person {
     this.grade = 88;
   }
   listSubjects() {
-    return this.favSubjects.forEach(subject => subject);
+    return this.favSubjects.forEach(subject => console.log(subject));
   }
   PRAssignment(subject) {
     return `${this.name} has submitted a PR for ${subject}`;
@@ -69,6 +68,26 @@ class ProjectManager extends Instructor {
   }
 }
 
+const instructor = new Instructor({
+  name: 'Josh Knell',
+  age: '35',
+  location: 'Utah',
+  gender: 'male',
+  specialty: 'CSS',
+  favLanguage: 'ActionScript',
+  catchphrase: 'Yabba Dabba Doo.'
+})
+
+const instructor2 = new Instructor({
+  name: 'Ryan Hamblin',
+  age: '31',
+  location: 'California',
+  gender: 'male',
+  specialty: 'React',
+  favLanguage: 'JavaScript',
+  catchphrase: 'Woot Woot!.'
+})
+
 const student = new Student({
   name: 'Peter Pham',
   age: 26,
@@ -76,7 +95,17 @@ const student = new Student({
   gender: 'male',
   previousBackground: 'Pharmacy',
   className: 'FSW14',
-  favSubjects: ['React.js','Python']
+  favSubjects: ['React','Python']
+})
+
+const student2 = new Student({
+  name: 'Steve Alverson',
+  age: 46,
+  location: 'Florida',
+  gender: 'male',
+  previousBackground: 'Construction',
+  className: 'FSW14',
+  favSubjects: ['HTML','CSS']
 })
 
 const projectManager = new ProjectManager ({
@@ -89,6 +118,18 @@ const projectManager = new ProjectManager ({
   catchphrase: 'I\'ll catch you all later then.',
   gradClassName: 'FSW11',
   favInstructor: 'Josh Knell'
+})
+
+const projectManager2 = new ProjectManager ({
+  name: 'Tai Le',
+  age: '23',
+  location: 'California',
+  gender: 'male',
+  specialty: 'Node',
+  favLanguage: 'JavaScript',
+  catchphrase: 'Koo Koo Kachoo!',
+  gradClassName: 'FSW11',
+  favInstructor: 'Ryan Hamblin'
 })
 
 console.log(student.speak());
