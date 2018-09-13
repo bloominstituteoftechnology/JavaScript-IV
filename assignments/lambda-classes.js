@@ -41,7 +41,8 @@ class Student extends Person {
     this.previousBackground = studentOptions.previousBackground;
     this.className = studentOptions.className;
     this.favSubjects = studentOptions.favSubjects;
-    this.grade = 60;
+    this.grade = studentOptions.grade;
+    this.status = studentOptions.status;
   }
   listsSubjects(){
     this.favSubjects.forEach(function(subject) {
@@ -55,8 +56,13 @@ class Student extends Person {
     console.log(`${this.name} has begun sprint challenge on ${subject}`)
   };
   graduate(){
-
-    console.log(this.grade > 70 ? `Congratulations, ${this.name}! You can graduate!` : `Really dive into your studies, ${this.name}. I know you can do it!`);
+    if (this.grade >= 70){
+      this.status = 'Graduate';
+      console.log(`Congratulations, ${this.name}! You are now a graduate!`);
+    }
+    if (this.grade < 70){
+      console.log( `Really dive into your studies, ${this.name}. I know you can do it!`);
+    }
   }
 }//end Student
 
@@ -131,6 +137,8 @@ const mulder = new Student({
 ],
   className: 'Abduction Believers',
   previousBackground: 'Knowing the Lone Gunmen',
+  grade: 65,
+  status: 'Student',
 });
 
 const langly = new Student({
@@ -145,6 +153,8 @@ const langly = new Student({
 ],
   className: 'Paranoid Hackers',
   previousBackground: 'Started programming at age 5',
+  grade: 90,
+  status: 'Student',
 });
 
 // instructors: scully, frohike
@@ -170,7 +180,9 @@ const langly = new Student({
 // langly.sprintChallenge('tapping the government\'s calls');
 // mulder.listsSubjects();
 // langly.listsSubjects();
-scully.gradeStudent(mulder);
-krychek.gradeStudent(langly);
-mulder.graduate();
-langly.graduate();
+// scully.gradeStudent(mulder);
+// krychek.gradeStudent(langly);
+// mulder.graduate();
+// console.log(mulder.status);
+// langly.graduate();
+// console.log(langly.status);
