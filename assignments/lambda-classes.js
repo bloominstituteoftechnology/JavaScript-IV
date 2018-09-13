@@ -84,13 +84,16 @@ class Student extends Person {
     this.favSubjects = studentproperty.favSubjects;
   }
   listSubjects() {
-    console.log(`${this.favSubjects}`);
+    this.favSubjects.forEach(function(element) {
+      console.log(element);
+    });
+    
   }
   PRAssignment(subject) {
-    console.log `${Student.name} has submitted a PR for ${subject}.`;
+    console.log `${this.name} has submitted a PR for ${subject}.`;
   }
-  sprintChallenge(Student, subject) {
-    console.log `${Student.name} has begun sprint challenge on ${subject}.`;
+  sprintChallenge(subject) {
+    console.log `${this.name} has begun sprint challenge on ${subject}.`;
   }
 }
 
@@ -227,6 +230,12 @@ const fred = new Instructor({
 fred.demo('CSS');
 medusa.grade(elvis,'python');
 arya.listSubjects();
+diego.PRAssignment('Javascript');
+elvis.sprintChallenge('Preprocessors');
+wolverine.standUp('FSW15-Wolverine');
+turk.debugsCode(elvis, 'Javascript IV');
+arya.speak();
+peach.standUp('FSW-16-Peach');
 
 // Stretch Problem
 // Extend the functionality of the Student by adding a prop called grade and setting it equal to a number between 1-100.
