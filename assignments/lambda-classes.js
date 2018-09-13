@@ -27,6 +27,15 @@ class Instructor extends Person {
     grade(student, subject) {
         console.log(`${student.name} receives a perfect score on ${subject}`);
     }
+
+    gradeAssignement(student) { // stretch method
+        student.courseGrade += Math.round((Math.random() * 200) - 100);
+        if (student.courseGrade > 100) {
+            student.courseGrade = 100;
+        } else if(student.courseGrade < 0){
+            student.courseGrade = 0;
+        }
+    }
 } //end Instructor class
 
 class Student extends Person {
@@ -35,6 +44,7 @@ class Student extends Person {
         this.previousBackground = studentAttributes.previousBackground;
         this.className = studentAttributes.className;
         this.favSubjects = studentAttributes.favSubjects;
+        this.courseGrade = Math.round(Math.random()*100); //stretch property
     }
 
     listsSubjects() {
@@ -47,6 +57,14 @@ class Student extends Person {
 
     sprintChallent(subject) {
         console.log(`${this.name} has begun sprint challenge on ${subject}`);
+    }
+
+    graduate(projectManager){
+        while(this.courseGrade < 70){
+            console.log(`Sorry, ${this.courseGrade} isn't a passing grade...\nKeep working hard!`);
+            projectManager.gradeAssignement(this);
+        }
+        console.log(`${this.name} has graduated Lambda School with ${this.className}!`);
     }
 } //end Student class
 
@@ -161,3 +179,8 @@ clementine.grade(sarah, 'JavaScript');
 tai.standUp('fsw14_tai');
 clementine.debugsCode(jeff, 'C');
 
+// ------------------- stretch testing -------------------
+console.log('-----------------------------');
+
+console.log(sarah.courseGrade);
+sarah.graduate(tai);
