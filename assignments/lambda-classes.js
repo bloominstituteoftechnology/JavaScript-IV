@@ -24,8 +24,19 @@ class Instructor extends Person {
     console.log(`Today we are learning about ${subject}`);
   }
 
-  SVGLinearGradientElement(MediaStreamAudioDestinationNode, subject) {
+  grade(student, subject) {
     console.log(`${student.name} receives a perfect score on ${subject}.`);
+  }
+
+  score(student, quality) {
+    if (!student.readyToGraduate) {
+      if (quality === "good") {
+        student.grade += Math.round(Math.random() * 10);
+      } else {
+        student.grade -= Math.round(Math.random() * 10);
+      }
+      console.log(`${student.name} has a score of ${student.grade}.`);
+    }
   }
 } // end of Instructor class
 
@@ -35,6 +46,8 @@ class Student extends Person {
     this.previousBackground = studentAttributes.previousBackground;
     this.className = studentAttributes.className;
     this.favSubjects = studentAttributes.favSubjects;
+    this.grade = 50;
+    this.readyToGraduate = false;
   }
 
   listsSubjects() {
@@ -47,6 +60,17 @@ class Student extends Person {
 
   sprintChallenge(subject) {
     console.log(`${this.name} has begun a sprint challenge on ${subject}`);
+  }
+
+  graduate() {
+    if (!this.readyToGraduate) {
+      if (this.grade >= 70) {
+        console.log(`${this.name} is ready to graduate!`);
+        this.readyToGraduate = true;
+      }
+    } else {
+      console.log(`${this.name} already graduated.`);
+    }
   }
 } // end of Student class
 
@@ -92,5 +116,23 @@ const steve = new Student({
   favSubjects: ["LESS", "Javascript-IV", "#hired!"]
 });
 
-console.log(fred.catchPhrase);
-steve.listsSubjects();
+const barney = new Student({
+  name: "Barney",
+  location: "Badrock",
+  age: 85,
+  gender: "male",
+  previousBackground: "Rock Tech",
+  className: "FSW14",
+  favSubjects: ["LESS", "Javascript-IV", "#hired!"]
+});
+
+function scoreRound(numRounds) {
+  for (let i = 0; i < numRounds; i++) {
+    fred.score(steve, "good");
+    steve.graduate();
+    fred.score(steve, "bad");
+    steve.graduate();
+  }
+}
+
+scoreRound(20);
