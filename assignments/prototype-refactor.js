@@ -2,6 +2,10 @@
 // Today your goal is to refactor all of this code to use ES6 Classes.
 // The console.log() statements should still return what is expected of them.
 
+//NOTE FOR REVIEWER!!!!!
+
+//spent the day going back over this week's materials. Since I did not know fully understand how to do yesterday's project yesterday the class today felt a bit over my head.
+
 function GameObject(options) {
   this.createdAt = options.createdAt;
   this.dimensions = options.dimensions;
