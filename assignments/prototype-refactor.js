@@ -2,40 +2,43 @@
 // Today your goal is to refactor all of this code to use ES6 Classes.
 // The console.log() statements should still return what is expected of them.
 
-function GameObject(options) {
-  this.createdAt = options.createdAt;
-  this.dimensions = options.dimensions;
-}
+class GameObject {
+  constructor(attributes) {
+    this.createdAt = attributes.createdAt;
+    this.dimensions = attributes.dimensions;
+  }
 
-GameObject.prototype.destroy = function() {
-  return `Object was removed from the game.`;
-};
+  destroy() {
+    return `${this.name} was removed from the game.`;
+  }
+} //end GameObject class
 
-function CharacterStats(characterStatsOptions) {
-  GameObject.call(this, characterStatsOptions);
-  this.hp = characterStatsOptions.hp;
-  this.name = characterStatsOptions.name;
-}
+class CharacterStats extends GameObject {
+  constructor(charAttributes){
+    super(charAttributes);
+    this.hp = charAttributes.hp;
+    this.name = charAttributes.name;
+  }
 
-CharacterStats.prototype = Object.create(GameObject.prototype);
+  takeDamage() {
+    return `${this.name} too damage.`;
+  }
+} //end CharacterStats class
 
-CharacterStats.prototype.takeDamage = function() {
-  return `${this.name} took damage.`;
-};
+class Humanoid extends CharacterStats {
+  constructor(humanoidAttributes) {
+    super(humanoidAttributes);
+    this.faction = humanoidAttributes.faction;
+    this.weapons = humanoidAttributes.weapons;
+    this.language = humanoidAttributes.language;
+  }
 
-function Humanoid(humanoidOptions) {
-  CharacterStats.call(this, humanoidOptions);
-  this.faction = humanoidOptions.faction;
-  this.weapons = humanoidOptions.weapons;
-  this.language = humanoidOptions.language;
-}
+  greet() {
+    return `${this.name} offers a greeting in ${this.language}`;
+  }
+} //end Humanoid class
 
-Humanoid.prototype = Object.create(CharacterStats.prototype);
-
-Humanoid.prototype.greet = function() {
-  return `${this.name} offers a greeting in ${this.language}.`;
-};
-
+// creates mage, swordsman, and archer Humanoid objects
 const mage = new Humanoid({
   createdAt: new Date(),
   dimensions: {
@@ -78,6 +81,7 @@ const archer = new Humanoid({
   language: 'Elvish'
 });
 
+// test output
 console.log(mage.createdAt); // Today's date
 console.log(archer.dimensions); // { length: 1, width: 2, height: 4 }
 console.log(swordsman.hp); // 15
