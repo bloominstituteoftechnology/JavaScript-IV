@@ -25,11 +25,11 @@ class Instructor extends Person {
     grade(stu, topic) {
         console.log(`${stu.name} receives a perfect score on ${topic}`);
     }
-    alterGrade(stu) {
-        stu.grade = Math.floor(stu.grade + 2 * randn() + 1);
-        stu.grade = Math.max(stu.grade, 0);
-        stu.grade = Math.min(stu.grade, 100);
-    }
+    // alterGrade(stu) {
+    //     stu.grade = Math.floor(stu.grade + 2 * randn() + 1);
+    //     stu.grade = Math.max(stu.grade, 0);
+    //     stu.grade = Math.min(stu.grade, 100);
+    // }
 }
 
 class Student extends Person {
@@ -52,13 +52,13 @@ class Student extends Person {
     sprintChallenge(topic) {
         console.log(`${this.name} has begun sprint challenge on ${topic}`);
     }
-    graduate() {
-        if (this.grade >= 70) {
-            console.log(`${this.name} graduates! Congratulations!`);
-        } else {
-            console.log(`${this.name} has a grade of ${this.grade} and is not ready to graduate--keep trying!`);
-        }
-    }
+    // graduate() {
+    //     if (this.grade >= 70) {
+    //         console.log(`${this.name} graduates! Congratulations!`);
+    //     } else {
+    //         console.log(`${this.name} has a grade of ${this.grade} and is not ready to graduate--keep trying!`);
+    //     }
+    // }
 }
 
 class ProjectManager extends Instructor {
@@ -159,6 +159,20 @@ function randn() { // Normal distribution, mean 0, std deviation 1, using the Bo
     while (u === 0) u = Math.random(); // Converts [0,1) to (0,1)
     while (v === 0) v = Math.random();
     return Math.sqrt( -2.0 * Math.log(u)) * Math.cos( 2.0 * Math.PI * v);
+}
+
+Instructor.prototype.alterGrade = function(stu) {
+    stu.grade = Math.floor(stu.grade + 2 * randn() + 1);
+    stu.grade = Math.max(stu.grade, 0);
+    stu.grade = Math.min(stu.grade, 100);
+};
+
+Student.prototype.graduate = function() {
+    if (this.grade >= 70) {
+        console.log(`${this.name} graduates! Congratulations!`);
+    } else {
+        console.log(`${this.name} has a grade of ${this.grade} and is not ready to graduate--keep trying!`);
+    }
 }
 
 for (let i = 0; i < 40; i++) {
