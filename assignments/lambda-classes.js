@@ -56,9 +56,18 @@ class Student extends Person{
         console.log(`${this.name} has begun sprint challenge on  ${subject}`)
     }
 
-    graduate(){
-        if(this.grade > 70) console.log(`Congratulation!  You grade`);
-        else console.log(`your grade is ${this.grade}.  You're grade needs to be 70 or higher to graduate`);
+    graduate(instructor){
+        if(this.grade > 70){
+         console.log(`Congratulation!  You graduate`);
+        }
+        else {
+            while(this.grade < 70) {
+            console.log(`your grade is ${this.grade}.  You're grade needs to be 70 or higher to graduate`);
+            instructor.adjustGrade(this);
+        //  console.log(`your grade is ${this.grade}.  You're grade needs to be 70 or higher to graduate`);
+            }
+            console.log(`Congratulation!  You graduate`);
+        }
     }
 }
 
@@ -82,20 +91,20 @@ class ProjectManager extends Instructor{
 
 // const person1 = new Person({'name':'Tom', 'age':30, 'location':"USA", 'gender':"M"});
 const instructor1 = new Instructor({'name':'Tom', 'age':30, 'location':"USA", 'gender':"M",'specialty':"JS", 'favLanguage':"Phthon", "catchPhrase":"Peace!"});
-console.log(instructor1);
+// console.log(instructor1);
 const student1 = new Student({'name':'Jerry', 'age':10, 'location':"USA", 'gender':"M",'specialty':"none", 'favLanguage':"basic", "catchPhrase":"Party!", 'previousBackground':'kinder','className':'CS101','favSubjects':['gym','music']});
-console.log(student1);
+// console.log(student1);
 const pm1 = new ProjectManager({'name':'Jim', 'age':50, 'location':"Utha", 'gender':"M",'specialty':"what", 'favLanguage':"French", "catchPhrase":"PROJECT!",'gradClassName':"CS1", 'favInstructor':'Jen'});
-console.log(pm1);
+// console.log(pm1);
 
-instructor1.demo("Math");
-instructor1.grade(student1,'Art');
-student1.listsSubjects();
-student1.PRAssignment('eco');
-pm1.standUp('fsw14');
-pm1.debugsCode(student1, "math");
+// instructor1.demo("Math");
+// instructor1.grade(student1,'Art');
+// student1.listsSubjects();
+// student1.PRAssignment('eco');
+// pm1.standUp('fsw14');
+// pm1.debugsCode(student1, "math");
 
-student1.graduate();
-instructor1.adjustGrade(student1);
-instructor1.adjustGrade(student1);
-pm1.adjustGrade(student1);
+student1.graduate(instructor1);
+// instructor1.adjustGrade(student1);
+// instructor1.adjustGrade(student1);
+// pm1.adjustGrade(student1);
