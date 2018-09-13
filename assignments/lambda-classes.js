@@ -87,7 +87,7 @@ class ProjectManagers extends Instructor {
         this.favInstructor = projectManagersAttributes.favInstructor;
     }
     standUp (channel) {
-        console.log(`${this.name} announces to ${channel},@ ${channel} standy times!`)
+        console.log(`${this.name} announces to ${channel},@${channel} standy times!`)
     }
     debugsCode (student, subject) {
         console.log(`${this.name} debugs ${student.name}'s code on ${subject}`)
@@ -170,17 +170,17 @@ const wacodude = new Instructor ({
 
   //Tests
 
-  wacodude.demo ('death by javascript');
-  cooldude.demo ('How to react to React')
-  wacodude.grade( Savannah, 'HTML')
-  cooldude.grade (Tennis, 'How to play tennis')
-  wellILikeCode.standUp ('code')
-  iGenious.standUp('Its Time')
-  wellILikeCode.debugsCode(Savannah, 'How to become bill gates')
-  iGenious.debugsCode (Tennis, 'How not to be shy when peer coding')
-  Savannah.listsSubjects()
-  Tennis.listsSubjects()
-  Savannah.PRAssignment('How to code fast')
-  Tennis.PRAssignment('How to get a gig on NCIS as the hacking genious')
-  Savannah.sprintChallenge('I Will Be Code Boss')
-  Tennis.sprintChallenge ('this.isAwesome')
+//   wacodude.demo ('death by javascript');
+//   cooldude.demo ('How to react to React')
+//   wacodude.grade( Savannah, 'HTML')
+//   cooldude.grade (Tennis, 'How to play tennis')
+//   wellILikeCode.standUp ('code')
+//   iGenious.standUp('Its Time')
+//   wellILikeCode.debugsCode(Savannah, 'How to become bill gates')
+//   iGenious.debugsCode (Tennis, 'How not to be shy when peer coding')
+//   Savannah.listsSubjects()
+//   Tennis.listsSubjects()
+//   Savannah.PRAssignment('How to code fast')
+//   Tennis.PRAssignment('How to get a gig on NCIS as the hacking genious')
+//   Savannah.sprintChallenge('I Will Be Code Boss')
+//   Tennis.sprintChallenge ('this.isAwesome')
