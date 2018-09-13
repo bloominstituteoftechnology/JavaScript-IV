@@ -25,15 +25,18 @@ class Instructor extends Person {
         console.log(`Today we are learning about ${subject}`);
     }
     grade(student,subject){
-        console.log(`${student.name} receives a perfect score on ${subject}`)
+        student.grade = (student.grade + (Math.floor(Math.random() * 100) + -50));
+        console.log(`${this.name} is grading ${student.name}\'s work and the grade is now.. ${student.grade}`)
+        ///console.log(`${student.name} receives a perfect score on ${subject}`)
     }
 }
 class Student extends Person {
-    constructor(attributes,cb){
-        super(attributes,cb);
+    constructor(attributes){
+        super(attributes);
         this.previousBackground = attributes.previousBackground;
         this.className = attributes.className;
         this.favSubjects = attributes.favSubjects;
+        this.grade = attributes.grade;
     }
     listsSubjects(){
         this.favSubjects.forEach(element => {
@@ -45,6 +48,14 @@ class Student extends Person {
     }
     sprintChallenge(subject){
         console.log(`${this.name} has begun sprint challenge on ${subject}`);
+    }
+    graduate(callback){
+        if(this.grade > 70){
+          console.log('GRADUATION DAY!', frank.grade)
+        } else 
+        {
+          callback(this);
+        }
     }
 }
 class ProjectManager extends Instructor{
@@ -84,7 +95,8 @@ let frank = new Student({
         name: 'Frank Benevento',
         age:41,
         location: 'California',
-        gender:'male'  
+        gender:'male',
+        grade: 70
 })
 let josh = new Instructor({
   specialty: 'Teaching Programming',
@@ -101,10 +113,25 @@ let josh = new Instructor({
 bill.standUp('FSW-14_Bill');
 bill.debugsCode(frank,'JavaScript');
 
-frank.listsSubjects();
-frank.PRAssignment('JavaScript IV')
-frank.sprintChallenge('JavaScript')
-frank.speak();
 
-josh.demo('JavaScript IV');
-josh.grade(frank,'JavaScript');
+// frank.listsSubjects();
+// frank.PRAssignment('JavaScript IV')
+// frank.sprintChallenge('JavaScript')
+// frank.speak();
+
+//bill.grade(frank,'Javascript')
+
+
+// josh.demo('JavaScript IV');
+ josh.grade(frank,'JavaScript');
+ frank.graduate(gradePapers)
+ 
+
+
+function gradePapers(obj){
+ while(obj.grade < 70)
+ {
+   bill.grade(obj,'JavaScript');
+ }
+ console.log('GRADUATION DAY!', frank.grade)
+}
