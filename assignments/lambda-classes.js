@@ -64,3 +64,75 @@ class ProjectManager extends Instructor {
 }
 
 
+//== Test Instances ============================================================
+
+const alice = new Instructor({
+    name: 'Alice',
+    location: 'Here',
+    age: 32,
+    gender: 'female',
+    favLanguage: 'SQL',
+    specialty: 'Monologues',
+    catchPhrase: `That reminds me of this one time -`
+});
+const elias = new Instructor({
+    name: 'Elias',
+    location: 'There',
+    age: 64,
+    gender: 'nonbinary',
+    favLanguage: 'noSQL',
+    specialty: 'Awkward Pauses',
+    catchPhrase: `...`
+});
+
+const leonardo = new Student({
+    name: 'Leo',
+    location: 'Sewer',
+    age: 18,
+    gender: 'male',
+    previousBackground: 'vigilante',
+    className: 'FSW13',
+    favSubjects: ['leadership', 'pizza']
+});
+const michelangelo = new Student({
+    name: 'Mikey',
+    location: 'Sewer',
+    age: 15,
+    gender: 'male',
+    previousBackground: 'FSW13',
+    className: 'FSW14',
+    favSubjects: ['Partying', 'Pizza']
+});
+const raphael = new Student({
+    name: 'Raph',
+    location: 'Sewer',
+    age: 17,
+    gender: 'male',
+    previousBackground: 'vigilante',
+    className: 'FSW13',
+    favSubjects: ['fighting', 'Pizza']
+});
+const donatello = new ProjectManager({
+    name: 'Donnie',
+    location: 'Sewer',
+    age: 16,
+    gender: 'male',
+    favLanguage: 'English (hey, this is impressive considering he\'s a turtle',
+    specialty: 'Technology',
+    catchPhrase: `I actually don't know that much about TMNT or what their catchphrases are. Most of this came from wikipedia.`,
+    gradClassName: 'FSW9',
+    favInstructor: 'Alice'
+});
+
+
+elias.speak();
+alice.demo(alice.specialty);
+elias.grade(michelangelo, elias.specialty);
+
+leonardo.listsSubjects();
+michelangelo.PRAssignment(michelangelo.favSubjects[0]);
+raphael.sprintChallenge(raphael.favSubjects[0]);
+
+donatello.standup(leonardo.className);
+donatello.debugsCode(michelangelo, michelangelo.favSubjects[1]);
+    // Hey, you've got something on your pizza.
