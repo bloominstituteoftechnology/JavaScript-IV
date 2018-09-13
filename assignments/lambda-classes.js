@@ -67,66 +67,97 @@ class ProjectManager extends Student {
     }
 }
 
-
-const josh = new Person({
-    "name": "Josh Knell",
-    "age": 40,
-    "location": "Salt Lake City",
+// ========PERSON========
+const lebron = new Person({
+    "name": "LeBron James",
+    "age": 33,
+    "location": "Los Angeles",
     "gender": "male"
 })
 
-const kevin = new Instructor({
+const klay = new Person({
+    "name": "Klay Thompson",
+    "age": 28,
+    "location": "Oakland",
+    "gender": "male"
+})
+
+const kawhi = new Person({
+    "name": "Kawhi Leonard",
+    "age": 27,
+    "location": "Toronto",
+    "gender": "male"
+})
+
+
+
+// ========INSTRUCTOR========
+const josh = new Instructor({
     "name": "Josh Knell",
     "age": 40,
-    "location": "Salt Lake City",
+    "location": "Provo",
     "gender": "male",
-    "specialty": "JavaScript",
-    "favLanguage": "Python",
-    "catchPhrase": "Turn in your standup forms now!!!"
+    "specialty": "Instructor",
+    "favLanguage": "JavaScript",
+    "catchPhrase": "Isn't that awesome? That's soooo awesome!"
 })
 
+const snape = new Instructor({
+    "name": "Severus Snape",
+    "age": 45,
+    "location": "Hogwarts",
+    "gender": "male",
+    "specialty": "Defence Against the Dark Arts",
+    "favLanguage": "Potions",
+    "catchPhrase": "AVADA KEDAVRA!"
+})
+
+
+
+// ========STUDENT========
 const yusuf = new Student({
     "name": "Yusuf Nafey",
-    "age": 40,
-    "location": "Salt Lake City",
+    "age": 22,
+    "location": "San Francisco",
     "gender": "male",
-    "previousBackground": "Java",
+    "previousBackground": "HTML",
     "className": "FSW14",
-    "favSubjects": ["science", "math"]
+    "favSubjects": ["HTML", "CSS", "JavaScript"]
 })
 
-// PM
-const kamry = new ProjectManager({
-    "name": "Kamry",
-    "age": 40,
-    "location": "Salt Lake City",
+const michael = new Student({
+    "name": "Michael Checo",
+    "age": 21,
+    "location": "New York",
     "gender": "male",
-    "specialty": "JavaScript",
-    "favLanguage": "Python",
-    "catchPhrase": "Turn in your standup forms now!!!",
-    "gradClassName": "CS11",
+    "previousBackground": "JavaScript",
+    "className": "FSW14",
+    "favSubjects": ["JavaScript", "Python", "Angular"]
+})
+
+
+
+// ========PROJECT MANAGER========
+const kevin = new ProjectManager({
+    "name": "Kevin Brack",
+    "age": 26,
+    "location": "Chicago",
+    "gender": "male",
+    "specialty": "Audio",
+    "favLanguage": "JavaScript",
+    "catchPhrase": "I hate to be that guy, but do your standups or else...",
+    "gradClassName": "CS4",
     "favInstructor": "Josh Knell"
 })
 
-
-
-console.log(kamry.grade(yusuf, "math"));
-
-
-
-
-
-
-// console.log(kamry.standUp("#FSW_14_kam"));
-// console.log(kamry.debugsCode(yusuf, "arrays"));
-
-
-
-
-
-// console.log(josh.age);
-// console.log(kevin.catchPhrase);
-// console.log(kevin.demo("JS"));
-// console.log(kevin.grade(yusuf, "math"));
-// console.log(yusuf.favSubjects);
-// console.log(yusuf.PRAssignment("react"));
+const kamry = new ProjectManager({
+    "name": "Kamry Bowman",
+    "age": 28,
+    "location": "Denver",
+    "gender": "male",
+    "specialty": "React",
+    "favLanguage": "CSS",
+    "catchPhrase": "Who needs some help in the help channel?",
+    "gradClassName": "CS6",
+    "favInstructor": "Severus Snape"
+})
