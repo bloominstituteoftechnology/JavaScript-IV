@@ -74,103 +74,103 @@ class PersonObject {
    
   }
 
-  //PersonObject, InstructorInfo, StudentInfo, PMInfo
+  //PersonObject, InstructorInfo, StudentInfo, PMInfo, 'Male', 25
   
   const Rick = new PersonObject({
-    name : personInfo.name,
-    age : personInfo.age,
-    location : personInfo.location,
-    gender : personInfo.gender,
+    name : 'Rick',
+    age : 70,
+    location : 'Earth - New York (Dimension C-137)',
+    gender : 'Male',
   });
   
   const Morty = new PersonObject({
-    name : personInfo.name,
-    age : personInfo.age,
-    location : personInfo.location,
-    gender : personInfo.gender,
+    name : 'Morty',
+    age : 14,
+    location : 'Earth - New York (Dimension C-137)',
+    gender : 'Male',
   });
   
-  const Josh = new InstructorInfo({
-    name : personInfo.name,
-    age : personInfo.age,
-    location : personInfo.location,
-    gender : personInfo.gender,
-    specialty : instructorAttributes.specialty,
-    favLanguage : instructorAttributes.favLanguage,
-    catchPhrase : instructorAttributes.catchPhrase,
+  const Jish = new InstructorInfo({
+    name : 'Jish',
+    age : 35,
+    location : 'Earth - New York (Dimension C-137)',
+    gender : 'Male',
+    specialty : "Action Script",
+    favLanguage : "Javascript",
+    catchPhrase : "Welcome FSW14",
   });
 
-  const Daniel = new InstructorInfo({
-    name : personInfo.name,
-    age : personInfo.age,
-    location : personInfo.location,
-    gender : personInfo.gender,
-    specialty : instructorAttributes.specialty,
-    favLanguage : instructorAttributes.favLanguage,
-    catchPhrase : instructorAttributes.catchPhrase,
+  const Danny = new InstructorInfo({
+    name : 'Danny',
+    age : 35,
+    location : 'Earth - New York (Dimension C-137)',
+    gender : 'Male',
+    specialty : "Back End",
+    favLanguage : "Python",
+    catchPhrase : "Damn Daniel",
   });
   
-  const Cesar = new PMInfo({
-    name : personInfo.name,
-    age : personInfo.age,
-    location : personInfo.location,
-    gender : personInfo.gender,
-    specialty : instructorAttributes.specialty,
-    favLanguage : instructorAttributes.favLanguage,
-    catchPhrase : instructorAttributes.catchPhrase,
-    gradClassName : pmAttributes.gradClassName,
-    favInstructor : pmAttributes.favInstructor,
+  const Arnold = new PMInfo({
+    name : 'Arnold',
+    age : 31,
+    location : 'Earth - New York (Dimension C-137)',
+    gender : 'Male',
+    specialty : 'Pumping Iron',
+    favLanguage : 'CSS',
+    catchPhrase : 'Get to the Choppah',
+    gradClassName : 'CS7',
+    favInstructor : 'Jish',
   });
   
-  const Allen = new PMInfo({
-    name : personInfo.name,
-    age : personInfo.age,
-    location : personInfo.location,
-    gender : personInfo.gender,
-    specialty : instructorAttributes.specialty,
-    favLanguage : instructorAttributes.favLanguage,
-    catchPhrase : instructorAttributes.catchPhrase,
-    gradClassName : pmAttributes.gradClassName,
-    favInstructor : pmAttributes.favInstructor,
+  const Neo = new PMInfo({
+    name : 'Neo',
+    age : 29,
+    location : 'Earth - New York (Dimension C-137)',
+    gender : 'Male',
+    specialty : 'Code-Fu',
+    favLanguage : 'C++',
+    catchPhrase : 'Woah',
+    gradClassName : 'CS1',
+    favInstructor : 'Danny',
   });
 
-  const Troy = new StudentInfo({
-    name : personInfo.name,
-    age : personInfo.age,
-    location : personInfo.location,
-    gender : personInfo.gender,
-    background : studentAttributes.background,
-    className : studentAttributes.className,       
-    favSubject : studentAttributes.favSubject,
+  const Trizzle = new StudentInfo({
+    name : 'Trizzle',
+    age : 26,
+    location : 'Earth - New York (Dimension C-137)',
+    gender : 'Male',
+    background : 'I used to make music, go to school full time, and community organize.',
+    className : 'CS14',       
+    favSubject : ['Biology','Math','Philosophy'],
   });
   
-  const Carlos = new StudentInfo({
-    name : personInfo.name,
-    age : personInfo.age,
-    location : personInfo.location,
-    gender : personInfo.gender,
-    background : studentAttributes.background,
-    className : studentAttributes.className,       
-    favSubject : studentAttributes.favSubject,
+  const Carl = new StudentInfo({
+    name : 'Carl',
+    age : 28,
+    location : 'Earth - New York (Dimension C-137)',
+    gender : 'Male',
+    background : "I used to play computer games.",
+    className : 'CS14',       
+    favSubject : ['Chemistry','Math','Political Science'],
   });
   
   const Shannon = new StudentInfo({
-    name : personInfo.name,
-    age : personInfo.age,
-    location : personInfo.location,
-    gender : personInfo.gender,
-    background : studentAttributes.background,
-    className : studentAttributes.className,       
-    favSubject : studentAttributes.favSubject,
+    name : 'Shannon',
+    age : 22,
+    location : 'Earth - New York (Dimension C-137)',
+    gender : 'Female',
+    background : 'I went to school for architecture.',
+    className : 'CS14',       
+    favSubject : ['History','Design','Art'],
   });
 
-  const CJ = new StudentInfo({
-    name : personInfo.name,
-    age : personInfo.age,
-    location : personInfo.location,
-    gender : personInfo.gender,
-    background : studentAttributes.background,
-    className : studentAttributes.className,       
-    favSubject : studentAttributes.favSubject,
+  const Logan = new StudentInfo({
+    name : 'Logan',
+    age : 24,
+    location : 'Earth - New York (Dimension C-137)',
+    gender : 'Male',
+    background : "I used to beat mutants up with my claws and fists",
+    className : 'CS14',       
+    favSubject : ['Mutants 101','Spanish','Philosophy'],
   });
   
