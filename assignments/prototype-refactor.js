@@ -11,7 +11,7 @@ class GameObject {
   destroy() {
     return `${this.name} was removed from the game.`;
   }
-}
+} //end GameObject class
 
 class CharacterStats extends GameObject {
   constructor(charAttributes){
@@ -23,7 +23,7 @@ class CharacterStats extends GameObject {
   takeDamage() {
     return `${this.name} too damage.`;
   }
-}
+} //end CharacterStats class
 
 class Humanoid extends CharacterStats {
   constructor(humanoidAttributes) {
@@ -36,8 +36,9 @@ class Humanoid extends CharacterStats {
   greet() {
     return `${this.name} offers a greeting in ${this.language}`;
   }
-}
+} //end Humanoid class
 
+// creates mage, swordsman, and archer Humanoid objects
 const mage = new Humanoid({
   createdAt: new Date(),
   dimensions: {
@@ -80,6 +81,7 @@ const archer = new Humanoid({
   language: 'Elvish'
 });
 
+// test output
 console.log(mage.createdAt); // Today's date
 console.log(archer.dimensions); // { length: 1, width: 2, height: 4 }
 console.log(swordsman.hp); // 15
