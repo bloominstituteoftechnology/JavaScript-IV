@@ -1,92 +1,88 @@
 // Here we have a functioning solutoin to your challenge from yesterday.
 // Today your goal is to refactor all of this code to use ES6 Classes.
-// The console.log() statements should still return what is expected of them.
 
-class GameObject {
-  constructor(options) {
-    this.createdAt = options.createdAt;
-    this.dimensions = options.dimensions;
+// Classes are NOT hoisted
+
+class Parent {
+  constructor(attributes) {
+    console.log(attributes);
+    this.age = attributes.age;
+    this.name = attributes.name;
+    this.location = attributes.location;
+    this.phrase = attributes.phrase;
   }
   // Methods go here:
-  destroy() {
-    return `Object was removed from the game.`;
+  speak() {
+    console.log(`${this.name} says ${this.phrase}`)
   }
-}
+}// end of Parent class
 
-class CharacterStats extends GameObject {
-  constructor(characterStatsOptions) {
-    super(characterStatsOptions);
-    this.hp = characterStatsOptions.hp;
-    this.name = characterStatsOptions.name;
-  }
-  // Methods go here:
-  takeDamage() {
-    return `${this.name} took damage.`;
-  }
-}
-
-class Humanoid extends CharacterStats {
-  constructor(humanoidOptions) {
-    super(humanoidOptions)
-    this.faction = humanoidOptions.faction;
-    this.weapons = humanoidOptions.weapons;
-    this.language = humanoidOptions.language;
+class Child extends Parent {
+  constructor(childAttributes) {
+    super(childAttributes);
+    this.toy = childAttributes.toy;
   }
   // Methods go here:
-  greet() {
-    return `${this.name} offers a greeting in ${this.language}.`;
+  play() {
+    console.log(`${this.name} plays with a ${this.toy}`)
   }
-}
+}// end of Child class
 
-const mage = new Humanoid({
-  createdAt: new Date(),
-  dimensions: {
-    length: 2,
-    width: 1,
-    height: 1
-  },
-  hp: 5,
-  name: 'Bruce',
-  faction: 'Mage Guild',
-  weapons: ['Staff of Shamalama'],
-  language: 'Common Toungue'
+class GrandChild extends Child {
+  constructor(grandChildAttributes) {
+    super(grandChildAttributes);
+    this.babySupplies = grandChildAttributes.babySupplies;
+  }
+  // Methods go here:
+  cry() {
+    console.log(`${this.name} starts to cry`);
+  }
+  change() {
+    console.log(`${this.name} needs a new ${this.babySupplies}`)
+  }
+}// end of GrandChild class
+
+const fred = new Parent({
+  'age': 55,
+  'name': 'Fred',
+  'location': 'Bedrock',
+  'phrase': 'Yabba dabba DOOOO!',
+  'toy': 'Big Rock'
 });
 
-const swordsman = new Humanoid({
-  createdAt: new Date(),
-  dimensions: {
-    length: 2,
-    width: 2,
-    height: 2
-  },
-  hp: 15,
-  name: 'Sir Mustachio',
-  faction: 'The Round Table',
-  weapons: ['Giant Sword', 'Shield'],
-  language: 'Common Toungue'
+const willma = new Parent({
+  'age': 57,
+  'name': 'Willma',
+  'location': 'Bedrock',
+  'phrase': 'Fred!'
 });
 
-const archer = new Humanoid({
-  createdAt: new Date(),
-  dimensions: {
-    length: 1,
-    width: 2,
-    height: 4
-  },
-  hp: 10,
-  name: 'Lilith',
-  faction: 'Forest Kingdom',
-  weapons: ['Bow', 'Dagger'],
-  language: 'Elvish'
+const pebbles = new Child({
+  'age': 27,
+  'name': 'Pebbles',
+  'location': 'Bedrock',
+  'phrase': 'Ma Ma',
+  'toy': 'rock doll'
 });
 
-console.log(mage.createdAt); // Today's date
-console.log(archer.dimensions); // { length: 1, width: 2, height: 4 }
-console.log(swordsman.hp); // 15
-console.log(mage.name); // Bruce
-console.log(swordsman.faction); // The Round Table
-console.log(mage.weapons); // Staff of Shamalama
-console.log(archer.language); // Elvish
-console.log(archer.greet()); // Lilith offers a greeting in Elvish.
-console.log(mage.takeDamage()); // Bruce took damage.
-console.log(swordsman.destroy()); // Sir Mustachio was removed from the game.
+const bambamjr = new GrandChild({
+  'age': 2,
+  'name': 'Bam Bam Jr.',
+  'location': 'Bedrock',
+  'phrase': 'BAM! BAM!',
+  'toy': 'rock bat',
+  'babySupplies': 'diaper'
+});
+
+
+console.log(pebbles.age);
+console.log(willma.phrase);
+
+fred.speak();
+willma.speak();
+pebbles.speak();
+pebbles.play();
+bambamjr.speak();
+bambamjr.play();
+bambamjr.cry();
+bambamjr.change();
