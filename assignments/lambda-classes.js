@@ -27,6 +27,16 @@ class Instructor extends Person {
     grade (targetStudent, subject) {
         console.log(`${targetStudent.name} receives a perfect score on ${subject}`);
     }
+    adjustGrade (targetStudent) {
+        const variation = 10;
+        let adjustment = Math.floor(Math.random()*variation - (variation/3));
+            // favors positive adjustments
+        const originalGrade = targetStudent.grade;
+        targetStudent.grade = Math.max(0, Math.min(100, targetStudent.grade+adjustment));
+        adjustment = targetStudent.grade - originalGrade;
+        console.log(`${this.name} adjusts ${targetStudent.name}'s grade by ${adjustment}%`);
+        targetStudent.graduate();
+    }
 }
 
 class Student extends Person {
@@ -35,6 +45,8 @@ class Student extends Person {
         this.previousBackground = studentInfo.previousBackground;
         this.className = studentInfo.className;
         this.favSubjects = studentInfo.favSubjects;
+        this.grade = Math.floor(Math.random()*101) // Will result in range of [0,100]
+        this.graduated = false;
     }
     listsSubjects () {
         this.favSubjects.forEach(subject => {
@@ -46,6 +58,14 @@ class Student extends Person {
     }
     sprintChallenge (subject) {
         console.log(`${this.name} has begun sprint challenge on ${subject}`);
+    }
+    graduate (){
+        if(this.grade > 70){
+            this.graduated = true;
+            console.log(`${this.name} has graduated from ${this.className}!`);
+        } else{
+            console.log(`More work is needed before ${this.name} can graduate (Current Grade: ${this.grade})`);
+        }
     }
 }
 
@@ -136,3 +156,7 @@ raphael.sprintChallenge(raphael.favSubjects[0]);
 donatello.standup(leonardo.className);
 donatello.debugsCode(michelangelo, michelangelo.favSubjects[1]);
     // Hey, you've got something on your pizza.
+
+while(!michelangelo.graduated){
+    donatello.adjustGrade(michelangelo);
+}
