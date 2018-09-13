@@ -13,7 +13,7 @@ class Person {
   }
 }
 
-//extended class from Person
+//extended class Instructor from Person
 class Instructor extends Person {
   constructor(insInfo) {
     super(insInfo);
@@ -27,5 +27,41 @@ class Instructor extends Person {
   }
   grade(student, subject) {
     console.log(`${student.name} receives a perfect score on ${subject}`);
+  }
+}
+
+//extended class Student from Person
+class Student extends Person {
+  constructor(stuInfo) {
+    super(stuInfo);
+    this.previousBackground = stuInfo.previousBackground;
+    this.className = stuInfo.className;
+    this.favSubjects = stuInfo.favSubjects;
+  }
+  //methods
+  listsSubjects() {
+    this.favSubjects.forEach(subject => console.log(subject));
+  }
+  PRAssignment(subject) {
+    console.log(`${this.name} has submitted a PR for ${subject}`);
+  }
+  sprintChallenge(subject) {
+    console.log(`${this.name} has begun sprint challenge on ${subject}`);
+  }
+}
+
+//extended class ProjectManager from Instructor
+class ProjectManager extends Instructor {
+  constructor(PMInfo) {
+    super(PMInfo);
+    this.gradClassName = PMInfo.gradClassName;
+    this.favInstructor = PMInfo.favInstructor;
+  }
+  //methods
+  standUp(channel) {
+    console.log(`${this.name} announces to ${channel}, @channel standy times!`);
+  }
+  debugsCode(student, subject) {
+    console.log(`${this.name} debugs ${student.name}'s code on ${subject}`);
   }
 }
