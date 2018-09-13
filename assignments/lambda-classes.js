@@ -19,11 +19,11 @@ class Person {
         this.favLanguage = instructorattributes.favLanguage;
         this.catchPhrase = instructorattributes.catchPhrase;
     }
-    demo() {
+    demo(subject) {
       return `Today we are learning about ${subject}.`;
     };
-    grade() {
-        return `${this.name} receives a perfect score on ${subject}.`;
+    grade(Student, subject) {
+        return `${Student.name} receives a perfect score on ${subject}.`;
     };
   }
 
@@ -38,10 +38,10 @@ class Person {
     listSubjects() {
         return `${this.favSubjects}`;
         };
-    PRAssignment() {
+    PRAssignment(subject) {
         return `${this.name} has submitted a PR for ${subject}.`;
         };
-    sprintChallenge() {
+    sprintChallenge(subject) {
         return `${this.name} has begun sprint challenge on ${subject}.`;
         }; 
     }
@@ -53,11 +53,11 @@ class Person {
             this.gradClassName = projectManangerattributes.gradClassName;
             this.favInstructor = projectManangerattributes.favInstructor;
         }
-        standUp() {
+        standUp(channel) {
             return `${this.name} announces to ${channel}, @channel standy times!`;
             };
-        debugsCode() {
-            return `${this.name} debugs ${this.name}'s code on ${subject}.`;
+        debugsCode(Student, subject) {
+            return `${this.name} debugs ${Student.name}'s code on ${subject}.`;
             };
         } 
         
@@ -73,8 +73,8 @@ class Person {
           });
 
 
-          const fred = new Student({
-            name: 'Fred',
+          const bob = new Student({
+            name: 'Bob',
             location: 'Bedrock',
             age: 37,
             gender: 'male',
@@ -89,7 +89,6 @@ class Person {
             location: 'Bedrock',
             age: 37,
             gender: 'male',
-            favLanguage: 'JavaScript',
-            specialty: 'Front-end',
-            catchPhrase: `Don't forget the homies`
+            gradClassName: 'CS2',
+            favInstructor: 'Sean'
           });
