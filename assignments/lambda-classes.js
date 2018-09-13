@@ -38,6 +38,12 @@ class Person {
   }
 }
 
+function getRandomInt(min, max) {
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return Math.floor(Math.random() * (max - min)) + min; //The maximum is exclusive and the minimum is inclusive
+}
+
 // Instructor
 // Now that we have a Person as our base class, we'll build our Instructor class.
 // Instructor uses the same attributes that have been set up by Person
@@ -62,6 +68,11 @@ class Instructor extends Person {
   grade(Student, subject) {
     console.log `${Student.name} receives a perfect score on ${subject}.`;
   }
+  points(Student, points) {
+    points = getRandomInt(-10,11);
+    Student.grade = Student.grade + points;
+    console.log `${this.name} has changed ${Student.name}'s grade to ${Student.grade}.`;
+  }
 }
 
 // Student
@@ -82,6 +93,7 @@ class Student extends Person {
     this.previousBackground = studentproperty.previousBackground;
     this.className = studentproperty.className;
     this.favSubjects = studentproperty.favSubjects;
+    this.grade = studentproperty.grade;
   }
   listSubjects() {
     this.favSubjects.forEach(function(element) {
@@ -94,6 +106,14 @@ class Student extends Person {
   }
   sprintChallenge(subject) {
     console.log `${this.name} has begun sprint challenge on ${subject}.`;
+  }
+  graduate() {
+    if (this.grade >= 70) {
+      console.log `${this.name} is ready to graduate with a grade of ${this.grade}, congratulations!`
+    }
+    else { 
+      console.log `${this.name} needs to review and attempt the sprint challenge again. Their current grade is:${this.grade}. Time to study!`
+    }
   }
 }
 
@@ -162,7 +182,8 @@ const fred = new Instructor({
     catchPhrase: `You ready?`,
     previousBackground: 'teaching',
     className: 'FSW14',
-    favSubjects: ['HTML/CSS', 'Javascript', 'BJJ', 'math']
+    favSubjects: ['HTML/CSS', 'Javascript', 'BJJ', 'math'],
+    grade: 95
   });
 
   const diego = new Student({
@@ -175,7 +196,8 @@ const fred = new Instructor({
     catchPhrase: `Eyyyyyyyyyyy`,
     previousBackground: 'accounting',
     className: 'FSW15',
-    favSubjects: ['taxes', 'music', 'python', 'ruby']
+    favSubjects: ['taxes', 'music', 'python', 'ruby'],
+    grade: 20
   });
 
   const arya = new Student({
@@ -187,6 +209,7 @@ const fred = new Instructor({
     specialty: 'swordplay',
     catchPhrase: `Not today.`,
     previousBackground: 'princess',
+    grade: 70,
     className: 'FSW16',
     favSubjects: ['revenge', 'swordfighting', 'stealth']
   });
@@ -236,6 +259,11 @@ wolverine.standUp('FSW15-Wolverine');
 turk.debugsCode(elvis, 'Javascript IV');
 arya.speak();
 peach.standUp('FSW-16-Peach');
+peach.points(arya);
+elvis.graduate();
+diego.graduate();
+arya.graduate();
+
 
 // Stretch Problem
 // Extend the functionality of the Student by adding a prop called grade and setting it equal to a number between 1-100.
@@ -243,3 +271,6 @@ peach.standUp('FSW-16-Peach');
 // Add a graduate method to a student.
 // This method, when called, will check the grade of the student and see if they're ready to graduate from Lambda School
 // If the student's grade is above a 70% let them graduate! Otherswise go back to grading their assignments to increase their score.
+
+
+
