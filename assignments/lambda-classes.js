@@ -79,7 +79,7 @@ const scully = new Instructor ({
   location: 'Alexandria',
   age: 53,
   gender: 'female',
-  favLanguage: 'C',
+  favLanguage: 'Python',
   specialty: 'Autopsies',
   catchPrase: 'Sure. Fine. Whatever.',
 });
@@ -89,7 +89,7 @@ const frohike = new Instructor ({
   location: 'Anacostia',
   age: 57,
   gender: 'male',
-  favLanguage: 'Python',
+  favLanguage: 'LOLCODE',
   specialty: 'Tango',
   catchPrase: 'They\'re always listening',
 });
