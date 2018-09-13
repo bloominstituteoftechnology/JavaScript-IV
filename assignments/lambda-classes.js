@@ -28,6 +28,30 @@ class Instructor extends Person {
   grade(student, subject) {
     console.log(`${student.name} receives a perfect score on ${subject}`)
   }
+
+  alterGrade(student) {
+    // generate random number between -10 and 10
+    const gradeChange = Math.floor(Math.random() * 20) - 10
+
+    // set new score and bound it between 0 and 100
+    student.grade =
+      student.grade + gradeChange > 100
+        ? 100
+        : student.grade + gradeChange < 0
+          ? 0
+          : student.grade + gradeChange
+
+    // log whether the student's score increased, decreased, or stayed the same
+    console.log(
+      gradeChange > 0
+        ? `${this.name} adds ${gradeChange} points to ${student.name}'s score.`
+        : gradeChange < 0
+          ? `${this.name} removes ${Math.abs(gradeChange)} points from ${
+              student.name
+            }'s score.`
+          : `${this.name} does not alter ${student.name}'s score.`
+    )
+  }
 }
 
 class Student extends Person {
@@ -36,6 +60,8 @@ class Student extends Person {
     this.previousBackground = attributes.previousBackground
     this.className = attributes.className
     this.favSubjects = attributes.favSubjects
+    this.grade = Math.floor(Math.random() * 100)
+    this.graduated = false
   }
 
   listSubjects() {
@@ -48,6 +74,17 @@ class Student extends Person {
 
   sprintChallenge(subject) {
     console.log(`${this.name} has begun sprint challenge on ${subject}`)
+  }
+
+  graduate() {
+    if (this.graduated === true) {
+      console.log(`${this.name} already graduated!`)
+    } else if (this.grade >= 70) {
+      this.graduated = true
+      console.log(`${this.name} graduates!`)
+    } else {
+      console.log(`${this.name} is not ready to graduate. Sorry!`)
+    }
   }
 }
 
@@ -161,3 +198,15 @@ Constantine.sprintChallenge('CSS Least')
 console.log(GiantSquid.age)
 GiantSquid.standUp('#PM-GiandSquid')
 Tiger.debugsCode(Constantine, 'Ruling')
+
+// stretch testing
+console.log(Constantine.grade)
+Glorthox.alterGrade(Constantine)
+console.log(Constantine.grade)
+
+Jeff.graduate()
+
+while (Jeff.graduated === false) {
+  Zergle.alterGrade(Jeff)
+  Jeff.graduate()
+}
