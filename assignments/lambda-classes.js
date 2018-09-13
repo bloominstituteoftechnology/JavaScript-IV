@@ -33,6 +33,20 @@ constructor (Iattributes) {
 class Student extends Person {
     constructor (Sattributes) {
         super (Sattributes);
-        
+        this.previousBackground = Sattributes.previousBackground;
+        this.className = Sattributes.className;
+        this.favSubjects = Sattributes.favSubjects;
+    }
+    listsSubjects() {
+        return `${this.favSubjects}`
+    }
+
+    PRAssignment(subject) {
+        return `${this.student.name} has submitted a PR for ${this.subject}`
+    }
+
+    sprintChallenge(subject) {
+        return `${this.student.name} has begun sprint challenge on ${this.subject}`
     }
 }
+
