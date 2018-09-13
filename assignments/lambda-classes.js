@@ -118,15 +118,45 @@ const mickey = new Student({
     'gender': 'M',
     'previousBackground': 'Animation',
     'className': 'FSW14',
-    'favSubjects': ['Art', '', 'Javascript'],
+    'favSubjects': ['Art', 'Animation', 'Drawing'],
 });
 
-const david = new Student({
-    'name': 'David',
-    'age': 22,
-    'location': 'Texas',
+const liam = new Student({
+    'name': 'Liam',
+    'age': 100,
+    'location': 'Space',
     'gender': 'M',
-    'previousBackground': 'Customer Service',
-    'className': 'FSW14',
-    'favSubjects': ['HTML', 'CSS', 'Javascript'],
+    'previousBackground': 'Astronaut',
+    'className': 'SpaceX',
+    'favSubjects': ['Space', 'Galaxy', 'Universe'],
+});
+
+// Project Managers
+
+const keenan = new ProjectManagers({
+    'name': 'Keenan',
+    'age': 26,
+    'location': 'Washington',
+    'gender': 'M',
+    'gradClassName': 'CS12',
+    'favInstructor': 'Josh',
+});
+
+const joe = new ProjectManagers({
+    'name': 'Joe',
+    'age': 29,
+    'location': 'New York',
+    'gender': 'M',
+    'gradClassName': 'CS12',
+    'favInstructor': 'Dan',
+
+});
+
+const liam = new ProjectManagers({
+    'name': 'Liam',
+    'age': 100,
+    'location': 'Space',
+    'gender': 'M',
+    'gradClassName': 'CS12',
+    'favInstructor': 'Ken',
 });
