@@ -78,11 +78,16 @@ class Instructor extends Person {
     grade (student, subject) {
         return `${student.name} receives a perfect score on ${subject}`;
     }
+    gradeChange (student) {
+        student.graded += Math.random()*100-50;
+        return student.graded;
+    }
 }
 
 class Student extends Person {
     constructor(studentInfo) {
         super(studentInfo);
+        this.graded = studentInfo.graded;
         this.previousBackground = studentInfo.previousBackground;
         this.className = studentInfo.className;
         this.favSubjects = studentInfo.favSubjects;
@@ -95,6 +100,18 @@ class Student extends Person {
     }
     sprintChallenge (subject) {
         return `${this.name} has has begun sprint challenge on ${subject}`;
+    }
+    graduate (instructor) {
+        if(this.graded > 70){
+            console.log( `~~Congrats! You graduate!~~`);
+        }
+        else {
+            while(this.graded <70) {
+                console.log (`Your grade is ${this.graded}. You need a 70 or higher to graduate. Try again!`);
+                instructor.gradeChange(this);
+            }
+            console.log( `~~Congrats! You graduate!~~`);
+        }
     }
 }
 
@@ -152,6 +169,7 @@ const arya = new Student({
     age: 16,
     location: 'Winterfell',
     gender: 'female',
+    graded: 98,
     specialty: 'Switching faces',
     favLanguage: 'English',
     catchPhrase: 'The North remembers',
@@ -164,6 +182,7 @@ const bran = new Student({
     age: 14,
     location: 'Winterfell',
     gender: 'male',
+    graded: 78,
     specialty: 'Mind Control',
     favLanguage: 'English',
     catchPhrase: '*Stares Intently*',
@@ -181,24 +200,21 @@ const tormund = new ProjectManager({
     favLanguage: 'Wilding',
     catchPhrase: 'Where\'s Brianne?',
     previousBackground: 'Wildling training',
-    className: 'none',
-    favSubjects: 'Killing all enemies'
+    gradClassName: 'none',
+    favInstructor: 'Meli'
 })
 const gendry = new ProjectManager({
     name: 'Gendry',
-    age: 22,
+    age: '∞',
     location: 'King\'s Landing',
     gender: 'male',
     specialty: 'BlackSmith',
     favLanguage: 'English',
     catchPhrase: 'I didn\'t ask for any of this',
     previousBackground: 'Somehow really good at everything?',
-    className: 'N/A',
-    favSubjects: 'Rowing'
+    gradClassName: 'N/A',
+    favInstructor: 'Jamie'
 })
-
-
-
 
 
 //Tests
@@ -210,6 +226,8 @@ console.log(bran.sprintChallenge('Prototypes'));
 console.log(jamie.grade(arya, 'Murdering!'));
 console.log(gendry.standUp('fsw14'));
 console.log(tormund.debugsCode(bran, 'JavaScript'));
+console.log(jamie.gradeChange(bran));
+bran.graduate(jamie);
 
 
 // #### Stretch Problem
