@@ -40,14 +40,14 @@ class Student extends Person {
   }
 
   listSubjects() {
-    this.favSubjects.forEach(subject => console.log(subject));
+    return `These are my favoirte subjects: ${this.favSubjects}`;
   }
 
   PRAssignment(subject) {
     return `${this.name} has submitted a PR for ${subject}`;
   }
 
-  sprintChallenge() {
+  sprintChallenge(subject) {
     return `${this.name} has begun sprint challenge on ${subject}`;
   }
 }
@@ -131,3 +131,12 @@ const dwight = new ProjectManager({
   gradClassName: 'FSW-1',
   favInstructor: michael
 });
+
+console.log(dwight.speak());
+console.log(josh.demo('JavaScript'));
+console.log(michael.grade('JavaScript', pam));
+console.log(ryan.listSubjects());
+console.log(ryan.PRAssignment('CSS'));
+console.log(pam.sprintChallenge('React'));
+console.log(jim.standUp('FSW-14'));
+console.log(jim.debugCode(ryan, 'Express'));
