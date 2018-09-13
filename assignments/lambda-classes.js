@@ -29,6 +29,17 @@ class Instructor extends Person {
   grade(subject, student) {
     return `${student.name} receives a perfect score on ${subject}`;
   }
+
+  score(student) {
+    const randomNum = Math.floor(Math.random() * 100);
+    // return student.grade += randomNum;
+
+    if (randomNum + student.grade > 100 && randomNum - student.grade >= 0) {
+      return (student.grade -= randomNum);
+    } else if (randomNum + student.grade <= 100) {
+      return (student.grade += randomNum);
+    }
+  }
 }
 
 class Student extends Person {
@@ -37,6 +48,7 @@ class Student extends Person {
     this.previousBackground = studentProps.previousBackground;
     this.className = studentProps.className;
     this.favSubjects = studentProps.favSubjects;
+    this.grade = studentProps.grade;
   }
 
   listSubjects() {
@@ -99,7 +111,8 @@ const ryan = new Student({
   gender: 'male',
   previousBackground: 'Music',
   className: 'FSW-14',
-  favSubjects: ['LESS', 'JavaScript', 'React', 'Express', 'Responsive Design']
+  favSubjects: ['LESS', 'JavaScript', 'React', 'Express', 'Responsive Design'],
+  grade: 80
 });
 
 const pam = new Student({
@@ -109,7 +122,8 @@ const pam = new Student({
   gender: 'female',
   previousBackground: 'Receptionist',
   className: 'FSW-12',
-  favSubjects: ['CSS', 'LESS', 'Art', 'Design', 'Responsive Design']
+  favSubjects: ['CSS', 'LESS', 'Art', 'Design', 'Responsive Design'],
+  grade: 90
 });
 
 const jim = new ProjectManager({
@@ -140,3 +154,12 @@ console.log(ryan.PRAssignment('CSS'));
 console.log(pam.sprintChallenge('React'));
 console.log(jim.standUp('FSW-14'));
 console.log(jim.debugCode(ryan, 'Express'));
+
+console.log(michael.score(pam));
+console.log(michael.score(pam));
+console.log(michael.score(pam));
+console.log(michael.score(pam));
+console.log(michael.score(pam));
+
+const randomNum = Math.floor(Math.random() * 100);
+console.log((ryan.grade -= randomNum));
