@@ -66,3 +66,73 @@ class PM extends Instructor {
     return `${this.name} debugs ${student.name}'s code on ${subject}.`;
   }
 }
+
+// testing person objects
+const andrew = new Person({
+  name: 'Andrew',
+  age: 40,
+  location: 'Chatanooga',
+  gender: 'male',
+});
+
+console.log(andrew);
+console.log(andrew.speak());
+console.log(console.log(andrew.age));
+
+// instructor objects
+const josh = new Instructor({
+  name: 'Josh',
+  age: 38,
+  location: 'Utah',
+  gender: 'male',
+  favLanguage: 'JavaScript',
+  catchPhrase: 'Whatever the big boss wants.',
+});
+
+const yoda = new Instructor({
+  name: 'Yoda',
+  age: 132,
+  location: 'Dagobah',
+  gender: 'male',
+  favLanguage: 'Yoda-Speak',
+  catchPhrase: 'Do or do not. There is no try.',
+});
+
+const socrates = new Instructor({
+  name: 'Socrates',
+  age: 50,
+  location: 'Athens',
+  gender: 'male',
+  favLanguage: 'Greek',
+  catchPhrase: 'Unexamined code is not worth compiling.',
+});
+
+// student objects
+
+const luke = new Student({
+  name: 'Luke',
+  age: 25,
+  location: 'Tatooine',
+  gender: 'male',
+  favLanguage: 'English',
+  catchPhrase: 'But I was going into Tosche Station to pick up some power converters!',
+});
+
+
+const justin = new Student({
+  name: 'Justin',
+  age: 38,
+  location: 'Oregon',
+  gender: 'male',
+  favLanguage: 'Python',
+  catchPhrase: 'I don\'t have a catchphrase.',
+});
+
+// tests
+[josh, yoda, socrates].forEach(function(instructor) {
+  console.log(instructor);
+  console.log(instructor.demo('JS-IV'));
+  console.log(instructor.grade(justin, 'javascript'));
+});
+
+
