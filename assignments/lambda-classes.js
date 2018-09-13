@@ -9,3 +9,13 @@ class Person {
     speak = () => `Hello my name is ${this.name}, I am from ${this.location}`
 }
 
+class Instructor extends Person {
+    constructor(teacherStuff) {
+        super(teacherStuff);
+        this.specialty = teacherStuff.specialty;
+        this.favLanguage = teacherStuff.favLanguage;
+        this.catchPhrase = teacherStuff.catchPhrase;
+    }
+    demo = (subject) => `Today we are learning about ${subject}`
+    grade = (student, subject) => `${student.name} receives a perfect score on ${subject}`
+}
