@@ -104,7 +104,7 @@ const fred = new Student({
     gender: 'male',
     favSubjects: ['JavaScript','HTML','CSS'],
     className: 'Front-end',
-    previousBackground: `Don't forget the homies`
+    previousBackground: `Painter`
 });
 
 const dan = new Student({
