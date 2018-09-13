@@ -180,6 +180,7 @@ console.log(josh.catchPhrase); //Let's look in the guts of our Children, guys
 josh.speak(); //Hello my name is Josh, I am from Utah
 bizarroJosh.demo("preprocessors"); //Today we are learning about preprocessors
 console.log(adam.favSubjects); // ['JavaScript', 'Html, 'CSS']
+adam.listsSubjects(); // JavaScript //Html //CSS
 feratu.sprintChallenge("Bloodsucking"); // Coach Feratu has begun sprint challenge on Bloodsucking
 jeff.standUp("fsw14_jeff"); //Jeff announces to fsw14_jeff, @channel standy times!
 kamry.debugsCode(adam, "constructors"); //Kamry debugs Adam's code in constructors
