@@ -27,7 +27,13 @@ class Instructor extends Person {
 
 	grade(student, subject) {
 		return `${student.name} recieved a perfect score on ${subject}.`;
-	}
+  }
+  
+  gradeBuildOut(student, min, max) {
+    let num = Math.floor(Math.random() * (max - min + 1)) + min;
+    student.grade += num;
+    return `${student.name}'s grade is now at ${student.grade}%!`;
+  }
 }
 
 class Student extends Person {
@@ -35,7 +41,8 @@ class Student extends Person {
 		super(studentAttrs);
 		this.previousBackground = studentAttrs.previousBackground;
 		this.className = studentAttrs.className;
-		this.favSubjects = studentAttrs.favSubjects;
+    this.favSubjects = studentAttrs.favSubjects;
+    this.grade = studentAttrs.grade;
 	}
 
 	listsSubjects() {
@@ -50,7 +57,16 @@ class Student extends Person {
 
 	sprintChallenge(student, subject) {
 		return `${student.name} has begun sprint challenge on ${subject}.`;
-	}
+  }
+  
+  graduate(student) {
+    if (student.grade > 70) {
+      return `Congratulations! You, ${student.name}, may graduate from Evil Lambda School!`;
+    } else {
+      student.grade += 5;
+      return `Get back to schooling ${student.name}!`;
+    }
+  }
 }
 
 class ProjectManager extends Instructor {
@@ -86,7 +102,8 @@ const butters = new Student({
 	gender: 'male',
 	favLanguage: 'JavaScript',
 	className: 'fsw23',
-	favSubjects: ['tapdancing', 'Professor Chaos', 'singing']
+  favSubjects: ['tapdancing', 'Professor Chaos', 'singing'],
+  grade: 77
 });
 
 const evilLuis = new ProjectManager({
@@ -106,3 +123,7 @@ console.log(butters.PRAssignment(butters, 'React'));
 console.log(butters.sprintChallenge(butters, 'Vue'));
 console.log(evilLuis.standUp('fws23'));
 console.log(evilLuis.debugsCode(butters, 'Vue'));
+console.log(evilJosh.gradeBuildOut(butters, -10, 5));
+console.log(evilLuis.gradeBuildOut(butters, -15, 10));
+console.log(butters.graduate(butters));
+console.log(butters.graduate(butters));
