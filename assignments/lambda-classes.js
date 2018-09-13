@@ -9,7 +9,7 @@ class Person {
 }
 
 speak() {
-  return ` Hello my name is  ${name}, I am from ${location}`;
+  return `Hello my name is  ${this.name}, I am from ${this.location}`
   }
 };
 
@@ -26,7 +26,7 @@ demo(subject) {
   return ` Today we are learning about ${subject}`;
   }
 grade(student,subject) {
-  return ` ${student.name}, receives a perfect score on ${subject}`;
+  return ` ${student}, receives a perfect score on ${subject}`;
   }
 };
 
@@ -39,15 +39,15 @@ class Student extends Person {
 }
 
 listsSubjects() {
- return student.favSubject.toString;
+  return (Object.values(this.favSubject))
   }
   
 PRAssignment(subject) {
-  return ` ${student.name}, has submitted a PR for ${subject}`;
+  return ` ${this.name}, has submitted a PR for ${subject}`;
   }
   
 sprintChallenge(subject) {
-  return ` ${student.name}, has begun sprint challenge for ${subject}`;
+  return ` ${this.name}, has begun sprint challenge for ${subject}`;
   }
 };
 
@@ -64,7 +64,7 @@ standUp(slackChannel) {
   }
   
 debugs(student,subject) {
-  return `${this.name}, debugs ${student.name}'s code on ${subject}`;
+  return `${this.name}, debugs ${student}'s code on ${subject}`;
   }
   
 };
@@ -179,3 +179,28 @@ const ross = new Student ({
       favInstructor: 'Ethel'
       
     });
+
+//person-----
+//speak()
+//instructor-----
+//demo(subject)
+//grade(student,subject)
+//student--------
+//listsSubjects()
+//PRAssignment(subject)
+//sprintChallenge(subject)
+//PM--------
+//standUp(slackChannel)
+//debugs(student,subject)
+
+  console.log(lucy.speak());
+  console.log(ricky.demo('life'));
+  console.log(ethel.grade('bob','webstuff'));
+  
+  console.log(ross.listsSubjects());
+  console.log(pheobe.PRAssignment('html massages'));
+  console.log(monica.sprintChallenge('code cleaning'));
+  
+  console.log(sheridan.standUp('SpaceCoding'));
+  console.log(delenn.debugs( 'Bobby','dinoCode'));
+  console.log(susan.catchPhrase);
