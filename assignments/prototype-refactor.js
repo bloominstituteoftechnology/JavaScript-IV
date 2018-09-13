@@ -11,6 +11,10 @@ GameObject.prototype.destroy = function() {
   return `Object was removed from the game.`;
 };
 
+
+
+
+
 function CharacterStats(characterStatsOptions) {
   GameObject.call(this, characterStatsOptions);
   this.hp = characterStatsOptions.hp;
