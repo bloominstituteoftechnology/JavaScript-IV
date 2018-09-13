@@ -6,6 +6,7 @@ class Person {
         this.name = attributes.name;
         this.age = attributes.age;
         this.location = attributes.location;
+        this.gender = attributes.gender;
     }
     //methods
     speak() {
@@ -15,11 +16,11 @@ class Person {
 
 //instructor class
 class Instructor extends Person{
-    constructor(instOption) {
+    constructor(instAttr) {
         super(InstOption);
-        this.specialty = instOption.specialty;
-        this.favLanguage = instOption.favLanguage;
-        this.catchPhrase = instOption.catchPhrase;
+        this.specialty = instAttr.specialty;
+        this.favLanguage = instAttr.favLanguage;
+        this.catchPhrase = instAttr.catchPhrase;
     }
     //methods
     demo(subject){
@@ -73,6 +74,7 @@ const josh = new Instructor({
     name: "Josh",
     age: 30,
     location: "Utah",
+    gender: "M",
     specialty: "front-end",
     favLanguage: "javascript" ,
     catchPhrase: "special sauce",
@@ -83,18 +85,46 @@ const roger = new Instructor({
     name: "Mr. Rogers",
     age: 55,
     location: "California",
+    gender: "M",
     specialty: "all the things",
     favLanguage: "React",
-    catchPhrase: "Won't you be my neighbor",
+    catchPhrase: "Won't you be my neighbor"
 
 });
 
-const Picard = new Instructor({
+const picard = new Instructor({
     name: "Captain Picard",
     age: 65,
     location: "U.S.S. Enterprise",
+    gender: "M",
     specialty: "data",
     favLanguage: "python",
-    catchPhrase: "Make it so",
+    catchPhrase: "Make it so"
 
 });
+
+//student objects
+
+const mindy = new Student({
+  name: "Mindy",
+  age: 37,
+  location: "San Antonio",
+  gender: "F",
+  previousBackground: "self taught",
+  className: "FSW-14",
+  favSubjects: "Python"
+});
+
+const kevin = new Student({
+    name: "Kevin",
+    age: 35,
+    location: "San Antonio",
+    gender: "M",
+    previousBackground: "self taught",
+    className: "FSW-16",
+    favSubjects: "Raspberry PI"
+});
+
+
+
+
