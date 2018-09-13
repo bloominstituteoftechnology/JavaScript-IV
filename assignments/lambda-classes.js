@@ -34,6 +34,7 @@ class Student extends Person {
         this.previousBackground = studentAttrs.previousBackground;
         this.className = studentAttrs.className;
         this.favSubject = studentAttrs.favSubject;
+        this.grade = studentAttrs.grade;
     }// End of Student Constructor
     // Student Methods
     listsSubject(subjects) {
@@ -89,6 +90,7 @@ const brandon = new Student({
     previousBackground: 'I was working as an automotive tech',
     className: 'FSW14',
     favSubjects: ['HTML', 'CSS', 'JS',],
+    grade: 90,
 });
 const anthony = new Student({
     name: 'Anthony',
@@ -98,6 +100,7 @@ const anthony = new Student({
     previousBackground: 'I was a Uni student',
     className: 'FSW14',
     favSubjects: ['HTML', 'CSS', 'JS',],
+    grade: 30,
 });
 const cesar = new ProjectManagers({
     name: 'Cesar',
