@@ -80,7 +80,7 @@ class Student extends Person {
   constructor(studentproperty) {
     super(studentproperty);
     this.previousBackground = studentproperty.previousBackground;
-    this.classsName = studentproperty.classsName;
+    this.className = studentproperty.className;
     this.favSubjects = studentproperty.favSubjects;
   }
   listSubjects() {
@@ -104,6 +104,129 @@ class Student extends Person {
 // ProjectManangers have the following Methods:
 // standUp a method that takes in a slack channel and logs `{name} announces to {channel}, @channel standy times!​​​​​
 // debugsCode a method that takes in a student object and a subject and logs out {name} debugs {student.name}'s code on {subject}
+
+class ProjectManager extends Instructor {
+  constructor(pmproperty) {
+    super(pmproperty);
+    this.gradClassName = pmproperty.gradClassName;
+    this.favInstructor = pmproperty.favInstructor;
+  }
+  standUp(channel) {
+    console.log(`${this.name} announces to ${channel}, @${channel} stand-up time!`);
+  }
+  debugsCode(Student, subject) {
+    console.log `${this.name} debugs ${Student.name}'s code on ${subject}.`;
+  }
+}
+
+const fred = new Instructor({
+    name: 'Fred',
+    location: 'Bedrock',
+    age: 37,
+    gender: 'male',
+    favLanguage: 'JavaScript',
+    specialty: 'Front-end',
+    catchPhrase: `Don't forget the homies`
+  });
+
+  const josh = new Instructor({
+    name: 'Josh',
+    location: 'USA',
+    age: 36,
+    gender: 'male',
+    favLanguage: 'CSS',
+    specialty: 'Banjo',
+    catchPhrase: `Isn't this awesome guys?`
+  });
+
+  const medusa = new Instructor({
+    name: 'Medusa',
+    location: 'Underworld',
+    age: 999,
+    gender: 'female',
+    favLanguage: 'snake',
+    specialty: 'Turning you into stone',
+    catchPhrase: `:stares:`
+  });
+
+  const elvis = new Student({
+    name: 'Elvis',
+    location: 'Los Angeles',
+    age: 32,
+    gender: 'male',
+    favLanguage: 'the one he is currently learning',
+    specialty: 'walking dogs and bjj',
+    catchPhrase: `You ready?`,
+    previousBackground: 'teaching',
+    className: 'FSW14',
+    favSubjects: ['HTML/CSS', 'Javascript', 'BJJ', 'math']
+  });
+
+  const diego = new Student({
+    name: 'Diego',
+    location: 'Chicago',
+    age: 31,
+    gender: 'male',
+    favLanguage: 'Python',
+    specialty: 'networking',
+    catchPhrase: `Eyyyyyyyyyyy`,
+    previousBackground: 'accounting',
+    className: 'FSW15',
+    favSubjects: ['taxes', 'music', 'python', 'ruby']
+  });
+
+  const arya = new Student({
+    name: 'Arya',
+    location: 'Winterfell',
+    age: 16,
+    gender: 'female',
+    favLanguage: 'silence',
+    specialty: 'swordplay',
+    catchPhrase: `Not today.`,
+    previousBackground: 'princess',
+    className: 'FSW16',
+    favSubjects: ['revenge', 'swordfighting', 'stealth']
+  });
+
+  const wolverine = new ProjectManager({
+    name: 'Wolverine',
+    location: 'New York',
+    age: 38,
+    gender: 'male',
+    favLanguage: 'english',
+    specialty: 'cracking jokes',
+    catchPhrase: `bub.`,
+    gradClassName: 'CS1',
+    favInstructor: 'Professor X',
+  });
+
+  const turk = new ProjectManager({
+    name: 'Turk',
+    location: 'Sacred Heart Medical',
+    age: 35,
+    gender: 'male',
+    favLanguage: 'bro talk',
+    specialty: 'surgery',
+    catchPhrase: `I love brinner`,
+    gradClassName: 'CS2',
+    favInstructor: 'Dr. Surgery',
+  });
+
+  const peach = new ProjectManager({
+    name: 'Princess Peach',
+    location: 'Mushroom Kingdom',
+    age: 20,
+    gender: 'female',
+    favLanguage: 'mushroom',
+    specialty: 'getting kidnapped by Bowser',
+    catchPhrase: `oh no!`,
+    gradClassName: 'CS3',
+    favInstructor: 'Queen of Mushroom Kingdom',
+  });
+
+fred.demo('CSS');
+medusa.grade(elvis,'python');
+arya.listSubjects();
 
 // Stretch Problem
 // Extend the functionality of the Student by adding a prop called grade and setting it equal to a number between 1-100.
