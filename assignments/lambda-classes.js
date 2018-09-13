@@ -57,7 +57,7 @@ class ProjectManagers extends Instructor{
         return `${this.name} announces to ${channel}, @channel standy times!`;
     }
     debugsCode(student, subject){
-        return `${this.name} debugs ${student}'s code on ${subject}`;
+        return `${this.name} debugs ${student.name}'s code on ${subject}`;
     }
 }// End ProjectManagers Class
 
@@ -124,3 +124,9 @@ console.log(kam.debugsCode(hunter, 'JavaScript arrays'));
 //Instructor methods
 console.log(breakJosh.demo('inheritance'));
 console.log(breakJosh.grade(hunter, 'JavaScript Sprint Challenge'));
+
+
+
+console.log(breakJosh.catchPhrase);
+console.log(Josh.catchPhrase);
+console.log(kam.catchPhrase);
