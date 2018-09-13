@@ -42,7 +42,7 @@ class Student extends Person {
         super(studentAttrs);
         this.previousBackground = studentAttrs.previousBackground;
         this.className = studentAttrs.className;
-        this.favSubject = studentAttrs.favSubject;
+        this.favSubjects = studentAttrs.favSubjects;
         this.grade = studentAttrs.grade;
     }// End of Student Constructor
     // Student Methods
