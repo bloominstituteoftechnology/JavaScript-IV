@@ -38,6 +38,8 @@ class Instructor extends Person {
       return (student.grade -= randomNum);
     } else if (randomNum + student.grade <= 100) {
       return (student.grade += randomNum);
+    } else {
+      return (student.grade += 1);
     }
   }
 }
@@ -62,9 +64,17 @@ class Student extends Person {
   sprintChallenge(subject) {
     return `${this.name} has begun sprint challenge on ${subject}`;
   }
+
+  graduate() {
+    if (this.grade >= 70) {
+      return `${this.name} is ready to graduate!`;
+    } else {
+      return `${this.name} needs some more work!`;
+    }
+  }
 }
 
-class ProjectManager extends Person {
+class ProjectManager extends Instructor {
   constructor(pmProps) {
     super(pmProps);
     this.gradClassName = pmProps.gradClassName;
@@ -155,11 +165,8 @@ console.log(pam.sprintChallenge('React'));
 console.log(jim.standUp('FSW-14'));
 console.log(jim.debugCode(ryan, 'Express'));
 
-console.log(michael.score(pam));
-console.log(michael.score(pam));
-console.log(michael.score(pam));
-console.log(michael.score(pam));
-console.log(michael.score(pam));
+console.log(jim.score(ryan));
+console.log(jim.score(ryan));
+console.log(jim.score(ryan));
 
-const randomNum = Math.floor(Math.random() * 100);
-console.log((ryan.grade -= randomNum));
+console.log(ryan.graduate());
