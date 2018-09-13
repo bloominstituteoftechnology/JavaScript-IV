@@ -23,6 +23,9 @@ class Instructor extends Person {
   grade(student, subject) {
     return `${student.name} receives a perfect score on ${subject}`;
   }
+  changeGrade(student) {
+    student.grade ['+','-'][Math.floor(Math.random() * 2)]= Math.floor(Math.random() * 11)
+  }
 }
 
 class Student extends Person {
@@ -31,6 +34,7 @@ class Student extends Person {
     this.previousBackground = studentProps.previousBackground;
     this.className = studentProps.className;
     this.favSubjects = studentProps.favSubjects;
+    this.grade = 88;
   }
   listSubjects() {
     return this.favSubjects.forEach(subject => subject);
@@ -40,6 +44,9 @@ class Student extends Person {
   }
   sprintChallenge(subject) {
     return `${this.name} has begun sprint challenge on ${subject}`;
+  }
+  graduate() {
+    return this.grade > 70 ? `You've graduated! Congrats!` : `Get back to your studies scrub!`;
   }
 }
 
