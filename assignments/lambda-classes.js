@@ -19,3 +19,16 @@ class Instructor extends Person {
     demo = (subject) => `Today we are learning about ${subject}`
     grade = (student, subject) => `${student.name} receives a perfect score on ${subject}`
 }
+
+class Student extends Person {
+    constructor(studentStuff) {
+        super(studentStuff);
+        this.previousBackground = studentStuff.previousBackground;
+        this.className = studentStuff.className;
+        this.favSubjects = studentStuff.favSubjects;
+    }
+    listsSubjects = () => `...${studentStuff.favSubjects}`
+    PRAssignment = (subject) => `${student.name} has submitted a PR for ${subject}`
+    sprintChallenge = (subject) => `${student.name} has begun sprint challenge on ${subject}`
+}
+
