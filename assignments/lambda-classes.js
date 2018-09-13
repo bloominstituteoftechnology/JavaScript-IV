@@ -28,6 +28,10 @@ class Instructor extends Person {
     grade(student, subject) {
      return (`${student.name} receives a perfect score on ${subject}`)
     }
+    reviewGrade(student, number) {
+        return (student.grade + Math.floor(Math.random()*10) - number)
+    }
+
 }
 
 // ================== Descendent of Person =======================
@@ -37,9 +41,10 @@ class Student extends Person {
         this.previousBackground = studentAboutMe.previousBackground;
         this.className = studentAboutMe.className;
         this.favSubjects = studentAboutMe.favSubjects;
+        this.grade = Math.ceil(Math.random() * 100);
     }
     listsSubjects() {
-        return (`${this.favSubjects}`)
+        return `${this.favSubjects}`
     }
     PRAssignment(student, subject) {
         return (`${student.name} has submitted a PR for ${subject}`)
@@ -48,6 +53,18 @@ class Student extends Person {
         return (`${student.name} has begun a sprint challenge on ${subject}`)
     }
 }
+    // graduate(student) {
+    //     if (student.grade >= 70) {
+    //     return `You graduated!`
+    // }
+    //     } else {
+    //     return `Keep working.`
+    //     }
+     
+    
+ 
+
+
 
 // ================== Heritage Chain: Instructor --> Person =======================
 class ProjectManager extends Instructor {
@@ -141,6 +158,8 @@ console.log(jordan.speak());
 console.log(jordan.listsSubjects());
 console.log(jordan.PRAssignment(jordan, 'Class Syntax'));
 console.log(jordan.sprintChallenge(jordan, 'Javascript Fundamentals'));
+// console.log(jordan.graduate(jordan));
+
 
 console.log(jasmine);
 console.log(jasmine.speak());
@@ -153,8 +172,11 @@ console.log(cesar);
 console.log(cesar.speak());
 console.log(cesar.standUp('fsw_cesar'));
 console.log(cesar.debugsCode(jordan, 'Class Syntax'));
+console.log(cesar.reviewGrade(jordan, 10))
+
 
 console.log(allen);
 console.log(allen.speak());
 console.log(allen.standUp('fsw14_PMs'));
 console.log(allen.debugsCode(jordan, 'flexbox'));
+console.log(allen.reviewGrade(jasmine, 10))
