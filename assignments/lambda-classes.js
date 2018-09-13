@@ -56,17 +56,13 @@ class Student extends Person {
     console.log(`${this.name} has begun sprint challenge on ${subject}`)
   };
   graduate(inst){
-    if (this.grade >= 70){
-      this.status = 'Graduate';
-      console.log(`Congratulations, ${this.name}! You are now a graduate!`);
-    }
-    else {
       while (this.grade < 70){
         console.log( `Really dive into your studies, ${this.name}. I know you can do it!`);
         inst.gradeStudent(this);
     }
+    this.status = 'Graduate';
+    console.log(`Congratulations, ${this.name}! You are now a graduate!`);
     }
-  }
 }//end Student
 
 class ProjectManager extends Instructor {
