@@ -32,11 +32,17 @@ class Student extends Person {
         this.className = studentAttributes.className;
         this.favSubjects = studentAttributes.favSubjects;
     }
-    listsSubjects() {
-        for (let i = 0; i < favSubjects.length; i++) {
-            return favSubjects[i];
+    
+    listsSubjects(favSubjects) {
+        let subjectsList = "";
+
+        for(let i = 0; i < this.favSubjects.length; i++) {
+            subjectsList += (this.favSubjects[i] + ", ");
         }
+
+        return subjectsList;
     }
+    
     PRAssignment(subject) {
         return (`${this.name} has submitted a PR for ${subject}.`);
     }
@@ -82,7 +88,8 @@ const michael = new Instructor({
 });
 
 console.log(rachel.speak());
-console.log(rachel.demo("the JavaScript 'Prototype' object"))
+console.log(rachel.demo("the JavaScript 'Prototype' object"));
+//console.log(rachel.grade(nick, "JavaScript-III"));
 //End list of Instructors and Instructor tests.
 
 //Project Managers listed below:
@@ -113,6 +120,7 @@ const julia = new ProjectManager({
 console.log(dylan.speak());
 console.log(dylan.demo("JavaScript Inheritance"));
 console.log(dylan.standup("fsw14_dylan"));
+
 console.log(julia.speak());
 console.log(julia.demo("JavaScript Arrays"));
 console.log(julia.standup("fsw12_julia"));
@@ -126,7 +134,34 @@ const nick = new Student({
     gender: "male",
     previousBackground: "math teacher",
     className: "CS12",
-    favSubjects: ["Algorithms", ""]
-
-
+    favSubjects: ["Algorithms", "CSS", "AI"],
 });
+
+const haley = new Student({
+    name: "Haley",
+    location: "Emerald Isle",
+    age: 19,
+    gender: "female",
+    previousBackground: "college student",
+    className: "CS14",
+    favSubjects: [],
+});
+
+console.log(nick.speak());
+console.log(nick.listsSubjects());
+console.log(nick.PRAssignment("JavaScript-III"));
+console.log(nick.PRAssignment("JavaScript-III"));
+console.log(nick.sprintChallenge("Javascript"));
+
+console.log(haley.speak());
+console.log(haley.listsSubjects());
+console.log(haley.PRAssignment("Flexbox-II"));
+console.log(haley.sprintChallenge("Advanced CSS"));
+
+
+
+console.log(dylan.debugsCode(nick, "JavaScript-III"));
+console.log(julia.debugsCode(haley, "Flexbox-II"));
+
+console.log(rachel.grade(nick, "JavaScript-III"));
+console.log(michael.grade(haley, "Flexbox-II"));
