@@ -23,9 +23,9 @@ class Instructor extends Person {
   }
   // Methods go here:
   getGrade(student) {
-    const randomNum = Math.floor(Math.random() * Math.floor(15) + 1);
+    const randomNum = Math.floor(Math.random() * Math.floor(30) + 1);
     let newGrade = student - randomNum;
-    console.log(newGrade);
+    return newGrade;
   }
   demo(subject) {
     console.log(`Today we are learning about ${subject}.`);
@@ -45,6 +45,13 @@ class Student extends Person {
     this.grade = studAttr.grade;
   }
   // Methods go here:
+  graduate(student) {
+    if (student < 70) {
+      console.log(`${this.name} cannot graduate 😭 with a  ${student}`);
+    } else {
+      console.log(`${this.name} can graduate 🔥🔥🔥 with a  ${student}`);
+    }
+  }
   listSubjects() {
     console.log(`${this.name}'s favorite subjects are ${this.favSubjects}.`);
   } // end of listSubjects
@@ -104,7 +111,7 @@ const carlos = new Student({
   previousBackground: 'Quality Inspector',
   className: 'FSW14',
   favSubjects: ['JavaScript', 'ReactJS', 'Node'],
-  grade: 97
+  grade: 40
 });
 
 const theRock = new Student({
@@ -147,3 +154,4 @@ const wonderWoman = new ProjectManager({
 });
 
 christopher.getGrade(carlos.grade);
+carlos.graduate(christopher.getGrade(carlos.grade)); // Grades student to see if they graduate or not
