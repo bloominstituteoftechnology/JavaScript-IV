@@ -34,13 +34,14 @@ class Student extends Person {
         this.className = studentAttributes.className;
         this.favSubjects = studentAttributes.favSubjects;
     };
-    listsSubjects(subjects) {
+    listsSubjects() {
+        let subjects = this.favSubjects;
         subjects.forEach(subject => console.log(subject));
     };
-    PRAssignment(subject) {
+    PRAssignment(student, subject) {
         return `${this.name} has submitted a PR for ${subject}`;
     };
-    sprintChallenge(subject) {
+    sprintChallenge(student, subject) {
         return `${this.name} has begun sprint challenge on ${subject}`;
     };
 };
@@ -51,7 +52,7 @@ class Project_Manager extends Instructor {
         this.gradClassName = pmAttributes.gradClassName;
         this.favInstructor = pmAttributes.favInstructor;
     };
-    standUp(channel) {
+    standUp(student, channel) {
         return `${this.name} announces to ${channel} @channel standy times!`;
     };
     debugsCode(student, subject) {
@@ -90,7 +91,7 @@ const laura = new Instructor({
 });
 
 const jake = new Student({
-  name: "jake",
+  name: "Jake",
   age: 20,
   location: "Nevada",
   gender: "male",
@@ -189,6 +190,8 @@ console.log(todd.speak());
 console.log(susan.speak());
 */
 
+// checking the demo methods
+/*
 // ============ instructors
 console.log(fred.demo('Javascript'));
 console.log(bob.demo('HTML'));
@@ -198,15 +201,53 @@ console.log(laura.demo('CSS'));
 console.log(leslie.demo('Ruby'));
 console.log(todd.demo('Python'));
 console.log(susan.demo('Javascript'));
+*/
 
-// person - speak;
-// instructor - demo(subject), grade(student, subject);
-// student - listsSubjects(subjects),
-//   PRAssignment(subject),
-//   sprintChallenge(subject);
-// pm - standup(channel), debugsCode(student, subject);
+// checking grade methods
+/*
+// ============ instructors
+console.log(fred.grade(jake, 'Javascript'));
+console.log(bob.grade(fran, 'HTML'));
+console.log(laura.grade(amber, 'CSS'));
 
-// students - jake, fran, amber
-// instrctors - fred, bob, laura
-// pm - todd, leslie, susan
+// ============ project managers
+console.log(leslie.grade(amber, 'Ruby'));
+console.log(todd.grade(fran, 'Python'));
+console.log(susan.grade(jake, 'Javascript'));
+*/
+
+//check listSubjects methods
+/*
+console.log(jake.listsSubjects());
+console.log(fran.listsSubjects());
+console.log(amber.listsSubjects());
+*/
+
+// check PRAssignment methods
+/*
+console.log(jake.PRAssignment(this, 'HTML'));
+console.log(fran.PRAssignment(this, 'Javascript'));
+console.log(amber.PRAssignment(this, 'CSS'));
+*/
+
+// check sprintChallenge methods
+/*
+console.log(jake.sprintChallenge(this, 'Javascript'));
+console.log(fran.sprintChallenge(this, 'HTML'));
+console.log(amber.sprintChallenge(this, 'CSS'));
+*/
+
+// check standUp methods
+/*
+console.log(leslie.standUp(this, 'Super Awesome Channel'));
+console.log(todd.standUp(this, 'Super Awesome Help'));
+console.log(susan.standUp(this, 'Super General'));
+*/
+
+// check debugsCode methods
+/*
+console.log(leslie.debugsCode(jake, "HTML"));
+console.log(todd.debugsCode(fran, "CSS"));
+console.log(susan.debugsCode(amber, "Javascript"));
+*/
 
