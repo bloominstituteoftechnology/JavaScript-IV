@@ -6,7 +6,7 @@ class Person {
         this.location = attributes.location;
     }
     speak() {
-        return (`Hello my name is ${this.name}, I am from ${this.location}`);
+        return (`Hello my name is ${this.name}, I am from ${this.location}.`);
     }
 }
 
@@ -18,10 +18,10 @@ class Instructor extends Person {
         this.catchPhrase = instructorAttributes.catchPhrase;
     }
     demo(subject) {
-        return (`Today we are learning about ${subject}`);
+        return (`Today we are learning about ${subject}.`);
     }
     grade(student, subject) {
-        return (`${student.name} receives a perfect score on ${subject}`);
+        return (`${student.name} receives a perfect score on ${subject}.`);
     }
 }
 
@@ -38,10 +38,10 @@ class Student extends Person {
         }
     }
     PRAssignment(subject) {
-        return (`${this.name} has submitted a PR for ${subject}`);
+        return (`${this.name} has submitted a PR for ${subject}.`);
     }
     sprintChallenge(subject) {
-        return (`${this.name} has begun sprint challenge on ${subject}`);
+        return (`${this.name} has begun sprint challenge on ${subject}.`);
     }
 }
 
@@ -55,12 +55,12 @@ class ProjectManager extends Instructor {
         return (`${this.name} announces to ${channel}, @channel standy times!`);
     }
     debugsCode(student, subject) {
-        return (`${this.name} debugs ${student.name}'s code on ${subject}`);
+        return (`${this.name} debugs ${student.name}'s code on ${subject}.`);
     }
 }
 
 
-//Instructors listed below
+//Instructors listed below:
 const rachel = new Instructor({
     name: "Rachel",
     location: "Raleigh",
@@ -77,7 +77,56 @@ const michael = new Instructor({
     age: 29,
     gender: "male",
     favLanguage: "Java",
-    specialty: ""
+    specialty: "Automation",
+    catchPhrase: "We're gonna need a bigger boat."
+});
+
+console.log(rachel.speak());
+console.log(rachel.demo("the JavaScript 'Prototype' object"))
+//End list of Instructors and Instructor tests.
+
+//Project Managers listed below:
+const dylan = new ProjectManager({
+    name: "Dylan",
+    location: "Charlotte",
+    age: 33,
+    gender: "male",
+    favLanguage: "JavaScript",
+    specialty: "Back-end",
+    catchPhrase: "Open the pod bay doors, HAL!",
+    gradClassName: "CS4",
+    favInstructor: "Jake"
+});
+
+const julia = new ProjectManager({
+    name: "Julia",
+    location: "Jacksonville",
+    age: 26,
+    gender: "female",
+    favLanguage: "Ruby",
+    specialty: "Front-end",
+    catchPhrase: "Danger, Will Robinson!",
+    gradClassName: "CS8",
+    favInstructor: "Michael"
+});
+
+console.log(dylan.speak());
+console.log(dylan.demo("JavaScript Inheritance"));
+console.log(dylan.standup("fsw14_dylan"));
+console.log(julia.speak());
+console.log(julia.demo("JavaScript Arrays"));
+console.log(julia.standup("fsw12_julia"));
+//End list of Project Managers and PM tests.
+
+//Students listed below:
+const nick = new Student({
+    name: "Nick",
+    location: "Wilmington",
+    age: 42,
+    gender: "male",
+    previousBackground: "math teacher",
+    className: "CS12",
+    favSubjects: ["Algorithms", ""]
 
 
 });
