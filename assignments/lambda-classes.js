@@ -31,7 +31,7 @@ class Instructor extends Person {
   }
 
   score(student) {
-    const randomNum = Math.floor(Math.random() * 100);
+    const randomNum = Math.floor(Math.random() * 25);
     // return student.grade += randomNum;
 
     if (randomNum + student.grade > 100 && randomNum - student.grade >= 0) {
@@ -165,8 +165,6 @@ console.log(pam.sprintChallenge('React'));
 console.log(jim.standUp('FSW-14'));
 console.log(jim.debugCode(ryan, 'Express'));
 
-console.log(jim.score(ryan));
-console.log(jim.score(ryan));
 console.log(jim.score(ryan));
 
 console.log(ryan.graduate());
