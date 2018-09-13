@@ -23,6 +23,17 @@ class Instructors extends Person{
     grade(student, subject){
         return `${student.name} receives a perfect score on ${subject}`;
     }
+    gradeAssignment(student){
+        const plusOrMinus= function(){
+            if(Math.random()>0.5){
+                return -1;
+            }
+            else{
+                return 1;
+            }
+        }
+        student.grade= student.grade+(Math.random()*100);
+    }
 }
 class Student extends Person{
     constructor(studentAttr){
@@ -30,6 +41,7 @@ class Student extends Person{
         this.previousBackground= studentAttr.previousBackground;
         this.className= studentAttr.className;
         this.favSubjects= studentAttr.favSubjects;
+        this.grade=Math.random()*100;
     }
     listSubjects(){
         return this.favSubjects.forEach(function(item){
@@ -41,6 +53,18 @@ class Student extends Person{
     }
     sprintChallenge(subject){
         return `${this.name} has begun sprint challenge on ${subject}`;
+    }
+    graduate(Instructors){
+        if(this.grade<70){
+            while(this.grade <70){
+                Instructors.gradeAssignment(this);
+                console.log("score too low, do more assignments")
+        }
+        return `Re-Grading ...`;
+        }
+        else{
+            return `Graduated`;
+        }
     }
 }
 class ProjectManager extends Instructors{
