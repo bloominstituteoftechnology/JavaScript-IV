@@ -65,6 +65,9 @@ class Humanoid extends CharacterStats {
       this.weapons = humanoidOptions.weapons;
       this.language = humanoidOptions.language;
   }
+  greet(){
+    return `${this.name} offers a greeting in ${this.language}.`
+  }
 }
 
 const mage = new Humanoid({
