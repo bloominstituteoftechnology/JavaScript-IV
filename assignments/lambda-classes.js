@@ -14,12 +14,13 @@ class Person {
 
 class Instructor extends Person {
     constructor (instructoroptions){
+        super(instructoroptions);
         this.specialty = instructoroptions.specialty;
         this.favLanguage = instructoroptions.favLanguage;
         this.catchPhrase = instructoroptions.catchPhrase;
     }
 
-    demo() {
+    demo(subject) {
         return `Today we are learning about {subject}`;
     }
 
@@ -30,6 +31,7 @@ class Instructor extends Person {
 
 class Student extends Person {
     constructor (studentoptions){
+        super(studentoptions);
         this.previousBackground = studentoptions.previousBackground;
         this.className = studentoptions.className;
         this.favSubjects = studentoptions.favSubjects;
@@ -46,12 +48,13 @@ class Student extends Person {
 
 class ProjectManagers extends Instructor {
     constructor (projectmanagersoptions){
+        super(projectmanagersoptions);
         this.gradClassName = projectmanagersoptions.gradClassName;
         this.favInstructor = projectmanagersoptions.favInstructor;
     }
 
-    standUp() {
-        return `${this.name} announces to {channel}, @channel standby times!`;
+    standUp(channel) {
+        return `${this.name} announces to ${channel}, @channel standby times!`;
     }
 
     debugsCode() {
@@ -59,11 +62,47 @@ class ProjectManagers extends Instructor {
     }
 }
 
-// const josh = new Person({
-//     name: Josh,
-//     age: 30,
-//     location: Utah,
-//     gender: male,
-// });
+const jim = new Person({
+    name: 'Jim',
+    age: 45,
+    location: 'Utah',
+    gender: 'male',
 
-// josh(speak);
+});
+
+const victoria = new Person({
+    name: 'Victoria',
+    age: 45,
+    location: 'Utah',
+    gender: 'male',
+
+});
+const josh = new Instructor({
+    name: 'Josh',
+    age: 30,
+    location: 'Utah',
+    gender: 'male',
+    favLanguage: 'JavaScript',
+    specialty: 'Front-end',
+    catchPhrase: 'Don\'t forget the homies'
+});
+
+const bob = new Instructor({
+    name: 'Bob',
+    age: 30,
+    location: 'Florida',
+    gender: 'male',
+    favLanguage: 'Node.js',
+    specialty: 'SEO',
+    catchPhrase: 'I dont know why it works, I dont know why it doesn\'t work'
+});
+
+
+console.log(josh.demo());
+console.log(bob.speak());
+
+const doug = new ProjectManagers ({
+    name: 'doug',
+})
+
+console.log(doug.standUp('fsw14'));
