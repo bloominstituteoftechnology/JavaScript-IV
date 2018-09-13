@@ -3,86 +3,91 @@
 
 // Classes are NOT hoisted
 
-class Parent {
-  constructor(attributes) {
-    console.log(attributes);
-    this.age = attributes.age;
-    this.name = attributes.name;
-    this.location = attributes.location;
-    this.phrase = attributes.phrase;
+class GameObject {
+  constructor(options) {
+    this.createdAt = options.createdAt;
+    this.dimensions = options.dimensions;
   }
   // Methods go here:
-  speak() {
-    console.log(`${this.name} says ${this.phrase}`)
+  destroy() {
+    return `Object was removed from the game.`;
   }
-}// end of Parent class
+}
 
-class Child extends Parent {
-  constructor(childAttributes) {
-    super(childAttributes);
-    this.toy = childAttributes.toy;
-  }
-  // Methods go here:
-  play() {
-    console.log(`${this.name} plays with a ${this.toy}`)
-  }
-}// end of Child class
-
-class GrandChild extends Child {
-  constructor(grandChildAttributes) {
-    super(grandChildAttributes);
-    this.babySupplies = grandChildAttributes.babySupplies;
+class CharacterStats extends GameObject {
+  constructor(characterStatsOptions) {
+    super(characterStatsOptions);
+    this.hp = characterStatsOptions.hp;
+    this.name = characterStatsOptions.name;
   }
   // Methods go here:
-  cry() {
-    console.log(`${this.name} starts to cry`);
+  takeDamage() {
+    return `${this.name} took damage.`;
   }
-  change() {
-    console.log(`${this.name} needs a new ${this.babySupplies}`)
+}
+
+class Humanoid extends CharacterStats {
+  constructor(humanoidOptions) {
+    super(humanoidOptions)
+    this.faction = humanoidOptions.faction;
+    this.weapons = humanoidOptions.weapons;
+    this.language = humanoidOptions.language;
   }
-}// end of GrandChild class
+  // Methods go here:
+  greet() {
+    return `${this.name} offers a greeting in ${this.language}.`;
+  }
+}
 
-const fred = new Parent({
-  'age': 55,
-  'name': 'Fred',
-  'location': 'Bedrock',
-  'phrase': 'Yabba dabba DOOOO!',
-  'toy': 'Big Rock'
+const mage = new Humanoid({
+  createdAt: new Date(),
+  dimensions: {
+    length: 2,
+    width: 1,
+    height: 1
+  },
+  hp: 5,
+  name: 'Bruce',
+  faction: 'Mage Guild',
+  weapons: ['Staff of Shamalama'],
+  language: 'Common Toungue'
 });
 
-const willma = new Parent({
-  'age': 57,
-  'name': 'Willma',
-  'location': 'Bedrock',
-  'phrase': 'Fred!'
+const swordsman = new Humanoid({
+  createdAt: new Date(),
+  dimensions: {
+    length: 2,
+    width: 2,
+    height: 2
+  },
+  hp: 15,
+  name: 'Sir Mustachio',
+  faction: 'The Round Table',
+  weapons: ['Giant Sword', 'Shield'],
+  language: 'Common Toungue'
 });
 
-const pebbles = new Child({
-  'age': 27,
-  'name': 'Pebbles',
-  'location': 'Bedrock',
-  'phrase': 'Ma Ma',
-  'toy': 'rock doll'
+const archer = new Humanoid({
+  createdAt: new Date(),
+  dimensions: {
+    length: 1,
+    width: 2,
+    height: 4
+  },
+  hp: 10,
+  name: 'Lilith',
+  faction: 'Forest Kingdom',
+  weapons: ['Bow', 'Dagger'],
+  language: 'Elvish'
 });
 
-const bambamjr = new GrandChild({
-  'age': 2,
-  'name': 'Bam Bam Jr.',
-  'location': 'Bedrock',
-  'phrase': 'BAM! BAM!',
-  'toy': 'rock bat',
-  'babySupplies': 'diaper'
-});
-
-
-console.log(pebbles.age);
-console.log(willma.phrase);
-
-fred.speak();
-willma.speak();
-pebbles.speak();
-pebbles.play();
-bambamjr.speak();
-bambamjr.play();
-bambamjr.cry();
-bambamjr.change();
+console.log(mage.createdAt); // Today's date
+console.log(archer.dimensions); // { length: 1, width: 2, height: 4 }
+console.log(swordsman.hp); // 15
+console.log(mage.name); // Bruce
+console.log(swordsman.faction); // The Round Table
+console.log(mage.weapons); // Staff of Shamalama
+console.log(archer.language); // Elvish
+console.log(archer.greet()); // Lilith offers a greeting in Elvish.
+console.log(mage.takeDamage()); // Bruce took damage.
+console.log(swordsman.destroy()); // Sir Mustachio was removed from the game.
