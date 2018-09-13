@@ -22,20 +22,21 @@ class CharacterStats {
 
 CharacterStats = Object.create(GameObject);
 
-CharacterStats.takeDamage() {
+class CharacterStatsn() {
   return `${this.name} took damage.`;
 };
 
-function Humanoid(humanoidOptions) {
+class Humanoid() {
+  constructor (attributes)
   CharacterStats.call(this, humanoidOptions);
   this.faction = humanoidOptions.faction;
   this.weapons = humanoidOptions.weapons;
   this.language = humanoidOptions.language;
 }
 
-Humanoid.prototype = Object.create(CharacterStats.prototype);
+Humanoid = Object.create(CharacterStats.prototype);
 
-Humanoid.prototype.greet = function() {
+greet() {
   return `${this.name} offers a greeting in ${this.language}.`;
 };
 
