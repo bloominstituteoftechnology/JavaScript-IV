@@ -34,6 +34,29 @@ class Student extends Person {
         this.className = studentoptions.className;
         this.favSubjects = studentoptions.favSubjects;
     }
+
+    listsSubjects() {
+        return `list of favSubjects`;
+    }
+
+    PRAssignment() {
+        return `${this.name} has submitted a PR for {subject}`;
+    }
+}
+
+class ProjectManagers extends Instructor {
+    constructor (projectmanagersoptions){
+        this.gradClassName = projectmanagersoptions.gradClassName;
+        this.favInstructor = projectmanagersoptions.favInstructor;
+    }
+
+    standUp() {
+        return `${this.name} announces to {channel}, @channel standby times!`;
+    }
+
+    debugsCode() {
+        return `${this.name} debugs {student.name}'s code on {subject}.`;
+    }
 }
 
 // const josh = new Person({
