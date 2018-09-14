@@ -1,40 +1,42 @@
-// Here we have a functioning solutoin to your challenge from yesterday.
-// Today your goal is to refactor all of this code to use ES6 Classes.
-// The console.log() statements should still return what is expected of them.
-
-function GameObject(options) {
-  this.createdAt = options.createdAt;
-  this.dimensions = options.dimensions;
+class GameObject {                // Parent
+  // always in strict mode
+  constructor(options) {
+    this.createdAt = options.createdAt;
+    this.dimensions = options.dimensions;
+  }
+  // Methods
+  destroy() {
+    return `${this.name} was removed from the game.`;
+  }
 }
 
-GameObject.prototype.destroy = function() {
-  return `Object was removed from the game.`;
-};
-
-function CharacterStats(characterStatsOptions) {
-  GameObject.call(this, characterStatsOptions);
-  this.hp = characterStatsOptions.hp;
-  this.name = characterStatsOptions.name;
+class CharacterStats extends GameObject{      // Child; extends = Object.create
+    // always in strict mode
+  constructor(characterStatsOptions) {        
+    super(characterStatsOptions)              // acts as .call & this
+    this.hp = characterStatsOptions.hp;
+    this.name = characterStatsOptions.name;
+  }   // constructor ends
+  // Methods     now methods are stored in class after the constructor function
+  takeDamage() {
+    return `${this.name} took damage.`;
+  }
 }
 
-CharacterStats.prototype = Object.create(GameObject.prototype);
-
-CharacterStats.prototype.takeDamage = function() {
-  return `${this.name} took damage.`;
-};
-
-function Humanoid(humanoidOptions) {
-  CharacterStats.call(this, humanoidOptions);
-  this.faction = humanoidOptions.faction;
-  this.weapons = humanoidOptions.weapons;
-  this.language = humanoidOptions.language;
+class Humanoid extends CharacterStats{    // GrandChild; extends = Object.create
+    // always in strict mode
+  constructor(humanoidOptions) {        
+    super(humanoidOptions)              // acts as .call & this
+    this.faction = humanoidOptions.faction;
+    this.weapons = humanoidOptions.weapons;
+    this.language = humanoidOptions.language;
+  }
+  // Methods
+  greet() {
+    return `${this.name} offers a greeting in ${this.language}.`;
+  }
 }
 
-Humanoid.prototype = Object.create(CharacterStats.prototype);
-
-Humanoid.prototype.greet = function() {
-  return `${this.name} offers a greeting in ${this.language}.`;
-};
 
 const mage = new Humanoid({
   createdAt: new Date(),
@@ -83,7 +85,7 @@ console.log(archer.dimensions); // { length: 1, width: 2, height: 4 }
 console.log(swordsman.hp); // 15
 console.log(mage.name); // Bruce
 console.log(swordsman.faction); // The Round Table
-console.log(mage.weapons); // Staff of Shamalama
+console.log(mage.weapons[0]); // Staff of Shamalama
 console.log(archer.language); // Elvish
 console.log(archer.greet()); // Lilith offers a greeting in Elvish.
 console.log(mage.takeDamage()); // Bruce took damage.
