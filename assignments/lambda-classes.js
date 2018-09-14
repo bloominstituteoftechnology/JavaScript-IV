@@ -129,7 +129,6 @@ console.log(lukeSkywalker.PRAssignment()); // Elvish
 
 console.log(oldBenKenobi.standUp()); // The Round Table
 console.log(oldBenKenobi.debugsCode()); // Staff of Shamalama
-
 console.log(oldBenKenobi.demo()); // Today's date
 console.log(oldBenKenobi.grade(lukeSkywalker)); // Bruce
 
