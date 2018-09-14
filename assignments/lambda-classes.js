@@ -32,17 +32,18 @@ class PersonObject {
 
     gradeStudent (student) {
         if (Math.random() <= .5){
-            const x = student.grade - (Math.random()*50);
+            const x = Math.ceil(student.grade - (Math.random()*50));
             return x;
         }
-        if (Math.random() > .5){
-            const x = student.grade + (Math.random()*50);
-            return x;
+        else {const x = Math.ceil(student.grade + (Math.random()*50));
+            return x;}
+       
+       
         }
     
     }
   
-  }
+
   
   class StudentInfo extends PersonObject {
     constructor (studentAttributes) {
@@ -54,26 +55,30 @@ class PersonObject {
         
     }
     listSubjects () {
-        
-            return `My favorite subjects include ${this.favSubject}` 
+        for (let i = 0; i < this.favSubject.length; i++){
+            console.log(`${this.name}'s favorite subject is ${this.favSubject[i]}`);
+        }
+            // return `My favorite subjects include ${this.favSubject}` 
         
     }
-    PRAssiagnment (student, subject) {
+    PRAssignment (subject) {
         
-            return `${student.name} has submitted a PR for ${subject}`;
+            return `${this.name} has submitted a PR for ${subject}`;
         
     }
     sprintChallenge (student, subject) {
         return `${student.name} has begun sprint challenge on ${subject}`;
     }
     graduation (student) {
-        console.log(Jish.gradeStudent(student));
-        if (Jish.gradeStudent(student) > 70){
-            return `Congratulations ${student.name}, you have graduated from Lambda School!`;
+        const y = Jish.gradeStudent(student);
+        if (y > 70){
+            return `Congratulations ${student.name}, you have graduated from Lambda School with a grade of ${y}!`;
        }
-       else if (Jish.gradeStudent(student) < 70){
-           return `Too bad ${student.name}, you don't get to graduate.`;
+       else {
+            return `Too bad ${student.name}, you don't get to graduate with a grade of ${y}.`;
        }
+           
+       
     }
 }
 
@@ -129,7 +134,7 @@ class PersonObject {
   const Danny = new InstructorInfo({
     name : 'Danny',
     age : 35,
-    location : 'Earth - New York (Dimension C-137)',
+    location : 'Earth - Ohio (Dimension C-137)',
     gender : 'Male',
     specialty : "Back End",
     favLanguage : "Python",
@@ -139,7 +144,7 @@ class PersonObject {
   const Arnold = new PMInfo({
     name : 'Arnold',
     age : 31,
-    location : 'Earth - New York (Dimension C-137)',
+    location : 'Mars - (Dimension C-137)',
     gender : 'Male',
     specialty : 'Pumping Iron',
     favLanguage : 'CSS',
@@ -151,7 +156,7 @@ class PersonObject {
   const Neo = new PMInfo({
     name : 'Neo',
     age : 29,
-    location : 'Earth - New York (Dimension C-137)',
+    location : 'Earth - The Matrix (Dimension C-137)',
     gender : 'Male',
     specialty : 'Code-Fu',
     favLanguage : 'C++',
@@ -163,55 +168,58 @@ class PersonObject {
   const Trizzle = new StudentInfo({
     name : 'Trizzle',
     age : 26,
-    location : 'Earth - New York (Dimension C-137)',
+    location : 'Earth - Minnesota (Dimension C-137)',
     gender : 'Male',
     background : 'I used to make music, go to school full time, and community organize.',
     className : 'CS14',       
-    favSubject : ['Biology','Math','Philosophy'],
+    favSubject : ['Biology ','Math ','Philosophy '],
     grade : 50,
   });
   
   const Carl = new StudentInfo({
     name : 'Carl',
     age : 28,
-    location : 'Earth - New York (Dimension C-137)',
+    location : 'Earth - Michigan (Dimension C-137)',
     gender : 'Male',
     background : "I used to play computer games.",
     className : 'CS14',       
-    favSubject : ['Chemistry','Math','Political Science'],
+    favSubject : ['Chemistry ','Math ','Political Science '],
     grade : 50,
   });
   
   const Shannon = new StudentInfo({
     name : 'Shannon',
     age : 22,
-    location : 'Earth - New York (Dimension C-137)',
+    location : 'Earth - Arkansas (Dimension C-137)',
     gender : 'Female',
     background : 'I went to school for architecture.',
     className : 'CS14',       
-    favSubject : ['History','Design','Art'],
+    favSubject : ['History ','Design ','Art '],
     grade : 50,
   });
 
   const Logan = new StudentInfo({
     name : 'Logan',
-    age : 24,
-    location : 'Earth - New York (Dimension C-137)',
+    age : 33,
+    location : 'Earth - Minnesota (Dimension C-137)',
     gender : 'Male',
     background : "I used to beat mutants up with my claws and fists",
     className : 'CS14',       
-    favSubject : ['Mutants 101','Spanish','Philosophy'],
+    favSubject : ['Mutants 101 ','Spanish ','Philosophy '],
     grade : 50,
   });
 
+
+  console.log(Rick.speak());
+  console.log(Morty.speak());
   console.log(Logan.speak());
   console.log(Jish.demo ("Javascript"));
   console.log(Neo.grade (Trizzle, 'Javascript'));
-  console.log(Trizzle.listSubjects ());
-  console.log(Carl.PRAssiagnment (Trizzle, 'CSS'));
+  Trizzle.listSubjects ();
+  console.log(Carl.PRAssignment ('CSS'));
   console.log(Shannon.sprintChallenge (Shannon, 'Javascript'));
   console.log(Neo.standUp ("FSW14"));
-  console.log(Arnold.debugCode (Logan, "Get to The Choppaaaah"));
+  console.log(Arnold.debugCode (Logan, "Redux"));
   console.log(Jish.gradeStudent(Trizzle));
   console.log(Arnold.gradeStudent(Shannon));
   console.log(Neo.gradeStudent(Logan));
