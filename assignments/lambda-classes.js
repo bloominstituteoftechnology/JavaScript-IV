@@ -69,6 +69,38 @@ class Person{
 //   * `grade` receives a `student` object and a `subject` string as arguments and logs out
 //  '{student.name} receives a perfect score on {subject}'
 
+//Instructors #1
+
+class Instructor extends Person{
+    constructor(instructorAttr){
+        super(instructorAttr);
+        this.specialty=instructorAttr.specialty;
+        this.favoriteLanguage=instructorAttr.favoriteLanguage;
+        this.catchPhrase=instructorAttr.catchPhrase;
+    }
+    Demo(subject){
+        return 'Today we are going to learn about' `${subject}`;
+
+    }
+    SVGLinearGradientElement(student,subject){
+        return `${student.name} recieves a perfect score on ${subject}`;
+
+    }
+    gradeFun(student){
+        if (this.grade >= 15){
+            let plusOrMinus= Math.floor(Math.random()*30);
+            let newGrade = this.grade- plusOrMinus;
+            return newGrade;
+
+        }else{
+            
+            return this.grade + plusOrMinus;
+        }
+    }
+}
+
+//Instructor 
+
 class Instructor extends Person{
     constructor(instructorAttr){
         super(instructorAttr);
@@ -96,6 +128,8 @@ class Instructor extends Person{
 
 
 
+
+
  
 // #### Student
 
@@ -114,6 +148,8 @@ class Instructor extends Person{
 //   * `sprintChallenge` similar to PRAssignment but logs out `student.name has begun
 //  sprint challenge on {subject}`
 
+//Student 
+
 class Student extends person {
     constructor (option){
         super(option);
@@ -122,12 +158,18 @@ class Student extends person {
         this.favSubjects=options.favSubjects
     }
     listSubjects(){
+        this.favSubjects.forEach(subject =>console.log(subjects));
+        PRAssignment(subject)
+            return  '${this.name} has submitted a PR for ${subject}';
+        
+        }
+        sprintChallenge(subject){
+            return `${this.name} has begun sprint challenge on ${subject}`;
+        }
+            
+        };
 
-    }
-}
-
-
-
+    
 
 
 
@@ -143,3 +185,105 @@ class Student extends person {
 // {channel}, @channel standy times!​​​​​
 //   * `debugsCode` a method that takes in a student object and a subject and logs out
 //  `{name} debugs {student.name}'s code on {subject}`
+
+//PM 
+
+class ProjectManager extends Instructor{
+    constructor(pMOptions){
+        super(pMOptions);
+        this.gradClassName=pMOptions.gradClassName;
+        this.favInstructor=pMOptions.favInstructor;
+    }
+    standUp(channel){
+        return `${this.name}debugs ${student.name}'s code on ${subject}`;
+    }
+}
+
+
+//Instructors
+
+const Eleanor= new Instructor({
+    name: 'Eleanor Rutabaga',
+    age: 47,
+    location: 'Jersey',
+    gender:'F',
+    specialty: 'Full Stack',
+    favoriteLanguage: 'Javascript',
+    catchPhrase: 'Im from Jersey.',
+});
+
+
+const Vader= new Instructor({
+    name: 'Darth Vader aka (Anakin Skywalker)',
+    age: 46,
+    location: 'Tatooine',
+    gender:'M',
+    specialty: 'Dark Force. Oh, and Font End',
+    favoriteLanguage: 'Dutch and German',
+    catchPhrase: 'I am alteringt the deal, pray I do not alter it any further...',
+});
+
+const Jedi = new Instructor({
+    name: 'Yoda',
+    age: 900,
+    location: 'Dagobah',
+    gender:'M',
+    specialty: 'The Force',
+    favoriteLanguage: 'OSV It is',
+    catchPhrase: 'Do or do not, there is no try.',
+});
+
+
+//PM
+const Griffin = new ProjectManager({
+    name: 'Peter Lowenbrau Griffin Sr. aka (Justin Peter Griffin)',
+    age: 44,
+    location: 'Quahog',
+    gender:'M',
+    className: 'fsw40',
+    favInstructor: 'Eleanor Rutabaga',
+});
+
+const Griffin = new ProjectManager({
+    name: 'Stewart Gilligan Griffin',
+    age: 1,
+    location: 'Quahog',
+    gender:'M',
+    className: 'CS14',
+    favInstructor: 'Darth Vader',
+});
+
+//Students
+
+const GumBall = new Student({
+    name: 'GumBall Watterson',
+    age: 12,
+    location: 'Elmore',
+    gender:'M',
+    previousBackground: 'Background?',
+    className: 'Fsw 12',
+    favSubjects: ['HTML'],
+});
+
+
+const Darwin = new Student({
+    name: 'Darwin Watterson',
+    age: 10,
+    location: 'Elmore',
+    gender:'M',
+    previousBackground: 'Self taught',
+    favoriteLanguage: 'JavaScript',
+   favSubjects: ['JavaScript'],
+});
+
+
+
+const Anais= new Student({
+    name: 'Anais Watterson',
+    age: 12,
+    location: 'Elmore',
+    gender:'F',
+    previousBackground:'YouTube',
+    className: 'cs 12',
+    favSubjects: ['Python']
+});
