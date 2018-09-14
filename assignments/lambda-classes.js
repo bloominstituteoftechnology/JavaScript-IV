@@ -26,11 +26,108 @@ class Instructor extends Person {
     demo(subject) {
         console.log(`Today we are learning about ${subject}`)
     }
-    grade(student, subject) {
-        `${student} receives a perfect score on ${subject}`
+    grade(studentName, subject) {
+        `${studentName} receives a perfect score on ${subject}`
     }
 }
 
+/// Student class
+
+class Student extends Person {
+    constructor(studentData) {
+        super(studentData);
+        this.previousBackground = studentData.previousBackground;
+        this.className = studentData.className;
+        this.favSubjects = [studentData.favSubjects];
+        this.grade = Math.floor((Math.random() * 100) + 1);
+    }
+    listsSubjects() {
+        console.log(this.favSubjects);
+    }
+    PRAssignment(subject) {
+        console.log(`${this.name} has submitted a PR for ${subject}`)
+    }
+    sprintChallenge(subject) {
+        console.log(`${this.name} has begun sprint challenge on ${subject}`)
+    }
+}
+
+/// Project Managers
+
+class ProjectManager extends Instructor {
+    constructor(projectManagerData) {
+        super(projectManagerData);
+        this.gradClassName = projectManagerData.gradClassName;
+        this.favInstructor = projectManagerData.favInstructor;
+    }
+    standUp(slackChannel) {
+        console.log(`${this.name} announces to ${slackChannel} @channel standy times!`)
+    }
+    debugsCode(studentHandle, subject) {
+        console.log(`${this.name} debugs ${studentHandle.name}'s code on ${subject}`)
+    }
+}
+
+/// Project Managers made manifest
+
+const blade = new ProjectManager({
+    'name': 'Wesley Snipes',
+    'age': 56,
+    'location': 'Japan',
+    'gender': 'male',
+    'specialty': 'vampire hunting',
+    'favLanguage': 'Ruby',
+    'catchPhrase': 'Taxation is theft.',
+    'gradClassName': 'CS2',
+    'favInstructor': 'Ray Kurzweil'
+})
+
+const clown = new ProjectManager({
+    'name': 'Bozo',
+    'age': 114,
+    'location': 'Chicago',
+    'gender': 'male',
+    'specialty': 'tech support',
+    'favLanguage': 'C++',
+    'catchPhrase': 'Did you try rebooting?',
+    'gradClassName': 'CS1',
+    'favInstructor': 'Rob Robinson'
+})
+
+
+
+
+// Student body
+
+const larry = new Student({
+    'name': 'Larry Bird',
+    'age': 61,
+    'location': 'French Lick',
+    'gender': 'male',
+    'previousBackground': 'basketball hall-of-famer',
+    'className': 'FSW14',
+    'favSubjects': ['JavaScript', 'gym', 'electrical engineering'],
+})
+
+const lester = new Student({
+    'name': 'Les Paul',
+    'age': 99,
+    'location': 'Manhattan',
+    'gender': 'male',
+    'previousBackground': 'audio engineer',
+    'className': 'FSW14',
+    'favSubjects': ['Circuits', 'Physics', 'Python'],
+})
+
+const madonna = new Student({
+    'name': 'Material Girl',
+    'age': 60,
+    'location': 'Detroit',
+    'gender': 'female',
+    'previousBackground': 'Material Girl',
+    'className': 'FSW14',
+    'favSubjects': ['jazz dance', 'kabbalah', 'JavaScript'],
+})
 // Meet The Instructors
 
 const rayKurzweil = new Instructor({
@@ -53,9 +150,6 @@ const bob = new Instructor({
     'catchPhrase': 'Blackjack is way easier if you use my card counting app.'
 })
 
-//bob.demo("card-counting with JavaScript")
-//console.log(rayKurzweil['catchPhrase'])
-
 // Generic Person people
 
 const undertaker = new Person({
@@ -64,9 +158,6 @@ const undertaker = new Person({
     'location': 'Death Valley',
     'gender': 'male',
 })
-
-undertaker.speak();
-
 const hotrod = new Person({
     'name': 'Rowdy Roddy Piper',
     'age': 60,
@@ -75,4 +166,15 @@ const hotrod = new Person({
 })
 
 hotrod.speak();
-
+blade.standUp('FSW14')
+larry.listsSubjects()
+lester.PRAssignment('Robotics')
+lester.listsSubjects()
+madonna.sprintChallenge('jazz dance')
+bob.demo("card-counting with JavaScript")
+console.log(rayKurzweil['catchPhrase'])
+rayKurzweil.grade('Material Girl', 'jazz dance')
+undertaker.speak();
+clown.debugsCode(larry, 'Pascal')
+console.log(larry.grade)
+console.log(madonna.grade)
