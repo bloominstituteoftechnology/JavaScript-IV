@@ -33,14 +33,8 @@ class Student extends Person {
         this.favSubjects = studentAttributes.favSubjects;
     }
     
-    listsSubjects(favSubjects) {
-        let subjectsList = "";
-
-        for(let i = 0; i < this.favSubjects.length; i++) {
-            subjectsList += (this.favSubjects[i] + ", ");
-        }
-
-        return subjectsList;
+    listsSubjects() {
+        return (`${this.name}'s favorite subjects are:` + "\n" + this.favSubjects.join(",\n") + ".");
     }
     
     PRAssignment(subject) {
@@ -89,7 +83,6 @@ const michael = new Instructor({
 
 console.log(rachel.speak());
 console.log(rachel.demo("the JavaScript 'Prototype' object"));
-//console.log(rachel.grade(nick, "JavaScript-III"));
 //End list of Instructors and Instructor tests.
 
 //Project Managers listed below:
