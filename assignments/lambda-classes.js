@@ -129,3 +129,4 @@ const gary = new ProjectManager({
 });
 
 
+console.log(josh.grade(joe));
