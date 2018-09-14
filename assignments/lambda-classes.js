@@ -13,7 +13,7 @@ class Person {
     }
 }
 
-class Instructor extends Person{             // Child of Person
+class Instructor extends Person {             // Child of Person
     // always in strict mode
   constructor(instructorAttributes) {        
     super(instructorAttributes)              // similar to Object.create
@@ -31,8 +31,15 @@ class Instructor extends Person{             // Child of Person
     if (!subject) {subject = lukeSubjects[Math.floor(Math.random()*lukeSubjects.length)  ]};
     return `${student.name} receives a perfect score on ${subject}.`;
   }
+  nextAssignment (student) {
+    if (!student) {student = lukeSkywalker};
+    let currStudentScore = `${student.grade()}`;
+    let plusMinus = 0;
+    Math.random() > 0.5 ? plusMinus = -1: plusMinus = 1;
+    let assignmentScore = Math.floor(Math.random()*10) * plusMinus;
+    return parseInt(`${currStudentScore} + ${assignmentScore}`);
+  }
 }
-
 
 class Student extends Person{          // Child of Person
   // always in strict mode
@@ -55,7 +62,23 @@ constructor(studentAttributes) {
     if (!subject) {subject = lukeSubjects[Math.floor(Math.random()*lukeSubjects.length)  ]};
     return `${this.name} has begun a sprint challenge on ${subject}.`;
   }
+  grade() {
+    return Math.floor(Math.random()*100);
+  }
+
+  gitCurrGrade() {
+    let currGrade = `${this.grade()}` * 1;
+    return currGrade;
+  }
+  graduate() {
+    const currGraduatingScore = `${this.gitCurrGrade()}` * 1;
+    currGraduatingScore + `${yoda.nextAssignment()}`;
+    // console.log(`currGraduatingScore`, currGraduatingScore)
+    return currGraduatingScore >= 70 ? `Congrats! Your final grade is ${currGraduatingScore}%. You are a Jedi!`: this.graduate();
+  }
 }
+
+
 
 class ProjectManager extends Instructor{          // Child of Instructor
   // always in strict mode
@@ -68,7 +91,6 @@ constructor(pmAttributes) {
   standUp(slackChannel) {
     const slackArr =['Blast!', 'Laserbrain', 'Walking-carpet', 'Scruffy-looking-Nerfherder', 'Flyboy', 'Son-of-a-Bantha', 'Thank-the-Maker', 'Droid-Work']
     if (!slackChannel) {slackChannel = slackArr[Math.floor(Math.random()*slackArr.length)  ]}
-    console.log(slackChannel)
     return `${this.name} announces to @${slackChannel} standy times!`;
   }
   debugsCode(student, subject) {
@@ -99,6 +121,22 @@ const lukeSkywalker = new Student({
 });
 
 
+const anakinSkywalker = new Student({
+  name: 'Anakin Skywalker',
+  age: 45,
+  location: 'Tatooine',
+  gender: 'M',
+  previousBackground: ['slave'],
+  className: 'Padawan',
+  favSubjects: ['racing podracing', 'repairing droids', 'The Force', 'lightsaber training'],
+});
+
+
+
+
+
+
+
 
 const oldBenKenobi = new ProjectManager({
   name: 'Obi-Wan Kenobi',
@@ -110,25 +148,54 @@ const oldBenKenobi = new ProjectManager({
   catchPhrase: 'Use the Force, Luke',
 });
 
+
+
+const allStudents = [lukeSkywalker, anakinSkywalker];
+
 const lukeSubjects = lukeSkywalker.listSubjects();
+const anakinSubjects = anakinSkywalker.listSubjects();
+
+// let gitStatus = `${lukeSkywalker.graduate()}`;
+// console.log(gitStatus);
+
+console.log(lukeSkywalker.speak()); 
+console.log(yoda.speak()); 
+console.log(oldBenKenobi.speak()); 
 
 
-console.log(lukeSkywalker.speak()); // Lilith offers a greeting in Elvish.
-console.log(yoda.speak()); // Bruce took damage.
-console.log(oldBenKenobi.speak()); // Sir Mustachio was removed from the game.
+console.log(yoda.demo()); 
+console.log(yoda.demo('Princesses')); 
+console.log(yoda.grade(lukeSkywalker)); 
+console.log(yoda.nextAssignment(anakinSkywalker))
+
+console.log(lukeSkywalker.listSubjects());
+console.log(lukeSkywalker.sprintChallenge()); 
+console.log(lukeSkywalker.PRAssignment()); 
+console.log(anakinSkywalker.listSubjects()); 
+console.log(anakinSkywalker.sprintChallenge()); 
+console.log(anakinSkywalker.PRAssignment()); 
+console.log(anakinSkywalker.grade())
+console.log(lukeSkywalker.graduate());
+console.log(anakinSkywalker.graduate());
+
+console.log(oldBenKenobi.standUp()); 
+console.log(oldBenKenobi.debugsCode()); 
+console.log(oldBenKenobi.demo()); 
+console.log(oldBenKenobi.grade(anakinSkywalker)); 
 
 
-console.log(yoda.demo()); // Today's date
-console.log(yoda.demo('Princesses')); // Bruce took damage.
-console.log(yoda.grade(lukeSkywalker)); // Bruce
-
-console.log(lukeSkywalker.listSubjects()); // { length: 1, width: 2, height: 4 }
-console.log(lukeSkywalker.sprintChallenge()); // 15
-console.log(lukeSkywalker.PRAssignment()); // Elvish
 
 
-console.log(oldBenKenobi.standUp()); // The Round Table
-console.log(oldBenKenobi.debugsCode()); // Staff of Shamalama
-console.log(oldBenKenobi.demo()); // Today's date
-console.log(oldBenKenobi.grade(lukeSkywalker)); // Bruce
+
+
+
+
+
+
+
+
+
+
+
+
 
