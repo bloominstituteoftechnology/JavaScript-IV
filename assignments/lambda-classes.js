@@ -21,11 +21,11 @@ class Instructor extends Person {
     }
 
     demo(subject) {
-        return `Today we are learning about {subject}`;
+        return `Today we are learning about ${subject}`;
     }
 
-    grade() {
-        return `${this.name} receives a perfect score on {subject}`;
+    grade(student,subject) {
+        return `${student} received a perfect score on ${subject}`;
     }
 }
 
@@ -38,11 +38,11 @@ class Student extends Person {
     }
 
     listsSubjects() {
-        return `list of favSubjects`;
+        return `${this.favSubjects}`;
     }
 
-    PRAssignment() {
-        return `${this.name} has submitted a PR for {subject}`;
+    PRAssignment(subject) {
+        return `${this.name} has submitted a PR for ${subject}`;
     }
 }
 
@@ -54,7 +54,7 @@ class ProjectManagers extends Instructor {
     }
 
     standUp(channel) {
-        return `${this.name} announces to ${channel}, @channel standby times!`;
+        return `${this.name} announces to @${channel}, standby times!`;
     }
 
     debugsCode() {
@@ -70,13 +70,18 @@ const jim = new Person({
 
 });
 
+console.log(jim.speak());
+
 const victoria = new Person({
     name: 'Victoria',
     age: 45,
-    location: 'Utah',
-    gender: 'male',
+    location: 'Arizona',
+    gender: 'female',
 
 });
+
+console.log(victoria.speak());
+
 const josh = new Instructor({
     name: 'Josh',
     age: 30,
@@ -86,6 +91,10 @@ const josh = new Instructor({
     specialty: 'Front-end',
     catchPhrase: 'Don\'t forget the homies'
 });
+
+console.log(josh.speak());
+console.log(josh.demo('HTML'));
+console.log(josh.grade('June', 'HTML'));
 
 const bob = new Instructor({
     name: 'Bob',
@@ -97,12 +106,55 @@ const bob = new Instructor({
     catchPhrase: 'I dont know why it works, I dont know why it doesn\'t work'
 });
 
+console.log(bob.speak());
+console.log(bob.demo('CSS'));
+console.log(bob.grade('CSS'));
 
+const alex = new Student({
+    name: 'Alex',
+    age: 25,
+    location: 'Montana',
+    gender: 'male',
+    previousBackground: 'Ranch Hand',
+    className: 'FSW18',
+    favSubjects: ['HTML', 'CSS', 'Javascript']
+});
+
+const june = new Student({
+    name: 'June',
+    age: 38,
+    location: 'California',
+    gender: 'female',
+    previousBackground: 'waitress',
+    className: 'OS18',
+    favSubjects: ['HTML', 'CSS', 'Python']
+});
+
+const ed = new ProjectManagers({
+    name: 'Ed',
+    age: 31,
+    location: 'Maine',
+    gender: 'male',
+    favLanguage: 'JavaScript',
+    specialty: 'Front-end',
+    catchPhrase: 'Think before you act.',
+    gradClassName: 'CS4',
+    favInstructor: 'Bob'
+    
+});
+
+const maxine = new ProjectManagers({
+    name: 'Maxine',
+    age: 48,
+    location: 'Alabama',
+    gender: 'female',
+    favLanguage: 'C++',
+    specialty: 'Mobile Applications',
+    catchPhrase: 'Go Big or go Home.',
+    gradClassName: 'CS4',
+    favInstructor: 'Bob'
+    
+});
 console.log(josh.demo());
 console.log(bob.speak());
 
-const doug = new ProjectManagers ({
-    name: 'doug',
-})
-
-console.log(doug.standUp('fsw14'));
