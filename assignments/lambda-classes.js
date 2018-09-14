@@ -132,3 +132,7 @@ josh.speak();
 evilJosh.demo('Evil JS');
 zach.listsSubjects();
 evilLuis.debugsCode(zach, 'flexbox');
+luis.standup('FSW14_luis');
+josh.grade(evilZach, 'coding');
+evilZach.PRAssignment('coding');
+zach.sprintChallenge('coding');
