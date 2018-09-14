@@ -25,3 +25,38 @@ class Instructor extends Person {
         console.log(`${student.name} receives a perfect score on ${subject}`);
     }
 } // Instructor
+
+class ProjectManager extends Instructor {
+    constructor(attr) {
+        super(attr);
+        this.gradClassName = attr.gradClassName;
+        this.favInstructor = attr.favInstructor;
+    }
+    standUp(channel) {
+        console.log(`${this.name} announces to ${channel}, @channel standy times!`);
+    }
+    debugsCode(student, subject) {
+        console.log(`${this.name} debugs ${student.name}'s code on ${subject}`);
+    }
+}
+
+class Student extends Person {
+    constructor(attr) {
+        super(attr);
+        this.previousBackground = attr.previousBackground;
+        this.className = attr.className;
+        this.favSubjects = attr.favSubjects;
+    }
+    listsSubjects() {
+        for (let i = 0; i < this.favSubjects.length; i++) {
+            console.log(`${this.name}'s favorite subjects are ${this.favSubjects[i]}`);
+        }
+    }
+    PRAssignment(subject) {
+        console.log(`${this.name} submitted a PR for ${subject}`);
+    }
+    sprintChallenge(subject) {
+        console.log(`${this.name} has begun sprint challenge on ${subject}`);
+    }
+}
+  
