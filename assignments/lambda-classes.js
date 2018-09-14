@@ -8,50 +8,50 @@ class Person {
     }
     speak() {
         return ('Hello my name is'
-            `${qualities.name} 'and I'm from' ${qualities.location}`);
+            `${this.name} 'and I'm from' ${this.location}`);
     };
 };
-console.log(speak);
+// console.log(speak);
 
-class Instructors extends Person {
+class Instructor extends Person {
     constructor(instrQualities) {
-        super(qualities);
+        super(instrQualities);
         this.specialty = instrQualities.specialty;
         this.favLanguage = instrQualities.favLanguage;
         this.catchPhrase = instrQualities.catchPhrase;
 
     };
 
-    demo() {
-        return ('Today we are learning about'
-            `${.subject}`)
-    };
+    // demo(subject) {
+    //     return ('Today we are learning about'
+    //         `${subject}`)
+    // };
 
-    grade() {
-        return (`${student.name} 'receives a perfect score on' {.subject}`);
-    };
+    // grade(student, {subject}) {
+    //     return (`${student.name} 'receives a perfect score on' {subject}`);
+    // };
 };
 
-console.log(demo)
-console.log(grade)
-class PMs extends Instructors {
+// console.log(demo)
+// console.log(grade)
+class PMs extends Instructor {
     constructor(pmQualities) {
         super(pmQualities);
         this.gradClassName = pmQualities.gradClassName;
         this.favInstructor = pmQualities.favInstructor;
     };
 
-    standUp() {
-        return (`${.channel} '@channel it's time for standup!'`)
-    };
+    // standUp(slackChannel) {
+    //     return (`${pmQualities.name} '@channel it's time for standup!'`)
+    // };
 
-    debugsCode() {
-        return (`${this.name} debugs ${student.name} 'code on' {.subject}`);
-    };
+    // debugsCode(student, subject) {
+    //     return (`${this.name} debugs ${student.name} 'code on' {subject}`);
+    // };
 };
 
-console.log(standUp)
-console.log(debugsCode)
+// console.log(standUp)
+// console.log(debugsCode)
 
 class Student extends Person {
     constructor(stuQualities) {
@@ -61,21 +61,35 @@ class Student extends Person {
         this.favSubjects = stuQualities.favSubjects;
     };
 
-    listSubjects() {
-        return
-    };
+    // listSubjects(subjects) {
+    //     return ''
+    // };
 
-    PRAssignment() {
-        return (`${student.name} 'has submitted a PR for' {.subject}`);
-    };
+    // PRAssignment() {
+    //     return (`${this.name} 'has submitted a PR for' {subject}`);
+    // };
     sprintChallenge() {
-        return (`${student.name} 'has begun sprint challange' {.subject}`);
+        return (`${this.name} 'has begun sprint challange' {subject}`);
     };
 
 
 
 };
 
-console.log(ListSubjects);
-console.log(PRAssignment);
-console.log(sprintChallenge);
+// console.log(ListSubjects);
+// console.log(PRAssignment);
+// console.log(sprintChallenge);
+
+
+const Austin = new Instructor({
+    name: 'Austin',
+    location: 'San Francisco',
+    age: 40,
+    gender: 'male',
+    favLanguage: 'money',
+    specialty: 'fundraising and path forging',
+    catchPhrase: `It's time for another whiteboard Friday`
+});
+
+console.log(Austin.name);
+console.log(Austin.catchPhrase)
