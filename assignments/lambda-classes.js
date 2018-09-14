@@ -24,6 +24,17 @@ class Instructor extends Person {
   grade(student, subject) {
     console.log(`${student.name} receives a perfect score on ${subject}`);
   }
+  gradePower(student) {
+    if (student.grade <= 0) {
+      student.grade += Math.floor(Math.random() * 10);
+    } else {
+      if (Math.random() < 0.5) {
+        student.grade += Math.floor(Math.random() * 10);
+      } else {
+        student.grade -= Math.floor(Math.random() * 10);
+      }
+    }
+  }
 } // end Instructor class
 
 class Student extends Person {
@@ -32,6 +43,7 @@ class Student extends Person {
     this.previousBackground = studentProps.previousBackground;
     this.className = studentProps.className;
     this.favSubjects = studentProps.favSubjects;
+    this.grade = studentProps.grade;
   }
   listsSubjects() {
     this.favSubjects.forEach(subj => {
@@ -43,6 +55,20 @@ class Student extends Person {
   }
   sprintChallenge(subject) {
     console.log(`${this.name} has begun sprint challenge on ${subject}`);
+  }
+  graduate(instructor) {
+    while (this.grade < 100) {
+      if (this.grade >= 70) {
+        console.log(`${this.name} graduated with a grade of ${this.grade}!`);
+        break;
+      }
+      instructor.gradePower(this);
+      console.log(
+        `${instructor.name} used his grading power to give ${
+          this.name
+        } a grade of ${this.grade}!`
+      );
+    }
   }
 } // end Student class
 
@@ -87,11 +113,12 @@ const evilJosh = new Instructor({
 const zach = new Student({
   name: 'Zach',
   location: 'Minneapolis',
-  age: '28',
+  age: 28,
   gender: 'male',
   previousBackground: 'failing',
   className: 'FSW14',
   favSubjects: ['JS', 'HTML', 'other'],
+  grade: 39,
 });
 
 const evilZach = new Student({
@@ -102,6 +129,7 @@ const evilZach = new Student({
   previousBackground: 'winning',
   className: 'CS14',
   favSubjects: ['evil JS', 'HTML', 'other'],
+  grade: 61,
 });
 
 const luis = new ProjectManager({
@@ -128,11 +156,15 @@ const evilLuis = new ProjectManager({
   favInstructor: 'Hsoj',
 });
 
-josh.speak();
-evilJosh.demo('Evil JS');
-zach.listsSubjects();
-evilLuis.debugsCode(zach, 'flexbox');
-luis.standup('FSW14_luis');
-josh.grade(evilZach, 'coding');
-evilZach.PRAssignment('coding');
-zach.sprintChallenge('coding');
+// josh.speak();
+// evilJosh.demo('Evil JS');
+// zach.listsSubjects();
+// evilLuis.debugsCode(zach, 'flexbox');
+// luis.standup('FSW14_luis');
+// josh.grade(evilZach, 'coding');
+// evilZach.PRAssignment('coding');
+// zach.sprintChallenge('coding');
+// evilJosh.gradePower(zach);
+// console.log(zach.grade);
+
+// zach.graduate(josh);
