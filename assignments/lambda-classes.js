@@ -59,7 +59,7 @@ class ProjectManager extends Instructor {
   standUp(channel, subject) {
     console.log(`${this.name} announces to ${channel}, stand up time!`);
   }
-  standUp(subject) {
+  debugsCode(subject) {
     console.log(`${this.name} debugs ${student.name}'s code on ${subject}`);
   }
 }
