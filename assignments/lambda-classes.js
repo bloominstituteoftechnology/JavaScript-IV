@@ -9,7 +9,7 @@ class Person {
     }
 
     speak() {
-        console.log(`Hello my name is ${this.name}, I am from ${this.location}.`)
+        return `Hello my name is ${this.name}, I am from ${this.location}.`;
     }
 }
 
@@ -40,10 +40,10 @@ class Instructor extends Person {
     }
 
     demo(subject) {
-        console.log(`Today we are learning about ${subject}.`);
+        return `Today we are learning about ${subject}.`;
     }
     grade(student, subject) {
-        console.log(`${student.name} receives a perfect score in ${subject}`)
+        return `${student.name} receives a perfect score in ${subject}`;
     }
     assessment(student) {
         if (Math.floor(Math.random() * 100) + 1 > 30) {
@@ -94,14 +94,14 @@ class Student extends Person {
 
     listsSubjects() {
         for (let i=0; i<this.favSubjects.length; i++) {
-            console.log(`${this.favSubjects[i]}`)
+            return `${this.favSubjects[i]}`;
         }
     }
     PRAssignment(subject) {
-        console.log(`${this.name} has submitted a PR for ${subject}`);
+        return `${this.name} has submitted a PR for ${subject}`;
     }
     sprintChallenge(subject) {
-        console.log(`${this.name} has begun sprint challenge on ${subject}`);
+        return `${this.name} has begun sprint challenge on ${subject}`;
     }
     graduate() {
         if (this.grade > 70) {return `Congratulations ${this.name}! You have graduated with a ${this.grade} from Lambda School!`}
@@ -146,10 +146,10 @@ class ProjectManager extends Instructor {
     }
 
     standUp(channel) {
-        console.log(`${this.name} annouces to ${channel}, @channel standy times!`);
+        return `${this.name} annouces to ${channel}, @channel standy times!`;
     }
     debugsCode(student, subject) {
-        console.log(`${this.name} debugs ${student.name}'s code on ${subject}`);
+        return `${this.name} debugs ${student.name}'s code on ${subject}`;
     }
 }
 
