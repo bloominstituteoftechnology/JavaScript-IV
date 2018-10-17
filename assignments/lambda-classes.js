@@ -45,6 +45,14 @@ class Instructor extends Person {
     grade(student, subject) {
         console.log(`${student.name} receives a perfect score in ${subject}`)
     }
+    assessment(student) {
+        if (Math.floor(Math.random() * 100) + 1 > 30) {
+            student.grade += 5;
+            return `Your grade has gone up to ${student.grade}%`;
+        }
+        student.grade -= 5;
+        return `You should study more next time! Your grade is now at ${student.grade}%`;
+    }
 }
 
 const bob = new Instructor({
@@ -94,6 +102,10 @@ class Student extends Person {
     }
     sprintChallenge(subject) {
         console.log(`${this.name} has begun sprint challenge on ${subject}`);
+    }
+    graduate() {
+        if (this.grade > 70) {return `Congratulations ${this.name}! You have graduated with a ${this.grade} from Lambda School!`}
+        return `Keep your head up ${this.name}! You only need to increase your grade by ${70 - this.grade}%`
     }
 }
 
@@ -171,3 +183,9 @@ const jon = new ProjectManager({
   console.log(jon.debugsCode(gertrude, 'HTML'));
   console.log(lauren.speak());
   console.log(lauren.standUp('FSW15'));
+
+  console.log(bob.assessment(gertrude));
+  console.log(bob.assessment(gertrude));
+  console.log(bob.assessment(gertrude));
+  console.log(bob.assessment(gertrude));
+  console.log(bob.assessment(gertrude));
