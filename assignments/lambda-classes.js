@@ -20,15 +20,16 @@ class Instructor extends Person {
     this.catchPhrase = props.catchPhrase;
   }
   demo(subject) {
-    return `Today we are learning about ${this.subject}.`;
+    return `${this.name} says: 'Today we are learning about ${subject}.'`;
   }
   grading(student, subject) {
-    student.grade = function() {
+    function gradeAssignment() {
       const min = 0;
       const max = 100;
       return Math.floor(Math.random() * (max - min)) + min;
-    };
-    return `${student.name} received a ${student.grade} on ${this.subject}.`;
+    }
+    student.grade = gradeAssignment();
+    return `${student.name} received a ${student.grade} on ${subject}.`;
   }
 }
 
@@ -39,10 +40,10 @@ class PM extends Instructor {
     this.favInstructor = props.favInstructor;
   }
   standUp(channel) {
-    return `${this.name} announces to ${this.channel} @channel standy times!`;
+    return `${this.name} announces to ${channel} '@channel standy times!'`;
   }
   debugsCode(student, subject) {
-    return `${this.name} debugs ${student.name}'s code on ${this.subject}.`;
+    return `${this.name} debugs ${student.name}'s code on ${subject}.`;
   }
 }
 //*************** Student **********************
@@ -55,13 +56,15 @@ class Student extends Person {
     this.grade = props.grade;
   }
   listsSubjects() {
-    return this.favSubjects;
+    return `These are ${
+      this.name
+    }'s favorite subjects: ${this.favSubjects.toString()}.`;
   }
   PRAssignment(subject) {
-    return `${this.name} has submitted a PR for ${this.subject}`;
+    return `${this.name} has submitted a PR for ${subject}.`;
   }
   sprintChallenge(subject) {
-    return `${this.name} has begun a sprint challenge on ${this.subject}`;
+    return `${this.name} has begun a sprint challenge on ${subject}.`;
   }
   graduate() {
     if (this.grade >= 70) {
@@ -149,7 +152,7 @@ const natalia = new Student({
   gender: 'Female',
   previousBackground: 'Math Teacher',
   className: 'AD-2',
-  favSubjects: ['Python', 'Java', 'Ruby'],
+  favSubjects: ['Python', ' Java', ' Ruby'],
   grade: 60
 });
 
@@ -160,7 +163,7 @@ const mikaela = new Student({
   gender: 'Female',
   previousBackground: 'Sales Associate',
   className: 'iOS-2',
-  favSubjects: ['Objective-C', 'CSS', 'JavaScript'],
+  favSubjects: ['Objective-C', ' CSS', ' JavaScript'],
   grade: 90
 });
 
@@ -174,3 +177,17 @@ const jamal = new Student({
   favSubjects: ['Python', 'R', 'Java'],
   grade: 70
 });
+
+//----------- Console Logs ---------
+console.log(jamal.speak());
+console.log(profO.speak());
+console.log(rob.speak());
+console.log(profJ.demo('JavaScript'));
+console.log(profT.grading(jamal, 'Python'));
+console.log(rob.grading(natalia, 'Java'));
+console.log(nikki.debugsCode(mikaela, 'C'));
+console.log(maya.standUp('DS2-maya'));
+console.log(natalia.listsSubjects());
+console.log(jamal.PRAssignment('Java'));
+console.log(mikaela.sprintChallenge('CSS'));
+console.log(mikaela.graduate());
