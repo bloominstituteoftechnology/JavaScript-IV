@@ -24,6 +24,11 @@ class Instructor extends Person{
     grade(student, subject){
         console.log(`${student.name} recieves a perfect score on ${subject}`);
     }
+    editGrade(student){
+        let difference = (Math.floor(Math.random() * (50 - -50) + -50));
+        console.log(difference);
+        console.log(student.grade += difference);
+    }
 }
 
 class Student extends Person{
@@ -32,6 +37,7 @@ class Student extends Person{
         this.previousBackground = info.previousBackground;
         this.className = info.className;
         this.favSubjects = info.favSubjects
+        this.grade = info.grade
     }
     listsSubjects(){
         console.log(...this.favSubjects);
@@ -41,6 +47,13 @@ class Student extends Person{
     }
     sprintChallenge(subject){
         console.log(`${this.name} has begun sprint challenge on ${subject}`);
+    }
+    graduate(instructor){
+        if(this.grade >= 70){
+            console.log("congrats!");
+        }else{
+            instructor.editGrade(this);
+        }
     }
 }
 
@@ -57,6 +70,7 @@ class ProjectManagers extends Instructor{
         console.log(`${this.name} debugs ${student.name}'s code on ${subject}`)
     }
 }
+
 
 const fred = new Instructor({
     name: 'Fred',
@@ -85,6 +99,7 @@ const fred = new Instructor({
     favSubjects: ['css', 'javascript', 'html'],
     previousBackground: 'college',
     className: 'FSW15',
+    grade: 60,
   });
   const joe = new Student({
     name: 'joe',
@@ -94,6 +109,7 @@ const fred = new Instructor({
     favSubjects: ['css', 'javascript', 'html'],
     previousBackground: 'none',
     className: 'FSW14',
+    grade: 40,
   });
   const shoe = new Student({
     name: 'shoe',
@@ -103,6 +119,7 @@ const fred = new Instructor({
     favSubjects: ['css', 'javascript', 'html'],
     previousBackground: 'workshops',
     className: 'CS10',
+    grade: 60,
   });
 
   const bilbo = new ProjectManagers({
@@ -143,5 +160,7 @@ const fred = new Instructor({
   shoe.speak();
   josh.speak();
   sam.grade(shoe, 'javacript');
+  josh.editGrade(nick);
+  nick.graduate(josh);
  
   
