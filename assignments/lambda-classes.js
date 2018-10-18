@@ -47,7 +47,6 @@ class Student extends Person{
 }
 
 class ProjectManager extends Instructor{
-    
     constructor(pmAttr){
         super(pmAttr);
         this.gradClassName = pmAttr.gradClassName;
