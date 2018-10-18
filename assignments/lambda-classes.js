@@ -42,15 +42,16 @@ class Student extends Person {
     this.favSubjects = studentAttr.favSubjects;
     this.grade = studentAttr.grade;
   }
-  graduate(instructor) {
+  graduate(grader) {
     if (this.grade >= 70) {
-      return `Congratulation, ${this.name}, YOU passed`;
+        return `Congrats ${this.name}! You have just graduated Lambda School!`;
     } 
-    else {
-        return `You cannot pass with a ${this.grade}. ${instructor.name} will now regrade your assignment`;
-        instructor.gradeAssignment(this);
+    while (this.grade < 70) {
+        console.log(`Sorry ${this.name}. You only have a ${this.grade} and that is not enough to graduate. Please keep on trying until you pass.`);
+        grader.gradeAssignment(this);
     }
-  }
+    return `Congrats ${this.name}! You have just graduated Lambda School!`;
+}
 
   listsSubjects() {
     return `${this.favSubjects[0]},${this.favSubjects[1]},${
@@ -151,5 +152,4 @@ console.log(tommy.PRAssignment(`Is JS Art?`));
 console.log(ben.sprintChallenge('Is JS Art?'));
 console.log(ash.standUP(`FSW15 isn't slacking slack channel`));
 console.log(trevor.debugsCode(ben,'YDKJS'));
-
-console.log(ben.graduate(josh));
+console.log(ben.graduate(ash));
