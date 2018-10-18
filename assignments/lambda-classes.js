@@ -24,8 +24,15 @@ class Instructor extends People {
     demo(subject) {
         return `Today we are learning about ${subject}`;
     }
-    grade(student, subject) {
-        return `${student} receives a perfect score on ${subject}`;
+    grade(student, subject, grade, effort) {
+        let randomInt = Math.floor(Math.random() * 11); // 0 -> 10 Points
+        if (effort) {
+            grade += randomInt;
+            return `${student} is working hard on ${subject}. I will add ${randomInt} points to his score. ${grade}`;
+        } else {
+            grade -= randomInt;
+            return `${student} is NOT working hard on ${subject}. I will subtract ${randomInt} points to his score. ${grade}`;
+        }
     }
 }
 
@@ -35,15 +42,25 @@ class Student extends People {
         this.previousBackground = attributes.previousBackground;
         this.className = attributes.className;
         this.favSubjects = attributes.favSubjects;
+        this.grade = attributes.grade; 
+        this.isWorkingHard = attributes.isWorkingHard; 
     }
     listsSubjects() {
-        return `${this.favSubjects}`; // may have to come back to this
+        return `${this.favSubjects}`; 
     }
     PRAssignment(subject) {
         return `${this.name} has submitted a PR for ${subject}`;
     }
     sprintChallenge(subject) {
         return `${this.name} has begun sprint challenge on ${subject}`;
+    }
+    graduate() {
+        if (this.grade < 70) {
+            let pointsNeeded = 70 - this.grade;
+            return `Your current grade is ${this.grade}. You need ${pointsNeeded} points to graduate`;
+        } else {
+            return `CONGRATS!!!`;
+        }
     }
 }
 
@@ -72,11 +89,6 @@ const jeor = new Instructor({
     catchPhrase: `Don't forget the your oath.`
   });
 
-  console.log(jeor.speak());
-  console.log(jeor.demo('Object Oriented Programming '));
-  console.log(jeor.grade('Jon Snow', 'JavaScript IV'));
-
-
 const jon = new Student({
     name: 'Jon Snow',
     location: 'Winterfell',
@@ -85,13 +97,9 @@ const jon = new Student({
     previousBackground: 'none',
     className: 'CS16',
     favSubjects: ['Python', 'C', 'JavaScript'],
+    grade: 65,
+    isWorkingHard: false,
 });
-
-console.log(jon.speak());
-console.log(jon.listsSubjects());
-console.log(jon.PRAssignment('JavaScript IV'));
-console.log(jon.sprintChallenge('JavaScript Fundamentals'));
-
 
 const aemon = new ProjectManagers({
     name: 'Aemon Targaryen',
@@ -102,6 +110,24 @@ const aemon = new ProjectManagers({
     favInstructor: 'Maester Luwin'
 });
 
+
+
+
+
+// Instructor
+console.log(jeor.speak());
+console.log(jeor.demo('Object Oriented Programming'));
+console.log(jeor.grade(jon.name, 'JavaScript IV', jon.grade, jon.isWorkingHard));
+
+// Student 
+console.log(jon.speak());
+console.log(jon.listsSubjects());
+console.log(jon.PRAssignment('JavaScript IV'));
+console.log(jon.sprintChallenge('JavaScript Fundamentals'));
+console.log(jon.graduate());
+
+// PM 
 console.log(aemon.speak());
 console.log(aemon.standUp('FSW15'));
 console.log(aemon.debugsCode('Jon Snow', 'JavaScript I'));
+console.log(jeor.grade(jon.name, 'JavaScript IV', jon.grade, jon.isWorkingHard));

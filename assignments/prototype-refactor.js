@@ -110,13 +110,20 @@ class Villian extends Humanoid {
         super(attributes);
         this.isAlive = attributes.isAlive;
     }
-    attacked() {
-        this.hp -= 10;
-        if (this.hp <= 0) {
-            this.isAlive = false;
-            return `Sorry ${this.name}, your health is ${this.hp}! You are dead!`;
+
+    attack(opponent) {
+        let coinFlip = Math.floor(Math.random() * (2)) + 1; // 1 or 2
+        let randomDamage = Math.floor(Math.random() * 11); // 0 -> 10 Damage       
+
+        if (opponent.hp <= 0) {
+            opponent.isAlive = false;
+            return `Sorry ${opponent.name}, your health is ${opponent.hp}! You are dead! ${this.name} killed you!`;
+        } else if (coinFlip === 2) {
+            opponent.hp -= randomDamage;
+            return `${opponent.name}, you have been attacked! Your health is now: ${opponent.hp}`;
+        }  else {
+            return `${this.name} you missed! ${opponent.name}'s health is: ${opponent.hp}`
         }
-        return `${this.name} you have been attacked! Health: ${this.hp}`;
     }
 }
 
@@ -126,13 +133,19 @@ class Hero extends Humanoid {
         super(attributes);
         this.isAlive = attributes.isAlive;
     }
-    attacked() {
-        this.hp -= 10;
-        if (this.hp <= 0) {
-            this.isAlive = false;
-            return `Sorry ${this.name}, your health is ${this.hp}! You are dead!`;
+    attack(opponent) {
+        let coinFlip = Math.floor(Math.random() * (2)) + 1; // 1 or 2
+        let randomDamage = Math.floor(Math.random() * 11) + 10; // Damage between 20 and 10      
+
+        if (opponent.hp <= 0) {
+            opponent.isAlive = false;
+            return `Sorry ${opponent.name}, your health is ${opponent.hp}! You are dead! ${this.name} killed you!`;
+        } else if (coinFlip === 2) {
+            opponent.hp -= randomDamage;
+            return `${opponent.name}, you have been attacked! Your health is now: ${opponent.hp}`;
+        }  else {
+            return `${this.name} you missed! ${opponent.name}'s health is: ${opponent.hp}`
         }
-        return `${this.name} you have been attacked! Health: ${this.hp}`;
     }
 }
 
@@ -172,26 +185,22 @@ const VillianRamsey = new Villian({
     isAlive: true,
 });
 
-// console.log(HeroJon.hp)
-// console.log(VillianRamsey.hp);
-// console.log(HeroJon.isAlive)
-// console.log(VillianRamsey.isAlive);
-// console.log(HeroJon.weapons)
-// console.log(VillianRamsey.isAlive);
-// console.log(HeroJon.weapons)
-// console.log(VillianRamsey.attacked());
-// console.log(VillianRamsey.attacked());
-// console.log(HeroJon.attacked());
-// console.log(HeroJon.attacked());
-// console.log(VillianRamsey.attacked());
-// console.log(VillianRamsey.attacked());
-// console.log(HeroJon.attacked());
-// console.log(VillianRamsey.attacked());
-// console.log(HeroJon.attacked());
-// console.log(VillianRamsey.attacked());
-// console.log(VillianRamsey.attacked());
-// console.log(VillianRamsey.attacked());
-// console.log(HeroJon.attacked());
-// console.log(HeroJon.attacked());
-// console.log(VillianRamsey.attacked());
-// console.log(VillianRamsey.attacked());
+
+console.log(HeroJon.attack(VillianRamsey));
+console.log(VillianRamsey.attack(HeroJon));
+console.log(HeroJon.attack(VillianRamsey));
+console.log(VillianRamsey.attack(HeroJon));
+console.log(HeroJon.attack(VillianRamsey));
+console.log(VillianRamsey.attack(HeroJon));
+console.log(HeroJon.attack(VillianRamsey));
+console.log(VillianRamsey.attack(HeroJon));
+console.log(HeroJon.attack(VillianRamsey));
+console.log(VillianRamsey.attack(HeroJon));
+console.log(HeroJon.attack(VillianRamsey));
+console.log(VillianRamsey.attack(HeroJon));
+console.log(HeroJon.attack(VillianRamsey));
+console.log(HeroJon.attack(VillianRamsey));
+console.log(VillianRamsey.attack(HeroJon));
+console.log(HeroJon.attack(VillianRamsey));
+console.log(VillianRamsey.attack(HeroJon));
+console.log(HeroJon.attack(VillianRamsey));
