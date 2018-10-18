@@ -48,18 +48,17 @@ class Student extends Person{
 }
 
 
-
-
-class ProjectManager extends Person{
+class ProjectManager extends Instructors{
     
     constructor(pmAttr){
         super(pmAttr);
-        this.name = pmAttr.name;
-        this.age = pmAttr.age;
-        this.location = pmAttr.location;
-        this.gender = pmAttr.gender;
+        this.gradClassName = pmAttr.gradClassName;
+        this.favInstructor = pmAttr.favInstructor;
     }
-    speak() {
-        return `Hello my name is ${this.name}, I am from ${this.location}`;
+    standUp(channel) {
+        return `${this.name} announces to ${channel}, @channel standy times!​​​​​`;
+    }
+    debugsCode(student,subject) {
+        return `${this.name} debugs ${student.name}'s code on ${subject}`;
     }
 }
