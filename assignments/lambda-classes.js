@@ -41,7 +41,12 @@ class Person {
 
 
 
-// Tests
+// *** === Tests === ***
+
+
+// ==Person Tests==
+// --Create Objects--
+
 const adam = new Person({
     name: 'Adam',
     age: 28,
@@ -56,9 +61,48 @@ const eve = new Person({
     gender: 'f'
 });
 
-
+// Make them do stuff
 console.log(adam);
 console.log(adam.speak());
 
 console.log(eve);
 console.log(eve.speak());
+
+
+// ==Instructor Tests==
+// --Create Objects--
+
+const batman = new Instructor({
+    name: 'Batman',
+    age: 28,
+    location: 'Gotham City',
+    gender: 'm',
+    specialty: 'Computer Science',
+    favLanguage: 'Python',
+    catchPhrase: 'Why? Because I\'m Batman'
+});
+
+const joker = new Instructor({
+    name: 'Joker',
+    age: 28,
+    location: 'Gotham City',
+    gender: 'm',
+    specialty: 'Foolery',
+    favLanguage: 'Sarcasm',
+    catchPhrase: 'SMILE !!'
+});
+
+// Make them do stuff
+console.log(batman);
+console.log(batman.speak());
+console.log(batman.demo('the Obstacle course'));
+console.log(batman.grade({
+    name: 'Robin'
+}, 'Hacking'));
+
+console.log(joker);
+console.log(joker.speak());
+console.log(joker.demo('PIES!!'));
+console.log(joker.grade({
+    name: 'Harley Quinn'
+}, 'Tumbling'));
