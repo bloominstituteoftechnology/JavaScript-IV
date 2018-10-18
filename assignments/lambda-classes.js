@@ -41,3 +41,31 @@ class Instructor extends Person {
     return `${student.name} receives a perfect score on ${subject}`;
   }
 }
+
+/*
+  === Student ===
+  Inherit from Person
+  * previousBackground
+  * className
+  * favSubjects
+  * listSubjects() // logs out the student's favorite subject one by one.
+  * PRAssignment(subject) // logs out the phrase: '<student.name> has submitted a PR for <subject>'
+  * sprintChallenge(student, subject) // logs out the phrase: '<student.name> has begun sprint challenge on <subject>'
+*/
+class Student extends Person {
+  constructor(attr) {
+    super(attr);
+    this.previousBackground = attr.previousBackground;
+    this.className = attr.className;
+    this.favSubjects = attr.favSubjects;
+  }
+  listSubjects() {
+    this.favSubjects.forEach(e => console.log(e));
+  }
+  PRAssignment(subject) {
+    console.log(`${this.name} has submitted a PR for ${subject}`);
+  }
+  sprintChallenge(subject) {
+    console.log(`${this.name} has begun sprint challenge on ${subject}`);
+  }
+}
