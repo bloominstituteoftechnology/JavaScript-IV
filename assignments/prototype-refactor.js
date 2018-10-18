@@ -1,4 +1,4 @@
-console.log('Assignment 1: Start');
+console.log("Assignment 1: Start");
 /* 
 
 Prototype Refactor
@@ -18,7 +18,7 @@ Prototype Refactor
   
   Each constructor function has unique properites and methods that are defined in their block comments below:
 */
-  
+
 /*
   === GameObject ===
   * createdAt
@@ -43,7 +43,7 @@ Prototype Refactor
   * should inherit destroy() from GameObject through CharacterStats
   * should inherit takeDamage() from CharacterStats
 */
- 
+
 /*
   * Inheritance chain: GameObject -> CharacterStats -> Humanoid
   * Instances of Humanoid should have all of the same properties as CharacterStats and GameObject.
@@ -52,108 +52,96 @@ Prototype Refactor
 
 // Test you work by uncommenting these 3 objects and the list of console logs below:
 
-
-class GameObject{
-    constructor(gameObjectAttributes){
-        this.createdAt = gameObjectAttributes.createdAt;
-        this.dimensions = gameObjectAttributes.dimensions;
-    } 
-    destroy(){
-        return 'Object was removed from the game.';
-    }
+class GameObject {
+  constructor(gameObjectAttributes) {
+    this.createdAt = gameObjectAttributes.createdAt;
+    this.dimensions = gameObjectAttributes.dimensions;
   }
-
-  class CharacterStats extends GameObject{
-      constructor(characterStatsAttributes){
-        super(characterStatsAttributes);
-        this.hp = characterStatsAttributes.hp;
-        this.name = characterStatsAttributes.name;
-      }
-      takeDamage(){
-        return `${this.name} took damage.`;
-      }
+  destroy() {
+    return "Object was removed from the game.";
   }
+}
 
-  class Humanoid extends CharacterStats{
-    constructor(humanoidAttributes){
-        super(humanoidAttributes);
-        this.faction = humanoidAttributes.faction;
-        this.weapons = humanoidAttributes.weapons;
-        this.language = humanoidAttributes.language;
-    }
-    greet(){
-        return `${this.name} offers a greeting in ${this.language}.`;
-    }
+class CharacterStats extends GameObject {
+  constructor(characterStatsAttributes) {
+    super(characterStatsAttributes);
+    this.hp = characterStatsAttributes.hp;
+    this.name = characterStatsAttributes.name;
   }
+  takeDamage() {
+    return `${this.name} took damage.`;
+  }
+}
 
-  const mage = new Humanoid({
-    createdAt: new Date(),
-    dimensions: {
-      length: 2,
-      width: 1,
-      height: 1,
-    },
-    hp: 5,
-    name: 'Bruce',
-    faction: 'Mage Guild',
-    weapons: [
-      'Staff of Shamalama',
-    ],
-    language: 'Common Toungue',
-  });
+class Humanoid extends CharacterStats {
+  constructor(humanoidAttributes) {
+    super(humanoidAttributes);
+    this.faction = humanoidAttributes.faction;
+    this.weapons = humanoidAttributes.weapons;
+    this.language = humanoidAttributes.language;
+  }
+  greet() {
+    return `${this.name} offers a greeting in ${this.language}.`;
+  }
+}
 
-  const swordsman = new Humanoid({
-    createdAt: new Date(),
-    dimensions: {
-      length: 2,
-      width: 2,
-      height: 2,
-    },
-    hp: 15,
-    name: 'Sir Mustachio',
-    faction: 'The Round Table',
-    weapons: [
-      'Giant Sword',
-      'Shield',
-    ],
-    language: 'Common Toungue',
-  });
+const mage = new Humanoid({
+  createdAt: new Date(),
+  dimensions: {
+    length: 2,
+    width: 1,
+    height: 1
+  },
+  hp: 5,
+  name: "Bruce",
+  faction: "Mage Guild",
+  weapons: ["Staff of Shamalama"],
+  language: "Common Toungue"
+});
 
-  const archer = new Humanoid({
-    createdAt: new Date(),
-    dimensions: {
-      length: 1,
-      width: 2,
-      height: 4,
-    },
-    hp: 10,
-    name: 'Lilith',
-    faction: 'Forest Kingdom',
-    weapons: [
-      'Bow',
-      'Dagger',
-    ],
-    language: 'Elvish',
-  });
+const swordsman = new Humanoid({
+  createdAt: new Date(),
+  dimensions: {
+    length: 2,
+    width: 2,
+    height: 2
+  },
+  hp: 15,
+  name: "Sir Mustachio",
+  faction: "The Round Table",
+  weapons: ["Giant Sword", "Shield"],
+  language: "Common Toungue"
+});
 
-  console.log(mage.createdAt); // Today's date
-  console.log(archer.dimensions); // { length: 1, width: 2, height: 4 }
-  console.log(swordsman.hp); // 15
-  console.log(mage.name); // Bruce
-  console.log(swordsman.faction); // The Round Table
-  console.log(mage.weapons); // Staff of Shamalama
-  console.log(archer.language); // Elvish
-  console.log(archer.greet()); // Lilith offers a greeting in Elvish.
-  console.log(mage.takeDamage()); // Bruce took damage.
-  console.log(swordsman.destroy()); // Sir Mustachio was removed from the game.
+const archer = new Humanoid({
+  createdAt: new Date(),
+  dimensions: {
+    length: 1,
+    width: 2,
+    height: 4
+  },
+  hp: 10,
+  name: "Lilith",
+  faction: "Forest Kingdom",
+  weapons: ["Bow", "Dagger"],
+  language: "Elvish"
+});
 
+console.log(mage.createdAt); // Today's date
+console.log(archer.dimensions); // { length: 1, width: 2, height: 4 }
+console.log(swordsman.hp); // 15
+console.log(mage.name); // Bruce
+console.log(swordsman.faction); // The Round Table
+console.log(mage.weapons); // Staff of Shamalama
+console.log(archer.language); // Elvish
+console.log(archer.greet()); // Lilith offers a greeting in Elvish.
+console.log(mage.takeDamage()); // Bruce took damage.
+console.log(swordsman.destroy()); // Sir Mustachio was removed from the game.
 
-  // Stretch task: 
-  // * Create Villian and Hero constructor functions that inherit from the Humanoid constructor function.  
-  // * Give the Hero and Villians different methods that could be used to remove health points from objects which could result in destruction if health gets to 0 or drops below 0;
-  // * Create two new objects, one a villian and one a hero and fight it out with methods!
-
-
+// Stretch task:
+// * Create Villian and Hero constructor functions that inherit from the Humanoid constructor function.
+// * Give the Hero and Villians different methods that could be used to remove health points from objects which could result in destruction if health gets to 0 or drops below 0;
+// * Create two new objects, one a villian and one a hero and fight it out with methods!
 
 // function villattr(charType){
 
@@ -163,88 +151,72 @@ class GameObject{
 //   }
 // }
 
-  class Villain extends Humanoid{
-      constructor(villainAttributes){
-        super(villainAttributes);
-        this.attackValue = villainAttributes.attackValue;
-      }
-      attack(hero){
-        if(hero.hp > this.attackValue){
-            return hero.hp -= this.attackValue;
-        }else if(hero.hp <= this.attackValue){
-            return hero.destroy();
-        }
-      }
+class Villain extends Humanoid {
+  constructor(villainAttributes) {
+    super(villainAttributes);
+    this.attackValue = villainAttributes.attackValue;
   }
-
-
-  class Hero extends Humanoid{
-    constructor(heroAttributes){
-      super(heroAttributes);
-      this.attackValue = heroAttributes.attackValue;
+  attack(hero) {
+    if (hero.hp > this.attackValue) {
+      return (hero.hp -= this.attackValue);
+    } else if (hero.hp <= this.attackValue) {
+      return hero.destroy();
     }
-    attack(villain){
-        if(villain.hp > this.attackValue){
-            return villain.hp -= this.attackValue;
-        }else if(villain.hp <= this.attackValue){
-            return villain.destroy();
-        }
-    }
+  }
 }
 
-  const mageVillain = new Villain({
-    createdAt: new Date(),
-    dimensions: {
-      length: 2,
-      width: 1,
-      height: 1,
-    },
-    hp: 5,
-    name: 'Bruce',
-    faction: 'Mage Guild',
-    weapons: [
-      'Staff of Shamalama',
-    ],
-    language: 'Common Toungue',
-    attackValue: 1
-  });
+class Hero extends Humanoid {
+  constructor(heroAttributes) {
+    super(heroAttributes);
+    this.attackValue = heroAttributes.attackValue;
+  }
+  attack(villain) {
+    if (villain.hp > this.attackValue) {
+      return (villain.hp -= this.attackValue);
+    } else if (villain.hp <= this.attackValue) {
+      return villain.destroy();
+    }
+  }
+}
 
-  const mageHero = new Hero({
-    createdAt: new Date(),
-    dimensions: {
-      length: 2,
-      width: 1,
-      height: 1,
-    },
-    hp: 5,
-    name: 'Bruce',
-    faction: 'Mage Guild',
-    weapons: [
-      'Staff of Shamalama',
-    ],
-    language: 'Common Toungue',
-    attackValue: 1
-  });
+const mageVillain = new Villain({
+  createdAt: new Date(),
+  dimensions: {
+    length: 2,
+    width: 1,
+    height: 1
+  },
+  hp: 5,
+  name: "Bruce",
+  faction: "Mage Guild",
+  weapons: ["Staff of Shamalama"],
+  language: "Common Toungue",
+  attackValue: 1
+});
 
- 
+const mageHero = new Hero({
+  createdAt: new Date(),
+  dimensions: {
+    length: 2,
+    width: 1,
+    height: 1
+  },
+  hp: 5,
+  name: "Bruce",
+  faction: "Mage Guild",
+  weapons: ["Staff of Shamalama"],
+  language: "Common Toungue",
+  attackValue: 1
+});
 
-
-
-  console.log(mageVillain.attack(mageHero));
-  console.log(mageVillain.attack(mageHero));
-  console.log(mageVillain.attack(mageHero));
-  console.log(mageVillain.attack(mageHero));
-  console.log(mageVillain.attack(mageHero));
-  console.log(mageHero.attack(mageVillain));
-  console.log(mageHero.attack(mageVillain));
-  console.log(mageHero.attack(mageVillain));
-  console.log(mageHero.attack(mageVillain));
-  console.log(mageHero.attack(mageVillain));
-  console.log('Assignment 1: End');
-
-
-
-
-
-
-
+console.log(mageVillain.attack(mageHero));
+console.log(mageVillain.attack(mageHero));
+console.log(mageVillain.attack(mageHero));
+console.log(mageVillain.attack(mageHero));
+console.log(mageVillain.attack(mageHero));
+console.log(mageHero.attack(mageVillain));
+console.log(mageHero.attack(mageVillain));
+console.log(mageHero.attack(mageVillain));
+console.log(mageHero.attack(mageVillain));
+console.log(mageHero.attack(mageVillain));
+console.log("Assignment 1: End");
