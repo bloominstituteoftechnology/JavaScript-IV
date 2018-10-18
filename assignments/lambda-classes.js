@@ -35,6 +35,9 @@ class Instructor extends Person {
   grade(student, subject) {
     console.log(`${student.name} receives a perfect score on ${subject}`);
   }
+  gradeStudent(student) {
+    student.grade = Math.random() > 0.5 ? student.grade - 5 : student.grade + 5;
+  }
 }
 
 class Student extends Person {
@@ -43,6 +46,7 @@ class Student extends Person {
     this.previousBackground = attributes.previousBackground;
     this.favSubject = attributes.favSubject;
     this.className = attributes.className;
+    this.grade = attributes.grade;
   }
   listsSubjects() {
     console.log("My favorite subjects are;");
@@ -91,7 +95,8 @@ const charlie = new Student({
   gender: "male",
   favSubject: ["C", "Math", "astrophysics"],
   previousBackground: "Front-end",
-  className: `Don't forget the homies`
+  className: `Don't forget the homies`,
+  grade: 100
 });
 
 const tracy = new ProjectManagers({
@@ -120,7 +125,8 @@ const juan = new Student({
   gender: "Male",
   favSubject: ["C", "Math", "astrophysics"],
   previousBackground: "Front-end",
-  className: `FSW5000`
+  className: `FSW5000`,
+  grade: 50
 });
 
 const tony = new ProjectManagers({
@@ -147,3 +153,6 @@ juan.PRAssignment("React Native");
 juan.sprintChallenge("Flexbox");
 tony.standUp("#FSW5000_Tony");
 tony.debugsCode(charlie, "Quantum Machines");
+
+fred.gradeStudent(juan);
+console.log(juan.grade);
