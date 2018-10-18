@@ -26,6 +26,12 @@ class Instructor extends Person {
     grade(student, subject) {
         console.log(`${student.name} receives a perfect score on ${subject}`)
     }
+    change() {
+        let oldGrade = this.grade;
+        let newGrade = oldGrade + (Math.random() < 0.5 ? -1 : 1);
+        // const multiplier = Math.random() < 0.5 ? -1 : 1;
+        console.log(`Your grade was ${this.grade}. It is now ${newGrade}`)
+    }
 }
 
 class Student extends Person {
@@ -38,11 +44,19 @@ class Student extends Person {
     listsSubjects() {
         console.log(`Me gusta ${this.favSubjects}`);
     }
-    PRAssignment(student, subject) {
-        console.log(`${student.name} has submitted a PR for ${subject}`);
+    PRAssignment(subject) {
+        console.log(`${this.name} has submitted a PR for ${subject}`);
     }
-    sprintChallenge(student, subject) {
-        console.log(`${student.name} has begun sprint challenge on ${subject}`)
+    sprintChallenge(subject) {
+        console.log(`${this.name} has begun sprint challenge on ${subject}`)
+    }
+    graduate() {
+        if (this.grade > 70) {
+            console.log(`You got ${this.grade} - you've graduated!`);
+        }
+        else {
+            console.log(`You got ${this.grade} - you've failed! Try again.`);
+        }
     }
 }
 
@@ -56,9 +70,12 @@ class ProjectManagers extends Instructor {
     standUp(student, channel) {
         console.log(`${student.name} announces to ${channel}, @channel standy times!​​​​​`)
     }
-    debugsCode(name, student, subject) {
-        console.log(`${name} debugs ${student.name}'s code on ${subject}`)
+    debugsCode(student, subject) {
+        console.log(`${this.name} debugs ${student.name}'s code on ${subject}`)
     }
+    // gradeCode(student) {
+    //     if (student.grade > 70)
+    // }
 }
 
 
@@ -78,6 +95,11 @@ personTest.speak();
 
 // Instructor test
 const instructorTest = new Instructor ({
+    name: "Derek",
+    age: 65,
+    location: "UK",
+    gender: "M",
+    grade: 85,
     specialty: "React",
     favLanguage: "JavaScript",
     catchPhrase: "Vamos"
@@ -85,12 +107,18 @@ const instructorTest = new Instructor ({
 
 console.log(instructorTest);
 instructorTest.demo("Maths");
-instructorTest.grade(personTest, "English");
+// instructorTest.grade(personTest, "English");
+instructorTest.change();
 
 
 
 // Student test
 const studentTest = new Student ({
+    name: "Daniela",
+    age: 25,
+    location: "Portugal",
+    gender: "F",
+    grade: 75,
     previousBackground: "Pilot",
     className: "FSW15",
     favSubjects: "Python"
@@ -98,18 +126,28 @@ const studentTest = new Student ({
 
 console.log(studentTest);
 studentTest.listsSubjects();
-studentTest.PRAssignment(personTest, 'JavaScript');
-studentTest.sprintChallenge(personTest, 'React');
+studentTest.PRAssignment('JavaScript');
+studentTest.sprintChallenge('React');
+studentTest.graduate();
 
 
 
 
 // Project Manager test
 const pmTest = new ProjectManagers ({
+    name: "Paul",
+    age: 25,
+    location: "France",
+    gender: "M",
+    grade: 45,
+    specialty: "React",
+    favLanguage: "JavaScript",
+    catchPhrase: "Leggo",
+    favSubjects: "Python",
     gradClassName: "Best",
     favInstructor: "Josh"
 })
 
 console.log(pmTest);
 pmTest.standUp(personTest, 'secretChannel');
-pmTest.debugsCode('Kenny', personTest, 'The Impossible');
+pmTest.debugsCode(personTest, 'The Impossible');
