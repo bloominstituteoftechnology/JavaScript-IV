@@ -24,19 +24,21 @@ class Instructor extends Person{
     grade(student,subject) {
 
         function randGradeAdjust(){
-            let randNum = Math.random();
-            if(randNum >= 0.5){
-                student.Grade *= (1+randNum);
-                student.Grade = Math.round(student.Grade);
+            let randNum = Math.floor(Math.random() * Math.floor(100));
+            if(randNum >= 50){
+                student.Grade += randNum;
                 if(student.Grade >= 100){
                     return student.Grade = 100;
                 } else {
                     return student.Grade;
                 }
             } else {
-                student.Grade *= randNum;
-                student.Grade = Math.round(student.Grade);
-                return student.Grade;
+                student.Grade -= randNum;
+                if(student.Grade <= 25){
+                    return student.Grade = 25;
+                } else {
+                    return student.Grade;
+                }
             }
         }
         
@@ -63,20 +65,19 @@ class Student extends Person{
     sprintChallenge(subject) {
         return `${this.name} has begun sprint challenge on ${subject}`;
     }
-    graduate(Instructor_PM,assignment) {
-
+    graduate(Instructor_PM,subject) {
         while(true){
             if(this.Grade >=70){
-                console.log('Ya, I can graduate!!!!');
+                console.log(`Ya, I graduated with a ${this.Grade} on ${subject} !!!!`);
                 break;
             } else {
-                console.log(`${Instructor_PM.name} is re-grading your assignmet`)
-                return Instructor_PM.grade(this,assignment);
+                console.log(`${Instructor_PM.name} is re-grading your assignment.\nYour current grade is ${this.Grade}`);
+                Instructor_PM.grade(this,subject);
+                continue;
             }
         }
     }
 }
-//new Student({name:this.name,Grade:this.Grade})
 
 class ProjectManager extends Instructor{
     constructor(pmAttr){
@@ -137,8 +138,8 @@ dan.listsSubjects();
 console.log(dan.PRAssignment("JS-I"));
 console.log(dan.sprintChallenge("HTML"));
 console.log(dan.Grade);
-dan.graduate(trevor,"C++");
-//console.log(fred.graduate(trevor));
+//dan.graduate(trevor,"C++");
+dan.graduate(fred,"Java");
 
 /////////////////////////
 console.log("----------------------")
@@ -146,9 +147,3 @@ console.log(trevor.speak());
 console.log(trevor.standUp("FSW_15_Trevor"));
 console.log(trevor.debugsCode(dan,"React"));
 console.log(trevor.grade(dan,"JS-IV"));
-
-/* * Extend the functionality of the Student by adding a prop called grade and setting it equal to a number between 1-100.
-* Now that our students have a grade build out a method on the Instructor (this will be used by _BOTH_ instructors and PM's) that will randomly add or subtract points to a student's grade. _Math.random_ will help.
-* Add a graduate method to a student.
-  * This method, when called, will check the grade of the student and see if they're ready to graduate from Lambda School
-  * If the student's grade is above a 70% let them graduate! Otherswise go back to grading their assignments to increase their score. */
