@@ -59,3 +59,17 @@ class ProjectManagers extends Instructor{
     };
 };
 
+const josh = new Instructor({
+    name: 'Josh',
+    age: 35,
+    location: 'Utah',
+    gender: 'Male',
+    speciality: [
+        'html',
+        'css',
+    ],
+    favLanguage: 'Javascript',
+    catchPhrase: 'Banjoooo!'
+});
+
+console.log(josh.speak());
