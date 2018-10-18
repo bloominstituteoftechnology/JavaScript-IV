@@ -225,12 +225,12 @@ villian.strike(hero);
 villian.strike(hero);
 hero.blast(villian);
 hero.blast(villian); /// defeated villian
-setTimeout(e => {
-  villian.revive();
-  hero.blast(villian);
-  hero.blast(villian);
-  hero.blast(villian);
-  setTimeout(e => {
-    villian.revive();
-  }, 7000);
-}, 4000);
+// setTimeout(e => {
+//   villian.revive();
+//   hero.blast(villian);
+//   hero.blast(villian);
+//   hero.blast(villian);
+//   setTimeout(e => {
+//     villian.revive();
+//   }, 7000);
+// }, 4000);
