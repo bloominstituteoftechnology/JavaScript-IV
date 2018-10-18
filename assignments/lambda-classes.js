@@ -251,3 +251,39 @@ console.log(harley.speak());
 console.log('Harley Quinn lists subjects', harley.listsSubjects());
 console.log(harley.PRAssignment('Taunting & Mocking'));
 console.log(harley.sprintChallenge('Playing with Hyenas'));
+
+
+
+// ==PM Tests==
+// --Create Objects--
+
+const alfred = new ProjectManager({
+    name: 'Alfred',
+    age: 56,
+    location: 'Gotham City',
+    gender: 'm',
+    specialty: 'Military Intelligence',
+    favLanguage: 'Sarcasm',
+    catchPhrase: 'Right away sir',
+    gradClassName: 'You\'ll never know',
+    favInstructor: 'Batman, if I must choose'
+});
+
+
+// Confirm Existance
+console.log(alfred);
+
+console.log('Alfred Specialty:', alfred.specialty);
+console.log('Alfred Favorite Language:', alfred.favLanguage);
+console.log('Alfred Catch Phrase:', alfred.catchPhrase);
+console.log('Alfred Grad Class:', alfred.gradClassName);
+console.log('Alfred Fav Instructor:', alfred.favInstructor);
+
+
+// Make them do stuff
+console.log(alfred.speak());
+console.log('Alfred Demo:', alfred.demo('Keeping things Clean'));
+console.log('Alfred Grade:', alfred.grade(robin, 'Hacking'));
+console.log('Alfred Grade:', alfred.grade(harley, 'Tumbling'));
+console.log(alfred.standUp('Whipper-Snappers'));
+console.log(alfred.debugsCode(robin, 'Hacking'));
