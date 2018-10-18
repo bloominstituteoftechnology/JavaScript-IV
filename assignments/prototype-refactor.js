@@ -14,15 +14,17 @@ Prototype Refactor
   * dimensions
   * destroy() // prototype method -> returns the string: 'Object was removed from the game.'
 */
-function GameObject(obj) {
-  this.createdAt = obj.createdAt;
-  this.dimensions = obj.dimensions;
+class GameObject {
+  constructor(attr) {
+    this.createdAt = attr.createdAt;
+    this.dimensions = attr.dimensions;
+  }
+  destroy(){
+    return 'Object was removed from the game.';
+  }
 }
 
-GameObject.prototype.destroy = function(){
-  return 'Object was removed from the game.';
-}
-
+/*
 /*
   === CharacterStats ===
   * hp
@@ -30,19 +32,17 @@ GameObject.prototype.destroy = function(){
   * takeDamage() // prototype method -> returns the string '<object name> took damage.'
   * should inherit destroy() from GameObject's prototype
 */
-function CharacterStats(attr) {
-  GameObject.call(this, attr);
-  this.hp = attr.hp;
-  this.name = attr.name;
+class CharacterStats extends GameObject{
+  constructor(attr) {
+    super(attr);
+    this.hp = attr.hp;
+    this.name = attr.name;
+  }
+  takeDamage() {
+    return `${this.name} took damage.`;
+  }
 }
 
-// chain CharacterStats' prototype to GameObject's prototype
-CharacterStats.prototype = Object.create(GameObject.prototype);
-
-// create takeDamage prototype method
-CharacterStats.prototype.takeDamage = function() {
-  return `${this.name} took damage.`
-}
 
 /*
   === Humanoid ===
@@ -53,20 +53,19 @@ CharacterStats.prototype.takeDamage = function() {
   * should inherit destroy() from GameObject through CharacterStats
   * should inherit takeDamage() from CharacterStats
 */
-function Humanoid(attr) {
-  CharacterStats.call(this, attr);
-  this.faction = attr.faction;
-  this.weapons = attr.weapons;
-  this.language = attr.language;
+class Humanoid extends CharacterStats {
+  constructor(attr) {
+    super(attr);
+    this.faction = attr.faction;
+    this.weapons = attr.weapons;
+    this.language = attr.language;
+  }
+  // create greet prototype method
+  greet() {
+    return `${this.name} offers a greeting in ${this.language}`;
+  }
 }
 
-// chain Humanoid's prototype to CharacterStats' prototype
-Humanoid.prototype = Object.create(CharacterStats.prototype);
-
-// create greet prototype method
-Humanoid.prototype.greet = function() {
-  return `${this.name} offers a greeting in ${this.language}`;
-}
 
 /*
   * Inheritance chain: GameObject -> CharacterStats -> Humanoid
@@ -143,72 +142,74 @@ Humanoid.prototype.greet = function() {
 // * Create Villian and Hero constructor functions that inherit from the Humanoid constructor function.  
 // * Give the Hero and Villians different methods that could be used to remove health points from objects which could result in destruction if health gets to 0 or drops below 0;
 // * Create two new objects, one a villian and one a hero and fight it out with methods!
-function Hero(attr) {
-  Humanoid.call(this, attr);
-  this.health = 100;
-}
-
-// chain Hero's prototype to Humanoid's prototype
-Hero.prototype = Object.create(Humanoid.prototype);
-Hero.prototype.greet = function() {
-  console.log(`${this.name.toUpperCase()} is here to safe the day!`);
-}
-
-// let Hero attack its opponent
-Hero.prototype.blast = function(obj) {
-  obj.health -= this.hp; // decrease the health value
-
-  if (obj.hp > 2) {   // decrease the hp value with a minimum
-    obj.hp--;
+class Hero extends Humanoid {
+  constructor(attr) {
+    super(attr);
+    this.health = 100;
+  }
+  
+  greet() {
+    console.log(`${this.name.toUpperCase()} is here to safe the day!`);
   }
 
-  if (obj.health <= 0) {    // if opponent is defeated
-    console.log(`You're DEAD, ${obj.name}`);
-    obj.dead = new Date();
-  } else {
-    console.log(`Take that you filthy thing!!!`);
+  // let Hero attack its opponent
+  blast(obj) {
+    obj.health -= this.hp; // decrease the health value
+
+    if (obj.hp > 2) {   // decrease the hp value with a minimum
+      obj.hp--;
+    }
+
+    if (obj.health <= 0) {    // if opponent is defeated
+      console.log(`You're DEAD, ${obj.name}`);
+      obj.dead = new Date();
+    } else {
+      console.log(`Take that you filthy thing!!!`);
+    }
   }
 }
+
 
 // Villian
-function Villian(attr) {
-  Humanoid.call(this, attr);
-  this.health = 100;
-  this.dead = null;
-}
+class Villian extends Humanoid {
+  constructor(attr) {
+    super(attr);
+    this.health = 100;
+    this.dead = null;
+  }
 
-// chain Vilian's prototype to Humanoid's prototype
-Villian.prototype = Object.create(Humanoid.prototype);
-Villian.prototype.greet = function() {
-  console.log(`${this.name.toUpperCase()} wants to destroy it all`);
-}
+  greet() {
+    console.log(`${this.name.toUpperCase()} wants to destroy it all`);
+  }
 
-// let Villian to revive from dead if it hasn't been dead for more than 2 seconds
-Villian.prototype.revive = function(){
-  if (this.dead !== null) {
-    if (new Date() - this.dead < 5000) {
-      this.health = 100;
-      this.dead = null;
-      console.log("I Come Back!!!");
+  // let Villian to revive from dead if it hasn't been dead for more than 2 seconds
+  revive(){
+    if (this.dead !== null) {
+      if (new Date() - this.dead < 5000) {
+        this.health = 100;
+        this.dead = null;
+        console.log("I Come Back!!!");
+      } else {
+        console.log("I'm really DEAD!!");
+      }
     } else {
-      console.log("I'm really DEAD!!");
+      console.log("I can't die.. HA HA HA!!!" );
     }
-  } else {
-    console.log("I can't die.. HA HA HA!!!" );
+  }
+
+  // let Villian strikes its opponent
+  strike(obj) {
+    obj.health -= this.hp; // decrease the health value
+    
+    if (obj.health <= 0) {
+      console.log("I AM THE KING OF THE GAME!!!!");
+      obj.dead = new Date();
+    } else {
+      console.log(`I'll beat you ${obj.name}!!!`);
+    }
   }
 }
 
-// let Villian strikes its opponent
-Villian.prototype.strike = function(obj) {
-  obj.health -= this.hp; // decrease the health value
-  
-  if (obj.health <= 0) {
-    console.log("I AM THE KING OF THE GAME!!!!");
-    obj.dead = new Date();
-  } else {
-    console.log(`I'll beat you ${obj.name}!!!`);
-  }
-}
 
 const hero = new Hero({createdAt: new Date(), dimensions: 12, hp: 35, name: 'Gandalf The Gray', faction: 'faction', weapons: ['arrow'], language: 'babaraba'});
 
