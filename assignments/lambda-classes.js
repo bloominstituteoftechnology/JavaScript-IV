@@ -21,10 +21,10 @@ class Instructor extends Person {
         this.grade = instruct.grade;
     }
     demo(subject) {
-        console.log(`Today we are learning ${this.subject}`);
+        return `Today we are learning ${subject}`;
     }
     grade(student, subject) {
-        console.log(`${student.name} receives a perfect ${this.grade} on ${this.subject}.`);
+        return `${student.name} receives a perfect ${grade} on ${subject}.`;
     }
 }
 class Student extends Person {
@@ -36,13 +36,13 @@ class Student extends Person {
         this.subject = student.subject;
     }
     listsSubjects(favSubjects) {
-        console.log();
+        return `These are ${this.name}'s favorite subjects  ${this.favSubjects}`;
     }
     PRAssignment(subject) {
-        console.log(`${student.name} has submitted a PR for ${subject}.`);
+        return `${this.name} has submitted a PR for ${subject}.`;
     }
     sprintChallenge(subject) {
-        console.log(`${this.name} has begun sprint challenge on ${subject}`);
+        return `${this.name} has begun sprint challenge on ${subject}`;
     }
 }
 
@@ -52,11 +52,11 @@ class ProjectManagers extends Instructor {
         this.gradClassName = pmanager.gradClassName;
         this.favInstructor = pmanager.favInstructor;
     }
-    standUp() {
-        console.log(`${this.name} @channel standby time!`);
+    standUp(channel) {
+        return `${this.name}, hey @channel ${channel} standby time!`;
     }
-    debugsCode() {
-        console.log(`${this.name} debugs ${this.student.name}'s code on ${this.subject}`);
+    debugsCode(student, subject) {
+        return `${this.name} debugs ${this.name}'s code on ${subject}`;
     }
 }
 
@@ -99,7 +99,7 @@ const thomas = new Student({
     gender: 'male',
     previousBackground: 'Retail',
     className: 'CS15',
-    favSubjects: ['HTML', 'REACT', 'JavaScript'],
+    favSubjects: ['HTML ', 'REACT ', 'JavaScript'],
     subject: 'REACT'
 });
 
@@ -110,7 +110,7 @@ const keysha = new Student({
     gender: 'female',
     previousBackground: 'Receptionist',
     className: 'CS09',
-    favSubjects: ['SASS', 'iOS', 'UX/UI'],
+    favSubjects: ['SASS ', 'iOS ', 'UX/UI'],
     subject: 'SASS'
 });
 
@@ -121,7 +121,7 @@ const mark = new Student({
     gender: 'male',
     previousBackground: 'Retired Veteran',
     className: 'Data Structures',
-    favSubjects: ['Alogorithms', 'Python'],
+    favSubjects: ['Alogorithms', ' Python'],
     subject: 'Python'
 });
 
@@ -144,10 +144,39 @@ const pablo = new ProjectManagers({
 });
 
 const peter = new ProjectManagers({
-    name: 'peter',
+    name: 'Peter',
     location: 'San Francisco',
     age: 29,
     gender: 'male',
     gradClassName: 'REACT',
     favInstructor: 'Michael',
 });
+
+
+
+console.log(michael.demo('python'));
+console.log(mark.listsSubjects());
+console.log(mark.PRAssignment('HTML'));
+console.log(mark.sprintChallenge('REACT'));
+console.log(mark.className);
+console.log(peter.standUp('FSW15'));
+console.log(pablo.debugsCode('Keysha', 'JavaScript'));
+console.log();
+console.log();
+console.log();
+console.log();
+console.log();
+console.log();
+console.log();
+console.log();
+console.log();
+console.log();
+console.log();
+console.log();
+console.log();
+console.log();
+console.log();
+console.log();
+console.log();
+console.log();
+console.log();
