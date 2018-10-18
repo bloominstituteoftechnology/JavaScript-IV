@@ -40,6 +40,16 @@ class Instructor extends Person {
   grade(student, subject) {
     return `${student.name} receives a perfect score on ${subject}`;
   }
+  gradePoint(student) {
+    let add = Math.random() > .3 || false;
+    let point = Math.floor(Math.random() * 10);
+
+    if (add) {
+      student.grade += point;
+    } else {
+      student.grade -= point;
+    }
+  }
 }
 
 /*
