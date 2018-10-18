@@ -200,3 +200,5 @@ studentTwo.sprintChallenge('Flying');
 
 PMTwo.standUp('flex');
 console.log(PMOne.grade(studentTwo, 'Flying'));
+
+studentThree.checkGraduation(PMTwo);
