@@ -29,6 +29,37 @@ class Instructor extends Person {
     grade(student, subject) {
         console.log(`${student.name} receives a perfect score on ${subject}`)
     }
+
+    changeGrade(student) {
+        do {
+            console.log(`${this.name} will now grade ${student.name}!`);
+            console.log(`....`);
+            const randomNum = Math.random();
+            // console.log('randomNum: ' + randomNum);
+
+            if (randomNum => 0.5) {
+                student.grade += Math.round(Math.random() * 100);
+
+                if (student.grade > 100) {
+                    student.grade = 100;
+                }
+            } else {
+                student.grade -= Math.round(Math.random() * 100);
+
+                if (student.grade < 0) {
+                    student.grade = 0;
+                }
+            }
+
+        console.log(`${student.name} has been graded! ${student.name}'s new grade: ${student.grade}`);
+        }
+
+        while (student.grade < 70);
+
+        if (student.grade > 70) {
+            student.graduate();
+        }
+    }
 }
 
 class Student extends Person {
@@ -37,6 +68,7 @@ class Student extends Person {
         this.previousBackground = studentAtt.previousBackground;
         this.className = studentAtt.className;
         this.favSubjects = studentAtt.favSubjects; //array
+        this.grade = Math.round(Math.random() * 100);
     }
 
     listsSubjects() {
@@ -45,7 +77,6 @@ class Student extends Person {
         });
     }
 
-
     PRAssignment(subject) {
         console.log(`${this.name} has submitted a PR for ${subject}`);
     }
@@ -53,7 +84,12 @@ class Student extends Person {
     sprintChallenge(subject) {
         console.log(`${this.name} has begun sprint challenge on ${subject}`);
     }
-}
+
+    graduate() {
+            console.log(`${this.name} has graduated!`);
+        }
+    }
+
 
 class ProjectManager extends Instructor {
     constructor(pmAttributes) {
@@ -168,7 +204,7 @@ dom.speak(); //Hello my name is Dom, I am from Not Kansas
 dom.demo('some cool stuff'); //Today we are learning about some cool stuff
 dom.grade(diana, 'CSS'); //Diana receives a perfect score on CSS
 
-// Student tests
+// // Student tests
 
 diana.speak(); //Hello my name is Diana, I am from London
 diana.listsSubjects(); // HTML, CSS, JavaScript (but separate)
@@ -180,7 +216,7 @@ andrew.listsSubjects(); //math, english, science (but separate)
 andrew.PRAssignment('CSS'); //Andrew has submitted a PR for CSS
 andrew.sprintChallenge('CSS'); //Andrew has begun sprint challenge on CSS
 
-// PM tests
+// // PM tests
 
 morgan.speak();//Hello my name is Morgan, I am from New York
 morgan.demo('Ruby'); //Today we are learning about Ruby
@@ -193,3 +229,8 @@ christian.demo('Python'); //Today we are learning about Python
 christian.grade(andrew, 'C#'); //Andrew receives a perfect score on C#
 christian.standUp('#fsw45');//Christian announces to $fsw45, @channel standy times!​​​​​
 christian.debugsCode(diana, 'Java');//{Christian debugs Diana's code on Java
+console.log(diana);
+hayley.changeGrade(diana);
+
+console.log(andrew);
+hayley.changeGrade(andrew);
