@@ -49,3 +49,82 @@ class Student extends Person {
         return `${this.name} has begun sprint challenge on ${subject}`;
     }
 }
+
+// Project Manager Class
+class ProjectManager extends Instructor {
+    constructor(PMAttributes) {
+        this.gradClassName = PMAttributes.gradClassName;
+        this.favInstructor = PMAttributes.favInstructor;
+    }
+    standup(slackChannel) {
+        return `${this.name} announces to ${slackChannel} @channel standy times!`;
+    }
+    debugsCode(student, subject) {
+        return `${this.name} debugs ${student}'s code on ${subject}`;
+    }
+}
+
+
+// Test Objects
+
+// Instructor Test
+const fred = new Instructor ({
+    name: 'Fred',
+    location: 'Bedrock',
+    age: 37,
+    gender: 'male',
+    favLanguage: 'Javascript',
+    specialty: 'Front-end',
+    catchPhrase: `Don't forget the homies`,
+});
+
+const josh = new Instructor ({
+    name: 'Josh Knell',
+    location: 'Utah',
+    age: 38,
+    gender: 'male',
+    favLanguage: 'CSS',
+    specialty: 'Full-stack',
+    catchPhrase: `What's up FSW 15...how is everyone doing today?!`,
+});
+
+// Student Test
+const daren = new Student ({
+    name: 'Daren Larson',
+    location: 'Minnesota',
+    age: 31,
+    gender: 'male',
+    previousBackground: 'Finance',
+    className: 'FSW 15',
+    favSubjects: 'Javascript',
+});
+
+const mrRobot = new Student ({
+    name: 'Elliot Alderson',
+    location: 'New York City',
+    age: 28,
+    gender: 'male',
+    previousBackground: 'Cyber Security',
+    className: 'FSW 1',
+    favSubjects: 'Hacking things',
+});
+
+// Project Manager Test
+const Trevor = new ProjectManager ({
+    name: 'Trevor Noah',
+    location: 'New York City',
+    age: 25,
+    gender: 'male',
+    gradClassName: 'CS1',
+    favInstructor: 'Mr. Rodgers'
+});
+
+const Stewart = new ProjectManager ({
+    name: 'Jon Stewart',
+    location: 'New York City',
+    age: 55,
+    gender: 'male',
+    gradClassName: 'CS0',
+    favInstructor: 'John Kennedy'
+});
+
