@@ -45,6 +45,10 @@ class Instructor extends Person {
     grade(student, subject){
         console.log(`${student.name} receives a perfect score on ${subject}`);
     }
+    //* Now that our students have a grade build out a method on the Instructor (this will be used by _BOTH_ instructors and PM's) that will randomly add or subtract points to a student's grade. _Math.random_ will help.
+    adjustGrade(student){
+        student.grade += Math.round(Math.random()*40-20);
+    }
 }
 
 // #### Student
@@ -66,6 +70,8 @@ class Student extends Person {
         this.previousBackground = studentAttributes.previousBackground;
         this.className = studentAttributes.className;
         this.favSubjects = studentAttributes.favSubjects;
+       // * Extend the functionality of the Student by adding a prop called grade and setting it equal to a number between 1-100.
+        this.grade = Math.round(Math.random()*100);
     }
     listsSubjects (){
         this.favSubjects.forEach(item => console.log(item));
@@ -75,6 +81,16 @@ class Student extends Person {
     }
     sprintChallenge (subject) {
         console.log(`${this.name} has begun sprint challenge on ${subject}`);
+    }
+//   * Add a graduate method to a student.
+//      * This method, when called, will check the grade of the student and see if they're ready to graduate from Lambda School
+//      * If the student's grade is above a 70% let them graduate! Otherswise go back to grading their assignments to increase their score.
+    graduate () {
+        if (this.grade > 70){
+            console.log(`Congrats ${this.name} you can graduate with a ${this.grade}%!`);
+        }else{
+            console.log(`Sorry ${this.name}, at ${this.grade}% you can not graduate yet.`);
+        }
     }
 }
 
@@ -101,6 +117,7 @@ class ProjectManagers extends Instructor {
     debugsCode(student, subject){
         console.log(`${this.name} debugs ${student.name}'s code on ${subject}`);
     }
+
 }
 
 const fred = new Instructor({
