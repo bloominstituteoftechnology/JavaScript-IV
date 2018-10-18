@@ -24,7 +24,7 @@ class Instructor extends Person {
         return `Today we are learning ${subject}`;
     }
     grade(student, subject) {
-        return `${student.name} receives a perfect ${grade} on ${subject}.`;
+        return `${student} receives a perfect score on ${subject}.`;
     }
 }
 class Student extends Person {
@@ -56,7 +56,7 @@ class ProjectManagers extends Instructor {
         return `${this.name}, hey @channel ${channel} standby time!`;
     }
     debugsCode(student, subject) {
-        return `${this.name} debugs ${this.name}'s code on ${subject}`;
+        return `${this.name} debugs ${student}'s code on ${subject}`;
     }
 }
 
@@ -154,29 +154,29 @@ const peter = new ProjectManagers({
 
 
 
-console.log(michael.demo('python'));
-console.log(mark.listsSubjects());
-console.log(mark.PRAssignment('HTML'));
-console.log(mark.sprintChallenge('REACT'));
-console.log(mark.className);
-console.log(peter.standUp('FSW15'));
-console.log(pablo.debugsCode('Keysha', 'JavaScript'));
-console.log();
-console.log();
-console.log();
-console.log();
-console.log();
-console.log();
-console.log();
-console.log();
-console.log();
-console.log();
-console.log();
-console.log();
-console.log();
-console.log();
-console.log();
-console.log();
-console.log();
-console.log();
-console.log();
+console.log(michael.demo('python')); // Instructor Michael's 'demo
+console.log(mark.listsSubjects()); // Student Mark's fav subjects
+console.log(mark.PRAssignment('HTML')); // Mark's PRAssignment's
+console.log(mark.sprintChallenge('REACT')); // Mark's sprint challenge
+console.log(mark.className); // Mark's class name
+console.log(peter.standUp('FSW15')); // Project Manager Peter's stand-up message
+console.log(pablo.debugsCode('Keysha', 'JavaScript')); // Project Manager Pablo's debug message
+console.log(keysha.previousBackground); // Student Keysha's previous background
+console.log(thomas.className); // Student Thomas's class name
+console.log(michael.grade('Thomas', 'CSS'));
+// console.log();
+// console.log();
+// console.log();
+// console.log();
+// console.log();
+// console.log();
+// console.log();
+// console.log();
+// console.log();
+// console.log();
+// console.log();
+// console.log();
+// console.log();
+// console.log();
+// console.log();
+// console.log();
