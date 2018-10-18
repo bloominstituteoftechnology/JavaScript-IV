@@ -38,7 +38,9 @@ class Student extends Person{
         this.favSubjects = studentAttributes.favSubjects;
     }
     listsSubjects(){
-         return this.favSubjects.forEach(subject => console.log(subject));
+          this.favSubjects.forEach(function (subject){
+              console.log(subject)
+          }); 
             
         }
     PRAssignment(subject){
@@ -110,3 +112,19 @@ const fred = new Instructor({
     className: 'FSW15',
     favSubjects: ['Getting dumped by earthlings.','Making axes 101.','How to lose your hammer.']
   });
+
+
+
+  //tests
+  console.log(fred);
+  console.log(kenobi);
+  console.log(peter);
+  console.log(thor);
+  console.log(peter.catchPhrase);
+  console.log(peter.debugsCode(thor,'Dealing with Loki'));
+  console.log(peter.standUp('FSW15'));
+  thor.listsSubjects();
+  console.log(thor.sprintChallenge('How to Odin Force'));
+  console.log(thor.PRAssignment('How to Odin Force'));
+  console.log(kenobi.grade(thor, 'How to deal with green dudes'));
+  console.log(kenobi.demo('Force Ghosting 203'));
