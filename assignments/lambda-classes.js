@@ -73,3 +73,40 @@ class ProjectManagers extends Instructor {
     console.log(`${this.name} debugs ${student.name}'s code on ${subject}`);
   }
 }
+
+const fred = new Instructor({
+  name: "Fred",
+  location: "Bedrock",
+  age: 37,
+  gender: "male",
+  favLanguage: "JavaScript",
+  specialty: "Front-end",
+  catchPhrase: `FSW15`
+});
+
+const charlie = new Student({
+  name: "Charlie",
+  location: "Mars",
+  age: 20,
+  gender: "male",
+  favSubject: ["C", "Math", "astrophysics"],
+  previousBackground: "Front-end",
+  className: `Don't forget the homies`
+});
+
+const tracy = new ProjectManagers({
+  name: "Tracy",
+  location: "Venus",
+  age: 28,
+  gender: "Female",
+  favInstructor: "Kuh-nell",
+  gradClassName: `CS5`
+});
+
+fred.demo("Python");
+fred.grade(charlie, "Pyhton");
+charlie.listsSubjects();
+charlie.PRAssignment("React");
+charlie.sprintChallenge("Redux");
+tracy.standUp("#FSW15_Tracy");
+tracy.debugsCode(charlie, "Quantum Physics");
