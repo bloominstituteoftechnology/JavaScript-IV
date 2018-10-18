@@ -11,7 +11,6 @@ class Person{
     }
 }
 
-
 class Instructor extends Person{
     constructor(instructorAttr){
         super(instructorAttr);
@@ -40,15 +39,14 @@ class Student extends Person{
         }
     }
     PRAssignment(subject) {
-        return `${student.name} has submitted a PR for ${subject}`;
+        return `${this.name} has submitted a PR for ${subject}`;
     }
-    sprintChallenge() {
-        return `${student.name} has begun sprint challenge on ${subject}`;
+    sprintChallenge(subject) {
+        return `${this.name} has begun sprint challenge on ${subject}`;
     }
 }
 
-
-class ProjectManager extends Instructors{
+class ProjectManager extends Instructor{
     
     constructor(pmAttr){
         super(pmAttr);
@@ -62,3 +60,52 @@ class ProjectManager extends Instructors{
         return `${this.name} debugs ${student.name}'s code on ${subject}`;
     }
 }
+/////////////////////////
+const dan = new Student({
+    name: 'Dan',
+    location: 'Florida',
+    age: 26,
+    gender: 'Male',
+    previousBackground:'Python',
+    className: 'FSW_15',
+    favSubjects: ["Inheritance","Flexbox","Generator functions"]
+});
+
+const fred = new Instructor({
+    name: 'Fred',
+    location: 'Bedrock',
+    age: 37,
+    gender: 'Male',
+    favLanguage: 'JavaScript',
+    specialty: 'Front-end',
+    catchPhrase: `Don't forget the homies`
+});
+
+const trevor = new ProjectManager({
+    name: 'Trevor',
+    location: 'California',
+    age: 30,
+    gender: 'Male',
+    gradClassName: 'CS_13',
+    favInstructor: 'Josh',
+    catchPhrase: `Don't forget the homies`
+});
+
+/////////////////////////
+console.log("----------------------")
+console.log(fred.speak());
+console.log(fred.demo("JS-III"));
+console.log(fred.grade(dan,"JS-IV"));
+
+/////////////////////////
+console.log("----------------------")
+console.log(dan.speak("JS"));
+dan.listsSubjects();
+console.log(dan.PRAssignment("JS-I"));
+console.log(dan.sprintChallenge("HTML"));
+
+/////////////////////////
+console.log("----------------------")
+console.log(trevor.speak());
+console.log(trevor.standUp("FSW_15_Trevor"));
+console.log(trevor.debugsCode(dan,"React"));
