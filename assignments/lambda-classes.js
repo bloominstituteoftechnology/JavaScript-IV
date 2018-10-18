@@ -46,13 +46,13 @@ class Student extends Person {
     sprintChallenge(subject){
         console.log(`${this.name} has begun sprint challenge on ${subject}`);
     }
-    willGraduate(student){
-        if (student.grade > 70){
-            student.willGraduate = true;
-            console.log(`Congrats, ${student.name}, you're ready to graduate!`);
+    graduate(){
+        if (this.grade > 70){
+            this.willGraduate = true;
+            console.log(`Congrats, ${this.name}, you're ready to graduate!`);
         } else {
-            student.willGraduate = false;
-            console.log(`So sorry, ${student.name}, you're not ready to graduate.`);
+            this.willGraduate = false;
+            console.log(`So sorry, ${this.name}, you're not ready to graduate.`);
         }
     }
 }
@@ -157,7 +157,7 @@ const fred = new Instructor({
     previousBackground: 'Optometrist',
     className: 'FSW15',
     favSubjects: ['Javascript'],
-    grade: 85
+    grade: 65
   });
 
 
