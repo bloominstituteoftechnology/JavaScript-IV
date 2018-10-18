@@ -1,58 +1,75 @@
 // CODE here for your Lambda Classes
-/*****************************************************************
- *************************** Class(es) ***************************
- *****************************************************************/
-//================================================================
-//============================ Person ============================
+/*************************************************************************************************
+ ******************************************* Class(es) *******************************************
+ *************************************************************************************************/
+//================================================================================
+//==================================== Person ====================================
 class Person {
-  // *********************** Constructor *************************
+  //------------------------- Constructor -------------------------
   constructor(obj){
     this.name = obj.name;
     this.age = obj.age;
     this.location = obj.location;
     this.gender = obj.gender;
   }
-  // ************************ Method(s) **************************
+  //-------------------------- Method(s) --------------------------
   speak(){
     return `Hello my name is ${this.name}, I am from ${this.location}`;
   }
 }
 
-//================================================================
-//========================== Instructor ==========================
+//================================================================================
+//================================== Instructor ==================================
 class Instructor extends Person {
-  // *********************** Constructor *************************
+  //------------------------- Constructor -------------------------
   constructor(obj){
     super(obj);
     this.specialty = obj.specialty;
     this.favLanguage = obj.favLanguage;
     this.catchPhrase = obj.catchPhrase;
   }
-  // ************************ Method(s) **************************
+  //-------------------------- Method(s) --------------------------
   demo(subject){
     return `Today we are learning about ${subject}`;
   }
   grade(student, subject){
     return `${student.name} receives a perfect score on ${subject}`;
   }
+  addAssignment(student, assignment){
+    student.receiveAssignment(assignment);
+  }
+  gradeAssignment(student, assignmentsIndex, grd){
+    student.assignments[assignmentsIndex].updateGrade(grd);
+  }
+  gradeAssignments(student){
+    student.assignments.forEach(function(asnmt){
+      josh.gradeAssignment(student, student.assignments.map(function(studentAsnmt) {return studentAsnmt.name; }).indexOf(asnmt.name), Math.floor(Math.random() * (100 - 0 + 1) ) + 0);
+    });
+  }
+  updateAssignmentGrade(){} 
 }
 
-//================================================================
-//============================ Student ===========================
+//================================================================================
+//==================================== Student ===================================
 class Student extends Person {
-  // *********************** Constructor *************************
+  //------------------------- Constructor -------------------------
   constructor(obj){
     super(obj);
     this.previousBackground = obj.previousBackground;
     this.className = obj.className;
     this.favSubjects = obj.favSubjects;
+    this.assignments = obj.assignments;
+    this.grade = obj.grade;
   }
-  // ************************ Method(s) **************************
+  //-------------------------- Method(s) --------------------------
   listsSubjects(){
     console.log(`${this.name}\'s favorite subjects are:\n`);
     this.favSubjects.forEach(function(element) {
       console.log(element)
     });
+  }
+  receiveAssignment(assignment){
+    this.assignments.push(assignment);
   }
   PRAssignment(subject){
     return `${this.name} has submitted a PR for ${subject}`;
@@ -62,16 +79,16 @@ class Student extends Person {
   }
 }
 
-//================================================================
-//======================== ProjectManager ========================
+//================================================================================
+//================================ ProjectManager ================================
 class ProjectManager extends Instructor {
-  // *********************** Constructor *************************
+  //------------------------- Constructor -------------------------
   constructor(obj){
     super(obj);
     this.gradClassName = obj.gradClassName;
     this.favInstructor = obj.favInstructor;
   }
-  // ************************ Method(s) **************************
+  //-------------------------- Method(s) --------------------------
   standUp(channel){
     return `${this.name} announces to ${channel} @channel standy times!​​​​​`
   }
@@ -80,11 +97,25 @@ class ProjectManager extends Instructor {
   }
 }
 
-/*****************************************************************
- **************************** Objects ****************************
- *****************************************************************/
-//================================================================
-//=========================== Example ============================
+//================================================================================
+//================================== Assignment ==================================
+class Assignment{
+  //------------------------- Constructor -------------------------
+  constructor(obj){
+    this.name = obj.name;
+    this.grade = obj.grade;
+  }
+  //-------------------------- Method(s) --------------------------
+  updateGrade(grd){
+    this.grade = grd;
+  }
+}
+
+/*************************************************************************************************
+ ******************************************** Objects ********************************************
+ *************************************************************************************************/
+//================================================================================
+//==================================== Example ===================================
 const fred = new Instructor({
   name: 'Fred',
   location: 'Bedrock',
@@ -95,8 +126,8 @@ const fred = new Instructor({
   catchPhrase: `Don't forget the homies`
 });
 
-//================================================================
-//=========================== Instructor ============================
+//================================================================================
+//================================== Instructor ==================================
 const josh = new Instructor({
   name: 'Josh',
   location: 'In Da House',
@@ -107,8 +138,8 @@ const josh = new Instructor({
   catchPhrase: `Study hard my friends`
 });
 
-//================================================================
-//=========================== Student ============================
+//================================================================================
+//==================================== Student ===================================
 const james = new Student({
   name: 'James',
   location: 'Arizona',
@@ -117,11 +148,13 @@ const james = new Student({
   previousBackground: 'Lots of things',
   className: 'FSW15',
   favSubjects: ['Algorithms', 'Data Structures', 'Automation', 'Design Patterns', `Time Complexity Notation`,
-                'HTML', 'CSS', 'JavaScript', 'Java', 'Python', 'C++', 'Gui Implementation', 'Architecture', 'TDD']
+                'HTML', 'CSS', 'JavaScript', 'Java', 'Python', 'C++', 'Gui Implementation', 'Architecture', 'TDD'],
+  assignments: [],
+  grade: 100,
 })
 
-//================================================================
-//======================= Project Manager ========================
+//================================================================================
+//================================ Project Manager ===============================
 const sawyer = new ProjectManager({
   name: 'Sawyer',
   location: 'Earth',
@@ -131,11 +164,26 @@ const sawyer = new ProjectManager({
   favInstructor: josh.name
 })
 
-/*****************************************************************
- ***************************** Main ******************************
- *****************************************************************/
+/*************************************************************************************************
+ *************************************** (Stretch) Objects ***************************************
+ *************************************************************************************************/
+//================================================================================
+//=============================== Global Variables ===============================
+
+//================================================================================
+//================================== Assignment 1 ================================
+const assignment1 = new Assignment({
+  name: `User Interface I`,
+  grade: Math.floor(Math.random() * (100 - 0 + 1) ) + 0, // random number between 0 - 100
+})
+
+
+/*************************************************************************************************
+ ********************************************** Main *********************************************
+ *************************************************************************************************/
 console.log('*************************** lambda-classes.js ***************************');
-// Class Method's Use Cases
+//================================================================================
+//================================= MVP Use Cases ================================
 james.listsSubjects();
 console.log(josh.speak());
 console.log(sawyer.speak());
@@ -145,4 +193,28 @@ console.log(james.sprintChallenge(josh.favLanguage));
 console.log(james.PRAssignment(josh.favLanguage));
 console.log(`${josh.name} says: ${josh.grade(james, josh.favLanguage)}`);
 console.log(`${sawyer.standUp('FSW15_sawyer')}`);
-console.log(`${sawyer.debugsCode(james, james.favSubjects[7])}`)
+console.log(`${sawyer.debugsCode(james, james.favSubjects[7])}`);
+
+//================================================================================
+//=============================== Stretch Use Cases ==============================
+console.log('******************************* (Stretch) *******************************');
+let assignmentNames = ['User Interface I', 'User Interface II', 'User Interface III', 'Git for Web Development',
+                                'Responsive Design I', 'Responsive Design II', 'Preprocessing I', 'Preprocessing II',
+                                'JavaScript I', 'JavaScript II', 'JavaScript III', 'JavaScript IV'
+                                ];
+console.log(`${james.name} begins Lambda School with a grade of: ${james.grade}`);
+console.log(`${james.name} receives the assignments from ${josh.name}`);
+assignmentNames.forEach(function(asnName){
+  josh.addAssignment(james, new Assignment({name: asnName, grade: 0}));
+});
+console.log(james.assignments);
+console.log(`${james.name} completes assignemnts and ${josh.name} grades them...`);
+josh.gradeAssignments(james);
+console.log(`${james.name} now has the following grades added to his assignment...`);
+console.log(james.assignments);
+
+// ToDo
+// james.updateTotalGrade();
+// if (james.grade <= 70){
+//   console.log(`Uh oh, ${james.name} needs some help. Lets see if ${sawyer.name} can help ${james.name} get his grades up...`)
+// }
