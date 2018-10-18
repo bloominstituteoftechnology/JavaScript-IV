@@ -84,18 +84,33 @@ class CharacterStats {
   * should inherit takeDamage() from CharacterStats
 */
 
-// == Constructor Function ==
-function Humanoid(attributes) {
-    CharacterStats.call(this, attributes);
-    this.faction = attributes.faction;
-    this.weapons = attributes.weapons;
-    this.language = attributes.language;
-}
+// // == Constructor Function ==
+// function Humanoid(attributes) {
+//     CharacterStats.call(this, attributes);
+//     this.faction = attributes.faction;
+//     this.weapons = attributes.weapons;
+//     this.language = attributes.language;
+// }
 
-// == Constructor Methods ==
-Humanoid.prototype = Object.create(CharacterStats.prototype);
-Humanoid.prototype.greet = function() {
-    return `${this.name} offers greeting in ${this.language}`;
+// // == Constructor Methods ==
+// Humanoid.prototype = Object.create(CharacterStats.prototype);
+// Humanoid.prototype.greet = function() {
+//     return `${this.name} offers greeting in ${this.language}`;
+// }
+
+class Humanoid extends CharacterStats {
+    // Class Initializer and Attributes
+    constructor(attributes) {
+        super(attributes);
+        this.faction = attributes.faction;
+        this.weapons = attributes.weapons;
+        this.language = attributes.language;
+    }
+
+    // Class methods
+    greet() {
+        return `${this.name} offers greeting in ${this.language}`;
+    }
 }
 
 
