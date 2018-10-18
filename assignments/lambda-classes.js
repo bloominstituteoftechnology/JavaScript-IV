@@ -24,8 +24,11 @@ class Instructor extends Person{
     grade(student, subject){
         return `${student.name} receives a perfect score on ${subject}`;
     }
-    gradeAssignment(grade){
-        return grade 
+    gradeAssignment(student) {
+        let points = (20 - Math.floor((Math.random() * 30)));
+        let score = student.grade + points;
+        student.grade = score;
+        return `${student.name}'s grade of ${student.grade} changed by ${points} amount of points and now has a total of ${score}`;
     }
 }
 
@@ -36,6 +39,14 @@ class Student extends Person{
         this.className = studentAttr.className;
         this.favSubjects = studentAttr.favSubjects;
         this.grade = studentAttr.grade;
+    }
+    graduate(instructor){
+         if ( this.grade >= 70){
+             return `Fine, ${this.name} passed`
+         }else{
+             console.log(`You did not pass. ${instructor.name} will now regrade your assignment`);
+             
+         }
     }
 
     listsSubjects(){
@@ -49,6 +60,7 @@ class Student extends Person{
     sprintChallenge(subject){
         return `${this.name} has begun sprint challenge on ${subject}`;
     }   
+
 }
 
 class ProjectManager extends Instructor{
@@ -128,13 +140,13 @@ const trevor = new ProjectManager({
     favInstructor: `Josh`
 })
 
-console.log(josh.speak());
-console.log(josh.demo('JS'));
-console.log(josh.grade(tommy,'JS'));
-console.log(ben.listsSubjects());
-console.log(tommy.PRAssignment(`Is JS Art?`));
-console.log(ben.sprintChallenge('Is JS Art?'));
-console.log(ash.standUP(`FSW15 isn't slacking slack channel`));
-console.log(trevor.debugsCode(ben,'YDKJS'));
+// console.log(josh.speak());
+// console.log(josh.demo('JS'));
+// console.log(josh.grade(tommy,'JS'));
+// console.log(ben.listsSubjects());
+// console.log(tommy.PRAssignment(`Is JS Art?`));
+// console.log(ben.sprintChallenge('Is JS Art?'));
+// console.log(ash.standUP(`FSW15 isn't slacking slack channel`));
+// console.log(trevor.debugsCode(ben,'YDKJS'));
 
-
+ben.graduate(josh);
