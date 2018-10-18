@@ -179,4 +179,5 @@ jasper.listsSubjects()
 console.log(jasper.PRAssignment('math'));
 console.log(jasper.sprintChallenge('computer science'));
 console.log(mcQue.standUp('fsw20_help'));
+console.log(mcQue.gradeProjects(jackie));
 console.log(cindy.debugsCode(jasper, 'data structures'));
