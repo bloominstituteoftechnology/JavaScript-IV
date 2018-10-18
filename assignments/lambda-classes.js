@@ -33,9 +33,11 @@ class Instructor extends Person{
 class Student extends Person{
     constructor(studentAttributes){
         super(studentAttributes);
+        const startingGrade = initialGrade();
         this.previousBackground = studentAttributes.previousBackground;
         this.className = studentAttributes.className;
         this.favSubjects = studentAttributes.favSubjects;
+        this.grade = startingGrade
     }
     listsSubjects(){
           this.favSubjects.forEach(function (subject){
@@ -49,7 +51,13 @@ class Student extends Person{
     sprintChallenge(subject){
         return `${this.name} has begun sprint challenge on ${subject}`
     }
+    
 }
+
+
+//Student RNG
+ const initialGrade = ()  => Math.floor(Math.random()*(100 - 75 +1)) +75;
+
 
 //Children of Instructor
 class ProjectManagers extends Instructor{
@@ -116,6 +124,7 @@ const fred = new Instructor({
 
 
   //tests
+  /*
   console.log(fred);
   console.log(kenobi);
   console.log(peter);
@@ -128,3 +137,8 @@ const fred = new Instructor({
   console.log(thor.PRAssignment('How to Odin Force'));
   console.log(kenobi.grade(thor, 'How to deal with green dudes'));
   console.log(kenobi.demo('Force Ghosting 203'));
+*/
+
+  //stretch tests
+  console.log(thor.grade);
+  console.log (initialGrade());
