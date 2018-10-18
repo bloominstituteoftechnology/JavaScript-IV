@@ -22,7 +22,7 @@ class GameObject {
     constructor (attrib){
     this.createdAt = attrib.createdAt;
     this.dimensions = attrib.dimensions;
-}
+    }
     destroy() {
         return `${this.name} was removed from the game.`;
     }
@@ -33,7 +33,7 @@ class CharacterStats extends GameObject {
     super(attrib);
     this.hp = attrib.hp;
     this.name = attrib.name;
-}
+    }
     takeDamage() {
     return `${this.name} took damage.`; 
     }
@@ -45,7 +45,7 @@ class Humanoid extends CharacterStats{
     this.faction = attrib.faction;
     this.weapons = attrib.weapons;
     this.language = attrib.language;
-}
+    }   
     greet() {
         return `${this.name} offers a greeting in ${this.language}`;
     }
@@ -54,7 +54,7 @@ class Humanoid extends CharacterStats{
 class Villian extends Humanoid{
     constructor(attrib){
     super(attrib);
-}
+    }
     attack(){
         let successChance = Math.random()
         if (successChance > 0.5 && this.hp >= 1 && hero.hp >=1) {
@@ -74,7 +74,7 @@ class Villian extends Humanoid{
 class Hero extends Humanoid{
     constructor(attrib){
     super(attrib);
-}
+    }
     attack(){
         let successChance = Math.random()
         if (successChance > 0.5 && this.hp >= 1 && villian.hp >=1) {
