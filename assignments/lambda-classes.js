@@ -20,10 +20,10 @@ class Instructor extends Person {
         this.catchPhrase = stats.catchPhrase;
     };
     demo (subject) {
-        `Today we are learning about ${subject}`;
+        return `Today we are learning about ${subject}`;
     };
     grade (student, subject) {
-        `${student.name} receives a perfect score on ${subject}`;
+        return `${student.name} receives a perfect score on ${subject}`;
     };
 };
 
@@ -38,10 +38,10 @@ class Student extends Person {
         return `${this.favSubjects}`;
     };
     PRAssignment (subject) {
-        `${this.name} has submitted a PR for ${subject}`;
+       return `${this.name} has submitted a PR for ${subject}`;
     };
     sprintChallenge (subject) {
-        `${this.name} has begun sprint challenge on ${subject}`;
+        return `${this.name} has begun sprint challenge on ${subject}`;
     };
 };
 
@@ -52,10 +52,10 @@ class ProjectManagers extends Instructor{
         this.favInstructor = stats.favInstructor;
     };
     standUp (channel) {
-        `${this.name} announces to ${channel}, @channel standy times!`;
+        return `${this.name} announces to ${channel}, @channel standy times!`;
     };
     debugsCode (student, subject) {
-        `${this.name} debugs ${student.name}'s code on ${subject}`;
+        return `${this.name} debugs ${student.name}'s code on ${subject}`;
     };
 };
 
@@ -72,4 +72,43 @@ const josh = new Instructor({
     catchPhrase: 'Banjoooo!'
 });
 
+const trevor = new ProjectManagers({
+    name: 'Trevor',
+    age: 28,
+    location: 'California',
+    gender: 'Male',
+    gradClassName: 'FSW15',
+    favInstructor: 'Josh',
+    speciality: [
+        'JavaScript',
+        'Deepdiving',
+    ],
+    favLanguage: [
+        'html',
+        'css',
+    ],
+    catchPhrase: 'Werewolves!'
+});
+
+const austin = new Student({
+    name: 'Austin',
+    age: 26,
+    location: 'Utah',
+    gender: 'Male',
+    previousBackground: 'Odd Jobs',
+    className: 'FSW 15',
+    favSubjects: [
+        'JavaScript',
+        'CSS',
+    ]
+});
+
 console.log(josh.speak());
+console.log(austin.listsSubjects());
+console.log(josh.demo('JavaScript'));
+console.log(josh.grade(austin, 'JavaScript'));
+console.log(austin.PRAssignment('JavaScript IV'));
+console.log(austin.sprintChallenge('JavaScript Fundamentals'));
+console.log(trevor.standUp('FSW15'));
+console.log(trevor.debugsCode(austin, 'JavaScript'));
+
