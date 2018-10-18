@@ -17,6 +17,7 @@ class Instructor extends Person {
         this.specialty = instructor.specialty;
         this.favLanguage = instructor.favLanguage;
         this.catchPhrase = instructor.catchPhrase;
+        this.gradedAnswer = Instructor.gradedAnswer;
     }
     demo(subject) {
        return `Today we are learning about ${subject}`;
@@ -24,6 +25,19 @@ class Instructor extends Person {
 
     grade(student, subject) {
        return `${student.name} receives a perfect score on ${subject}`;
+    }
+
+    gradedNumber(student, max){
+        student.gradedAnswer = Math.floor(Math.random() * Math.floor(max));
+        return `${student.name}'s score is: ${student.gradedAnswer}`;
+    }
+
+    graduate(student) {
+        if (student.gradedAnswer > 70) {
+            return `${student.name} has graduated!`;
+        } else {
+            return `Try again next time!`;
+        }
     }
 }
 
@@ -103,7 +117,7 @@ const kate = new Student ({
     gender: 'F',
     previousBackground: 'Accounting',
     className: 'CS900',
-    favSubjects: ['Html', ' CSS', ' Javascript']
+    favSubjects: ['Html', ' CSS', ' Javascript'],
 });
 
 const kate2 = new Student ({
@@ -113,7 +127,8 @@ const kate2 = new Student ({
     gender: 'F',
     previousBackground: 'Cashier',
     className: 'CS90',
-    favSubjects: ['Redux', ' React', ' Javascript']
+    favSubjects: ['Redux', ' React', ' Javascript'],
+    gradeNumber: 62
 });
 
 const seve = new ProjectManagers ({
@@ -142,9 +157,13 @@ console.log(fred2.speak());
 
 console.log(jack.demo('Python'));
 console.log(jack.grade(kate, 'Elm test'));
+console.log(jack.gradedNumber(kate, 100));
+console.log(jack.graduate(kate));
 
 console.log(jack2.demo('Javascript'));
 console.log(jack2.grade(kate2, 'React Test'));
+console.log(jack2.gradedNumber(kate2, 100));
+console.log(jack.graduate(kate2));
 
 console.log(kate.listsSubjects());
 console.log(kate.PRAssignment('Javascript IV'));
