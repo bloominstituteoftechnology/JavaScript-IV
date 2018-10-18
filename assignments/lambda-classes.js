@@ -103,6 +103,35 @@ const tracy = new ProjectManagers({
   gradClassName: `CS5`
 });
 
+const freddy = new Instructor({
+  name: "Freddy",
+  location: "Da Bed",
+  age: 100,
+  gender: "Male",
+  favLanguage: "Spanish",
+  specialty: "Back-end",
+  catchPhrase: `Where did all the Cupcakes go`
+});
+
+const juan = new Student({
+  name: "Juan",
+  location: "Canada",
+  age: 20,
+  gender: "Male",
+  favSubject: ["C", "Math", "astrophysics"],
+  previousBackground: "Front-end",
+  className: `FSW5000`
+});
+
+const tony = new ProjectManagers({
+  name: "Tony",
+  location: "San Juan",
+  age: 28,
+  gender: "Male",
+  favInstructor: "Nelly",
+  gradClassName: `CS1`
+});
+
 fred.demo("Python");
 fred.grade(charlie, "Pyhton");
 charlie.listsSubjects();
@@ -110,3 +139,11 @@ charlie.PRAssignment("React");
 charlie.sprintChallenge("Redux");
 tracy.standUp("#FSW15_Tracy");
 tracy.debugsCode(charlie, "Quantum Physics");
+
+freddy.demo("Computer Science");
+freddy.grade(charlie, "Py");
+juan.listsSubjects();
+juan.PRAssignment("React Native");
+juan.sprintChallenge("Flexbox");
+tony.standUp("#FSW5000_Tony");
+tony.debugsCode(charlie, "Quantum Machines");
