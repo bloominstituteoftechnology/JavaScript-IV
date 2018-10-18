@@ -1,5 +1,9 @@
 // CODE here for your Lambda Classes
 
+
+// ***********************************************************
+// ******************       CLASSES       ***********************
+// ***********************************************************
 class Person {
   constructor(props){
     this.name = props.name;
@@ -12,24 +16,6 @@ class Person {
   }
 }
 
-const JohnDoe = new Person({
-  name: 'John Doe',
-  age: 45,
-  location: "Boston, Mass",
-  gender: "Male"
-});
-
-const JaneDoe = new Person({
-  name: 'Jane Doe',
-  age: 38,
-  location: "Boston, MA",
-  gender: "Female"
-});
-
-console.log(JohnDoe);
-console.log(JaneDoe);
-
-
 class Instructor extends Person {
   constructor(props){
     super(props);
@@ -38,27 +24,12 @@ class Instructor extends Person {
     this.catchPhrase = props.catchPhrase;
   }
   demo(subject) {
-    console.log(`Today we are learning about ${subject}`);    
+    return `Today we are learning about ${subject}`;    
   };
   grade(student, subject) {
-    `${student.name} receives a perfect score on ${subject}`
+    return `${student.name} receives a perfect score on ${subject}`
   }
 }
-
-const Prof = new Instructor({
-  name: 'Professor Banks',
-  age: 40,
-  location: "New York, NY",
-  gender: "Male",
-  specialty: "Node.js",
-  favLanguage: "PHP - :-P",
-  catchPhrase: "Fuhget abot it"
-});
-
-// console.log(Prof.demo("DBs"));
-Prof.demo("DBs");
-// Prof.grade(john, "DBs");
-
 
 class Student extends Person {
   constructor(props){
@@ -66,12 +37,11 @@ class Student extends Person {
   this.previousBackground = props.previousBackground;
   this.className = props.className;
   this.favSubjects = props.favSubjects;
+  this.grade = 100;
   }
-  listsSubjects() {  
-    // return this.favSubjects.map(subject => subject).toString();
+  listsSubjects() {
     const subjects = this.favSubjects;
     for(let i = 0; i < subjects.length; i++) {
-      // console.log(subjects[i]);
       console.log(subjects[i]);      
     };
   };
@@ -82,23 +52,6 @@ class Student extends Person {
     return `${this.name} has begun sprint challenge on ${subject}`;    
   }
 }
-
-const jasper = new Student({
-  name: 'Jasper',
-  age: 28,
-  location: "Columbus, OH",
-  gender: "Male",
-  previousBackground: "dish washer",
-  className: "FSW20",
-  favSubjects: ['math', 'computer science', 'data structures']
-})
-
-console.log(jasper);
-// console.log(jasper.listsSubjects());
-jasper.listsSubjects()
-console.log(jasper.PRAssignment('math'));
-console.log(jasper.sprintChallenge('computer science'));
-
 
 class ProjectManager extends Instructor {
   constructor(props){
@@ -114,6 +67,70 @@ class ProjectManager extends Instructor {
   }
 }
 
+// ***********************************************************
+// ******************     Objects      ***********************
+// ***********************************************************
+
+
+// ************PERSONS/PEOPLE(lol)********************
+const JohnDoe = new Person({
+  name: 'John Doe',
+  age: 45,
+  location: "Boston, Mass",
+  gender: "Male"
+});
+
+const JaneDoe = new Person({
+  name: 'Jane Doe',
+  age: 38,
+  location: "Boston, MA",
+  gender: "Female"
+});
+
+// ************INSTRUCTORS********************
+const prof = new Instructor({
+  name: 'Professor Banks',
+  age: 40,
+  location: "New York, NY",
+  gender: "Male",
+  specialty: "Node.js",
+  favLanguage: "PHP - :-P",
+  catchPhrase: "Fuhget abot it"
+});
+
+const freddy = new Instructor({
+  name: 'Professor Fred',
+  age: 42,
+  location: "Salt Lake City, UT",
+  gender: "Male",
+  specialty: "UI/UX",
+  favLanguage: "Python",
+  catchPhrase: "FoSho"
+});
+
+
+// ************STUDENTS********************
+const jasper = new Student({
+  name: 'Jasper',
+  age: 28,
+  location: "Columbus, OH",
+  gender: "Male",
+  previousBackground: "dish washer",
+  className: "FSW20",
+  favSubjects: ['math', 'computer science', 'data structures']
+})
+
+const jackie = new Student({
+  name: 'Jackie',
+  age: 22,
+  location: "Reno, NV",
+  gender: "Female",
+  previousBackground: "Student",
+  className: "FSW20",
+  favSubjects: ['Intro tp JS', 'HTML', 'Intro to React']
+})
+
+// ************PMS********************
 const mcQue = new ProjectManager({
   name: 'CJ McQue',
   age: 25,
@@ -126,5 +143,29 @@ const mcQue = new ProjectManager({
   favInstructor: "Professor Snipe"
 })
 
+const cindy = new ProjectManager({
+  name: 'Cindy',
+  age: 20,
+  location: "San Fransisco, CA",
+  gender: "Female",
+  specialty: "Animation",
+  favLanguage: "Scratch",
+  catchPhrase: "Repetition repetition repetition",
+  gradClassName: "FSW20",
+  favInstructor: "Jack Hammel"
+})
+
+// ***********************************************************
+// ******************       LOGS       ***********************
+// ***********************************************************
+
+console.log(JohnDoe);
+console.log(JaneDoe);
+console.log(prof.demo("DBs"));
+console.log(freddy.grade(jackie, "DBs"));
+console.log(jasper);
+jasper.listsSubjects()
+console.log(jasper.PRAssignment('math'));
+console.log(jasper.sprintChallenge('computer science'));
 console.log(mcQue.standUp('fsw20_help'));
-console.log(mcQue.debugsCode(jasper, 'data structures'));
+console.log(cindy.debugsCode(jasper, 'data structures'));
