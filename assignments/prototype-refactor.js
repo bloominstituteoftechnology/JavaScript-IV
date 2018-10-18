@@ -7,21 +7,23 @@ Prototype Refactor
 2. Your goal is to refactor all of this code to use ES6 Classes. The console.log() statements should still return what is expected of them.
 
 */
-
+ 
 /*
   === GameObject ===
   * createdAt
   * dimensions
   * destroy() // prototype method -> returns the string: 'Object was removed from the game.'
 */
-function GameObject(properties) {
-    this.createdAt = properties.createdAt;
-    this.dimensions = properties.dimensions;
+class GameObject {
+constructor(properties){
+  this.createdAt = properties.createdAt;
+  this.dimensions = properties.dimensions;  
+  }
+    destroy(){
+        return `${this.name} was removed from the game.`;
+    }
 }
 
-GameObject.prototype.destroy = function () {
-    return `${this.name} was removed from the game.`;
-}
 
 /*
   === CharacterStats ===
@@ -30,16 +32,15 @@ GameObject.prototype.destroy = function () {
   * takeDamage() // prototype method -> returns the string '<object name> took damage.'
   * should inherit destroy() from GameObject's prototype
 */
-function CharacterStats(stats) {
-    GameObject.call(this, stats);
-    this.hp = stats.hp;
-    this.name = stats.name;
+class CharacterStats extends GameObject {
+constructor(stats) {
+  super(stats);
+  this.hp = stats.hp;
+  this.name = stats.name;
 }
-
-CharacterStats.prototype = Object.create(GameObject.prototype);
-
-CharacterStats.prototype.takeDamage = function () {
-    return `${this.name} took damage.`;
+    takeDamage(){
+        return `${this.name} took damage.`;
+    }
 }
 
 /*
@@ -51,39 +52,16 @@ CharacterStats.prototype.takeDamage = function () {
   * should inherit destroy() from GameObject through CharacterStats
   * should inherit takeDamage() from CharacterStats
 */
-function Humanoid(character) {
-    CharacterStats.call(this, character);
-    this.faction = character.faction;
-    this.weapons = character.weapons;
-    this.language = character.language;
-}
-
-Humanoid.prototype = Object.create(CharacterStats.prototype);
-
-Humanoid.prototype.greet = function () {
-    return `${this.name} offers a greeting in ${this.language}.`
-}
-
-function Hero(tank) {
-    Humanoid.call(this, tank);
-    this.shield = tank.shield;
-}
-
-Hero.prototype = Object.create(Humanoid.prototype);
-
-Hero.prototype.taunt = function () {
-    return `${this.name} wearing shining armor begins to taunt opponent with your momma jokes, like any good tank should`
-}
-
-function Villain(sleazyRollPlayer) {
-    Humanoid.call(this, sleazyRollPlayer);
-    this.invocation = sleazyRollPlayer.invocation;
-}
-
-Villain.prototype = Object.create(Humanoid.prototype);
-
-Villain.prototype.cyborz = function () {
-    return `${this.name} dons wizard hat and robe!`
+class Humanoid extends CharacterStats {
+constructor(character) {
+  super(character);
+  this.faction = character.faction;
+  this.weapons = character.weapons;
+  this.language = character.language;  
+ }
+    greet() {
+        return `${this.name} offers a greeting in ${this.language}.`;
+ }
 }
 
 /*
@@ -98,55 +76,94 @@ Villain.prototype.cyborz = function () {
 // Test you work by uncommenting these 3 objects and the list of console logs below:
 
 
-const mage = new Humanoid({
+  const mage = new Humanoid({
     createdAt: new Date(),
     dimensions: {
-        length: 2,
-        width: 1,
-        height: 1,
+      length: 2,
+      width: 1,
+      height: 1,
     },
     hp: 5,
     name: 'Bruce',
     faction: 'Mage Guild',
     weapons: [
-        'Staff of Shamalama',
+      'Staff of Shamalama',
     ],
     language: 'Common Toungue',
-});
+  });
 
-const swordsman = new Humanoid({
+  const swordsman = new Humanoid({
     createdAt: new Date(),
     dimensions: {
-        length: 2,
-        width: 2,
-        height: 2,
+      length: 2,
+      width: 2,
+      height: 2,
     },
     hp: 15,
     name: 'Sir Mustachio',
     faction: 'The Round Table',
     weapons: [
-        'Giant Sword',
-        'Shield',
+      'Giant Sword',
+      'Shield',
     ],
     language: 'Common Toungue',
-});
+  });
 
-const archer = new Humanoid({
+  const archer = new Humanoid({
     createdAt: new Date(),
     dimensions: {
-        length: 1,
-        width: 2,
-        height: 4,
+      length: 1,
+      width: 2,
+      height: 4,
     },
     hp: 10,
     name: 'Lilith',
     faction: 'Forest Kingdom',
     weapons: [
-        'Bow',
-        'Dagger',
+      'Bow',
+      'Dagger',
     ],
     language: 'Elvish',
-});
+  });
+
+  
+
+  console.log(mage.createdAt); // Today's date
+  console.log(archer.dimensions); // { length: 1, width: 2, height: 4 }
+  console.log(swordsman.hp); // 15
+  console.log(mage.name); // Bruce
+  console.log(swordsman.faction); // The Round Table
+  console.log(mage.weapons); // Staff of Shamalama
+  console.log(archer.language); // Elvish
+  console.log(archer.greet()); // Lilith offers a greeting in Elvish.
+  console.log(mage.takeDamage()); // Bruce took damage.
+  console.log(swordsman.destroy()); // Sir Mustachio was removed from the game.
+  
+
+
+  // Stretch task: 
+  // * Create Villian and Hero constructor functions that inherit from the Humanoid constructor function.  
+  // * Give the Hero and Villians different methods that could be used to remove health points from objects which could result in destruction if health gets to 0 or drops below 0;
+  // * Create two new objects, one a villian and one a hero and fight it out with methods!
+class Hero extends Humanoid (tank) {
+    constructor(tank) {
+    super(tank);
+    this.shield = tank.shield;
+}
+taunt() {
+    return `${this.name} wearing shining armor begins to taunt opponent with your momma jokes, like any good tank should`;
+  }
+}
+
+class Villain extends Humanoid (sleazyRollPlayer) {
+constructor(sleazyRollPlayer) {
+    super(sleazyRollPlayer);
+    this.invocation = sleazyRollPlayer.invocation;
+  }
+    cyborz() {
+        return `${this.name} dons wizard hat and robe!`;
+  }
+}
 
 const coder = new Villain({
     createdAt: new Date(),
@@ -181,23 +198,6 @@ const niceGuy = new Hero({
     ],
     language: 'JavaScript',
 });
-
-console.log(mage.createdAt); // Today's date
-console.log(archer.dimensions); // { length: 1, width: 2, height: 4 }
-console.log(swordsman.hp); // 15
-console.log(mage.name); // Bruce
-console.log(swordsman.faction); // The Round Table
-console.log(mage.weapons); // Staff of Shamalama
-console.log(archer.language); // Elvish
-console.log(archer.greet()); // Lilith offers a greeting in Elvish.
-console.log(mage.takeDamage()); // Bruce took damage.
-console.log(swordsman.destroy()); // Sir Mustachio was removed from the game.
 console.log(coder.weapons);
 console.log(coder.cyborz());
 console.log(niceGuy.taunt());
-
-
-  // Stretch task: 
-  // * Create Villian and Hero constructor functions that inherit from the Humanoid constructor function.  
-  // * Give the Hero and Villians different methods that could be used to remove health points from objects which could result in destruction if health gets to 0 or drops below 0;
-  // * Create two new objects, one a villian and one a hero and fight it out with methods!
