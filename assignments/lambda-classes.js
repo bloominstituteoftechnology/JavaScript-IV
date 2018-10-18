@@ -67,11 +67,37 @@ Inherit? Person -> Student
     
 * listsSubjects() // prototype method -> returns each subject one by one
 
-* PRAssignment(subject) // prototype method -> returns `${this.name} has submitted a PR for {subject}`
+* PRAssignment(subject) // prototype method -> returns `${this.name} has submitted a PR for ${subject}`
 
-* sprintChallenge(subject) // prototype method -> returns `${this.name} has begun sprint challenge on {subject}`
+* sprintChallenge(subject) // prototype method -> returns `${this.name} has begun sprint challenge on ${subject}`
 
 */
+
+class Student extends Person {
+    // Class Initializer and Attributes
+    constructor(props) {
+        super(props);
+        this.favSubjects = props.favSubjects;
+        this.className = props.className;
+        this.previousBackground = props.previousBackground;
+    }
+
+    // Class methods
+    listsSubjects() {
+        for (let i = 0; i < this.favSubjects.length; i++) {
+            console.log(`${i + 1}: ${this.favSubjects[i]}`);
+        }
+    }
+
+    PRAssignment(subject) {
+        return `${this.name} has submitted a PR for ${subject}`;
+    }
+
+    sprintChallenge(subject) {
+        return `${this.name} has begun sprint challenge on ${subject}`;
+    }
+}
+
 
 
 
@@ -173,12 +199,12 @@ const robin = new Student({
 });
 
 const harley = new Student({
-    name: 'Harley Quin',
+    name: 'Harley Quinn',
     age: 25,
     location: 'North America',
     gender: 'f',
     className: 'Menace',
-    previousBackground: 'Psychiatrists',
+    previousBackground: 'Psychiatrist',
     favSubjects: [
         'How to Be a Pyro',
         'Taunting & Mocking',
@@ -204,10 +230,10 @@ console.log('Harley Subjects:', harley.favSubjects);
 // Make them do stuff
 console.log(robin.speak());
 console.log('Robin lists subjects', robin.listsSubjects());
-console.log(robin.PRAssignment());
-console.log(robin.sprintChallenge());
+console.log(robin.PRAssignment('Hacking'));
+console.log(robin.sprintChallenge('Hand to Hand Combat'));
 
 console.log(harley.speak());
 console.log('Harley Quinn lists subjects', harley.listsSubjects());
-console.log(harley.PRAssignment());
-console.log(harley.sprintChallenge());
+console.log(harley.PRAssignment('Taunting & Mocking'));
+console.log(harley.sprintChallenge('Playing with Hyenas'));
