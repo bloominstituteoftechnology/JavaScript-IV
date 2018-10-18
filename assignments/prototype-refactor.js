@@ -6,7 +6,7 @@ Prototype Refactor
 class GameObject {
   constructor(data) {
     this.createdAt = new Date();
-    this.dimension = data.dimension;
+    this.dimensions = data.dimensions;
   }
 
   destroy() {
@@ -31,7 +31,7 @@ class Humanoid extends CharacterStats {
     super(data);
     this.faction = data.faction;
     this.weapons = data.weapons;
-    this.langauge = data.language;
+    this.language = data.language;
   }
   greet() {
     return `${this.name} offers a greeting in ${this.language}`;
