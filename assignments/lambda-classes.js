@@ -30,16 +30,14 @@ class Instructor extends Person {
     return `${student.name} receives a perfect score on ${subject}`
   };
   gradeProjects(student){
-    function getRandomInt() {
-      return Math.floor(Math.random() * 100);
-    }
-    if(getRandomInt < 70) {
-      return student.grade -= 10;
-    }  
+    let rand = Math.round(Math.random() * 100);
     
+    if(rand < 70) {
+      return student.grade -= 10;
+    } if (rand > 70){
     return student.grade += 10; 
-  };
-}
+  }
+}}
 
 class Student extends Person {
   constructor(props){
@@ -156,7 +154,7 @@ const mcQue = new ProjectManager({
 const cindy = new ProjectManager({
   name: 'Cindy',
   age: 20,
-  location: "San Fransisco, CA",
+  location: "San Francisco, CA",
   gender: "Female",
   specialty: "Animation",
   favLanguage: "Scratch",
@@ -179,5 +177,10 @@ jasper.listsSubjects()
 console.log(jasper.PRAssignment('math'));
 console.log(jasper.sprintChallenge('computer science'));
 console.log(mcQue.standUp('fsw20_help'));
+console.log(mcQue.gradeProjects(jackie));
+console.log(mcQue.gradeProjects(jackie));
+console.log(mcQue.gradeProjects(jackie));
+console.log(mcQue.gradeProjects(jackie));
+console.log(mcQue.gradeProjects(jackie));
 console.log(mcQue.gradeProjects(jackie));
 console.log(cindy.debugsCode(jasper, 'data structures'));
