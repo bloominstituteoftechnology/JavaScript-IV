@@ -72,4 +72,105 @@ class Student extends Person {
   }
 }
 
-// *********** Objects **************
+// *********** Objects ****************
+
+//----------- Instructors ---------------
+const profJ = new Instructor({
+  name: 'Professor Jackson',
+  age: 55,
+  location: 'New York',
+  gender: 'Male',
+  specialty: 'User Interface',
+  favLanguage: 'JavaScript',
+  catchPhrase: 'Always consider the user.'
+});
+
+const profT = new Instructor({
+  name: 'Professor Tanaka',
+  age: 45,
+  location: 'Tokyo',
+  gender: 'Female',
+  specialty: 'Cyber Security',
+  favLanguage: 'C++',
+  catchPhrase: 'You are the first line of defense against malware.'
+});
+const profO = new Instructor({
+  name: 'Professor Obasi',
+  age: 57,
+  location: 'London',
+  gender: 'Female',
+  specialty: 'Quality Assurance',
+  favLanguage: 'Java',
+  catchPhrase: `Dot those I's and cross those T's.`
+});
+
+//----------- PMs ---------------
+const rob = new PM({
+  name: 'Rob',
+  age: 30,
+  location: 'Seattle',
+  gender: 'Male',
+  specialty: 'Android',
+  favLanguage: 'Java',
+  catchPhrase: 'Keep working even if you fail. It will pay off.',
+  gradClassName: 'AD-1',
+  favInstructor: 'Professor O.'
+});
+
+const nikki = new PM({
+  name: 'Nikki',
+  age: 28,
+  location: 'Melbourne',
+  gender: 'Female',
+  specialty: 'iOS',
+  favLanguage: 'C',
+  catchPhrase: 'Make your product fun. More people will want to use it.',
+  gradClassName: 'iOS-1',
+  favInstructor: 'Professor J.'
+});
+
+const maya = new PM({
+  name: 'Maya',
+  age: 25,
+  location: 'Sao Paulo',
+  gender: 'Female',
+  specialty: 'Data Science',
+  favLanguage: 'R',
+  catchPhrase: 'Look at the data. It tells a big story.',
+  gradClassName: 'DS-1',
+  favInstructor: 'Professor T.'
+});
+
+//----------- Students ---------------
+const natalia = new Student({
+  name: 'Natalia',
+  age: 27,
+  location: 'St. Petersburg',
+  gender: 'Female',
+  previousBackground: 'Math Teacher',
+  className: 'AD-2',
+  favSubjects: ['Python', 'Java', 'Ruby'],
+  grade: 60
+});
+
+const mikaela = new Student({
+  name: 'Mikaela',
+  age: 33,
+  location: 'Auckland',
+  gender: 'Female',
+  previousBackground: 'Sales Associate',
+  className: 'iOS-2',
+  favSubjects: ['Objective-C', 'CSS', 'JavaScript'],
+  grade: 90
+});
+
+const jamal = new Student({
+  name: 'Jamal',
+  age: 35,
+  location: 'Chicago',
+  gender: 'Male',
+  previousBackground: 'Paralegal',
+  className: 'DS-2',
+  favSubjects: ['Python', 'R', 'Java'],
+  grade: 70
+});
