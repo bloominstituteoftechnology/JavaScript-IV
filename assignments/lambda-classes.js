@@ -27,7 +27,13 @@ class Instructor extends Person {
     grade(student, subject) {
         console.log(`${student.name} receives a perfect score on ${subject}.`);
     }
+    changeGrade(student) {
+        let gradeChangeAmt = Math.round((Math.random() * 20) - 10);
+        student.grade = student.grade + gradeChangeAmt;
+        return student.grade;
+    }
 }
+
 
 // Student Class
 class Student extends Person {
@@ -36,6 +42,7 @@ class Student extends Person {
         this.previousBackground = studentAttributes.previousBackground;
         this.className = studentAttributes.className;
         this.favSubjects = studentAttributes.favSubjects;
+        this.grade = studentAttributes.grade;
     }
     listsSubjects() {
         for (let i = 0; i < this.favSubjects.length; i++) {
@@ -47,6 +54,13 @@ class Student extends Person {
     }
     sprintChallenge(subject) {
         console.log(`${this.name} has begun sprint challenge on ${subject}.`);
+    }
+    graduate() {
+        if (this.grade > 70) {
+            console.log(`Congrats ${this.name}! You are ready for a super awesome web dev job!!!!!!!!`);
+        } else {
+            console.log(`Sorry, ${this.name}. You have failed and need to roll back to the next cohort. :(`)
+        }
     }
 }
 
@@ -98,6 +112,7 @@ const daren = new Student ({
     previousBackground: 'Finance',
     className: 'FSW 15',
     favSubjects: ['Javascript', 'CSS', 'HTML'],
+    grade: 65,
 });
 
 const mrRobot = new Student ({
@@ -108,6 +123,7 @@ const mrRobot = new Student ({
     previousBackground: 'Cyber Security',
     className: 'FSW 1',
     favSubjects: ['Hacking things', 'Computers', 'other stuff'],
+    grade: 100,
 });
 
 // Project Manager Test
@@ -181,4 +197,10 @@ stewart.standup('FSW15_ashwin');
 trevor.debugsCode(daren, 'CSS');
 stewart.debugsCode(mrRobot, 'HTML');
 
+// changeGrade() test
+console.log(josh.changeGrade(mrRobot));
+
+// graduate() test
+mrRobot.graduate();
+daren.graduate();
 
