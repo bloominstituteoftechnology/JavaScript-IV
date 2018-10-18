@@ -12,3 +12,148 @@ class Person {
         console.log(`Hello my name is ${this.name}, I am from ${this.location}`);
     }
 }
+
+class Instructor extends Person {
+    constructor(instructorAtt) {
+        super(instructorAtt);
+        this.specialty = instructorAtt.specialty;
+        this.favLanguage = instructorAtt.favLanguage;
+        this.catchPhrase = instructorAtt.catchPhrase;
+    }
+
+
+    demo(subject) {
+        console.log(`Today we are learning about ${subject}`);
+    }
+
+    grade(student, subject) {
+        console.log(`${student.name} receives a perfect score on ${subject}`)
+    }
+}
+
+class Student extends Person {
+    constructor(studentAtt) {
+        super(studentAtt);
+        this.previousBackground = studentAtt.previousBackground;
+        this.className = studentAtt.className;
+        this.favSubjects = studentAtt.favSubjects; //array
+    }
+
+    listsSubjects() {
+        this.favSubjects.forEach(subject => {
+            console.log(subject); 
+        });
+    }
+
+
+    PRAssignment(subject) {
+        console.log(`${this.name} has submitted a PR for ${subject}`);
+    }
+
+    sprintChallenge(subject) {
+        console.log(`${this.name} has begun sprint challenge on ${subject}`);
+    }
+}
+
+class ProjectManager extends Instructor {
+    constructor(pmAttributes) {
+        super(pmAttributes);
+        this.gradClassName = pmAttributes.gradClassName;
+        this.favInstructor = pmAttributes.favInstructor;
+    }
+
+
+    standUp(slackChannel) {
+        console.log(`${this.name} announces to ${slackChannel}, @channel standy times!`);
+    }
+
+    debugsCode(student, subject) {
+        console.log(`${this.name} debugs ${student.name}'s code on ${subject}`);
+    }
+}
+
+// ============================ Test Objects
+
+
+const kendra = new Person({
+    name: 'Kendra',
+    age: 21,
+    location: 'here',
+    gender: 'female'
+});
+
+const rob = new Person({
+    name: 'Rob',
+    age: 23,
+    location: 'there',
+    gender: 'male'
+});
+
+const  hayley = new Instructor({
+    name: 'Hayley',
+    age: 41,
+    location: 'Kansas',
+    gender: 'female',
+    specialty: 'cooking',
+    favLanguage: 'French',
+    catchPhrase: 'What could happen?'
+});
+
+const  dom = new Instructor({
+    name: 'Dom',
+    age: 65,
+    location: 'Not Kansas',
+    gender: 'male',
+    specialty: 'something',
+    favLanguage: 'some language',
+    catchPhrase: 'some phrase'
+});
+
+
+const diana = new Student ({
+    name: 'Diana',
+    age: 20,
+    location: 'London',
+    gender: 'female',
+    previousBackground: 'magic',
+    className: 'CS44',
+    favSubjects: ['HTML', 'CSS', 'JavaScript'],
+});
+
+const andrew = new Student ({
+    name: 'Andrew',
+    age: 21,
+    location: 'London',
+    gender: 'male',
+    previousBackground: 'banking',
+    className: 'CS45',
+    favSubjects: ['math', 'english', 'science'],
+});
+
+// Person tests
+
+kendra.speak(); //Hello my name is Kendra, I am from here
+rob.speak(); //Hello my name is Rob, I am from there
+
+
+// Instructor tests
+
+hayley.speak(); //Hello my name is Hayley, I am from Kansas
+hayley.demo('baking'); //Today we are learning about baking
+hayley.grade(andrew, 'subject1'); //Andrew receives a perfect score on subject1
+
+dom.speak(); //Hello my name is Dom, I am from Not Kansas
+dom.demo('some cool stuff'); //Today we are learning about some cool stuff
+dom.grade(diana, 'CSS'); //Diana receives a perfect score on CSS
+
+// Student tests
+
+diana.speak(); //Hello my name is Diana, I am from London
+diana.listsSubjects(); // HTML, CSS, JavaScript (but separate)
+diana.PRAssignment('HMTL'); //Diana has submitted a PR for HMTL
+diana.sprintChallenge('JavaScript'); //Diana has begun sprint challenge on JavaScript
+
+andrew.speak(); //Hello my name is Andrew, I am from London
+andrew.listsSubjects(); //math, english, science (but separate)
+andrew.PRAssignment('CSS'); //Andrew has submitted a PR for CSS
+andrew.sprintChallenge('CSS'); //Andrew has begun sprint challenge on CSS
