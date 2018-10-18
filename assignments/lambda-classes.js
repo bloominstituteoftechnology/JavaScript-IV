@@ -30,7 +30,7 @@ class Instructor extends Person {
     }
 
     points(student, grade) {
-        return student.grade + (Math.floor(Math.random() * 200) + (-100));
+        return student.grade + (Math.floor(Math.random() * 100) + (-100));
     }
 }
 
@@ -87,7 +87,7 @@ const jody = new Student ({
     location: 'London',
     age: 26,
     gender: 'female',
-    favLanguage: 'Lisp',
+    favLanguage: ['Lisp', 'Haskell'],
     speciality: 'Functional Programming',
     catchPhrase: 'Lambda Calculus',
     grade: 87
@@ -111,3 +111,5 @@ console.log(kevin.debugsCode('Jody', 'CSS'));
 console.log(kevin.standUp('FSW15'));
 console.log(jody.PRAssignment('Javascript-IV'));
 console.log(jody.sprintChallenge('Javascript'));
+console.log(kevin.points(jody));
+console.log(george.speak());
