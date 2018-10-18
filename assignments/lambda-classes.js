@@ -56,9 +56,7 @@ class Instructor extends Person {
 
         while (student.grade < 70);
 
-        if (student.grade > 70) {
-            student.graduate();
-        }
+        student.graduate();
     }
 }
 
