@@ -104,9 +104,12 @@ class Student extends Person {
     sprintChallenge(subject) {
         return `${this.name} has begun sprint challenge on ${subject}`;
     }
-    graduate() {
-        if (this.grade > 70) {return `Congratulations ${this.name}! You have graduated with a ${this.grade} from Lambda School!`}
-        return `Keep your head up ${this.name}! You only need to increase your grade by ${70 - this.grade}%`
+    graduate(instructor) {
+        if (this.grade >= 70) {return `Congratulations ${this.name}! You have graduated with a ${this.grade} from Lambda School!`}
+        while (this.grade < 70) {
+            instructor.assessment(this);
+            console.log(`Keep your head up ${this.name}! You only need to increase your grade by ${70 - this.grade}%`);
+        } return `Congratulations ${this.name}! You have graduated with a ${this.grade} from Lambda School!`;
     }
 }
 
@@ -131,7 +134,8 @@ const gertrude = new Student({
   });
 
   console.log(gertrude);
-  console.log(gertrude.grade);
+  console.log(gertrude.graduate(bob));
+  console.log(cleetus.graduate(lady));
   console.log(gertrude.listsSubjects());
   console.log(cleetus.PRAssignment('football'));
   console.log(cleetus.sprintChallenge('drinking'));
