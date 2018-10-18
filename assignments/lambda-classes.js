@@ -59,6 +59,14 @@ class Student extends Person {
   sprintChallenge(subject) {
     return `${this.name} has begun sprint challenge on ${subject}`;    
   };
+  graduate() {
+    const graduationScore = 300;
+    if(this.grade >= (0.7 * graduationScore)) {
+      return `Congradulations ${this.name}, you have demonstrated knowledge and the ability to produce clean code in all the areas of our studies`
+    } else {
+      return `Sorry ${this.name}, keep working at it and get ${this.grade} up to at least 210`;
+    }
+  };
 }
 
 class ProjectManager extends Instructor {
@@ -164,7 +172,7 @@ const cindy = new ProjectManager({
 })
 
 // ***********************************************************
-// ******************       LOGS       ***********************
+// ****JS IV**************       LOGS       ***********************
 // ***********************************************************
 
 console.log(JohnDoe);
@@ -184,3 +192,6 @@ console.log(mcQue.gradeProjects(jackie));
 console.log(mcQue.gradeProjects(jackie));
 console.log(mcQue.gradeProjects(jackie));
 console.log(cindy.debugsCode(jasper, 'data structures'));
+jackie.grade = 210;
+console.log(jackie.graduate());
+console.log(jasper.graduate());
