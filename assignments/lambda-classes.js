@@ -19,10 +19,10 @@ class Instructors extends Person {
     this.favLanguage = attributes.favLanguage;
     this.catchPhrase = attributes.catchPhrase;
   }
-  demo() {
+  demo(subject) {
     return `Today we are learning about ${subject}.`
   }
-  grade() {
+  grade(student, subject) {
     return `${student.name} receives a perfect score on ${subject}.`
   }
 }
@@ -34,13 +34,13 @@ class Student extends Instructors {
     this.className = attributes.className;
     this.favSubjects = attributes.favSubjects;
   }
-  listsSubjects() {
-    return `${favSubjects}`;
+  listsSubjects(favSubjects) {
+    return `${this.favSubjects[0]}, ${this.favSubjects[1]}, ${this.favSubjects[2]}`;
   }
-  PRAssignment() {
+  PRAssignment(student, subject) {
     return `${student.name} has submitted a PR for ${subject}.`
   }
-  sprintChallenge() {
+  sprintChallenge(student, subject) {
     return `${student.name} has begun sprint challenge on ${subject}.`
   }
 }
@@ -51,11 +51,11 @@ class ProjectManager extends Student {
     this.gradClassName = attributes.gradClassName;
     this.favInstructor = attributes.favInstructor;
   }
-  standUp () {
-    console.log(`${this.name} announces to ${channel}, @channel standup times!`);
+  standUp (channel) {
+    return (`${this.name} announces to ${channel}, @channel standup times!`);
   }
-  debugsCode () {
-    console.log(`${this.name} debugs ${student.name}'s code on ${subject}.`)
+  debugsCode (student, subject) {
+    return (`${this.name} debugs ${student.name}'s code on ${subject}.`);
   }
 }
 
