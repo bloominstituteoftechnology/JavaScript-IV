@@ -25,6 +25,20 @@ class Person {
 }
 
 
+/*
+    === Instructor ===
+    Inherit? Person -> Instructor
+
+    * specialty
+    * favLanguage
+    * catchPhrase
+	
+    * demo(subject) // prototype method -> returns `Today we are learning about ${subject}`
+    
+    * grade(student, subject) // prototype method -> returns `${student.name} receives a perfect score on ${subject}`
+*/
+
+
 
 
 // Tests
