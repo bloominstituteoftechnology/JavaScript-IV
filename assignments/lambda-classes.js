@@ -25,6 +25,16 @@ class Instructor extends Person {
     grade(student, subject) {
         return `${student} receives a perfect score on ${subject}`;
     }
+    newGrade(student) {
+        let score = Math.round(Math.random() * 100);
+        if (student.grade >= 100) {
+            student.grade -= score;
+            return `${score} points will be subtracted from ${student}'s grade.`;
+        } else {
+            student.grade += score;
+            return `${score} points will be added to ${student}'s grade.`;
+        }
+    }
 }
 class Student extends Person {
     constructor(student) {
@@ -33,6 +43,7 @@ class Student extends Person {
         this.className = student.className;
         this.favSubjects = student.favSubjects;
         this.subject = student.subject;
+        this.grade = student.grade;
     }
     listsSubjects(favSubjects) {
         return `These are ${this.name}'s favorite subjects  ${this.favSubjects}`;
@@ -98,7 +109,8 @@ const thomas = new Student({
     gender: 'male',
     previousBackground: 'Retail',
     className: 'CS15',
-    favSubjects: ['HTML ', 'REACT ', 'JavaScript']
+    favSubjects: ['HTML ', 'REACT ', 'JavaScript'],
+    grade: 95
 });
 
 const keysha = new Student({
@@ -108,7 +120,8 @@ const keysha = new Student({
     gender: 'female',
     previousBackground: 'Receptionist',
     className: 'CS09',
-    favSubjects: ['SASS ', 'iOS ', 'UX/UI']
+    favSubjects: ['SASS ', 'iOS ', 'UX/UI'],
+    grade: 55
 });
 
 const mark = new Student({
@@ -118,7 +131,8 @@ const mark = new Student({
     gender: 'male',
     previousBackground: 'Retired Veteran',
     className: 'Data Structures',
-    favSubjects: ['Alogorithms', ' Python']
+    favSubjects: ['Alogorithms', ' Python'],
+    grade: 85
 });
 
 const nicole = new ProjectManagers({
@@ -160,8 +174,8 @@ console.log(pablo.debugsCode('Keysha', 'JavaScript')); // Project Manager Pablo'
 console.log(keysha.previousBackground); // Student Keysha's previous background
 console.log(thomas.className); // Student Thomas's class name
 console.log(michael.grade('Thomas', 'CSS'));
-// console.log();
-// console.log();
+console.log(sarah.grade('Keysha', 'Python'));
+console.log(michael.newGrade('Keysha'));
 // console.log();
 // console.log();
 // console.log();
