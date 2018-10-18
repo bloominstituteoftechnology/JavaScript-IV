@@ -60,7 +60,7 @@ class GameObject {
 //     return `${this.name} took damage.`;
 // }
 
-class CharacterStats {
+class CharacterStats extends GameObject {
     // Class Initializer and Attributes
     constructor(attributes) {
         super(attributes);
@@ -167,13 +167,13 @@ const archer = new Humanoid({
     language: 'Elvish',
 });
 
-// console.log(mage.createdAt); // Today's date
-// console.log(archer.dimensions); // { length: 1, width: 2, height: 4 }
-// console.log(swordsman.hp); // 15
-// console.log(mage.name); // Bruce
-// console.log(swordsman.faction); // The Round Table
-// console.log(mage.weapons); // Staff of Shamalama
-// console.log(archer.language); // Elvish
-// console.log(archer.greet()); // Lilith offers a greeting in Elvish.
-// console.log(mage.takeDamage()); // Bruce took damage.
-// console.log(swordsman.destroy()); // Sir Mustachio was removed from the game.
+console.log(mage.createdAt); // Today's date
+console.log(archer.dimensions); // { length: 1, width: 2, height: 4 }
+console.log(swordsman.hp); // 15
+console.log(mage.name); // Bruce
+console.log(swordsman.faction); // The Round Table
+console.log(mage.weapons[0]); // Staff of Shamalama
+console.log(archer.language); // Elvish
+console.log(archer.greet()); // Lilith offers a greeting in Elvish.
+console.log(mage.takeDamage()); // Bruce took damage.
+console.log(swordsman.destroy()); // Sir Mustachio was removed from the game.
