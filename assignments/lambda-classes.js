@@ -12,20 +12,20 @@ class Person {
     }
 }
 
-class Instuctor extends Person {
+class Instuctors extends Person {
     constructor(instuctorAtts) {
         super(instuctorAtts);
         this.specialty = instuctorAtts.specialty;
-        this.faveLanguage = instuctorAtts.faveLanguage;
+        this.favLanguage = instuctorAtts.faveLanguage;
         this.catchPhrase = instuctorAtts.catchPhrase;
     }
 
     demo(subject) {
-        return `Today we are learning about ${this.subject}`
+        return `Today we are learning about ${subject}`
     }
 
-    grade(student, subject) {
-        return `${this.student.name} receives a perfect score on ${this.subject}`
+    grade(student, subject) {  
+        return `${student.name} receives a perfect score on ${subject}`
     }
 }
 
@@ -35,10 +35,28 @@ class Student extends Person {
         this.previousBackground = studentAtts.previousBackground;
         this.className = studentAtts.className;
         this.favSubject = studentAtts.favSubject;
+        this.grade = studentAtts.grade;
     }
 
-    listSubjects() {  //use apply when consol logging?
+    listSubjects() {  
         return `My facorite subjects are ${this.favSubject}`
+    }
+    PRAssignment(subject){
+        return `${student.name} has submitted a PR for a ${subject}`
+    }
+    sprintChallenge(subject){
+        return `${student.name} has begun sprint challenge on ${subject}`
+    }
+}
+
+class ProjectManager extends Instuctors {
+    constructor(projectManagerAtts) {
+        super(projectManagerAtts);
+        this.gradClassName = projectManagerAtts.gradClassName;
+        this.favInstructor = projectManagerAtts.favInstructor;
+    }
+    standUp(channel){
+        return `${this.name} announces to ${channel} @channel standy times!`
     }
 }
 
@@ -50,28 +68,37 @@ const josh = new Person ({
     location: 'Internets',
     gender: 'Male',
     specialty: 'Redux',
-    faveLanguage: 'JavaScript',
+    favLanguage: 'JavaScript',
     catchPhrase: 'Invoke!'
 });
 
 //Student
-const student = new Person ({
+const student = new Student ({
     name: 'Latifah',
     age: 27,
     location: 'Austin TX',
     gender: 'Female',
     previousBackground: 'Teacher',
     className: 'FSW15',
-    favSubject: ['HTML', 'CSS', 'JavaScript']
-
+    favSubject: ['HTML', 'CSS', 'JavaScript'],
+    grade: 90
 });
 
 //Project Manager
-const projectManager = new Instuctor ({
+const jon = new ProjectManager ({
     name: 'Jon',
     age: 29,
     location: 'Interwebs',
     gender: 'Male',
     gradClassName: 'CS14',
     favInstructor: 'Josh'
-})
+});
+
+console.log(student.name);
+console.log(student.speak());
+console.log(jon.speak());
+console.log(jon.demo('JavaScript'));
+console.log(jon.grade(student,'CSS'));
+console.log(student.listSubjects());
+console.log(jon.standUp('FWS15_jonathan'));
+console.log(student.sprintChallenge('CSS'));

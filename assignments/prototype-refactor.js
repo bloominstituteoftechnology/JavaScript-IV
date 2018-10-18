@@ -115,7 +115,7 @@ Prototype Refactor
     language: 'Elvish',
   });
   
-  const hero =  new Humanoid ({
+  const hero =  new Hero ({
     createdAt: new Date(),
     dimensions: {
       length: 3,
@@ -132,7 +132,7 @@ Prototype Refactor
     language: 'Tabaxi',
   });
   
-  const villan =  new Humanoid ({
+  const villan =  new Villan ({
     createdAt: new Date(),
     dimensions: {
       length: 3,
@@ -161,5 +161,5 @@ Prototype Refactor
   console.log(archer.greet()); // Lilith offers a greeting in Elvish.
   console.log(mage.takeDamage()); // Bruce took damage.
   console.log(swordsman.destroy()); // Sir Mustachio was removed from the game.
-  console.log(hero.greet());
-  console.log(villan.takeDamage());
+  console.log(hero.catchPhrase());
+  console.log(villan.finishingPhrase());
