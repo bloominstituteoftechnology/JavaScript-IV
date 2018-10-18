@@ -111,6 +111,23 @@ class Student extends Person {
 */
 
 
+class ProjectManager extends Instructor {
+    // Class Initializer and Attributes
+    constructor(props) {
+        super(props)
+        this.gradClassName = props.gradClassName;
+        this.favInstructor = props.favInstructor;
+    }
+
+    // Class methods
+    standUp(channel) {
+        return `${this.name} announces to ${channel}, @channel Stand Up Time!`;
+    }
+
+    debugsCode(student, subject) {
+        return `${this.name} debugs ${student.name}'s code on ${subject}.`
+    }
+}
 
 
 
