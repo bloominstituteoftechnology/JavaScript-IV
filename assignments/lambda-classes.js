@@ -28,6 +28,26 @@ class Instructor extends Person{
     grade(student, subject){
         console.log(`${student.name} receives a perfect score on ${subject}`);
     }
+    changeGrade(student){
+        let addOrSub = Math.floor(Math.random()*2); // 1 or 2
+        let val = Math.floor(Math.random()*100);
+        if(addOrSub === 1 && (student.grade - val) >= 0){
+            return student.grade -= val;
+        }else if(addOrSub === 0 && (student.grade + val) <= 100){
+            return student.grade += val;
+        }else {
+            this.changeGrade(student);
+        }    
+    }
+    graduate(student){
+        if(student.grade >= 70){
+            console.log(`Congrates Your A Graduate!`);
+        }else {
+            this.changeGrade(student);
+            console.log(student.grade);
+            this.graduate(student);
+        }
+    }
 }
 
 // Define Student Constructor
@@ -37,6 +57,7 @@ class Student extends Person{
         this.previousBackground = studentAttribute.previousBackground;
         this.className = studentAttribute.className;
         this.favSubjects = studentAttribute.favSubjects;
+        this.grade = studentAttribute.grade;
     }
     listSubjects(){
         for(let i = 0; i < this.favSubjects.length; i++){
@@ -64,6 +85,26 @@ class ProjectManagers extends Instructor{
     debugsCode(student, subject){
         console.log(`${this.name} debugs ${student.name}'s code on ${subject}`);
     }
+    changeGrade(student){
+        let addOrSub = Math.floor(Math.random()*2); // 1 or 2
+        let val = Math.floor(Math.random()*100);
+        if(addOrSub === 1 && (student.grade - val) >= 0){
+            return student.grade -= val;
+        }else if(addOrSub === 0 && (student.grade + val) <= 100){
+            return student.grade += val;
+        }else {
+            this.changeGrade(student);
+        }    
+    }
+    graduate(student){
+        if(student.grade >= 70){
+            console.log(`Congrates Your A Graduate!`);
+        }else {
+            this.changeGrade(student);
+            console.log(student.grade);
+            this.graduate(student);
+        }
+    }
 }
 
 // Define Person Object Extensions
@@ -75,7 +116,8 @@ const Student1 = new Student({
     gender: "M",
     previousBackground: 'Mechanical Engineer',
     className: 'FSW15',
-    favSubjects: ['Html','CSS','Javascript']
+    favSubjects: ['Html','CSS','Javascript'],
+    grade: 69
 });
 
 const Instructor1 = new Instructor({
@@ -118,5 +160,23 @@ console.log('<---------------------Project Manager Test--------------------->');
 console.log(ProjectManager1);
 ProjectManager1.standUp('fsw15_john');
 ProjectManager1.debugsCode(Student1, ProjectManager1.favLanguage);
+
+console.log('<---------------------Stretch Create Grade Prop--------------------->');
+
+console.log(Student1.grade);
+
+console.log('<---------------------Stretch Create Method for Changing Students Grade Project Manager--------------------->');
+ProjectManager1.changeGrade(Student1);
+console.log(Student1.grade);
+console.log('<---------------------Stretch Create Method for Changing Students Instructor--------------------->');
+Instructor1.changeGrade(Student1);
+console.log(Student1.grade);
+
+console.log('<---------------------Stretch Create Method for Graduation Via PM--------------------->');
+ProjectManager1.graduate(Student1);
+
+console.log('<---------------------Stretch Create Method for Graduation Via Instructor--------------------->');
+Instructor1.graduate(Student1);
+
 
 console.log('<---------------------Assignment 2: End--------------------->');
