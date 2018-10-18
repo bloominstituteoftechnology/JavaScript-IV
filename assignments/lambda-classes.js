@@ -87,7 +87,7 @@ class Student extends Person {
       instructor.gradePoint(this);
     }
 
-    console.log(`Congratulation, ${this.name}! You've graduated from Hogwarts School of Witchcraft and Wizardry.`);
+    console.log(`Congratulation, ${this.name}! You've graduated from Hogwarts School of Witchcraft and Wizardry with ${this.grade} grade.`);
   }
 }
 
