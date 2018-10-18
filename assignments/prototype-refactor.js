@@ -1,6 +1,8 @@
 /* 
-
-<<<<<<< HEAD
+Prototype Refactor
+1. Copy and paste your code or the solution from yesterday
+2. Your goal is to refactor all of this code to use ES6 Classes. The console.log() statements should still return what is expected of them.
+*/
 class GameObject {
   constructor(data) {
     this.createdAt = new Date();
@@ -171,12 +173,3 @@ const carl = new sadBoy({
   morals: 'dead like his soul',
   disposition: 'apathetic',
 })
-=======
-Prototype Refactor
-
-1. Copy and paste your code or the solution from yesterday
-
-2. Your goal is to refactor all of this code to use ES6 Classes. The console.log() statements should still return what is expected of them.
-
-*/
->>>>>>> 064e39de4419cbe7e24344d74defba4c6e37a6b2
