@@ -47,17 +47,31 @@ class GameObject {
   * should inherit destroy() from GameObject's prototype
 */
 
-// == Constructor Function ==
-function CharacterStats(attributes) {
-    GameObject.call(this, attributes);
-    this.hp = attributes.hp;
-    this.name = attributes.name;
-}
-// == Constructor Methods ==
-CharacterStats.prototype = Object.create(GameObject.prototype);
+// // == Constructor Function ==
+// function CharacterStats(attributes) {
+//     GameObject.call(this, attributes);
+//     this.hp = attributes.hp;
+//     this.name = attributes.name;
+// }
+// // == Constructor Methods ==
+// CharacterStats.prototype = Object.create(GameObject.prototype);
 
-CharacterStats.prototype.takeDamage = function() {
-    return `${this.name} took damage.`;
+// CharacterStats.prototype.takeDamage = function() {
+//     return `${this.name} took damage.`;
+// }
+
+class CharacterStats {
+    // Class Initializer and Attributes
+    constructor(attributes) {
+        super(attributes);
+        this.hp = attributes.hp;
+        this.name = attributes.name;
+    }
+
+    // Class methods
+    takeDamage() {
+        return `${this.name} took damage.`;
+    }
 }
 
 /*
