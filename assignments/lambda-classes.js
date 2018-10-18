@@ -57,6 +57,22 @@ class Instructor extends Person {
     }
 }
 
+/*
+=== student ===
+Inherit? Person -> Student
+
+* previousBackground
+* favSubjects
+    
+* listsSubjects() // prototype method -> returns each subject one by one
+
+* PRAssignment(subject) // prototype method -> returns `${this.name} has submitted a PR for {subject}`
+
+* sprintChallenge(subject) // prototype method -> returns `${this.name} has begun sprint challenge on {subject}`
+
+*/
+
+
 
 // *** === Tests === ***
 
