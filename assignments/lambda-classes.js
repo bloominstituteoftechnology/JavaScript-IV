@@ -79,6 +79,16 @@ class Student extends Person {
   sprintChallenge(subject) {
     console.log(`${this.name} has begun sprint challenge on ${subject}`);
   }
+  checkGraduation(instructor) { // stretch: add a method to check for graduation.
+
+    // automatically grade the student if not enough grade to graduate
+    while(this.grade <= 70) {
+      console.log(`${this.name}, your current grade is ${this.grade}. You need a higher grade to graduate!`)
+      instructor.gradePoint(this);
+    }
+
+    console.log(`Congratulation, ${this.name}! You've graduated from Hogwarts School of Witchcraft and Wizardry.`);
+  }
 }
 
 /*
