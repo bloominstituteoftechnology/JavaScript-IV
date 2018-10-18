@@ -63,6 +63,7 @@ Inherit? Person -> Student
 
 * previousBackground
 * favSubjects
+* className
     
 * listsSubjects() // prototype method -> returns each subject one by one
 
@@ -125,17 +126,88 @@ const joker = new Instructor({
     catchPhrase: 'SMILE !!'
 });
 
-// Make them do stuff
+// Confirm Existance
 console.log(batman);
+
+console.log('Batman Specialty:', batman.specialty);
+console.log('Batman Favorite Language:', batman.favLanguage);
+console.log('Batman Catch Phrase:', batman.catchPhrase);
+
+console.log(joker);
+
+console.log('Joker Specialty:', joker.specialty);
+console.log('Joker Favorite Language:', joker.favLanguage);
+console.log('Joker Catch Phrase:', joker.catchPhrase);
+
+// Make them do stuff
 console.log(batman.speak());
-console.log(batman.demo('the Obstacle course'));
-console.log(batman.grade({
+console.log('Batman Demo:', batman.demo('the Obstacle course'));
+console.log('Batman Grade:', batman.grade({
     name: 'Robin'
 }, 'Hacking'));
 
-console.log(joker);
+
 console.log(joker.speak());
-console.log(joker.demo('PIES!!'));
-console.log(joker.grade({
+console.log('Joker Demo:', joker.demo('PIES!!'));
+console.log('Joker Grade:', joker.grade({
     name: 'Harley Quinn'
 }, 'Tumbling'));
+
+
+// ==Student Tests==
+// --Create Objects--
+
+const robin = new Student({
+    name: 'Robin',
+    age: 14,
+    location: 'North America',
+    gender: 'm',
+    className: 'Vigilante',
+    previousBackground: 'Circus Acrobat',
+    favSubjects: [
+        'Hacking',
+        'Hand-to-Hand Combat',
+        'Motorcycle Practice'
+    ]
+
+});
+
+const harley = new Student({
+    name: 'Harley Quin',
+    age: 25,
+    location: 'North America',
+    gender: 'f',
+    className: 'Menace',
+    previousBackground: 'Psychiatrists',
+    favSubjects: [
+        'How to Be a Pyro',
+        'Taunting & Mocking',
+        'Playing With Hyenas'
+    ]
+});
+
+// Confirm Existance
+console.log(robin);
+
+console.log('Robin Class:', robin.className);
+console.log('Robin Background:', robin.previousBackground);
+console.log('Robin Subjects:', robin.favSubjects);
+
+console.log(harley);
+
+console.log('Harley Class:', harley.className);
+console.log('Harley Background:', harley.previousBackground);
+console.log('Harley Subjects:', harley.favSubjects);
+
+
+
+// Make them do stuff
+console.log(robin.speak());
+console.log('Robin lists subjects', robin.listsSubjects());
+console.log(robin.PRAssignment());
+console.log(robin.sprintChallenge());
+
+console.log(harley.speak());
+console.log('Harley Quinn lists subjects', harley.listsSubjects());
+console.log(harley.PRAssignment());
+console.log(harley.sprintChallenge());
