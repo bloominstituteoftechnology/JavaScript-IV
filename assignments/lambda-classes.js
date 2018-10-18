@@ -91,3 +91,91 @@ class ProjectManager extends Instructor {
     console.log(`${this.name} debugs ${student.name}'s code on ${subject}`);
   }
 }
+
+/*
+  === Test Lambda Classes ===
+*/
+
+const instOne = new Instructor({
+  name: 'Minerva McGonagall',
+  age: 58,
+  location: 'Hogsmeade',
+  gender: 'Female',
+  specialty: 'Poition',
+  favLanguage: 'HTML',
+  catchPhrase: 'The Dark Arts are many, varied, ever-changing, and eternal.'
+})
+
+const instTwo = new Instructor({
+  name: 'Remus Lupin',
+  age: 39,
+  location: 'Shrieking Shack',
+  gender: 'Male',
+  specialty: 'Defense Against The Dark Art',
+  favLanguage: 'CSS',
+  catchPhrase: 'Do I detect a flicker of fear?.'
+})
+
+const studentOne = new Student({
+  name: 'Harry Potter',
+  age: 11,
+  location: 'Hogwarts',
+  gender: 'Male',
+  previousBackground: 'half-blood',
+  className: 'Gryffindor',
+  favSubjects: ['Defense Against the Dark Art', 'Flying']
+})
+
+const studentTwo = new Student({
+  name: 'Luna Lovegood',
+  age: 11,
+  location: 'Hogwarts',
+  gender: 'Female',
+  previousBackground: 'pure-blood',
+  className: 'Ravenclaw',
+  favSubjects: ['History of Magic', 'Potions', 'Charms']
+})
+
+const studentThree = new Student({
+  name: 'Hermione Granger',
+  age: 11,
+  location: 'Hogwarts',
+  gender: 'Female',
+  previousBackground: 'muggle',
+  className: 'Gryffindor',
+  favSubjects: ['History of Magic', 'Transfiguration']
+})
+
+const PMOne = new ProjectManager({
+  name: 'Oliver Wood',
+  age: 15,
+  location: 'Hogwarts',
+  gender: 'Male',
+  specialty: 'Flying',
+  favLanguage: 'CSS',
+  catchPhrase: 'What up',
+  gradClassName: 'CS2',
+  favInstructor: 'McGonagall'
+})
+
+const PMTwo = new ProjectManager({
+  name: 'George Weasley',
+  age: 15,
+  location: 'Hogwarts',
+  gender: 'Male',
+  specialty: 'Defense Against The Dark Art',
+  favLanguage: 'JavaScript',
+  catchPhrase: 'Wooohooo'
+})
+
+console.log(instOne.speak());
+console.log(instOne.demo('Transfiguration'));
+console.log(instOne.grade(studentOne, 'Transfiguration'));
+
+console.log(studentOne.speak());
+studentOne.listSubjects();
+studentThree.PRAssignment('History of Magic');
+studentTwo.sprintChallenge('Flying');
+
+PMTwo.standUp('flex');
+console.log(PMOne.grade(studentTwo, 'Flying'));
