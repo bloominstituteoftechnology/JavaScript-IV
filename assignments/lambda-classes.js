@@ -10,7 +10,7 @@ class Person {
         this.gender = personAttributes.gender;
     }
     speak() {
-        console.log(`Hello my name is ${this.name}, I am from ${this.location}.`);
+        return `Hello my name is ${this.name}, I am from ${this.location}.`;
     }
 }
 
@@ -26,11 +26,24 @@ class Person {
     }
 
     demo(subject) {
-        console.log(`Today we are learning about ${subject}`);
+        return `Today we are learning about ${subject}`;
     }
 
     grade(student, subject){
-        console.log(`${student.name} receives a perfect score on ${subject}`);
+        return `${student.name} receives a perfect score on ${subject}`;
+    }
+
+    pointsCalc(student){
+        const random = Math.floor(Math.random() * 35); 
+        const plusOrMinus =  Math.random();
+        let result;
+        if(plusOrMinus < 0.5) {
+            result = student.grade - random;
+        }else{
+            result = student.grade + random;
+        }
+        student.grade = result;
+        return result;
     }
   }
 
@@ -43,19 +56,28 @@ class Person {
           this.previousBackground = studentAttributes.previousBackground;
           this.className = studentAttributes.className;
           this.favSubjects = studentAttributes.favSubjects;
+          this.grade = studentAttributes.grade;
       }
 
       listsSubjects() {
-            console.log(`${this.favSubjects}`);
+            return `${this.favSubjects}`;
         }
       
 
       PRAssignment(subject){
-          console.log(`${this.name} has submitted a PR for ${subject}`);
+          return `${this.name} has submitted a PR for ${subject}`;
       }
 
       sprintChallenge(subject){
-        console.log(`${this.name} has has begun sprint challenge on ${this.subject}`);
+        return `${this.name} has has begun sprint challenge on ${this.subject}`;
+      }
+
+      graduate(){
+        if(`${this.grade}` > 70){
+            return 'Congratulations. You can graduate from Lambda School';
+        }else {
+            return 'Sorry, try again to pass you graduation project';
+        }
       }
 
   }
@@ -71,11 +93,11 @@ class Person {
     }
 
     standUp(){
-        console.log(`${this.name} announces to ${this.gradClassName} @channel stundy times!`);
+        return `${this.name} announces to ${this.gradClassName} @channel stundy times!`;
     }
 
     debugsCode(student, subject){
-        console.log(`${this.name} debugs ${student.name}'s code on ${subject}`);
+        return `${this.name} debugs ${student.name}'s code on ${subject}`;
     }
   }
 
@@ -112,7 +134,8 @@ const thomas = new Student({
     gender: 'male',
     previousBackground: 'Basic knowledge of HTML and CSS',
     className: 'CS16',
-    favSubjects: ['Html', 'CSS', 'JavaScript']
+    favSubjects: ['Html', 'CSS', 'JavaScript'],
+    grade: 65
   });
 
 
@@ -123,7 +146,8 @@ const tara = new Student({
     gender: 'female',
     previousBackground: 'Basic knowledge of HTML and CSS, JavaScript and Python',
     className: 'CS16',
-    favSubjects: ['Html', 'CSS', 'JavaScript', 'Python']
+    favSubjects: ['Html', 'CSS', 'JavaScript', 'Python'],
+    grade: 60
 });
 
 
@@ -196,3 +220,8 @@ console.log(eric.gradClassName);
 console.log(eric.standUp());
 console.log(eric.debugsCode(thomas, 'Array methods Project'));
   
+
+
+
+console.log(fred.pointsCalc(tara));
+console.log(tara.graduate());
