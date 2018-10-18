@@ -72,7 +72,7 @@ class ProjectManager extends Instructor {
     }
 }
 
-// ============================ Test Objects
+// Test Objects
 
 
 const kendra = new Person({
@@ -130,6 +130,28 @@ const andrew = new Student ({
     favSubjects: ['math', 'english', 'science'],
 });
 
+const morgan = new ProjectManager ({
+    name: 'Morgan',
+    age: 31,
+    location: 'New York',
+    gender: 'female',
+    specialty: 'JavaScript',
+    favLanguage: 'Java',
+    gradClassName: 'CS32',
+    favInstructor: 'Jess'
+});
+
+const christian = new ProjectManager({
+    name: 'Christian',
+    age: 31,
+    location: 'Oregon',
+    gender: 'male',
+    specialty: 'CSS',
+    favLanguage: 'Python',
+    gradClassName: 'CS37',
+    favInstructor: 'Timothy'
+});
+
 // Person tests
 
 kendra.speak(); //Hello my name is Kendra, I am from here
@@ -157,3 +179,17 @@ andrew.speak(); //Hello my name is Andrew, I am from London
 andrew.listsSubjects(); //math, english, science (but separate)
 andrew.PRAssignment('CSS'); //Andrew has submitted a PR for CSS
 andrew.sprintChallenge('CSS'); //Andrew has begun sprint challenge on CSS
+
+// PM tests
+
+morgan.speak();//Hello my name is Morgan, I am from New York
+morgan.demo('Ruby'); //Today we are learning about Ruby
+morgan.grade(diana, 'C'); //Diana receives a perfect score on C
+morgan.standUp('#fsw44_morgan'); //Morgan announces to $fsw44_morgan, @channel standy times!​​​​​
+morgan.debugsCode(andrew, 'CSS');//Morgan debugs Andrew's code on CSS
+
+christian.speak();//Hello my name is Christian, I am from Oregon
+christian.demo('Python'); //Today we are learning about Python
+christian.grade(andrew, 'C#'); //Andrew receives a perfect score on C#
+christian.standUp('#fsw45');//Christian announces to $fsw45, @channel standy times!​​​​​
+christian.debugsCode(diana, 'Java');//{Christian debugs Diana's code on Java
