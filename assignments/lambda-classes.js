@@ -28,6 +28,10 @@ class Instructor extends Person {
     grade(student, subject) {
         return `${student.name} receives a perfect score on ${subject}`
     }
+
+    points(student, grade) {
+        return student.grade + (Math.floor(Math.random() * 200) + (-100));
+    }
 }
 
 class Student extends Person {
@@ -36,6 +40,7 @@ class Student extends Person {
         this.previousBackground = childAttributes.previousBackground;
         this.className = childAttributes.className;
         this.favSubjects = childAttributes.favSubjects;
+        this.grade = childAttributes.grade;
     }
 
     listSubjects() {
@@ -75,7 +80,7 @@ const george = new Instructor ({
     favLanguage: 'R',
     speciality: 'Data Science',
     catchPhrase: 'Show me the data!'
-})
+});
 
 const jody = new Student ({
     name: 'Jody',
@@ -84,8 +89,9 @@ const jody = new Student ({
     gender: 'female',
     favLanguage: 'Lisp',
     speciality: 'Functional Programming',
-    catchPhrase: 'Lambda Calculus'
-})
+    catchPhrase: 'Lambda Calculus',
+    grade: 87
+});
 
 const kevin = new ProjectManager ({
     name: 'Kevin',
@@ -95,7 +101,7 @@ const kevin = new ProjectManager ({
     favLanguage: 'Golang',
     speciality: 'Devops',
     catchPhrase: 'It is what it is.'
-})
+});
 
 console.log(jody.location);
 console.log(kevin.catchPhrase);
