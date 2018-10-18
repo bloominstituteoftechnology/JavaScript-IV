@@ -23,7 +23,12 @@ class Instructor extends Person {
     }
     grade(student, subject){
         let gradeChange = Math.trunc((Math.random()*10));
-        student.grade = student.grade-gradeChange;
+        if (gradeChange <= 5) {
+            gradeChange *= -1;
+        } else {
+            gradeChange *= 1;
+        };
+        student.grade = student.grade + gradeChange;
         console.log(`${student.name} receives a ${student.grade} on ${subject}`);
     }
 }
