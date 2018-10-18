@@ -15,16 +15,6 @@ Prototype Refactor
   * destroy() // prototype method -> returns the string: 'Object was removed from the game.'
 */
 
-// // == Constructor Function ==
-// function GameObject(attributes) {
-//     this.createdAt = new Date();
-//     this.dimensions = attributes.dimensions;
-// }
-// // == Constructor Methods ==
-// GameObject.prototype.destroy = function() {
-//     return `${this.name} was removed from the game.`;
-// }
-
 class GameObject {
     // Class Initializer and Attributes
     constructor(attributes) {
@@ -46,19 +36,6 @@ class GameObject {
   * takeDamage() // prototype method -> returns the string '<object name> took damage.'
   * should inherit destroy() from GameObject's prototype
 */
-
-// // == Constructor Function ==
-// function CharacterStats(attributes) {
-//     GameObject.call(this, attributes);
-//     this.hp = attributes.hp;
-//     this.name = attributes.name;
-// }
-// // == Constructor Methods ==
-// CharacterStats.prototype = Object.create(GameObject.prototype);
-
-// CharacterStats.prototype.takeDamage = function() {
-//     return `${this.name} took damage.`;
-// }
 
 class CharacterStats extends GameObject {
     // Class Initializer and Attributes
@@ -83,20 +60,6 @@ class CharacterStats extends GameObject {
   * should inherit destroy() from GameObject through CharacterStats
   * should inherit takeDamage() from CharacterStats
 */
-
-// // == Constructor Function ==
-// function Humanoid(attributes) {
-//     CharacterStats.call(this, attributes);
-//     this.faction = attributes.faction;
-//     this.weapons = attributes.weapons;
-//     this.language = attributes.language;
-// }
-
-// // == Constructor Methods ==
-// Humanoid.prototype = Object.create(CharacterStats.prototype);
-// Humanoid.prototype.greet = function() {
-//     return `${this.name} offers greeting in ${this.language}`;
-// }
 
 class Humanoid extends CharacterStats {
     // Class Initializer and Attributes
