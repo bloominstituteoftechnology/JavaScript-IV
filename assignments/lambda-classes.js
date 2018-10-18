@@ -32,7 +32,7 @@ class Instructor extends Person {
   gradeProjects(student){
     let rand = Math.round(Math.random() * 100);
     
-    if(rand < 70) {
+    if(rand <= 70) {
       return student.grade -= 10;
     } if (rand > 70){
     return student.grade += 10; 
