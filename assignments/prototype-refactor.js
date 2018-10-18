@@ -1,13 +1,5 @@
 'use strict';
-
-function dice(sides, numberOfDie) {
-    let working = [];
-    let min = 1;
-    for (let i = 0; i < numberOfDie; i++) {
-        working.push(Math.floor(Math.random() * (sides - min + 1)) + min);
-    }
-    return working.reduce((total, items) => total + items, 0);
-}
+const helper = require('./helper');
 
 class GameObject {
     constructor(attributes) {
@@ -44,7 +36,7 @@ class CharacterStats extends GameObject {
     }
 
     attack(target, weapon, dieNum) {
-        let damage = dice(...dieNum);
+        let damage = helper.dice(...dieNum);
         return target.takeDamage(this.name, damage, this.weapons[weapon]);
     }
 }
@@ -76,7 +68,7 @@ const mage = new Humanoid({
         width: 1,
         height: 1
     },
-    hp: dice(6, 3),
+    hp: helper.dice(6, 3),
     name: 'Bruce',
     faction: 'Mage Guild',
     weapons: ['Staff of Shamalama'],
@@ -90,7 +82,7 @@ const swordsman = new Humanoid({
         width: 2,
         height: 2
     },
-    hp: dice(6, 5),
+    hp: helper.dice(6, 5),
     name: 'Sir Mustachio',
     faction: 'The Round Table',
     weapons: ['Giant Sword', 'Shield'],
@@ -104,7 +96,7 @@ const archer = new Humanoid({
         width: 2,
         height: 4
     },
-    hp: dice(6, 4),
+    hp: helper.dice(6, 4),
     name: 'Lilith',
     faction: 'Forest Kingdom',
     weapons: ['Bow', 'Dagger'],
@@ -118,7 +110,7 @@ const paladin = new Humanoid({
         width: 3,
         height: 6
     },
-    hp: dice(6, 5),
+    hp: helper.dice(6, 5),
     name: 'Eragon',
     faction: 'Alagaesian Rebels',
     weapons: ['Dragon Heart Crystal'],
@@ -132,7 +124,7 @@ const shade = new Humanoid({
         width: 1,
         height: 6
     },
-    hp: dice(6, 3),
+    hp: helper.dice(6, 3),
     name: 'Durza',
     faction: 'Alagaesian Loyalists',
     weapons: ['Demon Soul'],

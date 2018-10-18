@@ -8,7 +8,7 @@
             "type": "node",
             "request": "launch",
             "name": "Launch Program",
-            "program": "${workspaceFolder}/lambda-classes.js"
+            "program": "${file}"
         }
     ]
 }

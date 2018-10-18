@@ -1,3 +1,5 @@
+const helper = require('./helper');
+
 class Person {
     constructor(param) {
         this.name = param.name;
@@ -22,10 +24,9 @@ class Instructor extends Person {
     demo(subject) {
         console.log(`Today we are learning about ${subject}.`);
     }
-    grade(student, subject, percentage) {
-        student.grade = console.log(
-            `${student.name} receives a perfect score on ${subject}`
-        );
+    grade(student, subject, points) {
+        student.grades.push(points);
+        console.log(`${student.name} receives a ${points}% on ${subject}`);
     }
 }
 
@@ -35,6 +36,9 @@ class Student extends Person {
         this.previousBackground = param.previousBackground;
         this.className = param.className;
         this.favSubjects = param.favSubjects;
+        this.grades = param.grades;
+        this.gpa = param.gpa;
+        this.passFail = param.passFail;
     }
     listsSubjects() {
         this.favSubjects.forEach(item => console.log(item));
@@ -44,6 +48,25 @@ class Student extends Person {
     }
     sprintChallenge(subject) {
         console.log(`${this.name} has begun challenge on ${subject}.`);
+    }
+    calcGPA() {
+        this.gpa = this.grades.reduce((total, amount, index, array) => {
+            total += amount;
+            if (index === array.length - 1) {
+                return total / array.length;
+            } else {
+                return total;
+            }
+        });
+    }
+    graduate() {
+        this.calcGPA();
+        if (this.gpa >= 70) {
+            this.passFail = true;
+            console.log(`${this.name} has passed with a ${this.gpa}%`);
+        } else {
+            console.log(`${this.name} has failed with a ${this.gpa}%`);
+        }
     }
 }
 
@@ -80,7 +103,9 @@ const david = new Student({
     gender: 'male',
     favSubjects: ['js', 'html', 'css'],
     className: 'FSW15',
-    grade: '60'
+    grades: [],
+    gpa: 0,
+    passFail: false
 });
 
 const joe = new ProjectManager({
@@ -94,9 +119,17 @@ const joe = new ProjectManager({
 });
 
 fred.demo('js');
-fred.grade(david, 'html');
+
 david.listsSubjects();
 david.PRAssignment('Javascript IV');
 david.sprintChallenge('Javascript');
 joe.standUp('fsw15_joe');
 joe.debugCode(david, 'js');
+
+while (david.passFail === false) {
+    for (let i = 0; i < 10; i++) {
+        joe.grade(david, 'html', helper.randInt(david.gpa, 100));
+        fred.grade(david, 'html', helper.randInt(david.gpa, 100));
+    }
+    david.graduate();
+}
