@@ -98,6 +98,20 @@ class Student extends Person {
     }
 }
 
+/*
+    === Project Manager ===
+    Inherit? Person -> Instructor -> Project Manager
+
+    * gradClassName
+    * favInstructor
+        
+    * standUp(channel) // prototype method -> returns `${this.name} announces to ${channel}, @channel standy times!​​​​​`
+
+    * debugsCode(student, subject) // prototype method -> returns `${this.name} debugs {student.name}'s code on {subject}`
+*/
+
+
+
 
 
 
