@@ -53,7 +53,14 @@ class Instructor extends Person {
     }
 
     grade(student, subject) {
-        return `${student.name} receives a perfect score on ${subject}`;
+        let result = Math.floor(Math.random() * 100);
+        if (result >= 70) {
+            student.grades.push(result);
+            return `${student.name} receives a passing score on ${subject}`;
+        } else {
+            student.grades.push(result);
+            return `${student.name} receives a failing score on ${subject}`;
+        }
     }
 }
 
@@ -80,7 +87,7 @@ class Student extends Person {
         this.favSubjects = props.favSubjects;
         this.className = props.className;
         this.previousBackground = props.previousBackground;
-        this.grade = 0;
+        this.grades = [];
     }
 
     // Class methods
@@ -134,9 +141,6 @@ class ProjectManager extends Instructor {
 
 
 // *** === Tests === ***
-
-
-// ==Person Tests==
 // --Create Objects--
 
 const adam = new Person({
@@ -152,17 +156,6 @@ const eve = new Person({
     location: 'Africa',
     gender: 'f'
 });
-
-// Make them do stuff
-console.log(adam);
-console.log(adam.speak());
-
-console.log(eve);
-console.log(eve.speak());
-
-
-// ==Instructor Tests==
-// --Create Objects--
 
 const batman = new Instructor({
     name: 'Batman',
@@ -183,37 +176,6 @@ const joker = new Instructor({
     favLanguage: 'Sarcasm',
     catchPhrase: 'SMILE !!'
 });
-
-// Confirm Existance
-console.log(batman);
-
-console.log('Batman Specialty:', batman.specialty);
-console.log('Batman Favorite Language:', batman.favLanguage);
-console.log('Batman Catch Phrase:', batman.catchPhrase);
-
-console.log(joker);
-
-console.log('Joker Specialty:', joker.specialty);
-console.log('Joker Favorite Language:', joker.favLanguage);
-console.log('Joker Catch Phrase:', joker.catchPhrase);
-
-// Make them do stuff
-console.log(batman.speak());
-console.log('Batman Demo:', batman.demo('the Obstacle course'));
-console.log('Batman Grade:', batman.grade({
-    name: 'Robin'
-}, 'Hacking'));
-
-
-console.log(joker.speak());
-console.log('Joker Demo:', joker.demo('PIES!!'));
-console.log('Joker Grade:', joker.grade({
-    name: 'Harley Quinn'
-}, 'Tumbling'));
-
-
-// ==Student Tests==
-// --Create Objects--
 
 const robin = new Student({
     name: 'Robin',
@@ -243,6 +205,57 @@ const harley = new Student({
         'Playing With Hyenas'
     ]
 });
+
+const alfred = new ProjectManager({
+    name: 'Alfred',
+    age: 56,
+    location: 'Gotham City',
+    gender: 'm',
+    specialty: 'Military Intelligence',
+    favLanguage: 'Sarcasm',
+    catchPhrase: 'Right away sir',
+    gradClassName: 'You\'ll never know',
+    favInstructor: 'Batman, if I must choose'
+});
+
+// ==Person Tests==
+
+// Make them do stuff
+console.log(adam);
+console.log(adam.speak());
+
+console.log(eve);
+console.log(eve.speak());
+
+
+// ==Instructor Tests==
+
+// Confirm Existance
+console.log(batman);
+
+console.log('Batman Specialty:', batman.specialty);
+console.log('Batman Favorite Language:', batman.favLanguage);
+console.log('Batman Catch Phrase:', batman.catchPhrase);
+
+console.log(joker);
+
+console.log('Joker Specialty:', joker.specialty);
+console.log('Joker Favorite Language:', joker.favLanguage);
+console.log('Joker Catch Phrase:', joker.catchPhrase);
+
+// Make them do stuff
+console.log(batman.speak());
+console.log('Batman Demo:', batman.demo('the Obstacle course'));
+console.log(robin, 'Hacking');
+
+
+console.log(joker.speak());
+console.log('Joker Demo:', joker.demo('PIES!!'));
+console.log('Joker Grade:', joker.grade(harley, 'Tumbling'));
+
+
+// ==Student Tests==
+
 
 // Confirm Existance
 console.log(robin);
@@ -274,21 +287,7 @@ console.log(harley.sprintChallenge('Playing with Hyenas'));
 
 
 
-// ==PM Tests==
-// --Create Objects--
-
-const alfred = new ProjectManager({
-    name: 'Alfred',
-    age: 56,
-    location: 'Gotham City',
-    gender: 'm',
-    specialty: 'Military Intelligence',
-    favLanguage: 'Sarcasm',
-    catchPhrase: 'Right away sir',
-    gradClassName: 'You\'ll never know',
-    favInstructor: 'Batman, if I must choose'
-});
-
+// ==PM Test==
 
 // Confirm Existance
 console.log(alfred);
@@ -307,3 +306,8 @@ console.log('Alfred Grade:', alfred.grade(robin, 'Hacking'));
 console.log('Alfred Grade:', alfred.grade(harley, 'Tumbling'));
 console.log(alfred.standUp('Whipper-Snappers'));
 console.log(alfred.debugsCode(robin, 'Hacking'));
+
+
+// Stretch
+console.log('Harley Grades', harley.grades);
+console.log('Robin Grades', robin.grades);
