@@ -62,7 +62,7 @@ class ProjectManagers extends Instructor {
 //people
 
 //instructors
-const fred = new Instructors({
+const fred = new Instructor({
     name: 'Fred',
     location: 'Bedrock',
     age: 37,
