@@ -121,7 +121,7 @@ const keysha = new Student({
     previousBackground: 'Receptionist',
     className: 'CS09',
     favSubjects: ['SASS ', 'iOS ', 'UX/UI'],
-    grade: 55
+    grade: 100
 });
 
 const mark = new Student({
@@ -175,7 +175,7 @@ console.log(keysha.previousBackground); // Student Keysha's previous background
 console.log(thomas.className); // Student Thomas's class name
 console.log(michael.grade('Thomas', 'CSS'));
 console.log(sarah.grade('Keysha', 'Python'));
-console.log(michael.newGrade('Keysha'));
+console.log(sarah.newGrade(keysha));
 // console.log();
 // console.log();
 // console.log();
