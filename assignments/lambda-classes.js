@@ -84,7 +84,7 @@ class Student extends Person {
         this.favSubjects = studentStats.favSubjects;
     }
     listsSubjects(favSubjects) {
-        return (favSubjects);
+        this.favSubjects.forEach(element => console.log(element));
     }
     PRAssignment(subject) {
         return `${this.name} has submitted a PR for ${subject}`
@@ -131,3 +131,4 @@ const trevor = new ProjectManagers({
 
  trevor.standUp('goodstuff');
  trevor.debugsCode(daniel, 'Javascript');
+ daniel.listsSubjects();
