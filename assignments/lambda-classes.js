@@ -26,6 +26,23 @@ class Instructor extends People {
     grade(student, subject) {
         return `${student.name} receives a perfect score on ${subject}.`;
     }
+    gradeStudent(student) {
+        let rand = parseInt(Math.random() * 10);
+        // console.log(`random score is ${rand}`);
+        if(rand % 2 === 0) {
+            // console.log(`we are adding`);
+            student.grade += rand;
+            if(student.grade > 100) {
+                student.grade = 100;
+            }
+        }
+        if (rand % 2 === 1) {
+            // console.log(`we are subtracting`);
+            student.grade -= (rand * 1.5);
+        }
+
+        return `${student.grade}`;
+    }
 }
 // =============== Instructor Class Above
 
@@ -35,6 +52,7 @@ class Student extends People {
         this.previousBackground = studAtrib.previousBackground;
         this.className = studAtrib.className;
         this.favSubjects = studAtrib.favSubjects;
+        this.grade = studAtrib.grade;
     }
     listSubjects() {
         this.favSubjects.forEach(function(elem) {console.log(elem)});
@@ -44,6 +62,14 @@ class Student extends People {
     }
     sprintChallenge (subject) {
         return `${this.name} has begun sprint challenge on ${subject}.`;
+    }
+    graduate() {
+        if(this.grade > 70) {
+            return `${this.name} has a score of ${this.grade} and is ready to graduate.`;
+        }
+        else {
+            return `${this.name}'s grade is ${this.grade} and is not ready to graduate.`;
+        }
     }
 }
 // ================= Student Class Above
@@ -92,6 +118,7 @@ const billy = new Student({
     previousBackground: 'Laugh Factory janitor',
     className: 'FSW 31',
     favSubjects: ['CSS', 'Java', 'C#'],
+    grade: 90,
 });
 
 const jane = new Student({
@@ -102,6 +129,7 @@ const jane = new Student({
     previousBackground: 'Pre-K teacher assistant',
     className: 'FSW 29',
     favSubjects: ['JS', 'CSS', 'C++', 'HTML', 'TypeScript'],
+    grade: 93,
 });
 
 const sam = new PM({
@@ -134,3 +162,24 @@ console.log(jane.favSubjects);
 console.log(jane.listSubjects());
 console.log(billy.PRAssignment(billy.favSubjects[1]));
 console.log(billy.sprintChallenge(billy.favSubjects[0]));
+console.log(jane.speak());
+console.log(billy.grade);
+console.log(jane.grade);
+console.log(barb.gradeStudent(billy));
+console.log(barb.gradeStudent(billy));
+console.log(barb.gradeStudent(billy));
+console.log(barb.gradeStudent(billy));
+console.log(barb.gradeStudent(billy));
+console.log(barb.gradeStudent(billy));
+console.log(barb.gradeStudent(billy));
+console.log(barb.gradeStudent(billy));
+console.log(barb.gradeStudent(billy));
+console.log(barb.gradeStudent(billy));
+console.log(billy.graduate());
+console.log(fred.gradeStudent(billy));
+console.log(fred.gradeStudent(billy));
+console.log(fred.gradeStudent(billy));
+console.log(fred.gradeStudent(billy));
+console.log(fred.gradeStudent(billy));
+console.log(fred.gradeStudent(billy));
+console.log(billy.graduate());
