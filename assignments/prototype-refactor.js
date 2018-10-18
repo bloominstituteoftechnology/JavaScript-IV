@@ -149,10 +149,10 @@ class Hero extends Humanoid (tank) {
     constructor(tank) {
     super(tank);
     this.shield = tank.shield;
-}
+    }
 taunt() {
     return `${this.name} wearing shining armor begins to taunt opponent with your momma jokes, like any good tank should`;
-  }
+  }  
 }
 
 class Villain extends Humanoid (sleazyRollPlayer) {
