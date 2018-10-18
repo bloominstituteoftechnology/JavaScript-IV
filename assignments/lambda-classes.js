@@ -18,13 +18,12 @@ class Instructor extends Person {
         this.specialty = instruct.specialty;
         this.favLanguage = instruct.favLanguage;
         this.catchPhrase = instruct.catchPhrase;
-        this.grade = instruct.grade;
     }
     demo(subject) {
         return `Today we are learning ${subject}`;
     }
     grade(student, subject) {
-        return `${student} receives a perfect score on ${subject}.`;
+        return `${student} receives a perfect score on ${subject}`;
     }
 }
 class Student extends Person {
@@ -99,8 +98,7 @@ const thomas = new Student({
     gender: 'male',
     previousBackground: 'Retail',
     className: 'CS15',
-    favSubjects: ['HTML ', 'REACT ', 'JavaScript'],
-    subject: 'REACT'
+    favSubjects: ['HTML ', 'REACT ', 'JavaScript']
 });
 
 const keysha = new Student({
@@ -110,8 +108,7 @@ const keysha = new Student({
     gender: 'female',
     previousBackground: 'Receptionist',
     className: 'CS09',
-    favSubjects: ['SASS ', 'iOS ', 'UX/UI'],
-    subject: 'SASS'
+    favSubjects: ['SASS ', 'iOS ', 'UX/UI']
 });
 
 const mark = new Student({
@@ -121,8 +118,7 @@ const mark = new Student({
     gender: 'male',
     previousBackground: 'Retired Veteran',
     className: 'Data Structures',
-    favSubjects: ['Alogorithms', ' Python'],
-    subject: 'Python'
+    favSubjects: ['Alogorithms', ' Python']
 });
 
 const nicole = new ProjectManagers({
