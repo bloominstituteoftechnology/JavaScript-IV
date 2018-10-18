@@ -55,11 +55,14 @@ class Student extends Person {
     sprintChallenge(subject) {
         console.log(`${this.name} has begun sprint challenge on ${subject}.`);
     }
-    graduate() {
+    graduate(PM) {
         if (this.grade > 70) {
             console.log(`Congrats ${this.name}! You are ready for a super awesome web dev job!!!!!!!!`);
         } else {
-            console.log(`Sorry, ${this.name}. You have failed and need to roll back to the next cohort. :(`)
+            console.log(`Sorry, ${this.name}. You have failed and need to roll back to the next cohort. :( ...maybe you should ask ${PM.name} to change your grade ;)`);
+            PM.changeGrade(this);
+            console.log(`${PM.name}: I have updated your grade to: ${this.grade}`);
+            this.graduate(PM);
         }
     }
 }
@@ -112,7 +115,7 @@ const daren = new Student ({
     previousBackground: 'Finance',
     className: 'FSW 15',
     favSubjects: ['Javascript', 'CSS', 'HTML'],
-    grade: 65,
+    grade: 69,
 });
 
 const mrRobot = new Student ({
@@ -201,6 +204,6 @@ stewart.debugsCode(mrRobot, 'HTML');
 console.log(josh.changeGrade(mrRobot));
 
 // graduate() test
-mrRobot.graduate();
-daren.graduate();
+mrRobot.graduate(trevor);
+daren.graduate(trevor);
 
