@@ -145,17 +145,17 @@ constructor(character) {
   // * Create Villian and Hero constructor functions that inherit from the Humanoid constructor function.  
   // * Give the Hero and Villians different methods that could be used to remove health points from objects which could result in destruction if health gets to 0 or drops below 0;
   // * Create two new objects, one a villian and one a hero and fight it out with methods!
-class Hero extends Humanoid (tank) {
+class Hero extends Humanoid {
     constructor(tank) {
     super(tank);
     this.shield = tank.shield;
-    }
+    }    
 taunt() {
     return `${this.name} wearing shining armor begins to taunt opponent with your momma jokes, like any good tank should`;
   }  
 }
 
-class Villain extends Humanoid (sleazyRollPlayer) {
+class Villain extends Humanoid {
 constructor(sleazyRollPlayer) {
     super(sleazyRollPlayer);
     this.invocation = sleazyRollPlayer.invocation;

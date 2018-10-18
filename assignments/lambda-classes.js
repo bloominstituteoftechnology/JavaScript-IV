@@ -78,12 +78,42 @@ const alfred = new Instructor({
     catchPhrase: 'Why do we fall sir? So that we can learn to pick ourselves up.!'
 })
 
-const sabrina = new ProjectManager({
+const sabrina = new Student({
     name: 'Sabrina Spellman',
     location: 'Magic Realm',
     age: '17',
     gender: 'Female',
-    favLanguage: 'NodeJS',
-    specialty: 'Back-end',
-    catchPhrase: ''
+    previousBackground: 'High School Student',
+    className: 'CS13',
+    favSubjects: ['Psuedo Classical prototypal inheritance', 'CSS', 'JavaScript']
+})
+
+const danny = new Student({
+    name: 'Daenerys targaryen',
+    location: 'Dragonstone',
+    age: '20',
+    gender: 'Female',
+    previousBackground: 'Dragon Queen',
+    className: 'CS20',
+    favSubjects: ['HTML', 'CSS', 'JavaScript']
+})
+
+const anne = new ProjectManager({
+    name: 'Anne Bonny',
+    location: 'Maroon Island',
+    age: '27',
+    gender: 'Female',
+    gradClassName: 'CS1',
+    favInstructor: 'Alfred'
+    
+})
+
+const eleanor = new ProjectManager({
+    name: 'Eleanor Guthrie',
+    location: 'New Providence Island',
+    age: '32',
+    gender: 'Female',
+    gradClassName: 'CS5',
+    favInstructor: 'Alfred'
+
 })
