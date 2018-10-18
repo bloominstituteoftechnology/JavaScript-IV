@@ -110,6 +110,12 @@ class Student extends Person {
 
   }
 
+  canGraduate() {
+
+    return this.grade >= 70;
+
+  }
+
 }
 
   // Project Manager class (child of Instructor)
@@ -248,3 +254,12 @@ lisa.grade(fred, "React.js");
 lisa.standUp("fsw15_lisa");
 lisa.debugCode(fred, "Angular.js");
 lisa.changeGrade(jonny);
+
+while (!jonny.canGraduate()) {
+
+  console.log(`${jonny.name} cannot graduate because their grade is only ${jonny.grade}! Grading another assignment...`);
+  josh.changeGrade(jonny);
+
+}
+
+console.log(`Congratulations! ${jonny.name} has graduated with a grade of ${jonny.grade}!`);
