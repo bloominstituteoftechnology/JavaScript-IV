@@ -69,6 +69,8 @@ class Instructor extends Person {
 
     }
 
+    console.log(`${student.name}'s new grade: ${student.grade}`);
+
   }
 
 }
@@ -149,7 +151,7 @@ const jonny = new Student({
   previousBackground: "High school student",
   className: "FSW15",
   favSubjects: ['JS', 'CSS', 'HTML'],
-  grade: 100
+  grade: 80
 });
 
 const fred = new Student({
@@ -160,7 +162,7 @@ const fred = new Student({
   previousBackground: "Professional asparagus chef",
   className: "FSW22",
   favSubjects: ['JS', 'CSS', 'Python'],
-  grade: 95
+  grade: 60
 });
 
 jonny.speak();
@@ -202,12 +204,14 @@ const jerry = new Instructor({
 josh.speak();
 josh.demo("Node.js");
 josh.grade(jonny, "React.js");
+josh.changeGrade(jonny);
 
 console.log();
 
 jerry.speak();
 jerry.demo("Mongo.db");
 jerry.grade(fred, "View.js");
+jerry.changeGrade(jonny);
 
 // Project Managers
 
@@ -234,6 +238,7 @@ john.demo("Node.js");
 john.grade(jonny, "React.js");
 john.standUp("fsw15_john");
 john.debugCode(jonny, "Node.js");
+john.changeGrade(jonny);
 
 console.log();
 
@@ -242,3 +247,4 @@ lisa.demo("React.js");
 lisa.grade(fred, "React.js");
 lisa.standUp("fsw15_lisa");
 lisa.debugCode(fred, "Angular.js");
+lisa.changeGrade(jonny);
