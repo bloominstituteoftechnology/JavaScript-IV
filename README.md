@@ -24,12 +24,12 @@ const fred = new Person({
 * The Class Keyword makes this SO MUCH EASIER!
 * **Fork** and clone this repository.
 * **Complete** all of the exercises found in the assignment files. -->
-
+<!-- 
 ## `prototype-refactor` - Take existing code and make it modern.
 
 * You're going to work with your prototypes assignment you built out yesterday.
-* `Challenge:` **Convert** all of your constructors into ES6 Classes using the `class` and `extends` keywords. You should be able to run your same logs and they should build out the proper expected behaviors.
-
+* `Challenge:` **Convert** all of your constructors into ES6 Classes using the `class` and `extends` keywords. You should be able to run your same logs and they should build out the proper expected behaviors. -->
+<!-- 
 ## `lambda-classes` - We need a roster of Lambda School personnel. Build it!
 
 * We have a school to build here! This project will get you used to thinking about classes in JavaScript and building them from a brand new data set.
@@ -37,8 +37,8 @@ const fred = new Person({
   * **Instructors** - extensions of Person
   * **Students** - extensions of Person
   * **Project Managers** - extensions of Instructors
-* **IMPORTANT** - You'll need to create 2 - 3 objects for each class and test them according to their unique Attributes. For example:
-
+* **IMPORTANT** - You'll need to create 2 - 3 objects for each class and test them according to their unique Attributes. For example: -->
+<!-- 
 ```js
 const fred = new Instructor({
   name: 'Fred',
@@ -47,11 +47,11 @@ const fred = new Instructor({
   gender: 'male',
   favLanguage: 'JavaScript',
   specialty: 'Front-end',
-  catchPhrase: `Don't forget the homies`
+  catchPhrase: `Don't forget the homies` // lol
 });
-```
+``` -->
 
-#### Person
+<!-- #### Person
 
 * First we need a Person class. This will be our `base-class`
 * Person receives `name` `age` `location` `gender` all as props
@@ -92,7 +92,7 @@ const fred = new Instructor({
   * `favInstructor`: i.e. Sean
 * ProjectManangers have the following Methods:
   * `standUp` a method that takes in a slack channel and logs `{name} announces to {channel}, @channel standy times!​​​​​
-  * `debugsCode` a method that takes in a student object and a subject and logs out `{name} debugs {student.name}'s code on {subject}`
+  * `debugsCode` a method that takes in a student object and a subject and logs out `{name} debugs {student.name}'s code on {subject}` -->
 
 #### Stretch Problem
 

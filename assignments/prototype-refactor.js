@@ -154,7 +154,7 @@ class Humanoid extends CharacterStats {
 // Step 1: declare the class keyword
 class Parent {
   // Step 2: create new constructor
-  constructor(attributes){
+  constructor(attributes) {
     this.age = attributes.age;
     this.name = attributes.name;
     this.location = attributes.location;
