@@ -39,8 +39,8 @@ class Instructor extends Person{
     demo(subject) {
         return `Today we are learning about ${subject}.`
     }
-    grade(Student, subject) {
-        return `${Student.name} recieves a very cool score on ${subject}.`
+    grade(student, subject) {
+        return `${student.name} recieves a very cool score on ${subject}.`
     }
 }
 
@@ -94,4 +94,40 @@ class Student extends Person {
     }
 }
 
-cl
+class ProjectManagers extends Instructor {
+    constructor(pmStats){
+        super(pmStats);
+        this.gradClassName = pmStats.gradClassName;
+        this.favInstructor = pmStats.favInstructor;
+    }
+    standUp(channel) {
+        console.log(`${this.name} announces to ${channel}, @channel standy times!`)
+    }
+    debugsCode(student, subject) {
+        console.log(`${this.name} debugs ${student.name}'s code on ${subject}`)
+    }
+
+}
+
+const daniel = new Student ({
+    name: 'Daniel',
+    location: 'Florida',
+    age: '25',
+    gender: 'male',
+    previousBackground:'Python',
+    className: 'FSW_15',
+    favSubjects: ["Inheritance","Flexbox","Generator functions"],
+});
+
+const trevor = new ProjectManagers({
+    name: 'Trevor',
+    location: 'behind you',
+    age: 'I dont Age',
+    gender: 'flexible',
+    specialty: 'Frontend development',
+    favLanguage: 'Javascript',
+    favSubjects: ['js', 'html', 'react']
+ });
+
+ trevor.standUp('goodstuff');
+ trevor.debugsCode(daniel, 'Javascript');
