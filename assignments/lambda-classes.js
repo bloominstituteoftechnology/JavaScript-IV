@@ -38,7 +38,24 @@ class Person {
     * grade(student, subject) // prototype method -> returns `${student.name} receives a perfect score on ${subject}`
 */
 
+class Instructor extends Person {
+    // Class Initializer and Attributes
+    constructor(props) {
+        super(props);
+        this.specialty = props.specialty;
+        this.favLanguage = props.favLanguage;
+        this.catchPhrase = props.catchPhrase;
+    }
 
+    // Class methods
+    demo(subject) {
+        return `Today we will be learning about ${subject}`;
+    }
+
+    grade(student, subject) {
+        return `${student.name} receives a perfect score on ${subject}`;
+    }
+}
 
 
 // *** === Tests === ***
