@@ -25,6 +25,15 @@ class Instructor extends Person {
     grade (student, subject) {
         return `${student.name} receives a perfect score on ${subject}`;
     };
+    addPoints (student) {
+        let points = Math.floor(Math.random()*100);
+        if (points > 10) {
+            student.grade += points;
+        } else {
+            student.grade -= points;
+        }
+        return `${this.name} has altered ${student.name}'s score by ${points}.`;
+    }
 };
 
 class Student extends Person {
@@ -33,6 +42,7 @@ class Student extends Person {
         this.previousBackground = stats.previousBackground;
         this.className = stats.className;
         this.favSubjects = stats.favSubjects;
+        this.grade = stats.grade;
     };
     listsSubjects () {
         return `${this.favSubjects}`;
@@ -42,6 +52,11 @@ class Student extends Person {
     };
     sprintChallenge (subject) {
         return `${this.name} has begun sprint challenge on ${subject}`;
+    };
+    graduate () {
+        if (this.grade > 70) {
+            return `${this.name} is ready to graduate Lambda School!`;
+        };
     };
 };
 
@@ -100,7 +115,8 @@ const austin = new Student({
     favSubjects: [
         'JavaScript',
         'CSS',
-    ]
+    ],
+    grade: 50
 });
 
 console.log(josh.speak());
@@ -111,4 +127,9 @@ console.log(austin.PRAssignment('JavaScript IV'));
 console.log(austin.sprintChallenge('JavaScript Fundamentals'));
 console.log(trevor.standUp('FSW15'));
 console.log(trevor.debugsCode(austin, 'JavaScript'));
-
+console.log(josh.addPoints(austin));
+console.log(austin.grade); 
+console.log(austin.graduate());
+console.log(josh.addPoints(austin));
+console.log(austin.grade); 
+console.log(austin.graduate());
