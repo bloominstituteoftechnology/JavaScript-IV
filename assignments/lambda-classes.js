@@ -58,6 +58,7 @@ class Student extends Person {
     this.previousBackground = attr.previousBackground;
     this.className = attr.className;
     this.favSubjects = attr.favSubjects;
+    this.grade = 50; // stretch: add a grade prop with default value
   }
   listSubjects() {
     this.favSubjects.forEach(e => console.log(e));
