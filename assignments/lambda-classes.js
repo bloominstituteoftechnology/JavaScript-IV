@@ -10,10 +10,10 @@ class Person {
     this.age = props.age;
     this.location = props.location;
     this.gender = props.gender;
-  }
+  };
   speak() {
-    console.log(`Hello my name is ${this.name}, I am from ${this.location}`)
-  }
+    return `Hello my name is ${this.name}, I am from ${this.location}`
+  };
 }
 
 class Instructor extends Person {
@@ -28,7 +28,17 @@ class Instructor extends Person {
   };
   grade(student, subject) {
     return `${student.name} receives a perfect score on ${subject}`
-  }
+  };
+  gradeProjects(student){
+    function getRandomInt() {
+      return Math.floor(Math.random() * 100);
+    }
+    if(getRandomInt < 70) {
+      return student.grade -= 10;
+    }  
+    
+    return student.grade += 10; 
+  };
 }
 
 class Student extends Person {
@@ -50,7 +60,7 @@ class Student extends Person {
   };
   sprintChallenge(subject) {
     return `${this.name} has begun sprint challenge on ${subject}`;    
-  }
+  };
 }
 
 class ProjectManager extends Instructor {
@@ -64,7 +74,7 @@ class ProjectManager extends Instructor {
   };
   debugsCode(student, subject) {
     return `${this.name} debugs ${student.name}'s code on ${subject}`;    
-  }
+  };
 }
 
 // ***********************************************************
@@ -160,8 +170,9 @@ const cindy = new ProjectManager({
 // ***********************************************************
 
 console.log(JohnDoe);
-console.log(JaneDoe);
+console.log(JaneDoe.speak());
 console.log(prof.demo("DBs"));
+console.log(prof.gradeProjects(jasper));
 console.log(freddy.grade(jackie, "DBs"));
 console.log(jasper);
 jasper.listsSubjects()
