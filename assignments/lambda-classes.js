@@ -338,10 +338,17 @@ console.log(alfred.grade(harley, 'Gas Mask Test'));
 console.log(batman.grade(harley, 'Talking Quietly'));
 console.log(joker.grade(harley, 'Face Painting'));
 
-
+for (let i = 0; i < 50; i++) {
+    alfred.grade(harley, 'cleaning');
+    alfred.grade(robin, 'cleaning');
+    batman.grade(harley, 'Spying');
+    batman.grade(robin, 'Weapons');
+    joker.grade(harley, 'Gags');
+    joker.grade(robin, 'Laughs');
+    robin.grades.push(125);
+    harley.grades.push(125);
+}
 console.log('Harley Grades', harley.grades);
 console.log('Harley Graduate?', harley.graduate());
 console.log('Robin Grades', robin.grades);
 console.log('Robin Graduate?', robin.graduate());
-
-robin.grade = 71;
