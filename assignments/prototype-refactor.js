@@ -104,6 +104,7 @@ class CharacterStats extends GameObject{
   
 class Humanoid extends CharacterStats {
     constructor (humanoidAttributes) {
+        super(humanoidAttributes);
         this.faction = humanoidAttributes.faction;
         this.weapons = humanoidAttributes.weapons;
         this.language = humanoidAttributes.language;
@@ -112,18 +113,6 @@ class Humanoid extends CharacterStats {
         return `${this.name} offers a greeting in ${this.language}.`;
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -202,35 +191,59 @@ class Humanoid extends CharacterStats {
     // * Create Villian and Hero constructor functions that inherit from the Humanoid constructor function. 
     
     //Villian
-  function Villian (villianAttributes){
-    Humanoid.call(this, villianAttributes);
+//   function Villian (villianAttributes){
+//     Humanoid.call(this, villianAttributes);
   
-    this.special = villianAttributes.special;
+//     this.special = villianAttributes.special;
+//   }
+  
+//   Villian.prototype = Object.create(Humanoid.prototype);
+  
+  class Villian extends Humanoid{
+    constructor (villianAttributes) {
+        super(villianAttributes);
+        this.special = villianAttributes.special;
+    }
+    activateSpecial() {
+        return `${this.name} the ${this.faction} entices with the ${this.special}!!!`;
+    }
+
   }
+
+
+
   
-  Villian.prototype = Object.create(Humanoid.prototype);
+//   //Hero
+//   function Hero (heroAttributes){
+//     Humanoid.call(this, heroAttributes);
   
+//     this.special = heroAttributes.special;
+//   }
   
-  
-  //Hero
-  function Hero (heroAttributes){
-    Humanoid.call(this, heroAttributes);
-  
-    this.special = heroAttributes.special;
-  }
-  
-  Hero.prototype = Object.create(Humanoid.prototype);
+//   Hero.prototype = Object.create(Humanoid.prototype);
+
+    class Hero extends Humanoid {
+        constructor (heroAttributes) {
+            super(heroAttributes);
+            this.special = heroAttributes.special;
+        }
+        activateSpecial () {
+            return `${this.name} blocks with ${this.special}!!!`;
+        }
+    }
+
+
   
   
    // * Give the Hero and Villians different methods that could be used to remove health points from objects which could result in destruction if health gets to 0 or drops below 0;
   
-  Villian.prototype.activateSpecial = function() {
-    return `${this.name} the ${this.faction} entices with the ${this.special}!!!`;
-  }
+//   Villian.prototype.activateSpecial = function() {
+//     return `${this.name} the ${this.faction} entices with the ${this.special}!!!`;
+//   }
   
-  Hero.prototype.activateSpecial = function() {
-    return `${this.name} blocks with ${this.special}!!!`;
-  }
+//   Hero.prototype.activateSpecial = function() {
+//     return `${this.name} blocks with ${this.special}!!!`;
+//   }
   
   // * Create two new objects, one a villian and one a hero and fight it out with methods!
   
