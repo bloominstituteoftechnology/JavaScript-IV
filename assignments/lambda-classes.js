@@ -104,6 +104,19 @@ class Student extends Person {
     sprintChallenge(subject) {
         return `${this.name} has begun sprint challenge on ${subject}`;
     }
+
+    average() {
+        let result = this.grades.reduce(function(total, element) {
+            return total + element;
+        }, 0) / this.grades.length
+
+
+        if (result >= 70) {
+            return `Passing: ${result}`
+        } else {
+            return `Failing: ${result}`
+        }
+    }
 }
 
 /*
@@ -310,4 +323,6 @@ console.log(alfred.debugsCode(robin, 'Hacking'));
 
 // Stretch
 console.log('Harley Grades', harley.grades);
+console.log('Harley Average', harley.average());
 console.log('Robin Grades', robin.grades);
+console.log('Robin Average', robin.average());
