@@ -27,13 +27,24 @@ class Instructor extends Person{
     grade(student,subject){
         return `${student.name} receives a perfect score on ${subject}`;
     }
+    grader(student){
+       const posOrNeg = RNG(1,100);
+       
+            if (posOrNeg >= 50){
+                student.grade = student.grade + RNG(1,10); 
+            }
+           else if (posOrNeg < 50){
+                student.grade = student.grade - RNG(1,10);
+            }
+          
+    }
 }
 
 // Student Creator
 class Student extends Person{
     constructor(studentAttributes){
         super(studentAttributes);
-        const startingGrade = initialGrade();
+        const startingGrade = RNG(75,100);
         this.previousBackground = studentAttributes.previousBackground;
         this.className = studentAttributes.className;
         this.favSubjects = studentAttributes.favSubjects;
@@ -51,12 +62,19 @@ class Student extends Person{
     sprintChallenge(subject){
         return `${this.name} has begun sprint challenge on ${subject}`
     }
-    
+    canGraduate(){
+        if(this.grade >= 70){
+            console.log(`Congrats ${this.name} you can graduate!!!!`);
+        }
+        if(this.grade < 70){
+            console.log(`Sorry ${this.name} get more grades.`);
+        }
+    }
 }
 
 
-//Student RNG
- const initialGrade = ()  => Math.floor(Math.random()*(100 - 75 +1)) +75;
+// RNG
+ const RNG = (lowNum,highNum)  => Math.floor(Math.random()*(highNum - lowNum +1)) +lowNum;
 
 
 //Children of Instructor
@@ -140,5 +158,37 @@ const fred = new Instructor({
 */
 
   //stretch tests
+  //console.log(thor.grade);
+  //console.log (RNG(1,100));
+ 
+ 
+  kenobi.grader(peter);
+
+  // grader/ canGraduate test for Instructor
+  kenobi.grader(thor);
   console.log(thor.grade);
-  console.log (initialGrade());
+  kenobi.grader(thor);
+  console.log(thor.grade); kenobi.grader(thor);
+  console.log(thor.grade); kenobi.grader(thor);
+  console.log(thor.grade); kenobi.grader(thor);
+  console.log(thor.grade); kenobi.grader(thor);
+  console.log(thor.grade); kenobi.grader(thor);
+  console.log(thor.grade); kenobi.grader(thor);
+  console.log(thor.grade); kenobi.grader(thor);
+  console.log(thor.grade); thor.canGraduate(); 
+
+
+    // grader/ canGraduate test for PM
+  /*peter.grader(thor);
+  console.log(thor.grade); peter.grader(thor);
+  console.log(thor.grade); peter.grader(thor);
+  console.log(thor.grade); peter.grader(thor);
+  console.log(thor.grade); peter.grader(thor);
+  console.log(thor.grade); peter.grader(thor);
+  console.log(thor.grade); peter.grader(thor);
+  console.log(thor.grade); peter.grader(thor);
+  console.log(thor.grade); peter.grader(thor);
+  console.log(thor.grade); peter.grader(thor);
+  console.log(thor.grade); peter.grader(thor);
+  console.log(thor.grade); peter.grader(thor);
+  console.log(thor.grade); thor.canGraduate(); */
