@@ -25,6 +25,10 @@ class Instructor extends Person {
     grade(student, subject) {
         console.log(`${student.name} receives a perfect score on ${subject}.`);
     }
+    editGrade(student) {
+        student.grade -= Math.floor((Math.random() * 10));
+        return console.log(`The student's grade is now ${student.grade}`);
+    }
 }
 
 
@@ -35,6 +39,7 @@ class Student extends Person {
         this.previousBackground = stuAttributes.previousBackground;
         this.className = stuAttributes.className;
         this.favSubjects = stuAttributes.favSubjects;
+        this.grade = stuAttributes.grade;
     }
     listSubjects() {
         this.favSubjects.forEach((x) => console.log(x));
@@ -44,6 +49,15 @@ class Student extends Person {
     }
     sprintChallenge(subject) {
         console.log(`${this.name} has begin sprint challenge on ${subject}.`);
+    }
+    graduate(instructor) {
+        if (this.grade > 70) {
+            return console.log(`${this.name} graduates! Yay!`);
+        }
+        else {
+            instructor.editGrade(this);
+            return console.log(`Try again next time :(`);
+        }
     }
 }
 
@@ -92,6 +106,7 @@ const morty = new Student({
     previousBackground: '(Regular) Student',
     className: 'FSW15',
     favSubjects: ['React', 'Node', 'Interdimensional Cable'],
+    grade: 70,
 })
 
 const hermione = new Student({
@@ -102,6 +117,7 @@ const hermione = new Student({
     perviousBackground: 'Muggle',
     className: 'FSW14',
     favSubjects: ['Restful', '.net', 'Muggle Studies'],
+    grade: 80,
 })
 
 // 2 PMs:
@@ -136,6 +152,8 @@ hermione.listSubjects();
 summer.debugsCode(morty, 'Feminist Studies');
 snape.speak();
 console.log(snape.specialty);
+dumbledore.editGrade(hermione);
+hermione.graduate(dumbledore);
 
 // #### Stretch Problem
 
