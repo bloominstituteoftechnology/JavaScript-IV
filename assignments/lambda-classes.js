@@ -40,7 +40,7 @@ class Student extends Person {
 
     listSubjects() {
         this.favSubjects.forEach(function (element) {
-            return `element`;
+            console.log(element);
         });
     }
 
@@ -49,6 +49,59 @@ class Student extends Person {
     }
 
     sprintChallenge(subject) {
-        `${this.name} has begun sprint challenge on ${subject}`;
+        return `${this.name} has begun sprint challenge on ${subject}`;
     }
 }
+
+class ProjectManager extends Instructor {
+    constructor(grandChildAttributes) {
+        super(grandChildAttributes);
+        this.gradClassName = grandChildAttributes.gradClassName;
+        this.favInstructor = grandChildAttributes.favInstructor;
+    }
+    standUp(channel) {
+        return`${this.name} announces to ${channel}, @channel standy times!`;
+    }
+    debugsCode(student, subject) {
+        return `${this.name} debugs ${student}'s code on ${subject}`;
+    }
+}
+
+const george = new Instructor ({
+    name: 'George',
+    location: 'Texas',
+    age: 75,
+    gender: 'male',
+    favLanguage: 'R',
+    speciality: 'Data Science',
+    catchPhrase: 'Show me the data!'
+})
+
+const jody = new Student ({
+    name: 'Jody',
+    location: 'London',
+    age: 26,
+    gender: 'female',
+    favLanguage: 'Lisp',
+    speciality: 'Functional Programming',
+    catchPhrase: 'Lambda Calculus'
+})
+
+const kevin = new ProjectManager ({
+    name: 'Kevin',
+    location: 'Nashville',
+    age: 43,
+    gender: 'male',
+    favLanguage: 'Golang',
+    speciality: 'Devops',
+    catchPhrase: 'It is what it is.'
+})
+
+console.log(jody.location);
+console.log(kevin.catchPhrase);
+console.log(george.speciality);
+console.log(george.favLanguage);
+console.log(kevin.debugsCode('Jody', 'CSS'));
+console.log(kevin.standUp('FSW15'));
+console.log(jody.PRAssignment('Javascript-IV'));
+console.log(jody.sprintChallenge('Javascript'));
