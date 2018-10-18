@@ -18,7 +18,7 @@ const fred = new Person({
   age: 37,
   location: 'Bedrock'
 });
-```
+``` 
 
 * Because none of the above code is new, you're about to see your world get much much easier when dealing with Object Creation and Classical Inheritance as it pertains to JavaScript.
 * The Class Keyword makes this SO MUCH EASIER!
