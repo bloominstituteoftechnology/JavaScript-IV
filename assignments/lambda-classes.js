@@ -11,7 +11,7 @@ class Person{
 
 
 
-// - extensions of Person
+
 class Instructors extends Person{
     constructor(iattributes){
       super(iattributes);
@@ -25,16 +25,20 @@ class Instructors extends Person{
     grade(student, subject){
       console.log(`${student.name} receives a perfect score on ${subject}`)
     }
+    changeGrade(student){
+        console.log(`This student's current grade is ${student.grade - Math.random()}`);
+     }
 };
 
 
-// - extensions of Person
+
 class Students extends Person{
     constructor(sattributes){
       super(sattributes);
       this.previousBackground = sattributes.previousBackground;
       this.className = sattributes.className;
       this.favSubjects = sattributes.favSubjects;
+      this.grade = sattributes.grade;
     }
     listsSubjects(){
         console.log(`My favorite subjects are ${this.favSubjects}`)
@@ -45,11 +49,18 @@ class Students extends Person{
     sprintChallenge(subject){
         console.log(`${this.name} has begun sprint challenge on ${subject}`)
     }
+    graduate(){
+      if (this.grade > 95){
+        console.log(`${this.name} is ready for graduation!`)
+      } else {
+        console.log(`${this.name} needs to increase their grade by ${95 - this.grade} in order to graduate.`)
+      }
+    }
 };  
 
 
 
-// - extensions of Instructors
+
 class PM extends Instructors{
     constructor(pmattributes){
       super(pmattributes);
@@ -145,7 +156,8 @@ const carey = new Students({
     gender: 'female',
     previousBackground: 'Video Production',
     className: 'CS14',
-    favSubjects: [`Javascript, Python, CSS`]
+    favSubjects: [`Javascript, Python, CSS`],
+    grade: 89.2
 
   });
 
@@ -155,7 +167,8 @@ const carey = new Students({
     age: 23,
     gender: 'male',
     className: 'FSW15',
-    favSubjects: ['C++', 'Python', 'Javascript']
+    favSubjects: ['C++', 'Python', 'Javascript'],
+    grade: 78.7
   });
 
   const milley = new Students({
@@ -164,9 +177,9 @@ const carey = new Students({
     age: 21,
     gender: 'female',
     className: 'DATA14',
-    favSubjects: ['HTML', 'Python', 'CSS']
+    favSubjects: ['HTML', 'Python', 'CSS'],
+    grade: 98.9
   });
-
 
 
 milley.speak();
@@ -177,3 +190,6 @@ carey.PRAssignment('Math');
 milley.sprintChallenge('Applied Javascript');
 emily.standUp('fsw15_help');
 riley.debugsCode(rick, 'UX Design');
+smith.changeGrade(rick);
+rick.graduate();
+milley.graduate();
