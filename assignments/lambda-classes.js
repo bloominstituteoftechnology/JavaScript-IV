@@ -105,16 +105,16 @@ class Student extends Person {
         return `${this.name} has begun sprint challenge on ${subject}`;
     }
 
-    average() {
+    graduate() {
         let result = this.grades.reduce(function(total, element) {
             return total + element;
         }, 0) / this.grades.length
 
 
         if (result >= 70) {
-            return `Passing: ${result}`
+            return `Congratulations!! You can now graduate. Grade: ${result}`
         } else {
-            return `Failing: ${result}`
+            return `Needs more work. Keep studying. Grade: ${result}`
         }
     }
 }
@@ -340,6 +340,8 @@ console.log(joker.grade(harley, 'Face Painting'));
 
 
 console.log('Harley Grades', harley.grades);
-console.log('Harley Average', harley.average());
+console.log('Harley Graduate?', harley.graduate());
 console.log('Robin Grades', robin.grades);
-console.log('Robin Average', robin.average());
+console.log('Robin Graduate?', robin.graduate());
+
+robin.grade = 71;
