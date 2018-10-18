@@ -71,11 +71,12 @@ class Student extends Person{
                 break;
             } else {
                 console.log(`${Instructor_PM.name} is re-grading your assignmet`)
-                return Instructor_PM.grade(new Student({name:this.name}),assignment);
+                return Instructor_PM.grade(this,assignment);
             }
         }
     }
 }
+//new Student({name:this.name,Grade:this.Grade})
 
 class ProjectManager extends Instructor{
     constructor(pmAttr){
