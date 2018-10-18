@@ -80,6 +80,7 @@ class Student extends Person {
         this.favSubjects = props.favSubjects;
         this.className = props.className;
         this.previousBackground = props.previousBackground;
+        this.grade = 0;
     }
 
     // Class methods
@@ -249,12 +250,14 @@ console.log(robin);
 console.log('Robin Class:', robin.className);
 console.log('Robin Background:', robin.previousBackground);
 console.log('Robin Subjects:', robin.favSubjects);
+console.log('Robin Grade:', robin.grade);
 
 console.log(harley);
 
 console.log('Harley Class:', harley.className);
 console.log('Harley Background:', harley.previousBackground);
 console.log('Harley Subjects:', harley.favSubjects);
+console.log('Harley Grade:', harley.grade);
 
 
 
