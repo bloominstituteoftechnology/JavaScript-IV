@@ -25,3 +25,35 @@ class Instructor extends Person {
         return `${this.name} receives a perfect score on ${this.subject}`
     }
 }
+
+class Student extends Person {
+    constructor(edu){
+        super(edu);
+        this.previousBackground = edu.previousBackground;
+        this.className = edu.className;
+        this.favSubjects = edu.favSubjects;
+    }
+    listsSubjects() {
+        return `${this.favSubjects}`
+    }
+    PRAssignment(){
+        `${this.name} has submitted a PR for ${this.subject}.`
+    }
+    sprintChallenge(){
+        `${this.name} has begun sprint challenge on ${this.subject}!`
+    }
+}
+
+class ProjectManager extends Instructor {
+    constructor(helper){
+        super(helper);
+        this.gradClassName = helper.gradClassName;
+        this.favInstructor = helper.favInstructor;
+    }
+    standUp() {
+        return `${this.name} announces to ${this.channel}, @channel standy times!`
+    }
+    debugsCode() {
+        `${this.name} debugs ${student.name}'s code on ${this.subject}.`
+    }
+}
