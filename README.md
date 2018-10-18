@@ -96,7 +96,7 @@ const fred = new Instructor({
 
 #### Stretch Problem
 
-* Extend the functionality of the Student by adding a prop called grade and setting it equal to a number between 1-100.
+* Extend the functionality of the Student by adding a prop called grade and setting it equal to a number between 1-100.f
 * Now that our students have a grade build out a method on the Instructor (this will be used by _BOTH_ instructors and PM's) that will randomly add or subtract points to a student's grade. _Math.random_ will help.
 * Add a graduate method to a student.
   * This method, when called, will check the grade of the student and see if they're ready to graduate from Lambda School

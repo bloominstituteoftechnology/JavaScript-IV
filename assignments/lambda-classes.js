@@ -9,7 +9,7 @@ class Person {
         this.gender = personAttributes.gender;
     }
     speak() {
-        return `Hello, my name is ${this.name}, I am from ${this.location}.`;
+        console.log(`Hello, my name is ${this.name}, I am from ${this.location}.`);
     }
 }
 
@@ -22,10 +22,10 @@ class Instructor extends Person {
         this.catchPhrase = instructorAttributes.catchPhrase;
     }
     demo(subject) {
-        return `Today we are learning about ${subject}`;
+        console.log(`Today we are learning about ${subject}.`);
     }
     grade(student, subject) {
-        return `{student.name} receives a perfect score on ${subject}`;
+        console.log(`${student.name} receives a perfect score on ${subject}.`);
     }
 }
 
@@ -39,28 +39,29 @@ class Student extends Person {
     }
     listsSubjects() {
         for (let i = 0; i < this.favSubjects.length; i++) {
-            console.log([i]);
+            console.log(this.favSubjects[i]);
         }
     }
     PRAssignment(subject) {
-        return `${this.name} has submitted a PR for ${subject}`;
+        console.log(`${this.name} has submitted a PR for ${subject}`);
     }
     sprintChallenge(subject) {
-        return `${this.name} has begun sprint challenge on ${subject}`;
+        console.log(`${this.name} has begun sprint challenge on ${subject}.`);
     }
 }
 
 // Project Manager Class
 class ProjectManager extends Instructor {
     constructor(PMAttributes) {
+        super(PMAttributes);   
         this.gradClassName = PMAttributes.gradClassName;
         this.favInstructor = PMAttributes.favInstructor;
     }
     standup(slackChannel) {
-        return `${this.name} announces to ${slackChannel} @channel standy times!`;
+        console.log(`${this.name} announces to ${slackChannel} @channel standy times!`);
     }
     debugsCode(student, subject) {
-        return `${this.name} debugs ${student}'s code on ${subject}`;
+        console.log(`${this.name} debugs ${student.name}'s code on ${subject}.`);
     }
 }
 
@@ -96,7 +97,7 @@ const daren = new Student ({
     gender: 'male',
     previousBackground: 'Finance',
     className: 'FSW 15',
-    favSubjects: 'Javascript',
+    favSubjects: ['Javascript', 'CSS', 'HTML'],
 });
 
 const mrRobot = new Student ({
@@ -106,25 +107,78 @@ const mrRobot = new Student ({
     gender: 'male',
     previousBackground: 'Cyber Security',
     className: 'FSW 1',
-    favSubjects: 'Hacking things',
+    favSubjects: ['Hacking things', 'Computers', 'other stuff'],
 });
 
 // Project Manager Test
-const Trevor = new ProjectManager ({
+const trevor = new ProjectManager ({
     name: 'Trevor Noah',
     location: 'New York City',
     age: 25,
     gender: 'male',
     gradClassName: 'CS1',
-    favInstructor: 'Mr. Rodgers'
+    favInstructor: 'Mr. Rodgers',
+    specialty: 'Back-end',
+    favLanguage: 'C++',
+    catchPhrase: 'It is what it is.',
 });
 
-const Stewart = new ProjectManager ({
+const stewart = new ProjectManager ({
     name: 'Jon Stewart',
     location: 'New York City',
     age: 55,
     gender: 'male',
     gradClassName: 'CS0',
-    favInstructor: 'John Kennedy'
+    favInstructor: 'John Kennedy',
+    specialty: 'Web Design',
+    favLanguage: 'Java',
+    catchPhrase: 'Cool beans.',
 });
+
+
+// Object tests
+console.log(fred);
+console.log(josh);
+console.log(daren);
+console.log(mrRobot);
+console.log(trevor);
+console.log(stewart);
+
+// console.log speak() tests
+fred.speak();
+josh.speak();
+daren.speak();
+mrRobot.speak();
+trevor.speak();
+stewart.speak();
+
+// demo() tests
+fred.demo('closures');
+josh.demo('closures');
+// daren.demo('closures'); // this doesn't work, which is correct
+
+// grade() tests
+fred.grade(trevor, 'callbacks');
+josh.grade(daren, 'semantic HTML');
+
+// listsSubjects tests
+daren.listsSubjects();
+mrRobot.listsSubjects();
+
+// PRAssignment() tests
+daren.PRAssignment('classes');
+mrRobot.PRAssignment('HTML');
+
+// sprintChallenge() tests
+daren.sprintChallenge('Math');
+mrRobot.sprintChallenge('Objects');
+
+// standup() tests
+trevor.standup('FSW15');
+stewart.standup('FSW15_ashwin');
+
+// debugsCode test
+trevor.debugsCode(daren, 'CSS');
+stewart.debugsCode(mrRobot, 'HTML');
+
 
