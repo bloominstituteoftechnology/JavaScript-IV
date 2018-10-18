@@ -30,15 +30,25 @@ class Instructor extends Person{
 class Student extends Person{
     constructor(studentAttr){
         super(studentAttr);
-        this.name = studentAttr.name;
-        this.age = studentAttr.age;
-        this.location = studentAttr.location;
-        this.gender = studentAttr.gender;
+        this.previousBackground = studentAttr.previousBackground;
+        this.className = studentAttr.className;
+        this.favSubjects = studentAttr.favSubjects;
     }
-    speak() {
-        return `Hello my name is ${this.name}, I am from ${this.location}`;
+    listsSubjects() {
+        for(let i=0;i<this.favSubjects.length;i++){
+            console.log(this.favSubjects[i]);
+        }
+    }
+    PRAssignment(subject) {
+        return `${student.name} has submitted a PR for ${subject}`;
+    }
+    sprintChallenge() {
+        return `${student.name} has begun sprint challenge on ${subject}`;
     }
 }
+
+
+
 
 class ProjectManager extends Person{
     
