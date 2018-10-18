@@ -47,6 +47,30 @@ class Instructor extends Person {
 
   }
 
+  changeGrade(student) {
+
+    let addOrSub = Math.random();
+
+    if (addOrSub > 0.5) {
+
+      student.grade += Math.floor(Math.random() * 10);
+
+      if (student.grade > 100)
+        student.grade = 100;
+
+    }
+
+    else {
+
+      student.grade -= Math.floor(Math.random() * 10);
+
+      if (student.grade < 1)
+        student.grade = 1;
+
+    }
+
+  }
+
 }
 
   // Student class (child of Person)
@@ -60,6 +84,7 @@ class Student extends Person {
     this.previousBackground = props.previousBackground;
     this.className = props.className;
     this.favSubjects = props.favSubjects;
+    this.grade = props.grade;
 
   }
 
@@ -123,7 +148,8 @@ const jonny = new Student({
   location: 'CA Bay Area',
   previousBackground: "High school student",
   className: "FSW15",
-  favSubjects: ['JS', 'CSS', 'HTML']
+  favSubjects: ['JS', 'CSS', 'HTML'],
+  grade: 100
 });
 
 const fred = new Student({
@@ -133,7 +159,8 @@ const fred = new Student({
   location: 'Norway',
   previousBackground: "Professional asparagus chef",
   className: "FSW22",
-  favSubjects: ['JS', 'CSS', 'Python']
+  favSubjects: ['JS', 'CSS', 'Python'],
+  grade: 95
 });
 
 jonny.speak();
