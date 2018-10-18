@@ -49,14 +49,17 @@ class Person {
     sprintChallenge(subject){
         return `${this.name} has begun sprint challenge on ${subject}`;
     }
-    graduate() {
-        if (this.grade < 70) {
-            return `Sorry ${this.name}, your grade is not satisfactory to graduate Lambda School.`
-        } else if (this.grade >= 70) {
-            return `Congrats ${this.name}! You have just graduated Lambda School!`
+    graduate(grader) {
+        if (this.grade >= 70) {
+            return `Congrats ${this.name}! You have just graduated Lambda School!`;
+        } 
+        while (this.grade < 70) {
+            console.log(`Sorry ${this.name}. You only have a ${this.grade} and that is not enough to graduate. Please keep on trying until you pass.`);
+            grader.gradeAssignment(this);
         }
+        return `Congrats ${this.name}! You have a score of ${this.grade} and that's enough to graduate Lambda School!`;
     }
- }
+}
 
  class ProjectManager extends Instructor{
     constructor(instructorAttr){
@@ -128,7 +131,7 @@ const andy = new Student({
     previousBackground: 'Business Administration',
     className: 'FSW15',
     favSubjects: ['Art', 'Philosiphy', 'Economics'],
-    grade: 60
+    grade: 40
 });
 
 // Project Managers
@@ -204,4 +207,4 @@ const ash = new ProjectManager({
 // Stretch Goals
 console.log(kamal.gradeAssignment(andy));
 console.log(andy);
-console.log(andy.graduate());
+console.log(andy.graduate(josh));
