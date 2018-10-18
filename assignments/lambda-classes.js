@@ -231,9 +231,11 @@ const alfred = new ProjectManager({
     favInstructor: 'Batman, if I must choose'
 });
 
-// ==Person Tests==
 
-// Make them do stuff
+
+// **===PERSON TESTS===**
+
+// *==Make them do stuff==*
 console.log(adam);
 console.log(adam.speak());
 
@@ -241,9 +243,9 @@ console.log(eve);
 console.log(eve.speak());
 
 
-// ==Instructor Tests==
+// **===INSTRUCTOR TESTS===**
 
-// Confirm Existance
+// *==Confirm Existance==*
 console.log(batman);
 
 console.log('Batman Specialty:', batman.specialty);
@@ -256,7 +258,7 @@ console.log('Joker Specialty:', joker.specialty);
 console.log('Joker Favorite Language:', joker.favLanguage);
 console.log('Joker Catch Phrase:', joker.catchPhrase);
 
-// Make them do stuff
+// *==Make them do stuff==*
 console.log(batman.speak());
 console.log('Batman Demo:', batman.demo('the Obstacle course'));
 console.log(robin, 'Hacking');
@@ -267,10 +269,10 @@ console.log('Joker Demo:', joker.demo('PIES!!'));
 console.log('Joker Grade:', joker.grade(harley, 'Tumbling'));
 
 
-// ==Student Tests==
+// **===STUDENT TESTS===**
 
 
-// Confirm Existance
+// *==Confirm Existance==*
 console.log(robin);
 
 console.log('Robin Class:', robin.className);
@@ -287,7 +289,7 @@ console.log('Harley Grade:', harley.grade);
 
 
 
-// Make them do stuff
+// *==Make them do stuff==*
 console.log(robin.speak());
 console.log('Robin lists subjects', robin.listsSubjects());
 console.log(robin.PRAssignment('Hacking'));
@@ -300,9 +302,9 @@ console.log(harley.sprintChallenge('Playing with Hyenas'));
 
 
 
-// ==PM Test==
+// **===PM TESTS===**
 
-// Confirm Existance
+// *==Confirm Existance==*
 console.log(alfred);
 
 console.log('Alfred Specialty:', alfred.specialty);
@@ -312,7 +314,7 @@ console.log('Alfred Grad Class:', alfred.gradClassName);
 console.log('Alfred Fav Instructor:', alfred.favInstructor);
 
 
-// Make them do stuff
+// *==Make them do stuff==*
 console.log(alfred.speak());
 console.log('Alfred Demo:', alfred.demo('Keeping things Clean'));
 console.log('Alfred Grade:', alfred.grade(robin, 'Hacking'));
@@ -321,7 +323,22 @@ console.log(alfred.standUp('Whipper-Snappers'));
 console.log(alfred.debugsCode(robin, 'Hacking'));
 
 
-// Stretch
+// **===stretch tests===**
+console.log(alfred.grade(robin, 'History'));
+console.log(batman.grade(robin, 'Spying'));
+console.log(joker.grade(robin, 'Gym'));
+console.log(alfred.grade(robin, 'Weapons'));
+console.log(batman.grade(robin, 'Hand to Hand Combat'));
+console.log(joker.grade(robin, 'Art'));
+
+console.log(alfred.grade(harley, 'History'));
+console.log(batman.grade(harley, 'Home Room'));
+console.log(joker.grade(harley, 'Laughing'));
+console.log(alfred.grade(harley, 'Gas Mask Test'));
+console.log(batman.grade(harley, 'Talking Quietly'));
+console.log(joker.grade(harley, 'Face Painting'));
+
+
 console.log('Harley Grades', harley.grades);
 console.log('Harley Average', harley.average());
 console.log('Robin Grades', robin.grades);
