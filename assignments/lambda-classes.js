@@ -7,7 +7,7 @@ class Person{
         this.gender = info.gender;        
     }
     speak(){
-        return `Hello my name is ${this.name}, I am from ${this.location}.`
+        return `Hello my name is ${this.name}, I am from ${this.location}.`;
     }
 }
 
@@ -17,12 +17,13 @@ class Instructor extends Person {
         this.specialty = skills.specialty;
         this.favLanguage = skills.favLanguage;
         this.catchPhrase = skills.catchPhrase;
+        this.subject = skills.subject;
     }
-    demo() {
-        return `Today we are learning about ${this.subject}.`;
+    demo(subject) {
+        return `Today we are learning about ${subject}.`;
     }
-    grade() {
-        return `${this.name} receives a perfect score on ${this.subject}`
+    grade(student, subject) {
+        return `${student} receives a perfect score on ${subject}`;
     }
 }
 
@@ -34,13 +35,13 @@ class Student extends Person {
         this.favSubjects = edu.favSubjects;
     }
     listsSubjects() {
-        return `${this.favSubjects}`
+        return `${this.favSubjects}`;
     }
-    PRAssignment(){
-        `${this.name} has submitted a PR for ${this.subject}.`
+    PRAssignment(subject){
+       return `${this.name} has submitted a PR for ${subject}.`;
     }
-    sprintChallenge(){
-        `${this.name} has begun sprint challenge on ${this.subject}!`
+    sprintChallenge(subject){
+        return `${this.name} has begun sprint challenge on ${subject}!`;
     }
 }
 
@@ -50,11 +51,11 @@ class ProjectManager extends Instructor {
         this.gradClassName = helper.gradClassName;
         this.favInstructor = helper.favInstructor;
     }
-    standUp() {
-        return `${this.name} announces to ${this.channel}, @channel standy times!`
+    standUp(channel) {
+        return `${this.name} announces to ${channel}, @channel standy times!`;
     }
-    debugsCode() {
-        `${this.name} debugs ${student.name}'s code on ${this.subject}.`
+    debugsCode(student, subject) {
+        return `${this.name} debugs ${student}'s code on ${subject}.`;
     }
 }
 
@@ -89,8 +90,8 @@ const sabrina = new Student({
 })
 
 const danny = new Student({
-    name: 'Daenerys targaryen',
-    location: 'Dragonstone',
+    name: 'Daenerys Targaryen',
+    location: 'Iron Throne',
     age: '20',
     gender: 'Female',
     previousBackground: 'Dragon Queen',
@@ -117,3 +118,13 @@ const eleanor = new ProjectManager({
     favInstructor: 'Alfred'
 
 })
+
+console.log(eleanor.speak());
+console.log(alfred.demo('JavaScript'));
+console.log(bruce.grade(danny.name, 'CSS'));
+console.log(sabrina.listsSubjects());
+console.log(danny.PRAssignment('Dragons'));
+console.log(danny.sprintChallenge('Keeping the Iron Throne'));
+console.log(eleanor.standUp('Slack Channel'));
+console.log(anne.debugsCode(sabrina.name, 'Sword Fighting'));
+
