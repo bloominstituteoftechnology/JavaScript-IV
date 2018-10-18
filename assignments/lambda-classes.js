@@ -57,3 +57,33 @@ class ProjectManager extends Instructor {
         `${this.name} debugs ${student.name}'s code on ${this.subject}.`
     }
 }
+
+const bruce = new Instructor({
+    name: 'Bruce Wayne',
+    location: 'Bat Cave',
+    age: '34',
+    gender: 'male',
+    favLanguage: 'JavaScript',
+    specialty: 'Front-end',
+    catchPhrase: 'I am Batman!'
+});
+
+const alfred = new Instructor({
+    name: 'Alfred Thaddeus Crane Pennyworth',
+    location: 'Gotham City',
+    age: '57',
+    gender: 'male',
+    favLanguage: 'NodeJS',
+    specialty: 'Back-end',
+    catchPhrase: 'Why do we fall sir? So that we can learn to pick ourselves up.!'
+})
+
+const sabrina = new ProjectManager({
+    name: 'Sabrina Spellman',
+    location: 'Magic Realm',
+    age: '17',
+    gender: 'Female',
+    favLanguage: 'NodeJS',
+    specialty: 'Back-end',
+    catchPhrase: ''
+})
