@@ -58,6 +58,7 @@ class CharacterStats extends GameObject {
 
 class Humanoid extends CharacterStats {
     constructor(humanoidAttributes) {
+        super(humanoidAttributes);
         this.faction = humanoidAttributes.faction;
         this.weapons = humanoidAttributes.weapons;
         this.language = humanoidAttributes.language;

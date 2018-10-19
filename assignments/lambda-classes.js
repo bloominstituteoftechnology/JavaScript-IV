@@ -66,3 +66,50 @@ class ProjectManager extends Instructor {
 
 
 }
+
+const fred = new Instructor({
+    name: 'Fred',
+    location: 'Bedrock',
+    age: 37,
+    gender: 'male',
+    favLanguage: 'JavaScript',
+    specialty: 'Front-end',
+    catchPhrase: `Don't forget the homies`
+});
+
+const teacher = new Instructor({
+    name: 'Prof_KnowItAll',
+    location: 'Campus Facilities',
+    age: 35,
+    gender: 'male',
+    favLanguage: 'JavaScript',
+    specialty: 'Automation',
+    catchPhrase: `Wax on wax off`
+});
+
+const pM1 = new ProjectManager({
+    name: 'pM1',
+    location: 'internet',
+    age: 26,
+    gender: 'female',
+    gradClassName: 'FSW11',
+    favInstructor: teacher.name
+});
+
+const studentMe = new Student({
+    name: 'Mr.MEtelus',
+    location: 'New York',
+    age: 34,
+    gender: 'male',
+    previousBackground: 'various',
+    className: 'FSW15',
+    favSubjects: ['JavaScript', 'Python', 'Algorithms', 'Data Structures'],
+    assignments: [],
+    grade: 0,
+});
+
+
+const assignment0 = new Assignment({
+    name: `Group Introductions`,
+    grade: 85
+})
