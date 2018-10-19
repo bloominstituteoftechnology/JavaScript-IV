@@ -77,6 +77,9 @@ class Student extends Person {
   sprintChallenge(subject){
     return `${this.name} has begun sprint challenge on ${subject}`;
   }
+  displayAssignments(){
+    console.info(JSON.stringify(this.assignments, null, ' '));
+  }
 }
 
 //================================================================================
@@ -167,39 +170,42 @@ const sawyer = new ProjectManager({
 /*************************************************************************************************
  ********************************************** Main *********************************************
  *************************************************************************************************/
-console.log('*************************** lambda-classes.js ***************************');
-//================================================================================
-//================================= MVP Use Cases ================================
-james.listsSubjects();
-console.log(josh.speak());
-console.log(sawyer.speak());
-console.log(james.speak());
-console.log(`${josh.name} says: ${josh.demo(josh.favLanguage)}`);
-console.log(james.sprintChallenge(josh.favLanguage));
-console.log(james.PRAssignment(josh.favLanguage));
-console.log(`${josh.name} says: ${josh.grade(james, josh.favLanguage)}`);
-console.log(`${sawyer.standUp('FSW15_sawyer')}`);
-console.log(`${sawyer.debugsCode(james, james.favSubjects[7])}`);
+let main = function(){
+  console.log('*************************** lambda-classes.js ***************************');
+  //================================================================================
+  //================================= MVP Use Cases ================================
+  james.listsSubjects();
+  console.log(josh.speak());
+  console.log(sawyer.speak());
+  console.log(james.speak());
+  console.log(`${josh.name} says: ${josh.demo(josh.favLanguage)}`);
+  console.log(james.sprintChallenge(josh.favLanguage));
+  console.log(james.PRAssignment(josh.favLanguage));
+  console.log(`${josh.name} says: ${josh.grade(james, josh.favLanguage)}`);
+  console.log(`${sawyer.standUp('FSW15_sawyer')}`);
+  console.log(`${sawyer.debugsCode(james, james.favSubjects[7])}`);
 
-//================================================================================
-//=============================== Stretch Use Cases ==============================
-console.log('******************************* (Stretch) *******************************');
-let assignmentNames = ['User Interface I', 'User Interface II', 'User Interface III', 'Git for Web Development',
-                                'Responsive Design I', 'Responsive Design II', 'Preprocessing I', 'Preprocessing II',
-                                'JavaScript I', 'JavaScript II', 'JavaScript III', 'JavaScript IV'
-                                ];
-console.log(`${james.name} begins Lambda School with a grade of: ${james.grade}`);
-console.log(`${james.name} receives the assignments from ${josh.name}`);
-assignmentNames.forEach(function(asnName){
-  josh.addAssignment(james, new Assignment({name: asnName, grade: 0}));
-});
-console.log(james.assignments);
-console.log(`${james.name} completes assignemnts and ${josh.name} grades them...`);
-josh.gradeAssignments(james);
-console.log(james.assignments);
+  //================================================================================
+  //=============================== Stretch Use Cases ==============================
+  console.log('******************************* (Stretch) *******************************');
+  let assignmentNames = ['User Interface I', 'User Interface II', 'User Interface III', 'Git for Web Development',
+                                  'Responsive Design I', 'Responsive Design II', 'Preprocessing I', 'Preprocessing II',
+                                  'JavaScript I', 'JavaScript II', 'JavaScript III', 'JavaScript IV'
+                                  ];
+  console.log(`${james.name} begins Lambda School with a grade of: ${james.grade}`);
+  console.log(`${james.name} receives the assignments from ${josh.name}`);
+  assignmentNames.forEach(function(asnName){
+    josh.addAssignment(james, new Assignment({name: asnName, grade: 0}));
+  });
+  james.displayAssignments();
+  console.log(`${james.name} completes assignemnts and ${josh.name} grades them...`);
+  josh.gradeAssignments(james);
+  james.displayAssignments();
 
-// ToDo
-// james.updateTotalGrade();
-// if (james.grade <= 70){
-//   console.log(`Uh oh, ${james.name} needs some help. Lets see if ${sawyer.name} can help ${james.name} get his grades up...`)
-// }
+  // ToDo
+  // james.updateTotalGrade();
+  // if (james.grade <= 70){
+  //   console.log(`Uh oh, ${james.name} needs some help. Lets see if ${sawyer.name} can help ${james.name} get his grades up...`)
+  // }
+}
+main();
