@@ -26,7 +26,7 @@ class Instructor extends Person {
         return `${student} receives a perfect score on ${subject}`;
     }
     newGrade(student) {
-        let score = Math.round(Math.random() * 100);
+        let score = Math.round(Math.random() * 30);
         if (student.grade >= 100) {
             student.grade -= score;
             return `${score} points will be subtracted from ${student}'s grade.`;
@@ -54,7 +54,17 @@ class Student extends Person {
     sprintChallenge(subject) {
         return `${this.name} has begun sprint challenge on ${subject}`;
     }
+    graduate() {
+        if (this.grade >= 70) {
+            return `${this.name} has graduated with a final grade of ${this.grade}!`;
+        } else {
+            let sub = 70 - this.grade;
+            this.grade += sub;
+            return `After more grading, ${sub} points were earned and ${this.name} has graduated with a final grade of ${this.grade}!`;
+        }
+    }
 }
+
 
 class ProjectManagers extends Instructor {
     constructor(pmanager) {
@@ -110,7 +120,7 @@ const thomas = new Student({
     previousBackground: 'Retail',
     className: 'CS15',
     favSubjects: ['HTML ', 'REACT ', 'JavaScript'],
-    grade: 95
+    grade: 60
 });
 
 const keysha = new Student({
@@ -121,7 +131,7 @@ const keysha = new Student({
     previousBackground: 'Receptionist',
     className: 'CS09',
     favSubjects: ['SASS ', 'iOS ', 'UX/UI'],
-    grade: 100
+    grade: 60
 });
 
 const mark = new Student({
@@ -173,10 +183,10 @@ console.log(peter.standUp('FSW15')); // Project Manager Peter's stand-up message
 console.log(pablo.debugsCode('Keysha', 'JavaScript')); // Project Manager Pablo's debug message
 console.log(keysha.previousBackground); // Student Keysha's previous background
 console.log(thomas.className); // Student Thomas's class name
-console.log(michael.grade('Thomas', 'CSS'));
-console.log(sarah.grade('Keysha', 'Python'));
+console.log(michael.grade('Thomas', 'CSS')); // Student receives perfect score
+console.log(sarah.grade('keysha', 'Python'));
 console.log(sarah.newGrade(keysha));
-// console.log();
+console.log(thomas.graduate(john));
 // console.log();
 // console.log();
 // console.log();
