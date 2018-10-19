@@ -26,13 +26,13 @@ class Instructor extends Person {
         return `${student} receives a perfect score on ${subject}`;
     }
     newGrade(student) {
-        let score = Math.round(Math.random() * 30);
+        let score = Math.round(Math.random() * 100);
         if (student.grade >= 100) {
             student.grade -= score;
             return `${score} points will be subtracted from ${student}'s grade.`;
         } else {
             student.grade += score;
-            return `${score} points will be added to ${student}'s grade.`;
+            return `${score} points will be added to ${student.name}'s grade.`;
         }
     }
 }
