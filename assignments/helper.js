@@ -4,9 +4,9 @@ exports.randInt = function(min, max) {
 
 exports.dice = function(sides, numberOfDie) {
     let working = [];
-    let min = 1;
+    const min = 1;
     for (let i = 0; i < numberOfDie; i++) {
-        working.push(exports.randInt(1, sides));
+        working.push(exports.randInt(min, sides));
     }
     return working.reduce((total, items) => total + items, 0);
 };
