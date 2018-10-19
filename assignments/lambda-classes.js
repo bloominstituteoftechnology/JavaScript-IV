@@ -6,7 +6,6 @@ class Person {
         this.age = attributes.age;
         this.location = attributes.location;
         this.gender = attributes.gender;
-        this.grade = attributes.grade;
     }
     speak() {
         console.log(`Hello my name is ${this.name}, I am from ${this.location}`)
@@ -24,13 +23,12 @@ class Instructor extends Person {
         console.log(`Today we are learning about ${subject}`);
     }
     grade(student, subject) {
-        console.log(`${student.name} receives a perfect score on ${subject}`)
+        console.log(`${student.name} receives a perfect score on ${subject}`);
     }
-    change() {
-        let oldGrade = this.grade;
-        let newGrade = oldGrade + (Math.random() < 0.5 ? -1 : 1);
-        // const multiplier = Math.random() < 0.5 ? -1 : 1;
-        console.log(`Your grade was ${this.grade}. It is now ${newGrade}`)
+    change(myStudent) {
+        let oldGrade = myStudent.grade;
+        myStudent.grade = oldGrade + (Math.random() < 0.5 ? -1 : 1);
+        console.log(`Your grade was ${oldGrade}. It is now ${myStudent.grade}`)
     }
 }
 
@@ -40,6 +38,7 @@ class Student extends Person {
         this.previousBackground = studentInfo.previousBackground;
         this.className = studentInfo.className;
         this.favSubjects = studentInfo.favSubjects;
+        this.grade = studentInfo.grade;
     }
     listsSubjects() {
         console.log(`Me gusta ${this.favSubjects}`);
@@ -51,7 +50,7 @@ class Student extends Person {
         console.log(`${this.name} has begun sprint challenge on ${subject}`)
     }
     graduate() {
-        if (this.grade > 70) {
+        if (this.grade >= 70) {
             console.log(`You got ${this.grade} - you've graduated!`);
         }
         else {
@@ -73,9 +72,6 @@ class ProjectManagers extends Instructor {
     debugsCode(student, subject) {
         console.log(`${this.name} debugs ${student.name}'s code on ${subject}`)
     }
-    // gradeCode(student) {
-    //     if (student.grade > 70)
-    // }
 }
 
 
@@ -85,12 +81,30 @@ const personTest = new Person ({
     age: 45,
     location: "Brazil",
     gender: "M",
-    grade: 75
 })
 
 console.log(personTest);
 personTest.speak();
 
+
+
+// Student test
+const studentTest = new Student ({
+    name: "Daniela",
+    age: 25,
+    location: "Portugal",
+    gender: "F",
+    grade: 70,
+    previousBackground: "Pilot",
+    className: "FSW15",
+    favSubjects: "Python"
+})
+
+console.log(studentTest);
+studentTest.listsSubjects();
+studentTest.PRAssignment('JavaScript');
+studentTest.sprintChallenge('React');
+studentTest.graduate();
 
 
 // Instructor test
@@ -107,29 +121,13 @@ const instructorTest = new Instructor ({
 
 console.log(instructorTest);
 instructorTest.demo("Maths");
-// instructorTest.grade(personTest, "English");
-instructorTest.change();
-
-
-
-// Student test
-const studentTest = new Student ({
-    name: "Daniela",
-    age: 25,
-    location: "Portugal",
-    gender: "F",
-    grade: 75,
-    previousBackground: "Pilot",
-    className: "FSW15",
-    favSubjects: "Python"
-})
-
-console.log(studentTest);
-studentTest.listsSubjects();
-studentTest.PRAssignment('JavaScript');
-studentTest.sprintChallenge('React');
-studentTest.graduate();
-
+instructorTest.grade(instructorTest, "English");
+instructorTest.change(studentTest);
+instructorTest.change(studentTest);
+instructorTest.change(studentTest);
+instructorTest.change(studentTest);
+instructorTest.change(studentTest);
+instructorTest.change(studentTest);
 
 
 
@@ -139,7 +137,7 @@ const pmTest = new ProjectManagers ({
     age: 25,
     location: "France",
     gender: "M",
-    grade: 45,
+    grade: 70,
     specialty: "React",
     favLanguage: "JavaScript",
     catchPhrase: "Leggo",
@@ -149,5 +147,5 @@ const pmTest = new ProjectManagers ({
 })
 
 console.log(pmTest);
-pmTest.standUp(personTest, 'secretChannel');
+pmTest.standUp(pmTest, 'secretChannel');
 pmTest.debugsCode(personTest, 'The Impossible');
