@@ -26,6 +26,10 @@ class Instructor extends Person{
   grade(student, subject){
     return  `${student.name} receives a perfect score on ${subject}`;
   }
+  gradeChange(student){
+    student.grade = student.grade - (student.grade* Math.random().toFixed(2));
+    return `${student.name}'s grade has been changed to ${student.grade}%`
+  }
 }
 
 //Student Class
@@ -35,6 +39,7 @@ class Student extends Person{
     this.previousBackground = sInfo.previousBackground;
     this.className = sInfo.className;
     this.favSubjects = sInfo.favSubjects;
+    this.grade = sInfo.grade;
   }
   listsSubjects(){
     return `${this.favSubjects[0]} \n${this.favSubjects[1]}\n${this.favSubjects[2]}\n${this.favSubjects[3]}`;
@@ -44,6 +49,13 @@ class Student extends Person{
   }
   sprintChallenge(subject){
     return `${this.name} has begun sprint challenge on ${subject}`;
+  }
+  graduate(){
+    if(this.grade >= 70){
+      return `Congratulations, you've graduated!`
+    }else{
+      return `Keep at it! You will graduate soon!`
+    }
   }
 }
 
@@ -99,7 +111,8 @@ const anakin = new Student({
     'Darkside Styling Sheets',
     'drama',
     'JediQuery'
-  ]
+  ],
+  grade: 100
 });
 
 const luke = new Student({
@@ -114,7 +127,8 @@ const luke = new Student({
     'Jedi Styling Sheets',
     'Taboo Relationships',
     'Overcoming Abandonment'
-  ]
+  ],
+  grade: 100
 });
 
 console.log(yoda.age);//test inheritance to Person inheritance
@@ -129,3 +143,7 @@ console.log(anakin.sprintChallenge('JediQuery'));//test sprintChallenge
 console.log(obiwan.favInstructor);//test pm unique props
 console.log(obiwan.standUp('fsw15_obiwan'));//test pm standUp
 console.log(obiwan.debugsCode(luke, 'Taboo Relationships'));//test pm debugsCode
+console.log(obiwan.gradeChange(luke));
+console.log(luke.graduate());
+console.log(obiwan.gradeChange(anakin));
+console.log(anakin.graduate());
