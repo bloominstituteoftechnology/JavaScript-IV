@@ -104,6 +104,17 @@ class ProjectManager extends Instructor {
   debugsCode(student, subject){
     return `${this.name} debugs ${student.name}\'s code on ${subject}`;
   }
+
+  assistStudentWithFailingAssignments(student){
+    // After much hard work, the project manager was able to help the student
+    // with getting the student to understand the material for each and every
+    // failing assignment, and make the failing assignment(s) have a passing grade.
+    student.assignments.forEach(function(assignment){
+      if (assignment.grade < 70){
+        assignment.grade = Math.floor(Math.random() * 31 ) + 70;
+      }
+    })
+  }
 }
 
 //================================================================================
@@ -213,7 +224,12 @@ let main = function(){
   // ToDo
   if (james.grade <= 70){
     console.log(`Uh oh, ${james.name} needs some help. Lets see if ${sawyer.name} can help ${james.name} get his grades up...`)
-    //sawyer.assistStudentWithAssignments(); ToDo
+    sawyer.assistStudentWithFailingAssignments(james);
+    james.displayAssignments();
+    josh.updateStudentGrade(james, josh.calcTotalGrade(james));
+    console.log(`${james.name}'s total grade = ${james.grade}`);
   }
+
+  console.log(`Congradulations James!!! You will be able to graduate Lambda School with your class!`)
 }
 main();
