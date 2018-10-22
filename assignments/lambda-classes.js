@@ -46,7 +46,13 @@ class Instructor extends Person {
       josh.gradeAssignment(student, student.assignments.map(function(studentAsnmt) {return studentAsnmt.name; }).indexOf(asnmt.name), Math.floor(Math.random() * (100 - 0 + 1) ) + 0);
     });
   }
-  updateAssignmentGrade(){} 
+  calcTotalGrade(student){
+    return parseFloat(student.assignments.reduce(function(accu, assignment){return accu + assignment.grade;}, 0) / 100).toFixed(2) /
+            parseFloat((student.assignments.length * 100) / 100).toFixed(2) * 100;
+  }
+  updateStudentGrade(student, grd){
+    student.grade = grd;
+  }
 }
 
 //================================================================================
@@ -153,7 +159,7 @@ const james = new Student({
   favSubjects: ['Algorithms', 'Data Structures', 'Automation', 'Design Patterns', `Time Complexity Notation`,
                 'HTML', 'CSS', 'JavaScript', 'Java', 'Python', 'C++', 'Gui Implementation', 'Architecture', 'TDD'],
   assignments: [],
-  grade: 100,
+  grade: 0,
 })
 
 //================================================================================
@@ -201,11 +207,13 @@ let main = function(){
   console.log(`${james.name} completes assignemnts and ${josh.name} grades them...`);
   josh.gradeAssignments(james);
   james.displayAssignments();
+  josh.updateStudentGrade(james, josh.calcTotalGrade(james));
+  console.log(`${james.name}'s total grade = ${james.grade}`);
 
   // ToDo
-  // james.updateTotalGrade();
-  // if (james.grade <= 70){
-  //   console.log(`Uh oh, ${james.name} needs some help. Lets see if ${sawyer.name} can help ${james.name} get his grades up...`)
-  // }
+  if (james.grade <= 70){
+    console.log(`Uh oh, ${james.name} needs some help. Lets see if ${sawyer.name} can help ${james.name} get his grades up...`)
+    //sawyer.assistStudentWithAssignments(); ToDo
+  }
 }
 main();
