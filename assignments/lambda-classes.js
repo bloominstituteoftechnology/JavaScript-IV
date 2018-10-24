@@ -57,3 +57,67 @@ class ProjectManagers extends Instructors {
     console.log(`${this.name} debugs ${student.name}'s code on ${subject}`);
   }
 }
+
+const ins1 = new Instructor({
+  name: '',
+  location: '',
+  age: ,
+  gender: '',
+  favLanguage: '',
+  specialty: '',
+  catchPhrase: ''
+});
+
+const ins2 = new Instructor({
+  name: '',
+  location: '',
+  age: ,
+  gender: '',
+  favLanguage: '',
+  specialty: '',
+  catchPhrase: ''
+});
+
+const student1 = new Student({
+  name: '',
+  location: '',
+  age: ,
+  gender: '',
+  previousBackground: '',
+  className: '',
+  favSubjects: ''
+});
+
+const student2 = new Student({
+  name: '',
+  location: '',
+  age: ,
+  gender: '',
+  previousBackground: '',
+  className: '',
+  favSubjects: ''
+});
+
+const pm1 = new ProjectManagers({
+  name: '',
+  location: '',
+  age: ,
+  gender: '',
+  favLanguage: '',
+  specialty: '',
+  catchPhrase: '',
+  gradClassName: '',
+  favInstructor: ''
+});
+
+const pm2 = new ProjectManagers({
+  name: '',
+  location: '',
+  age: ,
+  gender: '',
+  favLanguage: '',
+  specialty: '',
+  catchPhrase: '',
+  gradClassName: '',
+  favInstructor: ''
+});
