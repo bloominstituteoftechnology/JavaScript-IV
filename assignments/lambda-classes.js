@@ -29,6 +29,22 @@ class Instructor extends Person {
   }
 }
 
+class ProjectManager extends Instructor {
+  constructor(attributes) {
+    super(attributes);
+    this.gradClassName = attributes.gradClassName;
+    this.favInstructor = attributes.favInstructor;
+  }
+
+  standUp(channel) {
+    return `${this.name}announces to ${channel}, @channel standup time!`;
+  }
+
+  debugsCode(student, subject) {
+    return ${this.name} debugs ${student.name}'s code on ${subject}.'
+  }
+}
+
 class Student extends Person {
   constructor(attributes) {
     super(attributes);
