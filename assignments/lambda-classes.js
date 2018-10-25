@@ -42,11 +42,11 @@ class Student extends Person {
   }
 
   PRAssignment(subject) {
-    console.log(`${student.name} has submitted a PR for ${subject}`)
+    console.log(`${this.name} has submitted a PR for ${subject}`)
   }
 
   sprintChallenge(subject) {
-    console.log(`${student.name} has begun sprint challenge on ${subject}`)
+    console.log(`${this.name} has begun sprint challenge on ${subject}`)
   }
 }
 
@@ -69,7 +69,7 @@ class ProjectManager extends Instructor {
 
 const bob = new Instructor({
   name: 'Bobby',
-  location: 'Smith',
+  location: 'Georgia',
   age: 39,
   gender: 'male',
   favLanguage: 'Java',
@@ -80,7 +80,7 @@ const bob = new Instructor({
 
 const becky = new Instructor({
   name: 'Becky',
-  location: 'Jones',
+  location: 'North Dakota',
   age: 33,
   gender: 'female',
   favLanguage: 'C++',
@@ -88,6 +88,52 @@ const becky = new Instructor({
   catchPhrase: `How's it going`
 });
 
+
+const bernard = new Student({
+  name: 'Bernard',
+  location: 'Virginia',
+  age: 25,
+  gender: 'male',
+  previousBackground: 'College Dropout',
+  className: 'FSWPT3',
+  favSubjects: ['JavaScript', 'React', 'Python']
+});
+
+const carly = new Student({
+  name: 'Carly',
+  location: 'North Carolina',
+  age: 24,
+  gender: 'female',
+  previousBackground: 'Hair Stylist',
+  className: 'FSWPT5',
+  favSubjects: ['HTML', 'CSS', 'C']
+});
+
+const amelia = new ProjectManager({
+  name: 'Amelia',
+  location: 'Tennessee',
+  age: 28,
+  gender: 'female',
+  gradClassName: 'FSWPT2',
+  favInstructor: 'Cameron'
+});
+
+const jaxson = new ProjectManager({
+  name: 'Jaxson',
+  location: 'Maryland',
+  age: 27,
+  gender: 'male',
+  gradClassName: 'FSWPT2',
+  favInstructor: 'Dan'
+});
+
 console.log(`I am ${bob.name}, and I teach ${bob.specialty} in ${bob.favLanguage}`)
 bob.demo('Classes')
 console.log(`${becky.catchPhrase}, I am ${becky.name}`)
+bernard.speak();
+bernard.listSubjects();
+bernard.PRAssignment('JavaScript Classes');
+carly.listSubjects();
+carly.sprintChallenge('Python');
+amelia.standUp('#fswpt5_amelia');
+jaxson.debugCode(bernard, 'C#')
