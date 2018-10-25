@@ -32,6 +32,38 @@ class Instructor extends Person {
     console.log(phrase);
     return phrase;
   }
+  ChangeGrade(student, subject, addOrSub) {
+    let newGrade = 0;
+    let phrase = '';
+    if(addOrSub === 'add') {
+      //If grade already a 100, can't add more
+      if (student.grade === 100) {
+        phrase = `Student ${student.name} has a grade of 100 in subject ${subject}. Can not add to grade.`;
+        console.log(phrase);
+        return phrase;
+     }
+      newGrade = student.grade + Math.floor(Math.random() * 100);
+    } else {
+      //If grade already a 0, can't make it lower
+      if(student.grade === 0) {
+        phrase = `Student ${student.name} has a grade of 0 in subject ${subject}. Can not lower grade.`;
+        console.log(phrase);
+        return phrase;
+      }
+      newGrade = student.grade - Math.floor(Math.random() * 100);
+    }
+    //Make sure new grade is between 0 and 100 
+    if(newGrade < 0) {
+      newGrade = 0;
+    }
+    if(newGrade > 100) {
+      newGrade = 100;
+    }
+    phrase = `Student ${student.name}'s grade in subject ${subject} went from ${student.grade} to ${newGrade}.`;
+    console.log(phrase);
+    student.grade = newGrade;
+    return newGrade;
+  }
 }
 
 //Student: Inherits from Person
@@ -41,6 +73,7 @@ class Student extends Person {
     this.previousBackground = studentAttributes.previousBackground;
     this.className          = studentAttributes.className;
     this.favSubjects        = studentAttributes.favSubjects;
+    this.grade              = Math.floor(Math.random() * 100);
   }
   listsSubjects() {
     let phrase = this.name + "'s favorite Subjects: ";
@@ -169,4 +202,8 @@ manager1.demo('Callbacks');
 manager2.demo('Array functions');
 manager1.grade(student2, 'Callbacks');
 manager2.grade(student1, 'array functions');
+
+//Testing the change grade method
+instructor1.ChangeGrade(student1, 'JavaScript', 'add');
+instructor2.ChangeGrade(student2, 'JavaScript', 'sub');
 
