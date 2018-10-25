@@ -92,7 +92,7 @@ class Humanoid extends CharacterStats {
 
 // Dice roll function
 function diceRoll () {
-  let roll = Math.floor(Math.random() * 10);
+  let roll = Math.random() * 10;
   return Math.round(roll);
 }
 console.log(diceRoll());
