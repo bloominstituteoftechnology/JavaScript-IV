@@ -78,3 +78,13 @@ const sheldon= new Instructor({
     specialty: 'Back-end',
     catchPhrase: 'BAZINGA!'
 });
+
+const howard = new Instructor({
+    name: 'Wolowitz',
+    location: 'California',
+    age: 30,
+    gender: 'male',
+    favLanguage: 'the language of love',
+    specialty: 'being a creeper',
+    catchPhrase: 'I say let\'s pour one out for the science homies that came before us.'
+});
