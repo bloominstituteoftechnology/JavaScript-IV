@@ -1,13 +1,13 @@
 // CODE here for your Lambda Classes
 class Person {
-  constructor(personAtt) {
-    this.name = personAttributes.name;
-    this.age = personAttributes.age;
-    this.location =  personAttributes.location;
-    this.gender = personAttributes.gender;
+  constructor(personAttr) {
+    this.name = personAttr.name;
+    this.age = personAttr.age;
+    this.location =  personAttr.location;
+    this.gender = personAttr.gender;
   }
   speak() {
-    `Hello my name is ${this.name}, I am from ${this.location}`
+    console.log(`Hello my name is ${this.name}, I am from ${this.location}`);
   }
 }
 
@@ -35,12 +35,15 @@ class Students extends Person {
   }
   listsSubjects() {
     //a method that logs out all of the student's favoriteSubjects one by one.
+    for(let i = 0; i < this.favSubjects.length; i++){
+      console.log(this.favSubjects[i]);
+    }
   }
   PRAssignment(subject) {
-    console.log(`${student.name} has submitted a PR for ${subject}`);
+    console.log(`${this.name} has submitted a PR for ${subject}`);
   }
   sprintChallenge(subject) {
-    console.log(`${student.name} has begun sprint challenge on ${subject}`);
+    console.log(`${this.name} has begun sprint challenge on ${subject}`);
   }
 }
 
@@ -51,73 +54,92 @@ class ProjectManagers extends Instructors {
     this.favInstructor = projectManagersAttr.favInstructor;
   }
   standUp(channel) {
-    console.log(`${this.name} announces to ${channel}, @channel standy times!​​​​​`);
+    console.log(`${this.name} announces to ${channel}, @channel stand up times!​​​​​`);
   }
   debugsCode(student, subject) {
     console.log(`${this.name} debugs ${student.name}'s code on ${subject}`);
   }
 }
 
-const ins1 = new Instructor({
-  name: '',
-  location: '',
-  age: ,
-  gender: '',
-  favLanguage: '',
-  specialty: '',
-  catchPhrase: ''
+const fred = new Instructors({
+  name: 'Fred',
+  location: 'Bedrock',
+  age: 37,
+  gender: 'Male',
+  favLanguage: 'JavaScript',
+  specialty: 'Front-End',
+  catchPhrase: 'Yabba Dabba Doo'
 });
 
-const ins2 = new Instructor({
-  name: '',
-  location: '',
-  age: ,
-  gender: '',
-  favLanguage: '',
-  specialty: '',
-  catchPhrase: ''
+const barney = new Instructors({
+  name: 'Barney',
+  location: 'Bedrock',
+  age: 36,
+  gender: 'Male',
+  favLanguage: 'Python',
+  specialty: 'Back-End',
+  catchPhrase: `Yabba Dabba Don't`
 });
 
-const student1 = new Student({
-  name: '',
-  location: '',
-  age: ,
-  gender: '',
-  previousBackground: '',
-  className: '',
-  favSubjects: ''
+const xavier = new Students({
+  name: 'Xavier',
+  location: 'Houston',
+  age: 25,
+  gender: 'Male',
+  previousBackground: 'Call Center Management',
+  className: 'CSPT3',
+  favSubjects: ['JavaScript', 'Blockchain']
 });
 
-const student2 = new Student({
-  name: '',
-  location: '',
-  age: ,
-  gender: '',
-  previousBackground: '',
-  className: '',
-  favSubjects: ''
+const leslie = new Students({
+  name: 'Leslie',
+  location: 'Houston',
+  age: 23,
+  gender: 'Female',
+  previousBackground: 'Hotel Hospitality',
+  className: 'CSPT4',
+  favSubjects: ['HTML', 'CSS', 'UI']
 });
 
-const pm1 = new ProjectManagers({
-  name: '',
-  location: '',
-  age: ,
-  gender: '',
-  favLanguage: '',
-  specialty: '',
-  catchPhrase: '',
-  gradClassName: '',
-  favInstructor: ''
+const judy = new ProjectManagers({
+  name: 'Judy',
+  location: 'Orbit City',
+  age: 16,
+  gender: 'Female',
+  favLanguage: 'Emojicode',
+  specialty: 'UI',
+  catchPhrase: `:)`,
+  gradClassName: 'CSFT1000',
+  favInstructor: 'Fred'
 });
 
-const pm2 = new ProjectManagers({
-  name: '',
-  location: '',
-  age: ,
-  gender: '',
-  favLanguage: '',
-  specialty: '',
-  catchPhrase: '',
-  gradClassName: '',
-  favInstructor: ''
+const elroy = new ProjectManagers({
+  name: 'Elroy',
+  location: 'Orbit City',
+  age: 8,
+  gender: 'Male',
+  favLanguage: 'Haskell',
+  specialty: 'Sysadmin',
+  catchPhrase: 'Hello',
+  gradClassName: 'CSFT1000',
+  favInstructor: 'Barney'
 });
+
+console.log(fred);
+console.log(barney);
+console.log(xavier);
+console.log(leslie);
+console.log(judy);
+console.log(elroy);
+fred.speak();
+xavier.speak();
+judy.speak();
+xavier.listsSubjects();
+leslie.PRAssignment('JavaScript');
+leslie.sprintChallenge('HTML');
+barney.demo('Python');
+fred.grade(xavier, 'JavaScript');
+judy.standUp('CSPT3');
+elroy.debugsCode(leslie, 'HTML');
+judy.demo('Python');
+elroy.grade(xavier, 'JavaScript');
