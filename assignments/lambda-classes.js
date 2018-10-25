@@ -239,3 +239,18 @@ console.log(leonard.PRAssignment(this, 'Javascript'));
 console.log(bernadette.PRAssignment(this, 'HTML'));
 
 */
+
+/* check sprintChallenge
+
+console.log(penny.sprintChallenge(this, 'Javascript'));
+console.log(leonard.sprintChallenge(this, 'HTML'));
+console.log(bernadette.sprintChallenge(this, 'CSS'));
+
+*/
+
+/* check standUp 
+/*
+console.log(tina.standUp(this, 'Super Channel'));
+console.log(bob.standUp(this, 'Super Help'));
+console.log(amy.standUp(this, 'Super General'));
+*/
