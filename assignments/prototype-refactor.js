@@ -1,7 +1,7 @@
 class GameObject {
-  constructor(options) {
-    this.createdAt = options.createdAt;
-    this.dimensions = options.dimensions;
+  constructor(att) {
+    this.createdAt = att.createdAt;
+    this.dimensions = att.dimensions;
   }
   destroy() {
     return `${this.name} was removed from the game.`;
@@ -9,10 +9,10 @@ class GameObject {
 }
 
 class CharacterStats extends GameObject {
-  constructor(characterStatsOptions) {
-    super(characterStatsOptions);
-    this.hp = characterStatsOptions.hp;
-    this.name = characterStatsOptions.name;
+  constructor(att) {
+    super(att);
+    this.hp = att.hp;
+    this.name = att.name;
   }
   takeDamage() {
     return `${this.name} took damage.`;
@@ -20,11 +20,11 @@ class CharacterStats extends GameObject {
 }
 
 class Humanoid extends CharacterStats {
-  constructor(humanoidOptions) {
-    super(humanoidOptions);
-    this.faction = humanoidOptions.faction;
-    this.weapons = humanoidOptions.weapons;
-    this.language = humanoidOptions.language;
+  constructor(att) {
+    super(att);
+    this.faction = att.faction;
+    this.weapons = att.weapons;
+    this.language = att.language;
   }
   greet() {
     return `${this.name} offers a greeting in ${this.language}.`;
