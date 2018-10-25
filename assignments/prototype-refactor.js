@@ -45,6 +45,16 @@ class GameObject {
     this.createdAt = attributes.createdAt;
     this.dimensions = attributes.dimensions;
   }
+  destroy() {
+    if (this.alive) this.alive = false;
+    if (!this.name) return `Game object was removed from the game.`;
+    else return `${this.name} was removed from the game.`;
+  }
+
+  takeDamage() {
+    if (!this.alive) return "He's dead, Jim.";
+    return `${this.name} took damage.`;
+  }
 }
 
 // CharacterStats constructor
@@ -61,34 +71,17 @@ class CharacterStats extends GameObject {
 // Humanoid constructor
 class Humanoid extends CharacterStats {
   constructor(attributes) {
-  super(attributes);
-  this.faction = attributes.faction;
-  this.weapons = attributes.weapons;
-  this.language = attributes.language;
-}
-}
+    super(attributes);
+    this.faction = attributes.faction;
+    this.weapons = attributes.weapons;
+    this.language = attributes.language;
+  }
 
-
-
-//Prototype methods
-
-GameObject.prototype.destroy = function () {
-  if (this.alive) this.alive = false;
-  if (!this.name) return `Game object was removed from the game.`;
-  else return `${this.name} was removed from the game.`;
+  greet() {
+    return `${this.name} offers a greeting in ${this.language}.`;
+  }
 }
 
-CharacterStats.prototype.takeDamage = function () {
-  if (!this.alive) return "He's dead, Jim.";
-  let damage = (Math.floor(Math.random() * 10));
-  this.hp -= damage;
-  if (this.hp <= 0) return this.destroy();
-  else return `${this.name} took ${damage} damage.  ${this.hp} remaining`;
-}
-
-Humanoid.prototype.greet = function () {
-  return `${this.name} offers a greeting in ${this.language}.`;
-}
 const mage = new Humanoid({
   createdAt: new Date(),
   dimensions: {
