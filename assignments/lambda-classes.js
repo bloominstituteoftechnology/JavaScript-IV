@@ -254,3 +254,12 @@ console.log(tina.standUp(this, 'Super Channel'));
 console.log(bob.standUp(this, 'Super Help'));
 console.log(amy.standUp(this, 'Super General'));
 */
+
+
+// debugger the bugger
+/*
+console.log(tina.debugsCode(jake, "HTML"));
+console.log(bob.debugsCode(fran, "CSS"));
+console.log(amy.debugsCode(amber, "Javascript"));
+*/
+
