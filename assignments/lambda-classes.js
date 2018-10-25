@@ -23,11 +23,11 @@ class Instructor extends Person {
     }
 
     demo(subject) {
-        `Today we are learning about ${subject}`;
+        return `Today we are learning about ${subject}`;
     }
 
     grade(student, subject) {
-        `${student.name} receives a perfect score on ${subject}`;
+        return `${student.name} receives a perfect score on ${subject}`;
     }
 
 }
@@ -45,11 +45,11 @@ class Student extends Person {
     }
 
     PRAssignment(subject) {
-        `${this.name} has submitted a PR for ${subject}`;
+        return `${this.name} has submitted a PR for ${subject}`;
     }
 
     sprintChallenge(subject) {
-        `${this.name} has begun sprint challenge on ${subject}`;
+        return `${this.name} has begun sprint challenge on ${subject}`;
     }
 }
 
@@ -61,11 +61,11 @@ class ProjectManager extends Instructor {
     }
 
     standUp(channel) {
-        `${this.name} announces to ${channel}, @channel standy times!`;
+        return `${this.name} announces to ${channel}, @channel standy times!`;
     }
 
     debugsCode(student, subject) {
-        `${this.name} debugs ${student.name}'s code on ${subject}`;
+        return `${this.name} debugs ${student.name}'s code on ${subject}`;
     }
 
 }
@@ -112,7 +112,7 @@ const susan = new Student({
 });
 
 const peter = new ProjectManager({
-    name: 'Susan',
+    name: 'Peter',
     location: 'New York',
     age: 25,
     gender: 'male',
@@ -131,3 +131,10 @@ const priya = new ProjectManager({
 
 
 console.log(priya.speak());
+console.log(igor.demo("math"));
+console.log(ilya.grade(sam, "english"));
+sam.listSubjects();
+console.log(sam.PRAssignment("tennis"));
+console.log(susan.sprintChallenge("coin base"));
+console.log(peter.standUp("investor-relations"));
+console.log(priya.debugsCode(susan, "engineering"));
