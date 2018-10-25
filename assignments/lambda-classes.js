@@ -88,3 +88,13 @@ const howard = new Instructor({
     specialty: 'being a creeper',
     catchPhrase: 'I say let\'s pour one out for the science homies that came before us.'
 });
+
+const penny = new Student({
+    name: 'Penny',
+    age: 24,
+    location: 'Nebraska',
+    gender: 'female',
+    previousBackground: ["Actress"],
+    className: "FSW 15",
+    favSubjects: ['HTML', 'CSS', 'JavaScript']
+  });
