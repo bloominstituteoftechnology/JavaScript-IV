@@ -40,7 +40,7 @@ class Person {
       demo (subject) {
         console.log(`Today we are learning about ${subject}`)
       }
-      grade (student) {
+      grade (student, subject) {
         console.log (`${student.name} receives a perfect score on ${subject}`)
       }
   }
@@ -100,4 +100,31 @@ class Person {
         console.log(`${this.name} debugs ${student.name}'s code on ${subject}`)
       }
   }
+
+  /* Test The Code */
+
+  const harry = new Person ({
+      name: 'Harry Callahan',
+      age: 42,
+      location: 'San Francisco',
+      gender: 'male'
+  });
+
+ 
+
+  const fred = new Instructor({
+    name: 'Fred',
+    location: 'Bedrock',
+    age: 37,
+    gender: 'male',
+    favLanguage: 'JavaScript',
+    specialty: 'Front-end',
+    catchPhrase: `Don't forget the homies`
+  });
+
+  console.log (fred.speak())
+  console.log (fred.demo('React'))
+  console.log (fred.grade('React', 'Harry'))
+
+  console.log(harry.speak())
 
