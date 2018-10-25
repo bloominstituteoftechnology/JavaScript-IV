@@ -32,13 +32,13 @@ class Instructor extends Person {
     console.log(phrase);
     return phrase;
   }
-  ChangeGrade(student, subject, addOrSub) {
+  ChangeGrade(student, addOrSub) {
     let newGrade = 0;
     let phrase = '';
     if(addOrSub === 'add') {
       //If grade already a 100, can't add more
       if (student.grade === 100) {
-        phrase = `Student ${student.name} has a grade of 100 in subject ${subject}. Can not add to grade.`;
+        phrase = `Student ${student.name} has a grade of 100. Can not add to grade.`;
         console.log(phrase);
         return phrase;
      }
@@ -46,7 +46,7 @@ class Instructor extends Person {
     } else {
       //If grade already a 0, can't make it lower
       if(student.grade === 0) {
-        phrase = `Student ${student.name} has a grade of 0 in subject ${subject}. Can not lower grade.`;
+        phrase = `Student ${student.name} has a grade of 0. Can not lower grade.`;
         console.log(phrase);
         return phrase;
       }
@@ -59,7 +59,7 @@ class Instructor extends Person {
     if(newGrade > 100) {
       newGrade = 100;
     }
-    phrase = `Student ${student.name}'s grade in subject ${subject} went from ${student.grade} to ${newGrade}.`;
+    phrase = `Student ${student.name}'s grade went from ${student.grade} to ${newGrade}.`;
     console.log(phrase);
     student.grade = newGrade;
     return newGrade;
@@ -88,6 +88,16 @@ class Student extends Person {
   }
   sprintChallenge(subject) {
     const phrase = `${this.name} has begun sprint challenge on ${subject}.`
+    console.log(phrase);
+    return phrase;
+  }
+  graduate() {
+    let phrase = '';
+    if(this.grade >= 70) {
+      phrase = `Student ${this.name} is graduating!!!!!`;
+    } else {
+      phrase = `Student ${this.name} is not graduating yet. Grade is ${this.grade}%.`;
+    }
     console.log(phrase);
     return phrase;
   }
@@ -204,6 +214,8 @@ manager1.grade(student2, 'Callbacks');
 manager2.grade(student1, 'array functions');
 
 //Testing the change grade method
-instructor1.ChangeGrade(student1, 'JavaScript', 'add');
-instructor2.ChangeGrade(student2, 'JavaScript', 'sub');
+instructor1.ChangeGrade(student1, 'add');
+student1.graduate();
+instructor2.ChangeGrade(student2, 'sub');
+student2.graduate();
 
