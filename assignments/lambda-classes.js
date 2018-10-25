@@ -65,3 +65,29 @@ class ProjectManager extends Instructor {
     console.log(`${this.name} debugs ${student.name}\'s code on ${subject}`)
   }
 }
+
+
+const bob = new Instructor({
+  name: 'Bobby',
+  location: 'Smith',
+  age: 39,
+  gender: 'male',
+  favLanguage: 'Java',
+  specialty: 'Back-end',
+  catchPhrase: `Don't forget the homies`
+});
+
+
+const becky = new Instructor({
+  name: 'Becky',
+  location: 'Jones',
+  age: 33,
+  gender: 'female',
+  favLanguage: 'C++',
+  specialty: 'Computer Architecture',
+  catchPhrase: `How's it going`
+});
+
+console.log(`I am ${bob.name}, and I teach ${bob.specialty} in ${bob.favLanguage}`)
+bob.demo('Classes')
+console.log(`${becky.catchPhrase}, I am ${becky.name}`)
