@@ -70,7 +70,7 @@ const me = new Student({name: "Jason Cook", age: 31, location: "Cape Cod", gende
 const noah = new Student({name: "Noah Stoeckel", age: "Around 30", location: "New Hampshire", gender: "Male", prevBackground: "Nerdcore Rapper", className: "FSWPT3", favSubjects: ["Games", "Programming"]});
 
 console.log(`-${dan.grade(me, "LESS")}- however, 'it ${dan.catchPhrase}' says ${dan.name}`);
-console.log(`'${cam.demo("Javascript")} ${cam.catchPhrase}'`);
+console.log(`Cam says '${cam.demo("Javascript")} ${cam.catchPhrase}'`);
 console.log(`'${dan.speak()} My specialty is ${dan.specialty}'`);
 console.log(`'${cam.speak()} My favorite language is ${cam.favLanguage}'`);
 console.log(`${brock.debugsCode(me, "Applied Javascript")} That's because ${brock.specialty} is his specialty! ${brock.catchPhrase}`);
