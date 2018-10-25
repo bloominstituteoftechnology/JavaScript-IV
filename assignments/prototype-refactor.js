@@ -150,28 +150,28 @@ console.log(swordsman.destroy()); // Sir Mustachio was removed from the game.
 // * Create two new objects, one a villian and one a hero and fight it out with methods!
 
 // Hero 
-const Hero = function (attributes) {
-  Humanoid.call(this, attributes);
-  this.mp = attributes.mp;
-  this.str = attributes.str;
-}
+class Hero extends Humanoid {
+  constructor(attributes) {
+    super(attributes);
+    this.mp = attributes.mp;
+    this.str = attributes.str;
+  }
 
-Hero.prototype = Object.create(Humanoid.prototype);
-
-Hero.prototype.strike = function (target) {
-  if (!this.alive) return `You can't do that, you're dead!`;
-  else if (!target.alive) return `You just going to hack at that corpse all day?`;
-  else {
-    if ((Math.random() * 10) < 5) return target.takeDamage();
-    else return "Attack missed";
+  strike(target) {
+    if (!this.alive) return `You can't do that, you're dead!`;
+    else if (!target.alive) return `You just going to hack at that corpse all day?`;
+    else {
+      if ((Math.random() * 10) < 5) return target.takeDamage();
+      else return "Attack missed";
+    }
   }
 }
 
 // Villain
-const Villain = function (attributes) {
-  Humanoid.call(this, attributes);
+class Villain extends Humanoid{
+  constructor(attributes) {
+  super(attributes);
   this.mp = attributes.mp;
   this.str = attributes.str;
 }
-
-Villain.prototype = Object.create(Humanoid.prototype);
+}
