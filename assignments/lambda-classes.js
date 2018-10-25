@@ -37,7 +37,7 @@ class ProjectManager extends Instructor {
   }
 
   standUp(channel) {
-    return `${this.name}announces to ${channel}, @channel standup time!`;
+    return `${this.name} announces to ${channel}, @channel standup time!`;
   }
 
   debugsCode(student, subject) {
@@ -126,6 +126,19 @@ const jenae = new Student({
   favSubjects: ['large motor repair', 'baseball', 'horticulture', 'server deployment']
 })
 
-
+console.log(jonathan.age);
+console.log(jenae.gender);
+console.log(barney.favInstructor);
+console.log(wilma.favLanguage);
 jonathan.listsSubjects();
+console.log(jenae.speak());
+console.log(fred.speak());
+console.log(betty.speak());
+console.log(fred.demo("NodeJS"));
+console.log(barney.grade(jenae, "HTML5"));
 console.log(jonathan.previousBackground);
+console.log(betty.standUp("fswpt3"));
+console.log(jonathan.PRAssignment("User Interface"));
+console.log(jenae.sprintChallenge("JavaScript Fundamentals"));
+console.log(barney.debugsCode(jonathan, "LESS"));
+console.log(wilma.grade(jenae, "Applied JavaScript"));
