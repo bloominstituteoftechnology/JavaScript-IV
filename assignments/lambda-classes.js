@@ -80,5 +80,5 @@ console.log(`'${me.speak()}' says ${me.name}. ${me.listsSubjects()}`);
 console.log(`${me.prevBackground}`);
 console.log(`${noah.prAssignment("Javascript IV")}, I bet they did well since they used to be a ${noah.prevBackground}`);
 console.log(`${me.sprintChallenge("Javascript Fundamentals")}`);
-console.log(`${me.name} belongs to the ${me.class} class, at Lambda School of Ciphers and Strange Programming Glyphs.`);
-console.log(`${noah.name} belongs to the ${noah.class} class, at Lambda School of Ciphers and Strange Programming Glyphs.`);
+console.log(`${me.name} belongs to the ${me.className} class, at Lambda School of Ciphers and Strange Programming Glyphs.`);
+console.log(`${noah.name} belongs to the ${noah.className} class, at Lambda School of Ciphers and Strange Programming Glyphs.`);
