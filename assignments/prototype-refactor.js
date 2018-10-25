@@ -51,3 +51,33 @@ class GameObject {
       }
     }
 
+
+// function Humanoid(att) {
+//   CharacterStats.call(this, att);
+//   this.faction = att.faction;
+//   this.weapons = att.weapons;
+//   this.language = att.language;
+//   this.greet = function(){
+//   return `${this.name} offers a greeting in ${this.language}`;
+//    }
+//   }
+
+// Humanoid.prototype = Object.create(CharacterStats.prototype);
+
+// Humanoid.prototype.greet = function() {
+//   return `${this.name} offers a greeting in ${this.language}.`;
+// };
+
+class Humanoid extends CharacterStats {
+    constructor(humanoidAtt) {
+      super(humanoidAtt);
+      this.faction = humanoidAtt.faction;
+      this.weapons = humanoidAtt.weapons;
+      this.language = humanoidAtt.language;
+    };
+    greet() {
+      return `${this.name} offers a greeting in ${this.language}.`;
+    };
+  };
+  
+
