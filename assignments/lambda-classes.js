@@ -30,6 +30,12 @@ class Instructor extends Person {
         return `${student.name} receives a perfect score on ${subject}`;
     }
 
+    changeGrade (student) {
+        let newGrade = student.grade + Math.random();
+        return newGrade = newGrade.toFixed(2)*100;
+        
+    }
+
 }
 
 class Student extends Person {
@@ -38,6 +44,7 @@ class Student extends Person {
         this.previousBackground = quals.previousBackground;
         this.className = quals.className;
         this.favSubjects = quals.favSubjects;
+        this.grade = quals.grade;
     }
 
     listSubjects() {
@@ -50,6 +57,15 @@ class Student extends Person {
 
     sprintChallenge(subject) {
         return `${this.name} has begun sprint challenge on ${subject}`;
+    }
+
+    graduate(newGrade) {
+        if (newGrade > 70) {
+            return `${this.name}'s grade is ${newGrade}%. Congrats on graduation!`;
+        }
+        else {
+            return `${this.name}'s grade is only ${newGrade}%, better luck next year`;
+        }
     }
 }
 
@@ -98,7 +114,8 @@ const sam = new Student({
     gender: 'male',
     previousBackground: 'power',
     className: 'CSPT3',
-    favSubjects: ['CS101', 'Lunch', 'recess']
+    favSubjects: ['CS101', 'Lunch', 'recess'],
+    grade: 0
 });
 
 const susan = new Student({
@@ -108,7 +125,8 @@ const susan = new Student({
     gender: 'female',
     previousBackground: 'fashion',
     className: 'CSFT3',
-    favSubjects: ['fashion', 'drama', 'gossip']
+    favSubjects: ['fashion', 'drama', 'gossip'],
+    grade: 0
 });
 
 const peter = new ProjectManager({
@@ -138,3 +156,5 @@ console.log(sam.PRAssignment("tennis"));
 console.log(susan.sprintChallenge("coin base"));
 console.log(peter.standUp("investor-relations"));
 console.log(priya.debugsCode(susan, "engineering"));
+console.log(sam.graduate(ilya.changeGrade(sam)));
+console.log(susan.graduate(igor.changeGrade(susan)));
