@@ -13,15 +13,32 @@ Prototype Refactor
   * dimensions
   * destroy() // prototype method -> returns the string 'name was removed from the game.'
 */
-function GameObject(options) {
+// function GameObject(options) {
+//     this.createdAt = options.createdAt;
+//     this.dimensions = options.dimensions;
+//     this.name = options.name;
+//   }
+  
+//   GameObject.prototype.destroy = function () {
+//     return `${this.name} was removed from the game.`;
+//   };
+
+  class GameObject {
+    constructor(options) {
     this.createdAt = options.createdAt;
     this.dimensions = options.dimensions;
     this.name = options.name;
-  }
+    }
+
+    destroy () {
+    return `${this.name} was removed from the game.`;   
+    }
+}
+
+
+    
+      
   
-  GameObject.prototype.destroy = function () {
-    return `${this.name} was removed from the game.`;
-  };
   
   /*
   === CharacterStats ===
