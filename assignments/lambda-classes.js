@@ -231,3 +231,11 @@ console.log(leonard.listsSubjects());
 console.log(bernadette.listsSubjects());
 
 */
+
+/*check PRAssignment 
+
+console.log(penny.PRAssignment(this, 'HTML'));
+console.log(leonard.PRAssignment(this, 'Javascript'));
+console.log(bernadette.PRAssignment(this, 'HTML'));
+
+*/
