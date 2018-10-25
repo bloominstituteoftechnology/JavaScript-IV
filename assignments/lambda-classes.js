@@ -154,3 +154,39 @@ const amy = new ProManager({
     gradClassName: 'FSW 9',
     favInstructor: 'Wolowitz'
 });
+
+/* Check Objects
+
+ ============ instructors=========
+
+console.dir(rajesh);
+console.dir(sheldon);
+console.dir(howard);
+
+ ============ students==========
+
+console.dir(penny);
+console.dir(leonard);
+console.dir(bernadette);
+
+============ project managers======
+
+console.dir(tina);
+console.dir(bob);
+console.dir(amy);
+
+*/
+
+/*checking all speak methods
+
+console.log(rajesh.speak());
+console.log(sheldon.speak());
+console.log(howard.speak());
+console.log(penny.speak());
+console.log(leonard.speak());
+console.log(bernadette.speak());
+console.log(tina.speak());
+console.log(bob.speak());
+console.log(amy.speak());
+
+*/
