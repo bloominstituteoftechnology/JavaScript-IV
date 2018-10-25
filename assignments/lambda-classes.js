@@ -27,6 +27,21 @@ class Instructor extends Person {
   grade(student, subject) {
     console.log(`${student.name} recieves a perfect score on ${subject}`)
   }
+
+  adjustGrade(student) {
+    const adjustAmount =  Math.floor(Math.random()*10);
+    if(Math.random() < 0.5) {
+      student.grade -= adjustAmount;
+    } else {
+      student.grade += adjustAmount;
+    }
+
+    if(student.grade > 100) {
+      student.grade = 100;
+    } else if (student.grade < 0) {
+      student.grade = 0;
+    }
+  }
 }
 
 class Student extends Person {
@@ -35,6 +50,7 @@ class Student extends Person {
     this.previousBackground = props.previousBackground
     this.className = props.className
     this.favSubjects = props.favSubjects
+    this.grade = props.grade
   }
 
   listSubjects() {
@@ -96,7 +112,8 @@ const bernard = new Student({
   gender: 'male',
   previousBackground: 'College Dropout',
   className: 'FSWPT3',
-  favSubjects: ['JavaScript', 'React', 'Python']
+  favSubjects: ['JavaScript', 'React', 'Python'],
+  grade: 65
 });
 
 const carly = new Student({
@@ -106,7 +123,8 @@ const carly = new Student({
   gender: 'female',
   previousBackground: 'Hair Stylist',
   className: 'FSWPT5',
-  favSubjects: ['HTML', 'CSS', 'C']
+  favSubjects: ['HTML', 'CSS', 'C'],
+  grade: 85
 });
 
 const amelia = new ProjectManager({
@@ -127,13 +145,17 @@ const jaxson = new ProjectManager({
   favInstructor: 'Dan'
 });
 
-console.log(`I am ${bob.name}, and I teach ${bob.specialty} in ${bob.favLanguage}`)
-bob.demo('Classes')
-console.log(`${becky.catchPhrase}, I am ${becky.name}`)
+console.log(`I am ${bob.name}, and I teach ${bob.specialty} in ${bob.favLanguage}`);
+bob.demo('Classes');
+console.log(`${becky.catchPhrase}, I am ${becky.name}`);
 bernard.speak();
 bernard.listSubjects();
 bernard.PRAssignment('JavaScript Classes');
 carly.listSubjects();
 carly.sprintChallenge('Python');
 amelia.standUp('#fswpt5_amelia');
-jaxson.debugCode(bernard, 'C#')
+jaxson.debugCode(bernard, 'C#');
+amelia.adjustGrade(bernard);
+console.log(bernard.grade);
+becky.adjustGrade(carly);
+console.log(carly.grade);
