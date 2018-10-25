@@ -58,3 +58,83 @@ class ProjectManager extends Instructor{
 		return `${this.name} debugs ${student.name}'s code on ${subject}`;
 	}
 }
+
+// Testing
+
+const fred = new Instructor({
+  name: 'Fred',
+  location: 'Bedrock',
+  age: 37,
+  gender: 'male',
+  favLanguage: 'JavaScript',
+  specialty: 'Front-end',
+  catchPhrase: `Don't forget the homies`
+});
+
+const dumbledore = new Instructor({
+	name: 'Albus Dumbledore',
+	location: 'Hogwarts',
+	age: 160,
+	gender: 'male',
+	favLanguage: 'Magic',
+	speciality: 'Transfiguration',
+	catchPhrase: 'It does not do to dwell on dreams and forget to live.'
+});
+
+const frank = new Person({
+	name: 'Franklin',
+	age: 37,
+	location: 'New York',
+	gender: 'male'
+});
+
+const al = new Person({
+	name: 'Alfred Yankovic',
+	age: 59,
+	location: 'California',
+	gender: 'male'
+});
+
+const ed = new Student({
+	name: 'Edward',
+	age: 27,
+	location: 'New Jersey',
+	gender: 'male',
+	previousBackground: 'Free Code Camp and Practical JS',
+	className: 'CSPT3',
+	favSubjects: 'Javascript'
+});
+
+const harry = new Student({
+	name: 'Harry Potter',
+	age: 17,
+	location: 'Little Whinging',
+	gender: 'male',
+	previousBackground: 'The Boy Who Lived',
+	className: 'Gryffindor',
+	favSubjects: 'Defense Against the Dark Arts'
+});
+
+const percy = new ProjectManager({
+	name: 'Percy Weasley',
+	age: 21,
+	location: 'The Burrow',
+	gender: 'male',
+	favLanguage: 'Magic',
+	speciality: 'Being Head Boy',
+	catchPhrase: 'Blah blah rules blah',
+	gradClassName: 'Gryffindor',
+	favInstructor: 'Professor McGonagall'
+});
+
+const dude = new ProjectManager({
+	name: 'Dude',
+	age: 99,
+	location: 'Everywhere',
+	gender: 'male',
+	favLanguage: 'Java',
+	speciality: 'OOP',
+	catchPhrase: 'I\'m a guy',
+	gradClassName: 'FSW1',
+	favInstructor: 'Beej'
+});
