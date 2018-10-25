@@ -190,3 +190,11 @@ console.log(bob.speak());
 console.log(amy.speak());
 
 */
+
+/* Demo check
+
+============ instructors==============
+
+console.log(rajesh.demo('Javascript'));
+console.log(sheldon.demo('C#'));
+console.log(howard.demo('The language of love');
