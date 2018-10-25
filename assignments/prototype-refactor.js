@@ -66,7 +66,6 @@ Prototype Refactor
     }
   }
   
-
   
   /*
   === Humanoid ===
@@ -77,18 +76,18 @@ Prototype Refactor
   * should inherit destroy() from GameObject through CharacterStats
   * should inherit takeDamage() from CharacterStats
   */
-  function Humanoid(humanoidOptions) {
-    CharacterStats.call(this, humanoidOptions);
-    this.faction = humanoidOptions.faction;
-    this.weapons = humanoidOptions.weapons;
-    this.language = humanoidOptions.language;
-  }
+//   function Humanoid(humanoidOptions) {
+//     CharacterStats.call(this, humanoidOptions);
+//     this.faction = humanoidOptions.faction;
+//     this.weapons = humanoidOptions.weapons;
+//     this.language = humanoidOptions.language;
+//   }
   
-  Humanoid.prototype = Object.create(CharacterStats.prototype);
+//   Humanoid.prototype = Object.create(CharacterStats.prototype);
   
-  Humanoid.prototype.greet = function () {
-    return `${this.name} offers a greeting in ${this.language}.`;
-  };
+//   Humanoid.prototype.greet = function () {
+//     return `${this.name} offers a greeting in ${this.language}.`;
+//   };
   
   
   /*
@@ -97,8 +96,20 @@ Prototype Refactor
   * Instances of CharacterStats should have all of the same properties as GameObject.
   */
   
-  
   //Test you work by uncommenting these 3 objects and the list of console logs below:
+
+  class Humanoid extends CharacterStats {
+        constructor (humanoidOptions) {
+            super (humanoidOptions);
+            this.faction = humanoidOptions.faction;
+            this.weapons = humanoidOptions.weapons;
+            this.language = humanoidOptions.language;
+        }
+        greet () {
+            return `${this.name} offers a greeting in ${this.language}`
+        }
+    
+  }
   
   
   const mage = new Humanoid({
