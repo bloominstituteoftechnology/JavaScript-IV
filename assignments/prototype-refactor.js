@@ -28,3 +28,26 @@ class GameObject {
     }
   }
   
+    // function CharacterStats(att) {
+    //   GameObject.call(this, att);
+    //   this.hp = att.hp;
+    //   this.name = att.name;
+    // }
+    
+    // CharacterStats.prototype = Object.create(GameObject.prototype);
+    
+    // CharacterStats.prototype.takeDamage = function() {
+    //   return `${this.name} took damage.`;
+    // };
+    
+    class CharacterStats extends GameObject {
+      constructor(characterOptions) {
+        super(characterOptions);
+        this.hp = characterOptions.hp;
+        this.name = characterOptions.name;
+      }
+      takeDamage() {
+        return `${this.name} took damage.`;
+      }
+    }
+
