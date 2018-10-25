@@ -33,12 +33,8 @@ Prototype Refactor
     destroy () {
     return `${this.name} was removed from the game.`;   
     }
-}
+  }
 
-
-    
-      
-  
   
   /*
   === CharacterStats ===
@@ -48,17 +44,29 @@ Prototype Refactor
   * should inherit destroy() from GameObject's prototype
   */
   
-  function CharacterStats(characterStatsOptions) {
-    GameObject.call(this, characterStatsOptions);
-    this.hp = characterStatsOptions.hp;
+//   function CharacterStats(characterStatsOptions) {
+//     GameObject.call(this, characterStatsOptions);
+//     this.hp = characterStatsOptions.hp;
+//   }
+
+  // Sets up inheritance with GameObject
+//   CharacterStats.prototype = Object.create(GameObject.prototype);
+  
+//   CharacterStats.prototype.takeDamage = function () {
+//     return `${this.name} took damage.`;
+//   };
+
+  class CharacterStats extends GameObject {
+    constructor (characterStatsOptions) {
+        super (characterStatsOptions);
+        this.hp = characterStatsOptions.hp;
+    }
+    takeDamage () {
+        return `${this.name} took damage.`;
+    }
   }
   
-  // Sets up inheritance with GameObject
-  CharacterStats.prototype = Object.create(GameObject.prototype);
-  
-  CharacterStats.prototype.takeDamage = function () {
-    return `${this.name} took damage.`;
-  };
+
   
   /*
   === Humanoid ===
