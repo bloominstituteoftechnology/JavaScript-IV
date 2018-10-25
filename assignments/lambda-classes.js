@@ -119,3 +119,38 @@ const bernadette = new Student({
     favSubjects: ['HTML']
   });
   
+  const tina = new ProManager({
+    name: 'Tina',
+    age: 23,
+    location: 'Texas',
+    gender: 'female',
+    specialty: 'Front-end',
+    favLanguage: 'CSS',
+    catchPhrase: 'Don\'t have a crap attack!',
+    gradClassName: 'FSW 11',
+    favInstructor: 'Raj'
+});
+
+const bob = new ProManager({
+    name: 'Bob',
+    age: 41,
+    location: 'New York',
+    gender: 'male',
+    specialty: 'UI Design',
+    favLanguage: 'CSS',
+    catchPhrase: 'Oh god.',
+    gradClassName: 'FSW 13',
+    favInstructor: 'Sheldon'
+});
+
+const amy = new ProManager({
+    name: 'Amy',
+    age: 30,
+    location: 'Idaho',
+    gender: 'female',
+    specialty: 'Front-end',
+    favLanguage: 'Javascript',
+    catchPhrase: 'I\'m a princess and this is my tiara!',
+    gradClassName: 'FSW 9',
+    favInstructor: 'Wolowitz'
+});
