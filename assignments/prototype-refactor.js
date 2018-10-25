@@ -1,4 +1,4 @@
-/* 
+/*
 
 Prototype Refactor
 
@@ -48,13 +48,9 @@ class GameObject {
   destroy() {
     if (this.alive) this.alive = false;
     if (!this.name) return `Game object was removed from the game.`;
-    else return `${this.name} was removed from the game.`;
+    else return `${this.name} has been vanquished.`;
   }
 
-  takeDamage() {
-    if (!this.alive) return "He's dead, Jim.";
-    return `${this.name} took damage.`;
-  }
 }
 
 // CharacterStats constructor
@@ -65,6 +61,18 @@ class CharacterStats extends GameObject {
     this.name = attributes.name;
     this.alive = true;
   }
+
+  takeDamage() {
+    if (!this.alive) return "He's dead, Jim.";
+    let damage = diceRoll();
+    this.hp -= damage;
+    if (damage < 1) return `${this.name} shrugs it off.`;
+    else if (this.hp <= 0) return this.destroy();
+    else {
+    return `${this.name} took ${damage} damage.`;
+  }
+  }
+
 }
 
 
@@ -81,6 +89,13 @@ class Humanoid extends CharacterStats {
     return `${this.name} offers a greeting in ${this.language}.`;
   }
 }
+
+// Dice roll function
+function diceRoll () {
+  let roll = Math.floor(Math.random() * 10);
+  return Math.round(roll);
+}
+console.log(diceRoll());
 
 const mage = new Humanoid({
   createdAt: new Date(),
@@ -144,12 +159,12 @@ console.log(archer.greet()); // Lilith offers a greeting in Elvish.
 console.log(mage.takeDamage()); // Bruce took damage.
 console.log(swordsman.destroy()); // Sir Mustachio was removed from the game.
 
-// Stretch task: 
-// * Create Villian and Hero constructor functions that inherit from the Humanoid constructor function.  
+// Stretch task:
+// * Create Villian and Hero constructor functions that inherit from the Humanoid constructor function.
 // * Give the Hero and Villians different methods that could be used to remove health points from objects which could result in destruction if health gets to 0 or drops below 0;
 // * Create two new objects, one a villian and one a hero and fight it out with methods!
 
-// Hero 
+// Hero
 class Hero extends Humanoid {
   constructor(attributes) {
     super(attributes);
@@ -161,7 +176,7 @@ class Hero extends Humanoid {
     if (!this.alive) return `You can't do that, you're dead!`;
     else if (!target.alive) return `You just going to hack at that corpse all day?`;
     else {
-      if ((Math.random() * 10) < 5) return target.takeDamage();
+      if (diceRoll() > 4) return target.takeDamage();
       else return "Attack missed";
     }
   }
@@ -184,7 +199,7 @@ class Villain extends Humanoid {
         return `You do not have enough MP`;
       } else {
         this.mp -= 3;
-        if ((Math.random() * 10) < 5) return target.takeDamage();
+        if (diceRoll() > 4) return target.takeDamage();
         else return "Attack missed";
       }
     }
