@@ -36,5 +36,16 @@ class Student extends Person {
     this.className = attributes.className;
     this.favSubjects = attributes.favSubjects;
   }
-  
+
+  listsSubjects() {
+    this.favSubjects.forEach(item => console.log(item));
+  }
+
+  PRAssignment(subject) {
+    return `${this.name} has submitted a PR for ${subject}.`;
+  }
+
+  sprintChallenge(subject) {
+    return `${this.name} has begun sprint challenge on ${subject}.`
+  }
 }
