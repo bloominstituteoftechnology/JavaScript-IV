@@ -59,7 +59,7 @@ class ProMananger extends Instructor {
     };
 }
 
-const Rajesh = new Instructor({
+const rajesh = new Instructor({
     name: 'Raj',
     location: 'California',
     age: 31,
@@ -67,4 +67,14 @@ const Rajesh = new Instructor({
     favLanguage: 'JavaScript',
     specialty: 'Back-end',
     catchPhrase: `I am resplendent, am I not?`
+});
+
+const sheldon= new Instructor({
+    name: 'Sheldon',
+    location: 'Calfiornia',
+    age: 33,
+    gender: 'male',
+    favLanguage: 'C#',
+    specialty: 'Back-end',
+    catchPhrase: 'BAZINGA!'
 });
