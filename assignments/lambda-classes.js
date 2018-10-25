@@ -23,6 +23,10 @@ class Instructor extends Person {
   grade(student, subject) {
     return `${student.name} receives a perfect score on ${subject}`;
   }
+  addGrades(student) {
+    student.grade += Math.floor((Math.random() - 0.5) * 4 + 1);
+    return `${student.name} has a ${student.grade}`;
+  }
 }
 class Student extends Person {
   constructor(attr) {
