@@ -223,3 +223,11 @@ console.log(bob.grade(leonard, 'CSS'));
 console.log(amy.grade(bernadette, 'Javascript'));
 
 */
+
+/* check listSubjects 
+
+console.log(penny.listsSubjects());
+console.log(leonard.listsSubjects());
+console.log(bernadette.listsSubjects());
+
+*/
