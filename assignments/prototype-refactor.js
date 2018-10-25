@@ -112,82 +112,76 @@ class Humanoid extends CharacterStats {
   // * Give the Hero and Villians different methods that could be used to remove health points from objects which could result in destruction if health gets to 0 or drops below 0;
   // * Create two new objects, one a villian and one a hero and fight it out with methods!
 
-
-//   function Villain(options) {
-//     Humanoid.call(this, options);
-//     // this.characterState = options.characterState;
-//   }
+  class Villain extends Humanoid {
+    constructor(options){
+      super(options) 
+    }
+    villainAttack(enemy) {
+      enemy.hp -= Math.floor((Math.random() * 10) + 1);
+      console.log(`${this.name} attacked ${enemy.name}.`)
+      if (enemy.hp <= 0) {
+        console.log(`${enemy.name} has been defeated!!!`);
+      }
+    }
+  }
   
-//   Villain.prototype = Object.create(Humanoid.prototype);
-//   Villain.prototype.constructor = Villain;
-
-//   Villain.prototype.villainAttack = function(enemy){
-//     enemy.hp -= Math.floor((Math.random() * 10) + 1);
-//     console.log(`${this.name} attacked ${enemy.name}.`)
-//     if (enemy.hp <= 0){
-//       console.log(`${enemy.name} has been defeated!!!`)
-//     } 
-//   }
-  
-//   function Hero(options){
-//     Humanoid.call(this, options);
-//     // this.characterState = options.characterState;
-//   }
-  
-//   Hero.prototype = Object.create(Humanoid.prototype);
-//   Hero.prototype.constructor = Hero;
-
-//   Hero.prototype.heroAttack = function(enemy){
-//     enemy.hp -= Math.floor((Math.random() * 10) + 1);
-//     console.log(`${this.name} attacked ${enemy.name} with ${this.weapons}.`)
-//     if (enemy.hp <= 0){
-//       console.log(`${enemy.name} has been defeated!!!`)
-//     } 
-//   }
-
-//   const twilight = new Hero({
-//     createdAt: new Date(),
-//     dimensions: {
-//       length: 2,
-//       width: 1,
-//       height: 1,
-//     },
-//     hp: 25,
-//     name: 'Twilight Sparkle',
-//     faction: 'The Land of Equestria',
-//     weapons: [
-//       'her brain',
-//     ],
-//     language: 'Common Tongue',
-//   });
-
-//   const tempest = new Villain({
-//     createdAt: new Date(),
-//     dimensions: {
-//       length: 2,
-//       width: 1,
-//       height: 1,
-//     },
-//     hp: 30,
-//     name: 'Tempest',
-//     faction: 'Storm King Nation',
-//     weapons: [
-//       'her magical powers',
-//     ],
-//     language: 'Common Tongue',
-//   });
+  class Hero extends Humanoid {
+    constructor(options){
+      super(options);
+    }
+    heroAttack(enemy) {
+      enemy.hp -= Math.floor((Math.random() * 10) + 1);
+      console.log(`${this.name} attacked ${enemy.name} with ${this.weapons}.`)
+      if (enemy.hp <= 0){
+        console.log(`${enemy.name} has been defeated!!!`);
+      }
+    }
+  }
 
 
-// function fight(hero, villain) {
-//   for (i = 0; i < 50; i++) {
-//     if (villain.hp > 0 || hero.hp > 0) {
-//       villain.villainAttack(hero);
-//       hero.heroAttack(villain)
-//     } 
-//     if (villain.hp <= 0 || hero.hp <= 0) {
-//       break
-//     }
-//   }
-// }
+  const twilight = new Hero({
+    createdAt: new Date(),
+    dimensions: {
+      length: 2,
+      width: 1,
+      height: 1,
+    },
+    hp: 25,
+    name: 'Twilight Sparkle',
+    faction: 'The Land of Equestria',
+    weapons: [
+      'her brain',
+    ],
+    language: 'Common Tongue',
+  });
 
-// fight(twilight, tempest);
+  const tempest = new Villain({
+    createdAt: new Date(),
+    dimensions: {
+      length: 2,
+      width: 1,
+      height: 1,
+    },
+    hp: 30,
+    name: 'Tempest',
+    faction: 'Storm King Nation',
+    weapons: [
+      'her magical powers',
+    ],
+    language: 'Common Tongue',
+  });
+
+
+function fight(hero, villain) {
+  for (i = 0; i < 50; i++) {
+    if (villain.hp > 0 || hero.hp > 0) {
+      villain.villainAttack(hero);
+      hero.heroAttack(villain)
+    } 
+    if (villain.hp <= 0 || hero.hp <= 0) {
+      break
+    }
+  }
+}
+
+fight(twilight, tempest);
