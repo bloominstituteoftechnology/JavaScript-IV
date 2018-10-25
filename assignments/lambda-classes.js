@@ -35,9 +35,12 @@ class Students extends Person {
   }
   listsSubjects() {
     //a method that logs out all of the student's favoriteSubjects one by one.
+    /*
     for(let i = 0; i < this.favSubjects.length; i++){
       console.log(this.favSubjects[i]);
     }
+    */
+    this.favSubjects.forEach(element => console.log(element));
   }
   PRAssignment(subject) {
     console.log(`${this.name} has submitted a PR for ${subject}`);
@@ -135,6 +138,7 @@ fred.speak();
 xavier.speak();
 judy.speak();
 xavier.listsSubjects();
+leslie.listsSubjects();
 leslie.PRAssignment('JavaScript');
 leslie.sprintChallenge('HTML');
 barney.demo('Python');
