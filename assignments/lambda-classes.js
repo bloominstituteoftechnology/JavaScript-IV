@@ -58,3 +58,13 @@ class ProMananger extends Instructor {
         return `${this.name} debugs ${student.name}'s code on ${subject}`;
     };
 }
+
+const Rajesh = new Instructor({
+    name: 'Raj',
+    location: 'California',
+    age: 31,
+    gender: 'male',
+    favLanguage: 'JavaScript',
+    specialty: 'Back-end',
+    catchPhrase: `I am resplendent, am I not?`
+});
