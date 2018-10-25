@@ -177,7 +177,7 @@ console.dir(amy);
 
 */
 
-/*checking all speak methods
+/* Speak Check
 
 console.log(rajesh.speak());
 console.log(sheldon.speak());
@@ -198,3 +198,28 @@ console.log(amy.speak());
 console.log(rajesh.demo('Javascript'));
 console.log(sheldon.demo('C#'));
 console.log(howard.demo('The language of love');
+
+
+============ ProManagers===============
+
+console.log(tina.demo('CSS'));
+console.log(bob.demo('CSS'));
+console.log(amy.demo('Javascript'));
+
+*/
+
+/* Grade Check
+
+============ instructors=====================
+
+console.log(rajesh.grade(penny, 'Javascript'));
+console.log(sheldon.grade(leonard, 'HTML'));
+console.log(howard.grade(bernadette, 'HTML'));
+
+============ project managers==================
+
+console.log(tina.grade(penny, 'HTML'));
+console.log(bob.grade(leonard, 'CSS'));
+console.log(amy.grade(bernadette, 'Javascript'));
+
+*/
