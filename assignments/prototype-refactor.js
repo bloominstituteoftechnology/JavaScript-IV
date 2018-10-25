@@ -30,8 +30,8 @@ class CharacterStats extends GameObject {
 class Humanoid extends CharacterStats {
     constructor(objectParams) {
         super(objectParams);
-        this.faction = humanoidParams.faction;
-        this.weapons = humanoidParams.weapons;
-        this.language = humanoidParams.language;
+        this.faction = objectParams.faction;
+        this.weapons = objectParams.weapons;
+        this.language = objectParams.language;
     }
 }
