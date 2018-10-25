@@ -19,7 +19,7 @@ class Instructor extends Person {
   constructor(instructorProps) {
     super(instructorProps);
     this.specialty = instructorProps.specialty;
-    this.favLanguage = instructorProps.language;
+    this.favLanguage = instructorProps.favLanguage;
     this.catchPhrase = instructorProps.catchPhrase;
   }
 
@@ -55,6 +55,21 @@ class Student extends Person {
   }
 }
 
+const conner = new Student({
+  name: 'Conner',
+  age: 27,
+  location: 'Dallas, Tx',
+  gender: 'M',
+  previousBackground: `Supervisor of a contruction crew for 15 years`,
+  className: 'FTWB55',
+  favSubjects: ['science', 'math', 'biology', 'chemestry', 'ext'],
+});
+
+// conner.speak();
+// conner.listsSubjects();
+// conner.PRAssignment('JavaScript IIIII');
+// conner.sprintChallenge('JavScript IIIII');
+
 class ProjectManager extends Instructor {
   constructor(prProps) {
     super(prProps);
@@ -68,9 +83,25 @@ class ProjectManager extends Instructor {
     );
   }
 
-  debugsCode(student) {
+  debugsCode(student, subject) {
     return console.log(
-      `${this.name} debugs {student.name}'s code on ${this.subject}'`,
+      `${this.name} debugs ${conner.name}'s code on ${subject}`,
     );
   }
 }
+
+const matthews = new ProjectManager({
+  name: 'Matthews',
+  age: 55,
+  location: 'Nevada',
+  gender: 'F',
+  specialty: 'Python',
+  favLanguage: 'Ruby',
+  catchPhrase: "If it isn't broken do not fix it",
+  gradClassName: 'Lambda 101',
+  favInstructor: 'Davis',
+});
+
+// console.log(matthews);
+// matthews.standUp('FWSSS');
+// matthews.debugsCode(conner, 'science');
