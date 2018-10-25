@@ -64,6 +64,19 @@ class Student extends Person {
   sprintChallenge(subject) {
     console.log(`${this.name} has begun sprint challenge on ${subject}`)
   }
+
+  graduate(pm){
+    let notGraduated = true;
+    while(notGraduated) {
+      if(this.grade < 70) {
+        console.log(this.grade);
+        pm.adjustGrade(this);
+      } else {
+        console.log("It's time to graduate!")
+        break;
+      }
+    }
+  }
 }
 
 class ProjectManager extends Instructor {
@@ -159,3 +172,4 @@ amelia.adjustGrade(bernard);
 console.log(bernard.grade);
 becky.adjustGrade(carly);
 console.log(carly.grade);
+bernard.graduate(amelia)
