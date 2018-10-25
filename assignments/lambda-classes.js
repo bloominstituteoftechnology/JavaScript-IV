@@ -30,6 +30,7 @@ class Student extends Person {
     this.previousBackground = attr.previousBackground;
     this.className = attr.className;
     this.favSubjects = attr.favSubjects;
+    this.grade = attr.grade;
   }
   listsSubjects() {
     return `My favorite subjects are ${[...this.favSubjects].join(", ")}`;
@@ -115,6 +116,7 @@ const josh = new Student({
   location: "San Antonio",
   age: 20,
   gender: "male",
+  grade: 100,
   previousBackground: "Call Center",
   className: "FSWPT3",
   favSubjects: ["Front-end", "JavaScript", "Responsive Design"]
@@ -124,6 +126,7 @@ const nolan = new Student({
   location: "NH",
   age: 25,
   gender: "male",
+  grade: 92,
   previousBackground: "Warehouse",
   className: "FSWPT3",
   favSubjects: ["Back-end", "C", "OOP"]
@@ -133,6 +136,7 @@ const jose = new Student({
   location: "OKC",
   age: 29,
   gender: "male",
+  grade: 89,
   previousBackground: "IT",
   className: "FSWPT3",
   favSubjects: ["Back-end", "Python", "OOP"]
@@ -152,3 +156,7 @@ console.log(josh.speak());
 console.log(josh.listsSubjects());
 console.log(nolan.PRAssignment("JavaScript-II"));
 console.log(jose.sprintChallenge("JavaScript-IV"));
+
+console.log("-----------stretch-----------");
+console.log(dan.addGrades(josh));
+console.log(ashley.addGrades(nolan));
