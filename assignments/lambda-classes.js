@@ -108,3 +108,14 @@ const penny = new Student({
     className: "FSW 15",
     favSubjects: ['CSS', 'JavaScript']
 });
+
+const bernadette = new Student({
+    name: 'Bernie',
+    age: 29,
+    location: 'Washington',
+    gender: 'female',
+    previousBackground: ["Grad Student"],
+    className: "FSW 15",
+    favSubjects: ['HTML']
+  });
+  
