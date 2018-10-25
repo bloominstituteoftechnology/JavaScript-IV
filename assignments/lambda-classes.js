@@ -102,7 +102,7 @@ const ed = new Student({
 	gender: 'male',
 	previousBackground: 'Free Code Camp and Practical JS',
 	className: 'CSPT3',
-	favSubjects: 'Javascript'
+	favSubjects: ['Javascript']
 });
 
 const harry = new Student({
@@ -112,7 +112,7 @@ const harry = new Student({
 	gender: 'male',
 	previousBackground: 'The Boy Who Lived',
 	className: 'Gryffindor',
-	favSubjects: 'Defense Against the Dark Arts'
+	favSubjects: ['Defense Against the Dark Arts']
 });
 
 const percy = new ProjectManager({
