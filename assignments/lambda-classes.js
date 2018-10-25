@@ -127,6 +127,19 @@ class Instructor extends Person{
         grade(student,subject){
           console.log(`${student.name} receives a perfect score on ${subject}`)
         }
+        upgrade(student,testPass){
+
+            let randomMarks= Math.floor(Math.random() * (10 - 5) + 5);
+            if(testPass===true) {
+                let finalMarks=student.grade+randomMarks;
+                console.log(`${student.name}'s grade has been added by ${randomMarks} ,So the final grade of ${student.name} is ${finalMarks}`);
+
+            }else{
+                console.log(`${student.name}'s grade has been subtracted by
+                ${randomMarks},so the final grade of ${student.name} is ${student.grade}-${randomMarks}`);
+
+            }
+        }
 
 }/////////////////////////////////////Instructor/////////////////////////////////////////////////////
 
@@ -139,6 +152,7 @@ class Student extends Person{
         this.previousBackground=stuAttributes.previousBackground;
         this.className =stuAttributes.className;
         this.favSubjects =stuAttributes.favSubjects;
+        this.grade=65;
 
     }
 
@@ -150,6 +164,14 @@ class Student extends Person{
     }
     sprintChallenge(){
         console.log(`${this.name} has begun sprint challenge on ${this.favSubjects}`);
+    }
+
+    graduate(grade){
+        if(this.grade<70){
+            console.log(`Go back to your assignments`)
+        }else {
+            console.log(`Congratulations!You have successfully Graduated.`)
+        }
     }
 }/////////////////////////Student///////////////////////////////////////////////////////////////////
 
@@ -268,3 +290,6 @@ robert.grade(arpita,"Maths")
 console.log(robert.age);
 console.log(robert.catchPhrase);
 console.log(robert.favInstructor);
+
+fred.upgrade(arpita,true);
+arpita.graduate(65);
