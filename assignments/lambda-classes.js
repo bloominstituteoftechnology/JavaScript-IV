@@ -24,7 +24,7 @@ class Instructor extends Person {
     return `${student.name} receives a perfect score on ${subject}`;
   }
   addGrades(student) {
-    student.grade += Math.floor((Math.random() - 0.5) * 4 + 1);
+    student.grade += Math.floor(Math.random() * 4 + 1);
     return `${student.name} has a ${student.grade}`;
   }
 }
@@ -44,6 +44,9 @@ class Student extends Person {
   }
   sprintChallenge(subject) {
     return `${this.name} has begun sprint challenge on ${subject}`;
+  }
+  graduate() {
+    return `${this.name} is${this.grade > 70 ? " " : " not "}ready to graduate`;
   }
 }
 
@@ -140,7 +143,7 @@ const jose = new Student({
   location: "OKC",
   age: 29,
   gender: "male",
-  grade: 89,
+  grade: 66,
   previousBackground: "IT",
   className: "FSWPT3",
   favSubjects: ["Back-end", "Python", "OOP"]
@@ -164,3 +167,9 @@ console.log(jose.sprintChallenge("JavaScript-IV"));
 console.log("-----------stretch-----------");
 console.log(dan.addGrades(josh));
 console.log(ashley.addGrades(nolan));
+console.log(josh.graduate());
+console.log(jose.graduate());
+console.log(dan.addGrades(jose));
+console.log(dan.addGrades(jose));
+console.log(dan.addGrades(jose));
+console.log(jose.graduate());
