@@ -168,10 +168,66 @@ class Hero extends Humanoid {
 }
 
 // Villain
-class Villain extends Humanoid{
+class Villain extends Humanoid {
   constructor(attributes) {
-  super(attributes);
-  this.mp = attributes.mp;
-  this.str = attributes.str;
+    super(attributes);
+    this.mp = attributes.mp;
+    this.str = attributes.str;
+  }
+
+  fireball(target) {
+    if (!this.alive) return `Dead wizards cast no spells`;
+    else if (!target.alive) return `Hard to get him more burnt than that.`;
+    else {
+      if (this.mp < 3) {
+        this.mp += 1;
+        return `You do not have enough MP`;
+      } else {
+        this.mp -= 3;
+        if ((Math.random() * 10) < 5) return target.takeDamage();
+        else return "Attack missed";
+      }
+    }
+  }
 }
+
+// Playing God
+
+const heros = new Hero({
+  createdAt: new Date(),
+  dimensions: {
+    length: 1,
+    width: 1,
+    height: 4
+  },
+  hp: 18,
+  name: "Heros",
+  faction: "River Raiders",
+  weapons: ["The Smasheroo"],
+  language: "Esperanto",
+  mp: 0,
+  str: 10
+})
+
+const villos = new Villain({
+  createdAt: new Date(),
+  dimensions: {
+    length: 2,
+    width: 2,
+    height: 2
+  },
+  hp: 13,
+  name: "Villos",
+  faction: "Order of No Quarter",
+  weapons: ["Staff of Flambert"],
+  language: "Argonian",
+  mp: 17,
+  str: 2
+})
+// Battle
+
+for (let i = 0; i < 100; i++) {
+  console.log(heros.strike(villos));
+  console.log(villos.fireball(heros));
+  if ((!heros.alive) || (!villos.alive)) break;
 }
