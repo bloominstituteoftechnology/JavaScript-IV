@@ -41,7 +41,7 @@ class ProjectManager extends Instructor {
   }
 
   debugsCode(student, subject) {
-    return ${this.name} debugs ${student.name}'s code on ${subject}.'
+    return `${this.name} debugs ${student.name}'s code on ${subject}.`
   }
 }
 
@@ -54,7 +54,7 @@ class Student extends Person {
   }
 
   listsSubjects() {
-    this.favSubjects.forEach(item => console.log(item));
+    return this.favSubjects.forEach(item => console.log(item));
   }
 
   PRAssignment(subject) {
@@ -65,3 +65,67 @@ class Student extends Person {
     return `${this.name} has begun sprint challenge on ${subject}.`
   }
 }
+
+const fred = new Instructor({
+  name: 'Fred',
+  location: 'Bedrock',
+  age: 37,
+  gender: 'male',
+  favLanguage: 'JavaScript',
+  specialty: 'Front-end',
+  catchPhrase: `Don't forget the homies`
+});
+
+const wilma = new Instructor({
+  name: 'Wilma',
+  location: 'Bedrock',
+  age: 31,
+  gender: 'female',
+  favLanguage: 'Ruby',
+  specialty: 'Back-end',
+  catchPhrase: 'Well I never'
+})
+
+const barney = new ProjectManager({
+  name: 'Barney',
+  location: 'Stoneville',
+  age: 36,
+  gender: 'male',
+  favLanguage: 'Rust',
+  catchPhrase: 'Hubba hubba',
+  gradClassname: 'iOS 2',
+  favInstructor: 'Wallace Shawn'
+})
+
+const betty = new ProjectManager({
+  name: 'Betty',
+  location: 'Shale Lake City',
+  age: 27,
+  gender: 'female',
+  favLanguage: 'CSS',
+  catchPhrase: 'What goes up must come down',
+  gradClassName: 'CS15',
+  favInstructor: 'Stanley Slate'
+})
+
+const jonathan = new Student({
+  name: 'Jonathan',
+  location: 'Jacksonville',
+  age: 34,
+  gender: 'male',
+  previousBackground: 'foodservice',
+  favSubjects: ['JavaScript', 'Python', 'back-end', 'games']
+})
+
+const jenae = new Student({
+  name: 'Jenae',
+  location: 'Seattle',
+  age: 19,
+  gender: 'female',
+  previousBackground: 'automotive repair',
+  favSubjects: ['large motor repair', 'baseball', 'horticulture', 'server deployment']
+})
+
+
+jonathan.listsSubjects();
+console.log(jonathan.previousBackground);
