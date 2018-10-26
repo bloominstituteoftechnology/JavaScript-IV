@@ -20,7 +20,8 @@ const fred = new Person({
 });
 ```
 
-* Because none of the above code is new, you're about to see your world get much much easier when dealing with Object Creation and Classical Inheritance as it pertains to JavaScript.
+* Because none of the above code is new, you're about to see your world get much much easier
+ when dealing with Object Creation and Classical Inheritance as it pertains to JavaScript.
 * The Class Keyword makes this SO MUCH EASIER!
 * **Fork** and clone this repository.
 * **Complete** all of the exercises found in the assignment files.
@@ -32,7 +33,8 @@ const fred = new Person({
 
 ## `lambda-classes` - We need a roster of Lambda School personnel. Build it!
 
-* We have a school to build here! This project will get you used to thinking about classes in JavaScript and building them from a brand new data set.
+* We have a school to build here! This project will get you used to thinking about classes
+ in JavaScript and building them from a brand new data set.
 * Lambda personnel can be broken down into three different types of `people`.
   * **Instructors** - extensions of Person
   * **Students** - extensions of Person
@@ -56,7 +58,8 @@ const fred = new Instructor({
 * First we need a Person class. This will be our `base-class`
 * Person receives `name` `age` `location` `gender` all as props
 * Person receives `speak` as a method.
-* This method logs out a phrase `Hello my name is Fred, I am from Bedrock` where `name` and `location` are the object's own props
+* This method logs out a phrase `Hello my name is Fred, I am from Bedrock` where `name` and `location`
+are the object's own props
 
 #### Instructor
 
@@ -99,5 +102,7 @@ const fred = new Instructor({
 * Extend the functionality of the Student by adding a prop called grade and setting it equal to a number between 1-100.
 * Now that our students have a grade build out a method on the Instructor (this will be used by _BOTH_ instructors and PM's) that will randomly add or subtract points to a student's grade. _Math.random_ will help.
 * Add a graduate method to a student.
-  * This method, when called, will check the grade of the student and see if they're ready to graduate from Lambda School
-  * If the student's grade is above a 70% let them graduate! Otherswise go back to grading their assignments to increase their score.
+  * This method, when called, will check the grade of the student and see if they're
+  ready to graduate from Lambda School
+  * If the student's grade is above a 70% let them graduate! Otherswise go back to
+   grading their assignments to increase their score.
