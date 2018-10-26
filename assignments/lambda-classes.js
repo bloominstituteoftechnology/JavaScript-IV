@@ -89,7 +89,8 @@ class Student extends Person {
     // List favSubject function
     
     listSubjects() {
-        const favList = this.favSubjects.map(subject => console.log(subject));
+        const favList = this.favSubjects.map(subject => subject);
+        return favList;
     }
     
     // Pull Request Submission function
@@ -142,17 +143,35 @@ const fred = new Instructor({
     gender: 'male',
     catchPhrase: `Don't forget the homies`,
     favLanguages: 'JavaScript',
-    specialty: 'Front-end',
-  });
+    specialty: 'Front-end'
+});
+
+const sergei = new Instructor({
+    name: 'Serge',
+    location: 'Miami',
+    age: 23,
+    gender: 'male',
+    catchPhrase: 'Nobody remembers about Tenerife',
+    specialty: 'Back-end'
+})
+
 
 const jane = new Student({
     name: 'Jane',
     location: 'Rockville',
     age: 53,
     gender: 'female',
-    catchPhrase: 'Catch you laterz',
     className: 'CS132',
     favSubjects: ['Ruby', 'JavaScript', 'PHP'],
+});
+
+const fahrouz = new Student({
+    name: 'Fahrouz',
+    location: 'Germantown',
+    age: 18,
+    gender: 'male',
+    className: 'CS132',
+    favSubjects: ['Python', 'AngularJS', 'ReactJs'],
 });
 
 const jimmy = new ProjectManager({
@@ -162,15 +181,31 @@ const jimmy = new ProjectManager({
     gender: 'male',
     gradClassName: 'C1',
     favInstructor: 'Fred',
-    catchPhrase: `Get those stand-up forms, people!`
+});
+
+const wilma = new ProjectManager({
+    name: 'Wilma',
+    location: 'Albuquerque',
+    age: 42,
+    gender: 'female',
+    gradClassName: 'C1',
+    favInstructor: 'Fred',
 });
 
 
 console.log(fred.name);
 console.log(fred.demo('Ju-Ju coding'));
 console.log(fred.grade('Jane', 'JavaScript'));
-console.log(jimmy.debugsCode('jane', 'Ruby'));
+console.log(sergei.name);
+console.log(sergei.demo('When Astrophysics met React'));
+console.log(sergei.grade('Fahrouz', 'PHP'));
 console.log(jane.listSubjects());
 console.log(jane.PRAssignment('PHP'));
 console.log(jane.sprintChallenge('JavaScript'));
+console.log(fahrouz.listSubjects());
+console.log(fahrouz.PRAssignment('Angular'));
+console.log(fahrouz.sprintChallenge('Python'));
 console.log(jimmy.standUp('lol'));
+console.log(jimmy.debugsCode('jane', 'Ruby'));
+console.log(wilma.standUp('forms'));
+console.log(wilma.debugsCode('Sergei', 'JavaScript'));
