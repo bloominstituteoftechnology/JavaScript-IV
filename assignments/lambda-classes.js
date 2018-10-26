@@ -25,7 +25,7 @@ class Instructor extends Person {
     }
 
     grade(student, subject) {
-        console.log(`${this.name} receives a perfect score on ${subject}`);
+        return `${this.name} receives a perfect score on ${subject}`;
     }
 }
 
