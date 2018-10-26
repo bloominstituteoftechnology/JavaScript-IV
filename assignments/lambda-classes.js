@@ -25,7 +25,24 @@ class Instructor extends Person {
     }
 
     grade(student, subject) {
-        return `${this.name} receives a perfect score on ${subject}`;
+        return `${student.name} receives a perfect score on ${subject}`;
+    }
+
+    studentGrade(student) {
+        // const temp = student.grade - 5;
+        // return `${temp}`       
+        const min = -5;
+        const max = 5;
+        function getRandomInt(min, max) {
+            min = Math.ceil(min);
+            max = Math.floor(max);
+            return Math.floor(Math.random() * (max - min)) + min;
+          }
+        
+        student.grade += getRandomInt(min, max);
+
+        return `Student's new grade is: ${student.grade}`
+
     }
 }
 
@@ -35,6 +52,7 @@ class Student extends Person {
         this.previousBackground = attributes.previousBackground;
         this.className = attributes.className;
         this.favSubjects = attributes.favSubjects;
+        this.grade = attributes.grade;
     }
 
     listsSubjects() {
@@ -121,6 +139,7 @@ const fred = new Instructor({
     previousBackground: 'Digger',
     className: 'CSPT3',
     favSubjects: ['Html', 'CSS', 'JavaScript'],
+    grade: 90,
   });
 
   const shleprock = new Student({
@@ -131,12 +150,16 @@ const fred = new Instructor({
     previousBackground: 'Thinker',
     className: 'CSPT3',
     favSubjects: ['Ruby', 'Kotlin', 'JavaScript'],
+    grade: 92,
   });
   
 console.log(fred);
 console.log(fred.speak());
+console.log(fred.demo('JavaScript'));
+console.log(fred.grade(barney,'JavaScript'));
 console.log(wilma);
 console.log(wilma.demo('HTML'));
+console.log(wilma.grade(shleprock,'Ruby'));
 
 console.log(barney);
 console.log(barney.PRAssignment('HTML'));
@@ -151,7 +174,13 @@ shleprock.listsSubjects();
 console.log(slate);
 console.log(slate.standUp('announcements'));
 console.log(slate.debugsCode(shleprock, 'Javascript'));
+console.log(slate.demo('CSS'));
+console.log(slate.grade(barney,'HTML'));
+console.log(slate.studentGrade(shleprock));
 
 console.log(dino);
 console.log(dino.standUp('brownbag'));
 console.log(dino.debugsCode(barney, 'CSS'));
+console.log(dino.demo('Callbacks'));
+console.log(dino.grade(shleprock, 'JavaScript'));
+console.log(dino.studentGrade(barney));
