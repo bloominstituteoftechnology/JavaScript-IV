@@ -34,12 +34,13 @@ Prototype Refactor
   * destroy() // prototype method -> returns the string: 'Object was removed from the game.'
   
 */
+
+
 // ----- GameObject constructor ------ 
 
 
-class GameObject {
+class GameObject  {
     constructor(gameObejectAttributes){
-
     this.createdAt = gameObejectAttributes.createdAt;
     this.dimensions = gameObejectAttributes.dimensions;
   
@@ -60,9 +61,9 @@ class GameObject {
   // */
   // ----- CharacterStats constructor ------ 
   
- class CharacterStats {
+ class CharacterStats extends GameObject {
   constructor(characterStatsAttribute){
-  
+    super(characterStatsAttribute);
     this.hp = characterStatsAttribute.hp;
     this.name = characterStatsAttribute.name; 
     // GameObject.call(this, characterStatsAttribute); 
@@ -90,30 +91,21 @@ class GameObject {
     * should inherit takeDamage() from CharacterStats
   */
   // ----- Humanoid constructor ------ 
-  
-  class Humanoid{
-      constructor(humanoidAttributes){  
-  
-    this.faction = humanoidAttributes.faction; 
-    this.weapons = humanoidAttributes.weapons; 
-    this.language = humanoidAttributes.language; 
-    // CharacterStats.call(this,humanoidAttributes);
-  
-  }
-  // Humanoid creating path for inheritance from CharacterStats
-  
-//   Humanoid.prototype = Object.create(CharacterStats.prototype); 
-  
-  //Humanoid methods
-  
-  greet () {
-  
-    return `${this.name} offers a greeting in ${this.language}`;
-     
-  }
+  class Humanoid extends CharacterStats{
+    constructor(humanoidAttributes){  
+        super(humanoidAttributes);
+        this.faction = humanoidAttributes.faction; 
+        this.weapons = humanoidAttributes.weapons; 
+        this.language = humanoidAttributes.language; 
+
+    }
+
+    greet () {
+
+        return `${this.name} offers a greeting in ${this.language}`;
+   
+    }
 }
-  
-  // Humanoid.prototype = Object.create(CharacterStats.prototype);
   /* 
     * Inheritance chain: GameObject -> CharacterStats -> Humanoid
     * Instances of Humanoid should have all of the same properties as CharacterStats and GameObject.
