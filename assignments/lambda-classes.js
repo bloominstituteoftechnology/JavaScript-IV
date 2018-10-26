@@ -179,9 +179,29 @@ console.log(Buzz.specialty);
 console.log(Buzz.standUp('CSPT3'))
 console.log(Buzz.debugsCode(David, 'JavaScript IV'))
 
-console.log(David.grade);
-Josh.giveGrade(David);
-Josh.giveGrade(David);
-Josh.giveGrade(David);
+// console.log(David.grade);
+// Josh.giveGrade(David);
+// Josh.giveGrade(David);
+// Josh.giveGrade(David);
+//
+// David.graduate();
+//
+// Buzz.giveGrade(David)
 
-David.graduate();
+function finishAssignments(student){
+  if (student.grade < 70){
+    let graderPotential = Math.floor(Math.random()*2) == 1? 1: -1;
+    if (graderPotential >= 0){
+      Josh.giveGrade(student);
+    } else{
+      Buzz.giveGrade(student);
+    }
+    David.graduate();
+    finishAssignments(student)
+  } else if (student.grade >= 70){
+      David.graduate();
+  }
+  // finishAssignments(student)
+}
+
+finishAssignments(David)
