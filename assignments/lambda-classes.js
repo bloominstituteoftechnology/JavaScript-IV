@@ -49,7 +49,7 @@ class Instructor extends Person {
         super(instructor);
         this.specialty = instructor.specialty;
         this.favLanguage = instructor.favLanguage;
-        this.cathPhrase = instructor.cathPhrase;
+        this.catchPhrase = instructor.catchPhrase;
     }
     // Instructor demo subject function
     demo(subject) {
@@ -78,32 +78,72 @@ class Instructor extends Person {
 */
 
 class Student extends Person {
+
+    // Student Constructor
     constructor(student) {
         super(student);
         this.previousBackground = student.previousBackground;
         this.className = student.className;
         this.favSubjects = student.favSubjects;
     }
+    // List favSubject function
+    
     listSubjects() {
         const favList = this.favSubjects.map(subject => console.log(subject));
+        return favList;
     }
+    
+    // Pull Request Submission function
     PRAssignment(subject) {
         return `${this.name} has submitted a PR for ${this.subject}.`
     }
+    // Spring Challenge status function
     sprintChallenge(subject) {
         return `${this.name} has begun sprint challange on ${$this.subject}.`
     }
 }
 
 
+/*
+#### Project Mananger
+
+* Now that we have instructors and students, we'd be nowhere without our PM's
+* ProjectManagers are extensions of Instructors
+* ProjectManagers have the following uniqe props:
+* `gradClassName`: i.e. CS1
+* `favInstructor`: i.e. Sean
+* ProjectManangers have the following Methods:
+* `standUp` a method that takes in a slack channel and logs `{name} announces to {channel}, @channel standy times!​​​​​
+* `debugsCode` a method that takes in a student object and a subject and logs out `{name} debugs {student.name}'s code on {subject}`
+* 
+*/
+
+class ProjectManager extends Instructor {
+
+    // Project Manager Constructor 
+    constructor(manager) {
+        super(manager);
+        this.gradClassName = manager.gradClassName;
+        this.favInstructor = manager.favInstructor;
+    }
+    // StandUp accouncement function
+    standUp(channel) {
+        return `${this.name} announces to ${this.channel} @channel standy times!`
+    }
+    // Debugs accouncement function
+    debugsCode(student, subject) {
+        return `${this.name} debugs ${student}'s code on ${subject}`
+    } 
+}
+
 const fred = new Instructor({
     name: 'Fred',
     location: 'Bedrock',
     age: 37,
     gender: 'male',
-    favLanguage: 'JavaScript',
+    catchPhrase: `Don't forget the homies`,
+    favLanguages: 'JavaScript',
     specialty: 'Front-end',
-    catchPhrase: `Don't forget the homies`
   });
 
 const jane = new Student({
@@ -111,13 +151,21 @@ const jane = new Student({
     location: 'Rockville',
     age: 53,
     gender: 'female',
-    favLanguage: 'Ruby',
-    cathPhrase: 'Catch you laterz'
+    catchPhrase: 'Catch you laterz',
+    className: 'CS132',
+    favSubjects: ['Ruby', 'JavaScript', 'PHP'],
 });
 
-// const jimmy = new Humanoid({
 
-// });
+const jimmy = new ProjectManager({
+    name: 'Jimmy',
+    location: 'Houston',
+    age: 105,
+    gender: 'male',
+    gradClassName: 'C1',
+    favInstructor: 'Fred',
+    catchPhrase: `Get those stand-up forms, people!`
+});
 
 // const liz = new Humanoid({
 
@@ -128,3 +176,5 @@ const jane = new Student({
 // });
 
 console.log(fred.name);
+console.log(jimmy.debugsCode('jane', 'Ruby'));
+console.log(jane.listSubjects());
