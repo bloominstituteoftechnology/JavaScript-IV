@@ -44,18 +44,17 @@ class GameObject {
     * should inherit destroy() from GameObject's prototype
   */
 
- class CharacterStats extends GameObject{
+class CharacterStats extends GameObject {
+  constructor(attributes) {
+    super(attributes);
+    this.hp = attributes.hp;
+    this.name = attributes.name;
+  }
 
- constructor (attributes) {
-  super(attributes);
-  this.hp = attributes.hp;
-  this.name = attributes.name;
+  takeDamage() {
+    return `${this.name} took damage.`;
+  }
 }
-
-takeDamage () {
-  return `${this.name} took damage.`;
-};
- }
 /*
     === Humanoid ===
     * faction
@@ -65,17 +64,17 @@ takeDamage () {
     * should inherit destroy() from GameObject through CharacterStats
     * should inherit takeDamage() from CharacterStats
   */
-class Humanoid extends CharacterStats{
- constructor (attributes) {
-  super(attributes);
-  this.faction = attributes.faction;
-  this.weapons = attributes.weapons;
-  this.language = attributes.language;
-}
+class Humanoid extends CharacterStats {
+  constructor(attributes) {
+    super(attributes);
+    this.faction = attributes.faction;
+    this.weapons = attributes.weapons;
+    this.language = attributes.language;
+  }
 
-greet() {
-  return `${this.name} offers a greeting in ${this.language}.`;
-};
+  greet() {
+    return `${this.name} offers a greeting in ${this.language}.`;
+  }
 }
 /*
     * Inheritance chain: GameObject -> CharacterStats -> Humanoid
