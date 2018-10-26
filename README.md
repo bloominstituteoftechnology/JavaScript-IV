@@ -83,16 +83,15 @@ const fred = new Instructor({
   * ~~`PRAssignment` a method that receives a subject as an argument and logs out that the `student.name has submitted a PR for {subject}`~~
   * ~~`sprintChallenge` similar to PRAssignment but logs out `student.name has begun sprint challenge on {subject}`~~
 
-#### Project Mananger
+#### ~~Project Mananger~~
 
-* Now that we have instructors and students, we'd be nowhere without our PM's
-* ProjectManagers are extensions of Instructors
-* ProjectManagers have the following uniqe props:
-  * `gradClassName`: i.e. CS1
-  * `favInstructor`: i.e. Sean
-* ProjectManangers have the following Methods:
-  * `standUp` a method that takes in a slack channel and logs `{name} announces to {channel}, @channel standy times!​​​​​
-  * `debugsCode` a method that takes in a student object and a subject and logs out `{name} debugs {student.name}'s code on {subject}`
+* ~~Now that we have instructors and students, we'd be nowhere without our PM's~~
+* ~~ProjectManagers are extensions of Instructors~~
+* ~~`gradClassName`: i.e. CS1~~
+  * ~~`favInstructor`: i.e. Sean~~
+* ~~ProjectManangers have the following Methods:~~
+  * ~~`standUp` a method that takes in a slack channel and logs `{name} announces to {channel}, @channel standy times!​​​​​~~
+  * ~~`debugsCode` a method that takes in a student object and a subject and logs out `{name} debugs {student.name}'s code on {subject}`~~
 
 #### Stretch Problem
 

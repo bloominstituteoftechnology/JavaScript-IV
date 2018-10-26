@@ -42,7 +42,7 @@ class Student extends Person {
     }
 
     prAssignment(subject){
-        console.log(`student.name has submitted a PR for ${subject}.`);
+        console.log(`${this.name} has submitted a PR for ${subject}.`);
     }
 
     sprintChallenge(){
@@ -50,17 +50,48 @@ class Student extends Person {
     }
 }
 
+class ProjectManager extends Instructor {
+    constructor(attributes) {
+        super(attributes);
+        this.gradClassName = attributes.gradClassName;
+        this.favInstructor = attributes.favInstructor;
+        this.favSubjects = attributes.favSubjects;
+    }
 
-// #### Project Mananger
+    standUp(slackChannel){
+        console.log(`${name} announces to ${channel}, @channel standy times!​​​​​`);
+    }
 
-// * Now that we have instructors and students, we'd be nowhere without our PM's
-// * ProjectManagers are extensions of Instructors
-// * ProjectManagers have the following uniqe props:
-//   * `gradClassName`: i.e. CS1
-//   * `favInstructor`: i.e. Sean
-// * ProjectManangers have the following Methods:
-//   * `standUp` a method that takes in a slack channel and logs `{name} announces to {channel}, @channel standy times!​​​​​
-//   * `debugsCode` a method that takes in a student object and a subject and logs out `{name} debugs {student.name}'s code on {subject}`
+    debugsCode(student, subject){
+        console.log(`${name} debugs ${student.name}'s code on ${subject}`);
+    }
+}
+
+//TEST
+const fred = new Instructor({
+    name: 'Fred',
+    location: 'Bedrock',
+    age: 37,
+    gender: 'male',
+    favLanguage: 'JavaScript',
+    specialty: 'Front-end',
+    catchPhrase: `Don't forget the homies`
+  });
+
+  console.log(fred.name);
+
+  const ira = new Student({
+    name: 'Ira Sanchez',
+    location: 'Phoenix',
+    age: 28,
+    gender: 'male',
+    favLanguage: 'JavaScript',
+    specialty: 'working on it',
+    catchPhrase: `Que pasa, Mufasa?`
+  });
+
+  console.log(ira.prAssignment('Javascript-IV'));
+
 
 // #### Stretch Problem
 
