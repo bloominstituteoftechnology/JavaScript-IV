@@ -42,18 +42,16 @@ class GameObject {
 
 class CharacterStats extends GameObject {
     // Character Constructor
-    constructor(character) {
-        GameObject.call(this, character);
-        this.hp = character.hp;
-        this.name = character.name;
+    constructor(characterStats) {
+        //Envoked inheritance from GameObject
+        super(characterStats);
+
+        this.hp = characterStats.hp;
+        this.name = characterStats.name;
     }
-    // Character Destroy function
+    // CharacterStats Destroy function
     takeDamage() {
         return `${this.name} took damage.`
-    }
-    // Inherits GameObject Destroy function
-    destroy() {
-        super(character);
     }
 }
 
@@ -67,19 +65,23 @@ class CharacterStats extends GameObject {
 * should inherit takeDamage() from CharacterStats
 */
 
-Humanoid.prototype = Object.create(GameObject.prototype);
-Humanoid.prototype = Object.create(CharacterStats.prototype);
+class Humanoid extends CharacterStats {
+    // Humanoid Constructor
+    constructor(humanoid) {
+        //Envoked inheritance from CharacterStats
+        super(humanoid);
 
-function Humanoid(object) {
-GameObject.call(this, object);
-CharacterStats.call(this, object);
-this.faction = object.faction;
-this.weapons = object.weapons;
-this.language = object.language;
-this.greet = function() {
-    return `${this.name} offers a greeting in ${object.language}`;
-};
+        this.faction = humanoid.faction;
+        this.weapons = humanoid.weapons;
+        this.language = humanoid.language;
+        
+    }
+    // Humanoid Destroy function
+    greet() {
+        return `${this.name} offers a greeting in ${this.language}`;
+    }
 }
+
 /*
 * Inheritance chain: GameObject -> CharacterStats -> Humanoid
 * Instances of Humanoid should have all of the same properties as CharacterStats and GameObject.
@@ -158,33 +160,33 @@ console.log(swordsman.destroy()); // Sir Mustachio was removed from the game.
 
 // Hero.prototype = Object.create(Humanoid.prototype);
 
-function Villian(villian) {
-Humanoid.call(this, villian);
-}
-Villian.prototype = Object.create(GameObject.prototype);
-Villian.prototype = Object.create(CharacterStats.prototype);
-Villian.prototype = Object.create(Humanoid.prototype);
+// function Villian(villian) {
+// Humanoid.call(this, villian);
+// }
+// Villian.prototype = Object.create(GameObject.prototype);
+// Villian.prototype = Object.create(CharacterStats.prototype);
+// Villian.prototype = Object.create(Humanoid.prototype);
 
-Villian.prototype.yell = function() {
-return 'RAAAAAAA';
-}
-const vader = new Villian({
-    createdAt: new Date(),
-    dimensions: {
-    length: 1,
-    width: 2,
-    health: 4,
-    },
-    hp: 10,
-    name: 'Vader',
-    faction: 'Death Star',
-    weapons: [
-    'Burger',
-    'Stick',
-    ],
-    language: 'Swuahili',
-});
+// Villian.prototype.yell = function() {
+// return 'RAAAAAAA';
+// }
+// const vader = new Villian({
+//     createdAt: new Date(),
+//     dimensions: {
+//     length: 1,
+//     width: 2,
+//     health: 4,
+//     },
+//     hp: 10,
+//     name: 'Vader',
+//     faction: 'Death Star',
+//     weapons: [
+//     'Burger',
+//     'Stick',
+//     ],
+//     language: 'Swuahili',
+// });
 
-console.log(vader.name);
-console.log(vader.yell());
+// console.log(vader.name);
+// console.log(vader.yell());
 // function Villian(villianAttributes) 
