@@ -79,21 +79,6 @@ class Student extends Person {
   }
 }
 
-const conner = new Student({
-  name: 'Conner',
-  age: 27,
-  location: 'Dallas, Tx',
-  gender: 'M',
-  previousBackground: `Supervisor of a contruction crew for 15 years`,
-  className: 'FTWB55',
-  favSubjects: ['science', 'math', 'biology', 'chemestry', 'ext'],
-});
-
-// conner.speak();
-// conner.listsSubjects();
-// conner.PRAssignment('JavaScript IIIII');
-// conner.sprintChallenge('JavScript IIIII');
-
 class ProjectManager extends Instructor {
   constructor(prProps) {
     super(prProps);
@@ -114,6 +99,16 @@ class ProjectManager extends Instructor {
   }
 }
 
+const conner = new Student({
+  name: 'Conner',
+  age: 27,
+  location: 'Dallas, Tx',
+  gender: 'M',
+  previousBackground: `Supervisor of a contruction crew for 15 years`,
+  className: 'FTWB55',
+  favSubjects: ['science', 'math', 'biology', 'chemestry', 'ext'],
+});
+
 const matthews = new ProjectManager({
   name: 'Matthews',
   age: 55,
@@ -126,9 +121,14 @@ const matthews = new ProjectManager({
   favInstructor: 'Davis',
 });
 
-matthews.biasGrading(conner, matthews.graduate);
+conner.speak();
+conner.listsSubjects();
+conner.PRAssignment('JavaScript IIIII');
+conner.sprintChallenge('JavScript IIIII');
 
-// console.log(matthews);
-// matthews.standUp('FWSSS');
-// matthews.debugsCode(conner, 'science');
-//
+console.log(matthews);
+matthews.standUp('FWSSS');
+matthews.debugsCode(conner, 'science');
+
+matthews.biasGrading(conner, matthews.graduate);
+matthews.graduate(conner.grade);
