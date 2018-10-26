@@ -24,6 +24,17 @@ class Instructors extends Person{
   grade(student, subject) {
     console.log(`${student.name} receives a perfect score on ${subject}`);
   }
+  gradeMe(student) {
+    let random = Math.round(Math.random());
+    if(random === 0) {
+      student.grade -= Math.floor(Math.random() * 10);
+      console.log(student.grade);
+    }
+    else {
+      student.grade += Math.floor(Math.random() * 10);
+      console.log(student.grade);
+    }
+  }
 }
 
 class Students extends Person {
@@ -32,14 +43,10 @@ class Students extends Person {
     this.previousBackground = studentAttr.previousBackground;
     this.className = studentAttr.className;
     this.favSubjects = studentAttr.favSubjects;
+    this.grade = studentAttr.grade;
   }
   listsSubjects() {
     //a method that logs out all of the student's favoriteSubjects one by one.
-    /*
-    for(let i = 0; i < this.favSubjects.length; i++){
-      console.log(this.favSubjects[i]);
-    }
-    */
     this.favSubjects.forEach(element => console.log(element));
   }
   PRAssignment(subject) {
@@ -47,6 +54,14 @@ class Students extends Person {
   }
   sprintChallenge(subject) {
     console.log(`${this.name} has begun sprint challenge on ${subject}`);
+  }
+  graduate() {
+    if(this.grade > 70){
+      console.log(`Congratulations! You are now ready to graduate!`);
+    }
+    else{
+      console.log(`Keep working hard, you are not ready to graduate yet.`);
+    }
   }
 }
 
@@ -91,7 +106,8 @@ const xavier = new Students({
   gender: 'Male',
   previousBackground: 'Call Center Management',
   className: 'CSPT3',
-  favSubjects: ['JavaScript', 'Blockchain']
+  favSubjects: ['JavaScript', 'Blockchain'],
+  grade: 70
 });
 
 const leslie = new Students({
@@ -101,7 +117,8 @@ const leslie = new Students({
   gender: 'Female',
   previousBackground: 'Hotel Hospitality',
   className: 'CSPT4',
-  favSubjects: ['HTML', 'CSS', 'UI']
+  favSubjects: ['HTML', 'CSS', 'UI'],
+  grade: 100
 });
 
 const judy = new ProjectManagers({
@@ -147,3 +164,8 @@ judy.standUp('CSPT3');
 elroy.debugsCode(leslie, 'HTML');
 judy.demo('Python');
 elroy.grade(xavier, 'JavaScript');
+xavier.graduate();
+fred.gradeMe(xavier);
+judy.gradeMe(xavier);
+fred.gradeMe(xavier);
+xavier.graduate();
