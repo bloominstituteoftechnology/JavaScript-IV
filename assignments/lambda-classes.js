@@ -37,10 +37,10 @@ class Student extends Person {
     this.favSubjects.forEach(x => console.log(x));
 }
   PRAssignment(subject) {
-    return `${student.name} has submitted a PR for ${subject}`;
+    return `${this.name} has submitted a PR for ${subject}`;
   }
-  sprintChallenge() {
-    return `${student.name} has begun sprint challenge on ${subject}`
+  sprintChallenge(subject) {
+    return `${this.name} has begun sprint challenge on ${subject}`
   }
 }
 
@@ -51,9 +51,110 @@ class ProjectManager extends Instructor {
     this.favInstructor = attribs.favInstructor;
   }
   standup(channel) {
-    return `${name} announces to ${channel}, @channel standy times!`
+    return `${this.name} announces to ${channel}, @channel standy times!`
   }
   debugsCode(student, subject ) {
-    return `${name} debugs ${student.name}'s code on ${subject}`
+    return `${this.name} debugs ${student.name}'s code on ${subject}`
   }
 }
+
+// Test Person Objects
+const fred = new Person({
+  name: 'Fred',
+  location: 'Bedrock',
+  age: 37,
+  gender: 'male',
+});
+
+const wilma = new Person({
+  name: 'Wilma',
+  location: 'Bedrock',
+  age: 34,
+  gender: 'female',
+});
+
+
+// Test Instructor Objects
+const dan = new Instructor({
+  name: 'Dan',
+  location: 'Desert Town',
+  age: 35,
+  gender: 'male',
+  favLanguage: 'Go',
+  specialty: 'Front-end',
+  catchPhrase: `Yo dawg, I heard you liked Mixins. So I put Mixins in your Mixins`
+});
+
+const cam = new Instructor({
+  name: 'Cam',
+  location: 'Alexa\s prison',
+  age: 28,
+  gender: 'male',
+  favLanguage: 'JavaScript',
+  specialty: 'Back-end',
+  catchPhrase: `Alexa! play some sweet coding tunes`
+});
+
+
+// Test Student Objects
+const james = new Student({
+  name: 'James',
+  location: 'Buffalo, NY',
+  age: 29,
+  gender: 'male',
+  previousBackground: 'Customer Service',
+  className: 'FSWPT3',
+  favSubjects: ['Class Constructors', 'Java', 'Music Theory']
+});
+const elon = new Student({
+  name: 'Elon',
+  location: 'Fresno, California',
+  age: 38,
+  gender: 'male',
+  previousBackground: 'failed entrepreneur',
+  className: 'CS1'
+  favSubjects: ['rockets', 'Car Engineering', 'Space Travel']
+});
+
+// Test Project Manager Objects
+const brock = new ProjectManager({
+  name: 'Brock',
+  location: 'Republic of California',
+  age: 25,
+  gender: 'male',
+  speciality: "Coaching",
+  favLanguage: 'C++',
+  catchPhrase: 'Welcome to STANDUP!!!!!',
+  gradClassName: 'FSW10',
+  favInstructor: 'Dan',
+  
+});
+const lauren = new ProjectManager({
+  name: 'Lauren',
+  location: 'Miami, Florida',
+  age: 30,
+  gender: 'female',
+  speciality: 'React Router',
+  favLanguage: 'Japanese',
+  catchPhrase: 'James gets all 3\'s!',
+  gradClassName: 'CS2',
+  favInstructor: 'Austin',
+});
+
+//Person method tests
+console.log(fred.speak()); 
+console.log(wilma.speak());
+
+//instructor method tests
+console.log(dan.grade(james, 'C'));
+console.log(cam.demo(cam.favLanguage));
+
+//Student method tests
+console.log(james.listsSubjects()); //returns the list but also an undefined for some reason.
+console.log(elon.PRAssignment('Java'));
+console.log(james.sprintChallenge('Javascript'));
+
+//ProjectManager method tests
+console.log(brock.standup('FSWPT3'));
+console.log(lauren.debugsCode(james, 'react'));
+
