@@ -42,7 +42,6 @@ class Instructor extends Person {
         student.grade += getRandomInt(min, max);
 
         return `Student's new grade is: ${student.grade}`
-
     }
 }
 
@@ -68,6 +67,14 @@ class Student extends Person {
     sprintChallenge(subject) {
         return `${this.name} has begun sprint challenge on ${subject}`;
     }
+
+    graduate() {
+        if (this.grade > 70) {
+            return `${this.name} qualifies for graduation!`;
+        } else {
+            return `${this.name} does not qualify for graduation yet.`;
+        }
+    }
 }
 
 class ProjectManager extends Instructor {
@@ -78,7 +85,7 @@ class ProjectManager extends Instructor {
     }
      
     standUp(channel) {
-        return `${this.name} announces to #${channel}, @channel standup times!`;
+        return `${this.name} announces to the #${channel} channel, @channel standup times!`;
     }
 
     debugsCode(student, subject) {
@@ -150,7 +157,7 @@ const fred = new Instructor({
     previousBackground: 'Thinker',
     className: 'CSPT3',
     favSubjects: ['Ruby', 'Kotlin', 'JavaScript'],
-    grade: 92,
+    grade: 62,
   });
   
 console.log(fred);
@@ -176,11 +183,17 @@ console.log(slate.standUp('announcements'));
 console.log(slate.debugsCode(shleprock, 'Javascript'));
 console.log(slate.demo('CSS'));
 console.log(slate.grade(barney,'HTML'));
-console.log(slate.studentGrade(shleprock));
 
 console.log(dino);
 console.log(dino.standUp('brownbag'));
 console.log(dino.debugsCode(barney, 'CSS'));
 console.log(dino.demo('Callbacks'));
 console.log(dino.grade(shleprock, 'JavaScript'));
+
+console.log(slate.studentGrade(shleprock));
 console.log(dino.studentGrade(barney));
+console.log(fred.studentGrade(barney));
+console.log(wilma.studentGrade(shleprock));
+
+console.log(barney.graduate());
+console.log(shleprock.graduate());
