@@ -47,6 +47,20 @@ listsSubject(){
   }
 }
 
+class ProjectManager extends Instructor {
+    constructor (attributes) {
+        super(attributes) // calling the parents constructor
+        this.gradClassName = attributes.gradClassName,
+        this.favInstructor = attributes.favInstructor
+      }   
+      standUp(channel){
+          return `${this.name} announces to ${channel}, @channel standy times!​​​​​`;
+      }
+      debugsCode(student, subject){
+        return `${this.name} debugs ${student}'s code on ${subject}`;
+    }
+}
+
 const fred = new Person({ 
     name: 'Fred',
     location: 'Bedrock',
@@ -96,22 +110,22 @@ const fred = new Person({
     className: 'fswpt6',
     favSubjects: ['Python', 'CSS', 'JavaScript']
      });
-//   const nicole = new projectManager({
-//     name: 'Nicole',
-//     location: 'Boston',
-//     age: 45,
-//     gender: 'female',
-//     gradClassName: 'CS1',
-//     favInstructor: 'Aland',
-//     });
-//   const jonathan = new projectManager({
-//     name: 'Jonathan',
-//     location: 'Bedrock',
-//     age: 37,
-//     gender: 'male',
-//     gradClassName: 'CS6',
-//     favInstructor: 'Brock',
-//   });
+  const nicole = new ProjectManager({
+    name: 'Nicole',
+    location: 'Boston',
+    age: 45,
+    gender: 'female',
+    gradClassName: 'CS1',
+    favInstructor: 'Aland',
+    });
+  const jonathan = new ProjectManager({
+    name: 'Jonathan',
+    location: 'Bedrock',
+    age: 37,
+    gender: 'male',
+    gradClassName: 'CS6',
+    favInstructor: 'Brock',
+  });
 
   console.log(fred.speak());
   console.log(brock.demo("JavaScript II"));
@@ -119,6 +133,7 @@ const fred = new Person({
   console.log(james.favSubjects);
   console.log(james.pRAssignment('JavaScript III'));
   console.log(bob.sprintChallenge('JavaScript IV'));
-
+  console.log(nicole.standUp('CS6'));
+  console.log(jonathan.debugsCode('Nicole', 'JavaScript IV'));
 
 
