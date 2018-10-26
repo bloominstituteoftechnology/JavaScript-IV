@@ -1,5 +1,9 @@
 // CODE here for your Lambda Classes
 //
+function biasGrade(min, max) {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
 class Person {
   constructor(personProps) {
     this.name = personProps.name;
@@ -32,6 +36,25 @@ class Instructor extends Person {
       `${student.name} receives a perfect score on ${subject}`,
     );
   }
+
+  biasGrading(student, callback) {
+    let grade = student.grade;
+    while (grade < 70) {
+      grade += biasGrade(-20, 50);
+      callback(grade);
+    }
+    console.log(grade);
+  }
+
+  graduate(grade) {
+    if (grade < 70) {
+      console.log(
+        `I'm sorry, there must be an error with my grading. I show you made a ${grade} Let me go check.`,
+      );
+    } else {
+      console.log(`Congradulations, your grade is ${grade}. You graduate`);
+    }
+  }
 }
 
 class Student extends Person {
@@ -40,6 +63,7 @@ class Student extends Person {
     this.previousBackground = studentProps.previousBackground;
     this.className = studentProps.className;
     this.favSubjects = studentProps.favSubjects;
+    this.grade = 50;
   }
 
   listsSubjects() {
@@ -102,6 +126,9 @@ const matthews = new ProjectManager({
   favInstructor: 'Davis',
 });
 
+matthews.biasGrading(conner, matthews.graduate);
+
 // console.log(matthews);
 // matthews.standUp('FWSSS');
 // matthews.debugsCode(conner, 'science');
+//
