@@ -52,6 +52,16 @@ class Instructor extends Person {
   grade(student, subject){
     console.log(`${student} recieves a perfect score on ${subject}`)
   }
+
+  giveGrade(student){
+    let num = Math.floor(Math.random()*5) + 1;
+    num *= Math.floor(Math.random()*2) == 1? 1: -1;
+
+    student.grade = student.grade + num;
+
+    console.log( `${this.name} gave ${student.name} a score of ${num}, his current grade is now ${student.grade}`)
+  }
+
 }
 
 const Josh = new Instructor({
@@ -66,6 +76,8 @@ const Josh = new Instructor({
 
 Josh.grade('David', 'Responsive Design');
 Josh.speak()
+
+
 
 // Student
 // Now we need some students!
@@ -84,6 +96,7 @@ class Student extends Person {
     super(studentAttribute)
     this.previousBackground = studentAttribute.previousBackground;
     this.favSubjects = studentAttribute.favSubjects;
+    this.grade = studentAttribute.grade;
   }
 
   listsSubjects(){
@@ -100,11 +113,20 @@ class Student extends Person {
   sprintChallenge(subject){
     return `${this.name} has begun spring challenge on ${subject}`
   }
+
+  graduate(){
+    if (this.grade > 70){
+      console.log(`${this.name} is ready to graduate! Congratulations on finishing Lambda School!!!`)
+    } else {
+      console.log(`${this.name} has not completed all the requirements, you must complete all projects before graduating.`)
+    }
+  }
 }
 
 const David = new Student({
   name: 'David',
-  favSubjects: 'math'
+  favSubjects: 'math',
+  grade: 65
 })
 
 console.log(David);
@@ -156,3 +178,10 @@ console.log(Buzz)
 console.log(Buzz.specialty);
 console.log(Buzz.standUp('CSPT3'))
 console.log(Buzz.debugsCode(David, 'JavaScript IV'))
+
+console.log(David.grade);
+Josh.giveGrade(David);
+Josh.giveGrade(David);
+Josh.giveGrade(David);
+
+David.graduate();
