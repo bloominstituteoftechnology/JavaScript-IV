@@ -60,11 +60,11 @@ class ProjectManager extends Instructor {
     }
      
     standUp(channel) {
-        console.log(`${this.name} announces to ${channel}, @channel standup times!`);
+        return `${this.name} announces to #${channel}, @channel standup times!`;
     }
 
     debugsCode(student, subject) {
-        console.log(`${this.name} debugs ${student.name}'s code on ${subject}`);
+        return `${this.name} debugs ${student.name}'s code on ${subject}`;
     }
 }
 
@@ -87,6 +87,30 @@ const fred = new Instructor({
     specialty: 'back-end',
     favLanguage: 'Ruby',
     catchPhrase: `Anything but callback hell!`
+  });
+
+  const slate = new ProjectManager ({
+    name: 'Slate',
+    age: 40,
+    location: 'Bedrock',
+    gender: 'male',
+    specialty: 'front-end',
+    favLanguage: 'Basic',
+    catchPhrase: 'Don\'t let me catch you napping!',
+    gradClassName: 'CSPT3',
+    favInstructor: 'Cam Pope'
+  });
+
+  const dino = new ProjectManager ({
+    name: 'Dino',
+    age: 27,
+    location: 'Bedrock',
+    gender: 'male',
+    specialty: 'full-stack',
+    favLanguage: 'JavaScript',
+    catchPhrase: 'I am smarter than Fred is!',
+    gradClassName: 'CSPT3',
+    favInstructor: 'Big Josh Knell'
   });
 
   const barney = new Student({
@@ -117,9 +141,17 @@ console.log(wilma.demo('HTML'));
 console.log(barney);
 console.log(barney.PRAssignment('HTML'));
 console.log(barney.sprintChallenge('JavaScript'));
-console.log(barney.listsSubjects());
+barney.listsSubjects();
 
 console.log(shleprock);
 console.log(shleprock.PRAssignment('Ruby'));
 console.log(shleprock.sprintChallenge('HTML'));
 shleprock.listsSubjects();
+
+console.log(slate);
+console.log(slate.standUp('announcements'));
+console.log(slate.debugsCode(shleprock, 'Javascript'));
+
+console.log(dino);
+console.log(dino.standUp('brownbag'));
+console.log(dino.debugsCode(barney, 'CSS'));
