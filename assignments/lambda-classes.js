@@ -25,6 +25,26 @@ class Instructor extends Person{
 	grade(student, subject){
 		console.log(`${student.name} receives a perfect score on ${subject}`);
 	}
+	changeGrade(student){
+		for(;;){
+			let change = Math.floor(Math.random()*(100-1)+1);
+			if (Math.random() >= 0.5){
+				if (student.grade + change > 100) continue;
+				else {
+					console.log(`${this.name} adds ${change} points to ${student.name}'s grade!`);
+					student.grade += change;
+					return;
+				}
+			} else {
+				if (student.grade - change < 0) continue;
+				else {
+					console.log(`${this.name} removes ${change} points from ${student.name}'s grade!`);
+					student.grade -= change;
+					return;
+				}
+			}
+		}
+	}
 }
 
 class Student extends Person{
@@ -33,6 +53,7 @@ class Student extends Person{
 		this.previousBackground = props.previousBackground;
 		this.className = props.className;
 		this.favSubjects = props.favSubjects;
+		this.grade = Math.floor(Math.random()*(100-1)+1);
 	}
 	listsSubjects(){
 		this.favSubjects.forEach(x => console.log(x));
@@ -42,6 +63,9 @@ class Student extends Person{
 	}
 	sprintChallenge(subject){
 		console.log(`${this.name} has begun sprint challenge on ${subject}`);
+	}
+	graduate(){
+		console.log(this.grade > 70 ? `${this.name} graduates!`:`${this.name} is not ready to graduate.`);
 	}
 }
 
@@ -66,7 +90,7 @@ const fred = new Instructor({
   location: 'Bedrock',
   age: 37,
   gender: 'male',
-  favLanguage: 'JavaScript',
+  faveLanguage: 'JavaScript',
   specialty: 'Front-end',
   catchPhrase: `Don't forget the homies`
 });
@@ -76,8 +100,8 @@ const dumbledore = new Instructor({
 	location: 'Hogwarts',
 	age: 160,
 	gender: 'male',
-	favLanguage: 'Magic',
-	speciality: 'Transfiguration',
+	faveLanguage: 'Magic',
+	specialty: 'Transfiguration',
 	catchPhrase: 'It does not do to dwell on dreams and forget to live.'
 });
 
@@ -120,8 +144,8 @@ const percy = new ProjectManager({
 	age: 21,
 	location: 'The Burrow',
 	gender: 'male',
-	favLanguage: 'Magic',
-	speciality: 'Being Head Boy',
+	faveLanguage: 'Magic',
+	specialty: 'Being Head Boy',
 	catchPhrase: 'Blah blah rules blah',
 	gradClassName: 'Gryffindor',
 	favInstructor: 'Professor McGonagall'
@@ -132,8 +156,8 @@ const dude = new ProjectManager({
 	age: 99,
 	location: 'Everywhere',
 	gender: 'male',
-	favLanguage: 'Java',
-	speciality: 'OOP',
+	faveLanguage: 'Java',
+	specialty: 'OOP',
 	catchPhrase: 'I\'m a guy',
 	gradClassName: 'FSW1',
 	favInstructor: 'Beej'
