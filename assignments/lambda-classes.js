@@ -28,10 +28,22 @@ class Instructor extends Person{
 
 class Student extends Person{
     constructor(studentAttr){
+        super(studentAttr)
+
+        const fixedGrade = Math.floor(Math.random()*100)+1;
+
+
         this.previousBackground = studentAttr.previousBackground;
         this.className = studentAttr.className;
         this.favSubject = studentAttr.favSubject;
-        this.grade = studentAttr.grade;
+        this.grade = fixedGrade;
+    }
+
+    graduate(){
+        if(this.grade >= 70){
+            return `Congratualations ${this.name} you've successfully completed the Lambda School course!`
+        }
+        return `Unfortunately you didn't graduate, let's try and review a few assignments?`
     }
     listsSubject(){
         return `${this.favSubject}`
@@ -40,7 +52,7 @@ class Student extends Person{
         return `${student.name} has submitted a PR for ${subject}`
     }
     sprintChallange(subject){
-        `${student.name} has sprint challenge on ${subject}`
+        return `${student.name} has sprint challenge on ${subject}`
     }
 }
 
@@ -57,3 +69,12 @@ class ProjectMaster extends Instructor{
         `${this.name} debugs ${student.name}'s code on ${subject}`
     }
 }
+
+const alando = new Student({
+    name:"alando",
+    age: 23,
+    location:"california",
+    gender:"male"
+})
+
+console.log(alando.graduate());
