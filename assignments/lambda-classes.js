@@ -29,9 +29,11 @@ class Instructor extends Person {
   }
 
   evaluate(student) {
+    if (student.grade > 70) return student.graduate();
     let chance = Math.floor(Math.random() * 3)
     if (chance === 0) {
       student.grade -= 5;
+      if (student.grade < 0) student.grade = 0;
       return `Study harder ${student.name} and come back later.`
     } else if(chance === 1) {
       student.grade += 5;
@@ -68,6 +70,7 @@ class Student extends Person {
     this.className = attributes.className;
     this.favSubjects = attributes.favSubjects;
     this.grade = Math.floor((Math.random() * 50));
+    this.graduated = false;
   }
 
   listsSubjects() {
@@ -80,6 +83,14 @@ class Student extends Person {
 
   sprintChallenge(subject) {
     return `${this.name} has begun sprint challenge on ${subject}.`
+  }
+
+  graduate() {
+    if (this.grade > 70) {
+      this.graduated = true;
+      return `Congratulations ${this.name}, you've graduated from Lambda!`;
+    }
+    else return `Hold up there, bucko.  Get back to studying.`;
   }
 }
 
@@ -161,3 +172,10 @@ console.log(jonathan.PRAssignment("User Interface"));
 console.log(jenae.sprintChallenge("JavaScript Fundamentals"));
 console.log(barney.debugsCode(jonathan, "LESS"));
 console.log(wilma.grade(jenae, "Applied JavaScript"));
+
+// Loop for testing evaluate() and graduate() methods
+
+// while (!jenae.graduated) {
+//   console.log(fred.evaluate(jenae));
+//   console.log(jenae.grade);
+// }
