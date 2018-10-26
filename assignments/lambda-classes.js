@@ -17,9 +17,6 @@ class Person {
     speak() {
         console.log(`Hello my name is ${this.name}, I am from ${this.location}`);
     }
-    list() {
-        console.log(`${this.favSubjects}`);
-      }
 }
 
 // #### Instructor
@@ -36,21 +33,61 @@ class Person {
 //   * 
    
 class Instructor extends Person {
-       constructor(instructorAttributes) {
-       super(instructorAttributes);
-       this.specialty = instructorAttributes.specialty;
-       this.favLanguage = instructorAttributes.favLanguage;
-       this.catchPhrase = instructorAttributes.catchPhrase;
+       constructor(attributes) {
+       super(attributes);
+       this.specialty = attributes.specialty;
+       this.favLanguage = attributes.favLanguage;
+       this.catchPhrase = attributes.catchPhrase;
      }
      demo(subject) {
-         console.log(`Today we are learning about ${this.subject}`)
+         console.log(`Today we are learning about ${this.subject}`);
      }
-     grade(student) {
-         console.log(`${student.name} receives a perfect score on ${this.subject}`)
+     grade(student, subject) {
+         console.log(`${student.name} receives a perfect score on ${subject}`)
      }
    }
 
-   const instructor = new Person({
+   class Student extends Person {
+    constructor(attributes) {
+      super(attributes);
+      this.previousBackground = attributes.previousBackground;
+      this.className = attributes.className;
+      this.favSubjects = attributes.favSubjects;
+    }
+  
+    listsSubjects() {
+      for (let i = 0; i < this.favSubjects.length; i++) {
+        console.log(`${this.name} <3's ${this.favSubjects[i]}`);
+      }
+    }
+  
+    PRAssignment(subject) {
+      console.log(`${this.name} submitted a PR for ${subject}`);
+    }
+  
+    sprintChallenge(subject) {
+      console.log(`${this.name} begins working hard on ${subject}`);
+    }
+  }
+  
+  class ProjectManager extends Instructor {
+    constructor(attributes) {
+      super(attributes);
+      this.gradClassName = attributes.gradClassName;
+      this.favInstructor = attributes.favInstructor;
+    }
+  
+    standUp(channel) {
+      console.log(`${this.name} announces to ${channel}, @channel standy times!`);
+    }
+  
+    debugsCode(student, subject) {
+      console.log(`${this.name} debugs ${student.name}'s code on ${subject}`);
+    }
+  }
+  
+   
+   const tat = new Instructor({
        name: 'Anika',   
        age: 40,
        location: 'Indiana',
@@ -60,7 +97,7 @@ class Instructor extends Person {
        catchPhrase: 'Don\'t forget the homies'
    });
 
-   console.log(instructor.name);
+
 
 
 //    #### Student
@@ -77,25 +114,15 @@ class Instructor extends Person {
 //   * `sprintChallenge` similar to PRAssignment but logs out `student.name has begun sprint challenge on {subject}`
 
 
-const student = new Person({
-    name: 'K\'naan',   
+const student = new Student({
+    name: 'k\'naan',   
     age: 22,
     location: 'Vulcan',
     gender: 'Male',
     previousBackground: 'massage therapy',
     className: 'CS132',
-    favSubjects: [
-        'HTML',
-        'CSS',
-        'JavaScript',
-    ],
-    listSubjects: console.log(function() {
-        console.log(`${this.favSubjects}`),
-    PRAssignment: function(subject) {
-        console.log(`${this.name} has submitted PR for ${subject}`)}
-    sprintChallenge:
-
-})
+    favSubjects: ['HTML', 'CSS', 'JavaScript']
+});
 
 
 // #### Project Mananger
@@ -109,13 +136,29 @@ const student = new Person({
 //   * `standUp` a method that takes in a slack channel and logs `{name} announces to {channel}, @channel standy times!​​​​​
 //   * `debugsCode` a method that takes in a student object and a subject and logs out `{name} debugs {student.name}'s code on {subject}`
 
-const projectmanager = new Instructor({
+const projectmanager = new ProjectManager({
     name: 'Maclovia',   
     age: 30,
     location: 'California',
     gender: 'Female',
     gradClassName: 'CS1',
     favInstructor: 'Sean',
-    standUp:
-    debugsCode:
-})
+    favLanguage: 'python',
+    specialty: 'auth',
+    catchPhrase: 'redux rocks!'
+});
+
+tat.speak();
+tat.demo('variables');
+tat.grade(student, 'redux');
+
+student.speak();
+student.listsSubjects();
+student.PRAssignment('redux');
+student.sprintChallenge('Pre-proccessing');
+
+projectmanager.speak();
+projectmanager.demo('Redux');
+projectmanager.grade(student, 'const vs let');
+projectmanager.debugsCode(student, 'DS-Algos');
+projectmanager.standUp('#Code-Allstars');
