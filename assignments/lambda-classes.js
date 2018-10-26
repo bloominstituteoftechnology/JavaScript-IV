@@ -219,6 +219,15 @@ const austin = new ProjectManager ({
     favInstructor: 'Josh'
 })
 
+const brock = new ProjectManager ({
+    name: 'Brock',
+    location: 'Western Coast',
+    age: 26,
+    gender: 'male',
+    gradClassName: 'FT3',
+    favInstructor: 'Cameron'
+})
+
 
 console.log(cameron)
 console.log(josh.favLanguage)
@@ -232,6 +241,7 @@ console.log(austin.standUp('FSWPT3'))
 console.log(austin.debugsCode(jamar, 'JSIV homework'))
 console.log(cameron.gradeTest(jamar))
 console.log(austin.gradeTest(mustafa))
+console.log(brock.standUp('FSWPT3'))
 console.log(josh.gradeTest(karla))
 console.log(jamar.graduate())
 console.log(mustafa.graduate())
