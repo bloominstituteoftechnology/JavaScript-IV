@@ -43,6 +43,11 @@ class Instructor extends Person {
 
         return `Student's new grade is: ${student.grade}`
     }
+
+    bumpGrade(student, points) {
+        student.grade += points;
+        return `Student's new grade is: ${student.grade}`
+    }
 }
 
 class Student extends Person {
@@ -196,4 +201,7 @@ console.log(fred.studentGrade(barney));
 console.log(wilma.studentGrade(shleprock));
 
 console.log(barney.graduate());
+console.log(shleprock.graduate());
+
+console.log(fred.bumpGrade(shleprock,12));
 console.log(shleprock.graduate());
