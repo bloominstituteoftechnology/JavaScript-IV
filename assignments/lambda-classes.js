@@ -24,6 +24,11 @@ class Instructor extends Person {
   grade(student, subject) {
     return `${student.name} receives a perfect score on ${subject}`
   }
+  // Sprint Challenge function
+  sprintGrade(student) {  
+    student.grade += Math.random() < 0.5 ? -5 : 5;
+    return `${this.name} grades ${student.name}'s sprint and it changes their grade to ${student.grade}`
+  }
 }
 
 class Student extends Person {
@@ -32,6 +37,7 @@ class Student extends Person {
     this.previousBackground = attribs.previousBackground;
     this.className = attribs.className;
     this.favSubjects = attribs.favSubjects;
+    this.grade = attribs.grade;
   }
   listsSubjects() {
     this.favSubjects.forEach(x => console.log(x));
@@ -41,6 +47,14 @@ class Student extends Person {
   }
   sprintChallenge(subject) {
     return `${this.name} has begun sprint challenge on ${subject}`
+  }
+
+  // Sprint Challenge function - showing as 'undefined'
+  graduate(instructor) {
+    while (this.grade < 70) {
+      instructor.sprintGrade(this.student); 
+      console.log(grade);
+    }
   }
 }
 
@@ -87,7 +101,7 @@ const dan = new Instructor({
 
 const cam = new Instructor({
   name: 'Cam',
-  location: 'Alexa\s prison',
+  location: 'Alexa\s Mind Palace',
   age: 28,
   gender: 'male',
   favLanguage: 'JavaScript',
@@ -104,7 +118,8 @@ const james = new Student({
   gender: 'male',
   previousBackground: 'Customer Service',
   className: 'FSWPT3',
-  favSubjects: ['Class Constructors', 'Java', 'Music Theory']
+  favSubjects: ['Class Constructors', 'Java', 'Music Theory'],
+  grade: 50
 });
 const elon = new Student({
   name: 'Elon',
@@ -112,8 +127,9 @@ const elon = new Student({
   age: 38,
   gender: 'male',
   previousBackground: 'failed entrepreneur',
-  className: 'CS1'
-  favSubjects: ['rockets', 'Car Engineering', 'Space Travel']
+  className: 'CS1',
+  favSubjects: ['rockets', 'Car Engineering', 'Space Travel'],
+  grade: 90
 });
 
 // Test Project Manager Objects
@@ -158,3 +174,7 @@ console.log(james.sprintChallenge('Javascript'));
 console.log(brock.standup('FSWPT3'));
 console.log(lauren.debugsCode(james, 'react'));
 
+//Stretch goal tests
+//Grade Change function
+console.log(cam.sprintGrade(james, 'React')); // Grading function
+console.log(james.graduate()); //Graduate method
