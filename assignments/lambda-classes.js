@@ -51,11 +51,11 @@ class Student extends Person{
      this.className = studentAttributes.className;
      this.favSubjects = studentAttributes.favSubjects;
     }
-    listsSubjects (favSubjects){
-       for ( let i = 0; i < favSubjects.length; i++){
-           console.log (favSubjects[i]);
+    listsSubjects (){
+       const favlists = this.favSubjects.map(subject => subject);
+       return favlists;
        }
-    }
+    
     PRAssignment (subject){
         return `${student.name} has submitted a PR for ${subject}`;
     }
