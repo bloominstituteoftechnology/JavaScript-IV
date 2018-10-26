@@ -76,7 +76,7 @@ class Humanoid extends CharacterStats {
         this.language = humanoid.language;
         
     }
-    // Humanoid Destroy function
+    // Humanoid Greet function
     greet() {
         return `${this.name} offers a greeting in ${this.language}`;
     }
@@ -158,34 +158,29 @@ console.log(swordsman.destroy()); // Sir Mustachio was removed from the game.
 // * Give the Hero and Villians different methods that could be used to remove health points from objects which could result in destruction if health gets to 0 or drops below 0;
 // * Create two new objects, one a villian and one a hero and fight it out with methods!
 
-// Hero.prototype = Object.create(Humanoid.prototype);
+class Villian extends Humanoid {
 
-// function Villian(villian) {
-// Humanoid.call(this, villian);
-// }
-// Villian.prototype = Object.create(GameObject.prototype);
-// Villian.prototype = Object.create(CharacterStats.prototype);
-// Villian.prototype = Object.create(Humanoid.prototype);
+    constructor(villain) {
+        super(villain);
+    }
+}
 
-// Villian.prototype.yell = function() {
-// return 'RAAAAAAA';
-// }
-// const vader = new Villian({
-//     createdAt: new Date(),
-//     dimensions: {
-//     length: 1,
-//     width: 2,
-//     health: 4,
-//     },
-//     hp: 10,
-//     name: 'Vader',
-//     faction: 'Death Star',
-//     weapons: [
-//     'Burger',
-//     'Stick',
-//     ],
-//     language: 'Swuahili',
-// });
+const vader = new Villian({
+    createdAt: new Date(),
+    dimensions: {
+    length: 1,
+    width: 2,
+    health: 4,
+    },
+    hp: 10,
+    name: 'Vader',
+    faction: 'Death Star',
+    weapons: [
+    'Burger',
+    'Stick',
+    ],
+    language: 'Swuahili',
+});
 
 // console.log(vader.name);
 // console.log(vader.yell());
