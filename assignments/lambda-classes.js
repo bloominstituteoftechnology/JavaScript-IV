@@ -17,7 +17,7 @@ class Person {
 // Instructor
 
 class Instructors extends Person {
-    construcr (props){
+    constructor (props){
         super(props);
         this.speciality = props.speciality;
         this.favLanguage = props.favLanguage;
@@ -27,7 +27,7 @@ class Instructors extends Person {
         return `Today we are learning about ${subject}.`;
     }
     grade(student, subject) {
-        return `${student} receives a perfect score on ${subject}!`;
+        return `${student.name} receives a perfect score on ${subject}!`;
     }
 }
 
@@ -38,32 +38,32 @@ class Students extends Person {
         super (props);
         this.previousBackground = props. previousBackground;
         this.className = props.className;
-        this.favSubjects = props.favSubjects; //This may need to be an array and not an object, but I feel like it is an array as an attribute of an object.
+        this.favSubjects = props.favSubjects;
     }
     listSubjects(){
-        console.log(`${this.name}'s favorite subjects are: ${this.favSubjects}.`);
+        return (`${this.name}'s favorite subjects are: ${this.favSubjects}.`);
     }
     PRassignment(subject) {
-        console.log(`${this.name} has submitted a PR for ${subject}`);
+        return (`${this.name} has submitted a PR for ${subject}.`);
     }
     sprintChallenge(subject) {
-        console.log(`${this.name} has begun sprint challenge on ${subject}`);
+        return (`${this.name} has begun sprint challenge on ${subject}.`);
     }    
 }
 
 // Project Manager
 
 class ProjectManagers extends Instructors {
-    construcr(props) {
-        super(props);
+    constructor (props) {
+        super (props);
         this.gradClassName = props.gradClassName;
         this.favInstructor = props.favInstructor;
     }
     standUp(slackChannel) {
-        console.log(`${this.name} announces to ${slackChannel}, @channel standy time!`);
+        return (`${this.name} announces to ${slackChannel}, @channel standy time!`);
     }
     debugsCode(student, subject) {
-        console.log(`${this.name} debugs ${student.name}'s code on ${subject}.`);
+        return (`${this.name} debugs ${student.name}'s code on ${subject}.`);
     }
 }
 
@@ -107,7 +107,7 @@ const perry = new ProjectManagers({
   console.log(perry.favInstructor);
   console.log(jeff.catchPhrase);
   console.log(jeff.speak());
-  console.log(jeff.grade(Jeff, "Advanced CSS"));
-  console.log(william.listSubjects);
-  console.log(william.sprintChallenge());
+  console.log(jeff.grade(william, "Advanced CSS"));
+  console.log(william.PRassignment("Advance Javascript"));
+  console.log(william.sprintChallenge("Fundamental Javascript"));
   console.log(william.previousBackground);
