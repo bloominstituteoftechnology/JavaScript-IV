@@ -91,9 +91,10 @@ class Instructor extends People {  // child of People
         return `${student.name} receives a perfect score on ${subject}.`
     }
     gradeTest (student, grade){
-        this.grade = student.grade;
-        return `${student.name} received a grade of ${Math.floor(Math.random () * 45) + 55}`
-        grade.push(student)
+        grade = Math.floor(Math.random () * 45) + 55;
+        // grade = this.grade
+        return `${student.name} received a grade of ${grade}`
+        grade.push(student.grade)
     }
 }
 
@@ -116,8 +117,12 @@ class Student extends People {  // child of People
     sprintChallenge (subject) {
         return `${this.name} has begun sprint challenge on ${subject}`;
     }
-    grade (){
-        return `${this.name} `
+    graduate (grade){
+        if (this.grade >= 70){
+            return `${this.name} graduated!! Woohoo!! Lambda is the best!`
+        } else {
+            return `You will get this soon, but you can't graduate just yet, ${this.name}!`
+        }
     }
 
 }
@@ -169,11 +174,11 @@ const jamar = new Student ({
     previousBackground: 'International relations',
     className: 'FSWPT3',
     favSubjects: ['Html', 'CSS', 'JavaScript', 'node.js'],
-    grade: [];
+    grade: 99
 })
 
 const karla = new Student ({
-    name: 'Jamar',
+    name: 'Karla',
     location: 'Brooklyn',
     age: 25,
     gender: 'female',
@@ -226,3 +231,8 @@ console.log(austin)
 console.log(austin.standUp('FSWPT3'))
 console.log(austin.debugsCode(jamar, 'JSIV homework'))
 console.log(cameron.gradeTest(jamar))
+console.log(austin.gradeTest(mustafa))
+console.log(jamar.graduate())
+console.log(mustafa.graduate())
+console.log(karla.graduate())
+console.log(don.graduate())
