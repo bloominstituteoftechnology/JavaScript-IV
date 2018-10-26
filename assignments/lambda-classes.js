@@ -25,9 +25,15 @@ class Instructor extends Person {
   demo(subject) {
     console.log(`Today we are learning about ${subject}`);
   }
-  grade(student, subject) {
+  gradeStudent(student, subject) {
     console.log(`${student.name} receives a perfect score on ${subject}`);
   }
+  markGrade(Student) {
+    return (Student.grade - Math.random()) ||
+     (Student.grade + Math.random());
+     console.log(`${Student.name} got a ${Student.grade}!`)
+  }
+
 }
 
 //Student Class//////////////////////////////////////
@@ -38,6 +44,7 @@ class Student extends Person {
     this.previousBackground = attributes.previousBackground;
     this.className = attributes.className;
     this.favSubjects = attributes.favSubjects;
+    this.grade = attributes.grade
   }
   listsSubjects() {
     console.log(this.favSubjects);
@@ -52,7 +59,7 @@ class Student extends Person {
 
 //Project Manager Class//////////////////////////////////////
 
-class ProjectManager extends Person {
+class ProjectManager extends Instructor {
   constructor(attributes) {
     super(attributes);
     this.gradClassName = attributes.gradClassName;
@@ -60,12 +67,12 @@ class ProjectManager extends Person {
   }
   standUp(channel) {
     console.log(
-      `${this.name} announces to ${channel}, @channel standy times!​​​​​`
+      `${this.name} announces to ${channel}, @${channel} standy times!​​​​​`
     );
   }
   debugsCode(student, subject) {
     console.log(`${this.name} debugs ${student.name}'s code on ${subject}`);
-  }
+}
 }
 
 //New Instructor Objects////////////////////
@@ -98,7 +105,8 @@ const Jack = new Student({
   gender: "male",
   previousBackground: "Tiger Juggling",
   className: "fswp3",
-  favSubject: "Python basics"
+  favSubject: "Python basics",
+  grade:'44'
 });
 
 const Jill = new Student({
@@ -108,7 +116,8 @@ const Jill = new Student({
   gender: "female",
   previousBackground: "Lion Catching",
   className: "fswp3",
-  favSubject: "React"
+  favSubject: "React",
+  grade:'88'
 });
 
 //New Project Manager Objects//////////////////////////////////
@@ -122,7 +131,7 @@ const Conan = new ProjectManager({
   favInstructor: "Great Shaman Blargggg"
 });
 
-const Conan = new ProjectManager({
+const Nathan = new ProjectManager({
   name: "Nathan",
   location: "LA",
   age: "3",
@@ -130,3 +139,9 @@ const Conan = new ProjectManager({
   gradClassName: "Xavier school for the gifted",
   favInstructor: "Professor Xavier"
 });
+
+console.log(Conan.age);
+console.log(Conan.standUp(42345));
+console.log(Conan.debugsCode(Jill, 'Hemotology'));
+console.log(Fred.speak())
+console.log(Cali.markGrade(Jack))
