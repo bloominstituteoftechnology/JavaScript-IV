@@ -53,11 +53,11 @@ class Instructor extends Person {
     }
     // Instructor demo subject function
     demo(subject) {
-        return `Today we are learning about ${this.subject}`;
+        return `Today we are learning about ${subject}`;
     }
     // Instructor grade student function
     grade(student, subject) {
-        return `${student.name} receives a perfect score on ${this.subject}`;
+        return `${student} receives a perfect score on ${subject}`;
     }
 }
 
@@ -90,16 +90,15 @@ class Student extends Person {
     
     listSubjects() {
         const favList = this.favSubjects.map(subject => console.log(subject));
-        return favList;
     }
     
     // Pull Request Submission function
     PRAssignment(subject) {
-        return `${this.name} has submitted a PR for ${this.subject}.`
+        return `${this.name} has submitted a PR for ${subject}.`
     }
     // Spring Challenge status function
     sprintChallenge(subject) {
-        return `${this.name} has begun sprint challange on ${$this.subject}.`
+        return `${this.name} has begun sprint challange on ${subject}.`
     }
 }
 
@@ -128,11 +127,11 @@ class ProjectManager extends Instructor {
     }
     // StandUp accouncement function
     standUp(channel) {
-        return `${this.name} announces to ${this.channel} @channel standy times!`
+        return `${this.name} announces to ${channel}, @channel standy times!`;
     }
     // Debugs accouncement function
     debugsCode(student, subject) {
-        return `${this.name} debugs ${student}'s code on ${subject}`
+        return `${this.name} debugs ${student}'s code on ${subject}`;
     } 
 }
 
@@ -156,7 +155,6 @@ const jane = new Student({
     favSubjects: ['Ruby', 'JavaScript', 'PHP'],
 });
 
-
 const jimmy = new ProjectManager({
     name: 'Jimmy',
     location: 'Houston',
@@ -167,14 +165,12 @@ const jimmy = new ProjectManager({
     catchPhrase: `Get those stand-up forms, people!`
 });
 
-// const liz = new Humanoid({
-
-// });
-
-// const steph = new Humanoid({
-
-// });
 
 console.log(fred.name);
+console.log(fred.demo('Ju-Ju coding'));
+console.log(fred.grade('Jane', 'JavaScript'));
 console.log(jimmy.debugsCode('jane', 'Ruby'));
 console.log(jane.listSubjects());
+console.log(jane.PRAssignment('PHP'));
+console.log(jane.sprintChallenge('JavaScript'));
+console.log(jimmy.standUp('lol'));
