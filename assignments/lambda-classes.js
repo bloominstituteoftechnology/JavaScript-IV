@@ -31,10 +31,12 @@ class Instructor extends Person {
     }
 
     changeGrade (student) {
-        let newGrade = student.grade + Math.random();
-        return newGrade = newGrade.toFixed(2)*100;
+        student.grade = student.grade + Math.random();
+        return student.grade = student.grade.toFixed(2)*100;
+        // console.log(student.grade);
         
     }
+
 
 }
 
@@ -48,7 +50,7 @@ class Student extends Person {
     }
 
     listSubjects() {
-        console.log(this.favSubjects);
+        console.log(this.favSubjects.toString());
     }
 
     PRAssignment(subject) {
@@ -58,13 +60,13 @@ class Student extends Person {
     sprintChallenge(subject) {
         return `${this.name} has begun sprint challenge on ${subject}`;
     }
-
-    graduate(newGrade) {
-        if (newGrade > 70) {
-            return `${this.name}'s grade is ${newGrade}%. Congrats on graduation!`;
+    
+    graduate() {
+        if (this.grade > 70) {
+            return `${this.name}'s grade is ${this.grade}%. Congrats on graduation!`;
         }
         else {
-            return `${this.name}'s grade is only ${newGrade}%, better luck next year`;
+            return `${this.name}'s grade is only ${this.grade}%, better luck next year`;
         }
     }
 }
@@ -156,5 +158,7 @@ console.log(sam.PRAssignment("tennis"));
 console.log(susan.sprintChallenge("coin base"));
 console.log(peter.standUp("investor-relations"));
 console.log(priya.debugsCode(susan, "engineering"));
-console.log(sam.graduate(ilya.changeGrade(sam)));
-console.log(susan.graduate(igor.changeGrade(susan)));
+priya.changeGrade(susan);
+peter.changeGrade(sam);
+console.log(susan.graduate());
+console.log(sam.graduate());
