@@ -8,7 +8,7 @@ class Person {
     }
 
     speak() {
-        console.log(`Hello, my name is ${this.name}, I am from ${this.location}.`);
+        return `Hello, my name is ${this.name}, I am from ${this.location}.`;
     }
 }
 
@@ -21,11 +21,11 @@ class Instructor extends Person {
     }
 
     demo(subject) {
-        console.log(`Today we are learning about ${subject}`);
+        return `Today we are learning about ${subject}`;
     }
 
     grade(student, subject) {
-        console.log(`${student.name} receives a perfect score on ${subject}`);
+        console.log(`${this.name} receives a perfect score on ${subject}`);
     }
 }
 
@@ -38,12 +38,17 @@ class Student extends Person {
     }
 
     listsSubjects() {
-        // list one by one each favSubject
+        this.favSubjects.forEach(function(element) {
+            console.log(element);
+          });
     }
 
-    
     PRAssignment(subject) {
-        console.log(`${student.name} has submitted a PR for ${subject}`);
+        return `${this.name} has submitted a PR for ${subject}`;
+    }
+
+    sprintChallenge(subject) {
+        return `${this.name} has begun sprint challenge on ${subject}`;
     }
 }
 
@@ -83,3 +88,38 @@ const fred = new Instructor({
     favLanguage: 'Ruby',
     catchPhrase: `Anything but callback hell!`
   });
+
+  const barney = new Student({
+    name: 'Barney',
+    age: 28,
+    location: 'Bedrock',
+    gender: 'male',
+    previousBackground: 'Digger',
+    className: 'CSPT3',
+    favSubjects: ['Html', 'CSS', 'JavaScript'],
+  });
+
+  const shleprock = new Student({
+    name: 'Shleprock',
+    age: 30,
+    location: 'Bedrock',
+    gender: 'male',
+    previousBackground: 'Thinker',
+    className: 'CSPT3',
+    favSubjects: ['Ruby', 'Kotlin', 'JavaScript'],
+  });
+  
+console.log(fred);
+console.log(fred.speak());
+console.log(wilma);
+console.log(wilma.demo('HTML'));
+
+console.log(barney);
+console.log(barney.PRAssignment('HTML'));
+console.log(barney.sprintChallenge('JavaScript'));
+console.log(barney.listsSubjects());
+
+console.log(shleprock);
+console.log(shleprock.PRAssignment('Ruby'));
+console.log(shleprock.sprintChallenge('HTML'));
+shleprock.listsSubjects();
