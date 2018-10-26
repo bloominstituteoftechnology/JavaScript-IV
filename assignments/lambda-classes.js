@@ -29,9 +29,8 @@ class Instructor extends Person {
     console.log(`${student.name} receives a perfect score on ${subject}`);
   }
   markGrade(Student) {
-    return (Student.grade - Math.random()) ||
-     (Student.grade + Math.random());
-     console.log(`${Student.name} got a ${Student.grade}!`)
+    return `${Student.name} got a ${Student.grade - Math.random() ||
+        Student.grade + Math.random}`
   }
 
 }
