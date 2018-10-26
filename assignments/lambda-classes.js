@@ -8,7 +8,7 @@ class Person{
 		this.gender = props.gender;
 	}
 	speak(){
-		return `Hello, my name is ${this.name} and I am from ${this.location}`;
+		console.log(`Hello, my name is ${this.name} and I am from ${this.location}`);
 	}
 }
 
@@ -20,10 +20,10 @@ class Instructor extends Person{
 		this.catchPhrase = props.catchPhrase;
 	}
 	demo(subject){
-		return `Today we are learning about ${subject}`;
+		console.log(`Today we are learning about ${subject}`);
 	}
 	grade(student, subject){
-		return `${student.name} receives a perfect score on ${subject}`;
+		console.log(`${student.name} receives a perfect score on ${subject}`);
 	}
 }
 
@@ -35,13 +35,13 @@ class Student extends Person{
 		this.favSubjects = props.favSubjects;
 	}
 	listsSubjects(){
-		this.favSubjects.forEach(x => console.log(x)); // Asks to log out "one by one", no return statement here.  Could alternatively return whole array, or a list by using this.favSubjects.join();
+		this.favSubjects.forEach(x => console.log(x));
 	}
 	PRAssignment(subject){
-		return `${this.name} has submitted a PR for ${subject}`;
+		console.log(`${this.name} has submitted a PR for ${subject}`);
 	}
 	sprintChallenge(subject){
-		return `${this.name} has begun sprint challenge on ${subject}`;
+		console.log(`${this.name} has begun sprint challenge on ${subject}`);
 	}
 }
 
@@ -52,10 +52,10 @@ class ProjectManager extends Instructor{
 		this.favInstructor = props.favInstructor;
 	}
 	standUp(channel){
-		return `${this.name} announces to ${channel}, @channel standy times!​​​​​`;
+		console.log(`${this.name} announces to ${channel}, @channel standy times!​​​​​`);
 	}
 	debugsCode(student, subject){
-		return `${this.name} debugs ${student.name}'s code on ${subject}`;
+		console.log(`${this.name} debugs ${student.name}'s code on ${subject}`);
 	}
 }
 

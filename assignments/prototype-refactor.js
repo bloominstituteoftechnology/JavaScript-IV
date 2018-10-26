@@ -71,7 +71,7 @@ class Humanoid extends CharacterStats{
 		this.language = attributes.language;
 	}
 	greet(){
-		return `${this.name} offers a greeting in ${this.language}.`;
+    console.log(`${this.name} offers a greeting in ${this.language}.`);
 	}
 }
 
