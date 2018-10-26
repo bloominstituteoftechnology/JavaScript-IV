@@ -131,12 +131,13 @@ class Instructor extends Person{
 
             let randomMarks= Math.floor(Math.random() * (10 - 5) + 5);
             if(testPass===true) {
-                let finalMarks=student.grade+randomMarks;
-                console.log(`${student.name}'s grade has been added by ${randomMarks} ,So the final grade of ${student.name} is ${finalMarks}`);
-
+                 student.grade=student.grade+randomMarks;
+                console.log(`${student.name}'s grade has been added by ${randomMarks} ,So the final grade of ${student.name} is ${student.grade}`);
+                   student.graduate();
             }else{
-                console.log(`${student.name}'s grade has been subtracted by
-                ${randomMarks},so the final grade of ${student.name} is ${student.grade}-${randomMarks}`);
+                student.grade=student.grade-randomMarks;
+                console.log(`${student.name}'s grade has been subtracted by ${randomMarks},so the final grade of ${student.name} is ${student.grade}`);
+                student.graduate();
 
             }
         }
@@ -152,7 +153,7 @@ class Student extends Person{
         this.previousBackground=stuAttributes.previousBackground;
         this.className =stuAttributes.className;
         this.favSubjects =stuAttributes.favSubjects;
-        this.grade=65;
+        this.grade=stuAttributes.grade;
 
     }
 
@@ -217,7 +218,8 @@ const amy = new Student({
     catchPhrase: 'Love Your Work!',
     previousBackground:'SAP',
     className:'FSWPT3',
-    favSubjects:["Computing","Data Structure","CSS","Javascript"]
+    favSubjects:["Computing","Data Structure","CSS","Javascript"],
+    grade:70
 
 });
 
@@ -226,6 +228,7 @@ console.log(amy.specialty);
 amy.listsSubjects();
 amy.PRAssignment("Javascript-IV");
 amy.sprintChallenge();
+fred.upgrade(amy,false);
 
 
 const arpita = new Student({
@@ -238,7 +241,8 @@ const arpita = new Student({
     catchPhrase: 'Do Smart Work!!',
     previousBackground:'Finance',
     className:'FSWPT3',
-    favSubjects:["Maths","C-Sharp","C++","Javascript"]
+    favSubjects:["Maths","C-Sharp","C++","Javascript"],
+    grade:65
 
 });
 
