@@ -68,4 +68,46 @@ class ProjectManagers extends Instructors {
 }
 
 
+// Created Objects to test Person, Students, Instructors, and ProjectManager Ojbects
 
+const jeff = new Instructors({
+    name: 'Jeff',
+    location: 'San Jose',
+    age: 33,
+    speciality: 'Digital Painting',
+    gender: 'Zir',
+    favLanguage: 'Javascript',
+    catchPhrase: `Gotta catch 'em all`
+});
+
+const william = new Students({
+    name: 'William',
+    age: 20,
+    location: 'L.A.',
+    gender: 'Male',
+    previousBackground: 'Dog Walker',
+    className: 'fswpt3',
+    favSubjects: ["math", "political science", "biology"] 
+});
+
+const perry = new ProjectManagers({
+    name: 'Perry',
+    age: 48,
+    location: 'San Francisco',
+    gender: 'Female',
+    speciality: 'CSS',
+    favLanguage: 'C#',
+    catchPhrase: 'That was a piece of pi!',
+    gradClassName: 'CS1',
+    favInstructor: 'Batman'
+})
+
+  console.log(perry.demo("classes"));
+  console.log(perry.debugsCode(william, "closures"));
+  console.log(perry.favInstructor);
+  console.log(jeff.catchPhrase);
+  console.log(jeff.speak());
+  console.log(jeff.grade(Jeff, "Advanced CSS"));
+  console.log(william.listSubjects);
+  console.log(william.sprintChallenge());
+  console.log(william.previousBackground);
