@@ -90,11 +90,13 @@ class Instructor extends People {  // child of People
     grade (student, subject){
         return `${student.name} receives a perfect score on ${subject}.`
     }
-    gradeTest (student, grade){
-        grade = Math.floor(Math.random () * 45) + 55;
+    gradeTest (student){
+        // grade = Math.floor(Math.random () * 45) + 55;
+        student.grade = student.grade = Math.floor(Math.random () * 45) + 55;
         // grade = this.grade
-        return `${student.name} received a grade of ${grade}`
+        return `${student.name} received a grade of ${student.grade}`
         grade.push(student.grade)
+        
     }
 }
 
@@ -140,8 +142,6 @@ class ProjectManager extends Instructor{ // extends Instructor
         return `${this.name} debugs ${student.name}'s code on ${subject}`
     }
 }
-// constructor functions
-
 
 const cameron = new Instructor ({
     name: 'Cameron',
@@ -232,7 +232,18 @@ console.log(austin.standUp('FSWPT3'))
 console.log(austin.debugsCode(jamar, 'JSIV homework'))
 console.log(cameron.gradeTest(jamar))
 console.log(austin.gradeTest(mustafa))
+console.log(josh.gradeTest(karla))
 console.log(jamar.graduate())
 console.log(mustafa.graduate())
 console.log(karla.graduate())
 console.log(don.graduate())
+
+var o = {
+    a: 7,
+    get b() {
+        return this.a + 1;
+    },
+    set c(x) {
+        this.a = x / 2
+    }
+};
