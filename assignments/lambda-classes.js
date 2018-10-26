@@ -196,7 +196,6 @@ function finishAssignments(student){
     } else{
       Buzz.giveGrade(student);
     }
-    David.graduate();
     finishAssignments(student)
   } else if (student.grade >= 70){
       David.graduate();
