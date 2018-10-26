@@ -27,7 +27,23 @@ class Instructor extends Person {
   grade(student, subject) {
     return `${student.name} receives a perfect score on ${subject}.`
   }
+
+  evaluate(student) {
+    let chance = Math.floor(Math.random() * 3)
+    if (chance === 0) {
+      student.grade -= 5;
+      return `Study harder ${student.name} and come back later.`
+    } else if(chance === 1) {
+      student.grade += 5;
+      return `You really seem like you understand this ${student.name}!`
+    } else {
+      student.grade +=10;
+      return `Maybe you should be teaching this unit ${student.name}`
+    }
+  }
 }
+
+
 
 class ProjectManager extends Instructor {
   constructor(attributes) {
@@ -51,6 +67,7 @@ class Student extends Person {
     this.previousBackground = attributes.previousBackground;
     this.className = attributes.className;
     this.favSubjects = attributes.favSubjects;
+    this.grade = Math.floor((Math.random() * 50));
   }
 
   listsSubjects() {
@@ -126,6 +143,8 @@ const jenae = new Student({
   favSubjects: ['large motor repair', 'baseball', 'horticulture', 'server deployment']
 })
 
+console.log(fred.evaluate(jonathan))
+console.log(jenae.grade)
 console.log(jonathan.age);
 console.log(jenae.gender);
 console.log(barney.favInstructor);
