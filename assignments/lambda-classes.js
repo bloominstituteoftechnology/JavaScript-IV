@@ -7,7 +7,7 @@ class Person {
     this.gender = attr.location;
   }
   speak() {
-    console.log(`Hello my name is ${this.name}, and I am from ${this.location}. `)
+    return `Hello my name is ${this.name}, and I am from ${this.location}. `
   }
 }
 
@@ -19,10 +19,15 @@ class Instructor extends Person {
     this.catchPhrase = attr.catchPhrase;
   }
   demo(subject) {
-    console.log(`Today we are learning about ${subject}.`)
+    return `Today we are learning about ${subject}.`
   }
   grade(student, subject) {
-    console.log(`${student.name} receives a score on ${subject}.`)
+    return `${student.name} receives a score on ${subject}.`
+  }
+  assignGrade(student) {
+    let randomPoints = Math.floor(Math.random() * 5) - 10;
+
+    console.log(`${student.name}'s grade is now ${student.grade + randomPoints}`)
   }
 }
 
@@ -32,15 +37,23 @@ class Student extends Person {
     this.previousBackground = attr.previousBackground;
     this.className = attr.className;
     this.favSubjects = attr.favSubjects;
+    this.grade = 50;
   }
   listsSubjects(){
     this.favSubjects.forEach( subject => console.log(subject));
   }
   PRAssignment(subject){
-    console.log(`${this.name} has submitted a PR request for {subject}`)
+    return `${this.name} has submitted a PR request for ${subject}`
   }
   sprintChallenge(subject){
-    console.log(`${this.name} has begun a sprint challenge on ${subject}`);
+    return `${this.name} has begun a sprint challenge on ${subject}`;
+  }
+  graduate (grade) {
+    if (grade >= 35) {
+      console.log(`Congratulations ${this.name}, you've graduated!`);
+    } else {
+      console.log(`Have your PM or Instructor grade more of your assignments.`);
+    }
   }
 }
 
@@ -51,11 +64,12 @@ class ProjectManager extends Instructor {
     this.favInstructor = attr.favInstructor;
   }
   standUp(channel){
-    console.log(`${this.name} announces to ${channel}, @channel standy times!`);
+    return `${this.name} announces to ${channel}, @channel standy times!`;
   }
   debugsCode(student, subject) {
-    console.log(`${this.name} debugs ${student.name}'s code on ${subject}`);
+    return `${this.name} debugs ${student.name}'s code on ${subject}`;
   }
+
 }
 
 const fred = new Instructor({
@@ -92,9 +106,14 @@ const george = new ProjectManager({
 
 console.log(fred.location);
 console.log(fred.demo('CSS'));
+console.log(fred.grade(sally, 'JS-I'));
+console.log(fred.assignGrade(sally));
+
+
 console.log(sally.listsSubjects());
 console.log(sally.PRAssignment('JS-IV'));
 console.log(sally.sprintChallenge('Advanced CSS'));
 console.log(george.catchPhrase);
 console.log(george.debugsCode(sally, 'JavaScript'));
 console.log(george.favInstructor);
+console.log(sally.graduate(sally.grade));
