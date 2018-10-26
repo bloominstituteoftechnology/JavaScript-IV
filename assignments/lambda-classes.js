@@ -22,11 +22,21 @@ class Instructor extends Person {
   }
 
   demo(subject) {
-    return `Today we are learning about ${subject}.`
+    console.log(`Today we are learning about ${subject}.`);
   }
 
   grade(student, subject) {
-    return `${student.name} receives a perfect score on ${subject}.`
+    console.log(`${student.name} receives a perfect score on ${subject}.`);
+  }
+
+  scoreAssignment(student) {
+    student.grade += Math.floor(Math.random() * 200 - 100);
+    if(student.grade < 0) {
+      student.grade = 0;
+    } else if (student.grade > 100) {
+      student.grade = 100;
+    }
+    console.log(`${student.name}'s new grade is: ${student.grade}`);
   }
 }
 
@@ -36,6 +46,7 @@ class Student extends Person {
     this.className = attributes.className;
     this.favSubjects = attributes.favSubjects;
     this.previousBackground = attributes.previousBackground;
+    this.grade = attributes.grade;
   }
 
   listsSubjects() {
@@ -50,6 +61,14 @@ class Student extends Person {
 
   sprintChallenge(subject) {
     console.log(`${this.name} has begun a spring challenge on ${subject}.`);
+  }
+
+  graduate() {
+    if(this.grade > 70) {
+      console.log('Congratz, you did it! Now get out.');
+    } else {
+      console.log("/Sigh... Sometimes there's just no hope");
+    }
   }
 }
 
@@ -96,7 +115,8 @@ const terra = new Student({
   gender: 'Female',
   previousBackground: 'Model',
   className: 'CS132',
-  favSubjects: ['Math', 'English', 'CSS']
+  favSubjects: ['Math', 'English', 'CSS'],
+  grade: 90
 });
 
 const bev = new Student({
@@ -106,7 +126,8 @@ const bev = new Student({
   gender: 'Female',
   previousBackground: 'Doctor',
   className: 'CS132',
-  favSubjects: ['Science', 'Surgery', 'CSS']
+  favSubjects: ['Science', 'Surgery', 'CSS'],
+  grade: 74
 });
 
 const dave = new Student({
@@ -116,7 +137,8 @@ const dave = new Student({
   gender: 'Male',
   previousBackground: 'Buisness',
   className: 'CS132',
-  favSubjects: ['Statistics', 'Money', 'CSS']
+  favSubjects: ['Statistics', 'Money', 'CSS'],
+  grade: 100
 });
 
 const tinniffer = new ProjectManager({
