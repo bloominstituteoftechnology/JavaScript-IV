@@ -44,7 +44,7 @@ class Person {
 */
 
 class Instructor extends Person {
-    
+    // Instructor Constructor
     constructor(instructor) {
         super(instructor);
         this.specialty = instructor.specialty;
@@ -61,6 +61,39 @@ class Instructor extends Person {
     }
 }
 
+/*
+#### Student
+
+* Now we need some students!
+* Student uses the same attributes that have been set up by Person
+* Student has the following unique props:
+  * `previousBackground` i.e. what the Student used to do before Lambda School
+  * `className` i.e. CS132
+  * `favSubjects`. i.e. an array of the student's favorite subjects ['Html', 'CSS', 'JavaScript']
+* Student has the following methods:
+  * `listsSubjects` a method that logs out all of the student's favoriteSubjects one by one.
+  * `PRAssignment` a method that receives a subject as an argument and logs out that the `student.name has submitted a PR for {subject}`
+  * `sprintChallenge` similar to PRAssignment but logs out `student.name has begun sprint challenge on {subject}`
+  * 
+*/
+
+class Student extends Person {
+    constructor(student) {
+        super(student);
+        this.previousBackground = student.previousBackground;
+        this.className = student.className;
+        this.favSubjects = student.favSubjects;
+    }
+    listSubjects() {
+        const favList = this.favSubjects.map(subject => console.log(subject));
+    }
+    PRAssignment(subject) {
+        return `${this.name} has submitted a PR for ${this.subject}.`
+    }
+    sprintChallenge(subject) {
+        return `${this.name} has begun sprint challange on ${$this.subject}.`
+    }
+}
 
 
 const fred = new Instructor({
@@ -73,9 +106,14 @@ const fred = new Instructor({
     catchPhrase: `Don't forget the homies`
   });
 
-// const jane = new Humanoid({
-    
-// });
+const jane = new Student({
+    name: 'Jane',
+    location: 'Rockville',
+    age: 53,
+    gender: 'female',
+    favLanguage: 'Ruby',
+    cathPhrase: 'Catch you laterz'
+});
 
 // const jimmy = new Humanoid({
 
