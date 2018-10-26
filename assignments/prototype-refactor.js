@@ -122,7 +122,7 @@ class Humanoid extends CharacterStats {
     language: 'Elvish'
   });
 
-  
+
    console.log(mage.createdAt); // Today's date
 console.log(archer.dimensions); // { length: 1, width: 2, height: 4 }
 console.log(swordsman.hp); // 15
