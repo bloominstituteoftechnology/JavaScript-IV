@@ -32,8 +32,8 @@ class Instructors extends Person {
     gradeStudent(stuGrade) {
         let min = Math.ceil(stuGrade.studentGrade.min);
         let max = Math.floor(stuGrade.studentGrade.max);
-        let resultingGrade = Math.floor(Math.random() * (max - min)) + min;
-        return (`Student ${stuGrade.name} received the grade of ${resultingGrade}% from ${this.name}.`);
+        stuGrade.studentGradeCurrent = Math.floor(Math.random() * (max - min)) + min;
+        return(`Student ${stuGrade.name} received the grade of ${stuGrade.studentGradeCurrent}% from ${this.name}.`);
     }
 }
 
@@ -58,6 +58,15 @@ class Students extends Person {
     }
     sprintChallenge(subject) {
         return (`${this.name} has begun sprint challenge on ${subject}.`);
+    }
+    graduate (instructor){
+        let receivedGrade = instructor.gradeStudent(this);
+        if (this.studentGradeCurrent >= 70){
+            return `${this.name} received a score of ${this.studentGradeCurrent}% and is ready to graduate! Congratulations!`;
+        }
+        else {
+            return (`${this.name} received a score of ${this.studentGradeCurrent}%. Please study more and we can try again later. Don't give up ${this.name}!`);
+        }
     }
 
 }
@@ -124,3 +133,4 @@ const perry = new ProjectManagers({
   console.log(william.PRassignment("Advance Javascript"));
   console.log(william.sprintChallenge("Fundamental Javascript"));
   console.log(william.previousBackground);
+  console.log(william.graduate(jeff)); //Stretch Goal
