@@ -95,16 +95,23 @@ class Student extends Person { //start
         this.fSub = obj.fSub;
     }
     
-
-    // listSubjects(arr) {
-    //     for (let i=0; i < arr.length; i++) {
-    //         console.log(arr[i]);
-    //     }
-    // }
+ 
 
     listSubjects() {
-        this.map((arr) => arr.fSub[i]);
+        // forEach((x) => console.log(x));
+
+        // for (let i=0; i < this.fSub.length; i++) {
+        //   return this.fSub[i];
+        // } 
+
+        return this.fSub.join();
+
+        // listSubjects() {
+        //     this.map(() => this.fSub[i]);
+        // }
     }
+
+    
       
     
       
@@ -322,9 +329,9 @@ console.log(frank.grade('veronica', 'CSS'));
 
 
 //List Subjects
-console.log(steve.listSubjects(fSub));
-console.log(taylor.listSubjects(fSub));
-console.log(miranda.listSubjects(fSub));
+console.log(steve.listSubjects());
+console.log(taylor.listSubjects());
+console.log(miranda.listSubjects());
 
 
 //PRAssignment
