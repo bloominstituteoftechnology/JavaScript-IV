@@ -141,9 +141,3 @@ class GameObject {
     console.log(archer.greet()); // Lilith offers a greeting in Elvish.
     console.log(mage.takeDamage()); // Bruce took damage.
     console.log(swordsman.destroy()); // Sir Mustachio was removed from the game.
-  
-  
-    // Stretch task: 
-    // * Create Villian and Hero constructor functions that inherit from the Humanoid constructor function.  
-    // * Give the Hero and Villians different methods that could be used to remove health points from objects which could result in destruction if health gets to 0 or drops below 0;
-    // * Create two new objects, one a villian and one a hero and fight it out with methods!

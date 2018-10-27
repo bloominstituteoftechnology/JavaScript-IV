@@ -29,6 +29,12 @@ class Instructors extends Person {
     grade(student, subject) {
         return `${student.name} receives a perfect score on ${subject}!`;
     }
+    gradeStudent(stuGrade) {
+        let min = Math.ceil(stuGrade.studentGrade.min);
+        let max = Math.floor(stuGrade.studentGrade.max);
+        let resultingGrade = Math.floor(Math.random() * (max - min)) + min;
+        return (`Student ${stuGrade.name} received the grade of ${resultingGrade}% from ${this.name}.`);
+    }
 }
 
 // Student
@@ -39,6 +45,10 @@ class Students extends Person {
         this.previousBackground = props. previousBackground;
         this.className = props.className;
         this.favSubjects = props.favSubjects;
+        this.studentGrade = {
+            min: 0,
+            max: 100
+        };
     }
     listSubjects(){
         return (`${this.name}'s favorite subjects are: ${this.favSubjects}.`);
@@ -48,7 +58,8 @@ class Students extends Person {
     }
     sprintChallenge(subject) {
         return (`${this.name} has begun sprint challenge on ${subject}.`);
-    }    
+    }
+
 }
 
 // Project Manager
@@ -87,7 +98,7 @@ const william = new Students({
     gender: 'Male',
     previousBackground: 'Dog Walker',
     className: 'fswpt3',
-    favSubjects: ["math", "political science", "biology"] 
+    favSubjects: ["math", "political science", "biology"],
 });
 
 const perry = new ProjectManagers({
@@ -105,9 +116,11 @@ const perry = new ProjectManagers({
   console.log(perry.demo("classes"));
   console.log(perry.debugsCode(william, "closures"));
   console.log(perry.favInstructor);
+  console.log(perry.gradeStudent(william)); //Stretch Goal
   console.log(jeff.catchPhrase);
   console.log(jeff.speak());
   console.log(jeff.grade(william, "Advanced CSS"));
+  console.log(jeff.gradeStudent(william)); //Stretch Goal
   console.log(william.PRassignment("Advance Javascript"));
   console.log(william.sprintChallenge("Fundamental Javascript"));
   console.log(william.previousBackground);
