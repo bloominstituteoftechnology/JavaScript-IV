@@ -26,6 +26,9 @@ class Instructor extends Person{
     grade(studentObj,subject){
         console.log(`${studentObj.name} receives a perfect score on ${subject}`)
     }
+    mutateGrade(studentObj){
+        studentObj.grade += (Math.random()*2 >1 ? Math.floor(Math.random()*25) : Math.floor(Math.random()*-25))
+    }
 }
 
 class Student extends Person{
@@ -34,6 +37,9 @@ class Student extends Person{
         this.previousBackground = obj.name
         this.className = obj.className
         this.favSubjects = obj.favSubjects
+        this.grade = (()=>{
+            return Math.floor(Math.random() * 100);
+        })()
     }
     //logs out all of the student's favoriteSubjects one by one.
     listsSubjects(){ 
@@ -74,37 +80,42 @@ const jason = new Student({
     favSubjects: ['Quantum Mechanics','Machine Learning','Being Radical']
 })
 
- // testing the class objects
- const cam = new Instructor({
-    name: 'Cam',
-    location: 'Utah',
-    age: 30,
-    gender: 'male',
-    favLanguage: 'JavaScript',
-    specialty: 'Front-end',
-    catchPhrase: `Don't forget the homies`
- })
+// testing the class objects
+const cam = new Instructor({
+name: 'Cam',
+location: 'Utah',
+age: 30,
+gender: 'male',
+favLanguage: 'JavaScript',
+specialty: 'Front-end',
+catchPhrase: `Don't forget the homies`
+})
 
- const brock = new  ProjectManager({
-    name: 'Brock',
-    location: 'Utah',
-    age: 26,
-    gender: 'male',
-    favLanguage: 'JavaScript',
-    specialty: 'Being a sick Project Manager',
-    catchPhrase: `If you guys ever need any help, I'm here for you!`,
-    gradClassName: "FSW13",
-    favInstructor: `Leonardo`
- })
+const brock = new  ProjectManager({
+name: 'Brock',
+location: 'Utah',
+age: 26,
+gender: 'male',
+favLanguage: 'JavaScript',
+specialty: 'Being a sick Project Manager',
+catchPhrase: `If you guys ever need any help, I'm here for you!`,
+gradClassName: "FSW13",
+favInstructor: `Leonardo`
+})
 
- console.log(jason);
- jason.listsSubjects()
- jason.PRAssignment('JS IV');
- jason.sprintChallenge('JS');
+console.log(jason);
+jason.listsSubjects()
+jason.PRAssignment('JS IV');
+jason.sprintChallenge('JS');
+console.log(jason.grade)
 
- console.log(cam)
- cam.demo(`javascript`)
- cam.grade(jason,`Js`)
+console.log(cam)
+cam.demo(`javascript`)
+cam.grade(jason,`Js`)
 
- brock.standUp(`fswpt3`)
- brock.debugsCode(jason,'JsIV')
+console.log(brock)
+brock.standUp(`fswpt3`)
+brock.debugsCode(jason,'JsIV')
+
+cam.mutateGrade(jason);
+console.log(jason.grade)
