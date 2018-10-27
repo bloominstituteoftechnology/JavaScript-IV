@@ -63,11 +63,11 @@ class Instructor extends Person { //start
     }
 
     demo(subject) {
-        return `Today we are learning about ${subject}`;
+        return (`Today we are learning about ${subject}`);
     }
 
-    grade(subject) {
-        return `${Student.name} receives a perfect score on ${subject}`
+    grade(student, subject) {
+        return (`${student} receives a perfect score on ${subject}`)
     }
 } //end
 
@@ -94,17 +94,26 @@ class Student extends Person { //start
         this.cName = obj.cName;
         this.fSub = obj.fSub;
     }
-        var listSubjects = this.map(function(obj) {
-            console.log(obj.fSub);
-        )};
-    }
+    
 
+    // listSubjects(arr) {
+    //     for (let i=0; i < arr.length; i++) {
+    //         console.log(arr[i]);
+    //     }
+    // }
+
+    listSubjects() {
+        this.map((arr) => arr.fSub[i]);
+    }
+      
+    
+      
     PRAssignment(subject) {
-        `${this.name} has submitted a PR for ${subject}`;
+        return (`${this.name} has submitted a PR for ${subject}`);
     }
 
-    sprintChallenge() {
-        `${this.name} has begun sprint challenge on ${subject}`;
+    sprintChallenge(subject) {
+        return (`${this.name} has begun sprint challenge on ${subject}`);
     }
 
 }//end
@@ -133,11 +142,11 @@ class ProjectManagers extends Instructor {
     }
 
     standUp(channel) {
-        console.log(`${this.name} announces to ${channel}, @channel standy times!`);
+        return `${this.name} announces to ${channel}, @channel standy times!`;
     }
 
-    debugsCode(subject) {
-        console.log(`${this.name} debugs ${Student.name}'s code on ${subject}`)
+    debugsCode(sName, subject) {
+        return `${this.name} debugs ${sName}'s code on ${subject}`
     }
 }
 
@@ -219,7 +228,7 @@ const taylor = new Student({
 
 
 //3
-const jack = new Student({
+const miranda = new Student({
     name: 'Miranda',
     location: 'Houston',
     age: 24,
@@ -272,7 +281,6 @@ console.log(craig)
 console.log(frank)
 console.log(steve)
 console.log(taylor)
-console.log(jack)
 console.log(tammy)
 console.log(karen)
 
@@ -300,9 +308,9 @@ console.log(frank.demo('CSS'));
 
 //grade 
 
-console.log(timmy.grade('Javascript'));
-console.log(craig.grade('PHP'));
-console.log(frank.grade('CSS'));
+console.log(timmy.grade('Tyler', 'Javascript'));
+console.log(craig.grade('kevin', 'PHP'));
+console.log(frank.grade('veronica', 'CSS'));
 
 
 
@@ -313,7 +321,34 @@ console.log(frank.grade('CSS'));
 // favSubjects. i.e. an array of the student's favorite subjects ['Html', 'CSS', 'JavaScript']
 
 
+//List Subjects
+console.log(steve.listSubjects(fSub));
+console.log(taylor.listSubjects(fSub));
+console.log(miranda.listSubjects(fSub));
 
-console.log(steve.listSubjects(this.fSub));
-console.log(taylor.listSubjects());
-console.log(miranda.listSubjects());
+
+//PRAssignment
+console.log(steve.PRAssignment('Javascript'));
+console.log(taylor.PRAssignment('CSS'));
+console.log(miranda.PRAssignment('PHP'));
+
+
+//sprintChallenge
+console.log(steve.sprintChallenge('Javascript'));
+console.log(taylor.sprintChallenge('CSS'));
+console.log(miranda.sprintChallenge('PHP'));
+
+
+
+// ProjectManangers have the following Methods:
+// standUp a method that takes in a slack channel and logs `{name} announces to {channel}, @channel standy times!​​​​​
+// debugsCode a method that takes in a student object and a subject and logs out '{name} debugs {student.name}'s code on {subject}'
+
+//standUp
+console.log(tammy.standUp('Javascript'));
+console.log(karen.standUp('CSS'));
+
+//debugsCode
+
+console.log(tammy.debugsCode('Taylor', 'Javascript'));
+console.log(karen.debugsCode('Kyle' ,'CSS'));
