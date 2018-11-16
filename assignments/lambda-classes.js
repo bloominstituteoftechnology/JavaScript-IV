@@ -6,9 +6,10 @@ class Person {
     this.location = attribute.location;
     this.gender = attribute.gender;
   }
-  speak() {
-    return `Hello my name is ${this.name}, I am from ${this.location}`;
-  }
+  speak(){
+    return `Hello my name is ${this.name}, I am from ${this.location}`
+  };
+  
 }
 
 class Instructor extends Person {
@@ -48,6 +49,7 @@ class Student extends Person {
     } 
     while (this.grade < 70) {
         console.log(`Sorry ${this.name}. You only have a ${this.grade} and that is not enough to graduate. Please keep on trying until you pass.`);
+        // debugger;
         grader.gradeAssignment(this);
     }
     return `Congrats ${this.name}! You have just graduated Lambda School!`;
@@ -122,7 +124,7 @@ const tommy = new Student({
   grade: 90
 });
 const ash = new ProjectManager({
-  name: "Ashwind",
+  name: "Ashwin",
   location: "India",
   age: `immortal cause I'm a vampire`,
   gender: "M",
