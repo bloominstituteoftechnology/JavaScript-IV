@@ -59,11 +59,13 @@ class Student extends Person {
     sprintChallenge(subject) {
         console.log(`${this.name} has begun sprint challenge on ${subject}`)
     }    
-    graduate() {
+    graduate(instructororpm,student) {
         if (this.grade > 70) {
             console.log(`${this.name} has graduated!`)
         } else {
             console.log(`${this.name} continues to study`)
+            console.log(student.grade)
+            return instructororpm.changeGrade(student) && this.graduate(instructororpm,student)
         }
     }
 };
@@ -109,6 +111,6 @@ const pmTest = new ProjectManager ({
 
 pmTest.standUp("FSW16");
 pmTest.debugsCode(studentTest,"Python");
-pmTest.changeGrade(studentTest);
-studentTest.graduate();
+// pmTest.changeGrade(studentTest);
+studentTest.graduate(instructorTest,studentTest);
 console.log(studentTest.grade);
