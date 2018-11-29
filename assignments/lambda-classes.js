@@ -44,11 +44,13 @@ class Student extends Person {
     this.grade = studentAtr.grade;
   }
   listsSubjects() {
-    return this.favSubjects.forEach((item)=>item)
+    return this.favSubjects.map((item)=>item)
   }
   PRAssignment(subject) {
-    return `${student.name} has submitted a PR for ${subject}`
+    return `${this.name} has submitted a PR for ${subject}`
   }
+
+ 
   sprintChallenge(subject) {
     return `${student.name} has begun sprint challenge on ${subject}`
   }
@@ -64,14 +66,14 @@ class Student extends Person {
 class ProjectManager extends Instructor {
   constructor(pmAtr){
     super(pmAtr);
-    this.gradClassName = pmAtr.gradClassNam;
+    this.gradClassName = pmAtr.gradClassName;
     this.favInstructor = pmAtr.favInstructor;
   }
   standUp(slackChannel) {
-    console.log(`${this.name} announces to ${channel}, @channel standy times!`)
+     return (`${this.name} announces to ${slackChannel}, @channel standy times!`)
   }
   debugsCode(student, subject) {
-    console.log(`${this.name} debugs ${student.name}'s code on ${subject}`)
+    return (`${this.name} debugs ${student.name}'s code on ${subject}`)
   }
 }
 // stretch
@@ -98,19 +100,52 @@ const kakashi = new Instructor({
   catchPhrase: `I like cheese.`
 });
 
-console.log(naruto.speak('hello'));
+const sasuke = new ProjectManager({
+  name: `Sasuke Uchiha`,
+  age: 45,
+  location: `Konoha`,
+  gender:`Male`,
+  gradClassName: `cs16`,
+  favInstructor: `Josh`
+})
+
+// Instructor check
+
 console.log(kakashi.demo('wow'));
-kakashi.gradeDestroyer(naruto)
-kakashi.gradeDestroyer(naruto)
-kakashi.gradeDestroyer(naruto)
-kakashi.gradeDestroyer(naruto)
-kakashi.gradeDestroyer(naruto)
-kakashi.gradeDestroyer(naruto)
-kakashi.gradeDestroyer(naruto)
-kakashi.gradeDestroyer(naruto)
-kakashi.gradeDestroyer(naruto)
-console.log(naruto.grade)
-console.log(naruto.grade)
-console.log(naruto.grade)
-console.log(naruto.grade)
-console.log(naruto.graduate())
+kakashi.gradeDestroyer(naruto);
+console.log(kakashi.grade(naruto, 'JavaScript'))
+
+
+// student check
+console.log(naruto.speak('hello'));
+kakashi.gradeDestroyer(naruto);
+console.log(naruto.listsSubjects());
+console.log(naruto.PRAssignment('naruto','JavaScript'));
+console.log(naruto.PRAssignment());
+
+// stretch
+console.log(naruto.grade);
+console.log(naruto.graduate());
+
+
+// pm check
+console.log(sasuke.standUp('Random'));
+console.log(sasuke.debugsCode(naruto, 'JavaScript'));
+console.log(sasuke.grade(naruto, 'JavaScript'));
+console.log(sasuke.demo('wow'));
+
+
+
+/* Instructor
+demo
+grade
+
+student
+listsSubject
+PRAssignment
+sprintChallenge
+
+ProjectManager
+standUp
+debugsCode
+*/
