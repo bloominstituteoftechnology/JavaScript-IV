@@ -222,3 +222,10 @@ Beth.gradeWork(Pearl);
 Zeke.gradeWork(Pearl);
 Jessica.gradeWork(Pearl);
 Pearl.graduate();
+
+Beth.gradeWork(Kurt);
+Zeke.gradeWork(Kurt);
+Kurt.graduate();
+Jessica.gradeWork(Kurt);
+Jack.gradeWork(Kurt);
+Kurt.graduate();
