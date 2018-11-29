@@ -47,7 +47,7 @@ class Instructor extends Person {
         return `Today we are learning about ${this.subjects}`; 
     }
     grade() {
-        return `${this.name} recieves a perfect score on ${cynthia.subjects}`;
+        return `${this.name} recieves a perfect score on ${this.subjects}`;
     }
 }
 
@@ -126,7 +126,8 @@ class ProjectManagers extends Instructor {
 const lambda = new Person({
     name: 'LambdaSchool',
     age: 2,
-    location: 'California'
+    location: 'California',
+    subjects: 'JS IV'
   });
   
   const mike = new Instructor({
@@ -152,3 +153,9 @@ const lambda = new Person({
 
 ///////////////////////// CONSOLE.LOGS ////////////////////
 
+  console.log(lambda.speak); // 
+  console.log(mike.demo); // 
+  console.log(mike.grade); // 
+  console.log(cynthia.listsSubjects); // 
+  console.log(cynthia.PRAssignment); // 
+  console.log(cynthia.sprintChallenge); // 
