@@ -20,10 +20,10 @@ class Instructors extends Person {
         this.catchPhrase = instAttribs.catchPhrase;        
     }
     demo(subject) {
-        return `Today we are learning about ${this.subject}.`
+        return `Today we are learning about ${subject}.`
     }
     grade(student,subject) {
-        return `${student.name} receive a perfect score on ${this.subject}.` // this needed?
+        return `${student.name} receives a perfect score on ${subject}.` 
     }
 }
 
@@ -36,13 +36,13 @@ class Students extends Person {
         
     }
     listsSubjects() {
-        return `Favorite subjects are: ${this.favSubjects}.`
+        return `${this.name}'s favorite subjects are: ${this.favSubjects}.`
     }
     PRAssignments(subject) {
-        return `${student.name} has submitted a Pull Request for ${this.subject}.` // this needed?
+        return `${this.name} has submitted a Pull Request for ${subject}.` 
     }
     sprintChallenge(subject) {
-        return `${student.name} has begun the Sprint Challenge on ${this.subject}.` // this needed?
+        return `${this.name} has begun the Sprint Challenge on ${subject}.` 
     }
 }
 
@@ -54,10 +54,10 @@ class ProjectManagers extends Instructors {
         
     }
     standUp(channel) {
-        return `${this.name} announces to channel: @channel standy times!`;
+        return `${this.name} announces to ${channel}: @channel standy times!`;
     }
-    PRAssignments(student,subject) {
-        return `${this.name} debugs ${student.name}'s code on ${this.subject}.` // this needed?
+    debugsCode(student,subject) {
+        return `${this.name} debugs ${student.name}'s code on ${subject}.`
     }
     
 }
@@ -137,7 +137,7 @@ const bonnie = new ProjectManagers({
     favInstructor: 'bigJosh'
 });
 
-const clyde = new ProjectManager({
+const clyde = new ProjectManagers({
     name: 'Clyde Barrow',
     location: 'Texas',
     age: 25,
@@ -145,3 +145,32 @@ const clyde = new ProjectManager({
     gradClassName: 'FSW14',
     favInstructor: 'Mrs. Jones'
 });
+
+// Test Statements
+
+// Test that all classes inherited speak
+
+console.log(bigJosh.speak());
+console.log(jamie.speak());
+console.log(bonnie.speak());
+
+// Test Instructors and PMs can demo
+
+console.log(mrSmith.demo('javaScript IV'));
+console.log(clyde.demo('CSS'));
+
+// Test Instructors and PMs can grade
+
+console.log(mrsJones.grade(chrissy,'HTML'));
+console.log(bonnie.grade(fred,'Redux'));
+
+// Test PMs can standUp and debugCode
+
+console.log(bonnie.standUp('FSW16'));
+console.log(clyde.debugsCode(jamie,'JS IV'));
+
+// Test Student methods
+
+console.log(jamie.PRAssignments('Java Script III'));
+console.log(chrissy.sprintChallenge('Java Script II'));
+console.log(fred.listsSubjects());
