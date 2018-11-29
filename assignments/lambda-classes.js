@@ -40,7 +40,7 @@ class Student extends Person {
     this.previousBackground = studentAttrbs.previousBackground;
     this.className = studentAttrbs.className;
     this.favSubjects = studentAttrbs.favSubjects;
-    this.grade = studentAttrbs.grade;
+    this.grade = Math.random() * 100; // Stretch goal property
   }
 
   listsSubjects() {
@@ -53,6 +53,22 @@ class Student extends Person {
 
   sprintChallenge(subject) {
     console.log(`${this.name} has begun spring challenge on ${subject}.`);
+  }
+
+  graduate() {
+    if (this.grade >= 70) {
+      console.log(
+        `${this.name}'s grade is ${
+          this.grade
+        }. They can graduate from Lambda School!`
+      );
+    } else {
+      console.log(
+        `${this.name}'s grade is ${
+          this.grade
+        }. They can't graduate from Lambda School.`
+      );
+    }
   }
 }
 
@@ -76,12 +92,13 @@ class PM extends Instructor {
   }
 
   scoreAssigment(student, subject) {
+    if (student.grade < 10) return 0;
     const num = Math.random();
     let points = 0;
     if (num < 0.5) {
       points = 10;
     } else {
-      points = -30;
+      points = -10;
     }
     student.grade += points;
     console.log(
@@ -147,8 +164,7 @@ const nathan = new Student({
   gender: "male",
   previousBackground: "healthcare business",
   className: "FSW16",
-  favSubjects: ["react", "html", "css", "javascript"],
-  grade: 90
+  favSubjects: ["react", "html", "css", "javascript"]
 });
 
 const christine = new Student({
@@ -158,8 +174,7 @@ const christine = new Student({
   gender: "female",
   previousBackground: "photography",
   className: "CS15",
-  favSubjects: ["javascript", "python", "golang", "c++"],
-  grade: 95
+  favSubjects: ["javascript", "python", "golang", "c++"]
 });
 
 nathan.speak();
@@ -198,4 +213,8 @@ frank.demo("Pseudo-Classical Prototypal Inheritance");
 jamal.grade(nathan, "javascript");
 jamal.standUp("FSW16-Jamal");
 jamal.debugsCode(nathan, "javascript");
-frank.scoreAssigment(nathan, "javascript");
+
+// Stretch goal invokations to check methods and new stretch key-value property pairs
+
+frank.scoreAssigment(nathan, "javascript"); // Stretch goal method that randomly adds/subtracts points from stduent grade
+nathan.graduate(); // Checks to see if the student's grade is high enough to graduate
