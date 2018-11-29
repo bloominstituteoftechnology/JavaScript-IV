@@ -47,9 +47,17 @@ class Villain extends Humanoid {
   constructor(attr) {
   super(attr);  
   }
-  slimeTime(target) {
-    target.healthPoints -= 7;
-    return `${this.name} hits ${target.name} with slime`;
+  hit(target) {
+    const damageAmount = Math.floor(Math.random()*4);
+    target.healthPoints -= damageAmount;
+    if(target.healthPoints <= 0) {
+      target.destroy();
+      return `The great hero ${target.name} has been defeated by ${this.name}.`
+    } else if(this.healthPoints > 0) {
+      return `${this.name} hits ${target.name} for ${damageAmount} healthpoints.`;
+    } else {
+      return '';
+    }
   }
 }
 
@@ -57,9 +65,17 @@ class Hero extends Humanoid {
   constructor(attr) {
     super(attr);
   }
-  magicMissle(target) {
-    target.healthPoints -= 4;
-    return `${this.name} hits ${target.name} with magic missle`;
+  hit(target) {
+    const damageAmount = Math.floor(Math.random()*4);
+    target.healthPoints -= damageAmount;
+    if(target.healthPoints <= 0) {
+      target.destroy();
+      return `The great hero ${target.name} has been defeated by ${this.name}.`
+    } else if(this.healthPoints > 0) {
+      return `${this.name} hits ${target.name} for ${damageAmount} healthpoints.`;
+    } else {
+      return '';
+    }
   }
 }
 
@@ -120,7 +136,7 @@ const heroJim = new Hero({
     width: 2,
     height: 4,
   },
-  healthPoints: 18,
+  healthPoints: 10,
   name: 'Jim',
   team: 'Honorable Dudes',
   weapons: [
@@ -138,7 +154,7 @@ const villainDan = new Villain({
     width: 3,
     height: 3,
   },
-  healthPoints: 20,
+  healthPoints: 10,
   name: 'Dan',
   team: 'Bad News Fools',
   weapons: [
@@ -159,34 +175,88 @@ const villainDan = new Villain({
 // console.log(mage.takeDamage()); // Bruce took damage.
 // console.log(swordsman.destroy()); // Sir Mustachio was removed from the game.
 
-function fight(hero, villain) {
-  let round = 1;
-  while(hero.healthPoints > 0 && villain.healthPoints > 0) {
-    console.log('Round ' + round)
-    round++;
+// function fight(hero, villain) {
+//   let round = 1;
+//   while(hero.healthPoints > 0 && villain.healthPoints > 0) {
+//     console.log('Round ' + round)
+//     round++;
 
-    if(hero.healthPoints > 0) {
-      console.log(`${hero.name} attacked. It was effective.`);
-      hero.magicMissle(villain);
+//     if(hero.healthPoints > 0) {
+//       console.log(`${hero.name} attacked. It was effective.`);
+//       hero.magicMissle(villain);
 
-      if(villain.healthPoints <= 0) {
-        console.log(hero.destroy());
-      } else {
-        console.log(villain.takeDamage(), `${villain.name} has ${villain.healthPoints} remaining health.`)
-      }
-    }
+//       if(villain.healthPoints <= 0) {
+//         console.log(hero.destroy());
+//       } else {
+//         console.log(villain.takeDamage(), `${villain.name} has ${villain.healthPoints} remaining health.`)
+//       }
+//     }
     
-    if(villain.healthPoints > 0) {
-      console.log(`${villain.name} attacked. It was effective.`);
-      villain.slimeTime(hero);
+//     if(villain.healthPoints > 0) {
+//       console.log(`${villain.name} attacked. It was effective.`);
+//       villain.slimeTime(hero);
 
-      if(hero.healthPoints <= 0) {
-        console.log(hero.destroy());
-      } else {
-        console.log(hero.takeDamage(), `${hero.name} has ${hero.healthPoints} remaining health.\n`)
-      }
+//       if(hero.healthPoints <= 0) {
+//         console.log(hero.destroy());
+//       } else {
+//         console.log(hero.takeDamage(), `${hero.name} has ${hero.healthPoints} remaining health.\n`)
+//       }
+//     }
+//   }
+// }
+
+// fight(heroJim, villainDan);
+
+const theBtn = document.querySelector('.fight-btn');
+const fighter1health = document.querySelector('.health1');
+const fighter2health = document.querySelector('.health2');
+const fighter1hn = document.querySelector('.healthnum1');
+const fighter2hn = document.querySelector('.healthnum2')
+const chat = document.querySelector('.chat');
+const fighter1Name = document.querySelector('.fighter-name1')
+const fighter2Name = document.querySelector('.fighter-name2')
+const jimImg = document.querySelector('.jim-img');
+const danImg = document.querySelector('.dan-img');
+
+fighter1Name.innerHTML = heroJim.name;
+fighter2Name.innerHTML = villainDan.name;
+
+
+theBtn.addEventListener('click', function(){
+  if(heroJim.healthPoints > 0 && villainDan.healthPoints > 0) {
+    if(heroJim.healthPoints > 0) {
+      chatIt(heroJim.hit(villainDan));
+    }
+
+    if(villainDan.healthPoints > 0 ) {
+      chatIt(villainDan.hit(heroJim));
+    }
+
+    if(heroJim.healthPoints <= 0) {
+      jimImg.style.width = 0;
+
+      heroJim.healthPoints = 0;
+    }
+
+    if(villainDan.healthPoints <= 0) {
+      danImg.style.width = 0;
+
+      villainDan.healthPoints = 0;
     }
   }
+  fighter1health.style.width = `${(heroJim.healthPoints/10)*100}%`
+  fighter1hn.innerHTML = `${heroJim.healthPoints}/10`;
+  fighter2health.style.width = `${(villainDan.healthPoints/10)*100}%`
+  fighter2hn.innerHTML = `${villainDan.healthPoints}/10`;
+
+  // fighter2health.style.width = `${villainDan.healthPoints}`
+});
+
+function chatIt(theChat) {
+  let chatElem = document.createElement('p');
+  let theText = document.createTextNode(theChat);
+  chatElem.appendChild(theText);
+  chatElem.setAttribute('class', 'chat-item');
+  chat.prepend(chatElem);
 }
 
-fight(heroJim, villainDan);
