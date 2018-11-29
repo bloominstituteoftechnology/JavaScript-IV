@@ -15,7 +15,7 @@ class Person {
 
 class Insturctor extends Person {
   constructor(Inattributes) {
-  super();
+  super(Inattributes);
   this.name = Inattributes.name;
   this.location = Inattributes.location;
   this.age = Inattributes.age;
@@ -25,42 +25,42 @@ class Insturctor extends Person {
   this.catchPhrase = Inattributes.catchPhrase;
   }
   demo(){
-      console.log ('Today we are learning about ${subject}.')
+      console.log (`Today we are learning about ${this.favLanguage}`.)
   }
   grade(){
-    console.log('${student.name} receives a perfect score on ${subject1}.')
+    console.log(`${student.name} receives a perfect score on ${favSubjects[1]}`.)
   }
   
 }// Instructor class
 
 class Student extends Person {
-  constructor(Inattributes) {
-  super();
-  this.name = Stuattributes.name;
-  this.location = Stuattributes.location;
-  this.age = Stuattributes.age;
-  this.gender = Stuattributes.gender;
+  constructor(StuAttributes) {
+  super(StuAttributes);
+  this.name = StuAttributes.name;
+  this.location = StuAttributes.location;
+  this.age = StuAttributes.age;
+  this.gender = StuAttributes.gender;
   this.previousBackground = StuAttributes.previousBackground; 
   this.favSubjects = StuAttributes.favSubjects;
   }
   listSubjects(){
-      console.log ('${subject1}, ${subject2}, ${subject3}.')
+      console.log ('${favSubjects[0]}, ${favSubjects[1]}, ${favSubjects[2]}.')
   }
   PRAssignment(){
-    console.log('${student.name} has submitted PR for ${subject2}.')
+    console.log('${student.name} has submitted PR for ${favSubjects[2]}.')
   }
   sprintChallenge(){
-    console.log('${student.name} has began spring challenge on ${subject3}.')
+    console.log('${student.name} has began spring challenge on ${favSubjects[1]}.')
   }
 }// Student class
 
 class ProjectManager extends Instructor {
-  constructor(Proattributes) {
-  super();
-  this.name = Proattributes.name;
-  this.location = Proattributes.location;
-  this.age = Proattributes.age;
-  this.gender = Proattributes.gender;
+  constructor(ProAttributes) {
+  super(ProAttributes);
+  this.name = ProAttributes.name;
+  this.location = ProAttributes.location;
+  this.age = ProAttributes.age;
+  this.gender = ProAttributes.gender;
   this.gradClassName = ProAttributes.gradClassName; 
   this.favInstructor = ProAttributes.favInstructor;
   }
@@ -68,7 +68,7 @@ class ProjectManager extends Instructor {
       console.log(`${this.name} announces to ${channel}, @channel, standy times!`) 
   }
   debugsCode(){
-    console.log (`${this.name} debugs ${student.name}/'s code on ${subject}`.)
+    console.log (`${this.name} debugs ${student.name}/'s code on ${favSubjects[0]}`.)
   }
   
 }// Project Manager class
@@ -86,7 +86,7 @@ const fred = new Person({
 });
 
 
-const james = new Person({
+const james = new Instructor({
   name: 'James,
   location: 'Los Angeles',
   age: 30,
@@ -96,7 +96,7 @@ const james = new Person({
   catchPhrase: `What up BOY!`
 });
 
-const brenda = new Person({
+const brenda = new Student({
     name: 'Brenda,
     location: 'Los Angeles',
     age: 23,
@@ -106,11 +106,11 @@ const brenda = new Person({
     catchPhrase: `Well, cook my grits!`
     previousBackground: 'Finance',
     className: 'FSW16',
-    favSubjects: 'HTML', 'CSS', 'JavaScript'
+    favSubjects: ['HTML', 'CSS', 'JavaScript']
 
   });
 
-  const barbara = new Person({
+  const barbara = new ProjectManager({
     name: 'Barbara,
     location: 'Los Angeles',
     age: 43,
@@ -121,3 +121,5 @@ const brenda = new Person({
     gradClassName: 'CS1',
     favInstructor: 'Josh'
   });
+
+  
