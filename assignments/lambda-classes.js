@@ -64,3 +64,32 @@ class ProjectManager extends Instructor {
     }
 }
 
+const olivia = new Student({
+    name: "Olivia",
+    age: 23,
+    location: "Baltimore, MD",
+    gender: "F",
+    previousBackground: "Lab tech",
+    className: "FSW-16",
+    favSubjects: ["HTML", "CSS", "Javascript" ]
+})
+
+const frank  = new Instructor({
+    name: "Frank",
+    age: "52",
+    location: "Kansas",
+    gender: "M",
+    specialty: "Front-end",
+    catchPhrase: "yee boi"
+})
+
+const julia = new ProjectManager({
+    name: "Julia",
+    age: "30",
+    location: "Arkansas",
+    gender: "F",
+    gradClassName: "FSW-15",
+    favInstructor: "Josh"
+
+})
+
