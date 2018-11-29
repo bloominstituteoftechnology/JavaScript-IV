@@ -33,7 +33,7 @@ class Instructor extends Person {
         this.catchPhrase = instructorAttrs.catchPhrase;
     }
     demo(str) {
-        return `Today we are learning about ${this.subject}!`;
+        return `Today we are learning about ${str}!`;
     }
     grade(student, str) {
         return `${student.name} receives a perfect score on ${str}.`;
@@ -63,15 +63,15 @@ class Student extends Person {
     }
 
     listsSubjects () {
-        return `${this.favSubjects}`;
+        return `${this.name}'s favorite subjects are ${this.favSubjects[0]}, ${this.favSubjects[1]}, ${this.favSubjects[2]}, and ${this.favSubjects[3]}.`;
     }
 
-    PRAssignment(subject) {
-        return `${student.name} has submitted a PR for ${subject}`;
+    PRAssignment(str) {
+        return `${this.name} has submitted a PR for ${str}.`;
     }
 
-    sprintChallenge(subject) {
-        return `${student.name} has begun sprint challenge on ${subject}`;
+    sprintChallenge(str) {
+        return `${this.name} has begun the sprint challenge on ${str}.`;
     }
 }
 
@@ -154,7 +154,7 @@ const christie = new Student({
     gender: 'Female',
     previousBackground: 'Barista',
     className: 'FSW16',
-    favSubjects: ['JavaScript', 'Not HTML', 'Not CSS', 'Probably going to like React']
+    favSubjects: [`JavaScript`, `not HTML`, `not CSS`, `probably going to like React`]
 });
 
 const rhiannon = new Student({
@@ -176,6 +176,11 @@ const rhiannon = new Student({
 
 
 console.log(josh.grade(christie, 'JavaScript'));
+console.log(ryan.catchPhrase);
 console.log(marious.debugsCode(christie, 'JavaScript'));
 console.log(caitlin.standUp('Team Marious'));
 console.log(christie.listsSubjects());
+console.log(rhiannon.PRAssignment('JavaScript'));
+console.log(rhiannon.speak());
+console.log(josh.demo('refactoring prototypes'));
+console.log(rhiannon.sprintChallenge('JavaScript IV'));
