@@ -33,8 +33,30 @@ class Student extends Person{
         this.className = studentAttrs.className;
         this.favSubjects = studentAttrs.favSubjects;
     }
-    listsSubjects(){
-        
+    listSubjects(){
+        this.favSubjects.forEach(subject => {
+            console.log(`${subject}`);
+        });
+    }
+    PRAssignment(subject){
+        return `${this.name} has submitted a PR for ${subject}`;
+    }
+    sprintChallenge(subject){
+        return `${this.name} has begun sprint challenge on ${subject}`;
+    }
+}
+
+class ProjectManager extends Instructor{
+    constructor(pmAttrs){
+        super(pmAttrs);
+        this.gradClassName = pmAttrs.gradClassName;
+        this.favInstructor = pmAttrs.favInstructor;
+    }
+    standUp(slack){
+        return `${this.name} announces to ${slack}, @channel standy times!`
+    }
+    debugsCode(student, subject){
+        return `${this.name} debugs ${student.name}'s code on ${subject}`;
     }
 }
 
@@ -58,5 +80,59 @@ const fred = new Instructor({
     catchPhrase: `Don't forget the homies`
   });
 
+const brandon = new Student({
+    name: 'Brandon',
+    location: 'Florida',
+    age: 23,
+    gender: 'male',
+    previousBackground: 'Cash Management Specialist',
+    className: 'FSW16',
+    favSubjects: [
+        'JavaScript', 
+        'CSS',
+        'Less'
+    ]
+});
+const amanda = new Student({
+    name: 'Amanda',
+    location: 'Florida',
+    age: 22,
+    gender: 'Female',
+    previousBackground: 'Teacher',
+    className: 'College',
+    favSubjects: [
+        'Psychology', 
+        'Fallout 4',
+        'Math'
+    ]
+});
+const abdul = new ProjectManager({
+    name: 'Abdul',
+    location: 'West Virginia',
+    age: 21,
+    gender: 'male',
+    gradClassName: 'FSW14',
+    favInstructor: 'Josh'
+});
 
-console.log(bob);
+function test(personObject) {
+    console.log(`
+    Name:${personObject.name}
+    ---------------------
+    Location:${personObject.location}
+    ---------------------
+    Age:${personObject.age}
+    ---------------------
+    Gender:${personObject.gender}
+    ---------------------
+    `)
+}
+
+test(abdul);
+test(fred);
+test(bob);
+test(brandon);
+console.log(abdul.standUp('Slack Chat'));
+console.log(brandon.listSubjects());
+console.log(brandon.sprintChallenge('Math'));
+console.log(amanda.name);
