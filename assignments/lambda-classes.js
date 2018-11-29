@@ -28,10 +28,15 @@ class Instructor extends Person {
     }
 
     demo(subject) {
-        return `Today we are learning about ${subject}` ;
+        return `Today we are learning about ${subject}`;
     }
     grade(student, subject) {
-        return `${student.name} receives a perfect score on ${subject}`
+        return `${student.name} receives a perfect score on ${subject}`;
+    }
+    adjustGrade(student) {
+        let newGrade = (student.grade) + (Math.floor(Math.random() * (25 - -25 + 1) ) + -25);
+        student.grade = newGrade;
+        return newGrade;
     }
 }
 
@@ -43,18 +48,22 @@ class Student extends Person {
         this.previousBackground = studentAttributes.previousBackground;
         this.className = studentAttributes.className;
         this.favSubjects = studentAttributes.favSubjects;
+        this.grade = studentAttributes.grade;
     }
 
     listsSubjects() {
-        return `${this.favSubjects[0]}, ${this.favSubjects[1]}, ${this.favSubjects[2]}`;  //-----check this line later!!!----
+        return `${this.favSubjects[0]}, ${this.favSubjects[1]}, and ${this.favSubjects[2]}`;  //-----check this line later!!!----
     }
 
     PRAssignment(subject) {
-        return `${this.name} has submitted a PR for ${subject}`
+        return `${this.name} has submitted a PR for ${subject}`;
     }
 
     sprintChallenge(subject) {
-        return `${this.name} has begun sprint challenge on ${subject}`
+        return `${this.name} has begun sprint challenge on ${subject}`;
+    }
+    graduate() {
+        
     }
 }
 
@@ -68,10 +77,10 @@ class ProjectManager extends Instructor {
     }
 
     standUp(channel) {
-        return `${this.name} announces to ${channel}, @channel standy times!` ;
+        return `${this.name} announces to ${channel}, @channel standy times!`;
     }
     debugsCode(student, subject) {
-        return `${this.name} debugs ${student.name}'s code on ${subject}`
+        return `${this.name} debugs ${student.name}'s code on ${subject}`;
     }
 }
 
@@ -107,7 +116,7 @@ const chuck = new Student({
     previousBackground: 'race car driver',
     className: 'JS101',
     favSubjects: ['Html', 'CSS', 'JavaScript'],
-    grade: 78
+    grade: 85
 });
 
 const janet = new Student({
@@ -156,3 +165,5 @@ console.log(janet.listsSubjects()); // Python, CSS, PHP
 console.log(joe.favInstructor); // Sean
 console.log(joe.debugsCode(janet, 'JavaScript')); // Joe debugs Janet's code on JavaScript
 
+console.log(joe.adjustGrade(janet)); // 
+console.log(janet.grade);
