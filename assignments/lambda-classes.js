@@ -20,11 +20,11 @@ class Instructor extends Person{
      }
   
      demo(subject){
-        return `Today we learned about ${subject}.`;
+    console.log(`Today we learned about ${subject}.`);
     }
 
     grade(student, subject){
-        return `${student.name} receives a perfect score on ${subject}`;
+        console.log(`${student.name} receives a perfect score on ${subject}`);
     }
 
 }
@@ -42,21 +42,43 @@ class Student extends Person {
     }
 
     PRAssignment(subject){
-console.log(`${student.name} has submitted a PR for ${subject}.`)
+console.log(`${this.name} has submitted a PR for ${subject}.`)
     }
 
     sprintChallenge(subject){
-        console.log(`${studnet.name} has begun sprint challenge on ${subject}.`)
+        console.log(`${this.name} has begun sprint challenge on ${subject}.`)
     }
 }
 
 const Estevan = new Person({
     name : 'Estevan',
     age: '22',
-    location: 'Riverside'
+    location: 'Riverside, CA'
 
 });
 
-//Estevan.speak();
+const Suthep = new Instructor({
+    name: 'Suthep',
+    age:'21',
+    location: 'Hemet, CA',
+    specialty: 'front-end',
+    favLanguage: 'HTML',
+    catchPhrase: 'Its Lit'
+});
+
+const Tom = new Student({
+    name: 'Tom',
+    age: '19',
+    location: 'El Monte, CA',
+    previousBackground: 'Worked at Blaze Pizza',
+    className: 'FSW16',
+    favSubjects: ['Math','CS','English']
+});
+
+console.log(Tom.name);
+console.log(Suthep.demo('JavaSript'));
+console.log(Estevan.speak());
+
+
 
 
