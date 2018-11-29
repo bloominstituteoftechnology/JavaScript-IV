@@ -8,36 +8,40 @@ Prototype Refactor
 
 */
 
-function GameObject(gameAttributes) {
-  this.createdAt = new Date('November 28, 2018 03:24:00');
-  this.dimensions = gameAttributes.dimensions;
-  this.destroy = function () {
+class GameObject {
+  constructor(gameAttributes) {
+    this.createdAt = new Date('November 28, 2018 03:24:00');
+    this.dimensions = gameAttributes.dimensions;
+  }
+  destroy() {
     return `${this.name} was removed from the game.`;
   }
 }
 
-
-function CharacterStats(characterAttibutes) {
-  GameObject.call(this, characterAttibutes);
-  this.healthPoints = characterAttibutes.healthPoints;
-  this.name = characterAttibutes.name;
-  this.takeDamage = function () {
-    return `${this.name} took damage.`
+class CharacterStats extends GameObject {
+  constructor(characterAttibutes) {
+    super(characterAttibutes);
+    this.healthPoints = characterAttibutes.healthPoints;
+    this.name = characterAttibutes.name;
   }
-  this.death = function () {
+  takeDamage() {
+    return `${this.name} took damage.`;
+  }
+  death() {
     if (this.healthPoints === 0) {
       return `TEST`;
     }
   }
 }
 
-
-function Humanoid(humanoidAttributes) {
-  CharacterStats.call(this, humanoidAttributes);
-  this.team = humanoidAttributes.team;
-  this.weapons = humanoidAttributes.weapons;
-  this.language = humanoidAttributes.language;
-  this.greet = function () {
+class Humanoid extends CharacterStats {
+  constructor(humanoidAttributes) {
+    super(humanoidAttributes);
+    this.team = humanoidAttributes.team;
+    this.weapons = humanoidAttributes.weapons;
+    this.language = humanoidAttributes.language;
+  }
+  greet() {
     return `${this.name} offers a greeting in ${this.language}.`
   }
 }
@@ -114,9 +118,11 @@ console.log(swordsman.destroy()); // Sir Mustachio was removed from the game.
 // Stretch task: 
 // * Create Villain and Hero constructor functions that inherit from the Humanoid constructor function.
 
-function Villian(villianAttributes) {
-  Humanoid.call(this, villianAttributes);
-  this.fireBomb = function (opponent) {
+class Villian extends Humanoid {
+  constructor(villianAttributes) {
+    super(villianAttributes);
+  }
+  fireBomb(opponent) {
     console.log(opponent.takeDamage());
     --opponent.healthPoints;
     if (opponent.healthPoints === 0) {
@@ -125,9 +131,11 @@ function Villian(villianAttributes) {
   }
 }
 
-function Hero(heroAttributes) {
-  Humanoid.call(this, heroAttributes);
-  this.banjo = function (opponent) {
+class Hero extends Humanoid {
+  constructor(heroAttributes) {
+    super(heroAttributes);
+  }
+  banjo(opponent) {
     console.log(opponent.takeDamage());
     --opponent.healthPoints;
     if (opponent.healthPoints === 0) {
@@ -167,3 +175,6 @@ const josh = new Hero({
   ],
   language: 'EvilAF',
 });
+
+console.log(dingus);
+console.log(josh);
