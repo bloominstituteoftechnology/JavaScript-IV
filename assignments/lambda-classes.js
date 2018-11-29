@@ -13,7 +13,7 @@ class Person{
 }
 
 // Instructors - Child
-class Instructors{
+class Instructors extends Person{
     constructor(instructAttrs){
         super(instructAttrs);
         this.specialty = instructAttrs.specialty;
@@ -28,7 +28,7 @@ class Instructors{
     }
 }
 // Students - Child 
-class Students{
+class Students extends Person{
     constructor(studentAttrs){
         super(studentAttrs);
         this.previousBackground = studentAttrs.previousBackground;
@@ -47,3 +47,8 @@ class Students{
 }
 
 // Project Managers - Grandchild to Instructors
+class ProjectManagers extends Instructors{
+    constructor(pmAttrs){
+        super()
+    }
+}
