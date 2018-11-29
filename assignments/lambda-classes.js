@@ -19,13 +19,13 @@ class Instructor extends Person {
         this.speciality = props.speciality;
         this.favLanguage = props.favLanguage;
         this.cathPhrase = props.cathPhrase;
-        this.subject = props.subject;
+        
     }
-    demo() {
-        return `Today we are learning about ${this.subject}`;
+    demo(subjet) {
+       console.log(`Today we are learning about ${subject}`);
 
     }
     grade() {
-        return `${this.student}`
+        
     }
 }
