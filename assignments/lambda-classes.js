@@ -44,6 +44,14 @@ class Instructor extends Person {
   grade(student, subject) {
     return `${student.name} receives a perfect score on ${subject}.`;
   }
+  calculateGrade(student) {
+    if (Math.random() > 0.3 && student.grade < 100) {
+      student.grade++;
+    } else {
+      student.grade--;
+    }
+    return student.grade;
+  }
 }
 
 //------------------------------ Instructor Objects
@@ -76,15 +84,28 @@ class Student extends Person {
     this.previousBackground = studAttributes.previousBackground;
     this.className = studAttributes.className;
     this.favSubjects = studAttributes.favSubjects;
+    this.grade = studAttributes.grade;
   }
   listsSubjects() {
-    return `${this.name}'s favorite subjects are ${this.favSubjects}.`;
+    this.favSubjects.forEach(function(favSubject) {
+      console.log(favSubject);
+    });
+    // return `${this.name}'s favorite subjects: \n${this.favSubjects.join("\n")}`;
   }
   PRAssignment(subject) {
     return `${this.name} has submitted a PR for ${subject}.`;
   }
   sprintChallenge(subject) {
     return `${this.name} has begun sprint challenge on ${subject}.`;
+  }
+  graduate() {
+    if (this.grade > 70) {
+      return `Congratulations, You have graduated from Lambda School!`;
+    } else {
+      return `Your grade is ${
+        this.grade
+      }% and you are not ready to graduate yet.`;
+    }
   }
 }
 
@@ -97,7 +118,8 @@ const mark = new Student({
   gender: "Male",
   previousBackground: "College Student",
   className: "FSW 16",
-  favSubjects: ["Javascript", " React"]
+  favSubjects: ["Javascript", "React"],
+  grade: 95
 });
 
 const sarah = new Student({
@@ -107,7 +129,8 @@ const sarah = new Student({
   gender: "Female",
   previousBackground: "Accountant",
   className: "FSW 16",
-  favSubjects: ["HTML", " CSS", " Javascript"]
+  favSubjects: ["HTML", "CSS", "Javascript"],
+  grade: 68
 });
 
 //==================================== Project Manager Class =====================================
@@ -165,14 +188,20 @@ console.log(kim.catchPhrase);
 console.log(kim.favLanguage);
 console.log(ted.demo("HTML"));
 console.log(kim.grade(mark, "CSS"));
+console.log(ted.calculateGrade(mark));
+console.log(ted.calculateGrade(mark));
+console.log(ted.calculateGrade(mark));
 
 //---------------------------- Console.logs of Student
 
 console.log(sarah.className);
 console.log(mark.previousBackground);
-console.log(mark.listsSubjects());
+//console.log(mark.listsSubjects());
+mark.listsSubjects();
 console.log(sarah.PRAssignment("Prototype"));
 console.log(mark.sprintChallenge("Javascript"));
+console.log(mark.graduate());
+console.log(sarah.graduate());
 
 //---------------------------- Console.logs of Project Managers
 
@@ -180,3 +209,6 @@ console.log(dev.gradClassName);
 console.log(john.favInstructor);
 console.log(dev.standup("FSW 16"));
 console.log(john.debugsCode(sarah, "Classes"));
+console.log(ted.calculateGrade(sarah));
+console.log(ted.calculateGrade(sarah));
+console.log(ted.calculateGrade(sarah));
