@@ -27,3 +27,20 @@ class Instructor extends Person {
   }
 }
 
+class Student extends Person {
+  constructor(studentAtr) {
+    super(studentAtr);
+    this.previousBackground = studentAtr.previousBackground;
+    this.className = studentAtr.className;
+    this.favSubjects = studentAtr.favSubjects;
+  }
+  listsSubjects() {
+    console.log(this.favSubjects.forEach((item)=>item))
+  }
+  PRAssignment(subject) {
+    console.log(`${student.name} has submitted a PR for ${subject}`)
+  }
+  sprintChallenge(subject) {
+    console.log(`${student.name} has begun sprint challenge on ${subject}`)
+  }
+}
