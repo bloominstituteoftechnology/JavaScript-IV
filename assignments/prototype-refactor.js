@@ -16,17 +16,17 @@ Prototype Refactor
   * destroy() // prototype method -> returns the string: 'Object was removed from the game.'
 */
 
-function GameObject(obj){
-    // constructor assigns whatever is passed in for createdAt
-    this.createdAt = obj.createdAt;
-    // constructor assigns whatever is passed in for dimensions
-    this.dimensions = obj.dimensions;
-  }
-  
-  // create a prototype method called destroy assigned to GameObject
-  GameObject.prototype.destroy = function(){
-    return `${this.name} was removed from the game.`;
-  }
+class GameObject {
+    constructor (obj) {
+        // constructor assigns whatever is passed in for dimensions and createdAt
+        this.createdAt = obj.createdAt;
+        this.dimensions = obj.dimensions;
+    }
+    // create a prototype method called destroy assigned to GameObject
+    destroy (){
+        return `${this.name} was removed from the game.`;
+    }
+}
   
   /*
     === CharacterStats ===
@@ -35,23 +35,20 @@ function GameObject(obj){
     * takeDamage() // prototype method -> returns the string '<object name> took damage.'
     * should inherit destroy() from GameObject's prototype
   */
-  function CharacterStats(stats) {
-   // call the methods and properties from GameObject
-   GameObject.call(this, stats);
-   // assign hp based on what is passed in
-   this.healthPoints = stats.healthPoints;
-   // assign name based on what is passed in
-   this.name = stats.name;
-  }
-  
-  // assign inheritance of the prototype methods from GameObject to CharacterStats
-  CharacterStats.prototype = Object.create(GameObject.prototype);
-  
-  // create a prototype method called takeDamage and assigns it to the CharacterStats.prototype
-  CharacterStats.prototype.takeDamage = function(){
-    return `${this.name} took damage.`;
-  }
-  
+class CharacterStats extends GameObject {
+    constructor (stats) {
+        // Super allows me to gain access to the this items in the extended class
+        super (stats);
+        // assign hp and name based on what is passed in
+        this.healthPoints = stats.healthPoints;
+        this.name = stats.name;
+    };
+    // create a prototype method called takeDamage and assigns it to the CharacterStats.prototype
+    takeDamage (){
+        return `${this.name} took damage.`;
+    }
+}
+ 
   /*
     === Humanoid (Having an appearance or character resembling that of a human.) ===
     * team
@@ -62,22 +59,21 @@ function GameObject(obj){
     * should inherit takeDamage() from CharacterStats
   */
   
-  function Humanoid(character){
-    // call the methods and prototypes from CharacterStats
-    CharacterStats.call(this, character);
-    // assign team based on what is passed in
-    this.team = character.team;
-    // assign weapons based on what is passed in
-    this.weapons = character.weapons;
-    // assign language based on what is passed in
-    this.language = character.language;
-  }
-   // assign inheritance of prototype methods and properties from CharacterStats to Humanoid
-  Humanoid.prototype = Object.create(CharacterStats.prototype);
-   // declare a prototype method of greet for the Humanoid prototype
-  Humanoid.prototype.greet = function(){
-    return `${this.name} offers a greeting in ${this.language}.`;
-  }
+  class Humanoid extends CharacterStats {
+    constructor (character) {
+        super (character);
+        // assign team based on what is passed in
+        this.team = character.team;
+        // assign weapons based on what is passed in
+        this.weapons = character.weapons;
+        // assign language based on what is passed in
+        this.language = character.language
+    };
+    // declare a prototype method of greet for the Humanoid prototype
+    greet (){
+        return `${this.name} offers a greeting in ${this.language}.`;
+    };
+}
    
   /*
     * Inheritance chain: GameObject -> CharacterStats -> Humanoid
@@ -157,33 +153,37 @@ function GameObject(obj){
   
     // VILLAIN 
     
-    function Villain(stats){
-      Humanoid.call(this, stats);
-      this.special = stats.special;
-      this.power = stats.power;
-    }
-     Villain.prototype = Object.create(Humanoid.prototype);
-     Villain.prototype.attack = function(obj){
-      let damage = (Math.floor(Math.random() * this.power) + 5);
-      obj.healthPoints = obj.healthPoints - damage;
-      if(obj.healthPoints <= 0){
-        return obj.destroy();
-      } else if (obj.healthPoints >= 0 && obj.healthPoints < 15){
-        return `${this.name}'s health is low, heal NOW! Health remains: ${obj.healthPoints} points`;
-      } else {
-        return obj.healthPoints;
-      }
-    }
-     Villain.prototype.heal = function(){
-      let regenerate = (Math.floor(Math.random() * 50) + 25);
-      this.healthPoints = this.healthPoints + regenerate;
-      if(this.healthPoints >= 50){
-        this.healthPoints = 50;
-        return this.healthPoints; 
-      } else {
-      return this.healthPoints;
-      }
-    }
+    class Villain extends Humanoid {
+        constructor (stats) {
+            super (stats);
+            this.special = stats.special;
+            this.power = stats.power;
+        };
+
+        attack (obj){
+            let damage = (Math.floor(Math.random() * this.power) + 5);
+            obj.healthPoints = obj.healthPoints - damage;
+            if(obj.healthPoints <= 0){
+                return obj.destroy();
+            } else if (obj.healthPoints < 25 && obj.healthPoints > 1){
+                return `${this.name}'s health is low, heal NOW! Health remains: ${obj.healthPoints} points`;
+            } else {
+                return `${this.name} attacked ${obj.name} with ${this.special}. ${obj.healthPoints} health left!`;
+            }
+        };
+        heal (){
+            let regenerate = (Math.floor(Math.random() * 10) + 5);
+            this.healthPoints = this.healthPoints + regenerate;
+            if(this.healthPoints > 100){
+                this.healthPoints = 100;
+                return `${this.name} regenerated. Total health: ${this.healthPoints}`; 
+            } else {
+                return `${this.name} regenerated. Total health: ${this.healthPoints}`;
+            }
+        };
+    };
+        
+    
      const thanos = new Villain({
       createdAt: new Date(),
       dimensions: {
@@ -205,33 +205,35 @@ function GameObject(obj){
   
       // HERO 
     
-      function Hero(stats){
-        Humanoid.call(this, stats);
-        this.special = stats.special;
-        this.power = stats.power;
-      }
-       Hero.prototype = Object.create(Humanoid.prototype);
-       Hero.prototype.attack = function(obj){
-        let damage = (Math.floor(Math.random() * this.power) + 5);
-        obj.healthPoints = obj.healthPoints - damage;
-        if(obj.healthPoints <= 0){
-          return obj.destroy();
-        } else if (obj.healthPoints >= 0 && obj.healthPoints < 25){
-          return `${this.name}'s health is low, heal NOW! Health remains: ${obj.healthPoints} points`
-        } else {
-          return obj.healthPoints;
-        }
-      }
-       Hero.prototype.heal = function(){
-        let regenerate = (Math.floor(Math.random() * 50) + 15);
-        this.healthPoints = this.healthPoints + regenerate;
-        if(this.healthPoints >= 50){
-          this.healthPoints = 50;
-          return this.healthPoints;
-        } else {
-        return this.healthPoints;
-        }
-      }
+    class Hero extends Humanoid {
+        constructor (stats) {
+            super (stats);
+            this.special = stats.special;
+            this.power = stats.power;
+        };
+        attack (obj){
+            let damage = (Math.floor(Math.random() * this.power) + 5);
+            obj.healthPoints = obj.healthPoints - damage;
+            if(obj.healthPoints <= 0){
+              return obj.destroy();
+            } else if (obj.healthPoints < 25 && obj.healthPoints > 1){
+              return `${this.name}'s health is low, heal NOW! Health remains: ${obj.healthPoints} points.`
+            } else {
+              return `${this.name} attacked ${obj.name} with ${this.special}. ${obj.healthPoints} health left!`;
+            }
+        };
+        heal (){
+            let regenerate = (Math.floor(Math.random() * 10) + 5);
+            this.healthPoints = this.healthPoints + regenerate;
+            if(this.healthPoints > 100){
+              this.healthPoints = 100;
+              return `${this.name} regenerated. Total health: ${this.healthPoints}`;
+            } else {
+              return `${this.name} regenerated. Total health: ${this.healthPoints}`;
+            }
+        };
+    }
+       
        const hulk = new Hero({
         createdAt: new Date(),
         dimensions: {
@@ -247,17 +249,19 @@ function GameObject(obj){
         ],
         language: 'English',
         special: 'Smash',
-        power: 20
+        power: 25
       });
   
-    let obj = thanos;
+    // ============================== GAME RUN ======>  
+    let obj = hulk;
+    let obj2 = thanos;
   
-    console.log(hulk.attack(obj));
-    console.log(hulk.attack(obj));
-    console.log(hulk.attack(obj));
-    console.log(hulk.attack(obj));
-    console.log(hulk.attack(obj));
+    console.log(obj2.attack(obj));
+    console.log(obj2.attack(obj));
+    console.log(obj2.attack(obj));
+    console.log(obj2.attack(obj));
+    console.log(obj2.attack(obj));
     console.log(thanos.heal());
-    console.log(hulk.attack(obj));
-    console.log(hulk.attack(obj));
-    console.log(hulk.attack(obj));
+    console.log(obj2.attack(obj));
+    console.log(obj2.attack(obj));
+    console.log(obj2.attack(obj));
