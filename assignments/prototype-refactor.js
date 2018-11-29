@@ -9,85 +9,64 @@ Prototype Refactor
 */
 
 
-
-/*
-=== GameObject ===
-*/
-
-function GameObject(gameAttributes) {
+class GameObject {
+    constructor(gameAttributes){
     this.createdAt = gameAttributes.createdAt;
     this.dimensions = gameAttributes.dimensions;
-}
-
-GameObject.prototype.destroy = function() {
+    }
+    
+    destroy() {
     return `${this.name} was removed from the game.`;
+    }
 }
 
-/*
-=== CharacterStats ===
-*/
-
-function CharacterStats(characterAttributes) {
-    GameObject.call(this, characterAttributes);
-
+class CharacterStats extends GameObject {
+    constructor(characterAttributes) {
+    super(characterAttributes);
     this.healthPoints = characterAttributes.healthPoints;
     this.name = characterAttributes.name;
-}
-
-CharacterStats.prototype = Object.create(GameObject.prototype);
-
-CharacterStats.prototype.takeDamage = function() {
+    }
+    takeDamage() {
     return `${this.name} took damage.`;
+    }
 }
 
-/*
-=== Humanoid (Having an appearance or character resembling that of a human.) ===
-*/
-
-function Humanoid(humanoidAttributes) {
-    CharacterStats.call(this, humanoidAttributes);
-
+class Humanoid extends CharacterStats {
+    constructor(humanoidAttributes) {
+    super(humanoidAttributes);
     this.team = humanoidAttributes.team;
     this.weapons = humanoidAttributes.weapons;
     this.language = humanoidAttributes.language;
-}
-
-Humanoid.prototype = Object.create(CharacterStats.prototype);
-
-Humanoid.prototype.greet = function() {
+    }
+    greet() {
     return `${this.name} offers a greeting in ${this.language}`;
+    }
 }
-
-/*
-    * Inheritance chain: GameObject -> CharacterStats -> Humanoid
-*/
 
 //-------------hero--------------
 
-function Hero(heroAttributes) {
-    CharacterStats.call(this, heroAttributes);
-
+class Hero extends Humanoid {
+    constructor(heroAttributes) {
+    super(heroAttributes);
     this.specialAttack = heroAttributes.specialAttack;
     this.magic = heroAttributes.magic;
-}
-Hero.prototype = Object.create(Humanoid.prototype);
-
-Hero.prototype.cloak = function() {
+    }
+    cloak() {
     return `${this.name} has cloaked using ${this.magic}`;
+    }
 }
 
 //-------------villain--------------
 
-function Villain(villainAttributes) {
-    CharacterStats.call(this, villainAttributes);
-
+class Villain extends Humanoid {
+    constructor(villainAttributes) {
+    super(villainAttributes);
     this.specialAttack = villainAttributes.specialAttack;
     this.magic = villainAttributes.magic;
-}
-Villain.prototype = Object.create(Humanoid.prototype);
-
-Villain.prototype.vanish = function() {
+    }
+    vanish() {
     return `${this.name} has disappered using ${this.magic}`;
+    }
 }
 
 // Test you work by un-commenting these 3 objects and the list of console logs below:
@@ -200,3 +179,9 @@ console.log(luckyFarmBoy.specialAttack); // Hay Toss
 console.log(luckyFarmBoy.cloak()); // Chuck has cloaked using Special Beans
 console.log(evilPrince.specialAttack); // Crown Toss
 console.log(evilPrince.vanish()); // Charming has disappered using Handheld Mirror
+
+
+    // Stretch task: 
+    // * Create Villain and Hero constructor functions that inherit from the Humanoid constructor function.  
+    // * Give the Hero and Villains different methods that could be used to remove health points from objects which could result in destruction if health gets to 0 or drops below 0;
+    // * Create two new objects, one a villain and one a hero and fight it out with methods!
