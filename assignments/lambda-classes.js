@@ -63,7 +63,7 @@ class Student extends Person {
         return `${this.name} has begun sprint challenge on ${subject}`;
     }
     graduate() {
-        
+
     }
 }
 
@@ -165,5 +165,6 @@ console.log(janet.listsSubjects()); // Python, CSS, PHP
 console.log(joe.favInstructor); // Sean
 console.log(joe.debugsCode(janet, 'JavaScript')); // Joe debugs Janet's code on JavaScript
 
-console.log(joe.adjustGrade(janet)); // 
-console.log(janet.grade);
+console.log(janet.grade); // this is the student's original grade
+console.log(joe.adjustGrade(janet)); // this adjust the student's grade
+console.log(janet.grade); // this is the new student's grade (it should match the one above!)
