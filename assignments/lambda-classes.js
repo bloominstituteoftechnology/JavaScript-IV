@@ -40,6 +40,7 @@ class Student extends Person {
     this.previousBackground = studentAttrbs.previousBackground;
     this.className = studentAttrbs.className;
     this.favSubjects = studentAttrbs.favSubjects;
+    this.grade = studentAttrbs.grade;
   }
 
   listsSubjects() {
@@ -130,7 +131,8 @@ const nathan = new Student({
   gender: "male",
   previousBackground: "healthcare business",
   className: "FSW16",
-  favSubjects: ["react", "html", "css", "javascript"]
+  favSubjects: ["react", "html", "css", "javascript"],
+  grade: 90
 });
 
 const christine = new Student({
@@ -140,7 +142,8 @@ const christine = new Student({
   gender: "female",
   previousBackground: "photography",
   className: "CS15",
-  favSubjects: ["javascript", "python", "golang", "c++"]
+  favSubjects: ["javascript", "python", "golang", "c++"],
+  grade: 95
 });
 
 nathan.speak();
