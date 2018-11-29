@@ -5,37 +5,70 @@ Prototype Refactor
 1. Copy and paste your code or the solution from yesterday*/
 
 
-function GameObject(attributes){
-    this.createdAt = attributes.createdAt;
-    this.dimensions = attributes.dimensions;
+// function GameObject(attributes){
+//     this.createdAt = attributes.createdAt;
+//     this.dimensions = attributes.dimensions;
     
-    }
-    GameObject.prototype.destroy = function destroy(){
-    return 'Object was removed from the game.';
-    }
+//     }
+//     GameObject.prototype.destroy = function destroy(){
+//     return 'Object was removed from the game.';
+//     }
 
-function CharcaterStats(stats){
-    this.healthPoints = stats.healthPoints;
-    this.name = stats.name;
-    GameObject.call(this,stats);
-  }
+class GameObject{
+    constructor(attributes){
+        this.createdAt = attributes.createdAt;
+        this.dimensions = attributes.dimensions; 
+    }
+    destroy(){
+        return `${this.name} was removed from the game.`
+    }
+}
+
+// function CharcaterStats(stats){
+//     this.healthPoints = stats.healthPoints;
+//     this.name = stats.name;
+//     GameObject.call(this,stats);
+//   }
   
-  CharcaterStats.prototype = Object.create(GameObject.prototype);
-  CharcaterStats.prototype.takeDamage = function takeDamage(){
-    return `${this.name} took damage.`
-  }
+//   CharcaterStats.prototype = Object.create(GameObject.prototype);
+//   CharcaterStats.prototype.takeDamage = function takeDamage(){
+//     return `${this.name} took damage.`
+//   }
+
+    class CharacterStats extends GameObject{
+        constructor(stats){
+        super(stats);
+            this.healthPoints = stats.healthPoints;
+        this.name = stats.name;
+        }
+        takeDamage(){
+            return `${this.name} took damage.`
+        }
+    }
   
   
-  function Humanoid(characteristics){
-    this.team = characteristics.team;
-    this.weapons = characteristics.weapons;
-    this.language = characteristics.language;
-    CharcaterStats.call(this, characteristics);
-  }
-  Humanoid.prototype = Object.create(CharcaterStats.prototype);
-  Humanoid.prototype.greet = function greet(){
-    return `${this.name} offers a greeting in ${this.language}.`
-  }
+//   function Humanoid(characteristics){
+//     this.team = characteristics.team;
+//     this.weapons = characteristics.weapons;
+//     this.language = characteristics.language;
+//     CharacterStats.call(this, characteristics);
+//   }
+//   Humanoid.prototype = Object.create(CharacterStats.prototype);
+//   Humanoid.prototype.greet = function greet(){
+//     return `${this.name} offers a greeting in ${this.language}.`
+//   }
+
+class Humanoid extends CharacterStats{
+    constructor(characteristics){
+        super(characteristics);
+        this.team = characteristics.team;
+     this.weapons = characteristics.weapons;
+     this.language = characteristics.language;
+    }
+    greet(){
+        return `${this.name} offers a greeting in ${this.language}.`
+    }
+}
   
   
   
