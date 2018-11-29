@@ -24,9 +24,17 @@ class Instructors extends Person {
     demo(subject) {
         return `Today we are learning about ${subject}`
     }
-
     grade(student, subject) {
         return `${student.name}, receives a perfect score on ${subject}.`
+    }
+    calculate(student, callback) {
+        return callback(student)
+    }
+    add(student){
+        return student.grade + Math.floor(Math.random() * 50)
+    }
+    subtract(student){
+        return student.grade - Math.floor(Math.random() * 50)
     }
 }
 
@@ -36,6 +44,7 @@ class Students extends Person {
         this.previousBackground = attributes.previousBackground;
         this.className = attributes.className;
         this.favSubjects = attributes.favSubjects;
+        this.grade = Math.floor(Math.random() * 100)
     }
 
     listsSubjects() {
@@ -50,6 +59,15 @@ class Students extends Person {
 
     sprintChallenge(subject) {
         return `${this.name} has begun sprint challenge on ${subject}`;
+    }
+
+    graduate() {
+        if(this.grade > 70){
+            return `${this.name}, CONGRADULATIONS!!! YOU HAVE OFFICIALLY GRADUATED`
+        } else {
+            this.grade += 30
+            return `${this.name}, sorry it doesn't look like you made it this time... Keep trying until you graduate!`
+        }
     }
 }
 
@@ -115,6 +133,10 @@ console.log(lily.demo('Applied Javasciprt'));
 console.log(mike.grade(leianne, 'HTML'))
 console.log(leianne.listsSubjects())
 console.log(leianne.PRAssignment('Javascript IV'))
+console.log(leianne.grade)
 console.log(leianne.sprintChallenge('Javascript IV'))
 console.log(ally.standUp('FSW16'))
 console.log(ally.debugsCode(leianne, 'React'))
+console.log(lily.calculate(leianne, lily.add))
+console.log(mike.calculate(leianne, mike.subtract))
+console.log(leianne.graduate())
