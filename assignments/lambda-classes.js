@@ -3,6 +3,9 @@
 
 //==================================== Constructors
 
+
+//==================================== Person Object
+
 class Person {
     constructor(attr){
         this.name = attr.name;
@@ -15,6 +18,8 @@ class Person {
         return `Hello my name is ${this.name}, I am from ${this.location}!`;
     }
 }
+
+//==================================== Instructor Object
 
 class Instructor extends Person{
     constructor(insAttr){
@@ -33,11 +38,16 @@ class Instructor extends Person{
     }
 
     giveGrade(student) {
-        let adjust = Math.floor(Math.random() * 70) + 1;
-        let res = student.grade - adjust;
-        return `${this.name} adjust ${student.name}'s grade of ${student.grade} by ${adjust} points, they now have a ${res}.`
+        let currentGrade = student.grade;
+        let adjust = Math.floor(Math.random() * 15) + 1;
+        let plusorMinus = Math.random() < 0.5 ? -1 : 1;
+        adjust = adjust * plusorMinus;
+        let res = student.grade += adjust;
+        return `${this.name} adjust ${student.name}'s grade of ${currentGrade} by ${adjust} points, they now have a ${res}.`;
     }
 }
+
+//==================================== Student Object
 
 class Student extends Person{
     constructor(studentdAttr){
@@ -62,7 +72,16 @@ class Student extends Person{
     sprintChallenge(subject) {
         return `${this.name} has begun Sprint Challenge on ${subject}`;
     }
+
+    graduate(){
+        if ( this.grade> 70){
+            return `congratulations you have graduated this Class!`;
+        } 
+        return `Looks like you still need some more time, your current grade is ${this.grade}. Go back and do some more Assignments!`;
+    }
 }
+
+//==================================== Project Manager Object
 
 class ProjectManager extends Instructor {
     constructor(PMattr){
@@ -202,3 +221,6 @@ console.log(sam.debugsCode(ben, "JS"));
 console.log(george.gradClassName);
 console.log(sam.favInstructor);
 console.log(george.giveGrade(becky));
+
+
+console.log(becky.graduate());
