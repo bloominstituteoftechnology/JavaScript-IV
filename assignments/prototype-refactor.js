@@ -129,34 +129,3 @@ class GameObject {
     hero1.slash();
     hero1.slash();
     console.log(hero1.victoryPhrase);
-
-    /*
-    function Villian(villianAttributes) {
-      Humanoid.call(this, villianAttributes);
-    }
-  
-    Villian.prototype.smite = function () {
-      console.log(`${this.name} smited and took 20 health points!`)
-    }
-  
-    function Hero(heroAttributes) {
-      Humanoid.call(this, heroAttributes);
-      this.victoryPhrase = `${this.name} wins, and shouted: \'Good shall always prevail!\'`;
-    }
-  
-    Hero.prototype.slash = function () {
-      console.log(`${this.name} slashed and took 35 health points!`)
-    }
-  
-    const villian1 = new Villian({
-      name: 'Voldemort'
-    })
-  
-    const hero1 = new Hero ({
-      name: 'Harry Potter'
-    })
-  
-    villian1.smite();
-    hero1.slash();
-    hero1.slash();
-    console.log(hero1.victoryPhrase); */
