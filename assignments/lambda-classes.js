@@ -61,3 +61,87 @@ class ProjectManagers extends Instructors {
     }
     
 }
+
+// Instructors
+
+const bigJosh = new Instructors({
+    name: 'Josh Knell',
+    location: 'Utah',
+    age: 30,
+    gender: 'male',
+    favLanguage: 'JavaScript',
+    specialty: 'Front End Dev',
+    catchPhrase: 'Guys, this is so powerful!'
+});
+
+const mrSmith = new Instructors({
+    name: 'John Smith',
+    location: 'Washington',
+    age: 41,
+    gender: 'male',
+    favLanguage: 'Python',
+    specialty: 'Statistics',
+    catchPhrase: "It's a wonderful life"
+});
+
+const mrsJones = new Instructors({
+    name: 'Martha Jones',
+    location: 'San Francisco',
+    age: 28,
+    gender: 'female',
+    favLanguage: 'C++',
+    specialty: 'Operating Systems',
+    catchPhrase: 'Mash that return key!'
+});
+
+// Students
+
+const jamie = new Students({
+    name: 'Jamie Hall',
+    location: 'Tampa, Florida',
+    age: 56,
+    gender: 'male',
+    previousBackground: 'finance',
+    className: 'FSW16',
+    favSubjects:['JavaScript', 'Python', 'APIs']
+    });
+
+const chrissy = new Students({
+    name: 'Chris Evert',
+    location: 'St. Clair Shores, MI',
+    age: 22,
+    gender: 'female',
+    previousBackground: 'Tennis Player',
+    className: 'FSW16',
+    favSubjects:['JavaScript', 'HTML', 'CSS'],
+});
+
+const fred = new Students({
+    name: 'Freddy Lima',
+    location: 'Pemmsylvania',
+    age: 34,
+    gender: 'male',
+    previousBackground: 'roofing',
+    className: 'FSW16',
+    favSubjects:['React', 'Redux', 'Node.js'],
+});
+
+//Project Managers
+
+const bonnie = new ProjectManagers({
+    name: 'Bonnie Parker',
+    location: 'Texas',
+    age: 24,
+    gender: 'female',
+    gradClassName: 'FSW15',
+    favInstructor: 'bigJosh'
+});
+
+const clyde = new ProjectManager({
+    name: 'Clyde Barrow',
+    location: 'Texas',
+    age: 25,
+    gender: 'male',
+    gradClassName: 'FSW14',
+    favInstructor: 'Mrs. Jones'
+});
