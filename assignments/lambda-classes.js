@@ -125,7 +125,7 @@ const Tom = new Student({
 });
 
 const Mathew = new Student({
-    name: 'Tom',
+    name: 'Mathew',
     age: '19',
     location: 'El Monte, CA',
     previousBackground: 'Worked at Blaze Pizza',
