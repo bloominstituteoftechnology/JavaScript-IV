@@ -1,4 +1,3 @@
-// CODE here for your Lambda Classes
 class Person{
     constructor(personAttr){
         this.name = personAttr.name;
@@ -24,6 +23,17 @@ class Instructor extends Person{
     grade(student, subject){
         return `${student.name} recieves a perfect score on ${subject}`;
     }
+    editGrade(student){
+        let randomNumber = Math.random() * (10-1) + 1;
+        let addOrSubtract = Math.random() * (2-1) + 1;
+        if(addOrSubtract > 1.5){
+             student.grade -= randomNumber
+            return student.grade;
+        } else if(addOrSubtract < 1.5){
+            student.grade += randomNumber;
+            return student.grade;
+        }
+    }
 }
 
 class Student extends Person{
@@ -32,9 +42,13 @@ class Student extends Person{
         this.previousBackground = studentAttrs.previousBackground;
         this.className = studentAttrs.className;
         this.favSubjects = studentAttrs.favSubjects;
+        this.grade = studentAttrs.grade;
     }
     listsSubjects(){
         for(let i in this.favSubjects){
+            if(i == this.favSubjects.length -1){
+              return this.favSubjects[i];
+            }
             console.log(this.favSubjects[i]);
         }
     }
@@ -43,6 +57,14 @@ class Student extends Person{
     }
     sprintChallenge(subject){
         return `${this.name} has begun sprint challenge on ${subject}`;
+    }
+    graduate(student){
+        while(this.grade < 70){
+            fred.editGrade(student);
+            if(this.grade > 70){
+                return `${this.name} graduated from Lambda school with ${this.grade}%! Good job`
+            }
+        }
     }
 }
 
@@ -77,7 +99,8 @@ const kieran = new Student({
     gender: 'male',
     previousBackground: 'Graphic Design',
     className: "FSW16",
-    favSubjects: ['HTML', 'CSS', 'PreProcesors', 'Javascript']
+    favSubjects: ['HTML', 'CSS', 'PreProcesors', 'Javascript'],
+    grade: 40,
 });
 
 const PM = new ProjectManager({
@@ -100,3 +123,5 @@ console.log(kieran.listsSubjects()); //'HTML' 'CSS' 'PreProcesors' 'Javascript'
 console.log(kieran.previousBackground); //'Graphic Design'
 console.log(PM.favInstructor)// 'Fred'
 console.log(PM.debugsCode(kieran, 'Python'))// `Bob debugs Kieran's code on Python`
+console.log(fred.editGrade(kieran)); // Will log 40 + or - a random number between 1-10 //this will be starting grade
+console.log(kieran.graduate(kieran)) //will go through a while loop until grade is > 70
