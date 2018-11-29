@@ -42,7 +42,10 @@ class Student extends Person{
     }
 
     listsSubjects() {
-        return this.favSubjects;
+        const subjects = this.favSubjects.map(function(currentvalue){
+            return currentvalue;
+        });
+        return subjects.toString();
     }
 
     PRAssignment(subject) {
