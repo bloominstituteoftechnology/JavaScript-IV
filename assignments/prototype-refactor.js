@@ -155,33 +155,90 @@ function GameObject (attributes) {
     // * Give the Hero and Villains different methods that could be used to remove health points from objects which could result in destruction if health gets to 0 or drops below 0;
     // * Create two new objects, one a villain and one a hero and fight it out with methods!
   
-  
+    // Humanoid.prototype.attack = function (enemy) {
+    //     if (this.healthPoints > 0) {
+    //         if (enemy.healthPoints > 0 ) {
+    //             console.log(`${this.name} attacked ${enemy.name}.`, enemy.takeDamage());
+    //             let newHealth = (enemy.healthPoints = (enemy.healthPoints - this.damagePoints));
+    //             if (newHealth > 0) {
+    //                 return (`${enemy.name}'s health is now ${newHealth}`) 
+    //             }
+    //             else {
+    //                 return (`${enemy.name}'s health is depleted. ${enemy.destroy()}`);
+    //             }
+    //         } else {
+    //             return (`${enemy.destroy()} ${this.name} cannot attack ${enemy.name}`);
+    //         }
+    //     } else {
+    //         return (`${this.destroy()} ${this.name} cannot attack ${enemy.name}`);
+    //     }
+    // };
+
+    Humanoid.prototype.attack = function (enemy) {
+        if (this.healthPoints > 0) {
+            if (enemy.healthPoints > 0 ) {
+                console.log(`${this.name} attacks ${enemy.name} with his ${this.weapons[0]}.`, enemy.takeDamage());
+                let newHealth = enemy.healthPoints = enemy.healthPoints - this.damagePoints;
+                if (newHealth > 0) {
+                    return (`${enemy.name}'s health is now ${newHealth}.`) 
+                }
+                else {
+                    return (`${enemy.name}'s health is depleted. ${enemy.destroy()}`);
+                }
+            } else {
+                return (`${this.name} tries to attack ${enemy.name}. ${enemy.destroy()} ${this.name} cannot attack ${enemy.name}`);
+            }
+        } else {
+            return (`${this.name} tries to attack ${enemy.name}. ${this.destroy()} ${this.name} cannot attack ${enemy.name}`);
+        }
+    };
+
     function Hero (heroAttributes) {
-      GameObject.call(this, heroAttributes);
-      CharacterStats.call(this, heroAttributes);
-      Humanoid.call(this, heroAttributes);
+        GameObject.call(this, heroAttributes);
+        CharacterStats.call(this, heroAttributes);
+        Humanoid.call(this, heroAttributes);
+        this.damagePoints = heroAttributes.damagePoints;
+        this.antiWeapons = heroAttributes.antiWeapons;
     };
     
     Hero.prototype = Object.create(Humanoid.prototype);
-    
-    Hero.prototype.giveDamage = function (prey) {
-      console.log(`${this.name} hurts ${prey.name}.`);
-      let newHealth = prey.healthPoints = prey.healthPoints - 5;
-      return (`${prey.name}'s health is now ${newHealth}`)
+
+    Hero.prototype.takeMeds = function (enemy) {
+        if (this.healthPoints > 0) {
+            if (enemy.healthPoints > 0 ) {
+                console.log(`After ${enemy.name}'s attack, ${this.name} takes his ${this.antiWeapons[0]}. ${this.name} regains health.`);
+                let newHealth = this.healthPoints = this.healthPoints + (enemy.damagePoints+2);
+                return (`${this.name}'s health is up to ${newHealth}.`);
+            } else {
+                return (`${enemy.destroy()} ${this.name} cannot attack ${enemy.name}`);
+            }
+        } else {
+            return (`${this.destroy()} ${this.name} cannot attack ${enemy.name}`);
+        }
     };
-  
+    
     function Villain(vilAttributes){
-      GameObject.call(this, vilAttributes);
-      CharacterStats.call(this, vilAttributes);
-      Humanoid.call(this, vilAttributes);
+        GameObject.call(this, vilAttributes);
+        CharacterStats.call(this, vilAttributes);
+        Humanoid.call(this, vilAttributes);
+        this.damagePoints = vilAttributes.damagePoints;
+        this.antiWeapons = vilAttributes.antiWeapons;
     };
   
     Villain.prototype = Object.create(Humanoid.prototype);
-  
-    Villain.prototype.serveDamage = function (enemy) {
-      console.log(`${this.name} hits ${enemy.name}`);
-      let newHealth = enemy.healthPoints = enemy.healthPoints - 3;
-      return (`${enemy.name}'s health is now ${newHealth}`)
+
+    Villain.prototype.shield = function (enemy) {
+        if (this.healthPoints > 0) {
+            if (enemy.healthPoints > 0 ) {
+                console.log(`But wait, ${this.name} shielded ${enemy.name}'s attack with his ${this.antiWeapons[0]}. ${this.name} takes no damage.`);
+                let newHealth = this.healthPoints = this.healthPoints + enemy.damagePoints;
+                return (`${this.name}'s health is actually back to ${newHealth}.`);
+            } else {
+                return (`${enemy.destroy()} ${this.name} cannot attack ${enemy.name}`);
+            }
+        } else {
+            return (`${this.destroy()} ${this.name} cannot attack ${enemy.name}`);
+        }
     };
   
     const human = new Hero({
@@ -192,12 +249,13 @@ function GameObject (attributes) {
         height: 3,
       },
       healthPoints: 15,
+      damagePoints: 5,
       name: 'David',
       team: 'Forest Kingdom',
       weapons: [
-        'Rock',
-        'Slingshot',
+        'Rock and Slingshot'
       ],
+      antiWeapons: ['Medication'],
       language: 'English',
     });
     
@@ -209,27 +267,29 @@ function GameObject (attributes) {
         height: 6,
       },
       healthPoints: 20,
+      damagePoints: 3,
       name: 'Goliath',
       team: 'Oger Rebellion',
       weapons: [
-        'Sword',
-        'Shield',
+        'Sword'
       ],
+      antiWeapons: ['Shield of Trolls'],
       language: 'Latin',
     });
   
   
   
-  console.log(human.giveDamage(oger)); 
-  console.log(oger.serveDamage(human));
-  console.log(human.giveDamage(oger)); 
-  console.log(oger.serveDamage(human));
-  console.log(human.giveDamage(oger)); 
-  console.log(oger.serveDamage(human));
-  console.log(human.giveDamage(oger)); 
-  console.log(oger.serveDamage(human));
-  console.log(human.giveDamage(oger)); 
-  console.log(oger.serveDamage(human));
-  console.log(human.giveDamage(oger)); 
-  console.log(oger.serveDamage(human));
-  
+  console.log(human.attack(oger)); 
+  console.log(oger.attack(human));
+  console.log(human.attack(oger)); 
+  console.log(oger.shield(human));
+  console.log(human.attack(oger)); 
+  console.log(oger.attack(human));
+  console.log(human.takeMeds(oger)); 
+  console.log(oger.attack(human));
+  console.log(human.attack(oger)); 
+  console.log(oger.attack(human));
+  console.log(human.attack(oger)); 
+  console.log(oger.attack(human));
+  console.log(human.attack(oger)); 
+  console.log(oger.attack(human));  
