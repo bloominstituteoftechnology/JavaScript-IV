@@ -31,7 +31,7 @@ class Instructor extends Person {
         return `Today we are learning about ${subject}` ;
     }
     grade(student, subject) {
-        return `${student.name} receives a perfect score on ${subject}` //-----check this line later!!!----
+        return `${student.name} receives a perfect score on ${subject}`
     }
 }
 
@@ -46,7 +46,7 @@ class Student extends Person {
     }
 
     listsSubjects() {
-        return `${this.favSubjects1}, ${this.favSubjects2}, ${this.favSubjects3}`;  //-----check this line later!!!----
+        return `${this.favSubjects[0]}, ${this.favSubjects[1]}, ${this.favSubjects[2]}`;  //-----check this line later!!!----
     }
 
     PRAssignment(subject) {
@@ -71,7 +71,7 @@ class ProjectManager extends Instructor {
         return `${this.name} announces to ${channel}, @channel standy times!` ;
     }
     debugsCode(student, subject) {
-        return `${this.name} debugs ${student.name}'s code on ${subject}` //-----check this line later!!!----
+        return `${this.name} debugs ${student.name}'s code on ${subject}`
     }
 }
 
@@ -144,3 +144,13 @@ const nancy = new ProjectManager({
     gradClassName: 'CS11',
     favInstructor: `Tony`
 });
+
+console.log(fred.catchPhrase); // Don't forget the homies
+console.log(fred.grade(chuck, 'CSS')); // Chuck receives a perfect score on CSS
+
+console.log(janet.className); // CSS101
+console.log(janet.listsSubjects()); // Python, CSS, PHP
+
+console.log(joe.favInstructor); // Sean
+console.log(joe.debugsCode(janet, 'JavaScript')); // Joe debugs Janet's code on JavaScript
+
