@@ -163,6 +163,7 @@ class CharacterStats extends GameObject {
         attack (obj){
             let damage = (Math.floor(Math.random() * this.power) + 5);
             obj.healthPoints = obj.healthPoints - damage;
+            this.healthPoints = this.healthPoints - (damage + 5);
             if(obj.healthPoints <= 0){
                 return obj.destroy();
             } else if (obj.healthPoints < 25 && obj.healthPoints > 1){
@@ -172,7 +173,7 @@ class CharacterStats extends GameObject {
             }
         };
         heal (){
-            let regenerate = (Math.floor(Math.random() * 10) + 5);
+            let regenerate = (Math.floor(Math.random() * 20) + 5);
             this.healthPoints = this.healthPoints + regenerate;
             if (this.healthPoints > 100){
                 this.healthPoints = 100;
@@ -215,6 +216,7 @@ class CharacterStats extends GameObject {
         attack (obj){
             let damage = (Math.floor(Math.random() * this.power) + 5);
             obj.healthPoints = obj.healthPoints - damage;
+            this.healthPoints = this.healthPoints - (damage + 5);
             if(obj.healthPoints <= 0){
               return obj.destroy();
             } else if (obj.healthPoints < 25 && obj.healthPoints > 1){
@@ -224,7 +226,7 @@ class CharacterStats extends GameObject {
             }
         };
         heal (){
-            let regenerate = (Math.floor(Math.random() * 10) + 5);
+            let regenerate = (Math.floor(Math.random() * 20) + 5);
             this.healthPoints = this.healthPoints + regenerate;
             
             if(this.healthPoints > 100){
@@ -268,3 +270,4 @@ class CharacterStats extends GameObject {
     console.log(obj2.attack(obj));
     console.log(obj2.attack(obj));
     console.log(obj2.attack(obj));
+    
