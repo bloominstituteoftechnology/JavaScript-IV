@@ -24,6 +24,10 @@ class Instructor extends Person {
   grade(student, subject) {
     return `${student.name} receives a perfect score on ${subject}`;
   }
+  finalGrade(student) {
+    let score = Math.floor(Math.random() * (100 - 60)) + 60;
+    return student.graduate(score);
+  }
 }
 
 class Student extends Person {
@@ -43,6 +47,15 @@ class Student extends Person {
   }
   sprintChallenge(subject) {
     return `${this.name} has begun sprint challenge on ${subject}`;
+  }
+  graduate(grade) {
+    if (grade >= 70) {
+      return `${this.name} has graduated from Lambda School.`;
+    } else {
+      return `${
+        this.name
+      } still has a bit more work to do before graduating from Lambda School.`;
+    }
   }
 }
 
@@ -130,3 +143,4 @@ console.log(connie.PRAssignment("CSS-IV"));
 console.log(luther.debugsCode(connie, "HTML"));
 console.log(luther.standup("#luther"));
 console.log(luther.grade(samuel, "attendance"));
+console.log(luther.finalGrade(samuel));
