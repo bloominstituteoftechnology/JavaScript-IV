@@ -71,3 +71,12 @@ jill.speak();
 jill.demo('Javascript');
 jill.grade(jack, 'Javascript');
 
+const abdul = new ProjectManager ({
+    name: 'Abdul',
+    location: 'EST',
+    gender: 'M',
+    favInstructor: 'Josh Knell'
+});
+
+abdul.standUp('FSW16_abdul')
+abdul.debugsCode(jack, 'Javascript IV')
