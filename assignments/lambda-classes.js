@@ -67,7 +67,7 @@ const samuel = new Student({
   gender: "M",
   previousBackground: "cat sitter",
   className: "FSW16",
-  favSubjects: "JavaScript"
+  favSubjects: ["JavaScript", "HTML", "CSS"]
 });
 
 const jackie = new Student({
@@ -111,3 +111,22 @@ const luther = new ProjectManager({
   gradClassName: "CS5",
   favInstructor: "Mitzi"
 });
+
+console.log(
+  `${mitzi.speak()}. I'll be your instructor for this course. ${mitzi.demo(
+    "CSS"
+  )}. ${mitzi.catchPhrase}`
+);
+console.log(
+  `${luther.speak()}. Anybody else from ${
+    luther.location
+  }? Nobody? Okay, I'm your PM for today. Our slack channel is #${
+    luther.gradClassName
+  }-${luther.name}.`
+);
+console.log(`${samuel.speak()}. Some of my favorite subjects are:`);
+samuel.listsSubjects();
+console.log(connie.PRAssignment("CSS-IV"));
+console.log(luther.debugsCode(connie, "HTML"));
+console.log(luther.standup("#luther"));
+console.log(luther.grade(samuel, "attendance"));
