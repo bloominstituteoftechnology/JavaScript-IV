@@ -9,73 +9,56 @@ Prototype Refactor
 */
 
 //Parent element
-function GameObject(attributes) {
-    this.createdAt = attributes.createdAt;
-    this.dimensions = attributes.dimensions;
-    // {
-    //   length = attributes.length,
-    //   width = attributes.width,
-    //   height = attributes.height,
-  }
-  
-  
-  GameObject.prototype.destroy = function() {
-    return `${this.name} was removed from the game.`;
-  }
-  
-  /*
-    === CharacterStats ===
-    * healthPoints
-    * name
-    * takeDamage() // prototype method -> returns the string '<object name> took damage.'
-    * should inherit destroy() from GameObject's prototype
-  */
-  //Child Element of GameObject
-  function CharacterStats(childAttributes) {
-    //Binding of the this keyword to GameObject
-    GameObject.call(this, childAttributes);
-    this.healthPoints = childAttributes.healthPoints;
-    this.name = childAttributes.name;
-  }
-  
-  CharacterStats.prototype = Object.create(GameObject.prototype);
-  
-  CharacterStats.prototype.takeDamage = function() {
-  
-    return `${this.name} took damage.`;
-  }
-  
-  
-  /*
-    === Humanoid (Having an appearance or character resembling that of a human.) ===
-    * team
-    * weapons
-    * language
-    * greet() // prototype method -> returns the string '<object name> offers a greeting in <object language>.'
-    * should inherit destroy() from GameObject through CharacterStats
-    * should inherit takeDamage() from CharacterStats
-  */
-  //Child element of CharacterStats, granchild of GameObject
-  function Humanoid(grandchildAttributes) {
-    //Binding of the this keyword to CharacterStats
-    CharacterStats.call(this, grandchildAttributes);
-    this.team = grandchildAttributes.team;
-    this.weapons = grandchildAttributes.weapons;
-    this.language = grandchildAttributes.language;
-  }
-  
-  Humanoid.prototype = Object.create(CharacterStats.prototype);
-  
-  Humanoid.prototype.greet = function() {
-    return `${this.name} offers a greeting in ${this.language}`;
-  }
-  
-  Humanoid.prototype.death = function() {
-    if (this.healthPoints <= 0) {
-      return this.destroy();
+    class GameObject {
+        constructor(attributes) {
+            this.createdAt = attributes.createdAt;
+            this.dimensions = attributes.dimensions;
+        } 
+        destroy() {
+            return `${this.name} was removed from the game.`;
+        }
     } 
-    return (`${this.name} has ${this.healthPoints} health points.`)
-  }
+  
+  
+  
+//CharacterStats
+//Child Element of GameObject
+    class CharacterStats extends GameObject {
+        constructor(childAttributes) {
+            super(childAttributes);
+            this.healthPoints = childAttributes.healthPoints;
+            this.name = childAttributes.name;
+        }
+        takeDamage() {
+            return `${this.name} took damage.`;
+        }
+    }
+  
+     
+  
+//Humanoid 
+//Child element of CharacterStats, granchild of GameObject
+    class Humanoid extends CharacterStats {
+        constructor(grandchildAttributes) {
+            super(grandchildAttributes);
+            this.team = grandchildAttributes.team;
+            this.weapons = grandchildAttributes.weapons;
+            this.language = grandchildAttributes.language;
+        }
+  
+        greet() {
+            return `${this.name} offers a greeting in ${this.language}`;
+        }
+
+        death() {
+            if (this.healthPoints <= 0) {
+              return this.destroy();
+            } 
+            return (`${this.name} has ${this.healthPoints} health points.`)
+        }
+    }
+  
+  
    
   /*
     * Inheritance chain: GameObject -> CharacterStats -> Humanoid
@@ -83,63 +66,57 @@ function GameObject(attributes) {
     * Instances of CharacterStats should have all of the same properties as GameObject.
   */
   
-  //Hero constructor - inherits from humanoid
-  function Hero(heroAttributes) {
-    //Binding of the this keyword to Humanoid
-    Humanoid.call(this, heroAttributes);
-    this.armor = heroAttributes.armor;
-  }
-  
-  Hero.prototype = Object.create(Humanoid.prototype);
-  
-  Hero.prototype.takeAHit = function(damage) {
-    let hitPoint = Math.ceil((Math.random() * 10));
-    if (hitPoint < damage) {
-      this.healthPoints = this.healthPoints - (damage - hitPoint);
-      return this.takeDamage();  
-    } else {
-      return `${this.name} blocked your attack!`;
+//Hero constructor - inherits from humanoid
+    class Hero extends Humanoid{
+        constructor(heroAttributes) {
+            super(heroAttributes);
+            this.armor = heroAttributes.armor;
+        }
+
+        takeAHit(damage) {
+            let hitPoint = Math.ceil((Math.random() * 10));
+            if (hitPoint < damage) {
+              this.healthPoints = this.healthPoints - (damage - hitPoint);
+              return this.takeDamage();  
+            } else {
+              return `${this.name} blocked your attack!`;
+            }
+        }
+
+        swordStrike() {
+            let strikePoint = Math.ceil((Math.random() * 10));
+            return strikePoint;
+        }
     }
-    
-  }
+
+        
+        
+//Villain constructor - inherits from humanoid
+    class Villain extends Humanoid {
+        constructor(villainAttributes) {
+            super(villainAttributes);
+            this.spells = villainAttributes.spells;
+        }
+          
+        dodge(damage) {
+            let hitPoint = Math.round(Math.random());
+            if (hitPoint < 1) {
+            this.healthPoints = this.healthPoints - damage;
+            return this.takeDamage();
+            } else {
+            return `${this.name} dodged your attack!`;
+            }
+        }
   
-  Hero.prototype.swordStrike = function() {
-    let strikePoint = Math.ceil((Math.random() * 10));
-    return strikePoint;
-  
+        castSpell() {
+            let spellPoint = Math.round(Math.random());
+            if (spellPoint < 1) {
+            return 7;
+            } else {
+            return 0;
+            }
+        }
     }
-  
-  
-  
-  
-  //Villain constructor - inherits from humanoid
-  function Villain(villainAttributes) {
-    //Binding of the this keyword to humanoid
-    Humanoid.call(this, villainAttributes);
-    this.spells = villainAttributes.spells;
-  }
-  
-  Villain.prototype = Object.create(Humanoid.prototype);
-  
-  Villain.prototype.dodge = function(damage) {
-    let hitPoint = Math.round(Math.random());
-    if (hitPoint < 1) {
-      this.healthPoints = this.healthPoints - damage;
-      return this.takeDamage();
-      } else {
-      return `${this.name} dodged your attack!`;
-    }
-  }
-  
-  Villain.prototype.castSpell = function() {
-    let spellPoint = Math.round(Math.random());
-    if (spellPoint < 1) {
-      return 7;
-    } else {
-      return 0;
-    }
-  }
-  
   
   // Test you work by un-commenting these 3 objects and the list of console logs below:
   
