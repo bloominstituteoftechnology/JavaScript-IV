@@ -22,7 +22,9 @@ class Instructor extends Person{
         return `Today we are learning about ${subject}`
     }
     grade(student, subject){
-        return `${student.name} receives a perfect score on ${subject}`;
+        let instructorGrade = Math.floor(Math.random() * Math.floor(100));
+        student.grade -= instructorGrade;
+        return `${student.name} receives a ${student.grade} on ${subject}`;
     }
 }
 
@@ -32,6 +34,7 @@ class Student extends Person{
         this.previousBackground = studentAttrs.previousBackground;
         this.className = studentAttrs.className;
         this.favSubjects = studentAttrs.favSubjects;
+        this.grade = studentAttrs.grade;
     }
     listSubjects(){
         this.favSubjects.forEach(subject => {
@@ -43,6 +46,14 @@ class Student extends Person{
     }
     sprintChallenge(subject){
         return `${this.name} has begun sprint challenge on ${subject}`;
+    }
+    graduate(){
+        if(this.grade > 70){
+            return `Congrats! You have graduated.`;
+        }
+        else{
+            return `Still got some work to do!`;
+        }
     }
 }
 
@@ -91,7 +102,8 @@ const brandon = new Student({
         'JavaScript', 
         'CSS',
         'Less'
-    ]
+    ],
+    grade: 100
 });
 const amanda = new Student({
     name: 'Amanda',
@@ -104,7 +116,8 @@ const amanda = new Student({
         'Psychology', 
         'Fallout 4',
         'Math'
-    ]
+    ],
+    grade: 100
 });
 const abdul = new ProjectManager({
     name: 'Abdul',
@@ -128,6 +141,7 @@ function test(personObject) {
     `)
 }
 
+
 test(abdul);
 test(fred);
 test(bob);
@@ -136,3 +150,5 @@ console.log(abdul.standUp('Slack Chat'));
 console.log(brandon.listSubjects());
 console.log(brandon.sprintChallenge('Math'));
 console.log(amanda.name);
+console.log(fred.grade(brandon, `JS-4`));
+console.log(brandon.graduate());
