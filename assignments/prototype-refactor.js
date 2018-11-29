@@ -4,12 +4,7 @@
 
 //1. Copy and paste your code or the solution from yesterday
 
-// function GameObject(attributes) {
-//     this.createdAt = attributes.createdAt;
-//     this.dimensions = attributes.dimensions;
-//     this.name = attributes.name;
 
-// }
 
 class GameObject {
     constructor(attributes){
@@ -23,16 +18,6 @@ class GameObject {
     }
 }
 
-// GameObject.prototype.destroy = function() {
-//  return `${this.name}was removed from the game.`
-// };
-
-
-// function CharacterStats(characterStatsAttributes) {
-//     GameObject.call(this, characterStatsAttributes)
-//     this.healthPoints = characterStatsAttributes.healthPoints;
-//     this.name = characterStatsAttributes.name;
-//   }
 
 class CharacterStats extends GameObject {
     constructor(characterStatsAttributes) {
@@ -46,20 +31,6 @@ class CharacterStats extends GameObject {
     }
 }
   
-//   CharacterStats.prototype = Object.create(GameObject.prototype);
-  
-//   CharacterStats.prototype.takeDamage = function() {
-//     return `${this.name} took damage.`;
-//   }
-  
-//    function Humanoid(humanoidAttributes) {
-//      CharacterStats.call(this,humanoidAttributes)
-//      this.team = humanoidAttributes.team;
-//      this.weapons = humanoidAttributes.weapons;
-//      this.language = humanoidAttributes.language;
-     
-     
-//    }
   
 class Humanoid extends CharacterStats {
     constructor(humanoidAttributes) {
@@ -73,12 +44,6 @@ class Humanoid extends CharacterStats {
     }
 }
 
-
-//    Humanoid.prototype = Object.create(CharacterStats.prototype);
-  
-//    Humanoid.prototype.greet = function() {
-//      return `${this.name} offers a greeting in ${this.language}`;
-//    }
    const mage = new Humanoid({
     createdAt: new Date(),
     dimensions: {
