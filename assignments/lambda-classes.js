@@ -16,9 +16,18 @@ class Person {
     this.gender = attributes.gender;
   }
   speak() {
-    console.log(`Hello my name is ${this.name}, I am from ${this.location}`);
+    return `Hello my name is ${this.name}, I am from ${this.location}.`;
   }
 }
+
+//------------------------------ Person Objects
+
+const jim = new Person({
+  name: "Jim",
+  location: "Miami",
+  age: 36,
+  gender: "Male"
+});
 
 //==================================== Instructor Class =====================================
 
@@ -30,10 +39,10 @@ class Instructor extends Person {
     this.catchPhrase = instAttributes.catchPhrase;
   }
   demo(subject) {
-    console.log(`Today we are learning about ${subject}.`);
+    return `Today, we are learning about ${subject}.`;
   }
-  grade(student) {
-    console.log(`${student.name} receives a perfect score on ${subject}.`);
+  grade(student, subject) {
+    return `${student.name} receives a perfect score on ${subject}.`;
   }
 }
 
@@ -46,7 +55,7 @@ const ted = new Instructor({
   gender: "Male",
   specialty: "Front-end",
   favLanguage: "JavaScript",
-  catchPhrase: `Don't forget the homies`
+  catchPhrase: `Don't forget the homies.`
 });
 
 const kim = new Instructor({
@@ -56,7 +65,7 @@ const kim = new Instructor({
   gender: "Female",
   specialty: "Back-end",
   favLanguage: "Python",
-  catchPhrase: `It's freaking cool`
+  catchPhrase: `It's freaking cool!`
 });
 
 //==================================== Student Class =====================================
@@ -64,18 +73,18 @@ const kim = new Instructor({
 class Student extends Person {
   constructor(studAttributes) {
     super(studAttributes);
-    this.previousBackground = instAttributes.previousBackground;
-    this.className = instAttributes.className;
-    this.favSubjects = instAttributes.favSubjects;
+    this.previousBackground = studAttributes.previousBackground;
+    this.className = studAttributes.className;
+    this.favSubjects = studAttributes.favSubjects;
   }
-  listsSubjects(student) {
-    console.log(`${this.name}'s favorite subjects is ${this.favSubjects}`);
+  listsSubjects() {
+    return `${this.name}'s favorite subjects are ${this.favSubjects}.`;
   }
   PRAssignment(subject) {
-    console.log(`${this.name} has submitted a PR for ${subject}.`);
+    return `${this.name} has submitted a PR for ${subject}.`;
   }
   sprintChallenge(subject) {
-    console.log(`${this.name} has begun sprint challenge on ${subject}.`);
+    return `${this.name} has begun sprint challenge on ${subject}.`;
   }
 }
 
@@ -88,7 +97,7 @@ const mark = new Student({
   gender: "Male",
   previousBackground: "College Student",
   className: "FSW 16",
-  favsubjects: "HTML"
+  favSubjects: ["Javascript", " React"]
 });
 
 const sarah = new Student({
@@ -98,49 +107,76 @@ const sarah = new Student({
   gender: "Female",
   previousBackground: "Accountant",
   className: "FSW 16",
-  favsubjects: "CSS"
+  favSubjects: ["HTML", " CSS", " Javascript"]
 });
 
 //==================================== Project Manager Class =====================================
 
-class ProjectManager extends Instructors {
+class ProjectManager extends Instructor {
   constructor(pmAtrributes) {
     super(pmAtrributes);
     this.gradClassName = pmAtrributes.gradClassName;
     this.favInstructor = pmAtrributes.favInstructor;
   }
   standup(slackChannel) {
-    console.log(
-      `${this.name} announces to ${slackChannel}, @channel standy times!`
-    );
+    return `${this.name} announces to ${slackChannel}, @channel standy times!`;
   }
   debugsCode(student, subject) {
-    console.log(`${this.name} debugs ${this.name}'s code on ${subject}`);
+    return `${this.name} debugs ${student.name}'s code on ${subject}.`;
   }
 }
 
 //------------------------------ Project Manager Objects
 
-const Dev = new ProjectManager({
+const dev = new ProjectManager({
   name: "Dev",
   location: "San Jose",
   age: 35,
   gender: "Male",
   specialty: "Front-end",
   favLanguage: "HTML",
-  catchPhrase: `Think outside the box`,
+  catchPhrase: "Think outside the box",
   gradClassName: "CS1",
   favInstructor: "Jen"
 });
 
-const John = new ProjectManager({
-  name: "Kim",
+const john = new ProjectManager({
+  name: "John",
   location: "Illinois",
   age: 38,
   gender: "Female",
   specialty: "Back-end",
   favLanguage: "Ruby",
-  catchPhrase: `It's freaking cool`,
+  catchPhrase: "Debugger is your friend",
   gradClassName: "CS1",
-  favInstructor: "Debugger is your friend"
+  favInstructor: "Sean"
 });
+
+//---------------------------- Console.logs of Person
+
+console.log(jim.speak());
+console.log(jim.age);
+console.log(jim.gender);
+
+//---------------------------- Console.logs of Instructor
+
+console.log(ted.specialty);
+console.log(kim.catchPhrase);
+console.log(kim.favLanguage);
+console.log(ted.demo("HTML"));
+console.log(kim.grade(mark, "CSS"));
+
+//---------------------------- Console.logs of Student
+
+console.log(sarah.className);
+console.log(mark.previousBackground);
+console.log(mark.listsSubjects());
+console.log(sarah.PRAssignment("Prototype"));
+console.log(mark.sprintChallenge("Javascript"));
+
+//---------------------------- Console.logs of Project Managers
+
+console.log(dev.gradClassName);
+console.log(john.favInstructor);
+console.log(dev.standup("FSW 16"));
+console.log(john.debugsCode(sarah, "Classes"));
