@@ -31,7 +31,7 @@ class Instructor extends Person {
     changeGrade(student) {
         // randomNumber generates either 1 or 2 leading to 50/50 chance of grade increasing or decreasing
         const randomNumber = Math.floor(Math.random() * 2 + 1)
-        const gradeNumber = Math.floor(Math.random() * 10 + 1)
+        const gradeNumber = Math.floor(Math.random() * 15 + 1)
         if (randomNumber === 1) {
             student.grade = student.grade + gradeNumber;
             console.log(`${this.name} has added ${gradeNumber} points to ${student.name}'s grade for a final grade of ${student.grade}! `)
@@ -60,6 +60,13 @@ class Student extends Person {
     sprintChallenge(subject) {
         console.log(`${this.name} has begun sprint challenge on ${subject}.`)
     }
+    graduate() {
+        if (this.grade >= 70) {
+            console.log(`Hooray! I get to graduate!`)
+        } else {
+            console.log(`Oh no! I can't graduate!`)
+        }
+    }
 }
 
 // Project Manager class ============================
@@ -85,7 +92,7 @@ const olivia = new Student({
     previousBackground: "Lab tech",
     className: "FSW-16",
     favSubjects: ["HTML", "CSS", "Javascript" ],
-    grade: 89,
+    grade: 79,
 })
 
 const frank  = new Instructor({
@@ -116,6 +123,7 @@ const julia = new ProjectManager({
 // julia.standUp("FSW16 - Julia");
 // julia.debugsCode(olivia, "classes");
 julia.changeGrade(olivia);
+olivia.graduate();
 
 
 
