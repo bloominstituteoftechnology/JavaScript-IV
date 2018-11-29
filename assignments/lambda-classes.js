@@ -90,3 +90,5 @@ console.log(projectManager.demo("c language"));
 console.log(projectManager.grade(new Student("Stalon","scandinavia",1000,"M","JAVA","programming-III",favSbubjectArray),"Arabic"));
 console.log(projectManager.standUp("FSW16"));
 console.log(projectManager.debugsCode(new Student("Brianna","Germany",1000,"M","Python","programming-III",favSbubjectArray),"Physics"));
+
+console.log("========================================Stretches====================================================")
