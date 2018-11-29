@@ -6,7 +6,7 @@ class Person{
     this.location = personAttributes.location;
     }
     speak(){
-        return `Hello my name is ${this.name}, I am from ${this.location}.`;
+        console.log(`Hello my name is ${this.name}, I am from ${this.location}.`)
     }
 }
 
@@ -29,6 +29,34 @@ class Instructor extends Person{
 
 }
 
+class Student extends Person {
+    constructor(studentInfo){
+        super(studentInfo);
+        
+        this.previousBackground = studentInfo.previousBackground;
+        this.className = studentInfo.className;
+        this.favSubjects = studentInfo.favSubjects;
+    }
+    listSubjects(){
+        console.log(this.favSubjects);
+    }
 
+    PRAssignment(subject){
+console.log(`${student.name} has submitted a PR for ${subject}.`)
+    }
+
+    sprintChallenge(subject){
+        console.log(`${studnet.name} has begun sprint challenge on ${subject}.`)
+    }
+}
+
+const Estevan = new Person({
+    name : 'Estevan',
+    age: '22',
+    location: 'Riverside'
+
+});
+
+//Estevan.speak();
 
 
