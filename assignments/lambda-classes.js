@@ -38,11 +38,11 @@ class Instructor extends Person{
     }
 
     giveGrade(student) {
-        let currentGrade = student.grade;
-        let adjust = Math.floor(Math.random() * 15) + 1;
-        let plusorMinus = Math.random() < 0.5 ? -1 : 1;
-        adjust = adjust * plusorMinus;
-        let res = student.grade += adjust;
+        let currentGrade = student.grade; //stores the students current grade
+        let adjust = Math.floor(Math.random() * 15) + 1; //random value used to adjust the students grade
+        let plusorMinus = Math.random() < 0.5 ? -1 : 1; //random value used to determine if the grade adjustment will be positive or negative
+        adjust = adjust * plusorMinus; // provides the final adjustment value 
+        let res = student.grade += adjust; //adjusts the students grade
         return `${this.name} adjust ${student.name}'s grade of ${currentGrade} by ${adjust} points, they now have a ${res}.`;
     }
 }
@@ -58,11 +58,10 @@ class Student extends Person{
         this.grade = studentdAttr.grade;
     }
 
-    listsSubjects() {
-        const subjects = this.favSubjects.map(function(currentvalue){
-            return currentvalue;
+    listsSubjects() { //method uses forEach to list out each value from the students favSubjects array
+        return this.favSubjects.forEach(function(currentvalue) {
+            console.log(currentvalue);
         });
-        return subjects.toString();
     }
 
     PRAssignment(subject) {
@@ -149,7 +148,7 @@ const ben = new Student({
     previousBackground: "IT",
     className: "Machine Learning",
     favSubjects: ["Python", "c++", "React"],
-    grade: Math.floor(Math.random() * 100) +1
+    grade: Math.floor(Math.random() * 100) +1 //random value between 1-100
 });
 
 const becky = new Student({
@@ -160,7 +159,7 @@ const becky = new Student({
     previousBackground: "Customer Service",
     className: "Fullstack Web-development",
     favSubjects: ["JS", "c#", "Node"],
-    grade: Math.floor(Math.random() * 100) +1
+    grade: Math.floor(Math.random() * 100) +1 //random value between 1-100
 });
 
 //==================================== Project Manager Objects
@@ -204,11 +203,11 @@ console.log(jimmyBob.giveGrade(ben));
 
 //==================================== Student test cases
 
-console.log(ben.listsSubjects());
+ben.listsSubjects();
 console.log(ben.PRAssignment("JS-II"));
 console.log(ben.sprintChallenge("JS-II"));
 console.log(ben.previousBackground);
-console.log(becky.listsSubjects());
+becky.listsSubjects();
 console.log(becky.PRAssignment("Python-I"));
 console.log(becky.sprintChallenge("Python-I"));
 console.log(becky.className);
@@ -222,5 +221,5 @@ console.log(george.gradClassName);
 console.log(sam.favInstructor);
 console.log(george.giveGrade(becky));
 
-
+//graduate student test case
 console.log(becky.graduate());
