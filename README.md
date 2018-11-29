@@ -1,6 +1,6 @@
 # JavaScript IV
 
-hi This challenge focuses on classes in JavaScript using the new `class` keyword.
+This challenge focuses on classes in JavaScript using the new `class` keyword.
 
 ## Assignment Description
 
