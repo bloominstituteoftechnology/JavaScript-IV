@@ -1,8 +1,4 @@
-function GameObject(attribute)  {
-    this.createdAt = attribute.createdAt;
-    this.dimensions = attribute.dimensions;
-  
-  }
+
 
   class GameObject {
       constructor(attribute) {
@@ -13,10 +9,15 @@ function GameObject(attribute)  {
         return `${this.name} was removed froom the game`;
       }
   }
-  GameObject.prototype.destroy= function() {
-  
-    return `${this.name} was removed froom the game`;
-  }
+class CharacterStats extends parent {
+    constructor(cattribute) {
+        super(cattribute);
+        this.healthPoints = cattribute.healthPoints;
+        this.name = cattribute.name;
+
+    }
+}
+
   
   function CharacterStats(cattribute) {
   GameObject.call(this,cattribute )
