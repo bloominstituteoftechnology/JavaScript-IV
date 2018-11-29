@@ -41,6 +41,17 @@ class Instructor extends Person {
   grade (student, subject) {
     console.log(`${student.name} receives a perfect score on ${subject}`);
   }
+  popQuiz (student, subject) {
+    const points = Math.ceil(Math.random() * 5);
+    console.log(`Pop Quiz on ${subject}!`);
+    if (Math.random() > .5){
+      console.log(`Good answer! ${student.name} receives ${points} points.`);
+      student.grade += points;
+    } else {
+      console.log(`Back to the TK for you! ${student.name} is docked ${points} points.`);
+      student.grade -= points;
+    }
+  }
 }
 
 // Student Class
@@ -61,6 +72,7 @@ class Student extends Person {
     this.previousBackground = studentAttrs.previousBackground;
     this.className = studentAttrs.className;
     this.favSubjects = studentAttrs.favSubjects; // Array!
+    this.grade = studentAttrs.grade;
   }
   listsSubjects () {
     for (const subject of this.favSubjects) {
@@ -72,6 +84,13 @@ class Student extends Person {
   }
   sprintChallenge (subject) {
     console.log(`${this.name} has begun sprint challenge on ${subject}`)
+  }
+  graduate () {
+    if (this.grade > 70) {
+      console.log(`Congratulations, ${this.name}! You graduate with a ${this.grade}%, now go make money.`);
+    } else {
+      console.log(`Unfortunately a ${this.grade}% is not sufficient to graduate. Back to the TK for you, ${this.name}!`);
+    }
   }
 }
 
@@ -129,7 +148,8 @@ const lilRoy = new Student ({
   gender: 'M',
   previousBackground: 'Carpentry',
   className: 'FSW16',
-  favSubjects: ['Preprocessing', 'Symantec Markup', 'Array Methods']
+  favSubjects: ['Preprocessing', 'Symantec Markup', 'Array Methods'],
+  grade: 85
 });
 
 const bigRae = new Student ({
@@ -139,7 +159,8 @@ const bigRae = new Student ({
   gender: 'F',
   previousBackground: 'Construction',
   className: 'DS1',
-  favSubjects: ['Linear Algebra', 'Statistics', 'Python Lists']
+  favSubjects: ['Linear Algebra', 'Statistics', 'Python Lists'],
+  grade: 92
 });
 
 // Project Managers:
@@ -167,74 +188,83 @@ const michaelBen = new ProjectManager ({
   favInstructor: 'JaneBeth',
 });
 
-// jimBob tests:
-console.log(jimBob.name) // 'JimBob'
-console.log(jimBob.age) // '35',
-console.log(jimBob.location) // 'SLC',
-console.log(jimBob.gender) // 'M',
-console.log(jimBob.specialty) // 'Frontend',
-console.log(jimBob.favLanguage) // 'JavaScript',
-console.log(jimBob.catchPhrase) // 'Let\'s take a 5-minute break!'
-jimBob.demo('Banjo');
-jimBob.grade(bigRae, 'Banjo');
+// // Test that instances are working
+// // jimBob tests:
+// console.log(jimBob.name) // 'JimBob'
+// console.log(jimBob.age) // '35',
+// console.log(jimBob.location) // 'SLC',
+// console.log(jimBob.gender) // 'M',
+// console.log(jimBob.specialty) // 'Frontend',
+// console.log(jimBob.favLanguage) // 'JavaScript',
+// console.log(jimBob.catchPhrase) // 'Let\'s take a 5-minute break!'
+// jimBob.demo('Banjo');
+// jimBob.grade(bigRae, 'Banjo');
 
-// janeBeth tests:
-console.log(janeBeth.name) // 'JaneBeth'
-console.log(janeBeth.age) // '37',
-console.log(janeBeth.location) // 'LA',
-console.log(janeBeth.gender) // 'F',
-console.log(janeBeth.specialty) // 'CS',
-console.log(janeBeth.favLanguage) // 'C',
-console.log(janeBeth.catchPhrase) // 'Let\'s take a 7-minute break!'
-janeBeth.demo('CS');
-janeBeth.grade(lilRoy, 'CS');
+// // janeBeth tests:
+// console.log(janeBeth.name) // 'JaneBeth'
+// console.log(janeBeth.age) // '37',
+// console.log(janeBeth.location) // 'LA',
+// console.log(janeBeth.gender) // 'F',
+// console.log(janeBeth.specialty) // 'CS',
+// console.log(janeBeth.favLanguage) // 'C',
+// console.log(janeBeth.catchPhrase) // 'Let\'s take a 7-minute break!'
+// janeBeth.demo('CS');
+// janeBeth.grade(lilRoy, 'CS');
 
-// lilRoy tests:
-console.log(lilRoy.name) //: 'LittleRoy',
-console.log(lilRoy.age) //: '27',
-console.log(lilRoy.location) //: 'NYC',
-console.log(lilRoy.gender) //: 'M',
-console.log(lilRoy.previousBackground) //: 'Carpentry',
-console.log(lilRoy.className) //: 'FSW16',
-console.log(lilRoy.favSubjects) //: ['Preprocessing', 'Symantec Markup', 'Array Methods']
-lilRoy.listsSubjects();
-lilRoy.PRAssignment('JS-I');
-lilRoy.sprintChallenge('JavaScript');
+// // lilRoy tests:
+// console.log(lilRoy.name) //: 'LittleRoy',
+// console.log(lilRoy.age) //: '27',
+// console.log(lilRoy.location) //: 'NYC',
+// console.log(lilRoy.gender) //: 'M',
+// console.log(lilRoy.previousBackground) //: 'Carpentry',
+// console.log(lilRoy.className) //: 'FSW16',
+// console.log(lilRoy.favSubjects) //: ['Preprocessing', 'Symantec Markup', 'Array Methods']
+// lilRoy.listsSubjects();
+// lilRoy.PRAssignment('JS-I');
+// lilRoy.sprintChallenge('JavaScript');
 
-// bigRae tests:
-console.log(bigRae.name) //: 'Big Raylene',
-console.log(bigRae.age) //: '22',
-console.log(bigRae.location) //: 'PDX',
-console.log(bigRae.gender) //: 'F',
-console.log(bigRae.previousBackground) //: 'Construction',
-console.log(bigRae.className) //: 'DS1',
-console.log(bigRae.favSubjects) //: ['Linear Algebra', 'Statistics', 'Python Lists']
-bigRae.listsSubjects();
-bigRae.PRAssignment('PY-I');
-bigRae.sprintChallenge('DescriptiveStatistics');
+// // bigRae tests:
+// console.log(bigRae.name) //: 'Big Raylene',
+// console.log(bigRae.age) //: '22',
+// console.log(bigRae.location) //: 'PDX',
+// console.log(bigRae.gender) //: 'F',
+// console.log(bigRae.previousBackground) //: 'Construction',
+// console.log(bigRae.className) //: 'DS1',
+// console.log(bigRae.favSubjects) //: ['Linear Algebra', 'Statistics', 'Python Lists']
+// bigRae.listsSubjects();
+// bigRae.PRAssignment('PY-I');
+// bigRae.sprintChallenge('DescriptiveStatistics');
 
-// maryBeth tests:
-console.log(maryBeth.name) //: 'Mary Beth',
-console.log(maryBeth.age) //: '25',
-console.log(maryBeth.location) //: 'HOU',
-console.log(maryBeth.gender) //: 'F',
-console.log(maryBeth.specialty) //: 'Frontend',
-console.log(maryBeth.favLanguage) //: 'JavaScript',
-console.log(maryBeth.catchPhrase) //: 'You\'re all doing great!',
-console.log(maryBeth.gradClassName) //: 'FSW13',
-console.log(maryBeth.favInstructor) //: 'JimBob',.
-maryBeth.standUp('#fsw16');
-maryBeth.debugsCode(lilRoy, 'Arrays');
+// // maryBeth tests:
+// console.log(maryBeth.name) //: 'Mary Beth',
+// console.log(maryBeth.age) //: '25',
+// console.log(maryBeth.location) //: 'HOU',
+// console.log(maryBeth.gender) //: 'F',
+// console.log(maryBeth.specialty) //: 'Frontend',
+// console.log(maryBeth.favLanguage) //: 'JavaScript',
+// console.log(maryBeth.catchPhrase) //: 'You\'re all doing great!',
+// console.log(maryBeth.gradClassName) //: 'FSW13',
+// console.log(maryBeth.favInstructor) //: 'JimBob',.
+// maryBeth.standUp('#fsw16');
+// maryBeth.debugsCode(lilRoy, 'Arrays');
 
-// michaelBen tests:
-console.log(michaelBen.name) //: 'Michael Ben',
-console.log(michaelBen.age) //: '24',
-console.log(michaelBen.location) //: 'BR',
-console.log(michaelBen.gender) //: 'M',
-console.log(michaelBen.specialty) //: 'Backend',
-console.log(michaelBen.favLanguage) //: 'Ruby',
-console.log(michaelBen.catchPhrase) //: 'Keep it up y\'all!',
-console.log(michaelBen.gradClassName) //: 'FSW14',
-console.log(michaelBen.favInstructor) //: 'JaneBeth',
-michaelBen.standUp('#DS1');
-michaelBen.debugsCode(bigRae, 'Constructors');
+// // michaelBen tests:
+// console.log(michaelBen.name) //: 'Michael Ben',
+// console.log(michaelBen.age) //: '24',
+// console.log(michaelBen.location) //: 'BR',
+// console.log(michaelBen.gender) //: 'M',
+// console.log(michaelBen.specialty) //: 'Backend',
+// console.log(michaelBen.favLanguage) //: 'Ruby',
+// console.log(michaelBen.catchPhrase) //: 'Keep it up y\'all!',
+// console.log(michaelBen.gradClassName) //: 'FSW14',
+// console.log(michaelBen.favInstructor) //: 'JaneBeth',
+// michaelBen.standUp('#DS1');
+// michaelBen.debugsCode(bigRae, 'Constructors');
+
+// Test grade attribute and popQuiz method
+console.log(lilRoy.grade);
+janeBeth.popQuiz(lilRoy, 'banjo');
+console.log(lilRoy.grade);
+
+// Test graduate method
+lilRoy.graduate();
