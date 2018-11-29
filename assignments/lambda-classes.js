@@ -64,3 +64,33 @@ class ProjectManager extends Instructor {
     return `${this.name} debugs ${student.name}'s code on ${subject}`
   }
 }
+
+const nick = new Student({
+  name: 'Nick',
+  age: 21,
+  location: 'Colorado',
+  gender: 'M',
+  previousBackground: 'UX/UI Work',
+  className: 'FSW 16',
+  favSubjects: ['HTML', 'CSS', 'JavaScript']
+});
+
+const fred = new Student({
+  name: 'Fred',
+  age: 30,
+  location: 'Crystal Cove',
+  gender: 'M',
+  previousBackground: 'Mystery Solving',
+  className: 'FSW 16',
+  favSubjects: ['HTML', 'CSS', 'JavaScript', 'Monster Catching']
+});
+
+const scooby = new Student({
+  name: 'Scooby Doo',
+  age: 5,
+  location: 'Crystal Cove',
+  gender: 'M',
+  previousBackground: 'Eating Scooby Snacks',
+  className: 'FSW 16',
+  favSubjects: ['HTML', 'CSS', 'JavaScript', 'Eating Scooby Snacks']
+});
