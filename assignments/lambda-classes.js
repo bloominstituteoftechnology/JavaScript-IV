@@ -102,3 +102,5 @@ josh.grade(matt, "CSS");
 matt.listSubjects();
 matt.PRAssignment("JS");
 matt.sprintChallenge("Objects");
+emily.standup("FSW16-emily");
+emily.debugsCode(matt, "Prototypes");
