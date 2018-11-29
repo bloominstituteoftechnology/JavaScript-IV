@@ -13,7 +13,7 @@ class Person {
     
 }// Person class
 
-class Insturctor extends Person {
+class Instctor extends Person {
   constructor(Inattributes) {
   super(Inattributes);
   this.name = Inattributes.name;
@@ -120,19 +120,21 @@ const brenda = new Student({
     gradClassName: 'CS1',
     favInstructor: 'Josh'
   });
+
+  
 //instructor 
-  console.log(james.speak);
-  console.log(james.demo);
-  console.log(james.grade('Brenda', 'CSS'));
+fred.speak();
+james.demo(brenda, 'JavaScript');
+james.grade(brenda, 'CSS');
 
-  //student
-  console.log(brenda.listSubjects('HTML', 'CSS', 'JavaScript'));
-  console.log(brenda.PRAssignment('Melissa', 'React'));
-  console.log(brenda.PRAssignment('Terri', 'Redux'));
+//student
+brenda.listSubjects('HTML', 'CSS', 'JavaScript');
+brenda.PRAssignment(brenda, 'React');
+brenda.PRAssignment(brenda, 'Redux');
 
-  //Project manager
-  console.log(barbara.standUp('Brenda', 'CSS'));
-  console.log(barbara.debugsCode('Howard', 'HTML'));
+//Project manager
+barbara.standUp(brenda, 'CSS');
+barbara.debugsCode(brenda, 'HTML');
 
 
   //Example of how to invoke object methods 'console.log(barbara.debugsCode(brenda, 'CSS'));'
