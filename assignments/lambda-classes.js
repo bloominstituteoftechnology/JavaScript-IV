@@ -29,9 +29,9 @@ class Student extends Person {
         this.className = studAttributes.className;
         this.favSubjects = studAttributes.favSubjects;
     }
-    listsSubjects() {console.log(...this.favSubjects)};
-    PRassignment(subject) {console.log(`${student.name} has submitted a PR for ${subject}`)};
-    sprintChallenge(subject) {console.log(`${student.name} has begun sprint challenge on ${subject}`)};
+    listsSubjects() {console.log(this.favSubjects)};
+    PRassignment(subject) {console.log(`${this.name} has submitted a PR for ${subject}`)};
+    sprintChallenge(subject) {console.log(`${this.name} has begun sprint challenge on ${subject}`)};
 };
 
 class ProjectManager extends Instructor {
@@ -43,4 +43,31 @@ class ProjectManager extends Instructor {
     standUp (channel) {console.log(`${this.name} announces to ${channel}, @channel standy times!`)};
     debugsCode (student, subject) {console.log(`${this.name} debugs ${student.name}\'s code on ${subject}`)};
 ;}
+
+
+const jack = new Student ({
+    name: 'Jack',
+    age: 30,
+    location: 'Phoenix',
+    gender: 'M',
+    className: 'FSW17',
+    favSubjects: ['Front end', 'CSS']
+});
+
+jack.speak();
+jack.listsSubjects();
+jack.PRassignment('Javascript');
+
+const jill = new Instructor ({
+    name: 'Jill',
+    age: 37,
+    location: 'Ohio',
+    gender: 'F',
+    specialty: 'Back-end Dev',
+    favLanguage: 'Python'
+});
+
+jill.speak();
+jill.demo('Javascript');
+jill.grade(jack, 'Javascript');
 
