@@ -7,54 +7,60 @@ Prototype Refactor
 2. Your goal is to refactor all of this code to use ES6 Classes. The console.log() statements should still return what is expected of them.
 
 */
-function GameObject(attributes) {
-  this.createdAt = attributes.createdAt;
-  this.dimensions = attributes.dimensions;
-} //GameObject
-
-GameObject.prototype.destroy = function() {
-  return (`${this.name} was removed from the game.`);
-};
-
-function CharacterStats(attributes) {
-  GameObject.call(this, attributes);
-  this.healthPoints = attributes.healthPoints;
-  this.name = attributes.name;
-} //CharacterStats
-CharacterStats.prototype = Object.create(GameObject.prototype);
-
-CharacterStats.prototype.takeDamage = function() {
-  return (`${this.name} took damage.`);
-};
-
-function Humanoid(attributes) {
-  CharacterStats.call(this, attributes);
-  // CharacterStats.bind(this, attributes);
-  this.team = attributes.team;
-  this.weapons = attributes.weapons;
-  this.language = attributes.language;
-} //Humanoid
-
-Humanoid.prototype = Object.create(CharacterStats.prototype);
-
-Humanoid.prototype.greet = function() {
-  return `${this.name} offers a greeting in ${this.language}.`;
+class GameObject {
+    constructor(attributes){
+        this.createdAt = attributes.createdAt;
+        this.dimensions = attributes.dimensions;
+    }
+    destroy() {
+        return `${this.name} was removed from the game.`;
+    }
 }
+ //GameObject
+
+ class CharacterStats extends GameObject {
+     constructor(attributes) {
+        super(attributes);
+        this.healthPoints = attributes.healthPoints;
+        this.name = attributes.name; 
+     }
+     takeDamage() {
+        return `${this.name} took damage.`;  
+     }
+ }
+//CharacterStats
+
+class Humanoid extends CharacterStats {
+    constructor(attributes) {
+        super(attributes);
+        this.team = attributes.team;
+        this.weapons = attributes.weapons;
+        this.language = attributes.language;
+    }
+    greet() {
+        return `${this.name} offers a greeting in ${this.language}.`; 
+    }
+}
+ //Humanoid
+
 
 //Stretch
-function Hero(attributes) {
-  Humanoid.call(this, attributes);
-}
+ //   class Hero extends Humanoid {
+   // constructor(attributes)
+//}
+//function Hero(attributes) {
+  //Humanoid.call(this, attributes);
+//}
 
-function Villain(attributes) {
-  Humanoid.call(this, attributes);
-}
+//function Villain(attributes) {
+  //Humanoid.call(this, attributes);
+//}
 
-Hero.prototype = Object.create(Humanoid.prototype);
+//Hero.prototype = Object.create(Humanoid.prototype);
 
-Hero.prototype.say = function() {
-  return `Im ${this.name}!`;
-};
+//Hero.prototype.say = function() {
+  //return `Im ${this.name}!`;
+//};
 
 
   const mage = new Humanoid({
@@ -107,7 +113,7 @@ Hero.prototype.say = function() {
     language: 'Elvish',
   });
 
-  const hero = new Hero({
+  /*const hero = new Hero({
     createdAt: new Date(),
     dimensions: {
       length: 2,
@@ -140,7 +146,7 @@ Hero.prototype.say = function() {
     ],
     language: 'Common Tongue',
   });
-
+*/
   console.log(mage.createdAt); // Today's date
   console.log(archer.dimensions); // { length: 1, width: 2, height: 4 }
   console.log(swordsman.healthPoints); // 15
@@ -151,4 +157,4 @@ Hero.prototype.say = function() {
   console.log(archer.greet()); // Lilith offers a greeting in Elvish.
   console.log(mage.takeDamage()); // Bruce took damage.
   console.log(swordsman.destroy()); // Sir Mustachio was removed from the game.
-  console.log(hero.say());
+  //console.log(hero.say());
