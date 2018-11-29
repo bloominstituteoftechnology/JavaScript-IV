@@ -1,5 +1,22 @@
 // CODE here for your Lambda Classes
 
+// random grade generators
+
+const gradeGenerator = function () {
+  return Math.floor((Math.random() * 50) + 50);
+}
+
+const gradeChanger = function () {
+  return Math.floor((Math.random() * 40 - 20) + 1);
+}
+
+let randomGrade = gradeGenerator();
+let changeGrade = gradeChanger();
+let finalGrade = randomGrade + changeGrade;
+
+// console.log(randomGrade);
+// console.log(finalGrade);
+
 // base class
 class Person {
   constructor(attributes) {
@@ -29,6 +46,9 @@ class Instructor extends Person {
   grade(student, subject) {
     console.log(`${student.name} receives a perfect score on ${subject}!`);
   }
+  changeGrade(student) {
+    console.log(`${student.name}'s grade is ${student.grade}. I am altering the grade by ${changeGrade}.`);
+  }
 }
 
 // Student class child of Person
@@ -38,6 +58,7 @@ class Student extends Person {
     this.previousBackground = studentAttrs.previousBackground;
     this.className = studentAttrs.className;
     this.favSubjects = studentAttrs.favSubjects;
+    this.grade = studentAttrs.grade;
   }
   listsSubjects() {
     console.log(`${this.name}'s favorite subjects are:`)
@@ -49,6 +70,14 @@ class Student extends Person {
   }
   sprintChallenge(subject) {
     console.log(`${this.name} has begun sprint challenge on ${subject}`);
+  }
+  graduation() {
+    if (finalGrade > 70) {
+      console.log(`${this.name}'s final grade is ${finalGrade}! They have graduated from LS!`)
+    } else {
+      console.log(`${this.name}'s final grade is ${finalGrade}. Have do not yet qualify to graduate from LS.`)
+    }
+
   }
 }
 
@@ -66,7 +95,6 @@ class ProjectManager extends Instructor {
     console.log(`${this.name} debugs ${student.name}'s code on ${subject}`);
   }
 }
-
 
 // create Instructors
 const fred = new Instructor({
@@ -140,9 +168,29 @@ const tom = new Student({
   gender: 'male',
   previousBackground: "Coffee",
   className: "FSW16",
-  favSubjects: ['CSS', 'JavaScript']
+  favSubjects: ['CSS', 'JavaScript'],
+  grade: randomGrade
 })
 
+
+// ==================== testing Stretch methods
+
+// console.log(tom.grade);
+fred.changeGrade(tom);
+tom.graduation();
+
+
+// ==================== testing MVP methods
+// fred.speak();
+// tom.speak();
+// fred.demo("JavaScript")
+// fred.grade(tom, "JavaScript");
+// frank.standup('General');
+// frank.debugCode(tom, 'CSS');
+
+// tom.listsSubjects();
+// tom.PRAssignment("Java");
+// tom.sprintChallenge("Java");
 
 
 // ==================== testing creation of classes
@@ -153,16 +201,3 @@ const tom = new Student({
 // console.log(john);
 // console.log(jane);
 // console.log(tom);
-
-
-// ==================== testing methods
-fred.speak();
-tom.speak();
-fred.demo("JavaScript")
-fred.grade(tom, "JavaScript");
-frank.standup('General');
-frank.debugCode(tom, 'CSS');
-
-tom.listsSubjects();
-tom.PRAssignment("Java");
-tom.sprintChallenge("Java");
