@@ -8,9 +8,9 @@ class Person{
         this.age = personAttributes.age;
         this.location = personAttributes.location;
         this.sex = personAttributes.sex;
-        speak() {
-            console.log(`Hello, my name is ${this.name}. I am from ${this.location}.`);
-        }
+    }
+    speak(){
+        console.log(`Hello, my name is ${this.name}. I am from ${this.location}.`);
     }
 }
 
@@ -24,6 +24,9 @@ class Instructor extends Person{
         this.specialty = instAttributes.specialty;
         this.favLanguage = instAttributes.favLanguage;
         this.catchPhrase = instAttributes.catchPhrase;
+    }
+    saysCatchPhrase(){
+        console.log(`${this.catchPhrase}.`);
     }
     demo(subject){
         console.log(`Today we are learning about ${subject}`);
@@ -43,13 +46,13 @@ class Student extends Person{
         this.favSubjects = studentAttributes.favSubjects;
     }
     listsSubjects(){
-        console.log(`My fave subjects are ${this.favSubjects}`);
+        console.log(`My fave subjects are ${this.favSubjects[0]}, ${this.favSubjects[1]}, and ${this.favSubjects[2]}.`);
     }
     PRAssignment(subject){
-        console.log(`${student.name} has submitted a PR for ${subject}.`);
+        console.log(`${this.name} has submitted a PR for ${subject}.`);
     }
     sprintChallenge(subject){
-        console.log(${student.name} has begun a sprint challenge on ${subject}.);
+        console.log(`${this.name} has begun a sprint challenge on ${subject}.`);
     }
 }
 
@@ -91,4 +94,72 @@ const holdy = new Instructor({
     favLanguage: 'React',
     specialty: 'Lambda Labs',
     catchPhrase: 'I got the Sox winning the World Series',
-})
+});
+
+
+//======== Student Objects Here =============//
+
+const jTrout = new Student({
+    name: 'Josh',
+    location: 'Richmond, Virginia',
+    age: 27,
+    sex: 'male',
+    prevBackground: 'Operations for Capital One',
+    className: 'FSW16',
+    favSubjects: [
+        'HTML', 
+        'CSS', 
+        'UX/UI', 
+    ],
+});
+
+const cRoy = new Student({
+    name: 'Christie',
+    location: 'kinda all over the place',
+    age: 23,
+    sex: 'female',
+    prevBackground: 'Seminary',
+    className: 'FSW16',
+    favSubjects: [
+        'JavaScript', 
+        'Wizardry', 
+        'Bingo', 
+    ],
+});
+
+
+//============ Project Manager Objects Here  ============//
+
+const mDavis = new ProjectManager({
+    name: 'Marious',
+    location: 'Alabama',
+    age: 28,
+    sex: 'male',
+    gradClassName: 'CS9',
+    favInstructor: 'Josh Knell'
+});
+
+const cKuntz = new ProjectManager({
+    name: 'Clint',
+    location: 'Utah',
+    age: 28,
+    sex: 'male',
+    gradClassName: 'CS9',
+    favInstructor: 'Ryan Hamblin'
+});
+
+console.log(jKnell.specialty);
+console.log(holdy.location);
+console.log(jTrout.className);
+console.log(cRoy.age);
+console.log(mDavis.gradClassName);
+console.log(cKuntz.favInstructor);
+jTrout.speak();
+jKnell.demo('the DOM');
+jKnell.saysCatchPhrase();
+holdy.grade(cRoy, 'Capstone Project');
+cRoy.listsSubjects();
+jTrout.PRAssignment('JavaScript-IV');
+cRoy.sprintChallenge('JS Fundamentals');
+cKuntz.standUp('KuntzCrew');
+mDavis.debugsConsole(jTrout, 'Redux');
