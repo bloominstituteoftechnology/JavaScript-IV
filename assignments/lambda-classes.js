@@ -26,6 +26,9 @@ class Instructor extends Person{
     grade(student, subject){
         console.log(`${student.name} receives a perfect score on ${subject}`);
     }
+    points(student){
+        student.grade = student.grade + ((Math.random() * 20) - 10);
+    }
 
 }
 
@@ -36,6 +39,7 @@ class Student extends Person {
         this.previousBackground = studentInfo.previousBackground;
         this.className = studentInfo.className;
         this.favSubjects = studentInfo.favSubjects;
+        this.grade = studentInfo.grade;
     }
     listSubjects(){
         console.log(this.favSubjects);
@@ -47,6 +51,15 @@ console.log(`${this.name} has submitted a PR for ${subject}.`)
 
     sprintChallenge(subject){
         console.log(`${this.name} has begun sprint challenge on ${subject}.`)
+    }
+
+    graduate(){
+        if(this.grade > 70){
+            console.log('Congratulations you are eligible to graduate from Lambda')
+        }
+        else{
+            console.log('Sorry, you can\'t graduate yet,keep working on those assignmnets!')
+        }
     }
 }
 
@@ -121,7 +134,8 @@ const Tom = new Student({
     location: 'El Monte, CA',
     previousBackground: 'Worked at Blaze Pizza',
     className: 'FSW16',
-    favSubjects: ['Math','CS','English']
+    favSubjects: ['Math','CS','English'],
+    grade: 65
 });
 
 const Mathew = new Student({
@@ -130,7 +144,8 @@ const Mathew = new Student({
     location: 'El Monte, CA',
     previousBackground: 'Worked at Blaze Pizza',
     className: 'FSW16',
-    favSubjects: ['Fishing','Math','CS']
+    favSubjects: ['Fishing','Math','CS'],
+    grade: 80
 });
 
 const Cecil = new Student({
@@ -139,7 +154,8 @@ const Cecil = new Student({
     location: 'Texas',
     previousBackground: 'coder',
     className: 'FSW16',
-    favSubjects: ['nap-time','CS','web-dev']
+    favSubjects: ['nap-time','CS','web-dev'],
+    grade: 100
 });
 
 const Abdul = new ProjectManager({
@@ -167,10 +183,18 @@ const Caitlin = new ProjectManager({
 });
 
 
-console.log(Tom.listSubjects());
+console.log(Cecil.grade);
+console.log(Emily.points(Mathew))
+console.log(Tom.grade)
+console.log(Tom.graduate())
+console.log(Emily.points(Tom))
+console.log(Emily.points(Tom))
+console.log(Tom.grade)
+console.log(Tom.graduate())
+console.log(Mathew.grade)
 console.log(Suthep.demo('JavaSript'));
 console.log(Estevan.speak());
-console.log(Emily.debugsCode(Tom, 'JavaScript4'));
+console.log(Emily.debugsCode(Mathew, 'JavaScript4'));
 
 
 
