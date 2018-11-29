@@ -7,19 +7,6 @@ Prototype Refactor
 2. Your goal is to refactor all of this code to use ES6 Classes. The console.log() statements should still return what is expected of them.
 
 */
-/*
-  Object oriented design is commonly used in video games.  For this part of the assignment you will be implementing 
-  several constructor functions with their correct inheritance hierarchy.
-
-  In this file you will be creating three constructor functions: GameObject, CharacterStats, Humanoid.  
-
-  At the bottom of this file are 3 objects that all end up inheriting from Humanoid.  
-  Use the objects at the bottom of the page to test your constructor functions.
-  
-  Each constructor function has unique properties and methods that are defined in their block comments below:
-*/
-  
-
 // Parent Constructor
 /*
   === GameObject ===
@@ -27,13 +14,14 @@ Prototype Refactor
   * dimensions (These represent the character's size in the video game)
   * destroy() // prototype method -> returns the string: 'Object was removed from the game.'
 */
-function GameObject(attributes) {
+class GameObject {
+   constructor (attributes) {
   this.createdAt = attributes.createdAt;
   this.dimensions = attributes.dimensions;
-}
-
-GameObject.prototype.destroy = function(){
-  return `${this.name} was removed from the game.`;
+   }
+   destroy() {
+    return `${this.name} was removed from the game.`;
+   }
 }
 
 // Child Constructor
@@ -45,22 +33,21 @@ GameObject.prototype.destroy = function(){
   * should inherit destroy() from GameObject's prototype
 */
 
-function CharacterStats(charAttributes){
-  GameObject.call(this, charAttributes); // Binds 'this' to Parent 
-  this.healthPoints = charAttributes.healthPoints;
-  this.name = charAttributes.name;
-}
+class CharacterStats extends GameObject{
+    constructor(charAttributes) {
+    super(charAttributes) // Binds 'this' to Parent 
+    this.healthPoints = charAttributes.healthPoints;
+    this.name = charAttributes.name;
+    }
+    takeDamage() {
+        return `${this.name} took damage.`;
+    }
 
-CharacterStats.prototype = Object.create(GameObject.prototype); // Child Inheritance
-
-CharacterStats.prototype.takeDamage = function() {
-  return `${this.name} took damage.`;
+    // attack() {
+    //     let newhealth = character.healthPoints - damageLevel;
+    //     return `${this.name} attacked ${character.name} and caused ${damageLevel} units of damage! ${character.name}'s health is now at ${newhealth}.`
+    // }
 } 
-
-CharacterStats.prototype.attack = function(character, damageLevel){
-  let newhealth = character.healthPoints - damageLevel;
-  return `${this.name} attacked ${character.name} and caused ${damageLevel} units of damage! ${character.name}'s health is now at ${newhealth}`
-}
 
 // Grandchild Constructor
 /*
@@ -73,73 +60,70 @@ CharacterStats.prototype.attack = function(character, damageLevel){
   * should inherit takeDamage() from CharacterStats
 */
 
-function Humanoid(humanoidAttributes){
-  CharacterStats.call(this, humanoidAttributes); // Binds 'this' to Child (Grandchild Parent) 
-  this.team = humanoidAttributes.team;
-  this.weapons = humanoidAttributes.weapons;
-  this.language = humanoidAttributes.language;
+class Humanoid extends CharacterStats{ // Grandchild Inheritance
+    constructor(humanoidAttributes){
+    super(humanoidAttributes)  // Binds 'this' to Child (Grandchild Parent) 
+    this.team = humanoidAttributes.team;
+    this.weapons = humanoidAttributes.weapons;
+    this.language = humanoidAttributes.language;
+    }
+  greet() {
+    return `${this.name} offers a greeting in ${this.language}.`;
+  }
 }
-
-Humanoid.prototype = Object.create(CharacterStats.prototype); // Grandchild Inheritance
-
-Humanoid.prototype.greet = function() {
-  return `${this.name} offers a greeting in ${this.language}.`;
-} 
 
  // Stretch task: 
   // * Create Villain and Hero constructor functions that inherit from the Humanoid constructor function.  
   // * Give the Hero and Villains different methods that could be used to remove health points from objects 
   // which could result in destruction if health gets to 0 or drops below 0;
 // VILLAIN
-  function VillainChar(evilAttributes){
-    Humanoid.call(this, evilAttributes); // Binds 'this' to Grandchild = Humanoid
-    this.sidekick = evilAttributes.sidekick;
-    this.nemesis = evilAttributes.nemesis;
-    this.strength = evilAttributes.strength;
-  }
-  
-  VillainChar.prototype = Object.create(Humanoid.prototype); // Great-Grandchild Inheritance
-  
-  VillainChar.prototype.threat = function() {
-    return `${this.name} threatens you with ${this.weapons}.`;
-  } 
+  class VillainChar extends Humanoid {
+      constructor(evilAttributes) {
+          super(evilAttributes) // Binds 'this' to Grandchild = Humanoid
+          this.sidekick = evilAttributes.sidekick;
+          this.nemesis = evilAttributes.nemesis;
+          this.strength = evilAttributes.strength;
+      }
+      threat() {
+        return `${this.name} threatens you with ${this.weapons}.`;
+      }
+      monologue() {
+        return `The point is, ladies and gentleman, that greed, for lack of a better word, is good. Greed is right. Greed works. Greed clarifies, cuts through, and captures the essence of the evolutionary spirit. Greed, in all of its forms, greed for life, for money, for love, knowledge, has marked the upward surge of mankind. And greed... you mark my words... will not only save The Realm of Norja, but that other malfunctioning territory called Skarsgaard.`;
+      }
 
-  VillainChar.prototype.monologue = function() {
-    return `The point is, ladies and gentleman, that greed, for lack of a better word, is good. Greed is right. Greed works. Greed clarifies, cuts through, and captures the essence of the evolutionary spirit. Greed, in all of its forms, greed for life, for money, for love, knowledge, has marked the upward surge of mankind. And greed... you mark my words... will not only save The Realm of Norja, but that other malfunctioning territory called Skarsgaard.`;
-  }   
-
-  let spellEffect = [
-    "frozen in carbonite",
-    "held upside down by reversed forces of gravity",
-    "stuck in a paralyzed state", 
-    "converted to the opposing side",
-    "kicked in the pants",
-    "thrown into a pit of defanged vipers for slow torture",
-    "forced to listen to Katy Perry on repeat",
-    "forced to relive Thanksgiving dinner with their mother in law times infinity",
-    "be related to Umbridge",
-]
-
-  VillainChar.prototype.castSpell = function(character) {
+    castSpell(character) {
+    let spellEffect = [
+        "frozen in carbonite",
+        "held upside down by reversed forces of gravity",
+        "stuck in a paralyzed state", 
+        "converted to the opposing side",
+        "kicked in the pants",
+        "thrown into a pit of defanged vipers for slow torture",
+        "forced to listen to Katy Perry on repeat",
+        "forced to relive Thanksgiving dinner with their mother in law times infinity",
+        "be related to Umbridge",
+    ]
     let spell = spellEffect[Math.floor(Math.random() * spellEffect.length)];
     return `${this.name} cast a spell on ${character.name} and caused them to be ${spell}!`
-  }
+    }
+  }    
 
   // HERO
 
-  function HeroChar(heroAttributes){
-    Humanoid.call(this, heroAttributes); // Binds 'this' to Great-Grandchild = Humanoid
+  class HeroChar extends Humanoid{
+    constructor(heroAttributes){
+    super(heroAttributes)  // Binds 'this' to Great-Grandchild = Humanoid
     this.training = heroAttributes.training;
     this.ability = heroAttributes.ability;
     this.quest = heroAttributes.quest;
     this.catchPhrase = heroAttributes.catchPhrase;
     this.animalCompanion = heroAttributes.animalCompanion;
-  }
-  
-  HeroChar.prototype = Object.create(Humanoid.prototype); // Great-Grandchild Inheritance
-  
-  HeroChar.prototype.saysCatchPhrase = function() {
-    return `${this.name} bellows "${this.catchPhrase}"`;
+      }
+
+    saysCatchPhrase() {
+     return `${this.name} bellows "${this.catchPhrase}"`;
+    }
+    
   }
 
 /*
@@ -255,8 +239,7 @@ Humanoid.prototype.greet = function() {
   console.log(villain.team); // No one but himself
   console.log(villain.threat()); // Evil McEvilFace threatens you with his greater wit.
   console.log(villain.monologue());
-  console.log(swordsman.attack(villain, 3));
-  console.log(villain.threat());
+//   console.log(swordsman.attack(villain, 3));
   console.log(hero.saysCatchPhrase());
   console.log(villain.castSpell(archer));
 
