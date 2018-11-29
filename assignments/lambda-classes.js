@@ -36,7 +36,12 @@ class Students extends Person {
         
     }
     listsSubjects() {
-        return `${this.name}'s favorite subjects are: ${this.favSubjects}.`
+        let retStr=" ";
+        retStr += `${this.name}'s favorite subjects are: `
+        for (let x=0; x<this.favSubjects.length; x++){
+            (x === this.favSubjects.length-1) ? retStr += `and ${this.favSubjects[x]}.` : retStr += `${this.favSubjects[x]}, `
+        }
+            return retStr;
     }
     PRAssignments(subject) {
         return `${this.name} has submitted a Pull Request for ${subject}.` 
