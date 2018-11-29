@@ -28,9 +28,7 @@ class Instructors extends Person {
         return `${student.name} receives a perfect score on ${subject}`;
     }
     changeGrade(student) {
-        debugger;
         let newGrade = student.grade += Math.ceil(Math.random() * 10 - 5);
-        debugger;
         return `${this.name} changed ${student.name}'s grade to ${newGrade}`
     }
 }
@@ -62,6 +60,13 @@ class Students extends Person {
             return `${this.name} needs a grade of at least 70 to graduate.`;
         }
     }
+    comfort() {
+        if (this.previousBackground) {
+            return `${this.name} is feeling good about the material.`;
+        } else {
+            return `${this.name} needs more time to study.`;
+        }
+    }
 }
 
 class ProjectManagers extends Instructors {
@@ -75,6 +80,13 @@ class ProjectManagers extends Instructors {
     }
     debugsCode(student, subject) {
         return `${this.name} debugs ${student.name}'s code on ${subject}`;
+    }
+    manage(student) {
+        if (student.grade < 75) {
+            return `${this.name} helps ${student.name} with their lesson.`;
+        } else {
+            return `${this.name} doesn't need to help ${student.name} at this time.`;
+        }
     }
 }
 
@@ -194,3 +206,7 @@ console.log(instructor_saron.changeGrade(student_leighAnn));
 console.log(student_leighAnn.grade);
 console.log(student_leighAnn.graduate());
 console.log(student_jordann.graduate());
+console.log(student_leighAnn.comfort());
+console.log(student_jordann.comfort());
+console.log(pm_ali.manage(student_leighAnn));
+console.log(pm_ali.manage(student_jordann));
