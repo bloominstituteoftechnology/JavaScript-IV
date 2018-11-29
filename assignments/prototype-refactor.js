@@ -14,14 +14,16 @@
   * dimensions (These represent the character's size in the video game)
   * destroy() // prototype method -> returns the string: 'Object was removed from the game.'
 */
-function GameObject(attributes){
-    this.createdAt = attributes.createdAt;
-    this.dimensions = attributes.dimensions;
-  }//GameObject
-  
-  GameObject.prototype.destroy = function(){
-    return `Object was removed from the game.`
+
+class GameObject{
+    constructor (attributes){
+        this.createdAt = attributes.createdAt;
+        this.dimensions = attributes.dimensions;
+    }
+    destroy(){
+        return `Object was removed from the game.`
   }
+}
   
   /*
     === CharacterStats ===
@@ -30,18 +32,27 @@ function GameObject(attributes){
     * takeDamage() // prototype method -> returns the string '<object name> took damage.'
     * should inherit destroy() from GameObject's prototype
   */
-  function CharacterStats(attributes){
-    GameObject.call(this, attributes);
-    this.healthPoints = attributes.healthPoints;
-    this.name = attributes.name;
-  }//CharacterStats
-  
-  CharacterStats.prototype = Object.create(GameObject.prototype);
-  
-  CharacterStats.prototype.takeDamage = function(){
-    return `${this.name} took damage.`
-  }
-  
+
+ class CharacterStats extends GameObject{
+    constructor (attributes){
+        super(attributes);
+        this.healthPoints = attributes.healthPoints;
+        this.name = attributes.name;
+    }
+    takeDamage(){
+        return `${this.name} took damage.`
+      }
+
+    attack(char, wpn){
+        let newhealth = char.healthPoints - this.weapons[wpn];
+        char.healthPoints = newhealth
+        console.log(newhealth)
+        if(newhealth <= 0){
+            return `${char.name} has died. #RIP`
+        }
+        return `${this.name} attacked ${char.name} for ${this.weapons[wpn]} damage. ${char.name} health is now at ${char.healthPoints}`
+    }
+}  
   
   
   /*
@@ -53,19 +64,18 @@ function GameObject(attributes){
     * should inherit destroy() from GameObject through CharacterStats
     * should inherit takeDamage() from CharacterStats
   */
-  function Humanoid(attributes){
-    GameObject.call(this, attributes);
-    CharacterStats.call(this, attributes);
-    this.team = attributes.team;
-    this.weapons = attributes.weapons;
-    this.language = attributes.language;
-  }//Humanoid
-  
-  Humanoid.prototype = Object.create(CharacterStats.prototype);
-  
-  Humanoid.prototype.greet = function(){
-    return `${this.name} offers a greeting in ${this.language}.`
-  }
+
+ class Humanoid extends CharacterStats{
+    constructor (attributes){
+        super(attributes);
+        this.team = attributes.team;
+        this.weapons = attributes.weapons;
+        this.language = attributes.language;
+    }
+    greet(){
+        return `${this.name} offers a greeting in ${this.language}.`
+      }
+}  
    
   /*
     * Inheritance chain: GameObject -> CharacterStats -> Humanoid
@@ -181,21 +191,14 @@ function GameObject(attributes){
       language: 'Unknown',
   
     });
-  
-  // Attack function with character and damage values parameters
-    CharacterStats.prototype.attack = function(char, wpn){
-      let newhealth = char.healthPoints - this.weapons[wpn];
-      char.healthPoints = newhealth
-      console.log(newhealth)
-      if(newhealth <= 0){
-        return `${char.name} has died. #RIP`
-      }
-      return `${this.name} attacked ${char.name} for ${this.weapons[wpn]} damage. ${char.name} health is now at ${char.healthPoints}`
-    }
-    
+      
     console.log(hero.takeDamage());
     console.log(hero.attack(villian, 'Lightning'));
     console.log(hero.attack(villian, 'Hammer'));
     console.log(villian.healthPoints);
   
+    console.log(villian.takeDamage());
+    console.log(villian.attack(hero, 'Ice Dagger'));
+    console.log(villian.attack(hero, 'Frost Wave'));
+    console.log(hero.healthPoints);
     // console.log(hero.healthPoints - villian.weapons['Ice Dagger'])
