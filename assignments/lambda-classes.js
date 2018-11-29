@@ -36,6 +36,7 @@ class Instructor extends Person {
             student.grade -= addedGrade;
         }
             console.log(`${student.name}'s new grade is ${student.grade}`);
+            student.graduate();
         
     }
 }
@@ -61,6 +62,14 @@ class Student extends Person {
 
     sprintChallenge(subject){
         console.log(`${this.name} has begun sprint challenge on ${subject}`);
+    }
+
+    graduate(){
+        if(this.grade >= 70){
+            console.log(`${this.name} is ready to graduate!`);
+        } else {
+            console.log(`Keep trying! you need ${70 - this.grade} more points to graduate!`);
+        }
     }
 }
 
@@ -101,6 +110,17 @@ const fred = new Instructor({
     grade: 97
   });
 
+  const badStudent = new Student({
+    name: 'Chad',
+    location: 'Buffalo',
+    age: 23,
+    gender: 'male',
+    previousBackground: 'Goffing off',
+    className: 'FSW16',
+    favSubjects: ['Skateboarding', 'Fortnite', 'CSS'],
+    grade: 60
+  });
+
   const bob = new ProjectManager({
     name: 'Bob',
     location: 'The Sun',
@@ -128,5 +148,10 @@ const fred = new Instructor({
   console.log(brannan.grade);
   bob.addGrade(brannan);
   fred.addGrade(brannan);
-  bob.addGrade(brannan);
-  fred.addGrade(brannan);
+
+  bob.addGrade(badStudent);
+  fred.addGrade(badStudent);
+
+  while(badStudent.grade < 70){
+      bob.addGrade(badStudent);
+  }
