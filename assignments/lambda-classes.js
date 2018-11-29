@@ -10,6 +10,7 @@ class Person{
     speak(){
         console.log(`Hello my name is ${this.name}, I am from ${this.location}.`)
     }
+    
     // cardCreator(){
     //     // console.log(this.className = Instructors);
     //     console.log(this.constructor);
@@ -48,6 +49,7 @@ class Instructors extends Person{
             console.log(`Not great work today ${student.name}. You're losing ${random} points to bring you grade to ${score}. \n You can do better!`)
         } 
     }
+    
 }
 // Students - Child 
 class Students extends Person{
@@ -135,19 +137,28 @@ const emily = new ProjectManagers({
 
 })
 
-function newPerson(){
-    let newName = prompt("Name");
-    let newAge = prompt("Age");
-    const newbie = new Instructors({
-        name: newName,
-        age: newAge,
-    })
-    console.log(newbie);
+// function newPerson(){
+//     let newName = prompt("Name");
+//     let newAge = prompt("Age");
+//     let newLocal = prompt("Location");
+//     let newGen = prompt("Gender");
+//     const newbie = new Person({
+//         name: newName,
+//         age: newAge,
+//         location: newLocal,
+//         gender: newGen
+//     })
+//     return newbie;
+// }
+function hammerTime(obj){
+   let location = document.getElementById('Instructors');
+   location.innerHTML = `<h1>Profile: ${obj.name}</h1>`;
+//    let innerlist = document.createElement('ol');
+//    innerlist.innerHTML = `<li>Age: ${obj.age}</li>`
+//    innerlist.appendChild(location);
 }
 
-
-
-
+hammerTime(josh);
 
 
 
