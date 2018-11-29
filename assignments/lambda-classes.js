@@ -114,7 +114,7 @@ const Joe = new Instructor({
     gender: 'male',
     specialty: 'React, Redux, GraphQL',
     favLanguage: 'JavaScript',
-    catchPhrase: 'Today we are going to be working on ___'
+    catchPhrase: 'Today we are going to be working on stuff'
 });
 
 Joe.speak();
@@ -122,5 +122,23 @@ Joe.demo('GraphQL, and Apollo Client');
 Joe.grade(Bobby, 'Redux');
 
 console.warn('ProjectManager Class Testing');
+//ProjectManager Class Testing
+const Delilah = new ProjectManager({
+    name: 'Delilah',
+    location: 'Earth',
+    age: 30,
+    gender: 'female',
+    gradClassName: 'CS8',
+    favInstructor: 'Joe',
+    specialty: 'Django',
+    favLanguage: 'Python',
+    catchPhrase: 'Catch Phrase'
+});
+
+Delilah.speak();
+Delilah.standUp('CS13');
+Delilah.debugsCode(Bobby, 'JavaScript');
+Delilah.demo('Advanced CSS 2');
+Delilah.grade(Bobby, 'Advanced CSS 1');
 
 //End Testing
