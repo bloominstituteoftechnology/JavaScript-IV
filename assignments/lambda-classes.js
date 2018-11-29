@@ -38,7 +38,7 @@ class Students extends Person {
         this.favSubjects = sAtts.favSubjects;
     }
     listsSubjects() {
-        return `${this.name} likes ` + this.favSubjects.map(function(subject, index, array) {
+        return `${this.name} likes ` + this.favSubjects.map(function(subject) {
             return subject;
         }).join(", ");
         }
