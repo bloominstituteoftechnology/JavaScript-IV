@@ -89,6 +89,25 @@ class Humanoid extends CharacterStats {
     greet() {
         return (`${this.name} offers a greeting in ${this.language}.`);
     }
+
+    attack(enemy) {
+        if (this.healthPoints > 0) {
+            if (enemy.healthPoints > 0 ) {
+                console.log(`${this.name} attacks ${enemy.name} with his ${this.weapons[0]}.`, enemy.takeDamage());
+                let newHealth = enemy.healthPoints = enemy.healthPoints - this.damagePoints;
+                if (newHealth > 0) {
+                    return (`${enemy.name}'s health is now ${newHealth}.`) 
+                }
+                else {
+                    return (`${enemy.name}'s health is depleted. ${enemy.destroy()}`);
+                }
+            } else {
+                return (`${this.name} tries to attack ${enemy.name}. ${enemy.destroy()} ${this.name} cannot attack ${enemy.name}`);
+            }
+        } else {
+            return (`${this.name} tries to attack ${enemy.name}. ${this.destroy()} ${this.name} cannot attack ${enemy.name}`);
+        }
+    }
 };
   
 // Test you work by un-commenting these 3 objects and the list of console logs below:
@@ -142,7 +161,7 @@ const archer = new Humanoid({
     ],
     language: 'Elvish',
 });
-
+/*
 console.log(mage.createdAt); // Today's date
 console.log(archer.dimensions); // { length: 1, width: 2, height: 4 }
 console.log(swordsman.healthPoints); // 15
@@ -153,7 +172,7 @@ console.log(archer.language); // Elvish
 console.log(archer.greet()); // Lilith offers a greeting in Elvish.
 console.log(mage.takeDamage()); // Bruce took damage.
 console.log(swordsman.destroy()); // Sir Mustachio was removed from the game.
-
+*/
   
 // Stretch task: 
 
@@ -176,8 +195,12 @@ Humanoid.prototype.attack = function (enemy) {
         return (`${this.name} tries to attack ${enemy.name}. ${this.destroy()} ${this.name} cannot attack ${enemy.name}`);
     }
 };
+*/
+
 
 // === Hero ===
+
+/*
 function Hero (heroAttributes) {
     GameObject.call(this, heroAttributes);
     CharacterStats.call(this, heroAttributes);
@@ -201,9 +224,32 @@ Hero.prototype.takeMeds = function (enemy) {
         return (`${this.destroy()} ${this.name} cannot attack ${enemy.name}`);
     }
 };
+*/
+
+class Hero extends Humanoid {
+    constructor (heroAttributes) {
+        super(heroAttributes);
+        this.damagePoints = heroAttributes.damagePoints;
+        this.antiWeapons = heroAttributes.antiWeapons;
+    }
+
+    takeMeds(enemy) {
+        if (this.healthPoints > 0) {
+            if (enemy.healthPoints > 0 ) {
+                console.log(`After ${enemy.name}'s attack, ${this.name} takes his ${this.antiWeapons[0]}. ${this.name} regains health.`);
+                let newHealth = this.healthPoints = this.healthPoints + (enemy.damagePoints+2);
+                return (`${this.name}'s health is up to ${newHealth}.`);
+            } else {
+                return (`${enemy.destroy()} ${this.name} cannot attack ${enemy.name}`);
+            }
+        } else {
+            return (`${this.destroy()} ${this.name} cannot attack ${enemy.name}`);
+        }
+    }
+};
 
 // === Villian ===
-
+/*
 function Villain(vilAttributes){
     GameObject.call(this, vilAttributes);
     CharacterStats.call(this, vilAttributes);
@@ -227,8 +273,29 @@ Villain.prototype.shield = function (enemy) {
         return (`${this.destroy()} ${this.name} cannot attack ${enemy.name}`);
     }
 };
-
 */
+
+class Villain extends Humanoid {
+    constructor (vilAttributes) {
+        super(vilAttributes);
+        this.damagePoints = vilAttributes.damagePoints;
+        this.antiWeapons = vilAttributes.antiWeapons;
+    }
+
+    shield(enemy) {
+        if (this.healthPoints > 0) {
+            if (enemy.healthPoints > 0 ) {
+                console.log(`But wait, ${this.name} shielded ${enemy.name}'s attack with his ${this.antiWeapons[0]}. ${this.name} takes no damage.`);
+                let newHealth = this.healthPoints = this.healthPoints + enemy.damagePoints;
+                return (`${this.name}'s health is actually back to ${newHealth}.`);
+            } else {
+                return (`${enemy.destroy()} ${this.name} cannot attack ${enemy.name}`);
+            }
+        } else {
+            return (`${this.destroy()} ${this.name} cannot attack ${enemy.name}`);
+        }
+    }
+}
 
 const human = new Hero({
     createdAt: new Date(),
@@ -266,19 +333,19 @@ const oger = new Villain({
     language: 'Latin',
 });
 
-
-
-// console.log(human.attack(oger)); 
-// console.log(oger.attack(human));
-// console.log(human.attack(oger)); 
-// console.log(oger.shield(human));
-// console.log(human.attack(oger)); 
-// console.log(oger.attack(human));
-// console.log(human.takeMeds(oger)); 
-// console.log(oger.attack(human));
-// console.log(human.attack(oger)); 
-// console.log(oger.attack(human));
-// console.log(human.attack(oger)); 
-// console.log(oger.attack(human));
-// console.log(human.attack(oger)); 
-// console.log(oger.attack(human));  
+/*
+console.log(human.attack(oger)); 
+console.log(oger.attack(human));
+console.log(human.attack(oger)); 
+console.log(oger.shield(human));
+console.log(human.attack(oger)); 
+console.log(oger.attack(human));
+console.log(human.takeMeds(oger)); 
+console.log(oger.attack(human));
+console.log(human.attack(oger)); 
+console.log(oger.attack(human));
+console.log(human.attack(oger)); 
+console.log(oger.attack(human));
+console.log(human.attack(oger)); 
+console.log(oger.attack(human));  
+*/
