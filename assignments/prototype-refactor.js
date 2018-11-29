@@ -1,38 +1,35 @@
-
-function GameObject(attribute)  {
-    this.createdAt = attribute.createdAt;
-    this.dimensions = attribute.dimensions;
-  
-  
-  }
-  GameObject.prototype.destroy= function() {
-  
-    return `${this.name} was removed froom the game`;
-  }
-  
-  function CharacterStats(cattribute) {
-  GameObject.call(this,cattribute )
-  this.healthPoints = cattribute.healthPoints;
-  this.name = cattribute.name;
-  
-  }
-  CharacterStats.prototype = Object.create(GameObject.prototype);
-  CharacterStats.prototype.takeDamage = function () {
-    return `${this.name} Took damage.`;
-  };
-  
-
-
-function Humanoid(hattribute) {
-    CharacterStats.call(this, hattribute);
-
-    this.team = hattribute.team;
-    this.weapons = hattribute.weapons;
-    this.language = hattribute.language;
+class GameObject {
+    constructor(attribute) {
+        this.createdAt = attribute.createdAt;
+        this.dimensions = attribute.dimensions;
+    }
+    destroy() {
+        return `${this.name} was removed froom the game`;
+    }
 }
-Humanoid.prototype = Object.create(CharacterStats.prototype);
-Humanoid.prototype.greet = function () {
-    return `${this.name} Hello how are you ? ${this.language}`
+class CharacterStats extends GameObject {
+    constructor(cattribute) {
+        super(cattribute);
+        this.healthPoints = cattribute.healthPoints;
+        this.name = cattribute.name;
+
+    }
+    takeDamage() {
+        return `${this.name} Took damage.`;
+    }
+
+}
+class Humanoid extends CharacterStats {
+    constructor(hattribute) {
+        super(hattribute);
+        this.team = hattribute.team;
+        this.weapons = hattribute.weapons;
+        this.language = hattribute.language;
+    }
+
+    greet() {
+        return `${this.name} Hello how are you ? ${this.language}`
+    }
 }
 
 
