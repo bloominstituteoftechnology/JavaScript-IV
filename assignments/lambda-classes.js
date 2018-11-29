@@ -86,6 +86,47 @@ const Jack = new Instructor({
     'catchPhrase': 'Keep you secrets close'
 })
 
+const Rachel = new Student({
+    'name': 'Rachel',
+    'location': 'Kalamazoo, Michigan',
+    age: 34,
+    'gender': 'female',
+    'favLanguage': 'JavaScript',
+    'specialty': 'front-end',
+    'catchPhrase': 'Awesome!',
+    'previousBackground' : 'Print and Graphic Design',
+    'className': 'FSW16',
+    'favSubjects': ['CSS', 'JavaScript', 'Database'],
+})
+
+const Kurt = new Student({
+    'name': 'Kurt',
+    'location': 'Pasedena, California',
+    age: 28,
+    'gender': 'male',
+    'favLanguage': 'React',
+    'specialty': 'front-end',
+    'catchPhrase': 'What?!?!',
+    'previousBackground' : 'Bartender',
+    'className': 'FSW16',
+    'favSubjects': ['JavaScript', 'HTML', 'React'],
+})
+
+const Rachel = new Student({
+    'name': 'Pearl',
+    'location': 'Washington, DC',
+    age: 37,
+    'gender': 'female',
+    'favLanguage': 'HTML',
+    'specialty': 'front-end',
+    'catchPhrase': 'Come on guys!',
+    'previousBackground' : 'Social Worker',
+    'className': 'FSW16',
+    'favSubjects': ['CSS', 'HTML', 'Less'],
+})
+
+
+
 
 console.log(Jack.gender);
 console.log(Jack);
