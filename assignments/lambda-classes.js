@@ -11,6 +11,8 @@ class Person{
   }
 }
 
+
+
 class Instructor extends Person{
   constructor(instructorProps){
     super(instructorProps);
@@ -21,6 +23,16 @@ class Instructor extends Person{
   }
   demo(subject){console.log(`Today we are learning about ${subject}.`);}
   grade(student,subject){console.log(`${student.name} receives a perfect score on ${subject}`);}
+  changeGrade(student){
+    let addPoints= Math.floor(Math.random()*2);
+    if(addPoints===1){
+      student.grade += Math.floor(Math.random()*11);
+    }else{
+      if(student.grade>0){
+      student.grade -= Math.floor(Math.random()*11);}
+    }
+    console.log(student.grade);
+  }
 }
 
 class Student extends Person{
@@ -29,11 +41,31 @@ class Student extends Person{
     this.previousBackground = studentProps.previousBackground;
     this.className = studentProps.className;
     this.favSubjects = studentProps.favSubjects;
+    this.grade = Math.floor(Math.random()*100);
 
   }
-  listsSubjects(){this.favSubjects.forEach(function(subject){console.log(`${subject}\n`);})}
+  showGrade(){
+    console.log(`${this.name} got a grade of ${this.grade}`);
+  }
+  listsSubjects()
+    { console.log(`Hi, my name is ${this.name}, and my favorite subjects are: `);
+      this.favSubjects.forEach(function(subject) {console.log(`${subject}\n`);})}
+
   PRAssignment(subject){console.log(`${this.name} has submitted a PR for ${subject}`);}
+
   sprintChallenge(subject){console.log(`${this.name} has begun sprint challenge on ${subject}`);}
+
+  graduate(instructor){
+    let graduated = false;
+    while(!graduated){if(this.grade >=70){
+       console.log(`${this.name} is a Lambda grad!`);
+       graduated = true;
+       }else{
+         console.log(`${this.name}, you can't graduate. Work harder!`);
+         instructor.changeGrade(this);
+       }}
+
+  }
 
 }
 
@@ -48,9 +80,7 @@ class ProjectManager extends Instructor{
   debugsCode(student, subject){console.log(`${this.name} debugs ${student.name}'s code on ${subject}.'`);}
 }
 
-
-/*Uncomment these lines to test
-
+/* uncomment to test
 const fred = new Instructor({
   name: 'Fred',
   location: 'Bedrock',
@@ -93,7 +123,19 @@ fred.grade(john, 'javascript');
 john.listsSubjects();
 john.PRAssignment('JS-IV');
 john.sprintChallenge('JS fundamentals');
+john.showGrade();
 alex.standUp('FSW17-Alex');
 alex.debugsCode(john, 'prototypes');
+fred.changeGrade(john);
+fred.changeGrade(john);
+fred.changeGrade(john);
+fred.changeGrade(john);
+fred.changeGrade(john);
+fred.changeGrade(john);
+fred.changeGrade(john);
+fred.changeGrade(john);
+fred.changeGrade(john);
 
- */
+//john.graduate(fred);
+
+*/
