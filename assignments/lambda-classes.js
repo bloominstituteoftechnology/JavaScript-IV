@@ -39,6 +39,7 @@ class Student extends Person{
         this.previousBackground = studentdAttr.previousBackground;
         this.className = studentdAttr.className;
         this.favSubjects = studentdAttr.favSubjects;
+        this.grade = studentdAttr.grade;
     }
 
     listsSubjects() {
@@ -130,7 +131,8 @@ const ben = new Student({
     gender: "Male",
     previousBackground: "IT",
     className: "Machine Learning",
-    favSubjects: ["Python", "c++", "React"]
+    favSubjects: ["Python", "c++", "React"],
+    grade: Math.floor(Math.random() * 100) +1
 });
 
 const becky = new Student({
@@ -140,7 +142,8 @@ const becky = new Student({
     gender: "Female",
     previousBackground: "Customer Service",
     className: "Fullstack Web-development",
-    favSubjects: ["JS", "c#", "Node"]
+    favSubjects: ["JS", "c#", "Node"],
+    grade: Math.floor(Math.random() * 100) +1
 });
 
 console.log(ben.listsSubjects());
@@ -151,6 +154,8 @@ console.log(becky.listsSubjects());
 console.log(becky.PRAssignment("Python-I"));
 console.log(becky.sprintChallenge("Python-I"));
 console.log(becky.className);
+console.log(`${becky.name} has a grade of ${becky.grade}`);
+console.log(`${ben.name} has a grade of ${ben.grade}`);
 
 //==================================== Project Manager Objects
 
