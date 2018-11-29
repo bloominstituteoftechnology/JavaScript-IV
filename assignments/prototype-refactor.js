@@ -10,19 +10,7 @@ Prototype Refactor
 
 /*
   === GameObject ===
-  * createdAt
-  * dimensions (These represent the character's size in the video game)
-  * destroy() // prototype method -> returns the string: 'Object was removed from the game.'
 */
-
-// function GameObject(attr){
-//     this.createdAt = attr.createdAt;
-//     this.dimensions = attr.dimensions;
-//   }
-  
-//   GameObject.prototype.destroy = function() {
-//     return  `${this.name} was removed from the game.`;
-//   }
 
   class GameObject {
       constructor(attr) {
@@ -37,23 +25,7 @@ Prototype Refactor
   
   /*
     === CharacterStats ===
-    * healthPoints
-    * name
-    * takeDamage() // prototype method -> returns the string '<object name> took damage.'
-    * should inherit destroy() from GameObject's prototype
   */
-  
-//   function CharacterStats(chrAttr) {
-//     GameObject.call(this, chrAttr);
-//     this.healthPoints = chrAttr.healthPoints;
-//     this.name = chrAttr.name;
-//   }
-  
-//   CharacterStats.prototype = Object.create(GameObject.prototype);
-  
-//   CharacterStats.prototype.takeDamage = function() {
-//     return `${this.name} took damage.`
-//   }
 
   class CharacterStats extends GameObject {
       constructor(chrAttr) {
@@ -69,26 +41,7 @@ Prototype Refactor
   
   /*
     === Humanoid (Having an appearance or character resembling that of a human.) ===
-    * team
-    * weapons
-    * language
-    * greet() // prototype method -> returns the string '<object name> offers a greeting in <object language>.'
-    * should inherit destroy() from GameObject through CharacterStats
-    * should inherit takeDamage() from CharacterStats
   */
-  
-//   function Humanoid(humAttr) {
-//     CharacterStats.call(this, humAttr);
-//     this.team =humAttr.team;
-//     this.weapons = humAttr.weapons;
-//     this.language = humAttr.language;
-//   }
-  
-//   Humanoid.prototype = Object.create(CharacterStats.prototype);
-  
-//   Humanoid.prototype.greet = function() {
-//     return `${this.name} offers a greeting in ${this.language}.`
-//   }
 
   class Humanoid extends CharacterStats {
       constructor(humAttr) {
@@ -122,26 +75,6 @@ Prototype Refactor
       }
   }
 
-//   function Villian(vAttr) {
-//     Humanoid.call(this, vAttr);
-//     this.minions = vAttr.minions;
-//     this.castle = vAttr.castle;
-//     this.dmgMitigation = vAttr.dmgMitigation;
-//   }
-  
-//   //Allows the villian object to use the prototype methods created for the Humanoid object
-//   Villian.prototype = Object.create(Humanoid.prototype);
-  
-//   //villians Attack method
-//   Villian.prototype.shadowAttack = function(target) {
-//     let dmg = 5;
-//     let hp = target.healthPoints -= dmg;
-  
-//       if(hp <= 0) {
-//         return target.destroy();
-//       } 
-//       return `${target.name} takes ${dmg} damage from ${this.name}'s ${this.weapons[0]} Shadow Attack! ${target.name} now has ${hp} left!`;  
-//   }
   // ================================================= Hero constructor
   
   class Hero extends Humanoid {
@@ -161,36 +94,8 @@ Prototype Refactor
           return `${target.name} takes ${dmg} damage from ${this.name}'s ${this.weapons[0]} Slash Attack! ${target.name} now has ${hp} left!`;  
       }
   }
-
-//   function Hero(hAttr) {
-//     Humanoid.call(this, hAttr);
-//     this.power = hAttr.power;
-//     this.shieldPoints = hAttr.shieldPoints;
-//     this.armorPierce = hAttr.armorPierce;
-//   }
   
-//   //Allows the Hero object to use the prototype methods created for the Humanoid object
-//   Hero.prototype = Object.create(Humanoid.prototype);
-  
-//   //Hero's attack method
-//   Hero.prototype.weaponSlash = function(target) {
-//     let dmg = this.power + 5;
-//     let hp = target.healthPoints -= dmg;
-  
-//       if(hp <= 0) {
-//         return target.destroy();
-//       } 
-//       return `${target.name} takes ${dmg} damage from ${this.name}'s ${this.weapons[0]} Slash Attack! ${target.name} now has ${hp} left!`;  
-//   }
-  
-  /*
-    * Inheritance chain: GameObject -> CharacterStats -> Humanoid
-    * Instances of Humanoid should have all of the same properties as CharacterStats and GameObject.
-    * Instances of CharacterStats should have all of the same properties as GameObject.
-  */
-  
-  // Test you work by un-commenting these 3 objects and the list of console logs below:
-  
+  // Object creation:
   
     const mage = new Humanoid({
       createdAt: new Date(),
