@@ -144,6 +144,42 @@ const Pearl = new Student({
     'favSubjects': ['CSS', 'HTML', 'Less'],
 })
 
+const Paul = new ProjectManager({
+    'name': 'Paul',
+    'location': 'Houston, Texas',
+    age: 31,
+    'gender': 'male',
+    'favLanguage': 'C',
+    'specialty': 'back-end',
+    'catchPhrase': 'Fall in!',
+    'gradClassName': 'CS2',
+    'favInstructor': 'Beth'
+})
+
+const Jessica = new ProjectManager({
+    'name': 'Jessica',
+    'location': 'San Francisco',
+    age: 28,
+    'gender': 'female',
+    'favLanguage': 'JavaScript',
+    'specialty': 'front-end',
+    'catchPhrase': 'Cool, huh?',
+    'gradClassName': 'CS10',
+    'favInstructor': 'Jack'
+})
+
+const Raul = new ProjectManager({
+    'name': 'Raul',
+    'location': 'Colorado Springs',
+    age: 34,
+    'gender': 'male',
+    'favLanguage': 'CSS',
+    'specialty': 'front-end',
+    'catchPhrase': 'Dude, guys, this is great!',
+    'gradClassName': 'CS5',
+    'favInstructor': 'Paul'
+})
+
 
 
 
