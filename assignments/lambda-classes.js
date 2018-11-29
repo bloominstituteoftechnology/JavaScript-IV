@@ -27,8 +27,8 @@ class Insturctor extends Person {
   demo(){
       console.log (`Today we are learning about ${this.favLanguage}`.)
   }
-  grade(){
-    console.log(`${student.name} receives a perfect score on ${this.favSubjects[1]}`.)
+  grade(student, subject){
+    console.log(`${student.name} receives a perfect score on ${subject}.`)
   }
   
 }// Instructor class
@@ -43,14 +43,14 @@ class Student extends Person {
   this.previousBackground = StuAttributes.previousBackground; 
   this.favSubjects = StuAttributes.favSubjects;
   }
-  listSubjects(){
-      console.log ('${this.favSubjects[0]}, ${this.favSubjects[1]}, ${this.favSubjects[2]}.')
+  listSubjects(subject1, subject2, subject3){
+      console.log (`${subject1}, ${subject2}, ${subject3}.`)
   }
-  PRAssignment(){
-    console.log('${student.name} has submitted PR for ${this.favSubjects[2]}.')
+  PRAssignment(student, subject){
+    console.log(`${student.name} has submitted PR for ${subject}.`)
   }
-  sprintChallenge(){
-    console.log('${student.name} has began spring challenge on ${this.favSubjects[1]}.')
+  sprintChallenge(student, subject){
+    console.log(`${student.name} has began spring challenge on ${subject}.`)
   }
 }// Student class
 
@@ -67,12 +67,11 @@ class ProjectManager extends Instructor {
   standUp(){
       console.log(`${this.name} announces to, @channel, standy times!`) 
   }
-  debugsCode(){
-    console.log (`${this.name} debugs ${student.name}/'s code on ${this.favSubjects[0]}`.)
+  debugsCode(student, subject){
+    console.log (`${this.name} debugs ${student.name}/'s code on ${subject}`.)
   }
   
 }// Project Manager class
-
 
 
 const fred = new Person({
@@ -87,7 +86,7 @@ const fred = new Person({
 
 
 const james = new Instructor({
-  name: 'James,
+  name: 'James',
   location: 'Los Angeles',
   age: 30,
   gender: 'male',
@@ -97,13 +96,13 @@ const james = new Instructor({
 });
 
 const brenda = new Student({
-    name: 'Brenda,
+    name: 'Brenda',
     location: 'Los Angeles',
     age: 23,
     gender: 'female',
     favLanguage: 'JavaScript',
     specialty: 'Back-end',
-    catchPhrase: `Well, cook my grits!`
+    catchPhrase: `Well, cook my grits!`,
     previousBackground: 'Finance',
     className: 'FSW16',
     favSubjects: ['HTML', 'CSS', 'JavaScript']
@@ -111,15 +110,32 @@ const brenda = new Student({
   });
 
   const barbara = new ProjectManager({
-    name: 'Barbara,
+    name: 'Barbara',
     location: 'Los Angeles',
     age: 43,
     gender: 'female',
     favLanguage: 'CSS',
     specialty: 'Front-end',
-    catchPhrase: `I'm such a lady!`
+    catchPhrase: `I'm such a lady!`,
     gradClassName: 'CS1',
     favInstructor: 'Josh'
   });
+//instructor 
+  console.log(james.speak);
+  console.log(james.demo);
+  console.log(james.grade('Brenda', 'CSS'));
+
+  //student
+  console.log(brenda.listSubjects('HTML', 'CSS', 'JavaScript'));
+  console.log(brenda.PRAssignment('Melissa', 'React'));
+  console.log(brenda.PRAssignment('Terri', 'Redux'));
+
+  //Project manager
+  console.log(barbara.standUp('Brenda', 'CSS'));
+  console.log(barbara.debugsCode('Howard', 'HTML'));
+
+
+  //Example of how to invoke object methods 'console.log(barbara.debugsCode(brenda, 'CSS'));'
+
 
   
