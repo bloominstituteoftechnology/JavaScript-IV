@@ -31,6 +31,19 @@ class Instructor extends Person {
     grade(student, subject) {
         return (`${student.name} receives a perfect score on ${subject}.`);
     }
+    gradePoints(student, subject) {
+        let randomGrade = Math.ceil((Math.random()-.5)*10);
+        student.grade = student.grade + randomGrade;
+        if (randomGrade > 0){
+            return(`${student.name} did well on the ${subject} test. The score improved the student's average grade by ${randomGrade}. ${student.name}'s average grade is now ${student.grade}.`);
+        }
+        if (randomGrade < 0){
+            return(`${student.name} did poorly on the ${subject} test. The score decreased the student's average grade by ${randomGrade}. ${student.name}'s average grade is now ${student.grade}.`);
+        }
+        else {
+            return(`${student.name} did fine on the ${subject} test. The score did not affect the student's average grade. ${student.name}'s average grade is still ${student.grade}.`);
+        }
+    }
 };
 
 // === Student Class === 
@@ -40,6 +53,7 @@ class Student extends Person {
         this.previousBackground = props.previousBackground;
         this.className = props.className;
         this.favSubjects = props.favSubjects;
+        this.grade = props.grade;
     }
 
     listsSubjects() {
@@ -150,6 +164,7 @@ const firstStudent = new Student({
         'Defence Against the Dark Arts', 
         'Potions'
     ],
+    grade: 75,
 });
 
 const secondStudent = new Student({
@@ -164,6 +179,7 @@ const secondStudent = new Student({
         'Flying',
         'Charms'
     ],
+    grade: 55,
 });
 
 const thirdStudent = new Student({
@@ -178,6 +194,7 @@ const thirdStudent = new Student({
         'History of Magic', 
         'Potions'
     ],
+    grade: 95,
 });
 
 /*testers*/
@@ -186,6 +203,7 @@ const thirdStudent = new Student({
 // console.log(thirdStudent.listsSubjects()); 
 // console.log(thirdStudent.PRAssignment('Potions')); 
 // console.log(thirdStudent.sprintChallenge('Potions')); 
+// console.log(thirdStudent.grade); 
 
 
 // === Project Managers ===
@@ -227,9 +245,17 @@ const thirdPM = new ProjectManager({
 });
 
 /*testers*/
-console.log(firstPM);
-console.log(firstPM.speak()); 
-console.log(firstPM.demo('Transfiguration')); 
-console.log(firstPM.grade(thirdStudent, 'Transfiguration')); 
-console.log(firstPM.standUp('Potions12')); 
-console.log(firstPM.debugdsCode(secondStudent, 'Charms')); 
+// console.log(firstPM);
+// console.log(firstPM.speak()); 
+// console.log(firstPM.demo('Transfiguration')); 
+// console.log(firstPM.grade(thirdStudent, 'Transfiguration')); 
+// console.log(firstPM.standUp('Potions12')); 
+// console.log(firstPM.debugdsCode(secondStudent, 'Charms')); 
+
+
+
+//STRETCH TASK TESTERS
+console.log(thirdStudent.listsSubjects()); 
+console.log(thirdStudent.grade); 
+console.log(headMaster.gradePoints(thirdStudent, 'Charms'))
+console.log(thirdStudent.grade); 
