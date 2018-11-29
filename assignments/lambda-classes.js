@@ -12,3 +12,20 @@ class Person {
     return `Hello my name is ${this.name}, and I am from ${this.location}.`;
   }
 }
+
+class Instructor extends Person {
+  constructor(instructAttrbs) {
+    super(instructAttrbs);
+    this.speciality = instructAttrbs.speciality;
+    this.favLanguage = instructAttrbs.favLanguage;
+    this.catchPhrase = instructAttrbs.catchPhrase;
+  }
+
+  demo(string) {
+    return `Today we are learning about ${string}.`;
+  }
+
+  grade(subject) {
+    return `${this.name} receives a perfect score on ${subject}.`;
+  }
+}
