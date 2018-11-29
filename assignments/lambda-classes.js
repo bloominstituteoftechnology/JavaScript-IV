@@ -32,3 +32,37 @@ class Instructor extends Person {
         console.log(`${student} receives a perfect score on ${subject}`);
     }
 }
+
+
+const Beth = new Instructor({
+    'name': 'Beth',
+    'location': 'Tempe, Arizona',
+    age: 34,
+    'gender': 'female',
+    'favLanguage': 'C',
+    'specialty': 'back-end',
+    'catchPhrase': 'Mind your manners.'
+})
+
+const Paul = new Instructor({
+    'name': 'Paul',
+    'location': 'Cleveland, Ohio',
+    age: 42,
+    'gender': 'male',
+    'favLanguage': 'JavaScript',
+    'specialty': 'front-end',
+    'catchPhrase': 'Guys, this is awesome!'
+})
+
+const Jack = new Instructor({
+    'name': 'Jack',
+    'location': 'Raleigh, North Carolina',
+    age: 31,
+    'gender': 'male',
+    'favLanguage': 'Node',
+    'specialty': 'Security',
+    'catchPhrase': 'Keep you secrets close'
+})
+
+
+speak(Beth);
