@@ -36,13 +36,13 @@ class Students extends Person{
         this.favSubjects = studentAttrs.favSubjects;
     }
     listSubjects(){
-        console.log(`${favSubjects}`);
+        console.log(`${this.favSubjects}`);
     }
     PRAssignment(subject){
-        console.log(`${student.name} has submitted a PR for ${subject}`);
+        console.log(`${this.name} has submitted a PR for ${subject}`);
     }
     sprintChallenge(subject){
-        console.log(`${student.name} has begun sprint challenge on ${subject}`);
+        console.log(`${this.name} has begun sprint challenge on ${subject}`);
     }
 }
 
@@ -60,3 +60,30 @@ class ProjectManagers extends Instructors{
         console.log(`${this.name} debug ${student.name}'s code on ${subject}.`)
     }
 }
+
+const josh = new Instructors({
+    name: "Josh Knell",
+    age: 30,
+    location: "Company Retreat",
+    gender: "Male",
+    speciality: "Frontend Magic and Massaging the Big Cheese",
+    favLanguage: "JavaScript",
+    catchPhrase: "Isn't that neat?!?"
+});
+
+
+const matt = new Students({
+    name: "Matt Basile",
+    age: 24,
+    location: "Brooklyn",
+    gender: "Male",
+    previousBackground: "Analyst & Social Media",
+    className: "FSW16",
+    favSubjects: "JS, LESS, HTML"
+})
+
+josh.demo("HTML");
+josh.grade(matt, "CSS");
+matt.listSubjects();
+matt.PRAssignment("JS");
+matt.sprintChallenge("Objects");
