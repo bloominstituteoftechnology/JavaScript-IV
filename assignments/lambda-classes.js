@@ -34,24 +34,31 @@ class Student extends Person {
         super(props);
         this.previousBackground = props.previousBackground;
         this.className = props.className;
-        this.fabSubjects = props.className;
+        this.favSubjects = props.favSubjects;
     }
 
     listsSubjects() {
         //Returns a grammatically string of the student saying their favorite subjects.
-        // let favSubjectsString = '';
-        // this.favSubjects.forEach((sub, i) => {
-        //     if(i === (this.fabSubjects.length - 1)){
-        //         favSubjectsString = `${favSubjectsString}, and ${sub}`;
-        //     } else {
-        //         favSubjectsString = `${favSubjectsString}, ${sub}`;
-        //     }
-        //     console.log(`${this.name}'s favorite subjects are ${favSubjectsString}.`);
-        // });
+        let favSubjectsString = '';
+        if(this.favSubjects.length === 1) {
+            console.log(`${this.name}'s favorite subject is ${this.favSubjects[0]}.`);
+        } else {
+            this.favSubjects.forEach((sub, i) => {
+                if(i === 0) {
+                    favSubjectsString = `${sub}`;
+                }
+                else if(i === (this.favSubjects.length - 1)){
+                    favSubjectsString = `${favSubjectsString}, and ${sub}`;
+                } else {
+                    favSubjectsString = `${favSubjectsString}, ${sub}`;
+                }
+            });
+            console.log(`${this.name}'s favorite subjects are ${favSubjectsString}.`);
+        }
         //Logs students favorite subjects one by one as directed in readme.
-        this.fabSubjects.forEach(sub => {
-            console.log(sub);
-        })
+        // this.favSubjects.forEach(sub => {
+        //     console.log(sub);
+        // })
     }
 
     PRAssignment(subject) {
@@ -63,7 +70,7 @@ class Student extends Person {
     }
 }
 
-class ProjectManager extends Insstructor {
+class ProjectManager extends Instructor {
     constructor(props) {
         super(props);
         this.gradClassName = props.gradClassName;
@@ -78,3 +85,22 @@ class ProjectManager extends Insstructor {
         console.log(`${this.name} debugs ${student.name}'s code on ${subject}.`);
     }
 }
+
+//Testing
+
+const Bobby = new Student({
+    name: 'Bobby',
+    location: 'Earth',
+    age: 22,
+    gender: 'male',
+    previousBackground: 'Secret Shopper',
+    className: 'CS1',
+    favSubjects: ['HTML', 'CSS', 'JavaScript']
+});
+
+Bobby.speak();
+Bobby.listsSubjects();
+Bobby.PRAssignment('JavaScript IV');
+Bobby.sprintChallenge('React');
+
+//End Testing
