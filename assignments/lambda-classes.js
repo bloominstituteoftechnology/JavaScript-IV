@@ -14,7 +14,7 @@ class Person {
   }
 }
 
-// child classes of Person
+// Instructor class, child of Person
 class Instructor extends Person {
   constructor(instructorAttrs) {
     super(instructorAttrs);
@@ -31,6 +31,7 @@ class Instructor extends Person {
   }
 }
 
+// Student class child of Person
 class Student extends Person {
   constructor(studentAttrs) {
     super(studentAttrs);
@@ -38,8 +39,20 @@ class Student extends Person {
     this.className = studentAttrs.className;
     this.favSubjects = studentAttrs.favSubjects;
   }
+  listsSubjects() {
+    console.log(`${this.name}'s favorite subjects are:`)
+    for (let i = 0; i < this.favSubjects.length; i++)
+      console.log(this.favSubjects[i]);
+  }
+  PRAssignment(subject) {
+    console.log(`${this.name} has submitted a PR for ${subject}`);
+  }
+  sprintChallenge(subject) {
+    console.log(`${this.name} has begun sprint challenge on ${subject}`);
+  }
 }
 
+// ProjectManager class child of Instructor
 class ProjectManager extends Instructor {
   constructor(projectManagerAttrs) {
     super(projectManagerAttrs);
@@ -55,7 +68,7 @@ class ProjectManager extends Instructor {
 }
 
 
-
+// create Instructors
 const fred = new Instructor({
   name: 'Fred',
   location: 'Bedrock',
@@ -65,7 +78,26 @@ const fred = new Instructor({
   specialty: 'Front-end',
   catchPhrase: `Under the hood`
 })
+const betty = new Instructor({
+  name: 'Betty',
+  location: 'LA',
+  age: 31,
+  gender: 'female',
+  favLanguage: 'JavaScript',
+  specialty: 'Front-end',
+  catchPhrase: `Time to get learning`
+})
+const tina = new Instructor({
+  name: 'Tina',
+  location: 'New York',
+  age: 28,
+  gender: 'female',
+  favLanguage: 'JavaScript',
+  specialty: 'Back-end',
+  catchPhrase: `This is the best `
+})
 
+// create ProjectManagers
 const frank = new ProjectManager({
   name: 'Frank',
   location: 'Olympia',
@@ -77,7 +109,30 @@ const frank = new ProjectManager({
   gradClassName: 'CS3',
   favInstructor: 'Fred'
 })
+const john = new ProjectManager({
+  name: 'John',
+  location: 'Big City West',
+  age: 25,
+  gender: 'male',
+  favLanguage: 'HTML',
+  specialty: 'index.html',
+  catchPhrase: `HTML is the best!`,
+  gradClassName: 'CS5',
+  favInstructor: 'Betty'
+})
+const jane = new ProjectManager({
+  name: 'Jane',
+  location: 'Test City East',
+  age: 29,
+  gender: 'female',
+  favLanguage: 'Python',
+  specialty: 'Teaching new people',
+  catchPhrase: `How fun!`,
+  gradClassName: 'CS8',
+  favInstructor: 'Fred'
+})
 
+// create Students
 const tom = new Student({
   name: 'Tom',
   location: 'Seattle',
@@ -89,13 +144,25 @@ const tom = new Student({
 })
 
 
-console.log(fred);
-console.log(frank);
-console.log(tom);
 
+// ==================== testing creation of classes
+// console.log(fred);
+// console.log(betty);
+// console.log(tina);
+// console.log(frank);
+// console.log(john);
+// console.log(jane);
+// console.log(tom);
+
+
+// ==================== testing methods
 fred.speak();
 tom.speak();
 fred.demo("JavaScript")
 fred.grade(tom, "JavaScript");
 frank.standup('General');
 frank.debugCode(tom, 'CSS');
+
+tom.listsSubjects();
+tom.PRAssignment("Java");
+tom.sprintChallenge("Java");
