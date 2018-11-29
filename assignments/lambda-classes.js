@@ -25,6 +25,18 @@ class Instructor extends Person {
     grade(student, subject) {
         return `${student} receives a perfect score on ${subject}`
     }
+    doGrading(student) {
+        if (Math.random() > 0.2) {
+            let amount = Math.floor(Math.random() * 10);
+            student.grade += amount;
+            return `${student}'s grades went up by ${amount} after grading! Now their grade is ${student.grade}.`
+        } else {
+            let amount = Math.floor(Math.random() * 10);
+            student.grade -= amount;
+            return `${student.name}'s grades went down by ${amount} after grading. Now their grade is ${student.grade}. :(`
+        }
+        
+    }
 }
 
 class Student extends Person {
@@ -33,6 +45,7 @@ class Student extends Person {
         this.previousBackground = attr.previousBackground;
         this.className = attr.className;
         this.favSubjects = attr.favSubjects;
+        this.grade = attr.grade;
     }
     listsSubjects() {
         return this.favSubjects.join(', ');
@@ -42,6 +55,14 @@ class Student extends Person {
     }
     sprintChallenge(subject) {
         return `${this.name} has begun sprint challenge for ${subject}`;
+    }
+    graduate() {
+        if (this.grade > 70) {
+            return `${this.name} has graduated! Hurray!`
+        }
+        else {
+            return `${this.name} still needs to complete more assignments to get above 70%.`
+        }
     }
 }
 
@@ -88,7 +109,8 @@ const studacious = new Student({
     gender: 'female',
     previousBackground: 'Space Engineering',
     className: 'FSW16',
-    favSubjects: ['Programming','Steel','Rockets']
+    favSubjects: ['Programming','Steel','Rockets'],
+    grade: 69,
     
 })
 console.log(fred.speak());
@@ -98,3 +120,5 @@ console.log(clint.standUp('FSW16-supercool'));
 console.log(studacious.listsSubjects());
 console.log(studacious.PRAssignment('Javascript IV'));
 console.log(studacious.sprintChallenge('Ultra Spiffy Stuff'));
+console.log(clint.doGrading(studacious));
+console.log(studacious.graduate());
