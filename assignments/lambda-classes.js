@@ -37,7 +37,7 @@ class Student extends Person {
     }
 
     listSubjects(){
-        this.favSubjects.array.forEach(element => {
+        this.favSubjects.forEach(element => {
             console.log(element);
         });
     }
@@ -66,3 +66,47 @@ class ProjectManager extends Instructor {
         console.log(`${this.name} debugs ${student.name}'s code on ${subject}`)
     }
 }
+
+const fred = new Instructor({
+    name: 'Fred',
+    location: 'Bedrock',
+    age: 37,
+    gender: 'male',
+    favLanguage: 'JavaScript',
+    specialty: 'Front-end',
+    catchPhrase: `Don't forget the homies`
+  });
+
+  const brannan = new Student({
+    name: 'Brannan',
+    location: 'Chambana',
+    age: 33,
+    gender: 'male',
+    previousBackground: 'Tutorial hell',
+    className: 'FSW16',
+    favSubjects: ['Hypnotized by everything', 'Cloud Technology', 'JavaScript']
+  });
+
+  const bob = new ProjectManager({
+    name: 'Bob',
+    location: 'The Sun',
+    age: 37,
+    gender: 'male',
+    favLanguage: 'Python',
+    specialty: 'Full on hacker',
+    catchPhrase: `Mess with the best, die like the rest!`,
+    gradClassName: 'CS2',
+    favInstructor: 'Josh'
+  });
+
+  fred.demo('Test Subject');
+  fred.grade(brannan, 'A subject');
+  fred.speak();
+
+  brannan.listSubjects();
+  brannan.PRAssignment('A subject');
+  brannan.sprintChallenge('A different subject');
+  brannan.speak();
+
+  bob.standUp('FSW16');
+  bob.debugsCode(brannan, 'coding in general');
