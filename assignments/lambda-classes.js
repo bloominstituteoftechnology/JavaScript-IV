@@ -23,7 +23,7 @@ class Instructor extends Person {
         console.log(`Today we are learning about ${this.favLanguage}`)
     }
     grade() {
-        console.log(`${student.name} receives a perfect score on ${this.favLanguage}`)
+        console.log(`${this.name} receives a perfect score on ${this.favLanguage}`)
     }
 }
 
@@ -33,6 +33,7 @@ class Student extends Person {
         this.previousBackground = studentAttributes.previousBackground;
         this.className = studentAttributes.className;
         this.favSubjects = studentAttributes.favSubjects;
+
     }
     listsSubjects() {
         console.log(`${this.favSubjects}`)
@@ -58,3 +59,67 @@ class ProjectManager extends Instructor {
         console.log(`${this.name} debugs ${student.name}'s code on ${subject}`)
     }
 }
+
+const josh = new Instructor({
+    name: 'Josh',
+    location: 'Utah',
+    age: 37,
+    gender: 'male',
+    favLanguage: 'JavaScript',
+    specialty: 'Front-end',
+    catchPhrase: `Don't forget the homies`
+  });
+
+  const john = new Instructor({
+    name: 'John',
+    location: 'Idaho',
+    age: 45,
+    gender: 'male',
+    favLanguage: 'Python',
+    specialty: 'Back-end',
+    catchPhrase: `Peel more skins than Idaho Potato`
+  });
+
+  const ilya = new Student({
+    name: 'Ilya',
+    location: 'Chatsworth',
+    age: 34,
+    gender: 'male',
+    previousBackground: 'Real Estate',
+    className: 'FSW16',
+    favSubjects:[
+        'Html', 'CSS', 'Javascript'
+    ]
+  });
+  const maria = new Student({
+    name: 'Maria',
+    location: 'Indiana',
+    age: 25,
+    gender: 'female',
+    previousBackground: 'HTML',
+    className: 'Front-end',
+    favSubjects: [
+        'Html', 'React', 'Python'
+    ],
+  });
+
+  const robert = new ProjectManager({
+    name: 'Robert',
+    location: 'California',
+    age: 35,
+    gender: 'male',
+    gradClassName: 'CS14',
+    favInstructor: 'Jose',
+  });
+    
+  const asia = new ProjectManager({
+    name: 'Asia',
+    location: 'New Mexico',
+    age: 28,
+    gender: 'female',
+    gradClassName: 'FSW14',
+    favInstructor: 'Ryan',
+  });
+
+  josh.demo()
+  maria.speak()
