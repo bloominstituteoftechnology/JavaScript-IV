@@ -26,6 +26,18 @@ class Instructor extends Person {
     grade(student, subject){
         console.log(`${student.name} receives a perfect score on ${subject}`)
     }
+
+    addGrade(student){
+        const rando = Math.floor(Math.random() * 2);
+        const addedGrade = Math.floor(Math.random() * 10);
+        if(rando){
+            student.grade += addedGrade;
+        } else {
+            student.grade -= addedGrade;
+        }
+            console.log(`${student.name}'s new grade is ${student.grade}`);
+        
+    }
 }
 
 class Student extends Person {
@@ -34,6 +46,7 @@ class Student extends Person {
         this.previousBackground = props.previousBackground;
         this.className = props.className;
         this.favSubjects = props.favSubjects;
+        this.grade = props.grade;
     }
 
     listSubjects(){
@@ -84,7 +97,8 @@ const fred = new Instructor({
     gender: 'male',
     previousBackground: 'Tutorial hell',
     className: 'FSW16',
-    favSubjects: ['Hypnotized by everything', 'Cloud Technology', 'JavaScript']
+    favSubjects: ['Hypnotized by everything', 'Cloud Technology', 'JavaScript'],
+    grade: 97
   });
 
   const bob = new ProjectManager({
@@ -110,3 +124,9 @@ const fred = new Instructor({
 
   bob.standUp('FSW16');
   bob.debugsCode(brannan, 'coding in general');
+
+  console.log(brannan.grade);
+  bob.addGrade(brannan);
+  fred.addGrade(brannan);
+  bob.addGrade(brannan);
+  fred.addGrade(brannan);
