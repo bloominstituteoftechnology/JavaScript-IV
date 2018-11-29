@@ -8,288 +8,233 @@ Prototype Refactor
 
 */
 
-/*
-  Object oriented design is commonly used in video games.  For this part of the assignment you will be implementing several constructor functions with their correct inheritance hierarchy.
-
-  In this file you will be creating three constructor functions: GameObject, CharacterStats, Humanoid.  
-
-  At the bottom of this file are 3 objects that all end up inheriting from Humanoid.  Use the objects at the bottom of the page to test your constructor functions.
-  
-  Each constructor function has unique properties and methods that are defined in their block comments below:
-*/
-  
-/*
-  === GameObject ===
-  * createdAt
-  * dimensions (These represent the character's size in the video game)
-  * destroy() // prototype method -> returns the string: 'Object was removed from the game.'
-*/
+// === GameObject ===
 
 function GameObject (attributes) {
     this.createdAt = attributes.createdAt;
     this.dimensions = attributes.dimensions;
-  };
-  
-  GameObject.prototype.destroy = function () {
+};
+
+GameObject.prototype.destroy = function () {
     return (`${this.name} was removed from the game.`);
-  };
+};
   
-  /*
-    === CharacterStats ===
-    * healthPoints
-    * name
-    * takeDamage() // prototype method -> returns the string '<object name> took damage.'
-    * should inherit destroy() from GameObject's prototype
-  */
-  
-  function CharacterStats (charAttributes) {
+// === CharacterStats ===
+
+function CharacterStats (charAttributes) {
     GameObject.call(this, charAttributes);
     this.healthPoints = charAttributes.healthPoints;
     this.name = charAttributes.name;
-  };
-  
-  CharacterStats.prototype = Object.create(GameObject.prototype);
-  
-  CharacterStats.prototype.takeDamage = function () {
+};
+
+CharacterStats.prototype = Object.create(GameObject.prototype);
+
+CharacterStats.prototype.takeDamage = function () {
     return (`${this.name} took damage.`);
-  };
-  
-  /*
-    === Humanoid (Having an appearance or character resembling that of a human.) ===
-    * team
-    * weapons
-    * language
-    * greet() // prototype method -> returns the string '<object name> offers a greeting in <object language>.'
-    * should inherit destroy() from GameObject through CharacterStats
-    * should inherit takeDamage() from CharacterStats
-  */
-  
-  function Humanoid (humAttributes) {
+};
+
+// === Humanoid ===
+
+function Humanoid (humAttributes) {
     GameObject.call(this, humAttributes);
     CharacterStats.call(this, humAttributes);
     this.team = humAttributes.team;
     this.weapons = humAttributes.weapons;
     this.language = humAttributes.language;
-  };
-  
-  Humanoid.prototype = Object.create(CharacterStats.prototype);
-  
-  Humanoid.prototype.greet = function () {
+};
+
+Humanoid.prototype = Object.create(CharacterStats.prototype);
+
+Humanoid.prototype.greet = function () {
     return (`${this.name} offers a greeting in ${this.language}.`);
-  };
+};
   
-   
-  /*
-    * Inheritance chain: GameObject -> CharacterStats -> Humanoid
-    * Instances of Humanoid should have all of the same properties as CharacterStats and GameObject.
-    * Instances of CharacterStats should have all of the same properties as GameObject.
-  */
+// Test you work by un-commenting these 3 objects and the list of console logs below:
   
-  // Test you work by un-commenting these 3 objects and the list of console logs below:
-  
-  
-    const mage = new Humanoid({
-      createdAt: new Date(),
-      dimensions: {
+const mage = new Humanoid({
+    createdAt: new Date(),
+    dimensions: {
         length: 2,
         width: 1,
         height: 1,
-      },
-      healthPoints: 5,
-      name: 'Bruce',
-      team: 'Mage Guild',
-      weapons: [
+    },
+    healthPoints: 5,
+    name: 'Bruce',
+    team: 'Mage Guild',
+    weapons: [
         'Staff of Shamalama',
-      ],
-      language: 'Common Tongue',
-    });
-  
-    const swordsman = new Humanoid({
-      createdAt: new Date(),
-      dimensions: {
+    ],
+    language: 'Common Tongue',
+});
+
+const swordsman = new Humanoid({
+    createdAt: new Date(),
+    dimensions: {
         length: 2,
         width: 2,
         height: 2,
-      },
-      healthPoints: 15,
-      name: 'Sir Mustachio',
-      team: 'The Round Table',
-      weapons: [
+    },
+    healthPoints: 15,
+    name: 'Sir Mustachio',
+    team: 'The Round Table',
+    weapons: [
         'Giant Sword',
         'Shield',
-      ],
-      language: 'Common Tongue',
-    });
-  
-    const archer = new Humanoid({
-      createdAt: new Date(),
-      dimensions: {
+    ],
+    language: 'Common Tongue',
+});
+
+const archer = new Humanoid({
+    createdAt: new Date(),
+    dimensions: {
         length: 1,
         width: 2,
         height: 4,
-      },
-      healthPoints: 10,
-      name: 'Lilith',
-      team: 'Forest Kingdom',
-      weapons: [
+    },
+    healthPoints: 10,
+    name: 'Lilith',
+    team: 'Forest Kingdom',
+    weapons: [
         'Bow',
         'Dagger',
-      ],
-      language: 'Elvish',
-    });
-  /*
-    console.log(mage.createdAt); // Today's date
-    console.log(archer.dimensions); // { length: 1, width: 2, height: 4 }
-    console.log(swordsman.healthPoints); // 15
-    console.log(mage.name); // Bruce
-    console.log(swordsman.team); // The Round Table
-    console.log(mage.weapons); // Staff of Shamalama
-    console.log(archer.language); // Elvish
-    console.log(archer.greet()); // Lilith offers a greeting in Elvish.
-    console.log(mage.takeDamage()); // Bruce took damage.
-    console.log(swordsman.destroy()); // Sir Mustachio was removed from the game.
-  */
-  
-    // Stretch task: 
-    // * Create Villain and Hero constructor functions that inherit from the Humanoid constructor function.  
-    // * Give the Hero and Villains different methods that could be used to remove health points from objects which could result in destruction if health gets to 0 or drops below 0;
-    // * Create two new objects, one a villain and one a hero and fight it out with methods!
-  
-    // Humanoid.prototype.attack = function (enemy) {
-    //     if (this.healthPoints > 0) {
-    //         if (enemy.healthPoints > 0 ) {
-    //             console.log(`${this.name} attacked ${enemy.name}.`, enemy.takeDamage());
-    //             let newHealth = (enemy.healthPoints = (enemy.healthPoints - this.damagePoints));
-    //             if (newHealth > 0) {
-    //                 return (`${enemy.name}'s health is now ${newHealth}`) 
-    //             }
-    //             else {
-    //                 return (`${enemy.name}'s health is depleted. ${enemy.destroy()}`);
-    //             }
-    //         } else {
-    //             return (`${enemy.destroy()} ${this.name} cannot attack ${enemy.name}`);
-    //         }
-    //     } else {
-    //         return (`${this.destroy()} ${this.name} cannot attack ${enemy.name}`);
-    //     }
-    // };
+    ],
+    language: 'Elvish',
+});
 
-    Humanoid.prototype.attack = function (enemy) {
-        if (this.healthPoints > 0) {
-            if (enemy.healthPoints > 0 ) {
-                console.log(`${this.name} attacks ${enemy.name} with his ${this.weapons[0]}.`, enemy.takeDamage());
-                let newHealth = enemy.healthPoints = enemy.healthPoints - this.damagePoints;
-                if (newHealth > 0) {
-                    return (`${enemy.name}'s health is now ${newHealth}.`) 
-                }
-                else {
-                    return (`${enemy.name}'s health is depleted. ${enemy.destroy()}`);
-                }
-            } else {
-                return (`${this.name} tries to attack ${enemy.name}. ${enemy.destroy()} ${this.name} cannot attack ${enemy.name}`);
+console.log(mage.createdAt); // Today's date
+console.log(archer.dimensions); // { length: 1, width: 2, height: 4 }
+console.log(swordsman.healthPoints); // 15
+console.log(mage.name); // Bruce
+console.log(swordsman.team); // The Round Table
+console.log(mage.weapons); // Staff of Shamalama
+console.log(archer.language); // Elvish
+console.log(archer.greet()); // Lilith offers a greeting in Elvish.
+console.log(mage.takeDamage()); // Bruce took damage.
+console.log(swordsman.destroy()); // Sir Mustachio was removed from the game.
+
+  
+// Stretch task: 
+
+
+Humanoid.prototype.attack = function (enemy) {
+    if (this.healthPoints > 0) {
+        if (enemy.healthPoints > 0 ) {
+            console.log(`${this.name} attacks ${enemy.name} with his ${this.weapons[0]}.`, enemy.takeDamage());
+            let newHealth = enemy.healthPoints = enemy.healthPoints - this.damagePoints;
+            if (newHealth > 0) {
+                return (`${enemy.name}'s health is now ${newHealth}.`) 
+            }
+            else {
+                return (`${enemy.name}'s health is depleted. ${enemy.destroy()}`);
             }
         } else {
-            return (`${this.name} tries to attack ${enemy.name}. ${this.destroy()} ${this.name} cannot attack ${enemy.name}`);
+            return (`${this.name} tries to attack ${enemy.name}. ${enemy.destroy()} ${this.name} cannot attack ${enemy.name}`);
         }
-    };
+    } else {
+        return (`${this.name} tries to attack ${enemy.name}. ${this.destroy()} ${this.name} cannot attack ${enemy.name}`);
+    }
+};
 
-    function Hero (heroAttributes) {
-        GameObject.call(this, heroAttributes);
-        CharacterStats.call(this, heroAttributes);
-        Humanoid.call(this, heroAttributes);
-        this.damagePoints = heroAttributes.damagePoints;
-        this.antiWeapons = heroAttributes.antiWeapons;
-    };
-    
-    Hero.prototype = Object.create(Humanoid.prototype);
+// === Hero ===
+function Hero (heroAttributes) {
+    GameObject.call(this, heroAttributes);
+    CharacterStats.call(this, heroAttributes);
+    Humanoid.call(this, heroAttributes);
+    this.damagePoints = heroAttributes.damagePoints;
+    this.antiWeapons = heroAttributes.antiWeapons;
+};
 
-    Hero.prototype.takeMeds = function (enemy) {
-        if (this.healthPoints > 0) {
-            if (enemy.healthPoints > 0 ) {
-                console.log(`After ${enemy.name}'s attack, ${this.name} takes his ${this.antiWeapons[0]}. ${this.name} regains health.`);
-                let newHealth = this.healthPoints = this.healthPoints + (enemy.damagePoints+2);
-                return (`${this.name}'s health is up to ${newHealth}.`);
-            } else {
-                return (`${enemy.destroy()} ${this.name} cannot attack ${enemy.name}`);
-            }
+Hero.prototype = Object.create(Humanoid.prototype);
+
+Hero.prototype.takeMeds = function (enemy) {
+    if (this.healthPoints > 0) {
+        if (enemy.healthPoints > 0 ) {
+            console.log(`After ${enemy.name}'s attack, ${this.name} takes his ${this.antiWeapons[0]}. ${this.name} regains health.`);
+            let newHealth = this.healthPoints = this.healthPoints + (enemy.damagePoints+2);
+            return (`${this.name}'s health is up to ${newHealth}.`);
         } else {
-            return (`${this.destroy()} ${this.name} cannot attack ${enemy.name}`);
+            return (`${enemy.destroy()} ${this.name} cannot attack ${enemy.name}`);
         }
-    };
-    
-    function Villain(vilAttributes){
-        GameObject.call(this, vilAttributes);
-        CharacterStats.call(this, vilAttributes);
-        Humanoid.call(this, vilAttributes);
-        this.damagePoints = vilAttributes.damagePoints;
-        this.antiWeapons = vilAttributes.antiWeapons;
-    };
-  
-    Villain.prototype = Object.create(Humanoid.prototype);
+    } else {
+        return (`${this.destroy()} ${this.name} cannot attack ${enemy.name}`);
+    }
+};
 
-    Villain.prototype.shield = function (enemy) {
-        if (this.healthPoints > 0) {
-            if (enemy.healthPoints > 0 ) {
-                console.log(`But wait, ${this.name} shielded ${enemy.name}'s attack with his ${this.antiWeapons[0]}. ${this.name} takes no damage.`);
-                let newHealth = this.healthPoints = this.healthPoints + enemy.damagePoints;
-                return (`${this.name}'s health is actually back to ${newHealth}.`);
-            } else {
-                return (`${enemy.destroy()} ${this.name} cannot attack ${enemy.name}`);
-            }
+// === Villian ===
+
+function Villain(vilAttributes){
+    GameObject.call(this, vilAttributes);
+    CharacterStats.call(this, vilAttributes);
+    Humanoid.call(this, vilAttributes);
+    this.damagePoints = vilAttributes.damagePoints;
+    this.antiWeapons = vilAttributes.antiWeapons;
+};
+
+Villain.prototype = Object.create(Humanoid.prototype);
+
+Villain.prototype.shield = function (enemy) {
+    if (this.healthPoints > 0) {
+        if (enemy.healthPoints > 0 ) {
+            console.log(`But wait, ${this.name} shielded ${enemy.name}'s attack with his ${this.antiWeapons[0]}. ${this.name} takes no damage.`);
+            let newHealth = this.healthPoints = this.healthPoints + enemy.damagePoints;
+            return (`${this.name}'s health is actually back to ${newHealth}.`);
         } else {
-            return (`${this.destroy()} ${this.name} cannot attack ${enemy.name}`);
+            return (`${enemy.destroy()} ${this.name} cannot attack ${enemy.name}`);
         }
-    };
-  
-    const human = new Hero({
-      createdAt: new Date(),
-      dimensions: {
+    } else {
+        return (`${this.destroy()} ${this.name} cannot attack ${enemy.name}`);
+    }
+};
+
+const human = new Hero({
+    createdAt: new Date(),
+    dimensions: {
         length: 3,
         width: 1,
         height: 3,
-      },
-      healthPoints: 15,
-      damagePoints: 5,
-      name: 'David',
-      team: 'Forest Kingdom',
-      weapons: [
+    },
+    healthPoints: 15,
+    damagePoints: 5,
+    name: 'David',
+    team: 'Forest Kingdom',
+    weapons: [
         'Rock and Slingshot'
-      ],
-      antiWeapons: ['Medication'],
-      language: 'English',
-    });
-    
-    const oger = new Villain({
-      createdAt: new Date(),
-      dimensions: {
+    ],
+    antiWeapons: ['Medication'],
+    language: 'English',
+});
+
+const oger = new Villain({
+    createdAt: new Date(),
+    dimensions: {
         length: 4,
         width: 3,
         height: 6,
-      },
-      healthPoints: 20,
-      damagePoints: 3,
-      name: 'Goliath',
-      team: 'Oger Rebellion',
-      weapons: [
+    },
+    healthPoints: 20,
+    damagePoints: 3,
+    name: 'Goliath',
+    team: 'Oger Rebellion',
+    weapons: [
         'Sword'
-      ],
-      antiWeapons: ['Shield of Trolls'],
-      language: 'Latin',
-    });
-  
-  
-  
-  console.log(human.attack(oger)); 
-  console.log(oger.attack(human));
-  console.log(human.attack(oger)); 
-  console.log(oger.shield(human));
-  console.log(human.attack(oger)); 
-  console.log(oger.attack(human));
-  console.log(human.takeMeds(oger)); 
-  console.log(oger.attack(human));
-  console.log(human.attack(oger)); 
-  console.log(oger.attack(human));
-  console.log(human.attack(oger)); 
-  console.log(oger.attack(human));
-  console.log(human.attack(oger)); 
-  console.log(oger.attack(human));  
+    ],
+    antiWeapons: ['Shield of Trolls'],
+    language: 'Latin',
+});
+
+
+
+console.log(human.attack(oger)); 
+console.log(oger.attack(human));
+console.log(human.attack(oger)); 
+console.log(oger.shield(human));
+console.log(human.attack(oger)); 
+console.log(oger.attack(human));
+console.log(human.takeMeds(oger)); 
+console.log(oger.attack(human));
+console.log(human.attack(oger)); 
+console.log(oger.attack(human));
+console.log(human.attack(oger)); 
+console.log(oger.attack(human));
+console.log(human.attack(oger)); 
+console.log(oger.attack(human));  
