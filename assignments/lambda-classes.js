@@ -27,8 +27,23 @@ class Instructors{
         console.log(`${student.name} receives a perfect score on ${subject}`);
     }
 }
-
 // Students - Child 
-
+class Students{
+    constructor(studentAttrs){
+        super(studentAttrs);
+        this.previousBackground = studentAttrs.previousBackground;
+        this.className = studentAttrs.className;
+        this.favSubjects = studentAttrs.favSubjects;
+    }
+    listSubjects(){
+        console.log(${favSubjects});
+    }
+    PRAssignment(subject){
+        console.log(`${student.name} has submitted a PR for ${subject}`);
+    }
+    sprintChallenge(subject){
+        console.log(`${student.name} has begun sprint challenge on ${subject}`);
+    }
+}
 
 // Project Managers - Grandchild to Instructors
