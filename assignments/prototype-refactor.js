@@ -10,6 +10,7 @@ Prototype Refactor
 
 // === GameObject ===
 
+/* 
 function GameObject (attributes) {
     this.createdAt = attributes.createdAt;
     this.dimensions = attributes.dimensions;
@@ -18,9 +19,22 @@ function GameObject (attributes) {
 GameObject.prototype.destroy = function () {
     return (`${this.name} was removed from the game.`);
 };
+*/
+
+class GameObject {
+    constructor (attributes) {
+        this.createdAt = attributes.createdAt;
+        this.dimensions = attributes.dimensions;
+    }
+
+    destroy () {
+        return (`${this.name} was removed from the game.`);
+    }
+};
   
 // === CharacterStats ===
 
+/*
 function CharacterStats (charAttributes) {
     GameObject.call(this, charAttributes);
     this.healthPoints = charAttributes.healthPoints;
@@ -32,9 +46,23 @@ CharacterStats.prototype = Object.create(GameObject.prototype);
 CharacterStats.prototype.takeDamage = function () {
     return (`${this.name} took damage.`);
 };
+*/
+
+class CharacterStats extends GameObject {
+    constructor (charAttributes){
+        super(charAttributes)
+        this.healthPoints = charAttributes.healthPoints;
+        this.name = charAttributes.name;
+    }
+
+    takeDamage() {
+        return (`${this.name} took damage.`);
+    }
+};
 
 // === Humanoid ===
 
+/*
 function Humanoid (humAttributes) {
     GameObject.call(this, humAttributes);
     CharacterStats.call(this, humAttributes);
@@ -47,6 +75,20 @@ Humanoid.prototype = Object.create(CharacterStats.prototype);
 
 Humanoid.prototype.greet = function () {
     return (`${this.name} offers a greeting in ${this.language}.`);
+};
+*/
+
+class Humanoid extends CharacterStats {
+    constructor (humAttributes) {
+        super(humAttributes);
+        this.team = humAttributes.team;
+        this.weapons = humAttributes.weapons;
+        this.language = humAttributes.language;
+    }
+
+    greet() {
+        return (`${this.name} offers a greeting in ${this.language}.`);
+    }
 };
   
 // Test you work by un-commenting these 3 objects and the list of console logs below:
@@ -115,7 +157,7 @@ console.log(swordsman.destroy()); // Sir Mustachio was removed from the game.
   
 // Stretch task: 
 
-
+/*
 Humanoid.prototype.attack = function (enemy) {
     if (this.healthPoints > 0) {
         if (enemy.healthPoints > 0 ) {
@@ -186,6 +228,8 @@ Villain.prototype.shield = function (enemy) {
     }
 };
 
+*/
+
 const human = new Hero({
     createdAt: new Date(),
     dimensions: {
@@ -224,17 +268,17 @@ const oger = new Villain({
 
 
 
-console.log(human.attack(oger)); 
-console.log(oger.attack(human));
-console.log(human.attack(oger)); 
-console.log(oger.shield(human));
-console.log(human.attack(oger)); 
-console.log(oger.attack(human));
-console.log(human.takeMeds(oger)); 
-console.log(oger.attack(human));
-console.log(human.attack(oger)); 
-console.log(oger.attack(human));
-console.log(human.attack(oger)); 
-console.log(oger.attack(human));
-console.log(human.attack(oger)); 
-console.log(oger.attack(human));  
+// console.log(human.attack(oger)); 
+// console.log(oger.attack(human));
+// console.log(human.attack(oger)); 
+// console.log(oger.shield(human));
+// console.log(human.attack(oger)); 
+// console.log(oger.attack(human));
+// console.log(human.takeMeds(oger)); 
+// console.log(oger.attack(human));
+// console.log(human.attack(oger)); 
+// console.log(oger.attack(human));
+// console.log(human.attack(oger)); 
+// console.log(oger.attack(human));
+// console.log(human.attack(oger)); 
+// console.log(oger.attack(human));  
