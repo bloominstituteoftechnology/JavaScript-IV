@@ -25,6 +25,18 @@ class Instructor extends Person {
     grade(student, subject){
         console.log(`${student.name} receives a perfect score on ${subject}`)
     }
+    gradeWork(student){
+        let plusOrMinus = Math.random();
+        if (plusOrMinus >= .5){
+            student.gradeVal += parseInt((Math.random() * 100).toFixed(2)); 
+        }
+        else {
+            student.gradeVal += parseInt((Math.random() * (-100)).toFixed(2));
+        }
+        console.log(`${this.name} grades ${student.name}'s work, which brings ${student.name}'s class grade to ${student.gradeVal}`);
+        student.gradCheck();
+        // student.farts();
+    }
 }
 
 class Student extends Person {
@@ -33,6 +45,7 @@ class Student extends Person {
         this.previousBackground = studentProps.previousBackground;
         this.className = studentProps.className;
         this.favSubjects = studentProps.favSubjects;
+        this.gradeVal = studentProps.gradeVal;
     }
     listSubjects(){
         console.log(this.favSubjects);
@@ -43,6 +56,17 @@ class Student extends Person {
     sprintChallenge(subject){
         console.log(`${this.name} has begun a sprint challenge on ${subject}`);
     }
+    gradCheck(){
+        if (this.gradeVal >= 70){
+            console.log(`${this.name} has graduated from Lambda School!`);
+        }
+        else if (this.gradeVal < 0){
+            console.log(`${this.name} is in some real trouble...`)
+        }        
+    }
+    // farts(){
+    //     console.log(`${this.name} farts.`)
+    // }
 }
 
 class ProjectManager extends Instructor {
@@ -76,6 +100,7 @@ const larry = new Student({
     age: 8,
     location: 'Partytown',
     gender: 'M',
+    gradeVal: 35,
     previousBackground: 'Child',
     className: 'FSW22',
     favSubjects: [
@@ -83,6 +108,7 @@ const larry = new Student({
         'Javascript',
         'Nap time',
     ]
+    
 });
 
 larry.listSubjects();
@@ -94,10 +120,16 @@ const garry = new ProjectManager({
     age: '???',
     location: 'Parts Unknown',
     gender: 'M',
+    favLanguage: 'Machine Code',
+    specialty: 'Back end',
+    catchPhrase: '[feral noises]',
     gradClassName: 'FSW0',
     favInstructor: 'Not Barry'
 });
 
 garry.standUp('The Endless Void');
 garry.debugsCode(larry, 'Javascript classes');
-
+console.log(larry.gradeVal);
+garry.gradeWork(larry);
+barry.gradeWork(larry);
+garry.gradeWork(larry);
