@@ -39,13 +39,14 @@ class Student extends Person {
         this.favSubjects = studentAttributes.favSubjects;
     }
     listsSubjects() {
-        this.favSubjects.forEach(item => console.log(item))
+        const list = this.favSubjects;
+        list.forEach(item => console.log(item));
     }
     PRAssignment(subject) {
-        console.log(`${student.name} has submitted a PR for ${subject}.`)
+        console.log(`${this.name} has submitted a PR for ${subject}.`)
     }
     sprintChallenge(subject) {
-        console.log(`${student.name} has begun sprint challenge on ${subject}.`)
+        console.log(`${this.name} has begun sprint challenge on ${subject}.`)
     }
 }
 
@@ -92,4 +93,15 @@ const julia = new ProjectManager({
     favInstructor: "Josh"
 
 })
+
+frank.speak();
+frank.demo("prototypes");
+frank.grade(olivia, "JavaScript-IV");
+olivia.listsSubjects();
+olivia.PRAssignment("JavaScript-IV");
+olivia.sprintChallenge("JavaScript-IV")
+julia.standUp("FSW16 - Julia");
+julia.debugsCode(olivia, "classes");
+
+
 
