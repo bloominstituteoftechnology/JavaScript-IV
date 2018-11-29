@@ -29,7 +29,7 @@ class Instructor extends Person {
     };
 };
 
-class student extends Person {
+class Student extends Person {
     constructor (attributes) {
         super(attributes);
         this.previousBackground = attributes.previousBackground;
@@ -44,5 +44,19 @@ class student extends Person {
     };
     sprintChallenge (subject) {
         return `${student.name} has begun sprint challenge on ${subject}.`
+    };
+};
+
+class ProjectManagers extends Instructor {
+    constructor (attributes) {
+        super(attributes);
+        this.gradClassName = attributes.gradClassName; // "CS16",
+        this.favInstructor = attributes.favInstructor; // "Josh",
+    };
+    standUp (channel) {
+        return ` ${this.name} announces to ${channel}, @${channel} standy times!​​​​​`;
+    };
+    debugsCode (student, subject) {
+        return `${this.name} debugs ${student.name}'s code on ${subject}.`
     };
 };
