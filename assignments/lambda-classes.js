@@ -25,6 +25,9 @@ class Instructor extends Person {
   grade (student, subject) {
     return `${student.name} receives a perfect score on ${subject}`;
   }
+  reviewedGrade(Student, subject) {
+    return `After review, it looks like your grade in ${subject} is ${Student.grade}%`
+  }
 }
 
 class Student extends Person {
@@ -43,6 +46,14 @@ class Student extends Person {
   }
   sprintChallenge (subject) {
     return `${this.name} has begun sprint challenge on ${subject}`
+  }
+  graduate (Student) {
+    
+    if (Student.grade >= 70) {
+      return `Congratulations ${Student.name}, you're ready to graduate!`;
+    } else {
+      return `Sorry ${Student.name}, please study some more and try again!`;
+    }
   }
 }
 
@@ -82,7 +93,8 @@ const scott = new Student ({
   gender: 'male',
   previousBackground: 'Sales and Operations',
   className: "FSW16",
-  favSubjects: "JavaScript"
+  favSubjects: "JavaScript",
+  grade: Math.floor(Math.random()*100),
 })
 
 const marious = new ProjectManager ({
@@ -94,7 +106,7 @@ const marious = new ProjectManager ({
   specialty: 'Web stores',
   catchPhrase: "Roll Tide",
   gradClassName: "CS10",
-  favInstructor: "Josh Knell"
+  favInstructor: "Josh Knell",
 })
 
 
@@ -110,3 +122,5 @@ console.log(marious.favInstructor);
 console.log(marious.catchPhrase);
 console.log(marious.standup("FSW16 Marious"));
 console.log(marious.debugsCode(scott, "Javascript"));
+console.log(fred.reviewedGrade(scott, "HTML 101"));
+console.log(scott.graduate(scott));
