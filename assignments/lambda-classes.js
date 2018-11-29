@@ -56,5 +56,15 @@ class PM extends Instructor {
     this.favInstructor = PMAttrbs.favInstructor;
   }
 
-  standUp(channel) {}
+  standUp(channel) {
+    console.log(
+      `${this.name} announces to the ${channel}, @channel standy times!`
+    ); // Alex, the homework said "standy" time... I thought it was hilarious, so I kept it. Haha
+  }
+
+  debugsCode(studentObject, subject) {
+    console.log(
+      `${this.name} debugs ${studentObject.name}'s code on ${subject}.`
+    );
+  }
 }
