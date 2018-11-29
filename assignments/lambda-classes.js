@@ -53,11 +53,11 @@ class Student extends Person {
     }
 
     prAssignment(subject) {
-        `${this.name} has submitted a PR for ${subject}`;
+        return `${this.name} has submitted a PR for ${subject}.`;
     }
 
     sprintChallenge(subject) {
-        `${this.name} has submitted their sprint challenge for ${subject}`;
+        return `${this.name} has submitted their sprint challenge for ${subject}.`;
     }
 
 
@@ -97,6 +97,19 @@ const john = new Instructor({
 
 })
 
+const pam = new Instructor({
+    name: 'Pam',
+    age: 27,
+    location: 'New York',
+    gender: 'F',
+
+    specialty: 'Angular',
+    favLanguage: 'JavaScript',
+    catchPhrase: 'Bingo'
+
+
+})
+
 
 const lisa = new Student({
     name: 'Lisa',
@@ -107,6 +120,18 @@ const lisa = new Student({
     previousBackground: 'Art',
     favSubjects: ['React', 'CSS', 'JavaScript', 'Back-End']
 })
+
+
+const mike = new Student({
+    name: 'Mike',
+    age: 25,
+    location: 'Chicago',
+    gender: 'M',
+
+    previousBackground: 'Retail',
+    favSubjects: ['MySql', 'LESS', 'React', 'Databases']
+})
+
 
 
 const jason = new ProjectManager({
@@ -123,6 +148,20 @@ const jason = new ProjectManager({
     favInstructor: 'John'
 })
 
+const will = new ProjectManager({
+    name: 'Will',
+    age: 35,
+    location: 'San Diego',
+    gender: 'M',
+
+    specialty: 'Redux',
+    favLanguage: 'JavaScript',
+    catchPhrase: 'No Problem',
+
+    gradClassName: `CS12`, 
+    favInstructor: 'Pam'
+})
+
 
 // Instructor Tests
 console.log(``);
@@ -134,6 +173,10 @@ console.log(john.greeting());
 console.log(john.demo('closures'));
 console.log(john.grade(lisa, 'JavaScript Fundamentals'));
 
+console.log(pam.greeting());
+console.log(pam.demo('classes'));
+console.log(pam.grade(mike, 'CSS'));
+
 
 //Student Tests
 console.log(``);
@@ -143,6 +186,13 @@ console.log(``);
 
 console.log(lisa.greeting());
 console.log(lisa.listSubjects());
+console.log(lisa.prAssignment('JavaScript-III'));
+console.log(lisa.sprintChallenge('JavaScript-III'));
+
+console.log(mike.greeting());
+console.log(mike.listSubjects());
+console.log(mike.prAssignment('JavaScript-III'));
+console.log(mike.sprintChallenge('JavaScript-III'));
 
 
 // PM Tests
@@ -153,6 +203,11 @@ console.log(``);
 console.log(jason.greeting());
 console.log(jason.standUp('fsw16'));
 console.log(jason.debugsCode(lisa, 'JavaScript-IV'));
+
+
+console.log(will.greeting());
+console.log(will.standUp('fsw15'));
+console.log(will.debugsCode(mike, 'JavaScript-II'));
 
 
 
