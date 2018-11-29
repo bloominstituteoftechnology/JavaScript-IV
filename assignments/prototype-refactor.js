@@ -8,51 +8,28 @@ Prototype Refactor
 
 */
 
+class GameObject {
+  constructor(attributes) {
+    this.createdAt = attributes.createdAt;
+    this.dimensions = attributes.dimensions;
+  }
 
-
-
-
-
-
-
-
-
-
-/*
-  === GameObject ===
-  * createdAt
-  * dimensions (These represent the character's size in the video game)
-  * destroy() // prototype method -> returns the string: 'Object was removed from the game.'
-*/
-
-function GameObject(attributes) {
-  this.createdAt = attributes.createdAt;
-  this.dimensions = attributes.dimensions;
+  destroy() {
+    return `${this.name} was removed from the game.`;
+  }
 }
 
-GameObject.prototype.destroy = function() {
-  return `${this.name} was removed from the game.`;
-};
+class CharacterStats extends GameObject {
+  constructor(characterAttributes) {
+    super(characterAttributes);
+    this.healthPoints = characterAttributes.healthPoints;
+    this.name = characterAttributes.name;
+  }
 
-/*
-  === CharacterStats ===
-  * healthPoints
-  * name
-  * takeDamage() // prototype method -> returns the string '<object name> took damage.'
-  * should inherit destroy() from GameObject's prototype
-*/
-
-function CharacterStats(characterAttributes) {
-  GameObject.call(this, characterAttributes);
-  this.healthPoints = characterAttributes.healthPoints;
-  this.name = characterAttributes.name;
+  takeDamage() {
+    return `${this.name} took damage.`;
+  }
 }
-
-CharacterStats.prototype = Object.create(GameObject.prototype);
-
-CharacterStats.prototype.takeDamage = function() {
-  return `${this.name} took damage.`;
-};
 
 /*
   === Humanoid (Having an appearance or character resembling that of a human.) ===
