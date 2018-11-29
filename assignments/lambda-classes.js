@@ -6,12 +6,9 @@ class Person {
     this.location = attributes.location;
     this.age = attributes.age;
     this.gender = attributes.gender;
-    this.favLanguage = attributes.favLanguage;
-    this.specialty = attributes.specialty;
-    this.catchPhrase = attributes.catchPhrase;
     }
     speak(){
-        console.log(`${this.name} loves to say ${this.catchPhrase}.`);
+        console.log(`${this.name} love being a person.`);
     }
     
 }
