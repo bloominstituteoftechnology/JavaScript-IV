@@ -26,6 +26,11 @@ class Instructor extends Person {
     grade(student) {
         return `${student.name} receives a perfect score on ${this.subject}.`
     }
+    tutor(student, min, max) {
+        min = Math.ceil(0);
+        max = Math.floor(100)
+        return Math.floor(Math.random() * (100 - 0)) + 0 + student.grade();
+    }
 }
 
 class Student extends Person {
@@ -49,6 +54,14 @@ class Student extends Person {
         max = Math.floor(100)
         return Math.floor(Math.random() * (100 - 0)) + 0;
     }
+    graduate(min, max) {
+        let amount = Math.random() * 101;
+        if (amount > 70) {
+            return `${this.name} graduated!!`;
+        } else {
+            return `${this.name} did not graduate. We'll get 'em next time.`;
+        }
+    }
 }
 
 class ProjectManager extends Person {
@@ -63,6 +76,11 @@ class ProjectManager extends Person {
     }
     debugsCode(student) {
         return `${this.name} debugs ${student.name}'s code on ${student.favSubjects}.`
+    }
+    tutor(student, min, max) {
+        min = Math.ceil(0);
+        max = Math.floor(100)
+        return Math.floor(Math.random() * (100 - 0)) + 0 + student.grade();
     }
 }
 
@@ -85,7 +103,7 @@ const josh = new Instructor({
     favLanguage: 'Javascript',
     specialty: 'Teaching Front-end',
     catchPhrase: 'Want to hear my banjo?',
-    subject: 'javascript',
+    subject: 'javascript'
 });
 
 const steve = new Instructor({
@@ -175,4 +193,7 @@ This method, when called, will check the grade of the student and see if they're
 If the student's grade is above a 70% let them graduate! Otherswise go back to grading their assignments to increase their score.
 */
 
-console.log(kanek.grade())
+console.log(kanek.grade());
+console.log(josh.tutor(kanek));
+console.log(ray.tutor(kanek));
+console.log(kanek.graduate());
