@@ -24,10 +24,14 @@ class Person {
     demo(subject) {
       return (`Today we are learning about ${(subject)}.`);
     }
-    grade(subject) {
-       return `${student.name} receives a perfect score on ${(subject)}`;
+    grade(Student, subject) {
+       return `${Student.name} receives a perfect score on ${(subject)}`;
+    }
+    giveGrade(Student) {
+        return `${Student.name}'s grade is: ${(Student.grade += Math.random()*(5- - 5)+5)}`;
     }
   }
+  
   
 // child Student of Person
 
@@ -37,15 +41,19 @@ class Student extends Person {
       this.previousBackground = studentAttributes.previousBackground;
       this.className = studentAttributes.className;
       this.favSubjects = studentAttributes.favSubjects;
+      this.grade = studentAttributes.grade;
     }
     listsSubjects() {
-      console.log(student.favSubjects);
+      console.log(`My favorite subjects are: ${this.favSubjects}`);
     }
     PRAssignment(subject) {
-       return `${student.name} has submitted a PR for ${(subject)}`;
+       return `${this.name} has submitted a PR for ${(subject)}`;
     }
     sprintChallenge(subject) {
-        return `${student.name} has begun sprint challenge on ${(subject)}`;
+        return `${this.name} has begun sprint challenge on ${(subject)}`;
+    }
+    graduateCheck() {
+
     }
   }
  /// child of Instructor
@@ -60,7 +68,7 @@ class Student extends Person {
        console.log(`${this.name} announces to ${(channel)}, @channel standy times!`);
     }
     debugsCode(Student, subject) {
-        console.log(`${this.name} debugs ${Student.name}'s code on  ${(subject)}`);
+        console.log(`${this.name} debugs ${Student.name}'s code on ${(subject)}`);
     }
   }
 
@@ -91,7 +99,8 @@ class Student extends Person {
     gender: 'female',
     previousBackground: 'Book Editor',
     className: 'FSW22',
-    favSubjects: ['HTML', 'CSS', 'React']
+    favSubjects: ['HTML', 'CSS', 'React'],
+    grade : 99
   });
 
   const kramer = new Student ({
@@ -101,7 +110,8 @@ class Student extends Person {
     gender: 'male',
     previousBackground: 'Doctor',
     className: 'FSW24',
-    favSubjects: ['HTML', 'Python', 'React']
+    favSubjects: ['HTML', 'Python', 'React'],
+    grade: 87
   });
 
   const katie = new Student ({
@@ -111,7 +121,8 @@ class Student extends Person {
     gender: 'female',
     previousBackground: 'Artist',
     className: 'FSW21',
-    favSubjects: ['CSS', 'Python', 'React']
+    favSubjects: ['CSS', 'Python', 'React'],
+    grade: 95
   });
 
   const brendan = new ProjectManager({
@@ -141,3 +152,12 @@ class Student extends Person {
     favInstructor: 'Josh'  
   });
 
+console.log(ryan.speak());
+console.log(ryan.standUp("FSW16"));
+kramer.listsSubjects()
+console.log(tyler.debugsCode(katie,"JavaScript"));
+console.log(george.grade(elaine, "CSS"));
+console.log(kramer.PRAssignment("JavaScript 3"));
+console.log(fred.giveGrade(katie))
+console.log(fred.giveGrade(kramer))
+console.log(fred.giveGrade(elaine))
