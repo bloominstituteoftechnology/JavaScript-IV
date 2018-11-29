@@ -34,10 +34,12 @@ class Instructor extends Person {
     gradePoints(student, subject) {
         let randomGrade = Math.ceil((Math.random()-.5)*10);
         student.grade = student.grade + randomGrade;
+        if (student.grade > 100) {student.grade = 100}
+        if (student.grade < 0) {student.grade = 0}
         if (randomGrade > 0){
             return(`${student.name} did well on the ${subject} test. The score improved the student's average grade by ${randomGrade}. ${student.name}'s average grade is now ${student.grade}.`);
         }
-        if (randomGrade < 0){
+        if (randomGrade < 0 ){
             return(`${student.name} did poorly on the ${subject} test. The score decreased the student's average grade by ${randomGrade}. ${student.name}'s average grade is now ${student.grade}.`);
         }
         else {
@@ -64,6 +66,14 @@ class Student extends Person {
     }
     sprintChallenge(subject) {
         return (`${this.name} has begun sprint challenge on ${subject}.`)
+    }
+    graduate() {
+        if (this.grade >= 70){
+            return(`${this.name}'s current average grade is ${this.grade}. The student is allowed to graduate. Congrats ${this.name}!`);
+        }
+        else {
+            return(`${this.name}'s current average grade is ${this.grade}. Sorry, but the student is not allowed to graduate. I suggest ${this.name} study more and take a few more assessment tests!`);
+        }
     }
 };
 
@@ -179,7 +189,7 @@ const secondStudent = new Student({
         'Flying',
         'Charms'
     ],
-    grade: 55,
+    grade: 65,
 });
 
 const thirdStudent = new Student({
@@ -255,7 +265,31 @@ const thirdPM = new ProjectManager({
 
 
 //STRETCH TASK TESTERS
-console.log(thirdStudent.listsSubjects()); 
-console.log(thirdStudent.grade); 
-console.log(headMaster.gradePoints(thirdStudent, 'Charms'))
-console.log(thirdStudent.grade); 
+// console.log(thirdStudent.listsSubjects()); 
+// console.log(thirdStudent.grade); 
+// console.log(headMaster.gradePoints(thirdStudent, 'Charms'))
+// console.log(professorPotions.gradePoints(thirdStudent, 'Potions'))
+// console.log(headMaster.gradePoints(thirdStudent, 'History of Magic'))
+// console.log(professorTransfiguration.gradePoints(thirdStudent, 'Transfigurations'))
+// console.log(thirdStudent.graduate());
+
+// console.log(secondStudent.listsSubjects()); 
+// console.log(secondStudent.grade); 
+// console.log(headMaster.gradePoints(secondStudent, 'DADA'))
+// console.log(professorPotions.gradePoints(secondStudent, 'Potions'))
+// console.log(headMaster.gradePoints(secondStudent, 'Flying'))
+// console.log(professorTransfiguration.gradePoints(secondStudent, 'Transfigurations'))
+// console.log(secondStudent.graduate());
+// console.log(headMaster.gradePoints(secondStudent, 'DADA'))
+// console.log(professorPotions.gradePoints(secondStudent, 'Potions'))
+// console.log(headMaster.gradePoints(secondStudent, 'Flying'))
+// console.log(secondStudent.graduate());
+
+
+console.log(firstStudent.listsSubjects()); 
+console.log(firstStudent.grade); 
+console.log(headMaster.gradePoints(firstStudent, 'DADA'))
+console.log(professorPotions.gradePoints(firstStudent, 'Potions'))
+console.log(headMaster.gradePoints(firstStudent, 'Flying'))
+console.log(professorTransfiguration.gradePoints(firstStudent, 'Transfigurations'))
+console.log(firstStudent.graduate());
