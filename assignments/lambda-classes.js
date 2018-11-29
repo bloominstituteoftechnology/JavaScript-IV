@@ -25,6 +25,26 @@ class Instructors extends Person {
   grade(student, subject) {
     console.log(`${student.name} receives a perfect score on ${subject}`);
   }
+  randomGrade(student) {
+    if (student.grade < 100) {
+      let random = Math.floor(Math.random() * 6) + 1;
+      random === 1
+        ? (student.grade -= 10)
+        : random === 2
+        ? (student.grade += 20)
+        : random === 3
+        ? (student.grade -= 15)
+        : random === 4
+        ? (student.grade += 40)
+        : random === 5
+        ? (student.grade -= 20)
+        : random === 6
+        ? (student.grade += 50)
+        : console.log(`${student.name} don't know JS.`);
+
+      console.log(student.grade);
+    }
+  }
 } // Instructors
 
 const Josh = new Instructors({
@@ -53,17 +73,23 @@ class Student extends Person {
     this.previousBackground = attributes.previousBackground;
     this.className = attributes.className;
     this.favSubjects = attributes.favSubjects;
+    this.grade = attributes.grade;
   }
   listsSubjects() {
     console.log(`${this.favSubjects}`);
   }
 
-  PRAssignment(student, subject) {
-    console.log(`${student.name} has submitted a PR for ${subject}`);
+  PRAssignment(subject) {
+    console.log(`${this.name} has submitted a PR for ${subject}`);
   }
 
   sprintChallenge(subject) {
-    console.log(`${student.name} has begun sprint challenge on ${subject}`);
+    console.log(`${this.name} has begun sprint challenge on ${subject}`);
+  }
+
+  graduate() {
+    if (this.grade >= 70)
+      console.log(`${this.name} has earned enough points to graduate`);
   }
 }
 
@@ -74,7 +100,8 @@ const Enoka = new Student({
   gender: "Male",
   previousBackground: "Insurance",
   className: "FSW16",
-  favSubjects: ["Html", "CSS", "JavaScript"]
+  favSubjects: ["Html", "CSS", "JavaScript"],
+  grade: 50
 });
 
 const Johnny = new Student({
@@ -84,7 +111,8 @@ const Johnny = new Student({
   gender: "Male",
   previousBackground: "Banker",
   className: "FSW16",
-  favSubjects: ["Html", "CSS", "Python"]
+  favSubjects: ["Html", "CSS", "Python"],
+  grade: 50
 });
 
 class ProjectManager extends Instructors {
@@ -130,3 +158,7 @@ Enoka.PRAssignment(Enoka, "JavaScript");
 Johnny.listsSubjects();
 Clint.debugsCode(Johnny, "Python");
 Bobby.standUp("FSW16");
+Josh.randomGrade(Enoka);
+Clint.randomGrade(Johnny);
+Enoka.graduate();
+Johnny.graduate();
