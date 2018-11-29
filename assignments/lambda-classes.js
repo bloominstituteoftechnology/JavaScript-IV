@@ -1,3 +1,6 @@
+
+// ------------------------------------- Classes ------------------------------------- 
+
 class Person {
     constructor(pAtts){
         this.name = pAtts.name;
@@ -34,11 +37,11 @@ class Students extends Person {
         this.className = sAtts.className;
         this.favSubjects = sAtts.favSubjects;
     }
-    listsSubjects(student) {
-        student.favSubjects.forEach(function(subject) {
+    listsSubjects() {
+        this.favSubjects.forEach(function(subject) {
             return subject;
-        })
-    }
+        });
+        }
     PRAssignment(subject) {
         return `${this.name} has submitted a PR for ${subject}`;
     }
@@ -60,3 +63,53 @@ class ProjectManagers extends Instructors {
         return `${this.name} debugs ${student.name}'s code on ${subject}`;
     }
 }
+
+// ------------------------------------- Student Objects ------------------------------------- 
+
+
+const leighAnn = new Students({
+    name: 'Leigh-Ann',
+    age: 28,
+    location: 'Arlington',
+    gender: 'F',
+    previousBackground: true,
+    className: 'FSW16',
+    favSubjects: [
+        'CSS',
+        'IoT',
+        'JavaScript'
+    ],
+});
+
+const jeff = new Students({
+
+});
+
+const jordann = new Students({
+
+});
+
+// ------------------------------------- Instructor Objects ------------------------------------- 
+
+const saron = new Instructors({
+
+});
+
+const tyler = new Instructors({
+
+});
+
+// ------------------------------------- PM Objects ------------------------------------- 
+
+const ali = new ProjectManagers({
+
+});
+
+const veni = new ProjectManagers({
+
+});
+
+console.log(leighAnn);
+console.log(leighAnn.listsSubjects());
+console.log(leighAnn.PRAssignment('React'));
+console.log(leighAnn.sprintChallenge('Computer Science'));
