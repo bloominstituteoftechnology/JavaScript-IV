@@ -88,6 +88,8 @@ class ProjectManager extends Instructor {
 
 //Testing
 
+console.warn('Student Class Testing');
+//Student Class Testing
 const Bobby = new Student({
     name: 'Bobby',
     location: 'Earth',
@@ -102,5 +104,23 @@ Bobby.speak();
 Bobby.listsSubjects();
 Bobby.PRAssignment('JavaScript IV');
 Bobby.sprintChallenge('React');
+
+console.warn('Instructor Class Testing');
+//Instructor Class Testing
+const Joe = new Instructor({
+    name: 'Joe',
+    location: 'Mars',
+    age: 28,
+    gender: 'male',
+    specialty: 'React, Redux, GraphQL',
+    favLanguage: 'JavaScript',
+    catchPhrase: 'Today we are going to be working on ___'
+});
+
+Joe.speak();
+Joe.demo('GraphQL, and Apollo Client');
+Joe.grade(Bobby, 'Redux');
+
+console.warn('ProjectManager Class Testing');
 
 //End Testing
