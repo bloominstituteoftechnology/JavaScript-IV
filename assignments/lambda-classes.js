@@ -17,15 +17,32 @@ class Person {
 class Instructor extends Person {
     constructor (attributes) {
         super(attributes);
-        this.speciality = "redux",
-        this.favLanguage = "JavaScript, Python, Elm",
-        this.catchPhrase = "Don't forget the homies"
+        this.speciality = attributes.spaciality; //"redux",
+        this.favLanguage = attributes.favLanguage; //"JavaScript, Python, Elm",
+        this.catchPhrase = attributes.catchPhrase //"Don't forget the homies"
     };
     demo (subject) {
         return `Today we are learning about ${subject}.`;
     };
-    grade (subject, subject) {
+    grade (student, subject) {
         return `${student.name} receives a perfect score on ${subject}.`
     };
 };
 
+class student extends Person {
+    constructor (attributes) {
+        super(attributes);
+        this.previousBackground = attributes.previousBackground;
+        this.className = attributes.className; // "CS116",
+        this.favSubjects = attributes.favSubjects; // ['Html', 'CSS', 'JavaScript']
+    };
+    listsSubjects () {
+        return ` ${this.favSubjects}.`;
+    };
+    PRAssignment (subject) {
+        return `${student.name} has submitted a PR for ${subject}.`
+    };
+    sprintChallenge (subject) {
+        return `${student.name} has begun sprint challenge on ${subject}.`
+    };
+};
