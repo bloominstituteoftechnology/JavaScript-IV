@@ -1,4 +1,6 @@
 // CODE here for your Lambda Classes
+let subjects = ['HTML', 'CSS', 'JavaScript', 'React', 'Redux', 'NodeJS', 'Express'];
+
 class Person {
     constructor(props) {
         this.name = props.name;
@@ -26,7 +28,22 @@ class Instructor extends Person {
 
     grade(student, subject) {
         console.log(`${student.name} receives a perfect score on ${subject}`);
-    } 
+    }
+
+    scoreProject(student, subject) {
+        if(student.graduated === false) {
+            let grade = Math.floor(Math.random() * 10);
+            if(grade === 0) {grade = 1};
+            let addOrSub = Math.random();
+            if(addOrSub > .1) {
+                student.grade += grade;
+                console.log(`${this.name} just graded ${student.name}'s ${subject} project. Their grade went up to ${student.grade}`);
+            } else {
+                student.grade -= grade;
+                console.log(`${this.name} just graded ${student.name}'s ${subject} project. Their grade went down to ${student.grade}`);
+            }
+        }
+    }
 }
 
 class Student extends Person {
@@ -35,6 +52,8 @@ class Student extends Person {
         this.previousBackground = props.previousBackground;
         this.className = props.className;
         this.favSubjects = props.favSubjects;
+        this.grade = props.grade;
+        this.graduated = false;
     }
 
     listsSubjects() {
@@ -68,6 +87,13 @@ class Student extends Person {
     sprintChallenge(subject) {
         console.log(`${this.name} has begun sprint challenge on ${subject}`);
     }
+
+    graduate() {
+        if(this.grade >= 70) {
+            this.graduated = true;
+            console.log(`${this.name} graduated with a grade of ${this.grade}`);
+        }
+    }
 }
 
 class ProjectManager extends Instructor {
@@ -90,6 +116,7 @@ class ProjectManager extends Instructor {
 
 console.warn('Student Class Testing');
 //Student Class Testing
+let randGrade = Math.floor(Math.random() * 100);
 const Bobby = new Student({
     name: 'Bobby',
     location: 'Earth',
@@ -97,7 +124,8 @@ const Bobby = new Student({
     gender: 'male',
     previousBackground: 'Secret Shopper',
     className: 'CS1',
-    favSubjects: ['HTML', 'CSS', 'JavaScript']
+    favSubjects: ['HTML', 'CSS', 'JavaScript'],
+    grade: randGrade
 });
 
 Bobby.speak();
@@ -140,5 +168,15 @@ Delilah.standUp('CS13');
 Delilah.debugsCode(Bobby, 'JavaScript');
 Delilah.demo('Advanced CSS 2');
 Delilah.grade(Bobby, 'Advanced CSS 1');
+
+console.warn('Stretch Problem Testing');
+//Stretch Problem Testing
+
+while(Bobby.graduated === false){
+    let subjectIndex = Math.floor(Math.random() * subjects.length); //Selected random subject for recent instructor to grade.
+    Joe.scoreProject(Bobby, subjects[subjectIndex]); //Works with Instructors AND ProjectManagers.
+    Bobby.graduate();
+}
+
 
 //End Testing
