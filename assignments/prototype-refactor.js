@@ -28,8 +28,8 @@ class GameObject{
         this.createdAt = attributes.createdAt;
         this.dimensions = attributes.dimensions;
     }
-    destroy(char){ 
-            return `${char.name} was removed from the game.`
+    destroy(){ 
+            return `${this.name} was removed from the game.`
     }
 }
 class CharacterStats extends GameObject{
@@ -40,11 +40,21 @@ class CharacterStats extends GameObject{
         this.power = charAttributes.power;
     }
     takeDamage(){
-        console.log(`${this.name} took damage.`)
+        return (`${this.name} took damage.`)
     }
     
 }
-
+class Humanoid extends CharacterStats{
+    constructor(humAttributes){
+        super(humAttributes);
+        this.team = humAttributes.team;
+        this.weapons = humAttributes.weapons;
+        this.language = humAttributes.language;
+    }
+    greet(){
+        return `${this.name} offers a greeting in ${this.language}`
+    }
+}
 
 
 /*
@@ -54,16 +64,6 @@ class CharacterStats extends GameObject{
   * takeDamage() // prototype method -> returns the string '<object name> took damage.'
   * should inherit destroy() from GameObject's prototype
 */
-function Humanoid(humAttributes){
-  CharacterStats.call(this, humAttributes);
-  this.team = humAttributes.team;
-  this.weapons = humAttributes.weapons;
-  this.language = humAttributes.language;
-}
-Humanoid.prototype = Object.create(CharacterStats.prototype);
-Humanoid.prototype.greet = function(){
-  return `${this.name} offers a greeting in ${this.language}`
-}
 
 /*
   === Humanoid (Having an appearance or character resembling that of a human.) ===
@@ -134,101 +134,101 @@ Humanoid.prototype.greet = function(){
     language: 'Elvish',
   });
 
-  // console.log(mage.createdAt); // Today's date
-  // console.log(archer.dimensions); // { length: 1, width: 2, height: 4 }
-  // console.log(swordsman.healthPoints); // 15
-  // console.log(mage.name); // Bruce
-  // console.log(swordsman.team); // The Round Table
-  // console.log(mage.weapons); // Staff of Shamalama
-  // console.log(archer.language); // Elvish
-  // console.log(archer.greet()); // Lilith offers a greeting in Elvish.
-  // console.log(mage.takeDamage()); // Bruce took damage.
-  // console.log(swordsman.destroy()); // Sir Mustachio was removed from the game.
+  console.log(mage.createdAt); // Today's date
+  console.log(archer.dimensions); // { length: 1, width: 2, height: 4 }
+  console.log(swordsman.healthPoints); // 15
+  console.log(mage.name); // Bruce
+  console.log(swordsman.team); // The Round Table
+  console.log(mage.weapons); // Staff of Shamalama
+  console.log(archer.language); // Elvish
+  console.log(archer.greet()); // Lilith offers a greeting in Elvish.
+  console.log(mage.takeDamage()); // Bruce took damage.
+  console.log(swordsman.destroy()); // Sir Mustachio was removed from the game.
 
 
   // Stretch task: 
   // * Create Villain and Hero constructor functions that inherit from the Humanoid constructor function.  
-  function Hero(heroAttrs){
-    Humanoid.call(this, heroAttrs);
-    this.power = heroAttrs.power;
-  }
-  Hero.prototype = Object.create(Humanoid.prototype);
-  Hero.prototype.attack = function(char, power){
-     let finalBlow = power();
-    if(char.healthPoints>0){
-     alert(`Attacking ${char.name} for ${finalBlow}`);
-     char.healthPoints -= finalBlow;
-     document.getElementById("vilhealth").innerHTML = `Health: ${char.healthPoints}`;
-     if(char.healthPoints <= 0){
-      alert(this.destroy(char));
-      document.getElementById("vilhealth").innerHTML = `Health: 0`;
-     }
-    } 
-  }
+//   function Hero(heroAttrs){
+//     Humanoid.call(this, heroAttrs);
+//     this.power = heroAttrs.power;
+//   }
+//   Hero.prototype = Object.create(Humanoid.prototype);
+//   Hero.prototype.attack = function(char, power){
+//      let finalBlow = power();
+//     if(char.healthPoints>0){
+//      alert(`Attacking ${char.name} for ${finalBlow}`);
+//      char.healthPoints -= finalBlow;
+//      document.getElementById("vilhealth").innerHTML = `Health: ${char.healthPoints}`;
+//      if(char.healthPoints <= 0){
+//       alert(this.destroy(char));
+//       document.getElementById("vilhealth").innerHTML = `Health: 0`;
+//      }
+//     } 
+//   }
  
-  function Villain(villAttrs){
-    Humanoid.call(this, villAttrs);
-    this.power = villAttrs.power;
-  }
+//   function Villain(villAttrs){
+//     Humanoid.call(this, villAttrs);
+//     this.power = villAttrs.power;
+//   }
 
-  Villain.prototype = Object.create(Humanoid.prototype);
-  Villain.prototype.spell = function(char, power){
-      let blow = power();
-     alert(`Casting a spell on ${char.name} for ${blow}`);
-     char.healthPoints -= blow;
-     document.getElementById("herohealth").innerHTML = `Health: ${char.healthPoints}`;
-     if(char.healthPoints <= 0){
-      alert(this.destroy(char));
-      document.getElementById("herohealth").innerHTML = `Health: 0`;
-     }
-    };
+//   Villain.prototype = Object.create(Humanoid.prototype);
+//   Villain.prototype.spell = function(char, power){
+//       let blow = power();
+//      alert(`Casting a spell on ${char.name} for ${blow}`);
+//      char.healthPoints -= blow;
+//      document.getElementById("herohealth").innerHTML = `Health: ${char.healthPoints}`;
+//      if(char.healthPoints <= 0){
+//       alert(this.destroy(char));
+//       document.getElementById("herohealth").innerHTML = `Health: 0`;
+//      }
+//     };
 
-  const matt = new Hero ({
-    createdAt: new Date(),
-    dimensions: {
-      length: 1,
-      width: 2,
-      height: 4,
-    },
-    healthPoints: 10,
-    name: 'Matt',
-    team: 'Forest Kingdom',
-    weapons: [
-      'Bow',
-      'Dagger',
-    ],
-    language: 'Elvish',
-    power: function(){
-      return Math.floor(Math.random() * Math.floor(11));
-    },
-  });
-  const witch = new Villain ({
-    createdAt: new Date(),
-    dimensions: {
-      length: 1,
-      width: 2,
-      height: 4,
-    },
-    healthPoints: 10,
-    name: 'Evil Witch',
-    team: 'Forest Kingdom',
-    weapons: [
-      'Bow',
-      'Dagger',
-    ],
-    language: 'Elvish',
-    power: function(){
-      return Math.floor(Math.random() * Math.floor(11));
-    },
-  });
+//   const matt = new Hero ({
+//     createdAt: new Date(),
+//     dimensions: {
+//       length: 1,
+//       width: 2,
+//       height: 4,
+//     },
+//     healthPoints: 10,
+//     name: 'Matt',
+//     team: 'Forest Kingdom',
+//     weapons: [
+//       'Bow',
+//       'Dagger',
+//     ],
+//     language: 'Elvish',
+//     power: function(){
+//       return Math.floor(Math.random() * Math.floor(11));
+//     },
+//   });
+//   const witch = new Villain ({
+//     createdAt: new Date(),
+//     dimensions: {
+//       length: 1,
+//       width: 2,
+//       height: 4,
+//     },
+//     healthPoints: 10,
+//     name: 'Evil Witch',
+//     team: 'Forest Kingdom',
+//     weapons: [
+//       'Bow',
+//       'Dagger',
+//     ],
+//     language: 'Elvish',
+//     power: function(){
+//       return Math.floor(Math.random() * Math.floor(11));
+//     },
+//   });
  
-  // console.log(matt.attack(witch, matt.power))
-  // console.log(witch.healthPoints)
+//   // console.log(matt.attack(witch, matt.power))
+//   // console.log(witch.healthPoints)
   
-  // * Give the Hero and Villains different methods that could be used to remove health points from objects which could result in destruction if health gets to 0 or drops below 0;
-  // * Create two new objects, one a villain and one a hero and fight it out with methods!
+//   // * Give the Hero and Villains different methods that could be used to remove health points from objects which could result in destruction if health gets to 0 or drops below 0;
+//   // * Create two new objects, one a villain and one a hero and fight it out with methods!
   
-  document.getElementById("herohealth").innerHTML = `Health: ${matt.healthPoints}`;
-  document.getElementById("vilhealth").innerHTML = `Health: ${witch.healthPoints}`;
+//   document.getElementById("herohealth").innerHTML = `Health: ${matt.healthPoints}`;
+//   document.getElementById("vilhealth").innerHTML = `Health: ${witch.healthPoints}`;
   
  
