@@ -66,7 +66,7 @@ class Student extends Person {
       console.log(
         `${this.name}'s grade is ${
           this.grade
-        }. They can't graduate from Lambda School.`
+        }. They can't graduate from Lambda School. :(`
       );
     }
   }
@@ -80,9 +80,7 @@ class PM extends Instructor {
   }
 
   standUp(channel) {
-    console.log(
-      `${this.name} announces to the ${channel}, @channel standy times!`
-    ); // Alex, the homework said "standy" time... I thought it was hilarious, so I kept it. Haha
+    console.log(`${this.name} announces to ${channel}, @channel standy times!`); // Alex, the README said "standy" time... I thought it was hilarious, so I kept it. Haha
   }
 
   debugsCode(studentObject, subject) {
@@ -180,7 +178,7 @@ const christine = new Student({
 nathan.speak();
 nathan.listsSubjects();
 christine.PRAssignment("JavaScript-IV");
-christine.sprintChallenge("Reponsive-II");
+christine.sprintChallenge("Responsive-II");
 
 // Objects from PM Class
 
