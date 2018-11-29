@@ -13,6 +13,7 @@ class Person{
 
 class Instructor extends Person{
     constructor(instructorAttr){
+        super(instructorAttr);
         this.specialty = instructorAttr.specialty;
         this.favLanguage = instructorAttr.favLanguage;
         this.catchPhrase = instructorAttr.catchPhrase;
@@ -25,3 +26,37 @@ class Instructor extends Person{
     }
 }
 
+class Student extends Person{
+    constructor(studentAttrs){
+        super(studentAttrs);
+        this.previousBackground = studentAttrs.previousBackground;
+        this.className = studentAttrs.className;
+        this.favSubjects = studentAttrs.favSubjects;
+    }
+    listsSubjects(){
+        
+    }
+}
+
+const bob = new Instructor({
+    name: 'Bob',
+    location: 'WV',
+    age: 20,
+    gender: `male`,
+    favLanguage: 'JavaScript',
+    specialty: `Front-end`,
+    catchPhrase: 'You failed'
+});
+
+const fred = new Instructor({
+    name: 'Fred',
+    location: 'Bedrock',
+    age: 37,
+    gender: 'male',
+    favLanguage: 'JavaScript',
+    specialty: 'Front-end',
+    catchPhrase: `Don't forget the homies`
+  });
+
+
+console.log(bob);
