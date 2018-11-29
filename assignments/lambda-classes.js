@@ -33,6 +33,7 @@ class Student extends Person {
     this.previousBackground = StudentAttrs.previousBackground;
     this.className = StudentAttrs.className;
     this.favSubjects = StudentAttrs.favSubjects;
+    this.grade = StudentAttrs.grade;
   }
   listsSubjects () {
     return this.favSubjects;
