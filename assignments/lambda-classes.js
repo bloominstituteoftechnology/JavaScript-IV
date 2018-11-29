@@ -116,6 +116,7 @@ const jimmyBob = new Instructor({
 console.log(billyBob.demo("Node"));
 console.log(jimmyBob.catchPhrase);
 console.log(billyBob.favLanguage);
+console.log(jimmyBob.specialty);
 
 //==================================== Student Objects
 
@@ -135,14 +136,46 @@ const becky = new Student({
     location: "Cali",
     gender: "Female",
     previousBackground: "Customer Service",
-    className: "Fullstack Webdevelopment",
+    className: "Fullstack Web-development",
     favSubjects: ["JS", "c#", "Node"]
 });
 
 console.log(ben.listsSubjects());
 console.log(ben.PRAssignment("JS-II"));
 console.log(ben.sprintChallenge("JS-II"));
+console.log(ben.previousBackground);
 console.log(becky.listsSubjects());
 console.log(becky.PRAssignment("Python-I"));
 console.log(becky.sprintChallenge("Python-I"));
 console.log(becky.className);
+
+//==================================== Project Manager Objects
+
+const george = new ProjectManager({
+    name: "George",
+    age: 32,
+    location: "Washington",
+    gender: "Male",
+    specialty: "Bug testing",
+    favLanguage: "c++",
+    catchPhrase: "Commit every 30 mins!",
+    gradClassName: "Machine Learning",
+    favInstructor: "Billy Bob"
+});
+
+const sam = new ProjectManager({
+    name: "Sam",
+    age: 28,
+    location: "New Jersey",
+    gender: "Female",
+    specialty: "React",
+    favLanguage: "Python",
+    catchPhrase: "Don't @ me!",
+    gradClassName: "Fullstack Web-development",
+    favInstructor: "Jimmy Bob"
+});
+
+console.log(george.standUp("fsw25"));
+console.log(sam.debugsCode(ben, "JS"));
+console.log(george.gradClassName);
+console.log(sam.favInstructor);
