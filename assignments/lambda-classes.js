@@ -34,6 +34,28 @@ class Instructor extends Person {
 }
 
 
+//=========== Student class
+
+class Student extends Person {
+    constructor(studentAttribs) {
+        super(studentAttribs);
+        this.previousBackground = studentAttribs.previousBackground;
+        this.className = studentAttribs.className;
+        this.favSubjects = studentAttribs.favSubjects;
+    }
+    listsSubjects() {
+        this.favSubjects.forEach(function(element) {
+            console.log(element);
+        });
+    }
+    PRAssignment(subject) {
+        console.log(`${this.name} has submitted a PR for ${subject}`);
+    }
+    sprintChallenge(subject) {
+        console.log(`$this.name} has begun sprint challenge on ${subject}`);
+    }
+}
+
 const Beth = new Instructor({
     'name': 'Beth',
     'location': 'Tempe, Arizona',
@@ -65,4 +87,5 @@ const Jack = new Instructor({
 })
 
 
-speak(Beth);
+console.log(Jack.gender);
+console.log(Jack);
