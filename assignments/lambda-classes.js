@@ -31,6 +31,10 @@ class Instructor extends Person {
     grade(student, subject) {
         console.log(`${student} receives a perfect score on ${subject}`);
     }
+    gradeWork(student) {
+        let points = Math.ceil(Math.random()*20-7);
+        return student.grade += points
+    }
 }
 
 
@@ -42,6 +46,8 @@ class Student extends Person {
         this.previousBackground = studentAttribs.previousBackground;
         this.className = studentAttribs.className;
         this.favSubjects = studentAttribs.favSubjects;
+        this.grade = studentAttribs.grade;
+
     }
     listsSubjects() {
         this.favSubjects.forEach(function(element) {
@@ -53,6 +59,14 @@ class Student extends Person {
     }
     sprintChallenge(subject) {
         console.log(`${this.name} has begun sprint challenge on ${subject}`);
+    }
+    graduate() {
+        if (this.grade >= 100) {
+            console.log(`Hooray ${this.name}! You're graduating!`)
+        }
+        else {
+            console.log(`${this.name}, you're getting close... you only need ${(100 - this.grade)} points to graduate.`)
+        }
     }
 }
 
@@ -116,6 +130,7 @@ const Rachel = new Student({
     'previousBackground' : 'Print and Graphic Design',
     'className': 'FSW16',
     'favSubjects': ['CSS', 'JavaScript', 'Database'],
+    'grade': 40,
 })
 
 const Kurt = new Student({
@@ -129,6 +144,7 @@ const Kurt = new Student({
     'previousBackground' : 'Bartender',
     'className': 'FSW16',
     'favSubjects': ['JavaScript', 'HTML', 'React'],
+    'grade': 75,
 })
 
 const Pearl = new Student({
@@ -142,10 +158,11 @@ const Pearl = new Student({
     'previousBackground' : 'Social Worker',
     'className': 'FSW16',
     'favSubjects': ['CSS', 'HTML', 'Less'],
+    'grade': 80,
 })
 
-const Paul = new ProjectManager({
-    'name': 'Paul',
+const Raul = new ProjectManager({
+    'name': 'Raul',
     'location': 'Houston, Texas',
     age: 31,
     'gender': 'male',
@@ -168,8 +185,8 @@ const Jessica = new ProjectManager({
     'favInstructor': 'Jack'
 })
 
-const Raul = new ProjectManager({
-    'name': 'Raul',
+const Zeke = new ProjectManager({
+    'name': 'Zeke',
     'location': 'Colorado Springs',
     age: 34,
     'gender': 'male',
@@ -190,3 +207,18 @@ const Raul = new ProjectManager({
 // Pearl.sprintChallenge('JS');
 // Rachel.PRAssignment('JavaScript IV');
 // Pearl.speak();
+// console.log(Kurt.grade);
+
+// console.log(Zeke);
+// Zeke.standUp('fsw16');
+// Raul.debugsCode('Rachel', 'JavaScript');
+// Jessica.speak();
+
+Beth.gradeWork(Pearl);
+Jack.gradeWork(Pearl);
+Paul.gradeWork(Pearl);
+Pearl.graduate();
+Beth.gradeWork(Pearl);
+Zeke.gradeWork(Pearl);
+Jessica.gradeWork(Pearl);
+Pearl.graduate();
