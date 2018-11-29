@@ -29,15 +29,29 @@ class Instructor extends Person {
 	grade(studentObject, subject) {
 		return `${studentObject.name} recieves a perfect score on ${subject}`;
 	}
+
+	// ---Stretch Method---
+	realGrade(studentObject) {
+		let newGrade = Math.ceil(Math.random() * 10);
+
+		if (studentObject.grade <= 90) {
+			studentObject.grade += newGrade;
+		} else {
+			studentObjectObject.grade -= newGrade;
+		}
+		return `${studentObject.name}\'s grade score is ${studentObject.grade}`;
+	}
 }
 
 // -----------Student Class-----------
+
 class Student extends Person {
 	constructor(human) {
 		super(human);
 		this.previousBackground = human.previousBackground;
 		this.className = human.className;
 		this.favSubjects = human.favSubjects;
+		this.grade = human.grade;
 	}
 
 	listSubjects() {
@@ -72,6 +86,8 @@ class ProjectManager extends Instructor {
 	}
 }
 
+let updateGrade = Student.grade;
+
 const fred = new Instructor({
 	name: 'Fred',
 	location: 'Bedrock',
@@ -89,7 +105,9 @@ const imon = new Student({
 	gender: 'male',
 	previousBackground: 'mechanic',
 	className: 'fsw16',
-	favSubjects: [ 'Html', 'CSS', 'JavaScript' ]
+	favSubjects: [ 'Html', 'CSS', 'JavaScript' ],
+	// ---Stretch Property---
+	grade: 90
 });
 
 const jerry = new ProjectManager({
@@ -112,3 +130,6 @@ console.log(imon.PRAssignment('HTML'));
 console.log(imon.sprintChallenge('javascript fundamentals'));
 console.log(jerry.standUp('channel'));
 console.log(jerry.debugsCode(imon, 'javascript'));
+
+console.log(imon.grade);
+console.log(jerry.realGrade(imon));
