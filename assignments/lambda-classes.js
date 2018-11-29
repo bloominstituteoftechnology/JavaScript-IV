@@ -22,7 +22,7 @@ class Instructor extends Person {
     demo(subject) {
         return `Today we are learning about {subject}`;
     };
-    grade(name, subject) {
+    grade(subject) {
         return `${this.name} receives a perfect score on {subject}`;
     };
 }
@@ -34,6 +34,12 @@ class Student extends Person {
         this.className = studentAttributes.className;
         this.favSubjects = studentAttributes.favSubjects;
     }
+    PRAssignment() {
+        return `${this.name} has submitted a PR for {subject}`;
+    };
+    sprintChallenge() {
+        return `${this.name} has begun sprint challenge on {subject}`;
+    };
 }
 
 class ProjectManager extends Instructor {
@@ -77,7 +83,7 @@ class ProjectManager extends Instructor {
 
   const sam = new Student({
     name: 'Sam',
-    location: 'OKC',
+    location: 'Colorado Springs',
     age: 37,
     gender: 'male',
     previousBackground: 'Medical',
@@ -85,12 +91,12 @@ class ProjectManager extends Instructor {
     favSubjects: ['CSS', 'HTML']
   });
 
-  const taylor = new Student({
-    name: 'Taylor',
-    location: 'Colorado Springs',
-    age: 33,
-    gender: 'female',
-    previousBackground: 'Military',
+  const norman = new Student({
+    name: 'Norman',
+    location: 'White Pine Bay',
+    age: 22,
+    gender: 'male',
+    previousBackground: 'Motel business',
     className: 'FSW16',
     favSubjects: ['HTML', 'CSS', 'JavaScript']
   });
