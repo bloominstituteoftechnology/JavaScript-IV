@@ -98,3 +98,43 @@ class ProjectManager extends Instructor {
     console.log(`${this.name} debugs ${student.name}'s code on ${subject}`)
   }
 }
+
+// Test classes
+// Instructors:
+const jimBob = new Instructor ({
+  name: 'JimBob',
+  age: '35',
+  location: 'SLC',
+  gender: 'M',
+  specialty: 'Frontend',
+  favLanguage: 'JavaScript',
+  catchPhrase: 'Let\'s take a 5-minute break!'
+});
+
+const janeBeth = new Instructor ({
+  name: 'JaneBeth',
+  age: '37',
+  location: 'LA',
+  gender: 'F',
+  specialty: 'CS',
+  favLanguage: 'C',
+  catchPhrase: 'Let\'s take a 7-minute break!'
+});
+
+// jimBob tests:
+console.log(jimBob.name) // 'JimBob'
+console.log(jimBob.age) // '35',
+console.log(jimBob.location) // 'SLC',
+console.log(jimBob.gender) // 'M',
+console.log(jimBob.specialty) // 'Frontend',
+console.log(jimBob.favLanguage) // 'JavaScript',
+console.log(jimBob.catchPhrase) // 'Let\'s take a 5-minute break!'
+
+// jimBob tests:
+console.log(janeBeth.name) // 'JaneBeth'
+console.log(janeBeth.age) // '37',
+console.log(janeBeth.location) // 'LA',
+console.log(janeBeth.gender) // 'F',
+console.log(janeBeth.specialty) // 'CS',
+console.log(janeBeth.favLanguage) // 'C',
+console.log(janeBeth.catchPhrase) // 'Let\'s take a 7-minute break!'
