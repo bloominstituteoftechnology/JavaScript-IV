@@ -209,6 +209,7 @@ console.log(swordsman.destroy()); // Sir Mustachio was removed from the game.
 console.log(dragon.attack(knight, 2));
 console.log(knight.attack(dragon, 5));
 console.log(knight.attack(dragon, 5));
+console.log(dragon.healthPoints);
 console.log(dragon.attack(knight, 4));
 console.log(knight.attack(dragon, 5));
 console.log(knight.attack(dragon, 5));

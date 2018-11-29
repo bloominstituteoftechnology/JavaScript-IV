@@ -27,6 +27,11 @@ class Instructors extends Person {
     grade(student, subject) {
         return `${student.name} receives a perfect score on ${subject}`;
     }
+    changeGrade(student) {
+        let newGrade = student.grade += Math.ceil(Math.random() * 10 - 5);
+
+        return `${this.name} changed ${student.name}'s grade to ${newGrade}`
+    }
 }
 
 
@@ -36,6 +41,7 @@ class Students extends Person {
         this.previousBackground = sAtts.previousBackground;
         this.className = sAtts.className;
         this.favSubjects = sAtts.favSubjects;
+        this.grade = sAtts.grade;
     }
     listsSubjects() {
         return `${this.name} likes ` + this.favSubjects.map(function(subject) {
@@ -47,6 +53,13 @@ class Students extends Person {
     }
     sprintChallenge(subject) {
         return `${this.name} has begun sprint challenge on ${subject}`;
+    }
+    graduate() {
+        if (this.grade >= 70) {
+            return `${this.name} is elligible to graduate!`;
+        } else {
+            return `${this.name} needs a grade of at least 70 to graduate.`;
+        }
     }
 }
 
@@ -74,6 +87,7 @@ const student_leighAnn = new Students({
     gender: 'F',
     previousBackground: true,
     className: 'FSW16',
+    grade: 90,
     favSubjects: [
         'CSS',
         'IoT',
@@ -88,6 +102,7 @@ const student_jeff = new Students({
     gender: 'M',
     previousBackground: true,
     className: 'FSW21',
+    grade: 70,
     favSubjects: [
         'Python',
         'HTML'
@@ -102,6 +117,7 @@ const student_jordann = new Students({
     gender: 'F',
     previousBackground: false,
     className: 'FSW21',
+    grade: 55,
     favSubjects: [
         'Design',
         'HTML'
@@ -173,3 +189,11 @@ console.log(instructor_saron.demo('Internet Security'));
 console.log(instructor_saron.grade(student_leighAnn, 'React'));
 console.log(pm_ali.standUp('#general'));
 console.log(pm_ali.debugsCode(student_jeff, 'Python'));
+console.log(instructor_saron.changeGrade(student_leighAnn));
+console.log(student_leighAnn.grade);
+console.log(instructor_saron.changeGrade(student_leighAnn));
+console.log(student_leighAnn.grade);
+console.log(instructor_saron.changeGrade(student_leighAnn));
+console.log(student_leighAnn.grade);
+console.log(student_leighAnn.graduate());
+console.log(student_jordann.graduate());
