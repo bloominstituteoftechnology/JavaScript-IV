@@ -28,8 +28,9 @@ class Instructors extends Person {
         return `${student.name} receives a perfect score on ${subject}`;
     }
     changeGrade(student) {
+        debugger;
         let newGrade = student.grade += Math.ceil(Math.random() * 10 - 5);
-
+        debugger;
         return `${this.name} changed ${student.name}'s grade to ${newGrade}`
     }
 }
@@ -189,10 +190,6 @@ console.log(instructor_saron.demo('Internet Security'));
 console.log(instructor_saron.grade(student_leighAnn, 'React'));
 console.log(pm_ali.standUp('#general'));
 console.log(pm_ali.debugsCode(student_jeff, 'Python'));
-console.log(instructor_saron.changeGrade(student_leighAnn));
-console.log(student_leighAnn.grade);
-console.log(instructor_saron.changeGrade(student_leighAnn));
-console.log(student_leighAnn.grade);
 console.log(instructor_saron.changeGrade(student_leighAnn));
 console.log(student_leighAnn.grade);
 console.log(student_leighAnn.graduate());
