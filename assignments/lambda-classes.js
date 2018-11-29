@@ -9,7 +9,9 @@ class Person {
   }
 
   speak() {
-    return `Hello my name is ${this.name}, and I am from ${this.location}.`;
+    console.log(
+      `Hello my name is ${this.name}, and I am from ${this.location}.`
+    );
   }
 }
 
@@ -22,10 +24,37 @@ class Instructor extends Person {
   }
 
   demo(string) {
-    return `Today we are learning about ${string}.`;
+    console.log(`Today we are learning about ${string}.`);
   }
 
   grade(subject) {
-    return `${this.name} receives a perfect score on ${subject}.`;
+    console.log(`${this.name} receives a perfect score on ${subject}.`);
   }
+}
+
+class Student extends Person {
+  constructor(studentAttrbs) {
+    super(studentAttrbs);
+    this.previousBackground = studentAttrbs.previousBackground;
+    this.className = studentAttrbs.className;
+    this.favSubjects = studentAttrbs.favSubjects;
+  }
+
+  listsSubjects() {
+    this.favSubjects.forEach(element => console.log(element));
+  }
+
+  PRAssignment(subject) {
+    console.log(`${this.name} has submitted a PR for ${subject}.`);
+  }
+}
+
+class PM extends Instructor {
+  constructor(PMAttrbs) {
+    super(PMAttrbs);
+    this.gradClassName = PMAttrbs.gradClassName;
+    this.favInstructor = PMAttrbs.favInstructor;
+  }
+
+  standUp(channel) {}
 }
