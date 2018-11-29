@@ -30,12 +30,12 @@ class Instructors extends Person{
         let score = student.grade();
         if(score > 80){
             let random = Math.floor(Math.random() * Math.floor(10));
-            score += random
+            return score += random
             console.log(`Nice job on the assignment ${student.name}. You've recieved an added ${random} points to bring you grade to ${score}. \n Keep up the nice work!`)
         } 
         else{
             let random = Math.floor(Math.random() * Math.floor(20));
-            score -= random
+            return score -= random
             console.log(`Not great work today ${student.name}. You're losing ${random} points to bring you grade to ${score}. \n You can do better!`)
         } 
     }
@@ -57,6 +57,20 @@ class Students extends Person{
     }
     sprintChallenge(subject){
         console.log(`${this.name} has begun sprint challenge on ${subject}`);
+    }
+    graduate(instructor){
+        let finalGrade = this.grade();
+        if(finalGrade > 70){
+            console.log(`Congrats, ${this.name}! You've graduated LambdaSchool with a grade of ${finalGrade}! Go be a rockstar developer now!`)
+        } else{
+            console.log(`Sorry your final grade was ${finalGrade}. Let's try regrading your work again and see if that helps!`);
+            let newGrade = instructor.score(this);
+            if( newGrade > 70){
+                console.log(`The regrade worked! You passed with a score of ${newGrade}`);
+            } else{
+                console.log(`Sorry the regrade failed. And so did you with a score of ${newGrade} :( `);
+            }
+        }
     }
 }
 
@@ -95,7 +109,7 @@ const matt = new Students({
     className: "FSW16",
     favSubjects: "JS, LESS, HTML",
     grade: function(){
-        return Math.floor(Math.random() * Math.floor(100));
+         return Math.floor(Math.random() * Math.floor(100));
     }
 })
 
@@ -117,6 +131,8 @@ const emily = new ProjectManagers({
 // josh.demo("HTML");
 // josh.grade(matt, "CSS");
 josh.score(matt);
+emily.score(matt);
+matt.graduate(josh);
 
 // matt.listSubjects();
 // matt.PRAssignment("JS");
