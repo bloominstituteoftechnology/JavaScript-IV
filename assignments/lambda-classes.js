@@ -25,7 +25,7 @@ class Instructors extends Person {
         return `Today we are learning about ${subject}`;
     }
     grade(student, subject) {
-        return `${student.name} receives a perfect store on ${subject}`;
+        return `${student.name} receives a perfect score on ${subject}`;
     }
 }
 
@@ -38,7 +38,7 @@ class Students extends Person {
         this.favSubjects = sAtts.favSubjects;
     }
     listsSubjects() {
-        this.favSubjects.forEach(function(subject) {
+        return this.favSubjects.map(function(subject) {
             return subject;
         });
         }
@@ -67,10 +67,10 @@ class ProjectManagers extends Instructors {
 // ------------------------------------- Student Objects ------------------------------------- 
 
 
-const leighAnn = new Students({
+const student_leighAnn = new Students({
     name: 'Leigh-Ann',
     age: 28,
-    location: 'Arlington',
+    location: 'Arlington, VA',
     gender: 'F',
     previousBackground: true,
     className: 'FSW16',
@@ -78,38 +78,97 @@ const leighAnn = new Students({
         'CSS',
         'IoT',
         'JavaScript'
-    ],
+    ]
 });
 
-const jeff = new Students({
-
+const student_jeff = new Students({
+    name: 'Jeffrey',
+    age: 28,
+    location: 'Arlington, VA',
+    gender: 'M',
+    previousBackground: true,
+    className: 'FSW21',
+    favSubjects: [
+        'Python',
+        'HTML'
+    ]
 });
 
-const jordann = new Students({
 
+const student_jordann = new Students({
+    name: 'Jordann',
+    age: 31,
+    location: 'Bethesda, MD',
+    gender: 'F',
+    previousBackground: false,
+    className: 'FSW21',
+    favSubjects: [
+        'Design',
+        'HTML'
+    ]
 });
 
 // ------------------------------------- Instructor Objects ------------------------------------- 
 
-const saron = new Instructors({
-
+const instructor_saron = new Instructors({
+    name: 'Saron',
+    age: 33,
+    location: 'Los Angeles',
+    gender: 'F',
+    specialty: 'Rails',
+    favLanguage: 'Ruby',
+    catchPhrase: 'Code newbies rock!'
 });
 
-const tyler = new Instructors({
-
+const instructor_tyler = new Instructors({
+    name: 'Tyler',
+    age: 36,
+    location: 'New York',
+    gender: 'M',
+    specialty: 'React',
+    favLanguage: 'JavaScript',
+    catchPhrase: 'Extra cheese!'
 });
 
 // ------------------------------------- PM Objects ------------------------------------- 
 
-const ali = new ProjectManagers({
-
+const pm_ali = new ProjectManagers({
+    name: 'Ali',
+    age: 25,
+    location: 'Washington, DC',
+    gender: 'F',
+    gradClassName: 'FSW2',
+    favInstructor: 'Saron',
+    favLanguage: 'Python',
 });
 
-const veni = new ProjectManagers({
-
+const pm_veni = new ProjectManagers({
+    name: 'Veni',
+    age: 30,
+    location: 'Washington, DC',
+    gender: 'F',
+    gradClassName: 'FSW7',
+    favInstructor: 'Tyler',
+    favLanguage: 'React Native',
+    catchPhrase: 'Diversity in tech!'
 });
 
-console.log(leighAnn);
-console.log(leighAnn.listsSubjects());
-console.log(leighAnn.PRAssignment('React'));
-console.log(leighAnn.sprintChallenge('Computer Science'));
+// ------------------------------------- Testing Objects ------------------------------------- 
+
+console.log(student_leighAnn);
+console.log(student_jeff);
+console.log(student_jordann);
+console.log(pm_ali);
+console.log(pm_veni);
+console.log(instructor_saron);
+console.log(instructor_tyler);
+
+// ------------------------------------- Testing Methods ------------------------------------- 
+
+console.log(student_leighAnn.listsSubjects());
+console.log(student_leighAnn.PRAssignment('React'));
+console.log(student_leighAnn.sprintChallenge('Computer Science'));
+console.log(instructor_saron.demo('Internet Security'));
+console.log(instructor_saron.grade(student_leighAnn, 'React'));
+console.log(pm_ali.standUp('#general'));
+console.log(pm_ali.debugsCode(student_jeff, 'Python'));
