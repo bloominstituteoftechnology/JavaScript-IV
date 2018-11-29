@@ -66,7 +66,7 @@ const josh = new Instructors({
     age: 30,
     location: "Company Retreat",
     gender: "Male",
-    speciality: "Frontend Magic and Massaging the Big Cheese",
+    specialty: "Frontend Magic and Massaging the Big Cheese",
     favLanguage: "JavaScript",
     catchPhrase: "Isn't that neat?!?"
 });
@@ -82,6 +82,21 @@ const matt = new Students({
     favSubjects: "JS, LESS, HTML"
 })
 
+const emily = new ProjectManagers({
+    name: "Emily McClanahan",
+    age: 24,
+    location: "Houston",
+    gender: "Female",
+    specialty: "Frontend Magic",
+    favLanguage: "JavaScript",
+    catchPhrase: "You guys are awesome!",
+    gradClassName: "FSW15",
+    favInstructor: "Ryan Hamblin"
+
+})
+// console.log(josh);
+// console.log(matt);
+// console.log(emily);
 josh.demo("HTML");
 josh.grade(matt, "CSS");
 matt.listSubjects();
