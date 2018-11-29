@@ -15,7 +15,7 @@ class Person {
 }
 
 // child classes of Person
-class Instuctor extends Person {
+class Instructor extends Person {
   constructor(instructorAttrs) {
     super(instructorAttrs);
     this.favLanguage = instructorAttrs.favLanguage;
@@ -34,36 +34,68 @@ class Instuctor extends Person {
 class Student extends Person {
   constructor(studentAttrs) {
     super(studentAttrs);
+    this.previousBackground = studentAttrs.previousBackground;
+    this.className = studentAttrs.className;
+    this.favSubjects = studentAttrs.favSubjects;
   }
-
 }
 
-class ProjectManager extends Person {
+class ProjectManager extends Instructor {
   constructor(projectManagerAttrs) {
     super(projectManagerAttrs);
+    this.gradClassName = projectManagerAttrs.gradClassName;
+    this.favInstructor = projectManagerAttrs.favInstructor;
+  }
+  standup(slackChannel) {
+    console.log(`${this.name} announces to ${slackChannel}, @channel standup time!​​​​​`)
+  }
+  debugCode(student, subject) {
+    console.log(`${this.name} debugs ${student.name}'s code on ${subject}`);
   }
 }
 
 
 
-const fred = new Instuctor({
+const fred = new Instructor({
   name: 'Fred',
   location: 'Bedrock',
   age: 37,
   gender: 'male',
   favLanguage: 'JavaScript',
   specialty: 'Front-end',
-  catchPhrase: `Don't forget the homies`
+  catchPhrase: `Under the hood`
+})
+
+const frank = new ProjectManager({
+  name: 'Frank',
+  location: 'Olympia',
+  age: 29,
+  gender: 'male',
+  favLanguage: 'CSS',
+  specialty: 'Stylesheets',
+  catchPhrase: `CSS is the best!`,
+  gradClassName: 'CS3',
+  favInstructor: 'Fred'
 })
 
 const tom = new Student({
   name: 'Tom',
   location: 'Seattle',
   age: 28,
-  gender: 'male'
+  gender: 'male',
+  previousBackground: "Coffee",
+  className: "FSW16",
+  favSubjects: ['CSS', 'JavaScript']
 })
 
 
-fred.grade(tom, "Java");
-
 console.log(fred);
+console.log(frank);
+console.log(tom);
+
+fred.speak();
+tom.speak();
+fred.demo("JavaScript")
+fred.grade(tom, "JavaScript");
+frank.standup('General');
+frank.debugCode(tom, 'CSS');
