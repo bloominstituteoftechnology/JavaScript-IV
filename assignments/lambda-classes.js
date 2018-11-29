@@ -1,5 +1,51 @@
 // CODE here for your Lambda Classes
-const fred = new Instructor({
+
+class Person {
+    constructor(attributes){
+        this.name = attributes.name;
+        this.age = attributes.age;
+        this.location = attributes.location;
+        this.gender = attributes.gender;
+    }
+    speak() {
+        return `Hello my name is ${this.name}, I am from ${this.location}.`;
+    };
+}
+
+class Instructor extends Person {
+    constructor(instructorAttributes) {
+        super(instructorAttributes);
+        this.specialty = instructorAttributes.specialty;
+        this.favLanguage = instructorAttributes.favLanguage;
+        this.catchPhrase = instructorAttributes.catchPhrase;
+    }
+    demo(subject) {
+        return `Today we are learning about {subject}`;
+    };
+    grade(name, subject) {
+        return `${this.name} receives a perfect score on {subject}`;
+    };
+}
+
+class Student extends Person {
+    constructor(studentAttributes) {
+        super(studentAttributes);
+        this.previousBackground = studentAttributes.previousBackground;
+        this.className = studentAttributes.className;
+        this.favSubjects = studentAttributes.favSubjects;
+    }
+}
+
+class ProjectManager extends Instructor {
+    constructor(projectmanagerAttributes) {
+        super(projectmanagerAttributes);
+        this.gradClassName = projectmanagerAttributes.gradClassName;
+        this.favInstructor = projectmanagerAttributes.favInstructor;
+    }
+}
+
+
+  const josh = new Instructor({
     name: 'Josh',
     location: 'Pheonix',
     age: 34,
@@ -58,7 +104,7 @@ const fred = new Instructor({
     favInstructor: 'Dustin',
   });
 
-  const fred = new ProjectManager({
+ /* const fred = new ProjectManager({
     name: 'Fred',
     location: 'Bedrock',
     age: 37,
@@ -66,3 +112,5 @@ const fred = new Instructor({
     gradClassName: 'CS6',
     favInstructor: 'Josh',
   });
+*/
+  console.log(megan.speak());
