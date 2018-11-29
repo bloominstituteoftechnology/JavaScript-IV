@@ -74,6 +74,22 @@ class PM extends Instructor {
       `${this.name} debugs ${studentObject.name}'s code on ${subject}.`
     );
   }
+
+  scoreAssigment(student, subject) {
+    const num = Math.random();
+    let points = 0;
+    if (num < 0.5) {
+      points = 10;
+    } else {
+      points = -30;
+    }
+    student.grade += points;
+    console.log(
+      `${
+        student.name
+      }'s grade changed ${points} points from the score on their ${subject} assignment.`
+    );
+  }
 }
 
 // ======= Created Objects =======
@@ -182,3 +198,4 @@ frank.demo("Pseudo-Classical Prototypal Inheritance");
 jamal.grade(nathan, "javascript");
 jamal.standUp("FSW16-Jamal");
 jamal.debugsCode(nathan, "javascript");
+frank.scoreAssigment(nathan, "javascript");
