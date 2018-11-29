@@ -23,7 +23,7 @@ class Instructor extends Person {
     pointAdjust (student) {
         if (Math.random()*100 >= 50) {student.grade = student.grade - Math.random()*50};
         if (Math.random()*100 < 50) {student.grade = student.grade + Math.random()*100};
-        if (student.grade <= 0) {student.grade === 0};
+        if (student.grade <= 0) {return student.grade === 0};
         return student.grade;
     }
 };
