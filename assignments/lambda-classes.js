@@ -53,7 +53,7 @@ class Student extends Person {
     return `${student.name} has begun sprint challenge on ${subject}`
   }
   graduate() {
-    if (this.grade > 70) {
+    if (this.grade >= 70) {
       return 'you have graduated!'
     }else {
       return 'Nope. You must pass. Back to learning.'
@@ -85,7 +85,7 @@ const naruto = new Student({
   previousBackground: `Former Hokage`,
   className: `CS1337`,
   favSubjects: ['JavaScript', 'inline-block & Floats in CSS', 'NodeJs'],
-  grade: 45
+  grade: 71
 });
 
 const kakashi = new Instructor({
@@ -100,7 +100,16 @@ const kakashi = new Instructor({
 
 console.log(naruto.speak('hello'));
 console.log(kakashi.demo('wow'));
-console.log(kakashi.gradeDestroyer(naruto));
+kakashi.gradeDestroyer(naruto)
+kakashi.gradeDestroyer(naruto)
+kakashi.gradeDestroyer(naruto)
+kakashi.gradeDestroyer(naruto)
+kakashi.gradeDestroyer(naruto)
+kakashi.gradeDestroyer(naruto)
+kakashi.gradeDestroyer(naruto)
+kakashi.gradeDestroyer(naruto)
+kakashi.gradeDestroyer(naruto)
+console.log(naruto.grade)
 console.log(naruto.grade)
 console.log(naruto.grade)
 console.log(naruto.grade)
