@@ -103,7 +103,7 @@ const jeremy = new Instructor({
   specialty: 'React',
   favLanguage: 'Javascript',
   catchPhrase: `it's me, Jeremy!`
-})
+});
 
 const zach = new Instructor({
   name: 'Zach',
@@ -113,7 +113,7 @@ const zach = new Instructor({
   specialty: 'Python',
   favLanguage: 'Python',
   catchPhrase: `Woah guys it's me Zach.`
-})
+});
 
 const kelly = new Instructor({
   name: 'Kelly',
@@ -123,4 +123,31 @@ const kelly = new Instructor({
   specialty: 'Backend',
   favLanguage: 'Javascript',
   catchPhrase: `Hey everyone, it's me Kelly`
-})
+});
+
+const velma = new ProjectManager({
+  name: 'Velma',
+  age: 25,
+  location: 'Crystal Cove',
+  gender: 'F',
+  gradClassName: 'CSW 14',
+  favInstructor: 'Kelly'
+});
+
+const shaggy = new ProjectManager({
+  name: 'Shaggy',
+  age: 23,
+  location: 'Crystal Cove',
+  gender: 'M',
+  gradClassName: 'CSW 13',
+  favInstructor: 'Jeremy'
+});
+
+const daphne = new ProjectManager({
+  name: 'Daphne',
+  age: 24,
+  location: 'Crystal Cove',
+  gender: 'F',
+  gradClassName: 'CSW 14',
+  favInstructor: 'Zach'
+});
