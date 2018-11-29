@@ -48,6 +48,12 @@ class ProjectManager extends Instructor {
         this.gradClassName = projectmanagerAttributes.gradClassName;
         this.favInstructor = projectmanagerAttributes.favInstructor;
     }
+    standUp() {
+       return `${this.name} announnces to {channel}, @channel standy times!`;
+    };
+    debugsCode() {
+        return `${this.name} debugs ${student.name}'s code on {subject}`;
+    };
 }
 
 
