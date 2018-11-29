@@ -25,7 +25,21 @@ class Instructor extends Person {
        console.log(`Today we are learning about ${subject}`);
 
     }
-    grade() {
-        
+    grade(student) {
+        console.log(`${student.name} receives a perfect scoe on ${this.subject}`);
     }
+}
+
+class Student extends Instructor {
+    constructor(props) {
+        super(props);
+        this.previousBackground = props.previousBackground;
+        this.className = props.className;
+        this.favSubjects = props.favSubjects;
+
+    }
+    listSubjects(student) {
+        console.log(this.favSubjects);
+    }
+    
 }
