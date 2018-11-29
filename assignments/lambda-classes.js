@@ -25,7 +25,7 @@ class Insturctor extends Person {
   this.catchPhrase = Inattributes.catchPhrase;
   }
   demo(){
-      console.log (`Today we are learning about ${this.favLanguage}`.)
+      console.log (`Today we are learning about ${this.favLanguage}.`)
   }
   grade(student, subject){
     console.log(`${student.name} receives a perfect score on ${subject}.`)
@@ -68,7 +68,7 @@ class ProjectManager extends Instructor {
       console.log(`${this.name} announces to, @channel, standy times!`) 
   }
   debugsCode(student, subject){
-    console.log (`${this.name} debugs ${student.name}/'s code on ${subject}`.)
+    console.log (`${this.name} debugs ${student.name}/'s code on ${subject}.`)
   }
   
 }// Project Manager class
