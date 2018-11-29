@@ -15,7 +15,7 @@
   * destroy() // prototype method -> returns the string: 'Object was removed from the game.'
 */
 
-class GameObject{
+class GameObject {
   constructor(GOAttrs){
     this.createdAt = GOAttrs.createdAt;
     this.dimensions = GOAttrs.dimensions;
@@ -34,7 +34,7 @@ class GameObject{
   * should inherit destroy() from GameObject's prototype
 */
 
-class CharacterStats extends GameObject{
+class CharacterStats extends GameObject {
   constructor(characAttrs){
     super(characAttrs);
     this.healthPoints = characAttrs.healthPoints;
@@ -56,7 +56,7 @@ class CharacterStats extends GameObject{
   * should inherit takeDamage() from CharacterStats
 */
 
-class Humanoid extends CharacterStats{
+class Humanoid extends CharacterStats {
   constructor(humanAttrs){
     super(humanAttrs);
     this.team = humanAttrs.team;
@@ -145,39 +145,41 @@ class Humanoid extends CharacterStats{
   // * Give the Hero and Villains different methods that could be used to remove health points from objects which could result in destruction if health gets to 0 or drops below 0;
   // * Create two new objects, one a villain and one a hero and fight it out with methods!
 
-  function Villain(villAttrs){
-    Humanoid.call(this, villAttrs);
-    this.evilLaugh = villAttrs.evilLaugh;
-  }
+  class Villain extends Humanoid {
+    constructor(villAttrs){
+      super(villAttrs);
+      this.evilLaugh = villAttrs.evilLaugh;
+    }
 
-  Villain.prototype = Object.create(Humanoid.prototype);
-  Villain.prototype.hit = function(target){
-    const theHit = Math.floor(Math.random()*4);
-    target.healthPoints -= theHit;
-    if(target.healthPoints <= 0){
-      target.destroy();
-      return `The great hero ${target.name} has been defeated by ${this.name}, the evil villain ${this.name} says: ${this.evilLaugh}`;
-    }else if(this.healthPoints > 0){
-      return `${this.name} hits ${target.name} for ${theHit}`;
+    hit(target) {
+      const theHit = Math.floor(Math.random()*4);
+      target.healthPoints -= theHit;
+      if(target.healthPoints <= 0){
+        target.destroy();
+        return `The great hero ${target.name} has been defeated by ${this.name}, the evil villain ${this.name} says: ${this.evilLaugh}`;
+      }else if(this.healthPoints > 0){
+        return `${this.name} hits ${target.name} for ${theHit}`;
+      }
     }
   }
 
-  function Hero(heroAttrs){
-    Humanoid.call(this, heroAttrs);
-    this.catchPhrase = heroAttrs.catchPhrase;
-  }
+  class Hero extends Humanoid {
+    constructor(heroAttrs){
+      super(heroAttrs);
+      this.catchPhrase = heroAttrs.catchPhrase;
+    }
 
-  Hero.prototype = Object.create(Humanoid.prototype);
-  Hero.prototype.hit = function(target){
-    const theHit = Math.floor(Math.random()*4);
-    target.healthPoints -= theHit;
-    if(target.healthPoints <= 0){
-      target.destroy();
-      return `The evil villain ${target.name} has been vanquished by ${this.name}, the great hero ${this.name} says: ${this.catchPhrase}`;
-    }else if(this.healthPoints > 0){
-      return `${this.name} hits ${target.name} for ${theHit}`;
-    }else {
-      return '';
+    hit(target) {
+      const theHit = Math.floor(Math.random()*4);
+      target.healthPoints -= theHit;
+      if(target.healthPoints <= 0){
+        target.destroy();
+        return `The evil villain ${target.name} has been vanquished by ${this.name}, the great hero ${this.name} says: ${this.catchPhrase}`;
+      }else if(this.healthPoints > 0){
+        return `${this.name} hits ${target.name} for ${theHit}`;
+      }else {
+        return '';
+      }
     }
   }
 
