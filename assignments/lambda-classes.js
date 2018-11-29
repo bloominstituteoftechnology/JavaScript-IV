@@ -29,11 +29,16 @@ class Instructor extends Person {
 }
 
 class Student extends Person {
-    constructor(name,location, age, gender, previousBackground, className, favSubjects) {
+    constructor(name,location, age, gender, previousBackground, className, favSubjects,grade) {
         super(name,location, age, gender);
         this.previousBackground = previousBackground;
         this.className = className;
         this.favSubjects = favSubjects;
+        this.grade = 99;
+    }
+
+    randomMethod(){
+
     }
 
     listsSubjects(favSubjects) {
@@ -75,7 +80,7 @@ console.log(person.speak());
 const instructor = new Instructor("Vandam","Sweden",999,"M","Arabic","Mid food","never give up");
 console.log(instructor.speak());
 console.log(instructor.demo("Math"));
-console.log(instructor.grade("Raw3a","Programming"));
+console.log(instructor.grade(new Student("Ghizlan","IRELAND",100,"M","JAVA","JAVA"),"JAVA"));
 
 let favSbubjectArray = ["Math","Physics","Arabic","history","Astronomy"];
 const student = new Student("Brianna","Germany",1000,"M","Python","programming-III",favSbubjectArray);
