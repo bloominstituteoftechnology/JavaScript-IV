@@ -52,9 +52,28 @@ class Student extends Person {
         console.log(`${this.name} has submitted a PR for ${subject}`);
     }
     sprintChallenge(subject) {
-        console.log(`$this.name} has begun sprint challenge on ${subject}`);
+        console.log(`${this.name} has begun sprint challenge on ${subject}`);
     }
 }
+
+
+//=========== Project Manager class
+
+class ProjectManager extends Instructor {
+    constructor(pmAttributes) {
+        super(pmAttributes);
+        this.gradClassName = pmAttributes.gradClassName;
+        this.favInstructor = pmAttributes.favInstructor;
+    }
+    standUp(channel) {
+        console.log(`${this.name} announces to ${channel}, @channel time for standy times!`);
+    }
+    debugsCode(student, subject) {
+        console.log(`${this.name} debugs ${student}'s code on ${subject}`);
+    }
+}
+
+//=========== Objects
 
 const Beth = new Instructor({
     'name': 'Beth',
@@ -112,7 +131,7 @@ const Kurt = new Student({
     'favSubjects': ['JavaScript', 'HTML', 'React'],
 })
 
-const Rachel = new Student({
+const Pearl = new Student({
     'name': 'Pearl',
     'location': 'Washington, DC',
     age: 37,
@@ -128,5 +147,10 @@ const Rachel = new Student({
 
 
 
-console.log(Jack.gender);
-console.log(Jack);
+// Beth.speak();
+// console.log(Jack);
+
+// Kurt.listsSubjects();
+// Pearl.sprintChallenge('JS');
+// Rachel.PRAssignment('JavaScript IV');
+// Pearl.speak();
