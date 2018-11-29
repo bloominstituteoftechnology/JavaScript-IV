@@ -87,7 +87,7 @@ const fred = new Instructor({
 
 * Now that we have instructors and students, we'd be nowhere without our PM's
 * ProjectManagers are extensions of Instructors
-* ProjectManagers have the following uniqe props:
+* ProjectManagers have the following unique props:
   * `gradClassName`: i.e. CS1
   * `favInstructor`: i.e. Sean
 * ProjectManangers have the following Methods:
