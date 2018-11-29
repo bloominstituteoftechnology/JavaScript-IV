@@ -42,8 +42,8 @@ class Student extends Person {
         this.favSubjects = props.favSubjects;
     }
 
-    listsSubjects(subject1, subject2, subject3) {
-        return (`${this.name}'s favorite subjects are ${subject1}, ${subject2}, and ${subject3}`)
+    listsSubjects() {
+        return (`${this.name}'s favorite subjects are ${this.favSubjects[0]}, ${this.favSubjects[1]}, and ${this.favSubjects[2]}.`);
     }
     PRAssignment(subject) {
         return (`${this.name} has submitted a PR for ${subject}.`)
@@ -102,7 +102,7 @@ const thirdMuggle = new Person({
 
 const headMaster = new Instructor({
     name: 'Albus Dumbledore',
-    age: 115,
+    age: 111,
     location: 'Mould-on-the-Wold, Wizarding Village',
     gender: 'male',
     specialty: 'Spells',
@@ -112,7 +112,7 @@ const headMaster = new Instructor({
 
 const professorPotions = new Instructor({
     name: 'Severus Snape',
-    age: 38,
+    age: 34,
     location: 'Cokeworth, England',
     gender: 'male',
     specialty: 'Potions',
@@ -122,7 +122,7 @@ const professorPotions = new Instructor({
 
 const professorTransfiguration = new Instructor({
     name: 'Minerva McGonagall',
-    age: 72,
+    age: 68,
     location: 'Caithness, Scottish Highlands',
     gender: 'female',
     specialty: 'Transfiguration',
@@ -140,11 +140,11 @@ const professorTransfiguration = new Instructor({
 
 const firstStudent = new Student({
     name: 'Harry Potter',
-    age: 18,
+    age: 14,
     location: 'Little Whinging, England',
     gender: 'male',
     previousBackground: 'Half-Blood',
-    className: 'Class of 1999',
+    className: 'Class\'91',
     favSubjects: [
         'Flying',
         'Defence Against the Dark Arts', 
@@ -152,18 +152,84 @@ const firstStudent = new Student({
     ],
 });
 
+const secondStudent = new Student({
+    name: 'Ronald Weasley',
+    age: 14,
+    location: 'The Burrow, England',
+    gender: 'male',
+    previousBackground: 'Pure-Blood',
+    className: 'Class\'91',
+    favSubjects: [
+        'Defence Against the Dark Arts', 
+        'Flying',
+        'Charms'
+    ],
+});
+
+const thirdStudent = new Student({
+    name: 'Hermoine Granger',
+    age: 14,
+    location: 'Hampstead, England',
+    gender: 'female',
+    previousBackground: 'Muggle-Born',
+    className: 'Class\'91',
+    favSubjects: [
+        'Charms',
+        'History of Magic', 
+        'Potions'
+    ],
+});
+
 /*testers*/
-console.log(firstStudent);
-console.log(firstStudent.speak()); 
+// console.log(thirdStudent);
+// console.log(thirdStudent.speak()); 
+// console.log(thirdStudent.listsSubjects()); 
+// console.log(thirdStudent.PRAssignment('Potions')); 
+// console.log(thirdStudent.sprintChallenge('Potions')); 
 
 
+// === Project Managers ===
 
-// const headMaster = new Instructor({
-//     name: 'Albus Dumbledore',
-//     age: 115,
-//     location: 'Mould-on-the-Wold, Wizarding Village',
-//     gender: 'male',
-//     specialty: 'Spells',
-//     favLanguage: 'Proper English',
-//     catchPhrase: 'Happiness can be found in the darkest of times, if one only remembers to turn on the light.',
-// });
+const firstPM = new ProjectManager({
+    name: 'Percy Weasley',
+    age: 18,
+    location: 'The Burrow, England',
+    gender: 'male',
+    specialty: 'Assisting Ministry of Magic',
+    favLanguage: 'Common English',
+    catchPhrase: 'I happen to be Head Boy.',
+    gradClassName: 'Class\'94',
+    favInstructor: 'Albus Dumbledore',
+});
+
+const secondPM = new ProjectManager({
+    name: 'Alecto Carrow',
+    age: 23,
+    location: 'The British Isles',
+    gender: 'female',
+    specialty: 'Deputy Headmistress',
+    favLanguage: 'Proper English',
+    catchPhrase: 'Think your little jokes\'ll help you on your death bed, then?.',
+    gradClassName: 'Class\'91',
+    favInstructor: 'Severus Snape',
+});
+
+const thirdPM = new ProjectManager({
+    name: 'Amycus Carrow',
+    age: 21,
+    location: 'The British Isles',
+    gender: 'male',
+    specialty: 'Deputy Headmaster',
+    favLanguage: 'Proper English',
+    catchPhrase: 'He\'s not long for this world anyway, if you ask me!',
+    gradClassName: 'Class\'91',
+    favInstructor: 'Severus Snape',
+});
+
+/*testers*/
+console.log(firstPM);
+console.log(firstPM.speak()); 
+console.log(firstPM.demo('Transfiguration')); 
+console.log(firstPM.grade(thirdStudent, 'Transfiguration')); 
+console.log(firstPM.standUp('Potions12')); 
+console.log(firstPM.debugdsCode(secondStudent, 'Charms')); 
