@@ -1,16 +1,3 @@
-// CODE here for your Lambda Classes
-class Person{
-    constructor (attributes){
-        this.name = attributes.name;
-        this.age = attributes.age;
-        this.location = attributes.location;
-        this.gender = attributes.gender; 
-    }
-    speak(){
-        console.log(`Hello my name is ${this.name}, I am from ${this.location}`)
-    }
-}
-
 class Instructors extends Person{
     constructor (attributes){
         super(attributes);
@@ -18,10 +5,10 @@ class Instructors extends Person{
         this.favLanguage = attributes.favLanguage;
         this.catchPhrase = attributes.catchPhrase;
     }
-    demo(Subject){
+    demo(subject){
         console.log(`Today we are learning about ${subject}.`)
     }
-    grade(Subject){
+    grade(subject){
         console.log(`${this.name} receives a perfect score on ${subject}`)
     }
 }
@@ -37,10 +24,10 @@ class Student extends Person{
         console.log(this.favSubject)
     }
     PRAssignment(subject){
-        console.log(`${student.name} has submitted a PR for ${subject}.`)
+        console.log(`${Student.name} has submitted a PR for ${subject}.`)
     }
     sprintChallenge(subject){
-        console.log(`${student.name} has begun sprint challenge on ${subject}.`)
+        console.log(`${Student.name} has begun sprint challenge on ${subject}.`)
     }
 }
 
@@ -53,7 +40,7 @@ class PM extends Instructors{
     standUp(name){
         console.log(`${name} announces to channel, @Channel stand times!`)
     }
-    debugsCode(name,subject){
-        console.log(`${name}debugs ${student.name}'s code on ${subject}`)
+    debugsCode(name,studentName,subject){
+        console.log(`${name}debugs ${studentName}'s code on ${subject}`)
     }
 }
