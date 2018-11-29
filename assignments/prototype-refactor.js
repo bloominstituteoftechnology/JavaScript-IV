@@ -40,14 +40,15 @@ GameObject.prototype.destroy = function () {
   * should inherit destroy() from GameObject's prototype
 */
 
-function CharacterStats(characterStats) {
-  GameObject.call(this, characterStats);
-  this.healthPoints = characterStats.healthPoints,
-  this.name = characterStats.name
-}
-CharacterStats.prototype = Object.create(GameObject.prototype);
-CharacterStats.prototype.takeDamage = function () {
-  return `${this.name} took damage.`;
+class CharacterStats extends GameObject {
+  constructor(characterStats) {
+    super(characterStats);
+    this.healthPoints = characterStats.healthPoints;
+    this.name = characterStats.name;
+  }
+  takeDamage () {
+    return `${this.name} took damage.`;
+  }
 }
 
 /*
@@ -60,16 +61,18 @@ CharacterStats.prototype.takeDamage = function () {
   * should inherit takeDamage() from CharacterStats
 */
  
-function Humanoid(humanoidStats) {
-  CharacterStats.call(this, humanoidStats);
-  this.team = humanoidStats.team;
-  this.weapons = humanoidStats.weapons;
-  this.language = humanoidStats.language;
+class Humanoid extends CharacterStats {
+  constructor(humanoidStats) {
+    super(humanoidStats);
+    this.team = humanoidStats.team;
+    this.weapons = humanoidStats.weapons;
+    this.language = humanoidStats.language;
+  }
+  greet () {
+    return `${this.name} offers a greeting in ${this.language}.`;
+  }
 }
-Humanoid.prototype = Object.create(CharacterStats.prototype);
-Humanoid.prototype.greet = function () {
-  return `${this.name} offers a greeting in ${this.language}.`;
-}
+
 /*
   * Inheritance chain: GameObject -> CharacterStats -> Humanoid
   * Instances of Humanoid should have all of the same properties as CharacterStats and GameObject.
@@ -81,33 +84,27 @@ Humanoid.prototype.greet = function () {
   // * Give the Hero and Villains different methods that could be used to remove health points from objects which could result in destruction if health gets to 0 or drops below 0;
   // * Create two new objects, one a villain and one a hero and fight it out with methods!
 
-function Villain(villainStats) {
-  Humanoid.call(this, villainStats);
-  this.attack = villainStats.attack;
-  this.atkPts = villainStats.atkPts;
+class Villain extends Humanoid {
+  constructor(villainStats) {
+    super(villainStats);
+    this.attack = villainStats.attack;
+    this.atkPts = villainStats.atkPts;
+  }
+  doAttack(victim) {
+    return attack(this, victim)
+  }
 }
-Villain.prototype = Object.create(Humanoid.prototype);
-Villain.prototype.doAttack = function (victim) {return attack(this, victim)}
-// doEvilAttack = function (victim) {
-//   const randWeapon = randFromArray(this.weapons);
-//   tmp = victim.healthPoints;
-//   victim.healthPoints -= this.evilAtkPts;
-//   return `${this.name} used a ${randWeapon} to do ${this.evilAttack} on ${victim.name}! ${victim.name}'s HP went from ${tmp} to ${victim.healthPoints}`;
-// }
 
-function Hero(heroStats) {
-  Humanoid.call(this, heroStats);
-  this.attack = heroStats.attack;
-  this.atkPts = heroStats.atkPts;
+class Hero extends Humanoid {
+  constructor(heroStats) {
+    super(heroStats);
+    this.attack = heroStats.attack;
+    this.atkPts = heroStats.atkPts;
+  }
+  doAttack(victim) {
+    return attack(this, victim)
+  }
 }
-Hero.prototype = Object.create(Humanoid.prototype);
-Hero.prototype.doAttack = function (victim) {return attack(this, victim)};
-// doVirtuousAttack = function (victim) {
-//   const randWeapon = randFromArray(this.weapons);
-//   tmp = victim.healthPoints;
-//   victim.healthPoints -= this.virtuousAtkPts;
-//   return `${this.name} used a ${randWeapon} to do ${this.virtuousAttack} to ${victim.name}! ${victim.name}'s HP went from ${tmp} to ${victim.healthPoints}`;
-// }
 
 function randFromArray(arr) {
   return arr[Math.floor(Math.random() * arr.length)];
@@ -236,11 +233,14 @@ function attack(attacker, victim) {
 
   while (evilPerson.healthPoints > 0 && virtuousIndividual.healthPoints > 0) {
     
-    console.log(evilPerson.doAttack(virtuousIndividual));if(virtuousIndividual.healthPoints <= 0) {
+    console.log(evilPerson.doAttack(virtuousIndividual));
+    if(virtuousIndividual.healthPoints <= 0) {
       console.log(virtuousIndividual.destroy());
+      return;
     }
     console.log(virtuousIndividual.doAttack(evilPerson));
     if(evilPerson.healthPoints <= 0){
       console.log(evilPerson.destroy());
+      return;
     }
   }
