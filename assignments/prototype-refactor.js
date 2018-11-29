@@ -15,13 +15,15 @@
   * destroy() // prototype method -> returns the string: 'Object was removed from the game.'
 */
 
-function GameObject(GOAttrs){
-  this.createdAt = GOAttrs.createdAt;
-  this.dimensions = GOAttrs.dimensions;
-}
+class GameObject{
+  constructor(GOAttrs){
+    this.createdAt = GOAttrs.createdAt;
+    this.dimensions = GOAttrs.dimensions;
+  }
 
-GameObject.prototype.destroy = function(){
-  return `${this.name} was removed from the game.`;
+  destroy() {
+    return `${this.name} was removed from the game.`;
+  }
 }
 
 /*
@@ -32,15 +34,17 @@ GameObject.prototype.destroy = function(){
   * should inherit destroy() from GameObject's prototype
 */
 
-function CharacterStats(characAttrs){
-  GameObject.call(this, characAttrs);
-  this.healthPoints = characAttrs.healthPoints;
-  this.name = characAttrs.name;
-}
+class CharacterStats extends GameObject{
+  constructor(characAttrs){
+    super(characAttrs);
+    GameObject.call(this, characAttrs);
+    this.healthPoints = characAttrs.healthPoints;
+    this.name = characAttrs.name;
+  }
 
-CharacterStats.prototype = Object.create(GameObject.prototype);
-CharacterStats.prototype.takeDamage = function(){
-  return `${this.name} took damage.`
+  takeDamage() {
+    return `${this.name} took damage.`
+  }
 }
 
 /*
