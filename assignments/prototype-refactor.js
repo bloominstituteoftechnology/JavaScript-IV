@@ -27,7 +27,7 @@ class GameObject {
         this.createdAt = attributes.createdAt;
         this.dimensions = attributes.dimensions;
     }
-    destroy = function(){
+    destroy(){
       return `${this.name} was removed from game`;
     }
   }
@@ -47,7 +47,7 @@ class GameObject {
         this.name = attributes.name;
     }
 
-    takeDamage = function (damage) {
+    takeDamage(damage) {
       this.healthPoints -= damage;
       if(this.healthPoints <= 0){
         console.log(`${this.name} died!`);
@@ -74,7 +74,7 @@ class GameObject {
         this.weapons = attributes.weapons;
         this.language = attributes.language;
     }
-    greet = function() {
+    greet() {
       return `${this.name} offers a greeting in ${this.language}.`
     }
   }
@@ -159,7 +159,7 @@ class GameObject {
       constructor(attributes){
           super(attributes);     
       }
-      murderify = function (victim) {
+      murderify(victim) {
         const damage = 1 + Math.floor(Math.random() * 8);
         console.log(victim.takeDamage(damage));
         return `${this.name} used Murderify on ${victim.name} for ${damage} damage!`;
@@ -171,7 +171,7 @@ class GameObject {
       constructor(attributes){
           super(attributes);
       }
-      onePunch = function (victim) {
+      onePunch(victim) {
         const damage = 1 + Math.floor(Math.random() * 8);
         console.log(victim.takeDamage(damage));
         return `${this.name} used One Punch on ${victim.name} for ${damage} damage!`;
