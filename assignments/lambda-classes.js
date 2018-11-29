@@ -22,7 +22,7 @@ class Person {
 
 //==================================== Instructor Class =====================================
 
-class Instructors extends Person {
+class Instructor extends Person {
   constructor(instAttributes) {
     super(instAttributes);
     this.specialty = instAttributes.specialty;
@@ -37,9 +37,31 @@ class Instructors extends Person {
   }
 }
 
+//------------------------------ Instructor Objects
+
+const ted = new Instructor({
+  name: "Ted",
+  location: "Salt Lake City",
+  age: 40,
+  gender: "Male",
+  specialty: "Front-end",
+  favLanguage: "JavaScript",
+  catchPhrase: `Don't forget the homies`
+});
+
+const kim = new Instructor({
+  name: "Kim",
+  location: "New York City",
+  age: 37,
+  gender: "Female",
+  specialty: "Back-end",
+  favLanguage: "Python",
+  catchPhrase: `It's freaking cool`
+});
+
 //==================================== Student Class =====================================
 
-class Students extends Person {
+class Student extends Person {
   constructor(studAttributes) {
     super(studAttributes);
     this.previousBackground = instAttributes.previousBackground;
@@ -56,6 +78,28 @@ class Students extends Person {
     console.log(`${this.name} has begun sprint challenge on ${subject}.`);
   }
 }
+
+//------------------------------ Student Objects
+
+const mark = new Student({
+  name: "Mark",
+  location: "San Francisco",
+  age: 22,
+  gender: "Male",
+  previousBackground: "College Student",
+  className: "FSW 16",
+  favsubjects: "HTML"
+});
+
+const sarah = new Student({
+  name: "Sarah",
+  location: "Houston",
+  age: 29,
+  gender: "Female",
+  previousBackground: "Accountant",
+  className: "FSW 16",
+  favsubjects: "CSS"
+});
 
 //==================================== Project Manager Class =====================================
 
@@ -74,3 +118,29 @@ class ProjectManager extends Instructors {
     console.log(`${this.name} debugs ${this.name}'s code on ${subject}`);
   }
 }
+
+//------------------------------ Project Manager Objects
+
+const Dev = new ProjectManager({
+  name: "Dev",
+  location: "San Jose",
+  age: 35,
+  gender: "Male",
+  specialty: "Front-end",
+  favLanguage: "HTML",
+  catchPhrase: `Think outside the box`,
+  gradClassName: "CS1",
+  favInstructor: "Jen"
+});
+
+const John = new ProjectManager({
+  name: "Kim",
+  location: "Illinois",
+  age: 38,
+  gender: "Female",
+  specialty: "Back-end",
+  favLanguage: "Ruby",
+  catchPhrase: `It's freaking cool`,
+  gradClassName: "CS1",
+  favInstructor: "Debugger is your friend"
+});
