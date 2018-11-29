@@ -38,6 +38,9 @@ class Instructor extends Person {
     grade(student, str) {
         return `${student.name} receives a perfect score on ${str}.`;
     }
+    gradedScore(student) {
+       return student.grade - Math.ceil(Math.random()*20-10);
+    }
 }
 
 
@@ -60,6 +63,7 @@ class Student extends Person {
         this.previousBackground = studentAttrs.previousBackground;
         this.className = studentAttrs.className;
         this.favSubjects = studentAttrs.favSubjects;
+        this.grade = Math.ceil(Math.random()*100);
     }
 
     listsSubjects () {
@@ -72,6 +76,14 @@ class Student extends Person {
 
     sprintChallenge(str) {
         return `${this.name} has begun the sprint challenge on ${str}.`;
+    }
+
+    graduate(){
+        if (this.grade > 70) {
+        return `${this.name} is ready to graduate from Lambda School! Bring on the party!`}
+        else if (this.grade < 70) {
+        return `${this.name} needs to join an MBP and work out the kinks before graduating.`
+        }
     }
 }
 
@@ -154,7 +166,7 @@ const christie = new Student({
     gender: 'Female',
     previousBackground: 'Barista',
     className: 'FSW16',
-    favSubjects: [`JavaScript`, `not HTML`, `not CSS`, `probably going to like React`]
+    favSubjects: [`JavaScript`, `not HTML`, `not CSS`, `probably going to like React`],
 });
 
 const rhiannon = new Student({
@@ -169,11 +181,11 @@ const rhiannon = new Student({
 // #### Stretch Problem
 
 // * Extend the functionality of the Student by adding a prop called grade and setting it equal to a number between 1-100.
-// * Now that our students have a grade build out a method on the Instructor (this will be used by _BOTH_ instructors and PM's) that will randomly add or subtract points to a student's grade. _Math.random_ will help.
+// * Now that our students have a grade build out a method on the Instructor (this will be used by _BOTH_ instructors and PM's) 
+// that will randomly add or subtract points to a student's grade. _Math.random_ will help.
 // * Add a graduate method to a student.
-//   * This method, when called, will check the grade of the student and see if they're ready to graduate from Lambda School
-//   * If the student's grade is above a 70% let them graduate! Otherswise go back to grading their assignments to increase their score.
-
+// * This method, when called, will check the grade of the student and see if they're ready to graduate from Lambda School
+// * If the student's grade is above a 70% let them graduate! Otherswise go back to grading their assignments to increase their score.
 
 console.log(josh.grade(christie, 'JavaScript'));
 console.log(ryan.catchPhrase);
@@ -184,3 +196,8 @@ console.log(rhiannon.PRAssignment('JavaScript'));
 console.log(rhiannon.speak());
 console.log(josh.demo('refactoring prototypes'));
 console.log(rhiannon.sprintChallenge('JavaScript IV'));
+console.log(christie.grade);
+console.log(rhiannon.grade);
+console.log(marious.gradedScore(christie));
+console.log(rhiannon.graduate());
+console.log(christie.graduate());
