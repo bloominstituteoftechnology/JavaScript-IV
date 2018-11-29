@@ -37,7 +37,7 @@ class Student extends Person {
   }
 
   listSubjects() {
-    this.favSubjects.forEach(subject => console.log(subject));
+    this.favSubjects.forEach((subject, index) => console.log(`${index+1}: ${subject}`));
   }
 
   PRAssignment(subject) {
@@ -151,3 +151,17 @@ const daphne = new ProjectManager({
   gradClassName: 'CSW 14',
   favInstructor: 'Zach'
 });
+
+console.log(fred.speak());
+console.log(kelly.speak());
+console.log(shaggy.speak());
+
+fred.listSubjects();
+console.log(fred.PRAssignment('Javascript-III'));
+console.log(fred.sprintChallenge('Javascript'));
+
+console.log(kelly.demo('React'));
+console.log(kelly.grade(scooby, 'CSS'));
+
+console.log(shaggy.standUp('fsw16_Shaggy'));
+console.log(shaggy.debugsCode(fred,'Javascript'));
