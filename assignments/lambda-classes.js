@@ -20,16 +20,16 @@ class Instructor extends Person {
     this.catchPhrase = instructAtr.catchPhrase;
   }
   demo(subject) {
-    console.log(`Today we are learning about ${subject}`)
+    return `Today we are learning about ${subject}`
   }
   grade(student, subject) {
-    console.log(`${student.name} receives a perfect score on ${subject}`)
+     return `${student.name} receives a perfect score on ${subject}`
   }
-  gradeDestroyer() {
+  gradeDestroyer(student) {
     if (Math.floor(Math.random()*10) +1 < 6) {
-      this.grade--;
+      student.grade--;
     } else {
-      this.grade++;
+      student.grade++;
     }
   }
 }
@@ -44,13 +44,13 @@ class Student extends Person {
     this.grade = studentAtr.grade;
   }
   listsSubjects() {
-    console.log(this.favSubjects.forEach((item)=>item))
+    return this.favSubjects.forEach((item)=>item)
   }
   PRAssignment(subject) {
-    console.log(`${student.name} has submitted a PR for ${subject}`)
+    return `${student.name} has submitted a PR for ${subject}`
   }
   sprintChallenge(subject) {
-    console.log(`${student.name} has begun sprint challenge on ${subject}`)
+    return `${student.name} has begun sprint challenge on ${subject}`
   }
   graduate() {
     if (this.grade > 70) {
@@ -88,3 +88,20 @@ const naruto = new Student({
   grade: 45
 });
 
+const kakashi = new Instructor({
+  name: `Kakashi Sensei`,
+  age: 60,
+  location: `Konoha`,
+  gender:`Male`,
+  specialty: `Copying Answers`,
+  favLanguage:`Assembly`,
+  catchPhrase: `I like cheese.`
+});
+
+console.log(naruto.speak('hello'));
+console.log(kakashi.demo('wow'));
+console.log(kakashi.gradeDestroyer(naruto));
+console.log(naruto.grade)
+console.log(naruto.grade)
+console.log(naruto.grade)
+console.log(naruto.graduate())
