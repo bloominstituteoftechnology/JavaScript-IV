@@ -25,6 +25,18 @@ class Instructor extends Person {
     grade(student, subject) {
         console.log(`${student.name} receives a perfect score on ${subject}`);
     }
+    giveGrade(student) {
+        const pointsGiven = Math.ceil(Math.random() * 200 - 100);
+        student.grade += pointsGiven;
+        if (student.grade > 100) {
+            student.grade = 100;
+        }
+        if (student.grade < 1) {
+            student.grade = 1;
+        }
+        console.log(`${this.name} ${pointsGiven >= 0 ? "added" : "deducted"} ${Math.abs(pointsGiven)} for ${student.name}'s grade.`);
+        console.log(`${student.name}'s grade is now ${student.grade}`);
+    }
 }
 
 class Student extends Person {
@@ -33,6 +45,7 @@ class Student extends Person {
         this.previousBackground = attributes.previousBackground;
         this.className = attributes.className;
         this.favSubjects = attributes.favSubjects;
+        this.grade = attributes.grade;
     }
     listsSubjects() {
         console.log(`${this.name}'s favorite subjects:\n${this.favSubjects.join("\n")}`);
