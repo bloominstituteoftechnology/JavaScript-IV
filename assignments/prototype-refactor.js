@@ -35,7 +35,7 @@ Prototype Refactor
       }
 
       takeDamage() {
-        return `${this.name} took damage.`
+        return `${this.name} took damage.`;
       }
   }
   
@@ -51,7 +51,7 @@ Prototype Refactor
         this.language = humAttr.language;
       }
       greet(){
-        return `${this.name} offers a greeting in ${this.language}.`
+        return `${this.name} offers a greeting in ${this.language}.`;
       }
   }
   
@@ -147,16 +147,16 @@ Prototype Refactor
       language: 'Elvish',
     });
   
-    console.log(mage.createdAt); // Today's date
-    console.log(archer.dimensions); // { length: 1, width: 2, height: 4 }
-    console.log(swordsman.healthPoints); // 15
-    console.log(mage.name); // Bruce
-    console.log(swordsman.team); // The Round Table
-    console.log(mage.weapons); // Staff of Shamalama
-    console.log(archer.language); // Elvish
-    console.log(archer.greet()); // Lilith offers a greeting in Elvish.
-    console.log(mage.takeDamage()); // Bruce took damage.
-    console.log(swordsman.destroy()); // Sir Mustachio was removed from the game.
+    // console.log(mage.createdAt); // Today's date
+    // console.log(archer.dimensions); // { length: 1, width: 2, height: 4 }
+    // console.log(swordsman.healthPoints); // 15
+    // console.log(mage.name); // Bruce
+    // console.log(swordsman.team); // The Round Table
+    // console.log(mage.weapons); // Staff of Shamalama
+    // console.log(archer.language); // Elvish
+    // console.log(archer.greet()); // Lilith offers a greeting in Elvish.
+    // console.log(mage.takeDamage()); // Bruce took damage.
+    // console.log(swordsman.destroy()); // Sir Mustachio was removed from the game.
   
     const darkWarrior = new Villian({
       createdAt: new Date(),
@@ -196,6 +196,6 @@ Prototype Refactor
       armorPierce: 5
     });
   
-    console.log(warrior.weaponSlash(darkWarrior));
-    console.log(darkWarrior.shadowAttack(warrior));
-    console.log(warrior.weaponSlash(darkWarrior));
+    // console.log(warrior.weaponSlash(darkWarrior));
+    // console.log(darkWarrior.shadowAttack(warrior));
+    // console.log(warrior.weaponSlash(darkWarrior));
