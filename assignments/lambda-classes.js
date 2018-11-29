@@ -10,4 +10,25 @@ class Person{
     }
 }
 
+class Instructor extends Person{
+    constructor(instructorInfo){
+        super(instructorInfo);
+        
+        this.specialty = instructorInfo.specialty;
+        this.favLanguage = instructorInfo.favLanguage;
+        this.catchPhrase = instructorInfo.catchPhrase;
+     }
+  
+     demo(subject){
+        return `Today we learned about ${subject}.`;
+    }
+
+    grade(student, subject){
+        return `${student.name} receives a perfect score on ${subject}`;
+    }
+
+}
+
+
+
 
