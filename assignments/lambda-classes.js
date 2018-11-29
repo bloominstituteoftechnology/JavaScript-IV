@@ -91,11 +91,82 @@ class ProjectManagers extends Instructor{
         this.favInstructor = props.favInstructor
     }
     standUp(channel){
-        console.log(`${this.name} announces to ${channel}, @channel standy times!`)
+        console.log(`${this.name} announces to ${channel}, @channel standy times!`);
     }
     debugsCode(student, subject){
         console.log(`${this.name} debugs ${student.name}'s code on ${subject}`);
     }
 
 }
+// Instructors:
+const instructor = new Instructor({
+    name: 'Instructor',
+    location: 'Bedrock',
+    age: 37,
+    gender: 'male',
+    favLanguage: 'JavaScript',
+    specialty: 'Front-end',
+    catchPhrase: `Don't forget the homies`
+  });
+  const instructor2 = new Instructor({
+    name: 'Instructor2',
+    location: 'LA',
+    age: 35,
+    gender: 'female',
+    favLanguage: 'JavaScript',
+    specialty: 'Back-end',
+    catchPhrase: `Second instructors test phrase!`
+  });
 
+  // Students:
+  const student = new Student({
+    name: 'Student',
+    location: 'New York',
+    age: 22,
+    gender: 'male',
+    previousBackground: "Runner",
+    className: "FSW16",
+    favSubjects: ['Html', 'CSS', 'JavaScript']
+  });
+  const student2 = new Student({
+    name: 'Student2',
+    location: 'Saetle',
+    age: 25,
+    gender: 'female',
+    previousBackground: "Dancer",
+    className: "FSW16",
+    favSubjects: ['Html', 'CSS', 'JavaScript']
+  });
+// Project Managers:
+const pmanager = new ProjectManagers({
+    name: 'ProjectManager',
+    location: 'Florida',
+    age: 40,
+    gender: 'male',
+    favLanguage: 'JavaScript',
+    specialty: 'Front-end',
+    catchPhrase: 'PM test phrase!',
+    gradClassName: "FSW16",
+    favInstructor: 'Josh'
+});
+const pmanager2 = new ProjectManagers({
+    name: 'ProjectManager',
+    location: 'Florida',
+    age: 40,
+    gender: 'male',
+    favLanguage: 'JavaScript',
+    specialty: 'Front-end',
+    catchPhrase: 'PM test phrase!',
+    gradClassName: "FSW16",
+    favInstructor: 'Sean'
+});
+
+  console.log(instructor.speak());
+  console.log(instructor.demo("JavaScript"));
+  console.log(pmanager.speak());
+  console.log(student.speak());
+  console.log(student.PRAssignment("JavaScript"));
+  console.log(pmanager.standUp("FSW16"));
+  console.log(pmanager.debugsCode(student, "JavaScript"));
+  console.log(instructor.grade(student, "JavaScript"));
+  
