@@ -36,7 +36,7 @@ class Students extends Person{
         this.favSubjects = studentAttrs.favSubjects;
     }
     listSubjects(){
-        console.log(${favSubjects});
+        console.log(`${favSubjects}`);
     }
     PRAssignment(subject){
         console.log(`${student.name} has submitted a PR for ${subject}`);
@@ -49,6 +49,14 @@ class Students extends Person{
 // Project Managers - Grandchild to Instructors
 class ProjectManagers extends Instructors{
     constructor(pmAttrs){
-        super()
+        super(pmAttrs);
+        this.gradClassName = pmAttrs.gradClassName;
+        this.favInstructor = pmAttrs.favInstructor;
+    }
+    standup(channel){
+        console.log(`${this.name} annouces to ${channel}, @channel standy times!`);
+    }
+    debugsCode(student, subject){
+        console.log(`${this.name} debug ${student.name}'s code on ${subject}.`)
     }
 }
