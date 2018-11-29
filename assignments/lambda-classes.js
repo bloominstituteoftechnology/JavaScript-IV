@@ -26,6 +26,13 @@ class Instructor extends Person {
   grade(student, subject) {
     return `${student.name} receives a perfect score on ${subject}`;
   }
+
+  gradeThis(student, subject) {
+    const theGrade = (Math.floor(Math.random()*40)+1)-20;
+    const oldGrade = student.grade;
+    student.grade += theGrade;
+    return `${this.name} gave ${student.name} a ${theGrade} on their ${subject} assignment. ${student.name}'s grade was: ${oldGrade} and now it is: ${student.grade}`;
+  }
 }
 
 class Student extends Person {
@@ -34,6 +41,8 @@ class Student extends Person {
     this.previousBackground = studentAttrs.previousBackground;
     this.className = studentAttrs.className;
     this.favSubjects = studentAttrs.favSubjects;
+    this.grade = studentAttrs.grade;
+    this.weeks = studentAttrs.weeks;
   }
 
   listSubjects() {
@@ -46,6 +55,15 @@ class Student extends Person {
 
   sprintChallenge(subject) {
     return `${this.name} has begun sprint challenge on ${subject}`;
+  }
+
+  graduate(){
+    if(this.grade >= 70){
+      return `${this.name} has graduated with a grade of ${this.grade} after ${this.weeks} weeks!`;
+    }else{
+      this.weeks++;
+      return `${this.name} is not elligible to graduate with ${this.gender === 'M' ? 'his' : 'her'} current grade of ${this.grade}`;
+    }
   }
 }
 
@@ -72,7 +90,9 @@ const nick = new Student({
   gender: 'M',
   previousBackground: 'UX/UI Work',
   className: 'FSW 16',
-  favSubjects: ['HTML', 'CSS', 'JavaScript']
+  favSubjects: ['HTML', 'CSS', 'JavaScript'],
+  grade: Math.floor(Math.random()*30)+1,
+  weeks: 0
 });
 
 const fred = new Student({
@@ -82,7 +102,9 @@ const fred = new Student({
   gender: 'M',
   previousBackground: 'Mystery Solving',
   className: 'FSW 16',
-  favSubjects: ['HTML', 'CSS', 'JavaScript', 'Monster Catching']
+  favSubjects: ['HTML', 'CSS', 'JavaScript', 'Monster Catching'],
+  grade: Math.floor(Math.random()*30)+1,
+  weeks: 0
 });
 
 const scooby = new Student({
@@ -92,7 +114,9 @@ const scooby = new Student({
   gender: 'M',
   previousBackground: 'Eating Scooby Snacks',
   className: 'FSW 16',
-  favSubjects: ['HTML', 'CSS', 'JavaScript', 'Eating Scooby Snacks']
+  favSubjects: ['HTML', 'CSS', 'JavaScript', 'Eating Scooby Snacks'],
+  grade: Math.floor(Math.random()*30)+1,
+  weeks: 0
 });
 
 const jeremy = new Instructor({
@@ -165,3 +189,10 @@ console.log(kelly.grade(scooby, 'CSS'));
 
 console.log(shaggy.standUp('fsw16_Shaggy'));
 console.log(shaggy.debugsCode(fred,'Javascript'));
+
+const randSubs = ['Javascript', 'React', 'Html', 'CSS', 'Python', 'Computer Science', 'MYSQL', 'Back End', 'Front End'];
+
+while(scooby.grade < 70){
+  console.log(shaggy.gradeThis(scooby, randSubs[Math.floor(Math.random()*randSubs.length)]));
+  console.log(scooby.graduate());
+}
