@@ -45,6 +45,20 @@ class Student extends Person {
   }
 }
 
+  class ProjectManager extends Instructor {
+    constructor(ProjectManagerAttrs) {
+      super(ProjectManagerAttrs);
+      this.gradClassName = ProjectManagerAttrs.gradClassName;
+      this.favInstructor = ProjectManagerAttrs.favInstructor;
+    }
+    standup(channel) {
+      return `${this.name} announces to ${channel}, @channel stand up time!`;
+    }
+    debugsCode(student, subject) {
+      return `${this.name} debugs ${student.name}'s code on ${subject}`;
+    }
+  }
+
 
 
 
@@ -70,6 +84,20 @@ const scott = new Student ({
   favSubjects: "JavaScript"
 })
 
+const marious = new ProjectManager ({
+  name: 'Marious',
+  location: 'Alabama',
+  age: 28,
+  gender: 'male',
+  favLanguage: 'JavaScript',
+  specialty: 'Web stores',
+  catchPhrase: "Roll Tide",
+  gradClassName: "CS10",
+  favInstructor: "Josh Knell"
+})
+
+
+
 console.log(fred.name);
 console.log(fred.demo("CSS"));
 console.log(fred.grade(scott, "HTML"));
@@ -77,3 +105,7 @@ console.log(scott.name);
 console.log(scott.listsSubjects());
 console.log(scott.PRAssignment("JS IV"));
 console.log(scott.sprintChallenge("JavaScript"));
+console.log(marious.favInstructor);
+console.log(marious.catchPhrase);
+console.log(marious.standup("FSW16 Marious"));
+console.log(marious.debugsCode(scott, "Javascript"));
