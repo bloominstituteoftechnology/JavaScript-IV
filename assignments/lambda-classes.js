@@ -27,7 +27,7 @@ class Instructor extends Person {
 	}
 
 	grade(studentObject, subject) {
-		return `${this.name} recieves a perfect score on ${this.subject}`;
+		return `${studentObject.name} recieves a perfect score on ${subject}`;
 	}
 }
 
@@ -42,7 +42,7 @@ class Student extends Person {
 
 	listSubjects() {
 		this.favSubjects.forEach(function(elem) {
-			return elem;
+			console.log(elem);
 		});
 	}
 
@@ -64,11 +64,11 @@ class ProjectManager extends Instructor {
 	}
 
 	standUp(channel) {
-		return `${this.name} announces to ${channel}, @${channel} standby times!`;
+		return `${this.name} announces to ${channel}, @ 4:15pm!`;
 	}
 
 	debugsCode(studentObject, subject) {
-		return `${this.name} debugs ${student.name}\'s code on ${subject}`;
+		return `${this.name} debugs ${studentObject.name}\'s code on ${subject}`;
 	}
 }
 
@@ -89,7 +89,7 @@ const imon = new Student({
 	gender: 'male',
 	previousBackground: 'mechanic',
 	className: 'fsw16',
-	favSubjects: 'javascript'
+	favSubjects: [ 'Html', 'CSS', 'JavaScript' ]
 });
 
 const jerry = new ProjectManager({
@@ -104,4 +104,11 @@ const jerry = new ProjectManager({
 	favInstructor: 'Fred'
 });
 
-console.log(fred.demo('JavaScript'));
+console.log(imon.speak());
+console.log(fred.demo('javascript'));
+console.log(fred.grade(imon, 'javascript'));
+console.log(imon.listSubjects());
+console.log(imon.PRAssignment('HTML'));
+console.log(imon.sprintChallenge('javascript fundamentals'));
+console.log(jerry.standUp('channel'));
+console.log(jerry.debugsCode(imon, 'javascript'));
