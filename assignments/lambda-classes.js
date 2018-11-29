@@ -26,6 +26,19 @@ class Instructors extends Person{
     grade(student, subject){
         console.log(`${student.name} receives a perfect score on ${subject}`);
     }
+    score(student){
+        let score = student.grade();
+        if(score > 80){
+            let random = Math.floor(Math.random() * Math.floor(10));
+            score += random
+            console.log(`Nice job on the assignment ${student.name}. You've recieved an added ${random} points to bring you grade to ${score}. \n Keep up the nice work!`)
+        } 
+        else{
+            let random = Math.floor(Math.random() * Math.floor(20));
+            score -= random
+            console.log(`Not great work today ${student.name}. You're losing ${random} points to bring you grade to ${score}. \n You can do better!`)
+        } 
+    }
 }
 // Students - Child 
 class Students extends Person{
@@ -34,6 +47,7 @@ class Students extends Person{
         this.previousBackground = studentAttrs.previousBackground;
         this.className = studentAttrs.className;
         this.favSubjects = studentAttrs.favSubjects;
+        this.grade = studentAttrs.grade;
     }
     listSubjects(){
         console.log(`${this.favSubjects}`);
@@ -79,7 +93,10 @@ const matt = new Students({
     gender: "Male",
     previousBackground: "Analyst & Social Media",
     className: "FSW16",
-    favSubjects: "JS, LESS, HTML"
+    favSubjects: "JS, LESS, HTML",
+    grade: function(){
+        return Math.floor(Math.random() * Math.floor(100));
+    }
 })
 
 const emily = new ProjectManagers({
@@ -97,10 +114,13 @@ const emily = new ProjectManagers({
 // console.log(josh);
 // console.log(matt);
 // console.log(emily);
-josh.demo("HTML");
-josh.grade(matt, "CSS");
-matt.listSubjects();
-matt.PRAssignment("JS");
-matt.sprintChallenge("Objects");
-emily.standup("FSW16-emily");
-emily.debugsCode(matt, "Prototypes");
+// josh.demo("HTML");
+// josh.grade(matt, "CSS");
+josh.score(matt);
+
+// matt.listSubjects();
+// matt.PRAssignment("JS");
+// matt.sprintChallenge("Objects");
+// emily.standup("FSW16-emily");
+// emily.debugsCode(matt, "Prototypes");
+// console.log(matt.grade());
