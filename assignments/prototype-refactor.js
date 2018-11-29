@@ -15,13 +15,13 @@ Prototype Refactor
   * destroy() // prototype method -> returns the string: 'Object was removed from the game.'
 */
 class GameObject {
-   constructor (attributes) {
-  this.createdAt = attributes.createdAt;
-  this.dimensions = attributes.dimensions;
-   }
-   destroy() {
+    constructor (attributes) {
+    this.createdAt = attributes.createdAt;
+    this.dimensions = attributes.dimensions;
+    }
+    destroy() {
     return `${this.name} was removed from the game.`;
-   }
+    }
 }
 
 // Child Constructor
@@ -43,10 +43,10 @@ class CharacterStats extends GameObject{
         return `${this.name} took damage.`;
     }
 
-    // attack() {
-    //     let newhealth = character.healthPoints - damageLevel;
-    //     return `${this.name} attacked ${character.name} and caused ${damageLevel} units of damage! ${character.name}'s health is now at ${newhealth}.`
-    // }
+    attack(character, damageLevel) {
+        let newhealth = character.healthPoints - damageLevel;
+        return `${this.name} attacked ${character.name} and caused ${damageLevel} units of damage! ${character.name}'s health is now at ${newhealth}.`
+    }
 } 
 
 // Grandchild Constructor
@@ -76,6 +76,7 @@ class Humanoid extends CharacterStats{ // Grandchild Inheritance
   // * Create Villain and Hero constructor functions that inherit from the Humanoid constructor function.  
   // * Give the Hero and Villains different methods that could be used to remove health points from objects 
   // which could result in destruction if health gets to 0 or drops below 0;
+
 // VILLAIN
   class VillainChar extends Humanoid {
       constructor(evilAttributes) {
@@ -110,7 +111,7 @@ class Humanoid extends CharacterStats{ // Grandchild Inheritance
 
   // HERO
 
-  class HeroChar extends Humanoid{
+  class HeroChar extends Humanoid {
     constructor(heroAttributes){
     super(heroAttributes)  // Binds 'this' to Great-Grandchild = Humanoid
     this.training = heroAttributes.training;
@@ -239,7 +240,7 @@ class Humanoid extends CharacterStats{ // Grandchild Inheritance
   console.log(villain.team); // No one but himself
   console.log(villain.threat()); // Evil McEvilFace threatens you with his greater wit.
   console.log(villain.monologue());
-//   console.log(swordsman.attack(villain, 3));
+  console.log(swordsman.attack(villain, 3));
   console.log(hero.saysCatchPhrase());
   console.log(villain.castSpell(archer));
 
