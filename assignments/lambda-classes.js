@@ -28,8 +28,19 @@ class Instructor extends Person {
     grade(student, subject) {
         console.log(`${student.name} receives a perfect score on ${subject}`)
     }
+    changeGrade(student) {
+        // randomNumber generates either 1 or 2 leading to 50/50 chance of grade increasing or decreasing
+        const randomNumber = Math.floor(Math.random() * 2 + 1)
+        const gradeNumber = Math.floor(Math.random() * 10 + 1)
+        if (randomNumber === 1) {
+            student.grade = student.grade + gradeNumber;
+            console.log(`${this.name} has added ${gradeNumber} points to ${student.name}'s grade for a final grade of ${student.grade}! `)
+        } else {
+            student.grade = student.grade - gradeNumber;
+            console.log(`${this.name} has subtracted ${gradeNumber} points from ${student.name}'s grade for a final grade of ${student.grade}!`)
+        }
+    }
 }
-
 // Student class ============================
 class Student extends Person {
     constructor(studentAttributes) {
@@ -37,6 +48,7 @@ class Student extends Person {
         this.previousBackground = studentAttributes.previousBackground;
         this.className = studentAttributes.className;
         this.favSubjects = studentAttributes.favSubjects;
+        this.grade = studentAttributes.grade;
     }
     listsSubjects() {
         const list = this.favSubjects;
@@ -72,7 +84,8 @@ const olivia = new Student({
     gender: "F",
     previousBackground: "Lab tech",
     className: "FSW-16",
-    favSubjects: ["HTML", "CSS", "Javascript" ]
+    favSubjects: ["HTML", "CSS", "Javascript" ],
+    grade: 89,
 })
 
 const frank  = new Instructor({
@@ -94,14 +107,15 @@ const julia = new ProjectManager({
 
 })
 
-frank.speak();
-frank.demo("prototypes");
-frank.grade(olivia, "JavaScript-IV");
-olivia.listsSubjects();
-olivia.PRAssignment("JavaScript-IV");
-olivia.sprintChallenge("JavaScript-IV")
-julia.standUp("FSW16 - Julia");
-julia.debugsCode(olivia, "classes");
+// frank.speak();
+// frank.demo("prototypes");
+// frank.grade(olivia, "JavaScript-IV");
+// olivia.listsSubjects();
+// olivia.PRAssignment("JavaScript-IV");
+// olivia.sprintChallenge("JavaScript-IV")
+// julia.standUp("FSW16 - Julia");
+// julia.debugsCode(olivia, "classes");
+julia.changeGrade(olivia);
 
 
 
