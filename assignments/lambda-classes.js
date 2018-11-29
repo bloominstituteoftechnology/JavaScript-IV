@@ -38,9 +38,9 @@ class Students extends Person {
         this.favSubjects = sAtts.favSubjects;
     }
     listsSubjects() {
-        return this.favSubjects.map(function(subject) {
+        return `${this.name} likes ` + this.favSubjects.map(function(subject, index, array) {
             return subject;
-        });
+        }).join(", ");
         }
     PRAssignment(subject) {
         return `${this.name} has submitted a PR for ${subject}`;
@@ -166,6 +166,7 @@ console.log(instructor_tyler);
 // ------------------------------------- Testing Methods ------------------------------------- 
 
 console.log(student_leighAnn.listsSubjects());
+console.log(student_leighAnn.favSubjects);
 console.log(student_leighAnn.PRAssignment('React'));
 console.log(student_leighAnn.sprintChallenge('Computer Science'));
 console.log(instructor_saron.demo('Internet Security'));
