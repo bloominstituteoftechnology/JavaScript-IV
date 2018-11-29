@@ -1,5 +1,8 @@
 // CODE here for your Lambda Classes
 
+
+//==================================== Constructors
+
 class Person {
     constructor(attr){
         this.name = attr.name;
@@ -22,7 +25,7 @@ class Instructor extends Person{
     }
 
     demo(subject){
-        return `Today we are learning about ${subject}.`;
+        return `Instructor ${this.name} says: Today we are learning about ${subject}.`;
     }
 
     grade(student, subject) {
@@ -43,10 +46,103 @@ class Student extends Person{
     }
 
     PRAssignment(subject) {
-        return `${student.name} has submitted a PR for ${subject}`;
+        return `${this.name} has submitted a PR for ${subject}`;
     }
 
     sprintChallenge(subject) {
-        return `${student.name} has begun Sprint Challenge on ${subject}`;
+        return `${this.name} has begun Sprint Challenge on ${subject}`;
     }
 }
+
+class ProjectManager extends Instructor {
+    constructor(PMattr){
+        super(PMattr);
+        this.gradClassName = PMattr.gradClassName;
+        this.favInstructor = PMattr.favInstructor;
+    }
+
+    standUp(channel){
+        return `${this.name} announces to ${channel}, @channel standy times!​​​​​`;
+    }
+
+    debugsCode(student, subject) {
+        return `${this.name} debugs ${student.name}'s code on ${subject}`;
+    }
+}
+
+//==================================== Objects
+
+
+//==================================== Person Objects
+const billy = new Person({
+    name: "Billy",
+    age: 30,
+    location: "Texas",
+    gender: "Male"
+});
+
+const jimmy = new Person({
+    name: "Jimmy",
+    age: 20,
+    location: "New York",
+    gender: "Male"
+});
+
+console.log(billy.speak());
+console.log(jimmy.name);
+
+//==================================== Instructor Objects
+
+const billyBob = new Instructor({
+    name: "Billy Bob",
+    age: 30,
+    location: "Texas",
+    gender: "Male",
+    specialty: "closers",
+    favLanguage: "JS",
+    catchPhrase: "Don't forget your semi-colons!"
+});
+
+const jimmyBob = new Instructor({
+    name: "Jimmy Bob",
+    age: 20,
+    location: "New York",
+    gender: "Male",
+    specialty: "This Keyword",
+    favLanguage: "c++",
+    catchPhrase: "If it ain't C im not writting it."
+});
+
+console.log(billyBob.demo("Node"));
+console.log(jimmyBob.catchPhrase);
+console.log(billyBob.favLanguage);
+
+//==================================== Student Objects
+
+const ben = new Student({
+    name: "Ben",
+    age: 22,
+    location: "Colorado",
+    gender: "Male",
+    previousBackground: "IT",
+    className: "Machine Learning",
+    favSubjects: ["Python", "c++", "React"]
+});
+
+const becky = new Student({
+    name: "Becky",
+    age: 27,
+    location: "Cali",
+    gender: "Female",
+    previousBackground: "Customer Service",
+    className: "Fullstack Webdevelopment",
+    favSubjects: ["JS", "c#", "Node"]
+});
+
+console.log(ben.listsSubjects());
+console.log(ben.PRAssignment("JS-II"));
+console.log(ben.sprintChallenge("JS-II"));
+console.log(becky.listsSubjects());
+console.log(becky.PRAssignment("Python-I"));
+console.log(becky.sprintChallenge("Python-I"));
+console.log(becky.className);
