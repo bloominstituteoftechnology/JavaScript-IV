@@ -28,7 +28,7 @@ class Insturctor extends Person {
       console.log (`Today we are learning about ${this.favLanguage}`.)
   }
   grade(){
-    console.log(`${student.name} receives a perfect score on ${favSubjects[1]}`.)
+    console.log(`${student.name} receives a perfect score on ${this.favSubjects[1]}`.)
   }
   
 }// Instructor class
@@ -44,13 +44,13 @@ class Student extends Person {
   this.favSubjects = StuAttributes.favSubjects;
   }
   listSubjects(){
-      console.log ('${favSubjects[0]}, ${favSubjects[1]}, ${favSubjects[2]}.')
+      console.log ('${this.favSubjects[0]}, ${this.favSubjects[1]}, ${this.favSubjects[2]}.')
   }
   PRAssignment(){
-    console.log('${student.name} has submitted PR for ${favSubjects[2]}.')
+    console.log('${student.name} has submitted PR for ${this.favSubjects[2]}.')
   }
   sprintChallenge(){
-    console.log('${student.name} has began spring challenge on ${favSubjects[1]}.')
+    console.log('${student.name} has began spring challenge on ${this.favSubjects[1]}.')
   }
 }// Student class
 
@@ -65,10 +65,10 @@ class ProjectManager extends Instructor {
   this.favInstructor = ProAttributes.favInstructor;
   }
   standUp(){
-      console.log(`${this.name} announces to ${channel}, @channel, standy times!`) 
+      console.log(`${this.name} announces to, @channel, standy times!`) 
   }
   debugsCode(){
-    console.log (`${this.name} debugs ${student.name}/'s code on ${favSubjects[0]}`.)
+    console.log (`${this.name} debugs ${student.name}/'s code on ${this.favSubjects[0]}`.)
   }
   
 }// Project Manager class
