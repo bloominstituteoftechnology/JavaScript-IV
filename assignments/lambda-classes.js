@@ -38,15 +38,23 @@ class Student extends Person {
         console.log(`${this.favSubjects}`)
     }
     PRAssignment() {
-        console.log(`${student.name} has submitted a PR for ${this.favSubjects}`)
+        console.log(`${this.name} has submitted a PR for ${this.favSubjects}`)
     }
     sprintChallenge() {
-        console.log(`${student.name} has begun sprint challenge on ${this.favSubjects}`)
+        console.log(`${this.name} has begun sprint challenge on ${this.favSubjects}`)
     }
 }
 
 class ProjectManager extends Instructor {
     constructor(projectManagerAttributes) {
-        super()
+        super(projectManagerAttributes);
+        this.gradClassName = projectManagerAttributes.gradClassName;
+        this.favInstructor = projectManagerAttributes.favInstructor;
+    }
+    standUp() {
+        console.log(`${this.name} announces to ${this.channel}`)
+    }
+    debugsCode() {
+        console.log(`${this.name} debugs ${student.name}'s code on ${subject}`)
     }
 }
