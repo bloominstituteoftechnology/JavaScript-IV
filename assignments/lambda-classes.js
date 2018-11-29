@@ -114,6 +114,17 @@ class ProjectManager extends Instructor {
 
 //Testing
 
+console.warn('Person Class Testing');
+//Person Class Testing
+const Michael = new Person ({
+    name: 'Michael',
+    location: 'Washington State',
+    age: 20,
+    gender: 'male'
+});
+
+Michael.speak();
+
 console.warn('Student Class Testing');
 //Student Class Testing
 let randGrade = Math.floor(Math.random() * 100);
