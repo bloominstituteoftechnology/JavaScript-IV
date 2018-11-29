@@ -17,3 +17,20 @@ class Person {
     }
 }
 
+//===== Instructor class =====
+
+class Instructor {
+    constructor(instructorAttributes){
+        this.specialty = instructorAttributes.specialty;
+        this.favLanguage = instructorAttributes.favLanguage;
+        this.catchPhrase = instructorAttributes.catchPhrase;
+    }
+
+    demo(subject) {
+        return `Today we are learning about ${subject}` ;
+    }
+    grade(student, subject) {
+        `${student.name} receives a perfect score on ${subject}` //-----check this line later!!!----
+    }
+}
+
