@@ -29,7 +29,13 @@ class Instructor extends Person{
     }
 
     grade(student, subject) {
-        return `${student.name} receives a perfect score on ${subject}!`;
+        return `${this.name}: ${student.name} receives a perfect score on ${subject}!`;
+    }
+
+    giveGrade(student) {
+        let adjust = Math.floor(Math.random() * 70) + 1;
+        let res = student.grade - adjust;
+        return `${this.name} adjust ${student.name}'s grade of ${student.grade} by ${adjust} points, they now have a ${res}.`
     }
 }
 
@@ -92,9 +98,6 @@ const jimmy = new Person({
     gender: "Male"
 });
 
-console.log(billy.speak());
-console.log(jimmy.name);
-
 //==================================== Instructor Objects
 
 const billyBob = new Instructor({
@@ -116,11 +119,6 @@ const jimmyBob = new Instructor({
     favLanguage: "c++",
     catchPhrase: "If it ain't C im not writting it."
 });
-
-console.log(billyBob.demo("Node"));
-console.log(jimmyBob.catchPhrase);
-console.log(billyBob.favLanguage);
-console.log(jimmyBob.specialty);
 
 //==================================== Student Objects
 
@@ -145,17 +143,6 @@ const becky = new Student({
     favSubjects: ["JS", "c#", "Node"],
     grade: Math.floor(Math.random() * 100) +1
 });
-
-console.log(ben.listsSubjects());
-console.log(ben.PRAssignment("JS-II"));
-console.log(ben.sprintChallenge("JS-II"));
-console.log(ben.previousBackground);
-console.log(becky.listsSubjects());
-console.log(becky.PRAssignment("Python-I"));
-console.log(becky.sprintChallenge("Python-I"));
-console.log(becky.className);
-console.log(`${becky.name} has a grade of ${becky.grade}`);
-console.log(`${ben.name} has a grade of ${ben.grade}`);
 
 //==================================== Project Manager Objects
 
@@ -182,8 +169,36 @@ const sam = new ProjectManager({
     gradClassName: "Fullstack Web-development",
     favInstructor: "Jimmy Bob"
 });
+//==================================== Person test cases
+
+console.log(billy.speak());
+console.log(jimmy.name);
+
+//==================================== Instructor test cases
+
+console.log(billyBob.demo("Node"));
+console.log(jimmyBob.catchPhrase);
+console.log(billyBob.favLanguage);
+console.log(jimmyBob.specialty);
+console.log(billyBob.grade(becky, "Node"));
+console.log(jimmyBob.giveGrade(ben));
+
+//==================================== Student test cases
+
+console.log(ben.listsSubjects());
+console.log(ben.PRAssignment("JS-II"));
+console.log(ben.sprintChallenge("JS-II"));
+console.log(ben.previousBackground);
+console.log(becky.listsSubjects());
+console.log(becky.PRAssignment("Python-I"));
+console.log(becky.sprintChallenge("Python-I"));
+console.log(becky.className);
+console.log(`${becky.name} has a grade of ${becky.grade}`);
+console.log(`${ben.name} has a grade of ${ben.grade}`);
+//==================================== Project Manager test cases
 
 console.log(george.standUp("fsw25"));
 console.log(sam.debugsCode(ben, "JS"));
 console.log(george.gradClassName);
 console.log(sam.favInstructor);
+console.log(george.giveGrade(becky));
