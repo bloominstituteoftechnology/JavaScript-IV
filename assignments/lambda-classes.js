@@ -34,8 +34,8 @@ class Instructor extends Person {
         if (student.grade < 1) {
             student.grade = 1;
         }
-        console.log(`${this.name} ${pointsGiven >= 0 ? "added" : "deducted"} ${Math.abs(pointsGiven)} for ${student.name}'s grade.`);
-        console.log(`${student.name}'s grade is now ${student.grade}`);
+        console.log(`${this.name} ${pointsGiven >= 0 ? "added" : "deducted"} ${Math.abs(pointsGiven)} for ${student.name}'s grade`);
+        console.log(`${student.name}'s grade is now ${student.grade}%`);
     }
 }
 
@@ -55,6 +55,9 @@ class Student extends Person {
     }
     sprintChallenge(subject) {
         console.log(`${this.name} has begun sprint challenge on ${subject}`);
+    }
+    graduate() {
+        console.log(this.grade > 70 ? `${this.name} has graduated!` : `${this.name} needs more preparation before becoming ready to graduate....`);
     }
 }
 
