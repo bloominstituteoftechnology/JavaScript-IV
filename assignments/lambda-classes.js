@@ -19,7 +19,7 @@ class Person {
 
 //===== Instructor class =====
 
-class Instructor {
+class Instructor extends Person {
     constructor(instructorAttributes){
         this.specialty = instructorAttributes.specialty;
         this.favLanguage = instructorAttributes.favLanguage;
@@ -36,7 +36,7 @@ class Instructor {
 
 //===== Student class =====
 
-class Student {
+class Student extends Person {
     constructor(studentAttributes){
         this.previousBackground = studentAttributes.previousBackground;
         this.className = studentAttributes.className;
@@ -53,5 +53,21 @@ class Student {
 
     sprintChallenge(subject) {
         return `${this.name} has begun sprint challenge on ${subject}`
+    }
+}
+
+//===== ProjectManagers class =====
+
+class ProjectManagers extends Instructor {
+    constructor(projectManagersAttributes){
+        this.gradClassName = projectManagersAttributes.gradClassName;
+        this.favInstructor = projectManagersAttributes.favInstructor;
+    }
+
+    standUp(channel) {
+        return `${this.name} announces to ${channel}, @channel standy times!` ;
+    }
+    debugsCode(student, subject) {
+        return `${this.name} debugs ${student.name}'s code on ${subject}` //-----check this line later!!!----
     }
 }
