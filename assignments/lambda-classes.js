@@ -106,7 +106,8 @@ const chuck = new Student({
     gender: 'male',
     previousBackground: 'race car driver',
     className: 'JS101',
-    favSubjects: ['Html', 'CSS', 'JavaScript']
+    favSubjects: ['Html', 'CSS', 'JavaScript'],
+    grade: 78
 });
 
 const janet = new Student({
@@ -116,7 +117,8 @@ const janet = new Student({
     gender: 'female',
     previousBackground: 'MMA fighter',
     className: 'CSS101',
-    favSubjects: ['Python', 'CSS', 'PHP']
+    favSubjects: ['Python', 'CSS', 'PHP'],
+    grade: 87
 });
 
 //------------ProjectManagers--------------
