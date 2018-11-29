@@ -45,22 +45,24 @@ class Humanoid extends CharacterStats {
 
 
 //Stretch
- //   class Hero extends Humanoid {
-   // constructor(attributes)
-//}
-//function Hero(attributes) {
-  //Humanoid.call(this, attributes);
-//}
+class Hero extends Humanoid {
+    constructor(attributes) {
+        super(attributes);
+    }
+    say () {
+        return `Im ${this.name}!`
+    }
+}
 
-//function Villain(attributes) {
-  //Humanoid.call(this, attributes);
-//}
+class Villain extends Humanoid {
+    constructor(attributes) {
+        super (attributes);
+    }
+}
 
-//Hero.prototype = Object.create(Humanoid.prototype);
 
-//Hero.prototype.say = function() {
-  //return `Im ${this.name}!`;
-//};
+
+
 
 
   const mage = new Humanoid({
@@ -113,7 +115,7 @@ class Humanoid extends CharacterStats {
     language: 'Elvish',
   });
 
-  /*const hero = new Hero({
+  const hero = new Hero({
     createdAt: new Date(),
     dimensions: {
       length: 2,
@@ -146,7 +148,7 @@ class Humanoid extends CharacterStats {
     ],
     language: 'Common Tongue',
   });
-*/
+
   console.log(mage.createdAt); // Today's date
   console.log(archer.dimensions); // { length: 1, width: 2, height: 4 }
   console.log(swordsman.healthPoints); // 15
@@ -157,4 +159,4 @@ class Humanoid extends CharacterStats {
   console.log(archer.greet()); // Lilith offers a greeting in Elvish.
   console.log(mage.takeDamage()); // Bruce took damage.
   console.log(swordsman.destroy()); // Sir Mustachio was removed from the game.
-  //console.log(hero.say());
+  console.log(hero.say());
