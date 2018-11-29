@@ -13,7 +13,7 @@ class Person {
 
 class Instructor extends Person {
   constructor(instructorAttrs){
-    super(InstructorAttrs);
+    super(instructorAttrs);
     this.specialty = instructorAttrs.specialty;
     this.favLanguage = instructorAttrs.favLanguage;
     this.catchPhrase = instructorAttrs.catchPhrase;
@@ -94,3 +94,33 @@ const scooby = new Student({
   className: 'FSW 16',
   favSubjects: ['HTML', 'CSS', 'JavaScript', 'Eating Scooby Snacks']
 });
+
+const jeremy = new Instructor({
+  name: 'Jeremy',
+  age: 26,
+  location: 'California',
+  gender: 'M',
+  specialty: 'React',
+  favLanguage: 'Javascript',
+  catchPhrase: `it's me, Jeremy!`
+})
+
+const zach = new Instructor({
+  name: 'Zach',
+  age: 35,
+  location: 'Washington',
+  gender: 'M',
+  specialty: 'Python',
+  favLanguage: 'Python',
+  catchPhrase: `Woah guys it's me Zach.`
+})
+
+const kelly = new Instructor({
+  name: 'Kelly',
+  age: 29,
+  location: 'Texas',
+  gender: 'F',
+  specialty: 'Backend',
+  favLanguage: 'Javascript',
+  catchPhrase: `Hey everyone, it's me Kelly`
+})
