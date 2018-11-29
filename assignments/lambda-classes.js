@@ -68,6 +68,7 @@ class Student extends Person {
         `Please Try Again, your grade was ${studentGrade}% you need ${70 -
           studentGrade} points to pass`
       );
+      this.graduate();
     }
   }
 }
