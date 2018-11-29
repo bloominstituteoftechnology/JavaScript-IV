@@ -149,3 +149,33 @@ christine.PRAssignment("JavaScript-IV");
 christine.sprintChallenge("Reponsive-II");
 
 // Objects from PM Class
+
+const frank = new PM({
+  name: "Frank",
+  age: 34,
+  location: "Paris",
+  gender: "male",
+  specialty: "back-end technology",
+  favLanguage: "golang",
+  catchPhrase: "Well, let's just see if we can do it.",
+  gradClassName: "CS3",
+  favInstructor: "Dustin"
+});
+
+const jamal = new PM({
+  name: "Jamal",
+  age: 24,
+  location: "Houston",
+  gender: "male",
+  specialty: "databases",
+  favLanguage: "css",
+  catchPhrase: "Let's get some fingers on keyboards!",
+  gradClassName: "CS6",
+  favInstructor: "Dustin"
+});
+
+frank.speak();
+frank.demo("Pseudo-Classical Prototypal Inheritance");
+jamal.grade(nathan, "javascript");
+jamal.standUp("FSW16-Jamal");
+jamal.debugsCode(nathan, "javascript");
