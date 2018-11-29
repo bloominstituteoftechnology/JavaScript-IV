@@ -10,6 +10,15 @@ class Person{
     speak(){
         console.log(`Hello my name is ${this.name}, I am from ${this.location}.`)
     }
+    // cardCreator(){
+    //     // console.log(this.className = Instructors);
+    //     console.log(this.constructor);
+    //     let testHead = document.createElement("h1");
+    //     let testContent = document.createTextNode(this.name);
+    //     testHead.appendChild(testContent);
+    //     let currentDiv = document.getElementById(this.constructor);
+    //     document.body.insertBefore(testHead, currentDiv); 
+    // }
 }
 
 // Instructors - Child
@@ -125,15 +134,41 @@ const emily = new ProjectManagers({
     favInstructor: "Ryan Hamblin"
 
 })
+
+function newPerson(){
+    let newName = prompt("Name");
+    let newAge = prompt("Age");
+    const newbie = new Instructors({
+        name: newName,
+        age: newAge,
+    })
+    console.log(newbie);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // console.log(josh);
 // console.log(matt);
 // console.log(emily);
 // josh.demo("HTML");
 // josh.grade(matt, "CSS");
-josh.score(matt);
-emily.score(matt);
-matt.graduate(josh);
-
+// josh.score(matt);
+// emily.score(matt);
+// matt.graduate(josh);
 // matt.listSubjects();
 // matt.PRAssignment("JS");
 // matt.sprintChallenge("Objects");
