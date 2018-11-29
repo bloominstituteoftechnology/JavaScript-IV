@@ -32,6 +32,7 @@ class Student extends Person {
         this.previousBackground = studentAttributes.previousBackground;
         this.className = studentAttributes.className;
         this.favSubjects = studentAttributes.favSubjects;
+        this.grade = (Math.random() * 100);
     }
     listsSubjects() {
         return this.favSubjects;
@@ -44,6 +45,8 @@ class Student extends Person {
     }
 }
 
+
+console.log(testStudent);
 
 class ProjectManagers extends Instructor {
     constructor(pmAttributes) {
