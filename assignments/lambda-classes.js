@@ -20,6 +20,12 @@ class Instructor extends Person {
     }
     demo (subject) {console.log(`Today, we are learning ${subject}!`)};
     grade (student, subject) {console.log(`${student.name} recieves a perfect score in ${subject}`)};
+    pointAdjust (student) {
+        if (Math.random()*100 >= 50) {student.grade = student.grade - Math.random()*50};
+        if (Math.random()*100 < 50) {student.grade = student.grade + Math.random()*100};
+        if (student.grde >= 0) {student.grade === 0};
+        return student.grade;
+    }
 };
 
 class Student extends Person {
@@ -28,10 +34,16 @@ class Student extends Person {
         this.previousBackground = studAttributes.previousBackground;
         this.className = studAttributes.className;
         this.favSubjects = studAttributes.favSubjects;
+        this.grade = 1; // starts at 1 so that pointAdjust will add points
+        // student will graduate when points >= 70.
     }
     listsSubjects() {console.log(this.favSubjects)};
     PRassignment(subject) {console.log(`${this.name} has submitted a PR for ${subject}`)};
     sprintChallenge(subject) {console.log(`${this.name} has begun sprint challenge on ${subject}`)};
+    graduate() {
+        if (this.grade >= 70) {console.log(`my grade is ${this.grade}, which is above 70%. I can graduate!`)}
+        else {console.log(`My grade is ${this.grade}, which is below 70%. I have some tome to go before I can graduate.`)}
+    }
 };
 
 class ProjectManager extends Instructor {
@@ -45,7 +57,7 @@ class ProjectManager extends Instructor {
 ;}
 
 
-const jack = new Student ({
+let jack = new Student ({
     name: 'Jack',
     age: 30,
     location: 'Phoenix',
@@ -57,6 +69,7 @@ const jack = new Student ({
 jack.speak();
 jack.listsSubjects();
 jack.PRassignment('Javascript');
+
 
 const jill = new Instructor ({
     name: 'Jill',
@@ -70,6 +83,7 @@ const jill = new Instructor ({
 jill.speak();
 jill.demo('Javascript');
 jill.grade(jack, 'Javascript');
+jill.pointAdjust(jack);
 
 const abdul = new ProjectManager ({
     name: 'Abdul',
@@ -80,3 +94,5 @@ const abdul = new ProjectManager ({
 
 abdul.standUp('FSW16_abdul')
 abdul.debugsCode(jack, 'Javascript IV')
+
+jack.graduate();
