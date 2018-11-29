@@ -8,58 +8,70 @@ class Person {
     this.gender = attributes.gender;
     }
     speak(){
-        console.log(`${this.name} love being a person.`);
+        console.log(`Hello, my name is ${this.name} and I am ${this.age}, and I am from ${this.location}.`);
     }
     
-}
+}// Person class
+
+class Insturctor extends Person {
+  constructor(Inattributes) {
+  super();
+  this.name = Inattributes.name;
+  this.location = Inattributes.location;
+  this.age = Inattributes.age;
+  this.gender = Inattributes.gender;
+  this.favLanguage = Inattributes.favLanguage;
+  this.specialty = Inattributes.specialty;
+  this.catchPhrase = Inattributes.catchPhrase;
+  }
+  demo(){
+      console.log ('Today we are learning about ${subject}.')
+  }
+  grade(){
+    console.log('${student.name} receives a perfect score on ${subject1}.')
+  }
+  
+}// Instructor class
 
 class Student extends Person {
-    constructor(StuAttributes) {
-        super(StuAttributes);
-        this.name = StuAttributes.name;
-        this.location = StuAttributes.location;
-        this.age = StuAttributes.age;
-        this.gender = StuAttributes.gender;
-        this.favLanguage = StuAttributes.favLanguage;
-        this.specialty = StuAttributes.specialty;
-        this.catchPhrase = StuAttributes.catchPhrase;
-    }
-    WhereAmI() {
-      console.log(`${this.name} is in ${this.location}.`);
-    }
+  constructor(Inattributes) {
+  super();
+  this.name = Stuattributes.name;
+  this.location = Stuattributes.location;
+  this.age = Stuattributes.age;
+  this.gender = Stuattributes.gender;
+  this.previousBackground = StuAttributes.previousBackground; 
+  this.favSubjects = StuAttributes.favSubjects;
   }
+  listSubjects(){
+      console.log ('${subject1}, ${subject2}, ${subject3}.')
+  }
+  PRAssignment(){
+    console.log('${student.name} has submitted PR for ${subject2}.')
+  }
+  sprintChallenge(){
+    console.log('${student.name} has began spring challenge on ${subject3}.')
+  }
+}// Student class
 
-  class Instructor extends Person {
-    constructor(InAttributes) {
-        super(InAttributes);
-        this.name = InAttributes.name;
-        this.location = InAttributes.location;
-        this.age = InAttributes.age;
-        this.gender = InAttributes.gender;
-        this.favLanguage = InAttributes.favLanguage;
-        this.specialty = InAttributes.specialty;
-        this.catchPhrase = InAttributes.catchPhrase;
-    }
-    Language() {
-      console.log(`${this.name} loves teaching ${this.favLanguage}.`);
-    }
+class ProjectManager extends Instructor {
+  constructor(Proattributes) {
+  super();
+  this.name = Proattributes.name;
+  this.location = Proattributes.location;
+  this.age = Proattributes.age;
+  this.gender = Proattributes.gender;
+  this.gradClassName = ProAttributes.gradClassName; 
+  this.favInstructor = ProAttributes.favInstructor;
   }
-
-  class ProjectManager extends Instructor {
-    constructor(ProAttributes) {
-        super(ProAttributes);
-        this.name = ProAttributes.name;
-        this.location = ProAttributes.location;
-        this.age = ProAttributes.age;
-        this.gender = ProAttributes.gender;
-        this.favLanguage = ProAttributes.favLanguage;
-        this.specialty = ProAttributes.specialty;
-        this.catchPhrase = ProAttributes.catchPhrase;
-    }
-    Language() {
-      console.log(`${this.name} loves teaching ${this.favLanguage}.`);
-    }
+  standUp(){
+      console.log(`${this.name} announces to ${channel}, @channel, standy times!`) 
   }
+  debugsCode(){
+    console.log (`${this.name} debugs ${student.name}/'s code on ${subject}`.)
+  }
+  
+}// Project Manager class
 
 
 
@@ -85,13 +97,17 @@ const james = new Person({
 });
 
 const brenda = new Person({
-    name: 'James,
+    name: 'Brenda,
     location: 'Los Angeles',
     age: 23,
     gender: 'female',
     favLanguage: 'JavaScript',
     specialty: 'Back-end',
     catchPhrase: `Well, cook my grits!`
+    previousBackground: 'Finance',
+    className: 'FSW16',
+    favSubjects: 'HTML', 'CSS', 'JavaScript'
+
   });
 
   const barbara = new Person({
@@ -102,4 +118,6 @@ const brenda = new Person({
     favLanguage: 'CSS',
     specialty: 'Front-end',
     catchPhrase: `I'm such a lady!`
+    gradClassName: 'CS1',
+    favInstructor: 'Josh'
   });
