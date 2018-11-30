@@ -41,16 +41,16 @@ class Instructor extends Person {
   grade(student, subject) {
     console.log(`${student.name} receives a perfect score on ${subject}.`);
   }
-  changeGrade() {
-    let variable = '';
-    let plusOrMinus = Math.random();
-    if(plusOrMinus >= 0.5) {
-      variable = '+';
+  changeGrade(student) {
+    if(Math.random() >= 0.5) {
+      student.grade += Math.round(Math.random() * 10);
     } else {
-      variable = '-';
+      student.grade -= Math.round(Math.random() * 10);
     }
-    
-    console.log(variable);
+    if(student.grade >= 100) {
+      student.grade = 100;
+    }
+    console.log(student.grade);
   }
 }// Instructor
 
@@ -65,8 +65,6 @@ const will = new Instructor ({
   favLanguage: 'Python',
   catchPhrase: 'I\'m not a pirate!'
 });
-
-will.changeGrade();
 
 const elizabeth = new Instructor ({
   name: 'Elizabeth Swann',
