@@ -171,6 +171,30 @@ const bigRae = new Student ({
 });
 students.push('bigRae');
 
+const thirdStudent = new Student ({
+  name: 'thirdStudent',
+  age: '22',
+  location: 'PDX',
+  gender: 'F',
+  previousBackground: 'Construction',
+  className: 'DS1',
+  favSubjects: ['Linear Algebra', 'Statistics', 'Python Lists'],
+  grade: 70
+});
+students.push('thirdStudent');
+
+const fourthStudent = new Student ({
+  name: 'fourthStudent',
+  age: '27',
+  location: 'NYC',
+  gender: 'M',
+  previousBackground: 'Carpentry',
+  className: 'FSW16',
+  favSubjects: ['Preprocessing', 'Symantec Markup', 'Array Methods'],
+  grade: 77
+});
+students.push('fourthStudent');
+
 // Project Managers:
 const maryBeth = new ProjectManager ({
   name: 'Mary Beth',
