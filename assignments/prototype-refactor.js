@@ -164,14 +164,16 @@ class CharacterStats extends GameObject {
             let damage = (Math.floor(Math.random() * this.power) + 5);
             obj.healthPoints = obj.healthPoints - damage;
             this.healthPoints = this.healthPoints - (damage + 5);
-            if(obj.healthPoints <= 0){
-                return obj.destroy();
-            } else if (obj.healthPoints < 25 && obj.healthPoints > 1){
-                return `${obj.name}'s health is low, ATTACK!!! Health remains: ${obj.healthPoints} points.`
+            if (this.healthPoints <= 0) {
+              return this.destroy();
+            } else if(obj.healthPoints <= 0){
+              return obj.destroy();
+            } else if (obj.healthPoints < 30 && obj.healthPoints > 1){
+              return `${obj.name}'s health is low, ATTACK!!! Health remains: ${obj.healthPoints} points. ${this.name} health ${this.healthPoints}`
             } else {
               return `${this.name} attacked ${obj.name} with ${this.special}. ${obj.name} ${obj.healthPoints} health left! ${this.name} ${this.healthPoints}`;
             }
-        };
+          };
         heal (){
             let regenerate = (Math.floor(Math.random() * 20) + 5);
             this.healthPoints = this.healthPoints + regenerate;
@@ -217,14 +219,16 @@ class CharacterStats extends GameObject {
             let damage = (Math.floor(Math.random() * this.power) + 5);
             obj.healthPoints = obj.healthPoints - damage;
             this.healthPoints = this.healthPoints - (damage + 5);
-            if(obj.healthPoints <= 0){
+            if (this.healthPoints <= 0) {
+              return this.destroy();
+            } else if(obj.healthPoints <= 0){
               return obj.destroy();
-            } else if (obj.healthPoints < 25 && obj.healthPoints > 1){
-              return `${obj.name}'s health is low, ATTACK!!! Health remains: ${obj.healthPoints} points.`
+            } else if (obj.healthPoints < 30 && obj.healthPoints > 1){
+              return `${obj.name}'s health is low, ATTACK!!! Health remains: ${obj.healthPoints} points. ${this.name} health ${this.healthPoints}`
             } else {
               return `${this.name} attacked ${obj.name} with ${this.special}. ${obj.name} ${obj.healthPoints} health left! ${this.name} ${this.healthPoints}`;
             }
-        };
+          };
         heal (){
             let regenerate = (Math.floor(Math.random() * 20) + 5);
             this.healthPoints = this.healthPoints + regenerate;
