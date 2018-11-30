@@ -19,11 +19,14 @@ class Instructor extends Person {
        this.favLanguage = personAttributes.favLanguage;
        this.catchPhrase = personAttributes.catchPhrase; 
     }
-    demo() {
-        console.log(`Today we are learning about ${this.favLanguage}`)
+    demo(subjectStr) {
+        console.log(`Today we are learning about ${subjectStr}` )
     }
-    grade() {
-        console.log(`${this.name} receives a perfect score on ${this.favLanguage}`)
+    grade(student,subString) {
+        console.log(`${student} receives a perfect score on ${subString}`)
+    }
+    randomGrade() {
+        console.log(Math.ceil(Math.random()*100-10))
     }
 }
 
@@ -33,16 +36,24 @@ class Student extends Person {
         this.previousBackground = studentAttributes.previousBackground;
         this.className = studentAttributes.className;
         this.favSubjects = studentAttributes.favSubjects;
+        this.grade = studentAttributes.grade;
 
     }
     listsSubjects() {
         console.log(`${this.favSubjects}`)
     }
-    PRAssignment() {
-        console.log(`${this.name} has submitted a PR for ${this.favSubjects}`)
+    PRAssignment(subjects) {
+        console.log(`${this.name} has submitted a PR for ${subjects}`)
     }
     sprintChallenge() {
         console.log(`${this.name} has begun sprint challenge on ${this.favSubjects}`)
+    }
+    graduate() {
+        if(this.grade > 70) {
+            console.log('Good Job! You are ready to graduate')
+        } else {
+            console.log(`Sorry, you can't graduate quite yet`)
+        }
     }
 }
 
@@ -52,11 +63,11 @@ class ProjectManager extends Instructor {
         this.gradClassName = projectManagerAttributes.gradClassName;
         this.favInstructor = projectManagerAttributes.favInstructor;
     }
-    standUp() {
-        console.log(`${this.name} announces to ${this.channel}`)
+    standUp(channel) {
+        console.log(`${this.name} announces to ${channel}, @channel standy times!`)
     }
-    debugsCode() {
-        console.log(`${this.name} debugs ${student.name}'s code on ${subject}`)
+    debugsCode(studObject,subj) {
+        console.log(`${this.name} debugs ${studObject}'s code on ${subj}`)
     }
 }
 
@@ -89,7 +100,8 @@ const josh = new Instructor({
     className: 'FSW16',
     favSubjects:[
         'Html', 'CSS', 'Javascript'
-    ]
+    ],
+    grade: 50,
   });
   const maria = new Student({
     name: 'Maria',
@@ -101,6 +113,7 @@ const josh = new Instructor({
     favSubjects: [
         'Html', 'React', 'Python'
     ],
+    grade: 100,
   });
 
   const robert = new ProjectManager({
@@ -121,5 +134,12 @@ const josh = new Instructor({
     favInstructor: 'Ryan',
   });
 
-  josh.demo()
-  maria.speak()
+//   asia.debugsCode()
+//   maria.speak()
+//   ilya.listsSubjects()
+josh.demo('JavaScript')
+josh.grade(maria.name,'Python')
+john.randomGrade()
+maria.graduate()
+maria.PRAssignment('Html')
+asia.standUp('FSW16')
