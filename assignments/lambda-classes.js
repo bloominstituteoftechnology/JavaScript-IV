@@ -17,9 +17,9 @@ class Person {
         this.location = baseClass.location;
     }
     speak() {
-        return `Hello my name is ${this.name}, I am from ${this.location}`;
+        console.log(`Hello my name is ${this.name}, I am from ${this.location}`);
     }
-}
+};
 
 
 ///////////////////////// INTRUCTOR-CLASS ////////////////////
@@ -43,13 +43,13 @@ class Instructor extends Person {
             this.favLanguage = instructorChild.favLanguage;
             this.catchPhrase = instructorChild.catchPhrase;
     }
-    demo() {
-        return `Today we are learning about ${this.subjects}`; 
+    demo(subjects) {
+        console.log(`Today we are learning about ${subjects}`); 
     }
-    grade() {
-        return `${this.name} recieves a perfect score on ${this.subjects}`;
+    grade(student,subjects) {
+        console.log(`${student} recieves a perfect score on ${subjects}`);
     }
-}
+};
 
 
 ///////////////////////// STUDENT-CLASS ////////////////////
@@ -76,17 +76,17 @@ class Student extends Person {
             this.favSubjects = lambdaStudent.favSubjects;
     }
     listSubjects(){
-        return `${this.favoriteSubjects}`
+        console.log(`${this.name} favorite subjects are ${this.favSubjects}`);
     }
     PRAssignment() {
-        return `${this.name} has submitted a PR for ${this.subjects}`
+        console.log( `${this.name} has submitted a PR for ${this.favSubjects}`);
     }
 
     sprintChallenge(){
-        return `${this.name} has begun sprint challenge on ${this.subjects}`
+        console.log(`${this.name} has begun sprint challenge on ${this.favLanguage}`);
     }
 
-}
+};
 
 ///////////////////////// PROJECT MANAGER-CLASS ////////////////////
 
@@ -110,14 +110,14 @@ class ProjectManagers extends Instructor {
             this.favInstructor = projectManager.favInstructor;
     }
     standUp(){
-        return `${this.name} announces to ${this.channel}, @channel stand Up times!`;
+        console.log(`${this.name} announces to @channel stand Up times!`);
     }
     debudsCode() {
-        console.log`${this.name} debugs ${student.name} code on ${this.subject}`;
+        console.log(`${this.name} debugs ${name.Student} code on ${this.favSubjects}`);
     }
 
 
-}
+};
 
 
 ///////////////////////// OBJECTS ////////////////////
@@ -133,18 +133,24 @@ const lambda = new Person({
   const mike = new Instructor({
     specialty: 'Front-end',
     name: 'Mike',
+    age: 29,
     favLanguage: 'Javascript',
     catchPhrase: 'There are two ways to write error-free programs; only the third one works'
   });
   
   const cynthia = new Student({
+    name: 'Cynthia',
+    age: 24,
+    location: 'Florida',
     previousBackground: 'newbie',
     className: 'FSW16',
-    favSubjects: 'HTML , CSS , JS'
+    favSubjects: ['HTML' , 'CSS' , 'JS']
   });
 
 
   const ron = new ProjectManagers ({
+    name: 'Ron',
+    age: 27,
     gradClassName: 'FSW12',
    favInstructor: 'Mike',
   });
@@ -153,9 +159,11 @@ const lambda = new Person({
 
 ///////////////////////// CONSOLE.LOGS ////////////////////
 
-  console.log(lambda.speak); // 
-  console.log(mike.demo); // 
-  console.log(mike.grade); // 
-  console.log(cynthia.listsSubjects); // 
-  console.log(cynthia.PRAssignment); // 
-  console.log(cynthia.sprintChallenge); // 
+  lambda.speak();
+  mike.demo();
+  mike.grade();
+  cynthia.listSubjects();
+  cynthia.PRAssignment();
+  cynthia.sprintChallenge();
+  ron.standUp();
+  ron.debudsCode();
