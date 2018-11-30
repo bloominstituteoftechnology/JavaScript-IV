@@ -42,8 +42,8 @@ class Instructor extends Person {
     console.log(`${student.name} receives a perfect score on ${subject}`);
   }
   popQuiz (student, subject) {
-    const points = Math.ceil(Math.random() * 5);
-    console.log(`Pop Quiz on ${subject}!`);
+    const points = Math.ceil(Math.random() * 10);
+    console.log(`${this.name} gives pop Quiz on ${subject}!`);
     if (Math.random() > .5){
       console.log(`Good answer! ${student.name} receives ${points} points.`);
       student.grade += points;
@@ -119,6 +119,10 @@ class ProjectManager extends Instructor {
 }
 
 // Test classes
+// Keep track of who's here:
+let instructors = [];
+let pms = [];
+let students = [];
 // Instructors:
 const jimBob = new Instructor ({
   name: 'JimBob',
@@ -129,6 +133,7 @@ const jimBob = new Instructor ({
   favLanguage: 'JavaScript',
   catchPhrase: 'Let\'s take a 5-minute break!'
 });
+instructors.push('jimBob');
 
 const janeBeth = new Instructor ({
   name: 'JaneBeth',
@@ -139,6 +144,7 @@ const janeBeth = new Instructor ({
   favLanguage: 'C',
   catchPhrase: 'Let\'s take a 7-minute break!'
 });
+instructors.push('janeBeth');
 
 // Students:
 const lilRoy = new Student ({
@@ -151,6 +157,7 @@ const lilRoy = new Student ({
   favSubjects: ['Preprocessing', 'Symantec Markup', 'Array Methods'],
   grade: 85
 });
+students.push('lilRoy');
 
 const bigRae = new Student ({
   name: 'Big Raylene',
@@ -162,6 +169,7 @@ const bigRae = new Student ({
   favSubjects: ['Linear Algebra', 'Statistics', 'Python Lists'],
   grade: 92
 });
+students.push('bigRae');
 
 // Project Managers:
 const maryBeth = new ProjectManager ({
@@ -175,6 +183,7 @@ const maryBeth = new ProjectManager ({
   gradClassName: 'FSW13',
   favInstructor: 'JimBob',
 });
+pms.push('maryBeth');
 
 const michaelBen = new ProjectManager ({
   name: 'Michael Ben',
@@ -187,6 +196,7 @@ const michaelBen = new ProjectManager ({
   gradClassName: 'FSW14',
   favInstructor: 'JaneBeth',
 });
+pms.push('michaelBen');
 
 // // Test that instances are working
 // // jimBob tests:
@@ -261,10 +271,32 @@ const michaelBen = new ProjectManager ({
 // michaelBen.standUp('#DS1');
 // michaelBen.debugsCode(bigRae, 'Constructors');
 
-// Test grade attribute and popQuiz method
-console.log(lilRoy.grade);
-janeBeth.popQuiz(lilRoy, 'banjo');
-console.log(lilRoy.grade);
+// // Test grade attribute and popQuiz method
+// console.log(lilRoy.grade);
+// janeBeth.popQuiz(lilRoy, 'banjo');
+// console.log(lilRoy.grade);
 
-// Test graduate method
-lilRoy.graduate();
+// // Test graduate method
+// lilRoy.graduate();
+
+// Use random selections from instructors, pms, and students to simulate a cohort
+for (let each of students) {
+  console.log(`${eval(each).name} starts the final sprint with ${eval(each).grade}% grade.`)
+}
+
+for (let day = 0; day < 5; day++) {
+  //choose a student and instructor for session, ending in pop quiz:
+  randStudent = eval(students[Math.floor(Math.random() * students.length)]);
+  randInstructor = eval(instructors[Math.floor(Math.random() * instructors.length)]);
+  randPM = eval(pms[Math.floor(Math.random() * pms.length)]);
+  //console.log(`Here is ${randInstructor.name} teaching for the day.`);
+  randInstructor.popQuiz(randStudent, randInstructor.specialty);
+  //console.log(`Here is ${randPM.name} doing standup.`);
+  randPM.standUp('#FSW16');
+  randPM.popQuiz(randStudent, randPM.specialty);
+}
+
+for (let each of students) {
+  console.log(`${eval(each).name} is now at the end of the final sprint.`)
+  eval(each).graduate();
+}
