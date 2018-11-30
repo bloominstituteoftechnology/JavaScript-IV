@@ -42,8 +42,8 @@ class Student extends Person {
     PRAssignment(subject) {
         console.log(`${this.name} submitted a PR for ${subject}`);
     }
-    sprintChallenge() {
-        return `${this.name} has begun sprint challenge on {subject}`;
+    sprintChallenge(subject) {
+        return `${this.name} has begun sprint challenge on ${subject}`;
     }
 }
 
@@ -134,10 +134,10 @@ josh.speak();
 dustin.demo('variables');
 josh.grade(megan, 'JavaScript');
 
-megan.speak();
+norman.speak();
 sam.listsSubjects();
 norman.PRAssignment('Redux');
-megan.sprintChallenge('Pre-proccessing');
+console.log(megan.sprintChallenge('Pre-proccessing'));
 
 david.speak();
 fred.demo('Redux');
