@@ -2,7 +2,7 @@
 
 
 // Create parent 'person' class
-class Person {
+class Person {  //==================================================== PARENT CLASS =====>
     constructor (attributes) {
         this.name = attributes.name;
         this.age = attributes.age;
@@ -14,7 +14,7 @@ class Person {
     }
 };
 
-class Instructor extends Person {
+class Instructor extends Person {  //=================================== INSTRUCTOR CLASS =====>
     constructor (insAttributes) {
         super(insAttributes);
         this.specialty = insAttributes.specialty; //"redux",
@@ -29,7 +29,7 @@ class Instructor extends Person {
     }
 };
 
-class Student extends Person {
+class Student extends Person {  //=================================== STUDENT CLASS =====>
     constructor (attributes) {
         super(attributes);
         this.previousBackground = attributes.previousBackground;
@@ -46,6 +46,13 @@ class Student extends Person {
     sprintChallenge (subject) {
         return `${student.name} has begun sprint challenge on ${subject}.`
     };
+    graduate () {
+        if (this.grade >= 70) {
+            return `${this.name}, you are ready to graduate. CONGRATLATIONS!`
+        } else {
+            return 
+        }
+    }
 };
 
 class ProjectManagers extends Instructor {
@@ -60,6 +67,7 @@ class ProjectManagers extends Instructor {
     debugsCode (student, subject) {
         return `${this.name} debugs ${student.name}'s code on ${subject}.`
     };
+
 };
 
 
@@ -133,3 +141,5 @@ const hancock = new Instructor({
 console.log(fred);
 console.log(tom);
 console.log(sam.speak());
+console.log(fred.grade(sam, 'javasript'));
+console.log(fred.demo('Flexbox'));
