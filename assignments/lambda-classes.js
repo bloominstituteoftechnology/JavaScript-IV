@@ -41,7 +41,20 @@ class Instructor extends Person {
   grade(student, subject) {
     console.log(`${student.name} receives a perfect score on ${subject}.`);
   }
+  changeGrade() {
+    let variable = '';
+    let plusOrMinus = Math.random();
+    if(plusOrMinus >= 0.5) {
+      variable = '+';
+    } else {
+      variable = '-';
+    }
+    
+    console.log(variable);
+  }
 }// Instructor
+
+
 
 const will = new Instructor ({
   name: 'Will Turner',
@@ -52,6 +65,8 @@ const will = new Instructor ({
   favLanguage: 'Python',
   catchPhrase: 'I\'m not a pirate!'
 });
+
+will.changeGrade();
 
 const elizabeth = new Instructor ({
   name: 'Elizabeth Swann',
@@ -71,6 +86,7 @@ class Student extends Person {
     this.previousBackground = studentProps.previousBackground;
     this.className = studentProps.className;
     this.favSubjects = studentProps.favSubjects;
+    this.grade = studentProps.grade;
   }
   listsSubjects() {
     console.log(`${this.name}'s favorite subjects are:`);
@@ -93,7 +109,8 @@ const leonardo = new Student ({
   gender: 'M',
   previousBackground: 'pet shop display piece',
   className: 'CS16',
-  favSubjects: ['HTML', 'CSS', 'JavaScript']
+  favSubjects: ['HTML', 'CSS', 'JavaScript'],
+  grade: 90
 });
 
 const donatello = new Student ({
@@ -103,7 +120,8 @@ const donatello = new Student ({
   gender: 'M',
   previousBackground: 'pet shop display piece',
   className: 'CS15',
-  favSubjects: ['Java', 'Python']
+  favSubjects: ['Java', 'Python'],
+  grade: 82
 });
 
 const michelangelo = new Student ({
@@ -113,7 +131,8 @@ const michelangelo = new Student ({
   gender: 'M',
   previousBackground: 'pet shop display piece',
   className: 'CS14',
-  favSubjects: ['Ruby', 'C#', 'C++', 'React']
+  favSubjects: ['Ruby', 'C#', 'C++', 'React'],
+  grade: 98
 });
 
 const raphael = new Student ({
@@ -123,7 +142,8 @@ const raphael = new Student ({
   gender: 'M',
   previousBackground: 'pet shop display piece',
   className: 'CS13',
-  favSubjects: ['Rust']
+  favSubjects: ['Rust'],
+  grade: 60
 });// Student examples
 
 
