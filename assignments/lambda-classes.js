@@ -1,58 +1,96 @@
 // CODE here for your Lambda Classes
 class Person {
-    constructor (attributes){
-        this.name= attributes.name;
-        this.age= attributes.age;
-        this.location= attributes.location;
-        this.gender= attributes.gender;
+    constructor (props){
+        this.age= props.age;
+        this.name= props.name;
+        this.location= props.location;
+        this.gender= props.gender;
     }
     speak(){
         return (`Hello my name is ${this.name}, I am from ${this.location}`);
     }
 }
 
+
 class Instructor extends Person{
-    constructor(instructorAttributes){
-        super(instructorAttributes);
-        this.specialty = ["redux", "web building", "banjo- playing"]
-        this.favLanguage = ["JavaScript, C+"]
-        this.catchPhrase= "When excellence becomes tradition, there is no end to greatness."
+    constructor(props){
+        super(props);
+        this.specialty = props.specialty;
+        this.favLanguage = props.favLanguage;
+        this.catchPhrase= props.catchPhrase;
     }
-    demo(){
-        return (`Today we are learning about ${this.subject} `);
+    demo(subject){
+        return (`Today we are learning about ${subject}`);
     }
-    grade(){
-        return (`${this.name} recieves a perfect score on ${this.subject}`);
+    grade(student, subject){
+        return (`${student.name} recieves a perfect score on ${subject}`);
     }
 }
 
 class Student extends Person {
-    constructor(studentAttributes){
-        super(studentAttributes);
-        this.previousBackground= studentAttributes.previousBackground;
-        this.className= studentAttributes.className;
-        this.favSubjects= ["Html", "JS", "CSS"]
+    constructor(props){
+        super(props);
+        this.previousBackground= props.previousBackground;
+        this.className= props.className;
+        this.favSubjects= props.favSubjects;
     }
     listSubjects(){
         return (`${this.favSubjects}`);
     }
-    PRAssignments(){
-        return (`${student.name} has submitted a PR for ${this.subject}`);
+    PRAssignments(subject){
+        return (`${this.name} has submitted a PR for ${subject}`);
     }
-    sprintChallenge(){
-        return(`${student.name} has begun sprint challenge on ${this.subject}`);
+    sprintChallenge(subject){
+        return(`${this.name} has begun sprint challenge on ${subject}`);
     }
 }
 class ProjectManagers extends Instructor{
-    constructor(PMAttributes){
-        super(PMAttributes);
-        this.gradClassName= PMAttributes.gradClassName;
-        this.favInstructor= PMAttributes.favInstructor;
+    constructor(props){
+        super(props);
+        this.gradClassName= props.gradClassName;
+        this.favInstructor= props.favInstructor;
     }
-    standUp(){
-        return (`${this.name} announces to ${this.className}. @Channel stand up time!`)
+    standUp(channel){
+        return (`${this.name} announces to ${channel}. @Channel stand up time!`)
     }
-    debugsCode(){
-        return (`${this.name} debugs ${student.name}'s code on ${this.subject}`);
+    debugsCode(student, subject){
+        return (`${this.name} debugs ${student.name}'s code on ${subject}`);
     }
 }
+const fred = new Person({
+    age:36,
+    name: 'Fred',
+    location: 'Bedrock',
+    gender: 'male'
+});
+
+const Josh = new Instructor({
+    age:40,
+    name: "Josh",
+    favLanguage: "JavaScript",
+    subject:"C+",
+    student: "John",
+
+});
+
+const Marquis = new Student ({
+    age: 34,
+    name: "Marquis",
+    subject: "Math",
+
+
+});
+
+const Brutus = new ProjectManagers({
+    name: "Brutus",
+
+});
+console.log(Josh.grade(Marquis, "JavaScript"));
+
+console.log(Marquis.PRAssignments( "Javascript"));
+
+console.log(Marquis.sprintChallenge("Javascript"))
+
+console.log(Brutus.standUp("FSW 16"));
+
+console.log(Brutus.debugsCode(Marquis, "JavaScript!"))
