@@ -71,7 +71,13 @@ class Student extends Person {
         return `${this.name}'s grade for ${subject} is ${this.grade}.`
     }
 
-
+    graduate() {
+        if (this.grade >= 70) {
+            return `Congratulations ${this.name}, you are ready to graduate!`
+        } else {
+            return `Sorry ${this.name}, you still have more work to do in order to graduate.`
+        }
+    }
 
 }
 
@@ -201,6 +207,7 @@ console.log(lisa.listSubjects());
 console.log(lisa.postGrade('JavaScript IV'));
 console.log(lisa.prAssignment('JavaScript-III'));
 console.log(lisa.sprintChallenge('JavaScript-III'));
+console.log(lisa.graduate());
 
 console.log(mike.greeting());
 console.log(mike.listSubjects());
