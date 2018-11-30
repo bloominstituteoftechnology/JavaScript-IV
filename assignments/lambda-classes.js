@@ -25,6 +25,9 @@ class Instructor extends Person {
   grade(student, subject) {
     console.log(`${student.name} receives a perfect score on ${subject}`);
   }
+  adjustGrade() {
+    return Math.floor(Math.random() * 100);    
+  }
 }
 
 class Student extends Person {
@@ -32,7 +35,8 @@ class Student extends Person {
     super(attr);
     this.previousBackground = attr.previousBackground,
     this.className = attr.className,
-    this.favSubjects = attr.favSubjects
+    this.favSubjects = attr.favSubjects,
+    this.grade = Math.random() * 100
   }
   listsSubjects() {
     this.favSubjects.forEach(subject => {
@@ -44,6 +48,13 @@ class Student extends Person {
   }
   sprintChallenge(subject) {
     console.log(`${this.name} has begun sprint challenge on ${subject}`);
+  }
+  graduate(cb){
+    while(this.grade < 70) {
+      console.log(`${this.name} has a grade of ${this.grade} and can't graduate.`);  
+      this.grade = cb();
+    } 
+      console.log(`${this.name} has a grade of ${this.grade} and is ready to graduate`);
   }
 }
 
@@ -135,15 +146,18 @@ const richard = new ProjectManager({
 
 //
 
-fred.speak();
-fred.demo('webapis');
-dan.grade(diane, 'databases');
-diane.speak();
-diane.listsSubjects();
-chris.sprintChallenge('Responsive Web Design');
-mary.PRAssignment('JavaScript III');
-sara.speak();
-sara.demo('HTML5');
-sara.standUp('#fsw16-sara');
-richard.grade(mary, 'Redux');
-richard.debugsCode(chris, 'Prototypal Inheritance');
+// fred.speak();
+// fred.demo('webapis');
+// dan.grade(diane, 'databases');
+// diane.speak();
+// diane.listsSubjects();
+// chris.sprintChallenge('Responsive Web Design');
+// mary.PRAssignment('JavaScript III');
+// sara.speak();
+// sara.demo('HTML5');
+// sara.standUp('#fsw16-sara');
+// richard.grade(mary, 'Redux');
+// richard.debugsCode(chris, 'Prototypal Inheritance');
+
+
+diane.graduate(fred.adjustGrade);
