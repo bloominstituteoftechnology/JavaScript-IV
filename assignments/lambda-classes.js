@@ -28,8 +28,8 @@ class Instructors extends Person {
         return `${student.name} receives a perfect score on ${subject}`;
     }
     changeGrade(student) {
-        let newGrade = student.grade += Math.ceil(Math.random() * 10 - 5);
-        return `${this.name} changed ${student.name}'s grade to ${newGrade}`
+        student.grade = student.grade + Math.ceil(Math.random() * 10 - 5);
+        return `${this.name} changed ${student.name}'s grade to ${student.grade}`
     }
 }
 
