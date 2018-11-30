@@ -239,11 +239,11 @@ function attack(attacker, victim) {
     console.log(evilPerson.doAttack(virtuousIndividual));
     if(virtuousIndividual.healthPoints <= 0) {
       console.log(virtuousIndividual.destroy());
-      return;
+      break;
     }
     console.log(virtuousIndividual.doAttack(evilPerson));
     if(evilPerson.healthPoints <= 0){
       console.log(evilPerson.destroy());
-      return;
+      break;
     }
   }
