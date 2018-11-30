@@ -36,8 +36,8 @@ class Student extends Person {
         this.className = studentProps.className;
         this.favSubjects = studentProps.favSubjects;
     }
-    listsSubjects(subject1, subject2, subject3) {
-        console.log(`I like ${subject1}, ${subject2}, and ${subject3}.`);
+    listsSubjects() {
+        this.favSubjects.forEach(e => console.log(e));
     }
 
     prAssignment(subject) {
@@ -133,7 +133,7 @@ console.log(thyme.age); //27
 console.log(linda.speak()); // Hello my name is Linda, I am from New York.
 console.log(mark.demo('CSS')); // Today we are learning about CSS.
 console.log(linda.grade (berkeley,'Javascript')); // Berkeley receives a perfect score on Javascript.
-console.log(brad.listsSubjects(brad.favSubjects));
+console.log(brad.listsSubjects());
 console.log(berkeley.prAssignment('Html'));
 console.log(brad.sprintChallenge('UI'));
 console.log(thyme.standUp('fsw16_thyme'));
