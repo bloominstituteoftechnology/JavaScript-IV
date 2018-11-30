@@ -32,6 +32,12 @@ class Instructor extends Person {
         return `${student.name} recieves a perfect score on ${subject}.`;
     }
 
+    extraPoints(student, subject) {
+        let points = Math.floor(Math.random() * 20) + 1;
+        let instructorGrade = student.grade + points;
+        return `${this.name} gave ${student.name} an additional ${points} for a total grade of ${instructorGrade} for their assignment on ${subject}`; 
+    }
+
 
 }
 
@@ -43,6 +49,7 @@ class Student extends Person {
 
         this.previousBackground = studentAttrs.previousBackground;
         this.favSubjects = studentAttrs.favSubjects;
+        this.grade = Math.floor(Math.random() * 50) + 50
 
     }
 
@@ -58,6 +65,10 @@ class Student extends Person {
 
     sprintChallenge(subject) {
         return `${this.name} has submitted their sprint challenge for ${subject}.`;
+    }
+
+    postGrade(subject) {
+        return `${this.name}'s grade for ${subject} is ${this.grade}.`
     }
 
 
@@ -172,6 +183,7 @@ console.log(``);
 console.log(john.greeting());
 console.log(john.demo('closures'));
 console.log(john.grade(lisa, 'JavaScript Fundamentals'));
+console.log(john.extraPoints(lisa, "CSS"));
 
 console.log(pam.greeting());
 console.log(pam.demo('classes'));
@@ -186,6 +198,7 @@ console.log(``);
 
 console.log(lisa.greeting());
 console.log(lisa.listSubjects());
+console.log(lisa.postGrade('JavaScript IV'));
 console.log(lisa.prAssignment('JavaScript-III'));
 console.log(lisa.sprintChallenge('JavaScript-III'));
 
