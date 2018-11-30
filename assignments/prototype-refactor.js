@@ -1,102 +1,39 @@
- 
-function GameObject(object) {
-  this.createdAt = object.createdAt;
-  this.dimensions = object.dimensions;
-  }
 
-  GameObject.prototype.destroy = function() {
-    return `${this.name} was removed from the game.`;
-  };
-
-  class GameObject {
+class GameObject {
       constructor(object) {
           this.createdAt = object.createdAt;
           this.dimensions = object.dimensions;
       }
 
-  };
+      destroy() {
+          return 
+              `${this.name} was removed from the game.`;
+          }
 
-//   function Animal(attributes) {
-//     this.animalCommonName = attributes.animalCommonName;
-//     this.weight = attributes.weight;
-//     this.height = attributes.height;
-//     this.food = attributes.food;
-//   }
-  
-//   Animal.prototype.eat = function() {
-//     console.log(`The ${this.animalCommonName} eats ${this.food}`);
-//   }
+      }
 
-// class Animal {
-//     constructor(attributes) {
-//       this.animalCommonName = attributes.animalCommonName;
-//       this.weight = attributes.weight;
-//       this.height = attributes.height;
-//       this.food = attributes.food;
-//     }
-//     eat() {
-//       console.log(`The ${this.animalCommonName} eats ${this.food}`);
-//     }
-//   }
-  
-
-// Dog.prototype = Object.create(Animal.prototype);
-
-// Dog.prototype.speak = function() {
-//   console.log(`${this.name} says: ${this.bark}`);
-// }
-
-
-
-  
-
-//   class GameObject {
-//       constructor()
-//   }
-
-// // class blank extends blank {
-//     constructor(name) {
-//         super();
-//     }
-
-// }
-
-// const blank = new blank {
-//     constructor() {
-
-//     }
-// }
-
-function CharacterStats(gameStats) {
-    GameObject.call(this, gameStats);
-    this.healthPoints = gameStats.healthPoints;
-    this.name = gameStats.name;
-  
+  class CharacterStats extends GameObject {
+      constructor(gameStats){
+          super(gameStats);
+          this.healthPoints = gameStats.healthPoints;
+          this.name = gameStats.name;
+      }
+      takeDamage() {
+          return `${this.name} took damage.`;
+      }
   }
-  
-  CharacterStats.prototype = Object.create(GameObject.prototype);
-  
-  CharacterStats.prototype.takeDamage = function() {
-    return `${this.name} took damage.`;
-  
-  };
 
-  
-  function Humanoid (gameHumanoid) {
-    this.team = gameHumanoid.team;
-    this.weapons = gameHumanoid.weapons;
-    this.language = gameHumanoid.language;
-  
-    CharacterStats.call(this, gameHumanoid);
+  class Humanoid extends CharacterStats {
+      constructor (gameHumanoid){
+          super(gameHumanoid);
+          this.team = gameHumanoid.team;
+          this.weapons = gameHumanoid.weapons;
+          this.language = gameHumanoid.language;
+      }
+      greet () {
+          return `${this.name} offers a greeting in ${this.language}.`;
+      }
   }
-  
-  Humanoid.prototype = Object.create(CharacterStats.prototype);
-  
-  Humanoid.prototype.greet = function() {
-    return `${this.name} offers a greeting in ${this.language}`;
-  
-  
-  };
   
   
   // Test you work by un-commenting these 3 objects and the list of console logs below:
