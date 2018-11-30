@@ -26,7 +26,11 @@ class Instructor extends Person {  //=================================== INSTRUC
     }
     grade (student, subject) {
         return `${student.name} receives a perfect score on ${subject}.`
-    }
+    };
+    reGrade (student) {
+        student.grade = student.grade + Math.floor((Math.random() * 20) + 20);
+        return student.grade;
+    };
 };
 
 class Student extends Person {  //=================================== STUDENT CLASS =====>
@@ -46,16 +50,17 @@ class Student extends Person {  //=================================== STUDENT CL
     sprintChallenge (subject) {
         return `${student.name} has begun sprint challenge on ${subject}.`
     };
-    graduate () {
-        if (this.grade >= 70) {
-            return `${this.name}, you are ready to graduate. CONGRATLATIONS!`
-        } else {
-            return 
-        }
+    graduate (instructor) {
+        while (this.grade < 70) {
+            this.grade = instructor.reGrade(this);
+            
+        } if (this.grade >= 70) {
+            return `${this.name}, your grade is ${this.grade}. You are ready to graduate. CONGRATULATIONS!`
+        } 
     }
 };
 
-class ProjectManagers extends Instructor {
+class ProjectManager extends Instructor {
     constructor (attributes) {
         super(attributes);
         this.gradClassName = attributes.gradClassName; // "CS16",
@@ -67,10 +72,11 @@ class ProjectManagers extends Instructor {
     debugsCode (student, subject) {
         return `${this.name} debugs ${student.name}'s code on ${subject}.`
     };
-
+    reGrade (student) {
+        student.grade = student.grade + Math.floor((Math.random() * 20) + 20);
+        return student.grade;
+    }
 };
-
-
 
 // ========================================= Create Characters/persons ============>
 
@@ -115,11 +121,11 @@ const alexis = new Student({
     favSubjects: ['Html', 'Flexbox', 'JavaScript'],
     className: 'FSW107',
     previousBackground: `Architect`,
-    grade: 87
+    grade: 17
 });
 
 //===================================== PROJECT MANAGERS =================>
-const bill = new Instructor({
+const bill = new ProjectManager({
     name: 'Bill',
     location: 'Hamrock',
     age: 47,
@@ -127,7 +133,7 @@ const bill = new Instructor({
     gradClassName: 'CS1',
     favInstructor: 'Josh',
 });
-const hancock = new Instructor({
+const hancock = new ProjectManager({
     name: 'Hancock',
     location: 'Nowhere',
     age: 33,
@@ -141,5 +147,6 @@ const hancock = new Instructor({
 console.log(fred);
 console.log(tom);
 console.log(sam.speak());
-console.log(fred.grade(sam, 'javasript'));
+console.log(fred.grade(sam, 'Javasript'));
 console.log(fred.demo('Flexbox'));
+console.log(alexis.graduate(fred));
