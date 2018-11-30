@@ -8,28 +8,28 @@ class GameObject {
     }
 }
 
-  class CharacterStats extends GameObject {
-      constructor(CSattributes) {
-          super(CSattributes);
-          this.healthPoints = CSattributes.healthPoints;
-          this.name = CSattributes.name;
-      }
-      takeDamage() {
-        return `${this.name} took damage`
-      }
-  }
+class CharacterStats extends GameObject {
+    constructor(CSattributes) {
+        super(CSattributes);
+        this.healthPoints = CSattributes.healthPoints;
+        this.name = CSattributes.name;
+    }
+    takeDamage() {
+      return `${this.name} took damage`
+    }
+}
 
-  class Humanoid extends CharacterStats {
-      constructor(HUattributes) {
-        super(HUattributes);
-        this.team = HUattributes.team;
-        this.weapons = HUattributes.weapons;
-        this.language = HUattributes.language;
-      }
-      greet() {
-          return `${this.name} offers a greeting in ${this.language}`
-      }
-  }
+class Humanoid extends CharacterStats {
+    constructor(HUattributes) {
+      super(HUattributes);
+      this.team = HUattributes.team;
+      this.weapons = HUattributes.weapons;
+      this.language = HUattributes.language;
+    }
+    greet() {
+        return `${this.name} offers a greeting in ${this.language}`
+    }
+}
   
     const mage = new Humanoid({
       createdAt: new Date(),
