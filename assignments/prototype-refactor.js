@@ -1,5 +1,5 @@
  
-function  GameObject(object) {
+function GameObject(object) {
   this.createdAt = object.createdAt;
   this.dimensions = object.dimensions;
   }
@@ -7,6 +7,65 @@ function  GameObject(object) {
   GameObject.prototype.destroy = function() {
     return `${this.name} was removed from the game.`;
   };
+
+  class GameObject {
+      constructor(object) {
+          this.createdAt = object.createdAt;
+          this.dimensions = object.dimensions;
+      }
+
+  };
+
+//   function Animal(attributes) {
+//     this.animalCommonName = attributes.animalCommonName;
+//     this.weight = attributes.weight;
+//     this.height = attributes.height;
+//     this.food = attributes.food;
+//   }
+  
+//   Animal.prototype.eat = function() {
+//     console.log(`The ${this.animalCommonName} eats ${this.food}`);
+//   }
+
+// class Animal {
+//     constructor(attributes) {
+//       this.animalCommonName = attributes.animalCommonName;
+//       this.weight = attributes.weight;
+//       this.height = attributes.height;
+//       this.food = attributes.food;
+//     }
+//     eat() {
+//       console.log(`The ${this.animalCommonName} eats ${this.food}`);
+//     }
+//   }
+  
+
+// Dog.prototype = Object.create(Animal.prototype);
+
+// Dog.prototype.speak = function() {
+//   console.log(`${this.name} says: ${this.bark}`);
+// }
+
+
+
+  
+
+//   class GameObject {
+//       constructor()
+//   }
+
+// // class blank extends blank {
+//     constructor(name) {
+//         super();
+//     }
+
+// }
+
+// const blank = new blank {
+//     constructor() {
+
+//     }
+// }
 
 function CharacterStats(gameStats) {
     GameObject.call(this, gameStats);
@@ -21,16 +80,7 @@ function CharacterStats(gameStats) {
     return `${this.name} took damage.`;
   
   };
-  
-  /*
-    === Humanoid (Having an appearance or character resembling that of a human.) ===
-    * team
-    * weapons
-    * language
-    * greet() // prototype method -> returns the string '<object name> offers a greeting in <object language>.'
-    * should inherit destroy() from GameObject through CharacterStats
-    * should inherit takeDamage() from CharacterStats
-  */
+
   
   function Humanoid (gameHumanoid) {
     this.team = gameHumanoid.team;
