@@ -44,14 +44,14 @@ class Student extends Person {
             this.favSubjects = students.favSubjects;
     }
     listSubjects(){
-        console.log(`${this.name} favorite subjects are ${this.favSubjects}`);
+        console.log (`${this.name} favorite subjects are ${this.favSubjects}`);
     }
     PRAssignment(subjects) {
-        console.log( `${this.name} has submitted a PR for ${subjects}`);
+        console.log (`${this.name} has submitted a PR for ${subjects}`);
     }
 
     sprintChallenge(subjects){
-        console.log(`${this.name} has begun sprint challenge on ${subjects}`);
+        console.log (`${this.name} has begun sprint challenge on ${subjects}`);
     }
 
 };
@@ -98,7 +98,7 @@ const school = new Person({
     location: 'Tampa',
     previousBackground: 'minimum',
     className: 'FSW16',
-    favSubjects: ['HTML' , 'CSS' , 'JS']
+    favSubjects: ['Math', 'HTML' , 'JS']
   });
 
 
