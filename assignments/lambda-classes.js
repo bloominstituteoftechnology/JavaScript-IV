@@ -21,12 +21,12 @@ class Instructor extends Person {
         this.cathPhrase = props.cathPhrase;
         
     }
-    demo(subjet) {
+    demo(subject) {
        console.log(`Today we are learning about ${subject}`);
 
     }
-    grade(student) {
-        console.log(`${student.name} receives a perfect scoe on ${this.subject}`);
+    grade(student, subject) {
+        console.log(`${student.name} receives a perfect scoe on ${subject}`);
     }
 }
 
@@ -38,8 +38,14 @@ class Student extends Instructor {
         this.favSubjects = props.favSubjects;
 
     }
-    listSubjects(student) {
+    listSubjects() {
         console.log(this.favSubjects);
     }
-    
+    PRassignment(subject) {
+        console.log(`student.name has submitted a PR for ${subject}`);
+
+    }
+    sprintchallenge(subject) {
+        console.log(`student.name has begun sprint challenge on ${subject}`);
+    }
 }
