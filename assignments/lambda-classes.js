@@ -9,7 +9,6 @@ class Person{
     speak(){
         return `Hello my name is ${this.name}, I am from ${this.location}`
     }
-
 }  
 // Instructor - Extension of Person
 class Instructor extends Person{
@@ -29,10 +28,11 @@ class Instructor extends Person{
         min = Math.ceil(min);
         max = Math.floor(max);
         let randomNum = Math.floor(Math.random() * (max - min + 1)) + min;
-        console.log(student);
-        console.log(randomNum);
-        console.log(student.grade)
-        student.grade = student.grade - randomNum
+        // console.log(student);
+        // console.log(randomNum);
+        // console.log(student.grade)
+        student.grade = student.grade - randomNum;
+        console.log(student.grade);
         if(student.grade <= 0){
             return `${student.name} has 0 points. :(`
         }else if(student.grade >= 100){
@@ -41,6 +41,7 @@ class Instructor extends Person{
         return `${student.name}'s grade is, ${student.grade}`;
     }
 }  
+
 // Student - Extension of Person
 class Students extends Person{
     constructor (attributes){
@@ -70,9 +71,9 @@ class Students extends Person{
             return `${this.name} needs to go study.`
         }
         return `${this.name}'s grade is, ${student.grade}`;
-
     }
 }  
+
 // Project Manager - Extension of Instructors
 class ProjectManagers extends Instructor{
     constructor (attributes){
@@ -87,7 +88,6 @@ class ProjectManagers extends Instructor{
         console.log(`${this.name} debugs ${student.name}'s code on ${subject}`)
     }
 }  
-
 
 // New Objects
 
@@ -128,6 +128,21 @@ const fred = new Instructor({
     grade: 50
   });
 
+  const walter = new Students({
+    name: 'Walter',
+    location: 'San Jose',
+    age: 36,
+    gender: 'male',
+    favLanguage: 'HTML',
+    specialty: 'Front-end',
+    catchPhrase: `LMGTFY`,
+    favSubjects: ['English', 'PE'],
+    previousBackground: `Lyft driver`,
+    className: `CS15`,
+    grade: 80
+  });
+
+
   // Projet Manager
   const lisa = new ProjectManagers({
     name: 'Lisa',
@@ -165,7 +180,14 @@ console.log(`=========== Student ===========`)
     mark.listsSubjects();
     mark.PRAssignment('English');
     mark.sprintChallenge('Science');
-    console.log(mark.grade); //Instructor random addition or subtraction to grade
+    console.log(mark.grade);
+
+    console.log(walter);
+    console.log(walter.speak());
+    walter.listsSubjects();
+    walter.PRAssignment('English');
+    walter.sprintChallenge('Science');
+    console.log(walter.grade);
 
 // Project Manager  
 console.log(`=========== Project Manager ===========`)
@@ -180,3 +202,6 @@ console.log(`=========== Stretch ===========`)
 console.log(`=========== Instructor ===========`)
 console.log(fred.grade(mark, 200, -100));
 console.log(mark.graduate());
+
+console.log(fred.grade(walter, 200, -100));
+console.log(walter.graduate());
