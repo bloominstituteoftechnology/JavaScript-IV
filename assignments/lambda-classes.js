@@ -15,6 +15,7 @@ class Person {
         this.location = personThings.location;
         this.gender = personThings.gender;
     }
+
     speak () {
         return `Hello my name is ${this.name}, I am from ${this.location}.`;
     }
@@ -38,9 +39,9 @@ class Person {
 class Instructor extends Person {
     constructor (instructorThings) {
         super (instructorThings);
-        this.specialty = instructorThings;
-        this.favLanguage = instructorThings;
-        this.catchPhrase = instructorThings;
+        this.specialty = instructorThings.specialty;
+        this.favLanguage = instructorThings.favLanguage;
+        this.catchPhrase = instructorThings.catchPhrase;
     }
     demo (subject) {
         return `Today we are learning about ${subject}.`;
@@ -107,7 +108,7 @@ class ProjectManager extends Instructor {
         super (pmThings);
         this.gradeClassName = pmThings.gradeClassName;
         this.favInstructor = pmThings.favInstructor;
-        this.channel = pmAttributes.channel;
+        this.channel = pmThings.channel;
     }
 
     standUp (channel) {
@@ -217,7 +218,7 @@ console.log(sam.grade(kelli, 'HTML'));
 console.log(kelli);
 console.log(cj);
 console.log(kelli.sprintChallenge());
-console.log(cj.listsSubjects());
+console.log(cj.favSubjects);
 
 //Project Manager 
 console.log(anne.debugsCode());
