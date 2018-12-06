@@ -33,3 +33,31 @@ class Instructor extends Person {
 const staff = new Instructor("Josh");
 staff.demo();
 staff.grade();
+
+class Student extends Instructor {
+    constructor(props) {
+        super(props);
+        this.previousBackground = "Construction and home renovations";
+        this.className = "FSW16";
+        this.favSubjects = "CSS, Html, JavaScript";
+        this.subject = "CSS";
+        this.studentName= 'Josh';
+
+    }
+    listsSubjects() {
+        console.log(this.favSubjects);
+            
+            
+    }
+    PRassignment() {
+        console.log(`${this.studentName} has submitted a PR for ${this.subject}`);
+
+    }
+    sprintchallenge() {
+        console.log(`${this.studentName} has begun sprint challenge on ${this.subject}`);
+    }
+}
+const pupil = new Student ("James");
+pupil.listsSubjects();
+pupil.PRassignment();
+pupil.sprintchallenge();
