@@ -61,3 +61,27 @@ const pupil = new Student ("James");
 pupil.listsSubjects();
 pupil.PRassignment();
 pupil.sprintchallenge();
+
+class ProjectManager extends Instructor {
+    constructor(props) {
+        super(props);
+        this.gradClassName = props.gradClassName;
+        this.favInstructor = props.favInstructor;
+        this.channel = "FS16_Async";
+        this.name = "Brad;";
+
+    }
+    standUp() {
+        console.log(`${this.name} announces to ${this.channel}, @channel standy times!`);
+
+    }
+    dbugsCode() {
+        console.log(`${this.name} debugs ${this.studentName}'s code on ${this.subject}`);
+    }
+
+
+}
+
+const admin = new ProjectManager ("Emily");
+admin.standUp();
+admin.dbugsCode();
