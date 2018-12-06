@@ -212,14 +212,16 @@ console.log(marissa.speak());
 //Instructor
 console.log(elon.demo('Javascript'));
 console.log(sam.catchPhrase);
+console.log(elon.catchPhrase);
 console.log(sam.grade(kelli, 'HTML'));
 
 //Student
 console.log(kelli);
 console.log(cj);
-console.log(kelli.sprintChallenge("HTML"));
 console.log(cj.favSubjects);
+console.log(kelli.sprintChallenge("HTML"));
+console.log(cj.sprintChallenge("CSS"));
 
 //Project Manager 
 console.log(zack.standUp('Kelli'));
-console.log(anne.debugsCode('Cj', 'FSW16'));
+console.log(anne.debugsCode('Cj', 'CSS'));
