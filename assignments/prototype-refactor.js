@@ -1,16 +1,13 @@
-
 class GameObject {
-      constructor(object) {
-          this.createdAt = object.createdAt;
-          this.dimensions = object.dimensions;
-      }
+  constructor(object) {
+    this.createdAt = object.createdAt;
+    this.dimensions = object.dimensions;
+  }
 
-      destroy() {
-          return 
-              `${this.name} was removed from the game.`;
-          }
-
-      }
+  destroy() {
+    return `${this.name} was removed from the game.`;
+  }
+};
 
   class CharacterStats extends GameObject {
       constructor(gameStats){
@@ -102,5 +99,5 @@ class GameObject {
   
 
 
-//2. hi Your goal is to refactor all of this code to use ES6 Classes. The console.log() statements should still return what is expected of them.
+//2. Your goal is to refactor all of this code to use ES6 Classes. The console.log() statements should still return what is expected of them.
 
