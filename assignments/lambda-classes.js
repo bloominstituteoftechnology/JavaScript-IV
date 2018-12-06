@@ -116,7 +116,7 @@ class ProjectManager extends Instructor {
     }
 
     debugsCode (student, subject) {
-        return `${this.name} debugs ${student.name}'s code on ${subject}.`;
+        return `${this.name} debugs ${student}'s code on ${subject}.`;
     }
 
 }
@@ -221,5 +221,5 @@ console.log(kelli.sprintChallenge("HTML"));
 console.log(cj.favSubjects);
 
 //Project Manager 
-console.log(zack.standUp('kelli, FSW16'));
-console.log(anne.debugsCode('cj, FSW16, '));
+console.log(zack.standUp('Kelli'));
+console.log(anne.debugsCode('Cj', 'FSW16'));
