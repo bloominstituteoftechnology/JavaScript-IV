@@ -13,3 +13,23 @@ class Person {
 }
 const personnel = new Person("Jason");
 personnel.speak();
+
+class Instructor extends Person {
+    constructor(props) {
+        super(props);
+        this.speciality = "redux";
+        this.favLanguage = "Python";
+        this.cathPhrase = "coding is life";
+
+    }
+    demo() {
+        console.log(`Today we are learning about ${this.subject}`);
+
+    }
+    grade() {
+        console.log(`${this.name} receives a perfect scoe on ${this.subject}`);
+    }
+}
+const staff = new Instructor("Josh");
+staff.demo();
+staff.grade();
