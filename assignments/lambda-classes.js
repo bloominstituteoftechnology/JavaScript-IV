@@ -168,7 +168,7 @@ class ProjectManager extends Instructor {
       age: 30,
       location: 'Nashville',
       gender: 'Female',
-      previousBackground: 'Modeling',
+      previousBackground: 'Fashion',
       className: 'FSW16',
       favSubjects: ['HTML', 'CSS']
   });
@@ -217,9 +217,8 @@ console.log(sam.grade(kelli, 'HTML'));
 //Student
 console.log(kelli);
 console.log(cj);
-console.log(kelli.sprintChallenge());
+console.log(kelli.sprintChallenge("HTML"));
 console.log(cj.favSubjects);
 
 //Project Manager 
-console.log(anne.debugsCode());
 console.log(zack.standUp('kelli, FSW16'));
