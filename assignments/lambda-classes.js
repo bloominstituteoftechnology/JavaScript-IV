@@ -222,3 +222,4 @@ console.log(cj.favSubjects);
 
 //Project Manager 
 console.log(zack.standUp('kelli, FSW16'));
+console.log(anne.debugsCode('cj, FSW16, '));
