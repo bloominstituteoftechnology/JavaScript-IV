@@ -157,6 +157,18 @@ const projectManagerOne = new ProjectManagers ( {
     favInstructor: 'Dan'
 });
 
+const projectManagerTwo = new ProjectManagers ( {
+    name: 'Terry',
+    age: 46,
+    location: 'Phoenix, AZ',
+    gender: 'M',
+    specialty: 'SQL',
+    favLanguage: 'JavaScript',
+    catchPhrase: 'Lorum Ipsum Terry',
+    gradClassName: 'CS9',
+    favInstructor: 'Judy'
+});
+
 
 
 // Console.log Verification of Code:
@@ -183,4 +195,9 @@ console.log(projectManagerOne.demo('LESS'));
 console.log(projectManagerOne.grade(projectManagerOne, 'Node.JS'));
 console.log(projectManagerOne.standUp('CS16'));
 console.log(projectManagerOne.debugsCode(StudentOne, 'React'));
+console.log(projectManagerTwo.speak());
+console.log(projectManagerTwo.demo('SQlite'));
+console.log(projectManagerTwo.grade(projectManagerTwo, 'SQL'));
+console.log(projectManagerTwo.standUp('CS17'));
+console.log(projectManagerTwo.debugsCode(StudentTwo, 'SQL'));
 
