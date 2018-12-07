@@ -182,5 +182,5 @@ console.log(projectManagerOne.speak());
 console.log(projectManagerOne.demo('LESS'));
 console.log(projectManagerOne.grade(projectManagerOne, 'Node.JS'));
 console.log(projectManagerOne.standUp('CS16'));
-
+console.log(projectManagerOne.debugsCode(StudentOne, 'React'));
 
