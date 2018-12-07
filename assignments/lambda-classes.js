@@ -125,7 +125,7 @@ class ProjectManager extends Instructor {
 //   * **Students** - extensions of Person
 //   * **Project Managers** - extensions of Instructors
 // * **IMPORTANT** - You'll need to create 2 - 3 objects for each class 
-// and test them according to their unique Attributes. For example:
+// and test them according to their unique Attributes. For example::
 
   
   const elliott = new Person({
@@ -219,9 +219,12 @@ console.log(sam.grade(kelli, 'HTML'));
 console.log(kelli);
 console.log(cj);
 console.log(cj.favSubjects);
-console.log(kelli.sprintChallenge("HTML"));
-console.log(cj.sprintChallenge("CSS"));
+console.log(kelli.sprintChallenge('HTML'));
+console.log(cj.sprintChallenge('CSS'));
 
 //Project Manager 
 console.log(zack.standUp('Kelli'));
 console.log(anne.debugsCode('Cj', 'CSS'));
+
+
+// student test grade math random
