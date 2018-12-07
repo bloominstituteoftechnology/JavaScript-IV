@@ -65,6 +65,8 @@ class ProjectManagers extends Instructor {
     }
 }
 
+
+
 // Three Person Class Examples:
 
 const personOne = new Person({
@@ -91,9 +93,7 @@ const personThree = new Person({
 
 });
 
-console.log(personOne.speak());
-console.log(personTwo.speak());
-console.log(personThree.speak());
+
 
 // Two Instructor Class Examples:
 
@@ -108,6 +108,79 @@ const InstructorOne = new Instructor({
 
 });
 
+const InstructorTwo = new Instructor({
+    name: 'Judy',
+    age: 29,
+    location: 'Chicago, IL',
+    gender: 'F',
+    specialty: 'CSS',
+    favLanguage: 'PHP',
+    catchPhrase: 'Lorum Ipsum Judy'
+
+});
+
+// Two Student Examples:
+
+const StudentOne = new Student({
+    name: 'Sarah',
+    age: 54,
+    location: 'Chicago, IL',
+    gender: 'F',
+    previousBackground: 'Clerk at Store',
+    className: "CS12",
+    favSubjects: "HTML"
+
+});
+
+const StudentTwo = new Student({
+    name: 'Edward',
+    age: 22,
+    location: 'Atlanta, GA',
+    gender: 'M',
+    previousBackground: 'Waiter',
+    className: "CS16",
+    favSubjects: "JavaScript"
+
+});
+
+// Two Project Manager Examples:
+
+const projectManagerOne = new ProjectManagers ( {
+    name: 'Marge',
+    age: 60,
+    location: 'Denver, CO',
+    gender: 'F',
+    specialty: 'Node.JS',
+    favLanguage: 'JavaScript',
+    catchPhrase: 'Lorum Ipsum Marge',
+    gradClassName: 'CS8',
+    favInstructor: 'Dan'
+});
+
+
+
+// Console.log Verification of Code:
+
+console.log(personOne.speak());
+console.log(personTwo.speak());
+console.log(personThree.speak());
 console.log(InstructorOne.speak());
 console.log(InstructorOne.demo('CSS'));
-console.log(InstructorOne.grade(personOne, 'LESS'));
+console.log(InstructorOne.grade(StudentOne, 'LESS'));
+console.log(InstructorTwo.speak());
+console.log(InstructorTwo.demo('LESS'));
+console.log(InstructorTwo.grade(personTwo, 'HTML'));
+console.log(StudentOne.speak());
+console.log(StudentOne.listsSubjects());
+console.log(StudentOne.PRAssignment(StudentOne, 'JavaScript'));
+console.log(StudentOne.sprintChallenge(StudentOne, 'HTML'));
+console.log(StudentTwo.speak());
+console.log(StudentTwo.listsSubjects());
+console.log(StudentTwo.PRAssignment(StudentTwo, 'Node.JS'));
+console.log(StudentTwo.sprintChallenge(StudentTwo, 'React'));
+console.log(projectManagerOne.speak());
+console.log(projectManagerOne.demo('LESS'));
+console.log(projectManagerOne.grade(projectManagerOne, 'Node.JS'));
+console.log(projectManagerOne.standUp('CS16'));
+
+
