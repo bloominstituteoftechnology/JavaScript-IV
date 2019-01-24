@@ -31,7 +31,13 @@ class Person{
         console.log(`${student.name} receives a perfect score on ${subject}`); 
     }
 
-}
+    helpStudent(student){
+        if(student.grade < 100){
+            student.grade += (student.grade - 100) * - 1
+        } 
+        console.log(`After seeking and recieving help from ${this.name}, ${student.name} Got his grades up to.`
+    }
+  }
   
   class Student extends Person{
     constructor (props) {
@@ -39,6 +45,7 @@ class Person{
         this.previousBackground = props.previousBackground;
         this.className = props.age;
         this.favSubjects = props.favSubjects;
+        this.grade = props.grade;
     }
 
     listSubjects (){
@@ -86,6 +93,7 @@ const omarSalah = new Student({
     age: 29,
     location: 'Los Angeles',
     gender: 'Male',
+    grade: 90,
     previousBackground: 'Security',
     className: 'Web17',
     favSubjects: ['Python', 'HTML', 'CSS', 'LESS', 'Javascript']
@@ -156,6 +164,7 @@ justinDavis.sprintChallenge('Javascript II');
 console.log('Instructor Tests - Josh Knell');
 joshKnell.demo('Javascript');
 joshKnell.grade(omarSalah, "Javscript IV");
+joshKnell.helpStudent(omarSalah);
 
 
 console.log('Instructor Tests - Ryan Hamblin');
