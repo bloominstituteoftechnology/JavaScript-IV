@@ -42,6 +42,12 @@ class Instructor extends Person {
     grade (student, subject) {
         return `${student.name} recieves a perfect score on ${subject}.`;
     }
+
+    gradeAssignment (student) {
+        let change = Math.floor(Math.random() * 10) + 1;
+        let newgrade = student.grade + change;
+        return `${student.name}'s grade ${student.grade} changed ${change} points to ${newgrade}`;
+    }
 };
 
 class Student extends Person {
@@ -64,9 +70,13 @@ class Student extends Person {
     sprintChallenge (subject) {
         return `${this.name} has begun the sprint challenge on ${subject}.`;
     }
+
+    graduate () {
+        return this.grade >= 70; 
+    }
 };
 
-// extension of instructor
+// extension of instructor (and person)
 class ProjectManager extends Instructor {
     constructor (pmObject) {
         super (pmObject);
@@ -84,18 +94,18 @@ class ProjectManager extends Instructor {
     }
 };
 
-const josh = new Instructor({
-    name: 'Fred',
-    location: 'Bedrock',
-    age: 37,
+const gabe = new Instructor({
+    name: 'Gabe',
+    location: 'California',
+    age: 25,
     gender: 'male',
     favLanguage: 'JavaScript',
     specialty: 'Front-end',
-    catchPhrase: `Don't forget the homies`
+    catchPhrase: `I have a treat for you guys`
   });
 
   const thom = new Student({
-    name: 'Fred',
+    name: 'Thom',
     age: 25,
     location: 'Fort Pierce',
     gender: 'male',
@@ -104,4 +114,5 @@ const josh = new Instructor({
     favSubjects: ['HTML', 'CSS', 'Javascript']
   });
 
-console.log(thom.grade);
+console.log(josh.gradeAssignment(thom)); //lets see
+console.log(thom.graduate()); //return true or false
