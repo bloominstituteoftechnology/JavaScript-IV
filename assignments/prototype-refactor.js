@@ -12,21 +12,32 @@ Prototype Refactor
   * createdAt
   * dimensions (These represent the character's size in the video game)
   * destroy() // prototype method -> returns the string: 'Object was removed from the game.'
-*/
+*
 function GameObject (attributes) {
     this.createdAt = attributes.createdAt;
     this.dimensions = attributes.dimensions;
   }
   GameObject.prototype.destroy = function () {return `${this.name} was removed from the game.`;};
-  
-  
-  /*
+  */
+
+     class GameObjects {
+     constructor(attributes) {
+       this.createdAt = attributes.createdAt;
+       this.dimensions = attributes.dimensions;
+     }
+     
+     destroy() {
+       return `${this.name} was removed from the game.`
+     }
+   }
+
+/*
     === CharacterStats ===
     * healthPoints
     * name
     * takeDamage() // prototype method -> returns the string '<object name> took damage.'
     * should inherit destroy() from GameObject's prototype
-  */
+  
   function CharacterStats (charAttributes) {
     GameObject.call(this, charAttributes);
     this.hp = charAttributes.hp;
@@ -36,7 +47,21 @@ function GameObject (attributes) {
   
   CharacterStats.prototype.takeDamage = function() {
     return `${this.name} took damage.`;
-  };
+  };*/
+
+  class CharacterStats extends GameObjects {
+    constructor(charAttributes){
+    super(charAttributes)
+    this.hp = charAttributes.hp
+    this.name = charAttributes.name
+    this.healthPoints = charAttributes.healthPoints
+ }
+ 
+ takeDamage() {
+   return `${this.name} took damage.`
+  }
+ }
+
   /*
     === Humanoid (Having an appearance or character resembling that of a human.) ===
     * team
@@ -45,7 +70,7 @@ function GameObject (attributes) {
     * greet() // prototype method -> returns the string '<object name> offers a greeting in <object language>.'
     * should inherit destroy() from GameObject through CharacterStats
     * should inherit takeDamage() from CharacterStats
-  */
+  
   
   function Humanoid (humanAttributes) {
     CharacterStats.call(this, humanAttributes);
@@ -59,7 +84,22 @@ function GameObject (attributes) {
      return `${this.name} offers a greeting in ${this.language}.`;
     
   };
+  */
+ class Humanoid extends CharacterStats {
+    constructor(humanAttributes){
+    super(humanAttributes)
+    this.team = humanAttributes.team;
+    this.weapons = humanAttributes.weapons;
+    this.language = humanAttributes.language;
+    
+  }
   
+  greet() {
+    return `${this.name} offers a greeting in ${this.language}.`
+   }
+    
+  }
+
   /*
     * Inheritance chain: GameObject -> CharacterStats -> Humanoid
     * Instances of Humanoid should have all of the same properties as CharacterStats and GameObject.
