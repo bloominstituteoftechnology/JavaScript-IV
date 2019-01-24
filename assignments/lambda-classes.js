@@ -42,10 +42,10 @@ class Student extends Person {
     }
     PRAssignment(subject) {
         return `${this.name} has submitted a PR for ${subject}`;
-    }
+    }    
     sprintChallenge(subject) {
-        return `${this.name} has begun sprint challenge on ${subject}`;
-    }
+        return `${this.name} has begun spring challenge on ${subject}`;
+    }   
 }
 
 // Project Manager class
@@ -98,6 +98,17 @@ console.log(richard.favLanguage);
 console.log(richard.catchPhrase);
 console.log(richard.demo('Express'));
 console.log(richard.grade(screech, 'Redux'));
+
 console.log(screech.age);
+console.log(screech.name);
+console.log(screech.listsSubjects());
+console.log(screech.PRAssignment('django'));
+console.log(screech.sprintChallenge('GraphQL'));
+
+
 console.log(zack.location);
-console.log();
+console.log(zack.gradClassName);
+console.log(zack.favInstructor);
+console.log(zack.standUp('zack_FSW8'));
+console.log(zack.debugsCode(screech, 'Express'));
+
