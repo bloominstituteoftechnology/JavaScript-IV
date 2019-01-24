@@ -22,13 +22,15 @@ Prototype Refactor
  * destroy() // prototype method -> returns the string: 'Object was removed from the game.'
 */
 
-function GameObject(type) {
- this.createdat = type.createdAt;
- this.dimensions = type.dimensions;
-}
-
-Humanoid.prototype.destroy = function () {
- return('Object was removed from the game.');
+class GameObject {
+    constructor (type) {
+        this.createdat = type.createdAt;
+        this.dimensions = type.dimensions;
+    }
+    
+    destroy () {
+        return `${this.name} was removed from the game.`;
+    }
 }
 
 /*
@@ -39,18 +41,20 @@ Humanoid.prototype.destroy = function () {
  * should inherit destroy() from GameObject's prototype
 */
 
-function CharacterStats(type) {
- GameObject.call(this, type);
+class CharacterStats extends GameObject {
+    constructor (type) {
+        super(type);
 
- this.healthpoints = type.healthPoints;
- this.name = type.name;
+        this.healthpoints = type.healthPoints;
+        this.name = type.name;
+        }
+
+        takedamage () {
+            return(`${this.name} took damage`);
+        }
 }
 
-Humanoid.prototype.takedamage = function (name) {
- return(this.name + ' took damage');
-}
 
-CharacterStats.prototype = Object.create(GameObject.prototype);
 
 /*
  === Humanoid (Having an appearance or character resembling that of a human.) ===
@@ -61,22 +65,24 @@ CharacterStats.prototype = Object.create(GameObject.prototype);
  * should inherit destroy() from GameObject through CharacterStats
  * should inherit takeDamage() from CharacterStats
 */
-function Humanoid(type) {
- CharacterStats.call(this, type);
 
- this.team = type.team;
- this.weapons = type.weapons;
- this.language = type.language;
-}
 
-Humanoid.prototype.greet = function (language, name) {
- if (this.language === 'Common Tongue'){
-     return ('${this.name}: Hello There!');
- }else if (this.language === 'Elvish'){
-     return(this.name + ' : Greets you in Elvish');
- }
-Humanoid.prototype = Object.create(CharacterStats.prototype);
-Humanoid.prototype = Object.create(GameObject.prototype);
+class Humanoid extends CharacterStats {
+    constructor (type){
+        super(type);
+
+        this.team = type.team;
+        this.weapons = type.weapons;
+        this.language = type.language;
+        }
+
+        greet(language, name) {
+        if (this.language === 'Common Tongue'){
+             return (`${this.name}: Hello There!`);
+        }else if (this.language === 'Elvish'){
+            return(`${this.name} : Greets you in Elvish`);
+        }}
+    
 }
 
 
