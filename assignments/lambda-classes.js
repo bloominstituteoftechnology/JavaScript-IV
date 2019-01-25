@@ -27,6 +27,12 @@ class Instructor extends Person {
     grade(student, subject) {
         return `${student.name} receives a perfect score on ${subject}`;
     }
+    addPoints(student) {
+        return `${student.name} gets points of ${Math.floor(Math.random() * 6) + student.score}`;
+    }
+    subtractPoints(student) {
+        return `${student.name} gets points of ${student.score - Math.floor(Math.random() * 6)}`;
+    }
 }
 
 // Student class
@@ -36,15 +42,23 @@ class Student extends Person {
         this.previousBackground = stuAttributes.previousBackground;
         this.className = stuAttributes.className;
         this.favSubjects = stuAttributes.favSubjects;
+        this.score = stuAttributes.score;
     }
     listsSubjects() {
-        return `Favorite subjects are: ${this.favSubjects}`;
+        return `Favorite subjects are: ${this.favSubjects.join(' --')}`;
     }
     PRAssignment(subject) {
         return `${this.name} has submitted a PR for ${subject}`;
     }    
     sprintChallenge(subject) {
         return `${this.name} has begun spring challenge on ${subject}`;
+    }
+    doesStudentGraduate() {
+        if(this.score > 70) {
+            return `${this.name} is ready to graduate from Lambda School`;
+        } else {
+            return `${this.name} should keep doing assignments to increase ${this.name}'s score`;
+        }
     }   
 }
 
@@ -81,6 +95,7 @@ const screech = new Student({
     previousBackground: 'Physics',
     className: 'FSW 8',
     favSubjects: ['HTML', 'CSS', 'JavaScript', 'Python', 'SQL'],
+    score: 100,
 });
 
 const zack = new ProjectManagers({
@@ -91,6 +106,7 @@ const zack = new ProjectManagers({
     gradClassName: 'FSW 4',
     favInstructor: 'Richard',
 });
+
 
 console.log(richard.name);
 console.log(richard.specialty);
@@ -111,4 +127,14 @@ console.log(zack.gradClassName);
 console.log(zack.favInstructor);
 console.log(zack.standUp('zack_FSW8'));
 console.log(zack.debugsCode(screech, 'Express'));
+
+console.log(screech.score);
+
+console.log(richard.addPoints(screech));
+console.log(zack.subtractPoints(screech));
+richard.subtractPoints(screech);
+zack.addPoints(screech);
+zack.addPoints(screech);
+zack.subtractPoints(screech);
+console.log(screech.doesStudentGraduate());
 
