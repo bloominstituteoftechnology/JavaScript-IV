@@ -51,3 +51,22 @@ class Person {
          return `${student.name} has begun sprint challenge on ${subject}`
      }
  }
+
+ class ProjectManagers extends(Instructors){ 
+     constructor(PMAttributes)
+     super(PMAttributes){ 
+     this.gradClassName = PMAttributes.gradClassName
+     this.favInstructor = PMAttributes.favInstructor
+     }
+
+     standup(channel){ 
+         return ` ${name} announces to ${channel}, @channel standy times!​​​​​`
+         
+     }
+
+     debugsCode(student, subject){ 
+         return `${name} debugs ${student.name}'s code on ${subject}`
+     }
+
+
+ }
