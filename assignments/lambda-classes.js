@@ -39,8 +39,8 @@ class Person {
          this.favSubject = studAttributes.favSubject
      }
 
-     listSubjects(favSubject){ 
-         return ${favSubject}
+     listSubjects(){ 
+         return `${this.favSubject}`
      }
 
      PRAssignment(student, subject){ 
