@@ -9,8 +9,8 @@ class Person {
     this.gender = attributes.gender
     }
  
- speak () { 
-   console.log(`Hello my name is ${this.name}, I am from ${this.location}`)
+ speak() { 
+   return `Hello my name is ${this.name}, I am from ${this.location}`
    }
  }
 
@@ -23,10 +23,31 @@ class Person {
      }
 
      demo(subject) { 
-         console.log(`Today we are learning about ${subject}`)
+        return `Today we are learning about ${subject}`
      }
 
-     grade(student, subject){ 
-         console.log(`${student.name} receives a perfect score on ${subject}'`)
+     grade(student, subject){
+         return `${student.name} receives a perfect score on ${subject}`
+     }
+ }
+
+ class Student extends Person{ 
+     constructor(studAttributes){ 
+         super(studAttributes)
+         this.previousBackground = studAttributes.previousBackground
+         this.className = studAttributes.className
+         this.favSubject = studAttributes.favSubject
+     }
+
+     listSubjects(favSubject){ 
+         return ${favSubject}
+     }
+
+     PRAssignment(student, subject){ 
+         return `${student.name} has submitted a PR for ${subject}`
+     }
+
+     sprintChalleng(student, subject){ 
+         return `${student.name} has begun sprint challenge on ${subject}`
      }
  }
