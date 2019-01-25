@@ -53,8 +53,8 @@ class Person {
  }
 
  class ProjectManagers extends(Instructors){ 
-     constructor(PMAttributes)
-     super(PMAttributes){ 
+     constructor(PMAttributes){
+     super(PMAttributes)
      this.gradClassName = PMAttributes.gradClassName
      this.favInstructor = PMAttributes.favInstructor
      }
@@ -70,3 +70,32 @@ class Person {
 
 
  }
+
+ //Persons 
+ 
+const wes = new Person ({ 
+  name: 'Wes', 
+  age: 32, 
+  location: 'Morro Bay',
+  gender: 'Male'
+  
+ })
+
+const steve = new Person({
+  name: 'Steve', 
+  age: 27, 
+  location: 'Portland',
+  gender: 'Male'
+})
+
+const ella = new Person({ 
+name: 'Ella', 
+age: 24, 
+location: 'Santa Barbara',
+gender: 'Female'
+})
+                       
+console.log(wes.speak())
+console.log(steve.speak())
+console.log(ella.speak())
+ 
