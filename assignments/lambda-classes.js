@@ -19,12 +19,12 @@ class Instructor extends Person {
         this.favLanguage = about.favLanguage;
         this.catchPhrase = about.catchPhrase;
     }
-    demo(a) {
-        var subject = a;
-        return (`Today we are learning about ${a}`);
+    demo(subject) {
+        
+        return console.log(`Today we are learning about ${subject}`);
     }
-    grade() {
-        console.log()
+    grade(subject){
+        return  `${this.name} receives a perfect score on ${subject}`
     }
 }
 
@@ -35,7 +35,19 @@ class Student extends Person {
         this.className = stud.className;
         this.favSubjects = stud.favSubjects;
     }
+    // listSubjects (){ 
+    //     Student.forEach(function(answers) {
+    //         listSubjects.push(answers)
+    //     }) 
+    // }
+    PRAssignment(subject) {
+        return `${this.name} has submitted a pr for ${subject}`
+    }
+    sprintChallenge(subject) {
+        return `${this.name} has begun sprint challenge on ${subject}`
+    }
 }
+    
 
 
 class ProjectManager extends Instructor {
@@ -43,6 +55,13 @@ class ProjectManager extends Instructor {
         super(manager);
         this.gradClassName = manager.gradClassName;
         this.favIncstructor = manager.favInstructor;
+    }
+    standUp (channel) {
+        return `${this.name} announces to ${channel}, @channel standy times!`
+    }
+
+    debugsCode(student, subject) {
+        return `${this.name} debugs ${student.name}'s code on ${subject}`
     }
 }
 
@@ -117,4 +136,14 @@ const fred = new Instructor({
   })
 
 
-  console.log(demo())
+  
+  console.log(fred.grade('JS'))
+  
+  console.log(elan.PRAssignment('CSS'))
+
+  console.log(elan.sprintChallenge('JavaScript'))
+
+  console.log(mike.standUp("Andriod Dev"))
+
+  console.log(jordan.debugsCode(lisa, "React"))
+
