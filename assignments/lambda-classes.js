@@ -131,6 +131,7 @@ const elga = new Instructors ({
   
 
   //Students 
+
   const sabrina = new Student ({ 
     name: 'Sabrina', 
     age: 23, 
@@ -161,9 +162,9 @@ const elga = new Instructors ({
     favSubject: 'Preprocessing'
    })
   
-  // Two Project Manager Examples:
+  // Project Managers
 
-const luke = new ProjectManagers ( {
+  const luke = new ProjectManagers ( {
     name: 'Luke',
     age: 24,
     location: 'Denver',
@@ -187,8 +188,20 @@ const larry = new ProjectManagers ( {
     favInstructor: 'Cam'
 });
 
+const sara = new ProjectManagers ( {
+    name: 'Sara',
+    age: 20,
+    location: 'OC',
+    gender: 'Female',
+    specialty: 'Front-end',
+    favLanguage: 'CSS',
+    catchPhrase: 'Make it pretty',
+    gradClassName: 'CS8',
+    favInstructor: 'Wilson'
+});
 
-                       
+
+// Testing                
 console.log(wes.speak())
 console.log(steve.speak())
 console.log(courtney.speak())
@@ -219,3 +232,8 @@ console.log(luke.demo('Node.js'))
 console.log(luke.grade(luke, 'SQL'))
 console.log(luke.standUp('CS16'))
 console.log(luke.debugsCode(sabrina, 'CSS')) 
+console.log(sara.speak())
+console.log(sara.demo('Node.js'))
+console.log(sara.grade(robert, 'Mongo.DB'))
+console.log(sara.standUp('CS17'))
+console.log(sara.debugsCode(robert, 'LESS')) 
