@@ -47,7 +47,7 @@ class Person {
          return `${student.name} has submitted a PR for ${subject}`
      }
 
-     sprintChalleng(student, subject){ 
+     sprintChallenge(student, subject){ 
          return `${student.name} has begun sprint challenge on ${subject}`
      }
  }
@@ -59,7 +59,7 @@ class Person {
      this.favInstructor = PMAttributes.favInstructor
      }
 
-     standup(channel){ 
+     standUp(channel){ 
          return ` ${name} announces to ${channel}, @channel standy times!​​​​​`
          
      }
@@ -161,6 +161,32 @@ const elga = new Instructors ({
     favSubject: 'Preprocessing'
    })
   
+  // Two Project Manager Examples:
+
+const luke = new ProjectManagers ( {
+    name: 'Luke',
+    age: 24,
+    location: 'Denver',
+    gender: 'Male',
+    specialty: 'React',
+    favLanguage: 'Ruby',
+    catchPhrase: 'aalllrighty thannnnn',
+    gradClassName: 'CS14',
+    favInstructor: 'Dan'
+});
+
+const larry = new ProjectManagers ( {
+    name: 'Larry',
+    age: 36,
+    location: 'Fresno',
+    gender: 'Male',
+    specialty: 'JavaScript',
+    favLanguage: 'JavaScript',
+    catchPhrase: 'Go for the GOLD!!!',
+    gradClassName: 'CS1',
+    favInstructor: 'Cam'
+});
+
 
                        
 console.log(wes.speak())
@@ -176,10 +202,20 @@ console.log(ella.speak())
 console.log(ella.demo('React'))
 console.log(ella.grade(robert, 'JavaScript'))
 console.log(robert.speak())
-console.log(robert.listsSubjects())
+console.log(robert.listSubjects())
 console.log(robert.PRAssignment(robert, 'JavaScript'))
 console.log(robert.sprintChallenge(robert, 'React'))
 console.log(greg.speak())
-console.log(greg.listsSubjects())
+console.log(greg.listSubjects())
 console.log(greg.PRAssignment(greg, 'CSS'))
 console.log(greg.sprintChallenge(greg, 'LESS'))
+console.log(larry.speak())
+console.log(larry.demo('Node.js'))
+console.log(larry.grade(larry, 'Node.JS'))
+console.log(larry.standUp('CS4'))
+console.log(larry.debugsCode(greg, 'React'));
+console.log(luke.speak())
+console.log(luke.demo('Node.js'))
+console.log(luke.grade(luke, 'SQL'))
+console.log(luke.standUp('CS16'))
+console.log(luke.debugsCode(sabrina, 'CSS')) 
