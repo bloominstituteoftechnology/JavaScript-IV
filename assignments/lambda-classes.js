@@ -57,3 +57,22 @@ class ProjectManager extends Person {
         console.log(`${this.name} tried to help ${collegeDropout.name} with ${subSandwich} but ate pizza rolls instead`);
     }
 }
+
+// STRETCH
+// Extend the functionality of the Student by adding a prop called grade and setting it equal to a number between 1-100.
+Student.prototype.grade = 42;
+// Now that our students have a grade build out a method on the Instructor (this will be used by _BOTH_ instructors and PM's) that will randomly add or subtract points to a student's grade. _Math.random_ will help.
+Person.prototype.gradeStudent  = function(student) {
+    if(this instanceof Instructor || this instanceof ProgressEvent) {
+        console.log(student.grade);
+        student.grade += 100 - Math.floor(Math.random() * Math.floor(200));
+        if(student.grade <= 0) student.grade = 0;
+        else if(student.grade >= 100) student.grade = 100;
+    }
+}
+// Add a graduate method to a student.
+// This method, when called, will check the grade of the student and see if they're ready to graduate from Lambda School
+// If the student's grade is above a 70% let them graduate! Otherswise go back to grading their assignments to increase their score.
+Student.prototype.graduate = function() {
+    return this.grade > 70;
+}
