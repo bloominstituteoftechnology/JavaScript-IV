@@ -6,11 +6,10 @@ class Person{
         this.age = props.age;
         this.location = props.location;
         this.gender = props.gender;
-        this.age = props.age;
     }
 
       speak (){
-        console.log(`Hello my name is ${this.name}, I am from ${this.location}.`); ;
+        console.log(`Hello my name is ${this.name}, I am from ${this.location}.`);
     }
 }
 
@@ -31,11 +30,15 @@ class Person{
         console.log(`${student.name} receives a perfect score on ${subject}`); 
     }
 
+    gradeAdjust(student){
+        .
+    }
+    
     helpStudent(student){
         if(student.grade < 100){
             student.grade += (student.grade - 100) * - 1
         } 
-        console.log(`After seeking and recieving help from ${this.name}, ${student.name} Got his grades up to.`
+        console.log(`After seeking and receiving help from ${this.name}, ${student.name} Got his grades up to ${student.grade}.`)
     }
   }
   
