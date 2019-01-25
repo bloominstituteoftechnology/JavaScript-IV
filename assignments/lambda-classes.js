@@ -72,7 +72,7 @@ class Person {
  }
 
  //Persons 
- 
+
 const wes = new Person ({ 
   name: 'Wes', 
   age: 32, 
@@ -88,14 +88,98 @@ const steve = new Person({
   gender: 'Male'
 })
 
-const ella = new Person({ 
-name: 'Ella', 
+const courtney = new Person({ 
+name: 'Courtney', 
 age: 24, 
 location: 'Santa Barbara',
 gender: 'Female'
 })
+
+//Instructors 
+
+const elga = new Instructors ({ 
+    name: 'Elga', 
+    age: 38, 
+    location: 'Phoenix',
+    gender: 'Female',
+    favLanguage: 'JavaScript',
+    specialty: 'Everything',
+    catchPhrase: `Silenco porfavor...`
+
+    
+   })
+  
+  const geraldo = new Instructors({
+    name: 'Geraldo', 
+    age: 37, 
+    location: 'Seattle',
+    gender: 'Male',
+    favLanguage: 'Ruby',
+    specialty: 'Building things that work',
+    catchPhrase: 'Bingo!!!'
+  })
+  
+  const ella = new Instructors({ 
+    name: 'Ella', 
+    age: 24, 
+    location: 'Santa Barbara',
+    gender: 'Female',
+    favLanguage: 'Go',
+    specialty: 'Dev Ops',
+    catchPhrase: "It's Showtime!!!"
+    })
+  
+
+  //Students 
+  const sabrina = new Student ({ 
+    name: 'Sabrina', 
+    age: 23, 
+    location: 'Tampa',
+    gender: 'Female',
+    previousBackground: 'Model',
+    className: 'CS199',
+    favSubject: 'Science'
+   })
+  
+  const greg = new Student({
+    name: 'Greg', 
+    age: 56, 
+    location: 'Unknown',
+    gender: 'Male',
+    previousBackground: 'English Teacher',
+    className: 'CS199',
+    favSubject: 'ALL'
+   })
+  
+  const robert = new Student({ 
+    name: 'Robert', 
+    age: 33, 
+    location: 'Austin',
+    gender: 'Male',
+    previousBackground: 'Unknown',
+    className: 'CS199',
+    favSubject: 'Preprocessing'
+   })
+  
+
                        
 console.log(wes.speak())
 console.log(steve.speak())
+console.log(courtney.speak())
+console.log(elga.speak())
+console.log(elga.demo('JavaScript'))
+console.log(elga.grade(sabrina, 'CSS'))
+console.log(geraldo.speak())
+console.log(geraldo.demo('LESS'))
+console.log(geraldo.grade(greg, 'HTML'))
 console.log(ella.speak())
- 
+console.log(ella.demo('React'))
+console.log(ella.grade(robert, 'JavaScript'))
+console.log(robert.speak())
+console.log(robert.listsSubjects())
+console.log(robert.PRAssignment(robert, 'JavaScript'))
+console.log(robert.sprintChallenge(robert, 'React'))
+console.log(greg.speak())
+console.log(greg.listsSubjects())
+console.log(greg.PRAssignment(greg, 'CSS'))
+console.log(greg.sprintChallenge(greg, 'LESS'))
