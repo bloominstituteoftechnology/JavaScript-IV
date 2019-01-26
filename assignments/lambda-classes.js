@@ -92,6 +92,7 @@ class Instructor extends Person {
 
 class Student extends Person {
   constructor(attributes) {
+    super(attributes);
     this.previousBackground = attributes.previousBackground;
     this.className = attributes.className;
     this.favSubject = attributes.favSubject;
@@ -112,6 +113,7 @@ class Student extends Person {
 
 class ProjectManagers extends Instructor {
   constructor(attributes) {
+    super(attributes);
     this.gradClassName = attributes.gradClassName;
     this.favInstructor = this.favInstructor;
 
@@ -122,7 +124,7 @@ class ProjectManagers extends Instructor {
   }
 
   debugsCode(subject) {
-    console.log(`${this.name} debugs ${student.name}'s code on ${subject}`);
+    console.log(`${this.name} debugs ${Student.name}'s code on ${subject}`);
   }
 }
 
@@ -146,7 +148,7 @@ const John = new Instructor({
   catchPhrase: `JS FOR LIFE`
 });
 
-const fred = new Instructor({
+const kiwi = new Instructor({
   name: 'Kiwi',
   location: 'NY City',
   age: 22,
@@ -156,7 +158,7 @@ const fred = new Instructor({
   catchPhrase: `I like pretty things`
 });
 
-const fred = new Student({
+const jason = new Student({
   name: 'Jason' ,
   location: 'Texas' ,
   age: 18 ,
@@ -167,7 +169,7 @@ const fred = new Student({
 
 });
 
-const fred = new Student({
+const welma = new Student({
   name: 'Welma' ,
   location: 'Bedrok' ,
   age: 15 ,
@@ -178,8 +180,8 @@ const fred = new Student({
 
 });
 
-const fred = new ProjectManagers({
-  name: 'Jason' ,
+const jackson = new ProjectManagers({
+  name: 'Jackson' ,
   location: 'Texas' ,
   age: 18 ,
   gender: 'male' ,
@@ -187,3 +189,5 @@ const fred = new ProjectManagers({
   favInstructor: 'Dennis'
 
 });
+
+console.log(jackson.debugsCode());
