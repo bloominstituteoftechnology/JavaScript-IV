@@ -16,12 +16,22 @@ Prototype Refactor
 */
 function GameObject(attributes) {
     this.createdAt = attributes.createdAt;
-    this.dimenson = attributes.dimenson;
+    this.dimensons = attributes.dimensons;
   }
   GameObject.prototype.destroy = function() {
     return `${this.name} was removed from the game.`;
   }
   
+//   Class refactor 1
+  class GAmeObject {
+      constructor(attributes) {
+          this.createdAt = createdAt;
+          this.dimensons = dimensons;
+      }
+      destroy() {
+          return `${this.name} was removed from the game.`
+      }
+  }
   /*
     === CharacterStats ===
     * healthPoints
@@ -36,6 +46,18 @@ function GameObject(attributes) {
   CharacterStats.prototype = Object.create(GameObject.prototype);
   CharacterStats.prototype.takeDamage = function() {
     return `${this.name} took damage.`;
+  }
+
+//   Class refeactor 2
+  class CharacterStats extends GameObject {
+      constructor(stats) {
+          super(stats);
+          this.name = name;
+          this.healthPoints = healthPoints;
+      }
+      takeDamage() {
+          return `${this.name} took damage.`;
+      }
   }
   /*
     === Humanoid (Having an appearance or character resembling that of a human.) ===
@@ -55,6 +77,19 @@ function GameObject(attributes) {
    Humanoid.prototype = Object.create(CharacterStats.prototype);
    Humanoid.prototype.greet = function() {
      return `${this.name} offers a greeting in ${this.language}`;
+   }
+
+//    Class refactor 3
+   class Humanoid extends GameObject {
+       constructor(traits) {
+       super(traits);
+       this.team = team;
+       this.weapons = weapons;
+       this.language -language;
+       }
+       greet() {
+           return `${this.name} offers a greeting in ${this.language}`;
+       }
    }
   /*
     * Inheritance chain: GameObject -> CharacterStats -> Humanoid
