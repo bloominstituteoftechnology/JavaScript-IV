@@ -25,14 +25,14 @@ Prototype Refactor
   * destroy() // prototype method -> returns the string: 'Object was removed from the game.'
 */
 
-//   function GameObject(gameAttr) {
-//     this.createdAt = gameAttr.createdAt;
-//     this.dimensions = gameAttr.dimensions;
-//   }  
+  // function GameObject(gameAttr) {
+  //   this.createdAt = gameAttr.createdAt;
+  //   this.dimensions = gameAttr.dimensions;
+  // }  
   
-//   GameObject.prototype.destroy = function() {
-//     console.log(`${this.name} was removed from the game.`);
-//   };
+  // GameObject.prototype.destroy = function() {
+  //   console.log(`${this.name} was removed from the game.`);
+  // };
   
   class GameObject {
       constructor(gameAttr) {
@@ -99,12 +99,12 @@ Prototype Refactor
   
   class Humanoid extends CharacterStats {
     constructor(humAttr) {
-        super(hymAttr);
+        super(humAttr);
         this.team = humAttr.team;
         this.weapons = humAttr.weapons;
         this.language = humAttr.language;
     }
-    greet = function() {
+    greet() {
         console.log(`${this.name} offers a greeting in ${this.language}.`);
     }
 };
