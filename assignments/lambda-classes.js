@@ -36,7 +36,7 @@ class Instructor extends Person {
 class Student extends Person {
     constructor(stuAttr) {
         super(stuAttr);
-        this.previousBackground. stuAttr.previousBackground;
+        this.previousBackground = stuAttr.previousBackground;
         this.className = stuAttr.className;
         this.favSubjects = stuAttr.favSubjects;
     }
@@ -196,3 +196,23 @@ const carley = new ProjectManager({
     gradClassName: 'CS1',
     favInstructor: 'Katie'
 });
+
+
+//Check console.logs
+
+console.log(); //
+console.log(); //
+console.log(); //
+console.log(); //
+console.log(); //
+console.log(); //
+console.log(); //
+console.log(); //
+console.log(); //
+console.log(); //
+console.log(); //
+console.log(); //
+console.log(); //
+console.log(); //
+
+
