@@ -9,7 +9,7 @@ class Person {
         this.gender = attrs.gender;
     }
     speak() {
-        console.log(`Hello my name is ${this.name}, I am from ${this.location}`);
+        return `Hello my name is ${this.name}, I am from ${this.location}`;
 
     }
 }
@@ -23,10 +23,10 @@ class Instructor extends Person {
         this.catchPhrase = insAttrs.catchPhrase;
     }
     demo(subject) {
-        console.log(`Today we are learing about ${subject}`);
+        return `Today we are learing about ${subject}`;
     }
     grade(studentName, subject) {
-        console.log(`${studentName} receives a perfect scoer on ${subject}`);
+        return `${studentName} receives a perfect scoer on ${subject}`;
     }
 }
 
@@ -40,13 +40,13 @@ class Student extends Person {
         this.favSubjects = stuAttrs.favSubjects;
     }
     ListsSubjects() {
-        console.log(this.favSubjects);
+    return this.favSubjects;
     }
     PRAassignment(studentName, subject) {
-        console.log(`${studentName} has submitted a PR for ${subject}`);
+        return `${studentName} has submitted a PR for ${subject}`;
     }
     sprintChallenge() {
-        console.log(`${student.name} has begun sprint challenge on ${subject}`);
+        return `${student.name} has begun sprint challenge on ${subject}`;
     }
 }
 
@@ -58,10 +58,10 @@ class ProjectManager extends Instructor {
         this.favInstructor = pmAttrs.favInstructor;
     }
     standUp() {
-        console.log(`${name} announces to ${channel}, @channel standy times!`)
+        return `${name} announces to ${channel}, @channel standy times!`;
     }
     debugsCode() {
-        console.log(`${name} debugs ${student.name}'s code on ${subject}`)
+        return `${name} debugs ${student.name}'s code on ${subject}`
     }
 }
 
@@ -71,7 +71,55 @@ const fred = new Instructor({
     location: 'Bedrock',
     age: 37,
     gender: 'male',
-    favLanguage: 'JavaScript',
     specialty: 'Front-end',
+    favLanguage: 'JavaScript',
     catchPhrase: `Don't forget the homies`
+  });
+
+  const sam = new Instructor({
+    name: 'Sam',
+    location: 'Vegas',
+    age: 32,
+    gender: 'male',
+    specialty: 'Front-end',
+    favLanguage: 'HTML',
+    catchPhrase: `All love`
+  });
+
+  const red = new Student({
+    name: 'Red',
+    location: 'June',
+    age: 23,
+    gender: 'male',
+    previousBackground: 'teacher',
+    className:'async',
+    favSubjects:'math',
+  });
+
+  const jess = new Student({
+    name: 'Jess',
+    location: 'Guesden',
+    age: 30,
+    gender: 'female',
+    previousBackground: 'actor',
+    className:'async',
+    favSubjects:'english',
+  });
+
+  const dan = new ProjectManager({
+    name: 'Dan',
+    location: 'Rose',
+    age: 31,
+    gender: 'male',
+    gradClassName: 'Baest',
+    favInstructor: 'Mr.Red',
+  });
+
+  const drew = new ProjectManager({
+    name: 'Drew',
+    location: 'Berry',
+    age: 28,
+    gender: 'female',
+    gradClassName: 'Roast',
+    favInstructor: 'Mr.Blue',
   });
