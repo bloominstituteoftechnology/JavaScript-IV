@@ -67,4 +67,132 @@ class ProjectManager extends Instructor {
     }
 };
 
+//Objects
 
+//Person 
+
+const bob = new Person({
+    name: 'Bob',
+    age: 32,
+    location: 'Lincoln, MA',
+    gender: 'male',
+});
+
+const kellie = new Person({
+    name: 'Kellie',
+    age: 22,
+    location: 'Kennebunk, ME',
+    gender: 'female',
+});
+
+const billy = new Person({
+    name: 'Billy',
+    age: 42,
+    location: 'Las Vegas, NV',
+    gender: 'male',
+});
+
+
+//Instructor
+
+const kevin = new Instructor({
+    name: 'Kevin',
+    age: 38,
+    location: 'Canton, NY',
+    gender: 'male',
+    speciality: 'Back-end',
+    favLanguage: 'Html',
+    catchPhrase: `Hit the classes up!`
+});
+
+const sammy = new Instructor({
+    name: 'Sammy',
+    age: 45,
+    location: 'Glasonbury, CT',
+    gender: 'female',
+    speciality: 'Front-end',
+    favLanguage: 'CSS',
+    catchPhrase: `Open 'em books!`
+});
+
+const katie = new Instructor({
+    name: 'Katie',
+    age: 30,
+    location: 'Willshire, VT',
+    gender: 'female',
+    speciality: 'Redux',
+    favLanguage: 'C sharp',
+    catchPhrase: `Go Beef!`
+});
+
+
+//Students
+
+const kelly = new Student({
+    name: 'Kelly',
+    age: 24,
+    location: 'Haven, ME',
+    gender: 'female',
+    previousBackground: 'therapist',
+    className: 'WEB17',
+    favSubjects: 'CSS'
+});
+
+const jennifer = new Student({
+    name: 'Jennifer',
+    age: 23,
+    location: 'Haverly, OR',
+    gender: 'female',
+    previousBackground: 'make-up artist',
+    className: 'WEB16',
+    favSubjects: 'Ruby'
+});
+
+const john = new Student({
+    name: 'John',
+    age: 58,
+    location: 'Amherst, MA',
+    gender: 'male',
+    previousBackground: 'doctor',
+    className: 'WEB13',
+    favSubjects: 'C++'
+});
+
+
+//Project Manager
+
+const keith = new ProjectManager({
+    name: 'Keith',
+    age: 28,
+    location: 'Natick, CA',
+    gender: 'male',
+    speciality: 'Front-end',
+    favLanguage: 'Java',
+    catchPhrase: `Drop a beat!`,
+    gradClassName: 'CS4',
+    favInstructor: 'Kevin'
+});
+
+const marcus = new ProjectManager({
+    name: 'Marcus',
+    age: 27,
+    location: 'Lebanon, KY',
+    gender: 'male',
+    speciality: 'React',
+    favLanguage: 'Python',
+    catchPhrase: `What's up Doc!`,
+    gradClassName: 'CS2',
+    favInstructor: 'Sammy'
+});
+
+const carley = new ProjectManager({
+    name: 'Carley',
+    age: 25,
+    location: 'San Diego, CA',
+    gender: 'female',
+    speciality: 'Swift',
+    favLanguage: 'PHP',
+    catchPhrase: `Whatcha doing buddy!`,
+    gradClassName: 'CS1',
+    favInstructor: 'Katie'
+});
