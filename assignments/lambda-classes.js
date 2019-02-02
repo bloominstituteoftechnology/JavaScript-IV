@@ -200,19 +200,17 @@ const carley = new ProjectManager({
 
 //Check console.logs
 
-console.log(); //
-console.log(); //
-console.log(); //
-console.log(); //
-console.log(); //
-console.log(); //
-console.log(); //
-console.log(); //
-console.log(); //
-console.log(); //
-console.log(); //
-console.log(); //
-console.log(); //
-console.log(); //
+console.log(bob.name); //
+console.log(kellie.age); //
+console.log(billy.location); //
+console.log(kevin.gender); //
+console.log(sammy.speciality); //
+console.log(katie.favLanguage); //
+console.log(kelly.previousBackground); //
+console.log(jennifer.className); //
+console.log(john.favSubjects); //
+console.log(keith.catchPhrase); //
+console.log(marcus.gradClassName); //
+console.log(carley.favInstructor); //
 
 
