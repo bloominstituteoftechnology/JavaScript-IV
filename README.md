@@ -2,6 +2,23 @@
 
 This challenge focuses on classes in JavaScript using the new `class` keyword.
 
+## Set Up The Project With Git
+
+**Follow these steps to set up and work on your project:**
+
+* [ ] Create a forked copy of this project.
+* [ ] Add your project manager as collaborator on Github.
+* [ ] Clone your OWN version of the repository (Not Lambda's by mistake!).
+* [ ] Create a new branch: git checkout -b `<firstName-lastName>`.
+* [ ] Implement the project on your newly created `<firstName-lastName>` branch, committing changes regularly.
+* [ ] Push commits: git push origin `<firstName-lastName>`.
+
+**Follow these steps for completing your project.**
+
+* [ ] Submit a Pull-Request to merge <firstName-lastName> Branch into master (student's  Repo). **Please don't merge your own pull request**
+* [ ] Add your project manager as a reviewer on the pull-request
+* [ ] Your project manager will count the project as complete by merging the branch back into master.
+
 ## Assignment Description
 
 You already pretty much know all about classes but you're used to seeing them built in the following context:
@@ -83,14 +100,14 @@ const fred = new Instructor({
   * `PRAssignment` a method that receives a subject as an argument and logs out that the `student.name has submitted a PR for {subject}`
   * `sprintChallenge` similar to PRAssignment but logs out `student.name has begun sprint challenge on {subject}`
 
-#### Project Mananger
+#### Project Manager
 
 * Now that we have instructors and students, we'd be nowhere without our PM's
 * ProjectManagers are extensions of Instructors
-* ProjectManagers have the following uniqe props:
+* ProjectManagers have the following unique props:
   * `gradClassName`: i.e. CS1
   * `favInstructor`: i.e. Sean
-* ProjectManangers have the following Methods:
+* ProjectManagers have the following Methods:
   * `standUp` a method that takes in a slack channel and logs `{name} announces to {channel}, @channel standy times!​​​​​
   * `debugsCode` a method that takes in a student object and a subject and logs out `{name} debugs {student.name}'s code on {subject}`
 
@@ -100,4 +117,4 @@ const fred = new Instructor({
 * Now that our students have a grade build out a method on the Instructor (this will be used by _BOTH_ instructors and PM's) that will randomly add or subtract points to a student's grade. _Math.random_ will help.
 * Add a graduate method to a student.
   * This method, when called, will check the grade of the student and see if they're ready to graduate from Lambda School
-  * If the student's grade is above a 70% let them graduate! Otherswise go back to grading their assignments to increase their score.
+  * If the student's grade is above a 70% let them graduate! Otherwise go back to grading their assignments to increase their score.
