@@ -22,7 +22,12 @@ class Instructor extends Person{
         console.log(`Today we are learning about ${subject}`);
     }
     grade(student, subject){
-        console.log(`${student} receives a perfect score on ${subject}`);
+        console.log(`${student.name} receives a perfect score on ${subject}`);
+    }
+    changeGrade(student){
+        const delta = Math.floor(Math.random()*6) - 2.5;
+        student.grade -= delta;
+        return `${student.name}'s grade was changed to ${student.grade}`;
     }
 }
 
@@ -32,6 +37,8 @@ class Student extends Person{
         this.previousBackground = obj.previousBackground;
         this.className = obj.className;
         this.favSubjects = obj.favSubjects;
+        this.grade = 40;
+        this.graduated = false;
     }
     listsSubjects(){
         this.favSubjects.forEach(function(subject){
@@ -43,6 +50,10 @@ class Student extends Person{
     }
     sprintChallenge(subject){
         console.log(`${this.name} has begun sprint challenge on ${subject}`);
+    }
+    graduate(){
+        this.graduated = true;
+        return `${this.name} graduated from Lambda School!`;
     }
 }
 
@@ -70,9 +81,16 @@ const josh = new Instructor({
     catchPhrase: "Lost in the sauce"
 });
 
-josh.speak();
-console.log(josh.location);
-josh.demo("inheritance");
+const Austen = new Instructor({
+    name: "Austen Allred",
+    age: "30",
+    location: "Everywhere",
+    gender: "M",
+    specialty: "Everything",
+    favLanguage: "Python",
+    catchPhrase: "Welcome to Lambda School!"
+})
+
 
 const andrew = new Student({
     name: "Andrew Safran",
@@ -84,7 +102,45 @@ const andrew = new Student({
     favSubjects: ["JavaScript", "Preprocessing"]
 });
 
+const otherStudent = new Student({
+    name: "Someone else",
+    age: 100,
+    location:"USA",
+    gender: "F",
+    previousBackground: "Lawyer",
+    className: "Web24",
+    favSubjects: ["HTML","CSS","JS Fundamentals"]
+})
+
 console.log(andrew.age);
 console.log(andrew.previousBackground);
 andrew.listsSubjects();
 andrew.sprintChallenge("JavaScript");
+otherStudent.PRAssignment("React");
+console.log(andrew.grade);
+console.log(otherStudent.grade);
+
+josh.speak();
+console.log(josh.location);
+josh.demo("inheritance");
+josh.grade(andrew, "Preprocessing");
+
+const dennis = new ProjectManager({
+    name:"Dennis Orbison",
+    age: 25,
+    location: "N/A: Nomad",
+    gender: "M",
+    specialty: "Object Inheritance",
+    favLanguage: "JavaScript",
+    catchPhrase: "Hi Everyone!",
+    gradClassName: "Web15",
+    favInstructor: "Josh"
+});
+
+dennis.grade(otherStudent, "React");
+console.log(dennis.location);
+dennis.debugsCode(andrew, "JavaScript");
+
+while(andrew.grade <=70){
+    console.log(dennis.grade(andrew));
+}
