@@ -6,10 +6,9 @@ class Person {
     this.location = attribute.location;
     this.gender = attribute.gender;
   }
-  speak(){
-    return `Hello my name is ${this.name}, I am from ${this.location}`
-  };
-  
+  speak() {
+    return `Hello my name is ${this.name}, I am from ${this.location}`;
+  }
 }
 
 class Instructor extends Person {
@@ -45,15 +44,18 @@ class Student extends Person {
   }
   graduate(grader) {
     if (this.grade >= 70) {
-        return `Congrats ${this.name}! You have just graduated Lambda School!`;
-    } 
+      return `Congrats ${this.name}! You have just graduated Lambda School!`;
+    }
     while (this.grade < 70) {
-        console.log(`Sorry ${this.name}. You only have a ${this.grade} and that is not enough to graduate. Please keep on trying until you pass.`);
-        // debugger;
-        grader.gradeAssignment(this);
+      console.log(
+        `Sorry ${this.name}. You only have a ${
+          this.grade
+        } and that is not enough to graduate. Please keep on trying until you pass.`
+      );
+      grader.gradeAssignment(this);
     }
     return `Congrats ${this.name}! You have just graduated Lambda School!`;
-}
+  }
 
   listsSubjects() {
     return `${this.favSubjects[0]},${this.favSubjects[1]},${
@@ -124,7 +126,7 @@ const tommy = new Student({
   grade: 90
 });
 const ash = new ProjectManager({
-  name: "Ashwin",
+  name: "Ashwind",
   location: "India",
   age: `immortal cause I'm a vampire`,
   gender: "M",
@@ -147,11 +149,11 @@ const trevor = new ProjectManager({
 });
 
 console.log(josh.speak());
-console.log(josh.demo('JS'));
-console.log(josh.grade(tommy,'JS'));
+console.log(josh.demo("JS"));
+console.log(josh.grade(tommy, "JS"));
 console.log(ben.listsSubjects());
 console.log(tommy.PRAssignment(`Is JS Art?`));
-console.log(ben.sprintChallenge('Is JS Art?'));
+console.log(ben.sprintChallenge("Is JS Art?"));
 console.log(ash.standUP(`FSW15 isn't slacking slack channel`));
-console.log(trevor.debugsCode(ben,'YDKJS'));
+console.log(trevor.debugsCode(ben, "YDKJS"));
 console.log(ben.graduate(ash));
