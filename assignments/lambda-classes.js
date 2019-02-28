@@ -25,8 +25,8 @@ class Instructor extends Person{
         console.log(`${student.name} receives a perfect score on ${subject}`);
     }
     changeGrade(student){
-        const delta = Math.floor(Math.random()*6) - 2.5;
-        student.grade -= delta;
+        const delta = Math.floor(Math.random()*6) - 1.5;
+        student.grade += delta;
         return `${student.name}'s grade was changed to ${student.grade}`;
     }
 }
@@ -142,5 +142,6 @@ console.log(dennis.location);
 dennis.debugsCode(andrew, "JavaScript");
 
 while(andrew.grade <=70){
-    console.log(dennis.grade(andrew));
+    console.log(dennis.changeGrade(andrew));
 }
+console.log(andrew.graduate());
