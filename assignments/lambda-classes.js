@@ -106,5 +106,96 @@
             {
                 return `${this.name} has submitted a PR for ${subject}`
             }
-            
+
+            sprintChallenge(subject)
+            {
+                return `${this.name} has be has begun sprint challenge on ${subject}`;
+            }
+
         }
+        class PM extends Instructor
+        {
+            constructor(pmAttr)
+            {
+                super(pmAttr);
+                this.gradClassName = pmAttr.gradClassName;
+                this.favInstructor = pmAttr.favInstructor;
+            }
+            standUp(channel)
+            {
+                return `${this.name} announces to ${channel}, @channel standy times!`;
+            }
+            debugsCode(student, subject)
+            {
+                return `${this.name} debugs {student.name}'s code on ${subject}`;
+            }
+
+        }
+        //PERSON
+        const bill = new Person
+        ({
+            name: "Bill",
+            age: 25,
+            location: "none",
+            gender: "Male"
+        });
+
+        const ted = new Person
+        ({
+            name: "Ted",
+            age: 25,
+            location: "none",
+            gender: "Male"
+        }); 
+        //INSTRUCTOR
+        const jack= new Instructor
+        ({
+            name: "Jack",
+            age: 32,
+            location: "undisclosed",
+            gender: "Male",
+            specialty: "teaching",
+            favLang: "javascript",
+            catchPhrase: "It's ya boy Jack"
+        });
+
+        //STUDENT
+        const alan = new Student
+        ({
+            name: "Alan",
+            age: 23,
+            location:"Mesquite, TX",
+            gender: "Male",
+            previousBackground: "CS",
+            className: "WEB18",
+            favSubjects: ["HTML,CSS, JAVA"],
+        });
+
+        //PM
+        const ben = new PM
+        ({
+            name: "Ben",
+            age: "?",
+            location: "USA",
+            gender: "Male",
+            specialty: "guiding",
+            favLang: "Javascript",
+            catchPhrase: "Whats poppn",
+            gradClassName: "WEB15",
+            favInstructor: "Josh"
+        })
+        //PERSON
+        console.log(bill);
+        console.log(ted);
+        //INSTRUCTOR
+        console.log(jack);
+        //Student
+        console.log(alan);
+        console.log(alan.listsSubjects());
+        console.log(alan.PRAssignment('Javascript'));
+        console.log(alan.sprintChallenge('JAVASCRIPT I-IV'))
+
+        //PM
+        console.log(ben);
+        console.log(ben.standUp('join the after hours'));
+        console.log(ben.debugsCode(alan, 'Javascript'));
