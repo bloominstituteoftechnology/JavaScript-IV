@@ -75,6 +75,7 @@ const fred = new Instructor({
 * Person receives `speak` as a method.
 * This method logs out a phrase `Hello my name is Fred, I am from Bedrock` where `name` and `location` are the object's own props
 
+class 
 #### Instructor
 
 * Now that we have a Person as our base class, we'll build our Instructor class.
