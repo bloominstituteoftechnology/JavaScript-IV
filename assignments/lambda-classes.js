@@ -75,10 +75,10 @@ const austin = new Student({
   const randy  = new ProjectManager({
     name: 'randy',
     location: 'flordia',
-    age: 30,
+    age: 31,
     gender: 'male',
-    gradClassName: 'CS14',
-    favInstructor: 'Josh Knell',
+    gradClassName: 'fsw16',
+    favInstructor: 'luis',
 
   });
 
