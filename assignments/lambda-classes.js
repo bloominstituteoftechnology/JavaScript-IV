@@ -58,6 +58,36 @@ class ProjectManagers extends Instructor {
     }
 }
 
+//Objects here
+const fred = new Instructor({
+    name: 'Fred Flintstone',
+    location: 'Bedrock',
+    age: 37,
+    gender: 'male',
+    favLanguage: 'Caveman',
+    specialty: 'Bowling',
+    catchPhrase: 'Yaba-daba-do'
+});
+
+const barney = new Instructor({
+    name: 'Barney Rubble',
+    location: 'Bedrock',
+    age: 35,
+    gender: 'male',
+    favLanguage: 'Caveman',
+    specialty: 'Knuclehead',
+    catchPhrase: 'ha ha ha'
+})
+
+const wilma = new Instructor({
+    name: 'Wilma Flintstone',
+    location: 'Bedrock',
+    age: 32,
+    gender: 'female',
+    favLanguage: 'Caveman',
+    specialty: 'cooking',
+    catchPhrase: 'Oh Fred'
+})
 
 
 
