@@ -26,8 +26,16 @@ class Instructors extends Person{
         return `Today we are learning ${subject}`;
     }
 
-    grade(stuobj,subject){
-        return `${stuobj} receives a perfect score on ${subject}`;
+    grade(stuobj,stugrade,subject){
+        return `${stuobj}s grade is ${stugrade} on ${subject}`;
+    }
+
+    currGrade(stuobj,stugrade,subject){
+      let operators = ['+','-']
+      let sign = operators[Math.floor(Math.random()*2)];
+      let no = Math.floor(Math.random() * (100-stugrade)) + 1
+      let result = eval(stugrade + sign+ no);
+      return `${stuobj}'s grade is ${result} on ${subject}`
     }
 }
 
@@ -53,6 +61,15 @@ class Student extends Person{
     sprintChallenge(subject){
         return `${this.name} has begun sprint challenge on ${subject}`
     }
+
+    graduate(){
+        if(this.grades > 70){
+          return `you are ready to graduate`
+        }
+        else{
+          return `grading your assignment`
+        }
+      }
 }
 
 //grandchild
@@ -134,7 +151,8 @@ const student1 = new Student({
     gender:'Female',
     previousBackground:'History',
     className:'Java',
-    favSubjects:['Html', 'CSS', 'JavaScript']
+    favSubjects:['Html', 'CSS', 'JavaScript'],
+    grades:69
 });
 
 const student2 = new Student({
@@ -144,7 +162,8 @@ const student2 = new Student({
     gender:'Male',
     previousBackground:'Literature',
     className:'C++',
-    favSubjects:['c#', 'Algorithms', 'Data Structures']
+    favSubjects:['c#', 'Algorithms', 'Data Structures'],
+    grades:80
 });
 
 const student3 = new Student({
@@ -154,7 +173,8 @@ const student3 = new Student({
     gender:'Female',
     previousBackground:'Accouting',
     className:'Perl',
-    favSubjects:['Android', 'Kit Kat', 'IOS']
+    favSubjects:['Android', 'Kit Kat', 'IOS'],
+    grades:90
 });
 
 const projectManager1 = new ProjectManager({
@@ -193,3 +213,5 @@ console.log(student3.prAssignment('Lisp'));
 console.log(student1.sprintChallenge('Lisp'));
 console.log(projectManager1.standUp('sprint03'));
 console.log(projectManager3.debugsCode(student3.name,'closures'));
+console.log(instructor3.currGrade(student3.name,student3.grades,'bash'))
+console.log(student3.graduate())
