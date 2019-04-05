@@ -161,3 +161,4 @@ nivea.debugsCode(steve, 'Lambda-classes.js assignment.')
 steve.debugsCode(larry, 'health')// error because steve is a student and only has access to the Person class and not the PM or Instructor class.
 
 
+
