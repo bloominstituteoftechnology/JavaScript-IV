@@ -9,7 +9,7 @@ class Person {
     speak(){
         return `Hello my name is ${this.name}, I am from ${this.location}`
     }
-}
+};
 
 class Instructor extends Person {
     constructor(obj) {
@@ -24,7 +24,7 @@ class Instructor extends Person {
     grade(student) {
         console.log(`${this.name} receives a perfect score on ${this.subject}`)
     }
-}
+};
 
 class Student extends Person {
     constructor(obj) {
@@ -42,7 +42,7 @@ class Student extends Person {
     sprintChallenge() {
 
     }
-}
+};
 
 class ProjectManagers extends Instructor {
     constructor(obj) {
@@ -56,11 +56,11 @@ class ProjectManagers extends Instructor {
     debugsCode() {
 
     }
-}
+};
 
 //Objects here
 const fred = new Instructor({
-    name: 'Fred Flintstone',
+    name: 'Fred',
     location: 'Bedrock',
     age: 37,
     gender: 'male',
@@ -70,26 +70,80 @@ const fred = new Instructor({
 });
 
 const barney = new Instructor({
-    name: 'Barney Rubble',
+    name: 'Barneys',
     location: 'Bedrock',
     age: 35,
     gender: 'male',
     favLanguage: 'Caveman',
     specialty: 'Knuclehead',
     catchPhrase: 'ha ha ha'
-})
+});
 
 const wilma = new Instructor({
-    name: 'Wilma Flintstone',
+    name: 'Wilma',
     location: 'Bedrock',
     age: 32,
     gender: 'female',
     favLanguage: 'Caveman',
     specialty: 'cooking',
     catchPhrase: 'Oh Fred'
-})
+});
+
+const maria = new Student({
+    name: 'maria',
+    location: 'Nevada',
+    age: 27,
+    gender: 'female',
+    previousBackground: 'factory worker',
+    className: 'CS132',
+    favSubjects: ['CS', 'JavaScript', 'Math']
+});
 
 
+const steve = new Student({
+    name: 'steve',
+    location: 'New York',
+    age: 21,
+    gender: 'male',
+    previousBackground: 'cashier',
+    className: 'CS132',
+    favSubjects: ['CS', 'JavaScript', 'Science']
+});
 
 
+const larry = new Student({
+    name: 'larry',
+    location: 'Florida',
+    age: 19,
+    gender: 'male',
+    previousBackground: 'unemployed',
+    className: 'CS132',
+    favSubjects: ['CS', 'JavaScript', 'Python']
+});
 
+const brandon = new ProjectManagers({
+    name: 'brandon',
+    location: 'Alabama',
+    age: 27,
+    gender: 'male',
+    gradClassName: 'CS3',
+    favInstructor: 'bob ross'
+});
+
+const henry = new ProjectManagers({
+    name: 'henry',
+    location: 'California',
+    age: 50,
+    gender: 'male',
+    gradClassName: 'CS2',
+    favInstructor: 'sean'
+});
+
+const nivea = new ProjectManagers({
+    name: 'nivea',
+    location: 'Texas',
+    age: 32,
+    gender: 'female',
+    gradClassName: 'CS1',
+    favInstructor: 'optimus prime'
+});
