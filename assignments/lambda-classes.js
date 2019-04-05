@@ -17,6 +17,7 @@ class Person {
         this. previousBackground = sattr.previousBackground;
         this.className = sattr.className;
         this.grade = sattr.grade;
+        this.favSubjects = sattr.favSubjects;
 
      }
      PRAassignmet(subject){
@@ -26,7 +27,9 @@ class Person {
      sprintChallenge(subject){
          console.log(`${this.name} has started the sprint challenge for ${subject}`)
      }
-      
+      listFavSubjects (){
+         return this.favSubjects
+      }
       
      }
     
@@ -47,7 +50,7 @@ class Person {
      }
      gradeProject(student){
          let newGrade = student.grade +( Math.random()*10);
-         console.log(`${Math.floor(newGrade)}`)
+       return Math.floor(newGrade)
      }
     takeOffPoints(student){
         let newGrade = student.grade -( Math.random()*10);
@@ -76,14 +79,16 @@ class Person {
      name:"Kevin",
      location:"Philadelphia",
      age:22,
-     grade:80
+     grade:80,
+     favSubjects :['Javascript', "C++", "Culinary arts"]
      
  })
 
  const Chad = new Student({
      name:"Chad",
      location:"Wyoming",
-     grade:60
+     grade:60,
+     favSubjects:["CSS", "Geometry", "Python"]
  })
 
 
@@ -129,6 +134,11 @@ Jack.demo('python')
  Jack.graduate(Chad)
  Gupta.graduate(Kevin)
  Gupta.graduate(Chad)
+ 
  console.log(Gupta.location)
  Gupta.demo("python")
+
+//  console.log(Kevin.favSubjects)
+ console.log (Kevin.listFavSubjects())
+ 
  

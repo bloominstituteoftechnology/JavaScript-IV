@@ -14,16 +14,16 @@ class GameObject {
       this.dimensions = attr.dimensions;
     }
     destroy  (){
-     console.log   (`${this.name} was removed from the game.`)}
+     return `${this.name} was removed from the game.`}
   }
 
   class CharacterStats extends GameObject {
-    constructor( stat){
-      super(stat);
-      this.healthPoints = stat.healthPoints;
+    constructor( attr){
+      super(attr);
+      this.healthPoints = attr.healthPoints;
     }
     takeDamage(){
-      console.log(`${this.name} took damage.`)
+       return `${this.name} took damage.`
     };}
     class Humanoid extends CharacterStats {
         constructor (attr){
@@ -33,7 +33,7 @@ class GameObject {
           this.weapons = attr.weapons;
         }
         greet (){
-          console.log(`${this.name} greets you in ${this.language}`)
+        return `${this.name} greets you in ${this.language}`
         }
       }  
 
