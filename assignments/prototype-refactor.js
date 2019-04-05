@@ -54,7 +54,7 @@ class CharacterStats extends GameObject{
         return `${this.name} took damage.`;
     }
 }
-  CharacterStats.prototype = new GameObject(this)
+  // CharacterStats.prototype = new GameObject(this)
   
 /*
     === Humanoid (Having an appearance or character resembling that of a human.) ===
@@ -76,7 +76,7 @@ class Humanoid extends CharacterStats{
         return `${this.name} offers a greeting in ${this.language}`;
     }
 }
-  Humanoid.prototype = new CharacterStats(this)
+  // Humanoid.prototype = new CharacterStats(this)
   
 //villain constructor
 class Villain extends Humanoid{
@@ -101,7 +101,7 @@ class Villain extends Humanoid{
         }
     }
 }
-  Villain.prototype = new Humanoid(this)
+  // Villain.prototype = new Humanoid(this)
   
   
 //hero constructor
@@ -127,7 +127,7 @@ class Hero extends Humanoid{
         }
     }
 }
-  Hero.prototype = new Humanoid(this)
+  // Hero.prototype = new Humanoid(this)
   
   
   //villain and hero objects
@@ -235,10 +235,10 @@ class Hero extends Humanoid{
     let fight = true;
     while(fight){
       if(villain.healthPoints > 0){
-        console.log(villain.villainAttack())
+        villain.villainAttack()
       }
       if(hero.healthPoints > 0){
-        console.log(hero.heroAttack())
+        hero.heroAttack()
       }
       
     }

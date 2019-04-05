@@ -34,13 +34,15 @@ class Student extends Person {
         this.favSubjects = obj.favSubjects;
     }
     listSubjects() {
-
+        this.favSubjects.forEach(element => {
+            console.log(element);
+        });
     }
-    PRAssignment() {
-
+    PRAssignment(subject) {
+        console.log(`${this.name} has submitted a PR for ${subject}`)
     }
-    sprintChallenge() {
-
+    sprintChallenge(subject) {
+        console.log(`${this.name} has begun sprint challenge on ${subject}`)
     }
 };
 
@@ -50,15 +52,17 @@ class ProjectManagers extends Instructor {
         this.gradClassName = obj.gradClassName;
         this.favInstructor = obj.favInstructor;
     }
-    standUp() {
-
+    standUp(channel) {
+        console.log(`${this.name} announces to ${channel}, @channel standy times!`)
     }
-    debugsCode() {
-
+    debugsCode(student, subject) {
+        console.log(`${this.name} debugs ${student.name}'s code on ${subject}`)
     }
 };
 
 //Objects here
+
+//instructors
 const fred = new Instructor({
     name: 'Fred',
     location: 'Bedrock',
@@ -88,7 +92,7 @@ const wilma = new Instructor({
     specialty: 'cooking',
     catchPhrase: 'Oh Fred'
 });
-
+//students
 const maria = new Student({
     name: 'maria',
     location: 'Nevada',
@@ -120,7 +124,7 @@ const larry = new Student({
     className: 'CS132',
     favSubjects: ['CS', 'JavaScript', 'Python']
 });
-
+//pm's
 const brandon = new ProjectManagers({
     name: 'brandon',
     location: 'Alabama',
@@ -147,3 +151,13 @@ const nivea = new ProjectManagers({
     gradClassName: 'CS1',
     favInstructor: 'optimus prime'
 });
+
+//test
+steve.listSubjects()
+steve.PRAssignment('Math')
+steve.sprintChallenge('Math')
+nivea.standUp('webpt5')
+nivea.debugsCode(steve, 'Lambda-classes.js assignment.')
+steve.debugsCode(larry, 'health')// error because steve is a student and only has access to the Person class and not the PM or Instructor class.
+
+
