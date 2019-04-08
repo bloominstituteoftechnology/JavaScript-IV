@@ -13,30 +13,59 @@ class Person {
 }
 
 
-class CharacterStats extends GameObject {
-  constructor(csAttributes) {
-    super(csAttributes);
-    this.healthPoints = csAttributes.healthPoints;
+class Instructor extends Person {
+  constructor(insAttributes) {
+    super(insAttributes);
+    this.specialty = insAttributes.specialty;
+    this.favLanguage = insAttributes.favLanguage;
+    this.catchPhrase = insAttributes.catchPhrase;
   }
 
-takeDamage() {
-  return `${this.name} took damage.`
+  demo(subject) {
+    return `Today we are learning about ${subject}.`;
   }
-}
 
-function Person(personAttributes)  {
-
-//methods
-
-  speak () {
-  	
+  grade(student, subject) {
+    return `${student.name} receives a perfect score on ${subject}`;
   }
 }
 
-const fred = new Person({
-  name: 'Fred',
-  age: 37,
-  location: 'Bedrock'
-});
+class Student extends Person {
+  constructor(stuAttributes) {
+    super(stuAttributes);
+    this.previousBackground = stuAttributes.previousBackground;
+    this.className = stuAttributes.className;
+    this.favSubjects = stuAttributes.favSubjects;
+  }
 
+  
+  listsSubjects() {
+    for (let i = 0; i < this.favSubjects.length; i++) {
+      console.log(`One of ${this.name}'s favorite subject is ${this.favSubjects[i]}.`);
+    }
+  }
 
+  PRAssignment(subject) {
+    console.log(`${this.name} submitted a PR for ${subject}`);
+  }
+
+  sprintChallenge(subject) {
+    console.log(`${this.name} has begun sprint challenge on ${subject}`);
+  }
+}
+
+class ProjectManager extends Instructor {
+  constructor(pmAttributes) {
+    super(pmAttributes);
+    this.gradClassName = pmAttributes.gradClassName;
+    this.favInstructor = pmAttributes.favInstructor;
+  }
+
+  standUp(channel) {
+    console.log(`${this.name} announces to ${channel}, @channel standy times!`);
+  }
+
+  debugsCode(student, subject) {
+    console.log(`${this.name} debugs ${student.name}'s code on ${subject}`);
+  }
+}
