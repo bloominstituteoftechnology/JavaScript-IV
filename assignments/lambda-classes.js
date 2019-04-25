@@ -35,7 +35,7 @@ class Student extends Person {
     }
     // listSubjects() {
     // }
-    PrAssignment(subject) {
+    PRAssignment(subject) {
         console.log(`${this.name} has submitted a PR for ${subject}`);
     }
     sprintChallenge(subject) {
