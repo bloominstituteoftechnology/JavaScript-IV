@@ -110,8 +110,10 @@ const zippy = new ProjectManagers({
 });
 
 //human.speak();
-//jordan.demo('Javascript Objects');
-//janet.PRAssignment('JS-IV');
 //janet.listSubjects();
+//janet.PRAssignment('JS-IV');
+//janet.sprintChallenge('JS-Fundamentals');
+//jordan.demo('Javascript Objects');
+//jordan.grade(janet, 'JS-4');
 //zippy.standup('webpt6_zippy');
 //zippy.debugsCode(janet, 'JS 4');
