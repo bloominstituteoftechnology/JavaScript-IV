@@ -76,6 +76,7 @@ class CharacterStats extends GameObject{
     ],
     language: 'Common Tongue',
   });
+  
 
   const archer = new Humanoid({
     createdAt: new Date(),
