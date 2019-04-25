@@ -7,7 +7,7 @@ class Person {
         this.gender = gender;
     }
     speak() {
-        console.log(`Hello my name is ${this.name}, I amd from ${this.location}.`);
+        console.log(`Hello my name is ${this.name}, I am from ${this.location}.`);
     }
 }
 
@@ -58,6 +58,16 @@ class Student extends Person {
 // }
 
 /**
+ * Person object Test
+ */
+const human = new Person({
+    name: 'Bob',
+    age: 5,
+    location: 'Earth',
+    gender: 'something',
+});
+
+/**
  * Instructor objects
  */
 const jordan = new Instructor({
@@ -84,5 +94,7 @@ const janet = new Student({
 });
 
 
-jordan.demo('Javascript Objects');
+//jordan.demo('Javascript Objects');
 janet.PRAssignment('JS-IV');
+
+//human.speak();
