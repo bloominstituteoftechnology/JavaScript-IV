@@ -142,6 +142,21 @@ class Hero extends Humanoid {
 //         return `${this.name} killed ${character.name} of ${character.team}. \n${character.destroy()}`;
 //     }
 // }
+
+class Villain extends Humanoid {
+    constructor(props) {
+        super(props);
+        this.heroVillian = props.heroVillian;
+    }
+    attack() {
+        if (character.healthPoints > 0) {
+            character.healthPoints -= 2;
+            return `${this.name} attacked ${character.name} of the ${character.team} and reduced their health to ${character.healthPoints}`;
+        } else {
+            return `${this.name} killed ${character.name} of ${character.team}. \n${character.destroy()}`;
+        }
+    }
+}
 // Test you work by un-commenting these 3 objects and the list of console logs below:
 
 
