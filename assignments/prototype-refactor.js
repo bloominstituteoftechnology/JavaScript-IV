@@ -49,13 +49,16 @@ Prototype Refactor
         super (attributes);
         this.healthPoints = attributes.healthPoints;
       }
+      takeDamage () {
+        return `${this.name} took damage.`;
+      }
   }
   
-  CharacterStats.prototype = Object.create(GameObject.prototype);
+//   CharacterStats.prototype = Object.create(GameObject.prototype);
   
-  CharacterStats.prototype.takeDamage = function () {
-    return `${this.name} took damage.`;
-  }
+//   CharacterStats.prototype.takeDamage = function () {
+//     return `${this.name} took damage.`;
+//   }
   
   /*
     === Humanoid (Having an appearance or character resembling that of a human.) ===
