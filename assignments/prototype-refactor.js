@@ -103,20 +103,20 @@ Prototype Refactor
   
   // Test you work by un-commenting these 3 objects and the list of console logs below:
   
-    const mage = new CharacterStats({
+    const mage = new Humanoid({
       createdAt: new Date(),
       dimensions: {
         length: 2,
         width: 1,
         height: 1,
       },
-    //   healthPoints: 5,
-    //   name: 'Bruce',
-    //   team: 'Mage Guild',
-    //   weapons: [
-    //     'Staff of Shamalama',
-    //   ],
-    //   language: 'Common Tongue',
+      healthPoints: 5,
+      name: 'Bruce',
+      team: 'Mage Guild',
+      weapons: [
+        'Staff of Shamalama',
+      ],
+      language: 'Common Tongue',
     });
   
     // const swordsman = new Humanoid({
