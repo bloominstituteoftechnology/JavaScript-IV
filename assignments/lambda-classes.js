@@ -17,8 +17,11 @@ class Student extends Person {
         this.className = props.className;
         this.favSubjects = props.favSubjects; // array of fav subjects.
     }
-    // listSubjects() {
-    // }
+    listSubjects() {
+        this.favSubjects.forEach(subject => {
+            console.log(subject);
+        });
+    }
     PRAssignment(subject) {
         console.log(`${this.name} has submitted a PR for ${subject}`);
     }
@@ -109,6 +112,6 @@ const zippy = new ProjectManagers({
 //human.speak();
 //jordan.demo('Javascript Objects');
 //janet.PRAssignment('JS-IV');
-
+//janet.listSubjects();
 //zippy.standup('webpt6_zippy');
 //zippy.debugsCode(janet, 'JS 4');
