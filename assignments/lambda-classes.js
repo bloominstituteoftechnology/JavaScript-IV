@@ -1,10 +1,10 @@
 // CODE here for your Lambda Classes
 class Person {
-    constructor(name, age, location, gender) {
-        this.name = name;
-        this.age = age;
-        this.location = location;
-        this.gender = gender;
+    constructor(attr) {
+        this.name = attr.name;
+        this.age = attr.age;
+        this.location = attr.location;
+        this.gender = attr.gender;
     }
     speak() {
         console.log(`Hello my name is ${this.name}, I am from ${this.location}.`);
@@ -12,11 +12,11 @@ class Person {
 }
 
 class Instructor extends Person {
-    constructor(props, specialty, favLanguage, catchPhrase) {
+    constructor(props) {
         super(props);
-        this.specialty = specialty;
-        this.favLanguage = favLanguage;
-        this.catchPhrase = catchPhrase;
+        this.specialty = props.specialty;
+        this.favLanguage = props.favLanguage;
+        this.catchPhrase = props.catchPhrase;
     }
     demo(subject) {
         console.log(`Today we are learning about ${subject}`);
@@ -27,11 +27,11 @@ class Instructor extends Person {
 }
 
 class Student extends Person {
-    constructor(props, previousBackground, className, favSubjects) {
+    constructor(props) {
         super(props);
-        this.previousBackground = previousBackground;
-        this.className = className;
-        this.favSubjects = favSubjects; // array of fav subjects.
+        this.previousBackground = props.previousBackground;
+        this.className = props.className;
+        this.favSubjects = props.favSubjects; // array of fav subjects.
     }
     // listSubjects() {
     // }
@@ -67,6 +67,7 @@ const human = new Person({
     gender: 'something',
 });
 
+human.speak();
 /**
  * Instructor objects
  */
@@ -96,5 +97,3 @@ const janet = new Student({
 
 //jordan.demo('Javascript Objects');
 janet.PRAssignment('JS-IV');
-
-//human.speak();
