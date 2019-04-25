@@ -73,7 +73,15 @@ const jordan = new Instructor({
 /**
  * Student objects
  */
-
+const janet = new Student({
+    name: 'Janet',
+    age: 32,
+    location: 'Houston',
+    gender: 'Female',
+    specialty: 'Less',
+    favLanguage: 'Javascript',
+    catchPhrase: 'Here we go again!',
+});
 
 
 jordan.demo('Javascript Objects');
