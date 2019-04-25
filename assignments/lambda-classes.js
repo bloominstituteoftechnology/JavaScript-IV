@@ -26,22 +26,22 @@ class Instructor extends Person {
     }
 }
 
-// class Student extends Person {
-//     constuctor(props) {
-//         super(props);
-//         this.previousBackground = props.previousBackground;
-//         this.className = props.className;
-//         this.favSubjects = props.favSubjects; // array of fav subjects.
-//     }
-//     // listSubjects() {
-//     // }
-//     PrAssignment(subject) {
-//         console.log(`${this.name} has submitted a PR for ${subject}`);
-//     }
-//     sprintChallenge(subject) {
-//         console.log(`${this.name} has begun sprint challenge on ${subject}`);
-//     }
-// }
+class Student extends Person {
+    constuctor(props) {
+        super(props);
+        this.previousBackground = props.previousBackground;
+        this.className = props.className;
+        this.favSubjects = props.favSubjects; // array of fav subjects.
+    }
+    // listSubjects() {
+    // }
+    PrAssignment(subject) {
+        console.log(`${this.name} has submitted a PR for ${subject}`);
+    }
+    sprintChallenge(subject) {
+        console.log(`${this.name} has begun sprint challenge on ${subject}`);
+    }
+}
 
 // class ProjectManagers extends Instructor {
 //     constructor(props) {
@@ -57,6 +57,9 @@ class Instructor extends Person {
 //     }
 // }
 
+/**
+ * Instructor objects
+ */
 const jordan = new Instructor({
     name: 'Jordan',
     age: 27,
@@ -66,5 +69,11 @@ const jordan = new Instructor({
     favLanguage: 'Elm',
     catchPhrase: 'That is how the news goes!',
 });
+
+/**
+ * Student objects
+ */
+
+
 
 jordan.demo('Javascript Objects');
