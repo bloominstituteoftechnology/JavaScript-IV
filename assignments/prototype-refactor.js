@@ -118,7 +118,7 @@ class Hero extends Humanoid {
         super(props);
         this.heroVillian = props.heroVillian;
     }
-    attack() {
+    attack(character) {
         if (character.healthPoints > 0) {
             character.healthPoints -= 2;
             return `${this.name} attacked ${character.name} of the ${character.team} and reduced their health to ${character.healthPoints}`;
@@ -148,7 +148,7 @@ class Villain extends Humanoid {
         super(props);
         this.heroVillian = props.heroVillian;
     }
-    attack() {
+    attack(character) {
         if (character.healthPoints > 0) {
             character.healthPoints -= 2;
             return `${this.name} attacked ${character.name} of the ${character.team} and reduced their health to ${character.healthPoints}`;
@@ -209,46 +209,46 @@ const archer = new Humanoid({
     ],
     language: 'Elvish',
 });
-// const mario = new Hero({
-//     createdAt: new Date(),
-//     dimensions: {
-//         length: 1,
-//         width: 2,
-//         height: 4,
-//     },
-//     healthPoints: 10,
-//     name: 'Mario',
-//     team: 'Mushroom Kingdom',
-//     weapons: [
-//         'Bow',
-//         'Dagger',
-//     ],
-//     language: 'Elvish',
-//     heroVillian: 'hero'
-// });
-// const bowser = new Villain({
-//     createdAt: new Date(),
-//     dimensions: {
-//         length: 1,
-//         width: 2,
-//         height: 4,
-//     },
-//     healthPoints: 10,
-//     name: 'Bowser',
-//     team: 'Forest Kingdom',
-//     weapons: [
-//         'Bow',
-//         'Dagger',
-//     ],
-//     language: 'Elvish',
-//     heroVillian: 'villain'
-// });
-//   console.log(bowser.attack(mario));
-//   console.log(bowser.attack(mario));
-//   console.log(bowser.attack(mario));
-//   console.log(bowser.attack(mario));
-//   console.log(bowser.attack(mario));
-//   console.log(bowser.attack(mario));
+const mario = new Hero({
+    createdAt: new Date(),
+    dimensions: {
+        length: 1,
+        width: 2,
+        height: 4,
+    },
+    healthPoints: 10,
+    name: 'Mario',
+    team: 'Mushroom Kingdom',
+    weapons: [
+        'Bow',
+        'Dagger',
+    ],
+    language: 'Elvish',
+    heroVillian: 'hero'
+});
+const bowser = new Villain({
+    createdAt: new Date(),
+    dimensions: {
+        length: 1,
+        width: 2,
+        height: 4,
+    },
+    healthPoints: 10,
+    name: 'Bowser',
+    team: 'Forest Kingdom',
+    weapons: [
+        'Bow',
+        'Dagger',
+    ],
+    language: 'Elvish',
+    heroVillian: 'villain'
+});
+console.log(bowser.attack(mario));
+console.log(bowser.attack(mario));
+console.log(bowser.attack(mario));
+console.log(bowser.attack(mario));
+console.log(bowser.attack(mario));
+console.log(bowser.attack(mario));
 //console.log(mario.attack(bowser));
 // console.log(healer);
 // console.log(mage);
