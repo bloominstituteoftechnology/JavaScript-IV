@@ -23,7 +23,7 @@ Prototype Refactor
 //     return `${this.name} was removed from the game.`;
 // }
 class GameObject {
-    constructor(createdAt, name, dimensions) {
+    constructor(gameStats) {
         this.createdAt = gameStats.createdAt;
         this.name = gameStats.name;
         this.dimensions = gameStats.dimensions;
@@ -99,35 +99,49 @@ class Humanoid extends CharacterStats {
 /** 
  * Stretch problems 
  */
-function Hero(attributes) {
-    Humanoid.call(this, attributes); // inherit Humanoid attributes.
-    this.heroVillian = attributes.heroVillian;
-}
-Hero.prototype = Object.create(Humanoid.prototype); // Hero inherits Humanoid proto's.
+// function Hero(attributes) {
+//     Humanoid.call(this, attributes); // inherit Humanoid attributes.
+//     this.heroVillian = attributes.heroVillian;
+// }
+// Hero.prototype = Object.create(Humanoid.prototype); // Hero inherits Humanoid proto's.
 
-Hero.prototype.attack = function (character) {
-    if (character.healthPoints > 0) {
-        character.healthPoints -= 2;
-        return `${this.name} attacked ${character.name} of the ${character.team} and reduced their health to ${character.healthPoints}`;
-    } else {
-        return `${this.name} killed ${character.name} of ${character.team}. \n${character.destroy()}`;
+// Hero.prototype.attack = function (character) {
+//     if (character.healthPoints > 0) {
+//         character.healthPoints -= 2;
+//         return `${this.name} attacked ${character.name} of the ${character.team} and reduced their health to ${character.healthPoints}`;
+//     } else {
+//         return `${this.name} killed ${character.name} of ${character.team}. \n${character.destroy()}`;
+//     }
+// }
+class Hero extends Humanoid {
+    constructor(props) {
+        super(props);
+        this.heroVillian = props.heroVillian;
+    }
+    attack() {
+        if (character.healthPoints > 0) {
+            character.healthPoints -= 2;
+            return `${this.name} attacked ${character.name} of the ${character.team} and reduced their health to ${character.healthPoints}`;
+        } else {
+            return `${this.name} killed ${character.name} of ${character.team}. \n${character.destroy()}`;
+        }
     }
 }
 
-function Villain(attributes) {
-    Humanoid.call(this, attributes);
-    this.heroVillian = attributes.heroVillian;
-}
-Villain.prototype = Object.create(Humanoid.prototype);
+// function Villain(attributes) {
+//     Humanoid.call(this, attributes);
+//     this.heroVillian = attributes.heroVillian;
+// }
+// Villain.prototype = Object.create(Humanoid.prototype);
 
-Villain.prototype.attack = function (character) {
-    if (character.healthPoints > 0) {
-        character.healthPoints -= 2;
-        return `${this.name} attacked ${character.name} of the ${character.team} and reduced their health to ${character.healthPoints}`;
-    } else {
-        return `${this.name} killed ${character.name} of ${character.team}. \n${character.destroy()}`;
-    }
-}
+// Villain.prototype.attack = function (character) {
+//     if (character.healthPoints > 0) {
+//         character.healthPoints -= 2;
+//         return `${this.name} attacked ${character.name} of the ${character.team} and reduced their health to ${character.healthPoints}`;
+//     } else {
+//         return `${this.name} killed ${character.name} of ${character.team}. \n${character.destroy()}`;
+//     }
+// }
 // Test you work by un-commenting these 3 objects and the list of console logs below:
 
 
@@ -180,40 +194,40 @@ const archer = new Humanoid({
     ],
     language: 'Elvish',
 });
-const mario = new Hero({
-    createdAt: new Date(),
-    dimensions: {
-        length: 1,
-        width: 2,
-        height: 4,
-    },
-    healthPoints: 10,
-    name: 'Mario',
-    team: 'Mushroom Kingdom',
-    weapons: [
-        'Bow',
-        'Dagger',
-    ],
-    language: 'Elvish',
-    heroVillian: 'hero'
-});
-const bowser = new Villain({
-    createdAt: new Date(),
-    dimensions: {
-        length: 1,
-        width: 2,
-        height: 4,
-    },
-    healthPoints: 10,
-    name: 'Bowser',
-    team: 'Forest Kingdom',
-    weapons: [
-        'Bow',
-        'Dagger',
-    ],
-    language: 'Elvish',
-    heroVillian: 'villain'
-});
+// const mario = new Hero({
+//     createdAt: new Date(),
+//     dimensions: {
+//         length: 1,
+//         width: 2,
+//         height: 4,
+//     },
+//     healthPoints: 10,
+//     name: 'Mario',
+//     team: 'Mushroom Kingdom',
+//     weapons: [
+//         'Bow',
+//         'Dagger',
+//     ],
+//     language: 'Elvish',
+//     heroVillian: 'hero'
+// });
+// const bowser = new Villain({
+//     createdAt: new Date(),
+//     dimensions: {
+//         length: 1,
+//         width: 2,
+//         height: 4,
+//     },
+//     healthPoints: 10,
+//     name: 'Bowser',
+//     team: 'Forest Kingdom',
+//     weapons: [
+//         'Bow',
+//         'Dagger',
+//     ],
+//     language: 'Elvish',
+//     heroVillian: 'villain'
+// });
 //   console.log(bowser.attack(mario));
 //   console.log(bowser.attack(mario));
 //   console.log(bowser.attack(mario));
@@ -224,14 +238,14 @@ const bowser = new Villain({
 // console.log(healer);
 // console.log(mage);
 /*
-  console.log(mage.createdAt); // Today's date
-  console.log(archer.dimensions); // { length: 1, width: 2, height: 4 }
-  console.log(swordsman.healthPoints); // 15
-  console.log(mage.name); // Bruce
-  console.log(swordsman.team); // The Round Table
-  console.log(mage.weapons); // Staff of Shamalama
-  console.log(archer.language); // Elvish
-  console.log(archer.greet()); // Lilith offers a greeting in Elvish.
-  console.log(mage.takeDamage()); // Bruce took damage.
-  console.log(swordsman.destroy()); // Sir Mustachio was removed from the game.
+console.log(mage.createdAt); // Today's date
+console.log(archer.dimensions); // { length: 1, width: 2, height: 4 }
+console.log(swordsman.healthPoints); // 15
+console.log(mage.name); // Bruce
+console.log(swordsman.team); // The Round Table
+console.log(mage.weapons); // Staff of Shamalama
+console.log(archer.language); // Elvish
+console.log(archer.greet()); // Lilith offers a greeting in Elvish.
+console.log(mage.takeDamage()); // Bruce took damage.
+console.log(swordsman.destroy()); // Sir Mustachio was removed from the game.
 */
