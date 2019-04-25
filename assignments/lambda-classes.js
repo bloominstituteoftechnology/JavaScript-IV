@@ -1,10 +1,10 @@
 // CODE here for your Lambda Classes
 class Person {
-    constructor(props) {
-        this.name = props.name;
-        this.age = props.age;
-        this.location = props.location;
-        this.gender = props.gender;
+    constructor(name, age, location, gender) {
+        this.name = name;
+        this.age = age;
+        this.location = location;
+        this.gender = gender;
     }
     speak() {
         console.log(`Hello my name is ${this.name}, I amd from ${this.location}.`);
@@ -12,11 +12,11 @@ class Person {
 }
 
 class Instructor extends Person {
-    constructor(props) {
+    constructor(props, specialty, favLanguage, catchPhrase) {
         super(props);
-        this.specialty = props.specialty;
-        this.favLanguage = props.favLanguage;
-        this.catchPhrase = props.catchPhrase;
+        this.specialty = specialty;
+        this.favLanguage = favLanguage;
+        this.catchPhrase = catchPhrase;
     }
     demo(subject) {
         console.log(`Today we are learning about ${subject}`);
@@ -27,11 +27,11 @@ class Instructor extends Person {
 }
 
 class Student extends Person {
-    constuctor(props) {
+    constructor(props, previousBackground, className, favSubjects) {
         super(props);
-        this.previousBackground = props.previousBackground;
-        this.className = props.className;
-        this.favSubjects = props.favSubjects; // array of fav subjects.
+        this.previousBackground = previousBackground;
+        this.className = className;
+        this.favSubjects = favSubjects; // array of fav subjects.
     }
     // listSubjects() {
     // }
@@ -85,3 +85,4 @@ const janet = new Student({
 
 
 jordan.demo('Javascript Objects');
+janet.PRAssignment('JS-IV');
