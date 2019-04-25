@@ -10,22 +10,6 @@ class Person {
         console.log(`Hello my name is ${this.name}, I am from ${this.location}.`);
     }
 }
-
-class Instructor extends Person {
-    constructor(props) {
-        super(props);
-        this.specialty = props.specialty;
-        this.favLanguage = props.favLanguage;
-        this.catchPhrase = props.catchPhrase;
-    }
-    demo(subject) {
-        console.log(`Today we are learning about ${subject}`);
-    }
-    grade(student, subject) {
-        console.log(`${student.name} recieves a perfect socre on ${subject}`);
-    }
-}
-
 class Student extends Person {
     constructor(props) {
         super(props);
@@ -42,20 +26,34 @@ class Student extends Person {
         console.log(`${this.name} has begun sprint challenge on ${subject}`);
     }
 }
+class Instructor extends Person {
+    constructor(props) {
+        super(props);
+        this.specialty = props.specialty;
+        this.favLanguage = props.favLanguage;
+        this.catchPhrase = props.catchPhrase;
+    }
+    demo(subject) {
+        console.log(`Today we are learning about ${subject}`);
+    }
+    grade(student, subject) {
+        console.log(`${student.name} recieves a perfect socre on ${subject}`);
+    }
+}
 
-// class ProjectManagers extends Instructor {
-//     constructor(props) {
-//         super(props);
-//         this.gradClassName = props.gradClassName;
-//         this.favInstructor = props.favInstructor;
-//     }
-//     standup(channel) {
-//         console.log(`${this.name} announces to ${channel}, @channel standey times!`);
-//     }
-//     debugsCode(student, subject) {
-//         console.log(`${this.name} debugs ${student.name}'s code on ${subject}`);
-//     }
-// }
+class ProjectManagers extends Instructor {
+    constructor(props) {
+        super(props);
+        this.gradClassName = props.gradClassName;
+        this.favInstructor = props.favInstructor;
+    }
+    standup(channel) {
+        console.log(`${this.name} announces to ${channel}, @channel standey times!`);
+    }
+    debugsCode(student, subject) {
+        console.log(`${this.name} debugs ${student.name}'s code on ${subject}`);
+    }
+}
 
 /**
  * Person object Test
@@ -67,7 +65,7 @@ const human = new Person({
     gender: 'something',
 });
 
-human.speak();
+
 /**
  * Instructor objects
  */
@@ -89,11 +87,28 @@ const janet = new Student({
     age: 32,
     location: 'Houston',
     gender: 'Female',
-    specialty: 'Less',
-    favLanguage: 'Javascript',
-    catchPhrase: 'Here we go again!',
+    previousBackground: 'Computer Science',
+    className: 'React',
+    favSubjects: ['Html', 'Less', 'JavaScript'],
+
 });
 
+const zippy = new ProjectManagers({
+    name: 'Zippy mcGee',
+    age: 22,
+    location: 'outer space',
+    gender: 'zorb',
+    specialty: 'React',
+    favLanguage: 'Javascript',
+    catchPhrase: 'Blah Blah Blahh!',
+    gradClassName: 'CS1',
+    favInstructor: 'Josh',
 
+});
+
+//human.speak();
 //jordan.demo('Javascript Objects');
-janet.PRAssignment('JS-IV');
+//janet.PRAssignment('JS-IV');
+
+//zippy.standup('webpt6_zippy');
+//zippy.debugsCode(janet, 'JS 4');
