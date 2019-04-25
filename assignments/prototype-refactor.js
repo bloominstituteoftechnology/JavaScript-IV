@@ -38,15 +38,24 @@ class GameObject {
   * takeDamage() // prototype method -> returns the string '<object name> took damage.'
   * should inherit destroy() from GameObject's prototype
 */
-function CharacterStats(stats) {
-    GameObject.call(this, stats); // inheriting GameObject properties.
-    this.healthPoints = stats.healthPoints;
-}
-// inherit destroy() from GameObject prototype
-CharacterStats.prototype = Object.create(GameObject.prototype);
+// function CharacterStats(stats) {
+//     GameObject.call(this, stats); // inheriting GameObject properties.
+//     this.healthPoints = stats.healthPoints;
+// }
+// // inherit destroy() from GameObject prototype
+// CharacterStats.prototype = Object.create(GameObject.prototype);
 
-CharacterStats.prototype.takeDamage = function () {
-    return `${this.name} took damage.`;
+// CharacterStats.prototype.takeDamage = function () {
+//     return `${this.name} took damage.`;
+// }
+class CharacterStats extends GameObject {
+    constructor(stats) {
+        super(stats);
+        this.healthPoints = stats.healthPoints;
+    }
+    takeDamage() {
+        return `${this.name} took damage.`;
+    }
 }
 
 /*
