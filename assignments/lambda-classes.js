@@ -16,7 +16,11 @@ class Student extends Person {
         this.previousBackground = props.previousBackground;
         this.className = props.className;
         this.favSubjects = props.favSubjects; // array of fav subjects.
+        if (props.grade > 0 && props.grade <= 100) {
+            this.grade = props.grade;
+        }
     }
+
     listSubjects() {
         this.favSubjects.forEach(subject => {
             console.log(subject);
@@ -93,6 +97,7 @@ const janet = new Student({
     previousBackground: 'Computer Science',
     className: 'React',
     favSubjects: ['Html', 'Less', 'JavaScript'],
+    grade: 80
 
 });
 
@@ -117,3 +122,4 @@ const zippy = new ProjectManagers({
 //jordan.grade(janet, 'JS-4');
 //zippy.standup('webpt6_zippy');
 //zippy.debugsCode(janet, 'JS 4');
+console.log(janet.grade);
