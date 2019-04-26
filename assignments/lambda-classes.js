@@ -38,6 +38,9 @@ class Student extends Person {
         this.previousBackground = props.previousBackground;
         this.className = props.className;
         this.favSubjects = props.favSubjects;
+        if (props.grade >= 0 && props.grade <= 100) {
+            this.grade = props.grade;
+        }
     }
     listsSubjects () {
         this.favSubjects.forEach(subject => {
@@ -114,8 +117,10 @@ const Orlando = new Student ({
     gender: "Male",
     previousBackground: "Graphic Design",
     favSubjects: ['Html', 'CSS', 'JavaScript'],
-    className: "WebPT6"
+    className: "WebPT6",
+    grade: 100
 });
 
 Orlando.listsSubjects();
 Orlando.PRAssignment("JS4");
+console.log(Orlando.grade);
