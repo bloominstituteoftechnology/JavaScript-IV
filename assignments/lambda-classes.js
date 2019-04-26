@@ -93,5 +93,16 @@ class Instructor extends Person {
 //   * `debugsCode` a method that takes in a student object and a subject and logs out `{name} debugs {student.name}'s code on {subject}`
 
 class ProjectManagers extends Instructor {
+    constructor (props) {
+        super (props);
+        this.gradClassName = props.gradClassName;
+        this.favInstructor = props.favInstructor;
+    }
 
+    standUp (slackChannel) {
+        console.log(`${this.name} announces to ${slackChannel}, @channel standy times!`);
+    }
+    debugsCode (student, subject) {
+        console.log(`${this.name} debugs ${student.name}'s code on ${subject}`);
+    }
 }
