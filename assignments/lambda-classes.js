@@ -21,7 +21,7 @@
 // This method logs out a phrase Hello my name is Fred, I am from Bedrock where name and location are the object's own props
 
 class Person  {
-    constructor(persoArgument) {
+    constructor(personArgument) {
         this.name = personArgument.name;
         this.age = personArgument.age;
         this.location = personArgument.location;
@@ -44,8 +44,8 @@ class Person  {
 // grade receives a student object and a subject string as arguments and logs out '{student.name} receives a perfect score on {subject}'
 
 class Instructor extends Person {
-    constructor(personArgument,InstructorArgument) {
-        super(personArgument);
+    constructor(InstructorArgument) {
+        super(InstructorArgument);
         this.favLanguage = InstructorArgument.favLanguage;
         this.specialty = InstructorArgument.specialty;
         this.catchPhrase = InstructorArgument.catchPhrase;
@@ -56,22 +56,9 @@ class Instructor extends Person {
     }
 
     grade (student, subject) {
-        console.log(`${student.name} receives a perfect score on ${subject}`)
+        console.log(`${Student.name} receives a perfect score on ${subject}`)
     }
 }
-
-const fred = new Instructor({
-    name: 'Fred',
-    location: 'Bedrock',
-    age: 37,
-    gender: 'male',
-    favLanguage: 'JavaScript',
-    specialty: 'Front-end',
-    catchPhrase: `Don't forget the homies`
-  
-  });
-  console.log(fred.name)
-  console.log(fred.location)
 // Student
 // Now we need some students!
 // Student uses the same attributes that have been set up by Person
@@ -101,6 +88,33 @@ class Student extends Person {
         console.log(`the ${this.name} has submitted a PR for ${subject}`)
     }
 }
+
+
+const studentt = new Student({
+    name: "Anna",
+    age: 28,
+    location : "PHL",
+    previousBackground: "DBA",
+    className: "WEPT6",
+    favSubjects: ["js", "pyton", "CSS"]
+
+})
+const fred = new Instructor({
+    name: 'Fred',
+    location: 'Bedrock',
+    age: 37,
+    gender: 'male',
+    favLanguage: 'JavaScript',
+    specialty: 'Front-end',
+    catchPhrase: `Don't forget the homies`
+  
+  });
+  console.log(fred.name);
+  console.log(fred.location);
+  console.log(fred.demo("JS IV"));
+  console.log(fred.grade());
+  console.log(studentt.name);
+
 
 
 // sprintChallenge similar to PRAssignment but logs out student.name has begun sprint challenge on {subject}
