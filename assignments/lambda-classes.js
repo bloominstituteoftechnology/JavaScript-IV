@@ -106,3 +106,16 @@ class ProjectManagers extends Instructor {
         console.log(`${this.name} debugs ${student.name}'s code on ${subject}`);
     }
 }
+
+const Orlando = new Student ({
+    name: "Orlando",
+    age: 34,
+    location: "Holyoke",
+    gender: "Male",
+    previousBackground: "Graphic Design",
+    favSubjects: ['Html', 'CSS', 'JavaScript'],
+    className: "WebPT6"
+});
+
+Orlando.listsSubjects();
+Orlando.PRAssignment("JS4");
