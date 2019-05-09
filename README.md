@@ -61,7 +61,6 @@ const fred = new Instructor({
   name: 'Fred',
   location: 'Bedrock',
   age: 37,
-  gender: 'male',
   favLanguage: 'JavaScript',
   specialty: 'Front-end',
   catchPhrase: `Don't forget the homies`
@@ -71,7 +70,7 @@ const fred = new Instructor({
 #### Person
 
 * First we need a Person class. This will be our `base-class`
-* Person receives `name` `age` `location` `gender` all as props
+* Person receives `name` `age` `location` all as props
 * Person receives `speak` as a method.
 * This method logs out a phrase `Hello my name is Fred, I am from Bedrock` where `name` and `location` are the object's own props
 
