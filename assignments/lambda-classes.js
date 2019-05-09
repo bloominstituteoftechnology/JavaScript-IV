@@ -96,3 +96,39 @@ console.log(isaac); // Student {name: "Isaac", age: 23, location: "Dublin", gen
 isaac.listsSubjects(); // Introduction to User Interface and Git - Advanced CSS - JavaScript Fundamentals
 isaac.PRAssignment('JavaScript IV'); // Isaac has submitted a PR for JavaScript IV
 isaac.sprintChallenge('JavaScript Fundamentals'); // Isaac has begun sprint challenge on JavaScript Fundamentals
+
+// Create class Project Manager that inherits from Instructors
+class ProjectManager extends Instructor {
+    constructor(projectManager) {
+        super(projectManager);
+        this.gradClassName = projectManager.gradClassName;
+        this.favInstructor = projectManager.favInstructor;
+    }
+
+    standup(slackChannel) {
+        console.log(`${this.name} announces to ${slackChannel}, @channel standy times!`);
+    }
+
+    debugsCode(student, subject) {
+        console.log(`${this.name} debugs ${student.name}'s code on ${subject}`);
+    }
+}
+
+// testing ProjectManager
+const elizabeth = new ProjectManager({
+    name: 'Elizabeth',
+    age: 25,
+    location: 'Belgium',
+    gender: 'F',
+    specialty: 'Backend Dev',
+    favLanguage: 'Java',
+    catchPhrase: '"Easy peezy"',
+    gradClassName: "EU1",
+    favInstructor: "Emma"
+});
+
+console.log(elizabeth); // ProjectManager {name: "Elizabeth", age: 25, location: "Belgium", gender: "F", specialty: "Backend Dev", …}
+elizabeth.standup("eu_elizabeth"); // Elizabeth announces to eu_elizabeth, @channel standy times!
+elizabeth.debugsCode(isaac, "Advanced CSS"); // Elizabeth debugs Isaac's code on Advanced CSS
+
+
