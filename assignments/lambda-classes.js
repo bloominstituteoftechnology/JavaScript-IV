@@ -27,7 +27,7 @@ class Person {
 //   * `demo` receives a `subject` string as an argument and logs out the phrase 'Today we are learning about {subject}' where subject is the param passed in.
 //   * `grade` receives a `student` object and a `subject` string as arguments and logs out '{student.name} receives a perfect score on {subject}'
 
-class Instructor {
+class Instructor extends Person {
     constructor(name, age, location, gender, specialty, favLanguage, catchPhrase) {
         super (name, age, location, gender);
         this.specialty = specialty,
@@ -42,6 +42,20 @@ class Instructor {
     }
 }
 
+// Create an Instructor instance called Gabe
+const gabe = new Instructor('Gabe', 37, 'Bedrock', 'male', 'Front-end', 'JavaScript', `Don't forget the homies`);
+
+// Test outputs
+console.log(gabe.name);
+console.log(gabe.age);
+console.log(gabe.location);
+console.log(gabe.gender);
+console.log(gabe.specialty);
+console.log(gabe.favLanguage);
+console.log(gabe.catchPhrase);
+console.log(gabe.demo('JavaScript'));
+console.log(gabe.grade('React.js'));
+
 // * Now we need some students!
 // * Student uses the same attributes that have been set up by Person
 // * Student has the following unique props:
@@ -53,7 +67,7 @@ class Instructor {
 //   * `PRAssignment` a method that receives a subject as an argument and logs out that the `student.name has submitted a PR for {subject}`
 //   * `sprintChallenge` similar to PRAssignment but logs out `student.name has begun sprint challenge on {subject}`
 
-class Student {
+class Student extends Person {
     constructor(name, age, location, gender, previousBackground, className, favSubjects) {
         super(name, age, location, gender),
         this.previousBackground = previousBackground,
@@ -61,7 +75,15 @@ class Student {
         this.favSubjects = favSubjects
     }
     listsSubjects() {
-        this.favSubjects.forEach((subject) => console.log(subject))
+        this.favSubjects.forEach(subject => console.log(subject))
+        // Alternative method (add extra parameter 'index' to the function)
+        // this .favSubjects.forEach(subject, index) {
+        //     let subjectList = '';
+        //     subjectList += (index > 0 ? "\n":"")+subject;
+        //         or
+        //     subjectList += (index > 0 ? ", ":"")+subject;
+        // }
+        // return subjectList;
     }
     PRAssignment(subject) {
         return `${this.name} has submitted a PR for ${subject}`
@@ -70,6 +92,22 @@ class Student {
         return `${this.name} has begun sprint challenge on ${subject}`
     }
 }
+
+// Create a Student instance called Jose
+const jose = new Student ('Jose', 25, 'Lagos', 'male', 'digital nomad', 'WEBEU2', ['Html', 'CSS', 'JavaScript'])
+
+// Test outputs
+console.log(`${jose.name} is currently learning his third favorite subject which is ` + jose.favSubjects[2]);
+console.log(`${jose.name} used to be a ${jose.previousBackground} before joining Lambda School `);
+console.log(jose.className);
+console.log(jose.favSubjects);
+jose.listsSubjects();
+console.log(jose.PRAssignment('JavaScript IV'));
+console.log(jose.sprintChallenge('JavaScript'));
+
+// - Test instances of each class
+// - MVP challnege for lambda-classes complete
+
 
 // * Now that we have instructors and students, we'd be nowhere without our PM's
 // * ProjectManagers are extensions of Instructors
@@ -80,10 +118,7 @@ class Student {
 //   * `standUp` a method that takes in a slack channel and logs `{name} announces to {channel}, @channel standy times!​​​​​
 //   * `debugsCode` a method that takes in a student object and a subject and logs out `{name} debugs {student.name}'s code on {subject}`
 
-// Create student object
-student = new Student(name, age, location, gender, previousBackground, className, favSubjects)
-
-class ProjectManagers {
+class ProjectManager extends Instructor {
     constructor(name, age, location, gender, specialty, favLanguage, catchPhrase, gradClass, favInstructor) {
         super(name, age, location, gender, specialty, favLanguage, catchPhrase),
         this.gradClass = gradClass,
@@ -96,3 +131,14 @@ class ProjectManagers {
         return `${this.name} debugs ${student.name}'s code on ${subject}`
     }
 }
+
+// Create a PM instance called Maxime
+const maxime = new ProjectManager('Maxime', 30, 'Paris', 'male', 'Back-end', 'Python', 'Continue to work hard like you do', 'WEBEU1', 'Gabe');
+
+// Test Outputs
+console.log(maxime.name);
+console.log(maxime.catchPhrase);
+console.log(maxime.gradClass);
+console.log(maxime.favInstructor);
+console.log(maxime.standUp('webeu2_maxime'));
+console.log(maxime.debugsCode(jose,'Javascript'));
