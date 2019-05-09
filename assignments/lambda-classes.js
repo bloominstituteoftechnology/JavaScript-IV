@@ -23,8 +23,8 @@ class Instructor extends Person {
     demo(subject){
         return `Today we are learning about ${subject}`
     }
-    grade(student, subject){
-        return `${student.name} receives a perfect score on ${subject}.`
+    grade(subject){
+        return `${this.name} receives a perfect score on ${subject}.`
     }
 }// instructor
 
@@ -37,67 +37,145 @@ class Student extends Person {
     }
     //meathods
     listsSubjects(){
-        return (`${this.favSubjects}`)
+        return (`{${this.favSubjects}}`)
     }
     praassignment(subject){
-        return `${student.name} has submitted a PR for ${subject}.`
+        return `${this.name} has submitted a PR for ${subject}.`
     }
-    sprintChallenge(){
-        return `${student.name} has begun sprint challenge on ${subject}.`
+    sprintChallenge(subject){
+        return `${this.name} has begun sprint challenge on ${subject}.`
     }
 }
 
 class ProjectManager extends Instructor {
     constructor(attributes){
         super(attributes);
-        this.gradeClassName = attributes.gradeClassName;
-        this.favInstructor = attributes.favInstructor;
-        this.standup = attributes.standup; 
+        this.gradClassName = attributes.gradClassName;
+        this.favInstructor = attributes.favInstructor;  
     }
     //meathods
-    standup(channel,){
+    standup(channel){
         return `${this.name} announces to ${channel}, @channel standy times!`
     }
-    deBugsCode(){
-        return `${this.name} debugs ${student.name}`
+    deBugsCode(student,subject){
+        return `${this.name} debugs ${student}'s code on ${subject}`
     }
 }
 
 
 
-const Dan = new Instructor({
-
-})
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-const fred = new Instructor({
-    name: 'Fred',
-    location: 'Bedrock',
-    age: 37,
-    favLanguage: 'JavaScript',
+const dan = new Instructor({
+    name: 'Dan',
+    age: 10000,
+    location: 'cat house',
+    favLanguage: 'Ruby',
     specialty: 'Front-end',
-    catchPhrase: `Don't forget the homies`
-})
+    catchPhrase: 'cats, cats, cats',
+});
+
+const cole = new Instructor({
+    name: 'Cole',
+    age: 9,
+    location: 'Austin',
+    favLanguage: 'Javascript',
+    specialty: 'back-end',
+    catchPhrase: 'Ditto',
+});
+
+const dave = new Student({
+    name: 'Cole',
+    age: 22,
+    location: 'Austin',
+    previousBkg: 'barista',
+    className: 'WEB-19',
+    favSubjects: ['html, css']
+});
+
+const tyler = new Student({
+    name: 'Tyler',
+    age: 50,
+    location: 'Dallas',
+    previousBkg: 'construction',
+    className: 'WEB-18',
+    favSubjects: ['html, css, ruby']
+});
+
+const zion = new ProjectManager({
+    name: 'zion',
+    age: 5,
+    location: 'Beaumont',
+    gradClassName: 'web-1',
+    favInstructor: 'Josh Knell'
+});
+
+console.log(dan.age)
+console.log(dan.catchPhrase)
+console.log(dan.specialty)
+console.log(dan.favLanguage)
+console.log(dan.catchPhrase)
+console.log(cole.age)
+console.log(cole.catchPhrase)
+console.log(cole.specialty)
+console.log(cole.favLanguage)
+console.log(cole.catchPhrase)
+console.log(dave.age)
+console.log(dave.favSubjects)
+console.log(dave.className)
+console.log(dave.previousBkg)
+console.log(tyler.age)
+console.log(tyler.favSubjects)
+console.log(tyler.className)
+console.log(tyler.previousBkg)
+console.log(zion.age)
+console.log(zion.gradClassName)
+console.log(zion.favInstructor)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+console.log(dan.speak())
+console.log(dan.demo('javascript'))
+console.log(dan.grade('javascript'))
+console.log(cole.speak())
+console.log(cole.demo('java'))
+console.log(cole.grade('java'))
+console.log(dave.listsSubjects())
+console.log(dave.praassignment('java'))
+console.log(dave.sprintChallenge('java'))
+console.log(tyler.listsSubjects())
+console.log(tyler.praassignment('java'))
+console.log(tyler.sprintChallenge('java'))
+console.log(zion.standup('web-1'))
+console.log(zion.deBugsCode('patrick', 'ruby'))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
