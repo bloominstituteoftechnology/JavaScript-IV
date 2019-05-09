@@ -131,4 +131,120 @@ console.log(elizabeth); // ProjectManager {name: "Elizabeth", age: 25, location:
 elizabeth.standup("eu_elizabeth"); // Elizabeth announces to eu_elizabeth, @channel standy times!
 elizabeth.debugsCode(isaac, "Advanced CSS"); // Elizabeth debugs Isaac's code on Advanced CSS
 
+// Person Objects
 
+const alpha = new Person({
+    name: 'Alpha',
+    age: 37,
+    location: 'New York',
+    gender: 'F'
+})
+
+console.log(alpha); // Person {name: "Alpha", age: 37, location: "New York", gender: "F"}
+alpha.speak(); // Hello my name is Alpha, I am from New York.
+
+const beta = new Person({
+    name: 'Beta',
+    age: 29,
+    location: 'Egypt',
+    gender: 'M'
+});
+
+console.log(beta); // Person {name: "Beta", age: 29, location: "Egypt", gender: "M"}
+beta.speak(); // Hello my name is Beta, I am from Egypt.
+
+// Instructor Objects
+
+const charlie = new Instructor({
+    name: 'Charlie',
+    age: 33,
+    location: 'Cork',
+    gender: 'F',
+    specialty: 'Data Analysis',
+    favLanguage: 'Julia',
+    catchPhrase: '"You need to keep up with the times"'
+});
+
+const delta = new Instructor({
+    name: 'Delta',
+    age: 24,
+    location: 'Manchester',
+    gender: 'M',
+    specialty: 'Computer Architecture',
+    favLanguage: 'Visual Basic',
+    catchPhrase: '"You need to learn the fundamentals"'
+});
+
+console.log(charlie); // Instructor {name: "Charlie", age: 33, location: "Cork", gender: "F", specialty: "Data Analysis", …}
+charlie.demo("Persistence"); // Today we are learning about Persistence.
+charlie.grade(alpha, "Data Analysis"); // Alpha receives a perfect score on Data Analysis
+
+console.log(delta); // Instructor {name: "Delta", age: 24, location: "Manchester", gender: "M", specialty: "Computer Architecture", …}
+delta.demo("Synchronisation"); // Today we are learning about Synchronisation.
+delta.grade(beta, "C Programming"); // Beta receives a perfect score on C Programming
+
+
+// Student Objects
+const echo = new Student({
+    name: 'Echo',
+    age: 41,
+    location: 'Vancouver',
+    gender: 'M',
+    previousBackground: 'Physics',
+    className: 'React',
+    favSubjects: ['Applied JavaScript', 'React', 'Intermediate React']
+});
+
+const foxtrot = new Student({
+    name: 'Foxtrot',
+    age: 25,
+    location: 'Sillicon Valley',
+    gender: 'M',
+    previousBackground: 'Mathematics',
+    className: 'Redux',
+    favSubjects: ['Single Page Applications', 'Redux']
+});
+
+console.log(echo); 
+echo.listsSubjects(); 
+echo.PRAssignment('Applied JavaScript'); 
+echo.sprintChallenge('Intermediate React');
+
+console.log(foxtrot); 
+foxtrot.listsSubjects(); 
+foxtrot.PRAssignment('Redux'); 
+foxtrot.sprintChallenge('Single Page Applications');
+
+// Project Manager Objects
+
+const golf = new ProjectManager({
+    name: 'Golf',
+    age: 27,
+    location: 'Westminister',
+    gender: 'F',
+    specialty: 'Fullstack Dev',
+    favLanguage: 'JavaScript',
+    catchPhrase: '"Never give up"',
+    gradClassName: "EU1",
+    favInstructor: "Emma"
+});
+
+const hotel = new ProjectManager({
+    name: 'Hotel',
+    age: 19,
+    location: 'Antrim',
+    gender: 'F',
+    specialty: 'Frontend Dev',
+    favLanguage: 'Prolog',
+    catchPhrase: '"Make it count"',
+    gradClassName: "EU1",
+    favInstructor: "Emma"
+});
+
+console.log(golf); 
+golf.standup("eu_golf"); 
+golf.debugsCode(echo, "React"); 
+
+console.log(hotel); 
+hotel.standup("eu_hotel"); 
+hotel.debugsCode(foxtrot, "Data Structures"); 
