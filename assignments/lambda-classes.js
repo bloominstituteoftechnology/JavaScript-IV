@@ -1,5 +1,9 @@
 // CODE here for your Lambda Classes
 
+function getRandomInt(max) {
+    return Math.floor(Math.random() * Math.floor(max));
+}
+
 // Create class Person to serve as base class
 class Person {
     constructor(person) {
@@ -41,6 +45,17 @@ class Instructor extends Person {
     grade(student, subject) {
         console.log(`${student.name} receives a perfect score on ${subject}`);
     }
+
+    gradeStudent(student) {
+        console.log(`${student.name}'s grade before attempt: ${student.grade}`);
+        student.grade = student.grade + getRandomInt(50) - getRandomInt(50); ////
+        if(student.grade < 0){
+            student.grade = 0;
+        } else if (student.grade > 100) {
+            student.grade = 100;
+        }
+        console.log(`${student.name}'s grade after attempt: ${student.grade}`);
+    }
 }
 
 // testing instructor 
@@ -58,7 +73,6 @@ console.log(emma); // Instructor {name: "Emma", age: 26, location: "Dublin", ge
 emma.demo("Immutability"); // Today we are learning about Immutability.
 emma.grade(david, "redux"); // David receives a perfect score on redux
 
-
 // create class Student that inherits from Person
 class Student extends Person {
     constructor(student) {
@@ -66,6 +80,7 @@ class Student extends Person {
         this.previousBackground = student.previousBackground;
         this.className  = student.className;
         this.favSubjects = student.favSubjects;
+        this.grade = getRandomInt(100);
     }
 
     listsSubjects() {
@@ -78,6 +93,16 @@ class Student extends Person {
 
     sprintChallenge(subject) {
         console.log(`${this.name} has begun sprint challenge on ${subject}`);
+    }
+
+    graduate(grader) {
+        let i = 0;
+        while(this.grade < 70){ // while loop that keeps executing until student has sufficient grade. FLEX on steroids
+            console.log(`Attempt ${i}: ${this.name}'s grade is ${this.grade}`);
+            i++;
+            grader.gradeStudent(this);
+        }
+        console.log(`Well done ${this.name}, your mark is ${this.grade}. You have graduated Lambda School!`);
     }
 }
 
@@ -178,10 +203,12 @@ const delta = new Instructor({
 console.log(charlie); // Instructor {name: "Charlie", age: 33, location: "Cork", gender: "F", specialty: "Data Analysis", …}
 charlie.demo("Persistence"); // Today we are learning about Persistence.
 charlie.grade(alpha, "Data Analysis"); // Alpha receives a perfect score on Data Analysis
+charlie.gradeStudent(isaac);
 
 console.log(delta); // Instructor {name: "Delta", age: 24, location: "Manchester", gender: "M", specialty: "Computer Architecture", …}
 delta.demo("Synchronisation"); // Today we are learning about Synchronisation.
 delta.grade(beta, "C Programming"); // Beta receives a perfect score on C Programming
+delta.gradeStudent(isaac);
 
 
 // Student Objects
@@ -209,11 +236,13 @@ console.log(echo);
 echo.listsSubjects(); 
 echo.PRAssignment('Applied JavaScript'); 
 echo.sprintChallenge('Intermediate React');
+echo.graduate(charlie);
 
 console.log(foxtrot); 
 foxtrot.listsSubjects(); 
 foxtrot.PRAssignment('Redux'); 
 foxtrot.sprintChallenge('Single Page Applications');
+foxtrot.graduate(delta);
 
 // Project Manager Objects
 
@@ -244,7 +273,10 @@ const hotel = new ProjectManager({
 console.log(golf); 
 golf.standup("eu_golf"); 
 golf.debugsCode(echo, "React"); 
+delta.gradeStudent(echo);
+
 
 console.log(hotel); 
 hotel.standup("eu_hotel"); 
 hotel.debugsCode(foxtrot, "Data Structures"); 
+delta.gradeStudent(foxtrot);
