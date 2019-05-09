@@ -24,17 +24,26 @@ class GameObj{
   * healthPoints
   * takeDamage() // prototype method -> returns the string '<object name> took damage.'
   * should inherit destroy() from GameObject's prototype
+  * 
+  
 */class CharacterStats extends GameObj{
   constuctor(CharacterTraits)
   this.healthpoints = CharacterTraits.healthpoints;
- }
+ 
     takeDamage(){
         return `${this.name} took damage`;
     }
+  }
+
+    class Humanoid extends CharacterTraits {
+  constructor(NoidTraits)
+  this.weapons = NoidTraits.weapons,
+  this.team = NoidTraits.team,
+  this.language = NoidTraits.language
+  greet() {
+    return `${this.name} offers a greeting in ${this.language}`;
+  }
 }
-
-  
-
 /*
   === Humanoid (Having an appearance or character resembling that of a human.) ===
   * team
@@ -44,7 +53,7 @@ class GameObj{
   * should inherit destroy() from GameObject through CharacterStats
   * should inherit takeDamage() from CharacterStats
 */
-function Humanoid (oid) {
+/*function Humanoid (oid) {
   CharacterStats.call(this,oid);
   this.weapons = oid.weapons,
   this.team = oid.team,
