@@ -15,7 +15,7 @@ class Person {
 }
 
 // testing person
-var david = new Person({
+const david = new Person({
     name: 'David',
     age: 32,
     location: 'London',
@@ -44,7 +44,7 @@ class Instructor extends Person {
 }
 
 // testing instructor 
-var emma = new Instructor({
+const emma = new Instructor({
     name: 'Emma',
     age: 26,
     location: 'Dublin',
@@ -57,3 +57,42 @@ var emma = new Instructor({
 console.log(emma); // Instructor {name: "Emma", age: 26, location: "Dublin", gender: "F", specialty: "Redux", …}
 emma.demo("Immutability"); // Today we are learning about Immutability.
 emma.grade(david, "redux"); // David receives a perfect score on redux
+
+
+// create class Student that inherits from Person
+class Student extends Person {
+    constructor(student) {
+        super(student);
+        this.previousBackground = student.previousBackground;
+        this.className  = student.className;
+        this.favSubjects = student.favSubjects;
+    }
+
+    listsSubjects() {
+        this.favSubjects.forEach(subject => console.log(subject));
+    }
+
+    PRAssignment(subject) {
+        console.log(`${this.name} has submitted a PR for ${subject}`);
+    }
+
+    sprintChallenge(subject) {
+        console.log(`${this.name} has begun sprint challenge on ${subject}`);
+    }
+}
+
+// testing student
+const isaac = new Student({
+    name: 'Isaac',
+    age: 23,
+    location: 'Dublin',
+    gender: 'M',
+    previousBackground: 'Business & Law',
+    className: 'JavaScript IV',
+    favSubjects: ['Introduction to User Interface and Git', 'Advanced CSS', 'JavaScript Fundamentals']
+})
+
+console.log(isaac); // Student {name: "Isaac", age: 23, location: "Dublin", gender: "M", previousBackground: "Business & Law", …}
+isaac.listsSubjects(); // Introduction to User Interface and Git - Advanced CSS - JavaScript Fundamentals
+isaac.PRAssignment('JavaScript IV'); // Isaac has submitted a PR for JavaScript IV
+isaac.sprintChallenge('JavaScript Fundamentals'); // Isaac has begun sprint challenge on JavaScript Fundamentals
