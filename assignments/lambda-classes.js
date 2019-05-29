@@ -18,7 +18,7 @@ class Person {
 // Class Instructor
 class Instructor extends Person {
     constructor(specialty,favLanguage,catchPhrase){
-        super(name,age,location);
+        super();
         this.specialty = specialty;
         this.favLanguage = favLanguage; 
         this.catchPhrase = catchPhrase;
@@ -41,7 +41,7 @@ class Instructor extends Person {
 // Class Student
 class Student extends Person {
     constructor(previousBackground,className,favSubjects) {
-        super(name,age,location);
+        super();
         this.previousBackground = previousBackground;
         this.className = className;
         this.favSubjects = favSubjects;
@@ -89,6 +89,39 @@ class ProjectManager extends Person {
 const CorruptDon = new Person('Don',72,'New York City, NY');
 
 CorruptDon.speak();
+
+// Create Student Object 
+
+
+const Student1 = new Student();
+
+Student1.name = "Ernest Hemingway";
+Student1.age = 25;
+Student1.location = "Phoenix, AZ";
+Student1.previousBackground = "Tank Maintainer Specialist (91A)";
+Student1.className = "WebPT07";
+Student1.favSubjects = ["Anime 101","Memes 101","Video Games 101"];
+
+// Test Student Object 
+
+console.log(Student1);
+
+// Create Instructor Object 
+
+const Instructor1 = new Instructor();
+
+Instructor1.name = "Banjo Johnson";
+Instructor1.age = 32;
+Instructor1.location = "Dallas, TX";
+Instructor1.specialty = "SQL";
+Instructor1.favLanguage = "Java";
+Instructor1.catchPhrase = "I feel the need for speed!";
+
+// Test Instructor Object 
+
+console.log(Instructor1);
+
+// Create PM Object 
 
 // Testing Class Instructor
 
