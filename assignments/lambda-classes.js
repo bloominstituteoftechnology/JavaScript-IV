@@ -86,30 +86,32 @@ class ProjectManager extends Person {
 
 // Testing Class Person 
 
-//const CorruptDon = new Person('Don',72,'New York City, NY');
+const CorruptDon = new Person('Don',72,'New York City, NY');
 
-//CorruptDon.speak();
+CorruptDon.speak();
 
 // Create Student Object 
 
 
-//const Student1 = new Student();
+const Student1 = new Student();
 
 
 
-let Student1 = new Student({
-    name: "Ernest Hemingway",
-    location: "Phoenix, AZ",
-    age: 25,
-    previousBackground: "Tank Maintainer Specialist (91A)",
-    className: "WebPT07"
-  });
 
-  Student1.favSubjects = ["Anime 101","Memes 101","Video Games 101"]; 
+Student1.name = "Ernest Hemingway";
+Student1.location = "Phoenix, AZ";
+Student1.age = 25;
+Student1.previousBackground = "Tank Maintainer Specialist (91A)";
+Student1.className = "WebPT07";
+Student1.favSubjects = ["Anime 101","Memes 101","Video Games 101"]; 
  
 // Test Student Object 
 
-console.log(Student1);
+for(key in Student1)
+{
+    console.log(Student1[key]);
+};
+
 
 // Create Instructor Object 
 
@@ -124,39 +126,46 @@ Instructor1.catchPhrase = "I feel the need for speed!";
 
 // Test Instructor Object 
 
-//console.log(Instructor1);
+for(key in Instructor1)
+{
+    console.log(Instructor1[key]);
+
+};
 
 // Create PM Object 
 
-const ProjectManager1 = new ProjectManager({
+const ProjectManager1 = new ProjectManager();
 
-name: "Jasmine Smith",
-age: 24,
-location: "Austin, TX",
-favInstructor: "Banjo Guy",
-gradClassName: "WebPT05"
+ProjectManager1.name = "Jasmine Smith";
+ProjectManager1.age = 24;
+ProjectManager1.location = "Austin, TX";
+ProjectManager1.favInstructor = "Banjo Guy";
+ProjectManager1.gradClassName = "WebPT05";
 
-});
+
 // Test ProjectManager Object
 
-//console.log(ProjectManager1);
+for(key in ProjectManager1)
+{
+    console.log(ProjectManager1[key]);
+};
 
 // Testing Class Instructor
 
-//Instructor1.demo(Student1.favSubjects[0]);
+Instructor1.demo(Student1.favSubjects[0]);
 
-//Instructor1.grade(Student1.name,Student1.favSubjects[0]);
+Instructor1.grade(Student1.name,Student1.favSubjects[0]);
 
 // Testing Class Student
 
-//Student1.listsSubjects();
+Student1.listsSubjects();
 
-//Student1.PRAssignment(Student1.name,Student1.favSubjects[1]);
+Student1.PRAssignment(Student1.name,Student1.favSubjects[1]);
 
-//Student1.sprintChallenge(Student1.name,Student1.favSubjects[2]);
+Student1.sprintChallenge(Student1.name,Student1.favSubjects[2]);
 
 // Testing Class Project Manager 
 
-//ProjectManager1.standUp(Student1.favSubjects[2]);
+ProjectManager1.standUp(Student1.favSubjects[2]);
 
-//ProjectManager1.debugsCode(Student1.name,Student1.favSubjects[2]);
+ProjectManager1.debugsCode(Student1.name,Student1.favSubjects[2]);
