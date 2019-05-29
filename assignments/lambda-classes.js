@@ -32,7 +32,7 @@ class Instructor extends Person {
 
     grade(student,subject) {
 
-        console.log(`${student.name} receives a perfect score on ${subject}`);
+        console.log(`${student} receives a perfect score on ${subject}`);
 
     }
 }
@@ -55,12 +55,12 @@ class Student extends Person {
 
     PRAssignment(student,subject) {
 
-        console.log(`${student.name} has submitted a PR for ${subject}`)
+        console.log(`${student} has submitted a PR for ${subject}`);
     }
 
     sprintChallenge(student,subject) {
 
-        console.log(`${student.name} has begun sprint challenge on ${subject}`)
+        console.log(`${student} has begun sprint challenge on ${subject}`);
 
     }
 
@@ -78,7 +78,7 @@ class ProjectManager extends Person {
     }
 
     debugsCode(student,subject){
-        console.log(`${name} debugs ${student.name}'s code on ${subject}`);
+        console.log(`${this.name} debugs ${student}'s code on ${subject}`);
     }
 
 }
@@ -139,6 +139,18 @@ console.log(ProjectManager1);
 
 Instructor1.demo(Student1.favSubjects[0]);
 
+Instructor1.grade(Student1.name,Student1.favSubjects[0]);
+
 // Testing Class Student
 
+Student1.listsSubjects();
+
+Student1.PRAssignment(Student1.name,Student1.favSubjects[1]);
+
+Student1.sprintChallenge(Student1.name,Student1.favSubjects[2]);
+
 // Testing Class Project Manager 
+
+ProjectManager1.standUp(Student1.favSubjects[2]);
+
+ProjectManager1.debugsCode(Student1.name,Student1.favSubjects[2]);
