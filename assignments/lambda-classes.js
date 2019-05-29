@@ -26,7 +26,7 @@ class Instructor extends Person {
 
     demo(subject) {
 
-        console.log(`Today we are learning about ${this.subject}`);
+        console.log(`Today we are learning about ${subject}`);
 
     }
 
@@ -69,7 +69,7 @@ class Student extends Person {
 // Class Project Manager 
 class ProjectManager extends Person {
     constructor(gradClassName,favInstructor) {
-        super(name,age,location);
+        super();
         this.gradClassName = gradClassName;
         this.favInstructor = favInstructor;
     }
@@ -123,7 +123,21 @@ console.log(Instructor1);
 
 // Create PM Object 
 
+const ProjectManager1 = new ProjectManager();
+
+ProjectManager1.name = "Jasmine Smith";
+ProjectManager1.age = 24;
+ProjectManager1.location = "Austin, TX"
+ProjectManager1.favInstructor = "Banjo Guy";
+ProjectManager1.gradClassName = "WebPT05";
+
+// Test ProjectManager Object
+
+console.log(ProjectManager1);
+
 // Testing Class Instructor
+
+Instructor1.demo(Student1.favSubjects[0]);
 
 // Testing Class Student
 
