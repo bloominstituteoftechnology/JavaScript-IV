@@ -86,22 +86,27 @@ class ProjectManager extends Person {
 
 // Testing Class Person 
 
-const CorruptDon = new Person('Don',72,'New York City, NY');
+//const CorruptDon = new Person('Don',72,'New York City, NY');
 
-CorruptDon.speak();
+//CorruptDon.speak();
 
 // Create Student Object 
 
 
-const Student1 = new Student();
+//const Student1 = new Student();
 
-Student1.name = "Ernest Hemingway";
-Student1.age = 25;
-Student1.location = "Phoenix, AZ";
-Student1.previousBackground = "Tank Maintainer Specialist (91A)";
-Student1.className = "WebPT07";
-Student1.favSubjects = ["Anime 101","Memes 101","Video Games 101"];
 
+
+const Student1 = new Student({
+    name: "Ernest Hemingway",
+    location: "Phoenix, AZ",
+    age: 25,
+    previousBackground: "Tank Maintainer Specialist (91A)",
+    className: "WebPT07"
+  });
+
+  Student1.favSubjects = ["Anime 101","Memes 101","Video Games 101"]; 
+ 
 // Test Student Object 
 
 console.log(Student1);
@@ -123,14 +128,15 @@ console.log(Instructor1);
 
 // Create PM Object 
 
-const ProjectManager1 = new ProjectManager();
+const ProjectManager1 = new ProjectManager({
 
-ProjectManager1.name = "Jasmine Smith";
-ProjectManager1.age = 24;
-ProjectManager1.location = "Austin, TX"
-ProjectManager1.favInstructor = "Banjo Guy";
-ProjectManager1.gradClassName = "WebPT05";
+name: "Jasmine Smith",
+age: 24,
+location: "Austin, TX",
+favInstructor: "Banjo Guy",
+gradClassName: "WebPT05"
 
+});
 // Test ProjectManager Object
 
 console.log(ProjectManager1);
