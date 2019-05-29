@@ -97,7 +97,7 @@ class ProjectManager extends Person {
 
 
 
-const Student1 = new Student({
+let Student1 = new Student({
     name: "Ernest Hemingway",
     location: "Phoenix, AZ",
     age: 25,
@@ -124,7 +124,7 @@ Instructor1.catchPhrase = "I feel the need for speed!";
 
 // Test Instructor Object 
 
-console.log(Instructor1);
+//console.log(Instructor1);
 
 // Create PM Object 
 
@@ -139,24 +139,24 @@ gradClassName: "WebPT05"
 });
 // Test ProjectManager Object
 
-console.log(ProjectManager1);
+//console.log(ProjectManager1);
 
 // Testing Class Instructor
 
-Instructor1.demo(Student1.favSubjects[0]);
+//Instructor1.demo(Student1.favSubjects[0]);
 
-Instructor1.grade(Student1.name,Student1.favSubjects[0]);
+//Instructor1.grade(Student1.name,Student1.favSubjects[0]);
 
 // Testing Class Student
 
-Student1.listsSubjects();
+//Student1.listsSubjects();
 
-Student1.PRAssignment(Student1.name,Student1.favSubjects[1]);
+//Student1.PRAssignment(Student1.name,Student1.favSubjects[1]);
 
-Student1.sprintChallenge(Student1.name,Student1.favSubjects[2]);
+//Student1.sprintChallenge(Student1.name,Student1.favSubjects[2]);
 
 // Testing Class Project Manager 
 
-ProjectManager1.standUp(Student1.favSubjects[2]);
+//ProjectManager1.standUp(Student1.favSubjects[2]);
 
-ProjectManager1.debugsCode(Student1.name,Student1.favSubjects[2]);
+//ProjectManager1.debugsCode(Student1.name,Student1.favSubjects[2]);
