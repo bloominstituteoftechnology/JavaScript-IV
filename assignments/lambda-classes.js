@@ -14,6 +14,11 @@ class Person {
     } 
 }
 
+const CorruptDonnie = new Person('Donnie',72,'Washington D.C.');
+
+CorruptDonnie.speak();
+
+
 
 // Class Instructor
 
