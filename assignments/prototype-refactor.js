@@ -33,20 +33,16 @@ class GameObject {
   * takeDamage() // prototype method -> returns the string '<object name> took damage.'
   * should inherit destroy() from GameObject's prototype
 */
-class CharacterStats{
-    constructor(healthPoints){
-  this.healthPoints = stats.healthPoints;
-        }
-        takeDamage(){
-            return `${this.name} took damage.`
-        }
-    }
-
-    class CharacterStats extends GameObject {
+class CharacterStats extends GameObject {
         constructor(stats){
-        super(stats);
+        super(stats)
+            this.healthPoints = stats.healthPoints;
+            
+            
+             }
         }
-    }
+        
+    
 
 
 
