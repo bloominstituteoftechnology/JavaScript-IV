@@ -123,3 +123,4 @@ Dan.grade(fred.name,fred.favSubjects[2]);
 console.log(Dan.catchPhrase);
 Jasmine.standUp(fred.className);
 Jasmine.debugsCode(fred.name,fred.favSubjects[2]);
+console.log(`${Dan.name} is ${Jasmine.name}'s favorite instructor.`);
