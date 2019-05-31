@@ -22,6 +22,11 @@ class Instructor extends Person {
     grade(student, subject) {
         return `${student.name} receives a perfect score on ${subject}`
     }
+    changeGrade(grade) {
+        let randomNumberBetween0and100 = Math.floor(Math.random() * 100);
+        let plusOrMinus = Math.random() < 0.5 ? -1 : 1;
+        return grade + randomNumberBetween0and100 * plusOrMinus;
+    }
 }
 
 class Student extends Person {
@@ -42,6 +47,17 @@ class Student extends Person {
     }
     sprintChallenge(subject) {
         console.log(`${this.name} has begun sprint challenge on ${subject}`);
+    }
+    graduate(num) {
+        if (num >= 70 && num <= 100) {
+            console.log(`You graduated!`);
+        }
+        else if (num < 70 && num >= 0) {
+            console.log(`Maybe next year...`);
+        }
+        else {
+            console.log(`Fix that bug son`)
+        }
     }
 }
 
@@ -96,12 +112,14 @@ const ryan = new projectManager({
 // console.log(rick.speak());
 // console.log(rick.demo('Javascript'));
 // console.log(rick.grade(morty, 'Javascript'));
+console.log(rick.changeGrade(morty.grade));
 
 // console.log(morty);
 // console.log(morty.speak());
 // console.log(morty.listsSubjects());
 // console.log(morty.PRAssignment('JavaScript'));
 // console.log(morty.sprintChallenge('JavaScript'));
+console.log(morty.graduate(rick.changeGrade(morty.grade)))
 
 // console.log(ryan);
 // console.log(ryan.speak());
