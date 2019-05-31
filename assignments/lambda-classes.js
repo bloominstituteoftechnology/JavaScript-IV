@@ -25,18 +25,24 @@ class Student extends Person {
 
     listsSubjects() {
 
-        console.log(this.favSubjects);
-
+        console.log(`Here is a list of ${this.name}'s favorite subjects.`)
+        var subArray = [];
+        var item = 0;
+        subArray = this.favSubjects
+        for(item in subArray) {
+        console.log(`subject: ${subArray[item]}`);
+        
+        }
     }
 
     PRAssignment(student,subject) {
 
-        console.log(`${student} has submitted a PR for ${subject}`);
+        console.log(`${student} has submitted a PR for ${subject}.`);
     }
 
     sprintChallenge(student,subject) {
 
-        console.log(`${student} has begun sprint challenge on ${subject}`);
+        console.log(`${student} has begun sprint challenge on ${subject}.`);
 
     }
 
@@ -62,13 +68,13 @@ class Instructor extends Person {
 
     demo(subject) {
 
-        console.log(`Today we are learning about ${subject}`);
+        console.log(`Today we are learning about ${subject}.`);
 
     }
 
     grade(student,subject) {
 
-        console.log(`${student} receives a perfect score on ${subject}`);
+        console.log(`${student} receives a perfect score on ${subject}.`);
 
     }
 }
@@ -94,7 +100,7 @@ class ProjectManager extends Person {
     }
 
     debugsCode(student,subject){
-        console.log(`${this.name} debugs ${student}'s code on ${subject}`);
+        console.log(`${this.name} debugs ${student}'s code on ${subject}.`);
     }
 
 } 
@@ -107,4 +113,13 @@ const Jasmine = new ProjectManager({
     favInstructor: 'Dan'
   });
 
- 
+
+
+fred.speak();
+fred.listsSubjects();
+fred.sprintChallenge(fred.name,fred.favSubjects[0]);
+Dan.demo(fred.favSubjects[1]); 
+Dan.grade(fred.name,fred.favSubjects[2]);
+console.log(Dan.catchPhrase);
+Jasmine.standUp(fred.className);
+Jasmine.debugsCode(fred.name,fred.favSubjects[2]);
