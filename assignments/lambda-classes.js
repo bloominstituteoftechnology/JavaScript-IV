@@ -7,12 +7,33 @@ class Person {
     }
 }
 
+class Instructor extends Person {
+    constructor(attr){
+        super(attr);
+        this.specialty = attr.specialty;
+        this.favLanguage = attr.favLanguage;
+        this.catchPhrase = attr.catchPhrase;
+    }
+    demo(subject){
+        return `Today we wil be learning about ${subject}`
+    };
+    grade(student, subject){
+        return `${student.name} recieves a perfect score on ${subject}`
+    }
+    changeGrade(student){
+        const max = Math.floor(100 - student.grade)
+        const min = Math.ceil(student.grade - 100)
+        return student.grade = student.grade + Math.floor(Math.random() * (max - min)) + min;
+    }
+}
+
 class Student extends Person {
     constructor(attr){
         super(attr);
     this.previousBackground = attr.previousBackground;
     this.className = attr.className;
     this.favSubjects = attr.favSubjects;
+    this.grade = attr.grade;
     }
 
     PRAssignment(attribute){
@@ -26,20 +47,19 @@ class Student extends Person {
     sprintChallenge(attribute){
         return `${this.name} has begun sprint challenge on ${attribute}`
     }
-}
-
-class Instructor extends Person {
-    constructor(attr){
-        super(attr);
-        this.specialty = attr.specialty;
-        this.favLanguage = attr.favLanguage;
-        this.catchPhrase = attr.catchPhrase;
+    graduate(){
+        if(this.grade >= 70){
+            return this.graduate = true;
+        }else{
+            return this.graduate = false;
+        }
     }
-    demo(subject){
-        return `Today we wil be learning about ${subject}`
-    };
-    grade(student, subject){
-        return `${student.name} recieves a perfect score on ${subject}`
+    applyForInstructor(){
+        if (this.graduate === true){
+            return `Congrats ${this.name} you will now be considered for the next available instructor position!`
+        }else{
+            return `Sorry but unfortunately you must graduate before applying for this position, But feel free to apply to being a pm in the meantime!`;
+        }
     }
 }
 
@@ -64,6 +84,7 @@ const logan = new Student ({
     previousBackground: 'Foundations',
     className: 'WebPT7',
     favSubjects: ['Javascript', 'html', 'Css', 'Python'],
+    grade: 75,
 
 })
 const dan = new Instructor ({
@@ -85,8 +106,10 @@ const jeff = new ProjectManager ({
     gradClassName: 'Web12',
     favInstructor: 'Dan Frehner'
 })
-console.log(logan.sprintChallenge('Python'));
-console.log(dan.grade(logan, 'Javascript'));
+
+console.log(dan.changeGrade(logan));
 console.log(logan);
 console.log(dan);
 console.log(jeff);
+console.log(logan.graduate());
+console.log(logan.applyForInstructor());
