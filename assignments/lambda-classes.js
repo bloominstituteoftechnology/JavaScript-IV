@@ -14,7 +14,7 @@ class Person {
 }
 
 
-// Class Student
+//  Class Student
 class Student extends Person {
     constructor(personAttributes) {
         super(personAttributes);
