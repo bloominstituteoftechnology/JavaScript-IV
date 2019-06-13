@@ -33,7 +33,9 @@ class GameObject {
         this.name = attributes.name; 
         this.dimensions = attributes.dimensions 
     }
-    
+    destroy() {
+        console.log(`${this.name} was removed from the game.`)
+    }
 }
 
 

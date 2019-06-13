@@ -81,7 +81,6 @@ const Albert = new Instructor({
 
 
 
-
 // Students Class 
 class Students extends Person {
     constructor(acc) {
@@ -127,4 +126,44 @@ const Winston = new Students({
     previousBackground: "supply technician ", 
     className: "CS12", 
     favSubjects: [JavaScript, C, Python]
+});
+
+// Project Manager 
+class ProjectManagers extends Person {
+    constructor(acc) {
+        super(acc); 
+        this.gradClassName = acc.gradClassName; 
+        this.favInstructor = acc.favInstructor;  
+    }
+    standUp() {
+        console.log()
+    }
+    debugsCode() {
+        console.log()
+    }
+}; 
+
+// Project Manager Objects 
+const Bill = new ProjectManagers({
+    name: "Bill Blue",
+    age: 28,
+    location: "Atlanta GA", 
+    gradClassName: "Web4",
+    favInstructor:"Dan"
+});
+
+const Mark = new ProjectManagers({
+    name: "Mark Jobs",
+    age: 43,
+    location: "Chicago IL", 
+    gradClassName: "Web10",
+    favInstructor:"Josh"
+});
+
+const Mary = new ProjectManagers({
+    name: "Mary Scott",
+    age: 31,
+    location: "Portland Orgon", 
+    gradClassName: "Web11",
+    favInstructor:"Andrew"
 });
