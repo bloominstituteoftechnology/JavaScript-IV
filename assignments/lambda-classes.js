@@ -80,7 +80,7 @@ class ProjectManager extends Instructor {
 
 const dan = new Instructor({
   name: 'Dan',
-  age: '32',
+  age: 32,
   location: 'Colorado',
   specialty: 'Redux',
   favLanguage: 'JavaScript',
@@ -89,7 +89,7 @@ const dan = new Instructor({
 
 const josh = new Instructor({
   name: 'Josh',
-  age: '32',
+  age: 32,
   location: 'Utah',
   specialty: 'Redux',
   favLanguage: 'JavaScript',
@@ -98,7 +98,7 @@ const josh = new Instructor({
 
 const emily = new Student({
   name: 'Emily',
-  age: '32',
+  age: 32,
   location: 'Illinois',
   previousBackground: 'Teacher',
   className: 'Web 21',
@@ -107,7 +107,7 @@ const emily = new Student({
 
 const marcus = new Student({
   name: 'Marcus',
-  age: '32',
+  age: 32,
   location: 'Illinois',
   previousBackground: 'Teacher',
   className: 'Web 21',
@@ -116,7 +116,7 @@ const marcus = new Student({
 
 const nick = new ProjectManager({
   name: 'Nick',
-  age: '32',
+  age: 32,
   location: 'New Mexico',
   gradClassName: 'Web 19',
   favInstructor: 'Dan',
@@ -124,7 +124,7 @@ const nick = new ProjectManager({
 
 const jose = new ProjectManager({
   name: 'Jose',
-  age: '32',
+  age: 32,
   location: 'Illinois',
   gradClassName: 'Web 19',
   favInstructor: 'Dan',
