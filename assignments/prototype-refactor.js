@@ -148,21 +148,21 @@ annihilate(target) {
 }
 
 //hero
-function Hero(stats) {
-    Humanoid.call(this, stats);
+class Hero extends Humanoid{
+    constructor(stats) {
+    super(stats);
     this.alignment = 'lawful-good';
-};
-Hero.prototype = Object.create(Humanoid.prototype);
+}
 //create hero ability
-Hero.prototype.heroBomb = function (target) {
-    target.healthPoints = target.healthPoints - 8;
-    if (target.healthPoints <= 0) {
-        return target.destroy();
-    } else {
-        return target.takeDamage();
+    heroBomb(target) {
+        target.healthPoints = target.healthPoints - 8;
+        if (target.healthPoints <= 0) {
+            return target.destroy();
+        } else {
+            return target.takeDamage();
+        };
     };
-};
-
+}
 
 //create new hero and villian
 const MorgulTheDestroyer = new Villian({
