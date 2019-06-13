@@ -56,17 +56,18 @@ class Instructor extends Person {
   * `sprintChallenge` similar to PRAssignment but logs out `student.name has begun sprint challenge on {subject}`
 */
 
-class student extends Person {
+class Student extends Person {
     constructor(attrs){
         super(attrs)
-        this.previousBackground = previousBackground;
+        this.previousBackground = attrs.previousBackground;
         this.className = attrs.className;
         this.favSubjects = attrs.favSubjects;
     }
     listSubjects() {
-        student.favSubjects.foreach(function(subject,idx){
-            let num=idx - 1;
-            console.log(`${this.name}'s number ${num} favorite subject is ${subject}.`)
+        let nam = this.name;
+        this.favSubjects.forEach(function(subject,idx) {
+            let num = idx + 1;
+            console.log(`${nam}'s number ${num} favorite subject is ${subject}.`)
     }, 0)
     }
     pRAssignment(subject) {
@@ -87,7 +88,7 @@ class student extends Person {
   * `standUp` a method that takes in a slack channel and logs `{name} announces to {channel}, @channel standy times!​​​​​
   * `debugsCode` a method that takes in a student object and a subject and logs out `{name} debugs {student.name}'s code on {subject}`
 */
-class ProjectManagers extends Instructor {
+class ProjectManager extends Instructor {
     constructor(attrs){
         super(attrs)
         this.gradClassName = attrs.gradClassName;
@@ -100,3 +101,28 @@ class ProjectManagers extends Instructor {
         console.log(`${this.name} debugs ${student.name}'s code on ${subject}`)
     }
 }
+const scott = new Student({
+    name: 'Scott',
+    age: '21',
+    location: 'North Carolina',
+    previousBackground: 'Computer Programmer',
+    className: 'Web21',
+    favSubjects: ['Javascript','Preprocessor'],
+})
+console.log(scott);
+scott.listSubjects();
+scott.pRAssignment('Writing');
+scott.sprintChallenge('Singing');
+
+
+const joe = new ProjectManager
+({
+name: 'Joe', age: 18, location: 'North Pole', specialty: 'Java', favLanguage: 'SAS', CatchPhrase: 'Oh Yeah', gradClassName: 'ab12', favInstructor: 'Pat'
+});
+
+console.log(joe);
+joe.demo('paper');
+joe.grade(scott, 'Skiing');
+joe.standup('xyz');
+joe.debugsCode(scott, 'thought');
+
