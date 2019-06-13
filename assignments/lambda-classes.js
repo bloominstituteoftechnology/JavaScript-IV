@@ -32,11 +32,11 @@ class Instructor extends Person {
   }
 
   demo(subject) {
-    console.log(`Today we are learning about ${this.subject}`);
+    console.log(`Today we are learning about ${subject}`);
   }
 
   grade(student, subject) {
-    console.log(`${this.name} receives a perfect score on ${this.subject}`)
+    console.log(`${student} receives a perfect score on ${subject}`)
   }
 }
 
@@ -72,7 +72,9 @@ class ProjectManager extends Instructor {
     console.log(`${this.name} announces to ${this.channel} @channel standup time`);
   }
 
-  debugsCode()
+  debugsCode(student) {
+    console.log(`${this.name} debugs  ${this.subject}`);
+  }
 }
 
 
