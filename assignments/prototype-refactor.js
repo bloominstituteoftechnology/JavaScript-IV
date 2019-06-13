@@ -8,28 +8,39 @@ Prototype Refactor
 
 */
 
-function GameObject(options) {
-    this.createdAt = options.createdAt;
-    this.dimensions = options.dimensions;
-    this.name = options.name;
+  class GameObject {
+
+      constructor (options){
+        this.createdAt = options.createdAt;
+        this.dimensions = options.dimensions;
+        this.name = options.name;
+      }
+   
+      destroy() {
+        return (`${this.name} was removed from the game.`);
+      }
   }
   
-  GameObject.prototype.destroy = function () {
-    return `${this.name} was removed from the game.`;
-  };
+  
 
+  class CharacterStats extends GameObject{
+    constructor (characterStatsOptions) {
 
-  function CharacterStats(characterStatsOptions) {
-    GameObject.call(this, characterStatsOptions);
+    super(characterStatsOptions);
     this.healthPoints = characterStatsOptions.healthPoints;
-  }
+    }  
+    
+    takeDamage(){
+        return `${this.name} took damage.`;
+
+    }
+
+    
   
   // Sets up inheritance with GameObject
-  CharacterStats.prototype = Object.create(GameObject.prototype);
   
-  CharacterStats.prototype.takeDamage = function () {
-    return `${this.name} took damage.`;
-  };
+  
+  
 
   function Humanoid(humanoidOptions) {
     CharacterStats.call(this, humanoidOptions);
