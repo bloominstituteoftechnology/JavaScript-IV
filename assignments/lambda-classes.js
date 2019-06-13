@@ -94,6 +94,19 @@ class Student extends Person {
     sprintChallenge(subject) {
         console.log(`${this.name} has begun a sprint challenge on ${subject}`)
     }
+/*
+* Add a graduate method to a student.
+  * This method, when called, will check the grade of the student and see if they're ready to graduate from Lambda School
+  * If the student's grade is above a 70% let them graduate! Otherwise go back to grading their assignments to increase their score.
+*/    
+
+graduate() {
+    if (this.grade >= 70)
+    { console.log(`${this.name}'s grade is ${this.grade} and can graduate Lambda School.`)}
+    else
+    { console.log(`${this.name}'s grade is ${this.grade} and must have more assignments graded.`)}
+}
+
 }
 /*
 * Now that we have instructors and students, we'd be nowhere without our PM's
@@ -145,3 +158,4 @@ joe.grade(scott, 'Skiing');
 joe.standup('xyz');
 joe.debugsCode(scott, 'thought');
 joe.changeGrade(scott,'Math');
+scott.graduate();
