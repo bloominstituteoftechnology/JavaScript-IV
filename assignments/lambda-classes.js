@@ -66,3 +66,13 @@ class Student extends Person {
     }
 
  }
+
+ const Jarvise = new Student ({
+  name: 'Jarvise',
+  age: 22,
+  gender: 'Male',
+  location: 'Aliceville',
+  previousBackground: 'Worked at walmart.',
+  className: "Web21",
+  favSubjects: ['JavaScript']
+});
