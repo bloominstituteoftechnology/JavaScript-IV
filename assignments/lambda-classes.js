@@ -44,7 +44,7 @@ const Carol = new instructor ({
 })
 
 
-class Student extends Person {
+class Student extends person {
     constructor(studentAttributes){
         super(studentAttributes);
         this.previousBackground = studentAttributes.previousBackground;
