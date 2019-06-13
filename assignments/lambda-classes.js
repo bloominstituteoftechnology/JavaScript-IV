@@ -41,13 +41,18 @@ class Instructor extends Person {
 }
 
 class Student extends Person {
-  constructor(attrs) {
-    super(attrs) {
-      this.previousBackground = previousBackground;
-      this.className = className;
-      this.favSubject = favSubjects;
-      this.listsSujects = listsSubjects;
-      this.PRAssignment = PRAssignment;
-    }
+  constructor(stuAttrs) {
+    super(stuAttrs);
+    this.previousBackground = stuAttrs.previousBackground;
+    this.className = stuAttrs.className;
+    this.favSubject = stuAttrs.favSubjects;
+  }
+
+  listsSujects() {
+    console.log(`${this.favoriteSubjects}`);
+  }
+
+  PRAssignment() {
+    console.log(`${this.name} has submitted a PR for ${this.subject}`)
   }
 }
