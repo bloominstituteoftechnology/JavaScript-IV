@@ -26,13 +26,13 @@
 // * Person receives `speak` as a method.
 // * This method logs out a phrase `Hello my name is Fred, I am from Bedrock` where `name` and `location` are the object's own props
 class person {
-    constructor(attributes){
+    constructor(attributes) {
         this.name = attributes.name;
         this.age = attributes.age;
         this.location = attributes.location;
         this.gender = attributes.gender;
     }
-    speak (){
+    speak() {
         return `Hello. my name is ${this.name}, I am from ${this.location}`;
 
     }
@@ -50,14 +50,14 @@ class person {
 //   * `demo` receives a `subject` string as an argument and logs out the phrase 'Today we are learning about {subject}' where subject is the param passed in.
 //   * `grade` receives a `student` object and a `subject` string as arguments and logs out '{student.name} receives a perfect score on {subject}'
 
-class Instructor extends Person{
+class Instructor extends Person {
     constructor(instructorAttr) {
         super(instructorAttr);
         this.specialty = instructorAttr.specialty;
         this.favLanguage = instructorAttr.favLanguage;
         this.catchPhrase = instructorAttr.catchPhrase;
     }
-    demo(subject){
+    demo(subject) {
         return `Today we are learning about ${subject}`
     }
 }
@@ -87,18 +87,18 @@ class Student extends Person {
         this.className = object.className;
         this.favSubjects = object.favSubjects;
     }
-listsSubjects() {
-    return this.favSubjects.forEach(subject) => console.log(subject));
+    listsSubjects() {
+        return this.favSubjects.forEach(subject) => console.log(subject));
 
-        
+
     }
 
     Prassignment(subject) {
         return `${this.name} has submitted a PR for ${subject}.`
     }
-sprintChallenge(subject) {
-    return `${this.name} has begun sprint challenge on ${subject}.`
-}
+    sprintChallenge(subject) {
+        return `${this.name} has begun sprint challenge on ${subject}.`
+    }
 }
 // #### Project Manager
 
@@ -110,37 +110,61 @@ sprintChallenge(subject) {
 // * ProjectManagers have the following Methods:
 //   * `standUp` a method that takes in a slack channel and logs `{name} announces to {channel}, @channel standy times!​​​​​
 //   * `debugsCode` a method that takes in a student object and a subject and logs out `{name} debugs {student.name}'s code on {subject}`
+class ProjectManager extends Instructor {
+    constructor(object) {
+        super(object);
+        this.gradClassName = object.gradClassName;
+        this.favInstructor = object.favInstructor;
+    }
+    standUp(channel) {
+        return `${this.name} announces to ${channel}, @channel it's standup time!`
+    }
+    debugsCode(student, subject) {
+        return `${this.name} debugs ${student.name}'s code on ${subject}.`
+    }
+}
+
 
 const josh = new Student({
-    name : 'Josh',
-    gender : 'Male',
-    location : 'Louisiana, USA',
-    age : 19,
-    previousBackground : 'phone repair',
-    className : 'Web21',
-    favSubjects : ['Cyber security', 'OO-Programming', 'LESS']
+    name: 'Josh',
+    gender: 'Male',
+    location: 'Louisiana, USA',
+    age: 19,
+    previousBackground: 'phone repair',
+    className: 'Web21',
+    favSubjects: ['Cyber security', 'OO-Programming', 'LESS']
 });
 
 
-const jeff = new Instructor ({
-    name : 'jeff',
-    gender : 'male'
-    location : 'LA, California'
-    age : 34,
-    specialty : 'Back-end'
-    favLanguage : 'Python'
-    catchPhrase : 'Yo dawg heard you like callbacks'
+const jeff = new Instructor({
+    name: 'jeff',
+    gender: 'male'
+    location: 'LA, California'
+    age: 34,
+    specialty: 'Back-end'
+    favLanguage: 'Python'
+    catchPhrase: 'Yo dawg heard you like callbacks'
 
 });
 
-const scott = new ProjectManager ({
-    name : 'scott',
-    gender : 'Male',
-    location : 'Orlando, Floirda',
-    age : 29,
-    specialty : 'Finessing some React',
-    favLanguage : 'Javascript',
-    catchPhrase : 'Lets code',
-    gradClassName : 'Web21',
-    favInstructor : 'Dan Levy'
+const scott = new ProjectManager({
+    name: 'scott',
+    gender: 'Male',
+    location: 'Orlando, Floirda',
+    age: 29,
+    specialty: 'Finessing some React',
+    favLanguage: 'Javascript',
+    catchPhrase: 'Lets code',
+    gradClassName: 'Web21',
+    favInstructor: 'Dan Levy'
 });
+
+
+console.log(josh.speak());
+console.log(jeff.demo(`Javascript IV`));
+console.log(jeff.grade(josh, "Javascript IV"));
+josh.listsSubjects();
+console.log(josh.PRassignment('Javascript IV'));
+console.log(josh.sprintChallenge('Javascript IV'));
+console.log(scott.standUp('Main'));
+console.log(scott.debugsCode(josh, 'Javascript IV'));
