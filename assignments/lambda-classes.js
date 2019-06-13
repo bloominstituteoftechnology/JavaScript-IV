@@ -25,6 +25,7 @@ class Person {
 
 class Instructor extends Person {
   constructor(instAttrs) {
+    super(instAttrs);
     this.specialty = instAttrs.specialty;
     this.favLanguage = instAttrs.favLanguage;
     this.catchPhrase = instAttrs.catchPhrase;
@@ -38,18 +39,6 @@ class Instructor extends Person {
     console.log(`${this.name} receives a perfect score on ${this.subject}`)
   }
 }
-
-
-// class Dog extends Animal {
-//   constructor(name) {
-//     super(name);
-//   }
-//
-//   speak() {
-//     console.log(this.name + ' barks.');
-//   }
-// }
-
 
 class Student extends Person {
   constructor(attrs) {
