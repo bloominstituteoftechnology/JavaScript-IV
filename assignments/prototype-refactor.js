@@ -25,7 +25,6 @@ Prototype Refactor
 
   class CharacterStats extends GameObject{
     constructor (characterStatsOptions) {
-
     super(characterStatsOptions);
     this.healthPoints = characterStatsOptions.healthPoints;
     }  
@@ -34,26 +33,31 @@ Prototype Refactor
         return `${this.name} took damage.`;
 
     }
+}
 
     
-  
-  // Sets up inheritance with GameObject
-  
-  
+   
   
 
-  function Humanoid(humanoidOptions) {
-    CharacterStats.call(this, humanoidOptions);
+  class Humanoid extends CharacterStats {
+      constructor (humanoidOptions){
+
+    super(humanoidOptions);
     this.team = humanoidOptions.team;
     this.weapons = humanoidOptions.weapons;
     this.language = humanoidOptions.language;
+
+      }
+    
+      greet(){
+        return `${this.name} offers a greeting in ${this.language}.`;
   }
+
+}
+
   
-  Humanoid.prototype = Object.create(CharacterStats.prototype);
-  
-  Humanoid.prototype.greet = function () {
-    return `${this.name} offers a greeting in ${this.language}.`;
-  };
+ 
+
 
   // Test you work by un-commenting these 3 objects and the list of console logs below:
 
