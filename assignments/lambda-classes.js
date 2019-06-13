@@ -32,17 +32,17 @@ class Student extends Instructor {
     this.className = attrs.className;
     this.favSubjects = attrs.favSubjects;
   }
-  listsSubjects() {
+  listsSubjects(subject) {
     this.favSubjects.forEach(function(subject) {
       console.log(subject);
     });
   }
   PRAssignment(subject) {
-    console.log(`${student.name}, has submitted a pr for ${subject}`);
+    console.log(`${this.name}, has submitted a pr for ${subject}`);
   }
 
   sprintChallenge(subject) {
-    console.log(`${student.name}, has begun springt challenge ${subject}`);
+    console.log(`${this.name}, has begun springt challenge ${subject}`);
   }
 }
 
