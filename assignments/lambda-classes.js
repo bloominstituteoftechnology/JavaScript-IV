@@ -72,8 +72,8 @@ class ProjectManager extends Instructor {
     console.log(`${this.name} announces to ${this.channel} @channel standup time`);
   }
 
-  debugsCode(student) {
-    console.log(`${this.name} debugs  ${this.subject}`);
+  debugsCode(student, subject) {
+    console.log(`${this.name} debugs ${student}'s code on ${subject}'`);
   }
 }
 
