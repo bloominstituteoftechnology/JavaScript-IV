@@ -34,7 +34,7 @@ class person {
     }
     speak (){
         return `Hello. my name is ${this.name}, I am from ${this.location}`;
-        
+
     }
 }
 
@@ -49,6 +49,23 @@ class person {
 // * Instructor has the following methods:
 //   * `demo` receives a `subject` string as an argument and logs out the phrase 'Today we are learning about {subject}' where subject is the param passed in.
 //   * `grade` receives a `student` object and a `subject` string as arguments and logs out '{student.name} receives a perfect score on {subject}'
+
+class Instructor extends Person{
+    constructor(instructorAttr) {
+        super(instructorAttr);
+        this.specialty = instructorAttr.specialty;
+        this.favLanguage = instructorAttr.favLanguage;
+        this.catchPhrase = instructorAttr.catchPhrase;
+    }
+    demo(subject){
+        return `Today we are learning about ${subject}`
+    }
+}
+grade(student, subject){
+    return `${student.name} receives a perfect score on ${subject}!`
+}
+
+}
 
 // #### Student
 
