@@ -35,8 +35,27 @@ class Instructor extends Person {
         console.log(`${student.name} receives a perfect score on ${subject}`);
     }
 }
+// Student is a child of Person
 
-// objects 
+class Student extends Person {
+    constructor(props){
+        super(props);
+        this.previousBackground= props.previousBackground;
+        this.className= props.className;
+        this.favSubjects= props.favSubjects;
+    }
+    listsSubjects(){
+        console.log(`students favorite subjects: ` + this.favSubjects);
+    }
+    PRAssignment(subject) {
+        console.log(`${this.name} has submitted a PR for ${subject}`);
+    }
+    sprintChallenge(subject) {
+        console.log(`${this.name} has begun sprint challenge on ${subject}`);
+    }
+}
+
+
 const fred = new Instructor({
     name: 'Fred',
     location: 'Bedrock',
@@ -45,3 +64,5 @@ const fred = new Instructor({
     specialty: 'Front-end',
     catchPhrase: `Don't forget the homies`
   });
+
+  
