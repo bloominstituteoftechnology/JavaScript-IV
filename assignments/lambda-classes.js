@@ -3,7 +3,7 @@
 Just studying Basic JS from Day one of this week 
 
 
-// FUNCTION DECLARATATION==========
+// FUNCTION DECLARATATION========
 function add(num1, num2) {
     return num1 + num2
   }
