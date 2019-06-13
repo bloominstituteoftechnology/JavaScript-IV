@@ -110,6 +110,52 @@ const wilma = new Instructor({
       location: 'BummerTown, USA',
       previousBackground: 'Pizza slave',
       className: 'Web21',
-      favSubjects: 'LESS and JS so far'
+      favSubjects: ['LESS','JS']
   });
   fred.grade(luis, 'french');
+
+  const gunz = new Student({
+      name: 'Morgan F.',
+      age: 25,
+      location: 'basement apartment',
+      previousBackground: 'customer service rep',
+      className: 'The school of life',
+      favSubjects: ['sticking it to the man', 'history', 'math']
+  });
+
+  const theKid = new Student({
+      name: 'Lorelei Frozman',
+      age: .5,
+      location: 'mom and dads house',
+      previousBackground: 'embryo',
+      className: 'the MEAN streets',
+      favSubjects: ['formula', 'clean diapies', 'my mom', 'being thrown in the air', 'spitting up on dads favorite shirts']
+  });
+
+  // project managers
+
+  const darren = new ProjectManagers({
+      name: 'Darren R.',
+      age: 'idk, 27?',
+      location: 'eastern-ish seaboard',
+      gradClassName: '',
+      favInstructor: 'Ryan'
+  });
+
+  const anotherPm = new ProjectManagers({
+      name: 'Susana Cabana',
+      age: 159,
+      location: 'the after place',
+      gradClassName: 'web1',
+      favInstructor: 'Dr. Horrible'
+  })
+
+  const lastPm = new ProjectManagers({
+      name:'Future Man',
+      age:27,
+      location:'somewhere in the andromeda galaxy',
+      gradClassName:'web2020',
+      favInstructor:'Sith Lord Drakus'
+  });
+
+  
