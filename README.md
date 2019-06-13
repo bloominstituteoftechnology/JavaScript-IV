@@ -21,7 +21,7 @@ This challenge focuses on classes in JavaScript using the new `class` keyword.
 
 ## Assignment Description
 
-You already pretty much know all about classes but you're used to seeing them built in the following context:
+You  already pretty much know all about classes but you're used to seeing them built in the following context:
 
 ```js
 function Person(personAttributes)  {
