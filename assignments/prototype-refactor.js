@@ -50,14 +50,14 @@ class GameObject {
   * takeDamage() // prototype method -> returns the string '<object name> took damage.'
   * should inherit destroy() from GameObject's prototype
 */
-function CharacterStats(props) {
-	GameObject.call(this, props); //relate GameObject to this
-	this.healthPoints = props.healthPoints;
-}
-CharacterStats.prototype = Object.create(GameObject.prototype);
-CharacterStats.prototype.takeDamage = function() {
-	return `${this.name} took damage.`;
-};
+// function CharacterStats(props) {
+// 	GameObject.call(this, props); //relate GameObject to this
+// 	this.healthPoints = props.healthPoints;
+// }
+// CharacterStats.prototype = Object.create(GameObject.prototype);
+// CharacterStats.prototype.takeDamage = function() {
+// 	return `${this.name} took damage.`;
+// };
 
 class CharacterStats extends GameObject {
     constructor (props){
@@ -78,17 +78,28 @@ class CharacterStats extends GameObject {
   * should inherit destroy() from GameObject through CharacterStats
   * should inherit takeDamage() from CharacterStats
 */
-function Humanoid(props) {
-	CharacterStats.call(this, props);
-	this.team = props.team;
-	this.weapons = props.weapons;
-	this.language = props.language;
-}
-Humanoid.prototype = Object.create(CharacterStats.prototype);
-Humanoid.prototype.greet = function() {
-	return `${this.name} offers a greeting in ${this.language}.`;
-};
+// function Humanoid(props) {
+// 	CharacterStats.call(this, props);
+// 	this.team = props.team;
+// 	this.weapons = props.weapons;
+// 	this.language = props.language;
+// }
+// Humanoid.prototype = Object.create(CharacterStats.prototype);
+// Humanoid.prototype.greet = function() {
+// 	return `${this.name} offers a greeting in ${this.language}.`;
+// };
 
+class Humanoid extends CharacterStats{
+    constructor(props){
+        super(props);
+        this.team = props.team;
+        this.weapons = props.weapons;
+        this.language = props.language;
+    }
+    greet(){
+        return `${this.name} offers a greeting in ${this.language}.`;
+    };
+};
 /*
   * Inheritance chain: GameObject -> CharacterStats -> Humanoid
   * Instances of Humanoid should have all of the same properties as CharacterStats and GameObject.
