@@ -30,6 +30,16 @@ class Instructor extends Person {
     grade(student, subject){
         console.log(`${student.name} receives a perfect score on ${subject}`);
     }
+    //stretch
+    gradeChange(student){
+        let randomInterger = 0;
+        if (Math.random() < .5) {
+            randomInterger = -1;
+        } else { 
+            randomInterger = 1;
+        }     
+        student.grade = student.grade + (randomInterger * (Math.floor(Math.random() * 100)));
+    }
 }
 // Student is a child of Person
 
@@ -50,10 +60,17 @@ class Student extends Person {
     }
     sprintChallenge(subject) {
         console.log(`${this.name} has begun sprint challenge on ${subject}`);
+    }   
+    //stretch
+    graduate() {
+        if (this.grade >= 70) {
+            console.log(`${this.name} graduated from Lambda School with a grade of ${this.grade}! Let's all throw a party!!!`)
+        } else {
+            console.log(`${this.grade}! Close! let's go learn some more`);   
+            this.grade = this.grade; 
+            this.graduate();
+        }
     }
-    
-    //Extend the functionality of the Student by adding a prop called grade and setting it equal to a number between 1-100.
-    
 }
 
 
@@ -179,5 +196,16 @@ const wilma = new Instructor({
   lastPm.debugsCode(gunz, 'sports ball');
 
 //testing stretch
-console.log(luis.grade);
+    //random grade
+    console.log(luis.grade);
+
+    //instructor's grade modifier
+    console.log(gunz.grade);
+    fred.gradeChange(gunz);
+    console.log(gunz.grade);
+    
+    //student graduation method
+    luis.graduate();
+
+
 
