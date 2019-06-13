@@ -11,6 +11,8 @@
 // }
 
 
+
+/* ONE SECOND
 class Person {
   constructor(attrs) {
     this.name = name;
@@ -23,6 +25,8 @@ class Person {
   }
 }
 
+*/
+
 // class Dog extends Animal {
 //   constructor(name) {
 //     super(name);
@@ -33,15 +37,16 @@ class Person {
 //   }
 // }
 
+/* ONE SECOND
 class Student extends Person {
   constructor(attrs) {
-    super(attrs);
-    this.previousBackground = previousBackground;
-    this.className = className;
-    this.favSubject = favSubjects;
-    this.listsSujects = listsSubjects;
-    this.PRAssignment = PRAssignment;
+    super(attrs) {
+      this.previousBackground = previousBackground;
+      this.className = className;
+      this.favSubject = favSubjects;
+      this.listsSujects = listsSubjects;
+      this.PRAssignment = PRAssignment;
+    }
   }
-
-
 }
+*/
