@@ -7,25 +7,28 @@ Prototype Refactor
 2. Your goal is to refactor all of this code to use ES6 Classes. The console.log() statements should still return what is expected of them.
 
 */
-
-function GameObject(stats) {
+class GameObject {
+constructor(stats) {
   this.createdAt= stats.createdAt;
   this.name= stats.name;
   this.dimensions= stats.dimensions;
 }
-GameObject.prototype.destroy= function(){
-  return `${this.name} was removed from the game.`
+destroy(){
+  return `${this.name} was removed from the game.`;
 };
+}
 /*
   === CharacterStats ===
   * healthPoints
   * takeDamage() // prototype method -> returns the string '<object name> took damage.'
   * should inherit destroy() from GameObject's prototype
 */
-function CharacterStats(stats) {
-  GameObject.call(this,stats);
-  this.healthPoints= stats.healthPoints;
+class CharacterStats extends GameObject{ 
+    super(stats);
+    constructor(this,stats) {
+    this.healthPoints= stats.healthPoints;
 }
+
 CharacterStats.prototype = Object.create(GameObject.prototype)
 CharacterStats.prototype.takeDamage= function(){
   return `${this.name} took damage.`
