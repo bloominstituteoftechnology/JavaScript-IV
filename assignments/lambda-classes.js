@@ -53,12 +53,13 @@ class Student extends Person{
     }
     listSubjects(){
         console.log(this.favSubjects);
+        // Object.favSubjects.forEach((student) => {return this.favorite_subject})
     }
     PRAssignment(subject){
         console.log(`${this.name} has submitted a PR for ${subject}.`);
     }
     sprintChallenge(subject){
-        console.log(`${this.name} has begun sprint chhallenge on ${subject}.`);
+        console.log(`${this.name} has begun sprint challenge on ${subject}.`);
     }
 }
 
@@ -74,7 +75,6 @@ const jane = new Student({
     favSubjects: ['Spanish', 'Marketing']
 });
 
-
 const tom = new Student({
     name: 'Tom',
     location: 'Bristol',
@@ -86,7 +86,7 @@ const tom = new Student({
     className: 'iOS 3',
     favSubjects: ['Music', 'React']
 });
-jane.listSubjects();
+
 
 class ProjectManager extends Instructor{
     constructor(stats) {
@@ -98,6 +98,30 @@ class ProjectManager extends Instructor{
         console.log(`${this.name} announces to ${channel}, @${channel} standy times!`);
     }
     debugsCode(student, subject){
-        console.log(`${this.name} debugs ${student.name}'s code on ${subject}'`);
+        console.log(`${this.name} debugs ${student.name}'s code on ${subject}`);
     }
 }
+
+const janice = new ProjectManager({
+    name: 'Janice',
+    location: 'Wisconsin',
+    age: 26,
+    speciality: 'Dogs',
+    favLanguage: 'Dog',
+    catchPhrase: 'Woof!',
+    gradClassName: 'Web 10',
+    favInstructor: 'Big Knell'
+});
+
+const gary = new ProjectManager({
+    name: 'Gary',
+    location: 'West Chester',
+    age: 61,
+    speciality: 'Assembly',
+    favLanguage: 'C',
+    catchPhrase: 'I compile my code by hand.',
+    gradClassName: 'Web 1',
+    favInstructor: 'Life, because it shows no favoritism.'
+});
+console.log(gary);
+jane.listSubjects();
