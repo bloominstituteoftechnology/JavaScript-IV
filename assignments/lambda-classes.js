@@ -59,7 +59,7 @@ class ProjectManagers extends Instructor {
         this.gradClassName= props.gradClassName;
         this.favInstructor= props.favInstructor;            
     }
-    standup(slackChannel){
+    standup(slackChannel){ 
         console.log(`${this.name} announces to ${slackChannel}, @channel standy times!`);
     }
     debugsCode(student, subject) {
@@ -158,4 +158,18 @@ const wilma = new Instructor({
       favInstructor:'Sith Lord Drakus'
   });
 
+
+  //testing students
+
+  luis.listsSubjects();
+  gunz.PRAssignment('JavaScript');
+  theKid.sprintChallenge('crawling');
+
+  //testing PMs
+  //standup(slackChannel) debugsCode(student, subject)
+
+  darren.debugsCode(luis, luis.favSubjects[0]); //thank you Darren
+  anotherPm.standup('Web2020');
+  lastPm.debugsCode(gunz, 'sports ball');
   
+
