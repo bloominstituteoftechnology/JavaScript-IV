@@ -90,7 +90,41 @@ class Students extends Person {
         this.className = acc.className; 
         this.favSubjects = acc.favSubjects; 
     }; 
-    listsSubjects() {
+    listsSubjects(listsSubjects) {
+        console.log(`${listsSubjects} favorite subject is ${favSubjects} `)
+    }; 
+    PRAssignment() {
         console.log()
-    }
-} 
+    }; 
+    sprintChallenge() {
+        console.log() 
+    }; 
+}; 
+
+//Sudents Objects 
+const Elizabeth = new Students({
+    name: "Elizabeth Aguillar",
+    age: 18,
+    location: "Miami Florida", 
+    previousBackground: "Farmer", 
+    className: "Web102", 
+    favSubjects: [CSS, HTML, Python]
+});
+
+const Jacob = new Students({
+    name: "Jacob Frank",
+    age: 34,
+    location: "Tampa Florida", 
+    previousBackground: "balloon passer", 
+    className: "Web30", 
+    favSubjects: [JavaScript, HTML, Python]
+});
+
+const Winston = new Students({
+    name: "Winston Violet ",
+    age: 62,
+    location: "Buffalo NY", 
+    previousBackground: "supply technician ", 
+    className: "CS12", 
+    favSubjects: [JavaScript, C, Python]
+});
