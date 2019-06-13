@@ -28,6 +28,7 @@ class instructor extends person {
 const Danny = new instructor ({
     name: "Danny",
     age: 34,
+    gender:'Male'
     location: 'Chicago',
     favLanguage: "Python",
     specialty: "Back-end",
@@ -37,6 +38,7 @@ const Danny = new instructor ({
 const Carol = new instructor ({
     name: "Carol",
     age: 27,
+    gender:'Female'
     location: 'San Diego',
     favLanguage: "ruby",
     specialty: "Back-end",
