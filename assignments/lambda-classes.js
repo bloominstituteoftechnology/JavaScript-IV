@@ -3,7 +3,7 @@
 //   * **Instructors** - extensions of Person
 //   * **Students** - extensions of Person
 //   * **Project Managers** - extensions of Instructors
-// * **IMPORTANT** - You'll need to create 2 - 3 objects for each class and test them according to their unique Attributes. For example:
+// * **IMPORTANT** - You'll need to create 2 - 3 objects for each class and test them according to their unique Attributes.
 
 
 
@@ -55,6 +55,21 @@ class Student extends Person {
     }
 }
 
+// Project Manager is a child of Instructors
+
+class ProjectManagers extends Instructor {
+    constructor(props) {
+        super(props);
+        this.gradClassName= props.gradClassName;
+        this.favInstructor= props.favInstructor;            
+    }
+    standup(slackChannel){
+        console.log(`${this.name} announces to ${slackChannel}, @channel standy times!`);
+    }
+    debugsCode(student, subject) {
+        console.log(`${this.name} debugs ${student.name}'s code on ${subject}`);
+    }
+}
 
 const fred = new Instructor({
     name: 'Fred',
@@ -65,4 +80,15 @@ const fred = new Instructor({
     catchPhrase: `Don't forget the homies`
   });
 
-  
+  fred.speak();
+
+const wilma = new Instructor({
+    name: 'Wilma',
+    location: 'Bedrock',
+    age: 29,
+    favLanguage: 'C++',
+    specialty: 'Functional Programming',
+    catchPhrase: 'why are we here?'
+});
+
+wilma.speak();
