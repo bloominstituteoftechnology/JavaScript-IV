@@ -60,30 +60,62 @@ class CharacterStats extends GameObject {
     }
 }
   
-  /*
-    === Humanoid (Having an appearance or character resembling that of a human.) ===
-    * team
-    * weapons
-    * language
-    * greet() // prototype method -> returns the string '<object name> offers a greeting in <object language>.'
-    * should inherit destroy() from GameObject through CharacterStats
-    * should inherit takeDamage() from CharacterStats
-  */
+//   /*
+//     === Humanoid (Having an appearance or character resembling that of a human.) ===
+//     * team
+//     * weapons
+//     * language
+//     * greet() // prototype method -> returns the string '<object name> offers a greeting in <object language>.'
+//     * should inherit destroy() from GameObject through CharacterStats
+//     * should inherit takeDamage() from CharacterStats
+//   */
   
-  function Humanoid(classAtt) {
-    CharacterStats.call(this, classAtt)
+//   function Humanoid(classAtt) {
+//     CharacterStats.call(this, classAtt)
   
-    this.team = classAtt.team;
-    this.weapons = classAtt.weapons;
-    this.language = classAtt.language;
-  }
+//     this.team = classAtt.team;
+//     this.weapons = classAtt.weapons;
+//     this.language = classAtt.language;
+//   }
   
-  Humanoid.prototype = Object.create(CharacterStats.prototype);
+//   Humanoid.prototype = Object.create(CharacterStats.prototype);
   
-  Humanoid.prototype.greet = function () {
-    return `${this.name} offers a greeting in ${this.language}.`
-  }
+//   Humanoid.prototype.greet = function () {
+//     return `${this.name} offers a greeting in ${this.language}.`
+//   }
   
+class Humanoid extends CharacterStats {
+    constructor(humanAttributes) {
+        super(humanAttributes);
+        this.team = humanAttributes.team;
+        this.weapons = humanAttributes.weapons;
+        this.damage = humanAttributes.damage;
+        this.language = humanAttributes.language;
+    }
+    greet() {
+        return `${this.name} offers a greeting in ${this.language}`;
+    }
+   attack(objectToAttack){
+       if (objectToAttack.healthPoints <= 0) {
+           objectToAttack.destroy();
+           console.log(`${objectToAttack.name} has been destroyed`);
+       } else {
+           objectToAttack.healthPoints -= this.damage;
+           console.log(`
+        ${this.name} attacked ${objectToAttack.name} for ${this.damage}\n
+        ${objectToAttack.name} is now at ${objectToAttack.healthPoints} Health Points`);
+       }
+   }
+   printStatistics(){
+    console.log(`
+    ===${this.name}=== \n
+    Current Health: ${this.healthPoints} \n
+    Weapons Available: ${this.weapons}
+    ==================
+    `)
+}
+}
+
   /*
    * Inheritance chain: GameObject -> CharacterStats -> Humanoid
    * Instances of Humanoid should have all of the same properties as CharacterStats and GameObject.
