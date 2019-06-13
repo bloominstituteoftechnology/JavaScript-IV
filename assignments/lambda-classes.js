@@ -103,3 +103,7 @@ const Petro = new ProjectManagers({
     gradClassName: 'web6',
     favInstructor: 'Danny' 
 });
+console.log(Danny);
+console.log (Carol);
+console.log (Jarvise);
+console.log (Petro);
