@@ -87,6 +87,9 @@ class ProjectManager extends Instructor {
 
 
 const Instructor = new Instructor ({
+    name: 'Zack',
+    age: 32,
+    location: 'New York'
     favLanguage: 'python',
     specialty: 'AI',
     catchPhrase: 'Do not forget the homies'
@@ -99,6 +102,9 @@ instructor.demo();
 
 
 const Student = new Student ({
+    name: 'kelly',
+    age: 25,
+    location: 'orlando',
     previousBackground: 'none',
     className: 'web21',
     favSubjects: ['HTML, CSS, Python']
@@ -107,6 +113,12 @@ const Student = new Student ({
 Student.listsSubjects();
 Student.PRAssignment();
 Student.sprintChallenge();
+
+
+const ProjectManager = new ProjectManager ({
+    name: 'josh',
+    
+})
 
 
 
