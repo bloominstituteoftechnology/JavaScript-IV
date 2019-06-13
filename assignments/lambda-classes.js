@@ -29,8 +29,12 @@ class Instructor extends Person{
      return`${student} receives a perfect score on ${subject}!`
  }
 
- 
-    
+ graded(student){
+     return student.grade = student.grade + Math.ceil(Math.random()* 100)
+ }
+
+       
+      
     
  }
 
@@ -41,12 +45,14 @@ class Student extends Person{
         this.previousBackground = data.previousBackground
         this.className = data.className
         this.favSubjects = data.favSubjects
+        this.grade = data.grade
 
 } 
 listSubjects(){
-    return this.favSubjects.forEach(function(list){
-        console.log(list);
-    })
+    let favlist = []
+    favlist = this.favSubjects.map( list => list)
+    return favlist
+    
 }
 PAAssignment(subject){
     return `${this.name} has submitted a PR for ${subject}`
@@ -54,6 +60,17 @@ PAAssignment(subject){
 
 sprintchallenge(student,subject){
     return `${student} has begun sprint challenge ${subject}`
+}
+graduate(){
+   
+    if( `${this.grade}` > 70){
+        return "Congrats Grad!"
+    }else{
+        return "Let's Regrade that Assignment."
+    }
+
+    
+    
 }
 }
  class ProjectManager extends Instructor{
@@ -123,7 +140,8 @@ const Junior = new Student({
     gender: 'male',
     previousBackground: 'Uber Driver',
     className:'web 18',
-    favSubjects: ['Html', 'CSS', 'Javascript'],
+    favSubjects: ['Html', 'CSS', 'Javascript', "React"],
+    grade: 0
 
 
     
@@ -144,10 +162,13 @@ const Carolina = new Student({
 
     
 })
-    Junior.listSubjects();
+    console.log(Junior.listSubjects()) ;
     console.log(Hank.demo('The Dom'))
     console.log(Junior.speak())
     console.log(Junior.PAAssignment('clean'));
     console.log(Bob.debugsCode(Junior.name,"JavaScript"));
     console.log(Bob.standup( 'Carl', 'Web18'));
     console.log(Hank.grade('Carl', 'css'));
+    console.log(Hank.graded(Junior))
+    console.log(Junior.graduate())
+    console.log(Junior.grade)
