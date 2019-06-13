@@ -106,6 +106,7 @@ const Petro = new ProjectManagers({
     favInstructor: 'Danny' 
 });
 console.log(Danny);
-console.log (Carol);
-console.log (Jarvise);
-console.log (Petro);
+console.log(Carol);
+console.log(Jarvise);
+console.log(Petro);
+console.log(Danny.speak())
