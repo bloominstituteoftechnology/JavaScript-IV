@@ -79,7 +79,19 @@ class ProjectManager extends Instructor {
 
 
 const dan = new Instructor({
-  specialty: "redux",
-  favLanguage: "JavaScript",
-  catchPhrase: "I love cats!"
+  name: 'Dan',
+  age: '32',
+  location: 'Colorado',
+  specialty: 'Redux',
+  favLanguage: 'JavaScript',
+  catchPhrase: 'Rosie, no!',
 })
+
+const josh = new Instructor{{
+  name: 'Josh',
+  age: '32',
+  location: 'Utah',
+  specialty: 'Redux',
+  favLanguage: 'JavaScript',
+  catchPhrase: 'Banjo time!',
+}}
