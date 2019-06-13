@@ -29,26 +29,36 @@ class GameObject {
 }
 
 
-  /*
-    === CharacterStats ===
-    * healthPoints
-    * name
-    * takeDamage() // prototype method -> returns the string '<object name> took damage.'
-    * should inherit destroy() from GameObject's prototype
-  */
+//   /*
+//     === CharacterStats ===
+//     * healthPoints
+//     * name
+//     * takeDamage() // prototype method -> returns the string '<object name> took damage.'
+//     * should inherit destroy() from GameObject's prototype
+//   */
   
-  function CharacterStats(charStats) {
-    GameObject.call(this, charStats)
+//   function CharacterStats(charStats) {
+//     GameObject.call(this, charStats)
   
-    this.healthPoints = charStats.healthPoints;
-    this.name = charStats.name;
-  }
+//     this.healthPoints = charStats.healthPoints;
+//     this.name = charStats.name;
+//   }
   
-  CharacterStats.prototype = Object.create(GameObject.prototype);
+//   CharacterStats.prototype = Object.create(GameObject.prototype);
   
-  CharacterStats.prototype.takeDamage = function () {
-    return `${this.name} took damage.`
-  }
+//   CharacterStats.prototype.takeDamage = function () {
+//     return `${this.name} took damage.`
+//   }
+
+class CharacterStats extends GameObject {
+    constructor(CharacterAttributes) {
+        super(CharacterAttributes);
+        this.healthPoints = CharacterAttributes.healthPoints;
+    }
+    takeDamage() {
+        return `${this.name} took damage`;
+    }
+}
   
   /*
     === Humanoid (Having an appearance or character resembling that of a human.) ===
