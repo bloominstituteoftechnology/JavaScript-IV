@@ -39,6 +39,8 @@ class Student extends Person {
         this.previousBackground= props.previousBackground;
         this.className= props.className;
         this.favSubjects= props.favSubjects;
+        //stretch
+        this.grade= Math.floor(Math.random()*100);
     }
     listsSubjects(){
         console.log(`students favorite subjects: ` + this.favSubjects);
@@ -49,7 +51,11 @@ class Student extends Person {
     sprintChallenge(subject) {
         console.log(`${this.name} has begun sprint challenge on ${subject}`);
     }
+    
+    //Extend the functionality of the Student by adding a prop called grade and setting it equal to a number between 1-100.
+    
 }
+
 
 // Project Manager is a child of Instructors
 
@@ -171,5 +177,7 @@ const wilma = new Instructor({
   darren.debugsCode(luis, luis.favSubjects[0]); //thank you Darren
   anotherPm.standup('Web2020');
   lastPm.debugsCode(gunz, 'sports ball');
-  
+
+//testing stretch
+console.log(luis.grade);
 
