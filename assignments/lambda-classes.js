@@ -61,14 +61,13 @@ class Student extends Person {
     sprintChallenge(subject) {
         console.log(`${this.name} has begun sprint challenge on ${subject}`);
     }   
-    //stretch
-    graduate() {
-        if (this.grade >= 70) {
-            console.log(`${this.name} graduated from Lambda School with a grade of ${this.grade}! Let's all throw a party!!!`)
+    graduate(){
+        if (this.grade >= 70){
+            console.log(`${this.name} graduated with a score of ${this.grade}! high fives!!!`)
         } else {
-            console.log(`${this.grade}! Close! let's go learn some more`);   
-            this.grade = this.grade; 
-            this.graduate();
+            console.log(`oh, no, only ${this.grade}. go learn some more!`)
+            this.grade = Math.floor(Math.random() * 100);
+            return this.graduate();
         }
     }
 }
@@ -133,7 +132,7 @@ const wilma = new Instructor({
       location: 'BummerTown, USA',
       previousBackground: 'Pizza slave',
       className: 'Web21',
-      favSubjects: ['LESS','JS']
+      favSubjects: ['LESS','JS'],
   });
   fred.grade(luis, 'french');
 
