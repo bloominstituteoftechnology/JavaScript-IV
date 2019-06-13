@@ -152,7 +152,7 @@ const scott = new Student({
     className: 'Web21',
     favSubjects: ['Javascript','Preprocessor'],
 // * Extend the functionality of the Student by adding a prop called grade and setting it equal to a number between 1-100.    
-    grade: 12,
+    grade: 70,
 })
 console.log(scott);
 scott.listSubjects();
@@ -173,3 +173,4 @@ joe.debugsCode(scott, 'thought');
 joe.changeGrade(scott,'Math');
 scott.graduate();
 joe.graduate(scott);
+scott.speak();
