@@ -76,3 +76,30 @@ class Student extends Person {
   className: "Web21",
   favSubjects: ['JavaScript']
 });
+
+
+class ProjectManagers extends Instructor{
+    constructor(projectManagersAttributes){
+        super(projectManagersAttributes);
+        this.gradClassName = projectManagersAttributes.gradClassName;
+        this.favInstructor = projectManagersAttributes.favInstructor;
+    }
+    standup(slack){
+        return `${this.name} announces to ${slack}, @channel standy times!`
+    }
+    debugsCode(obj, subject){
+        return `${this.name} debugs ${obj.name}\'s code on ${subject}`
+    }
+}
+
+const Petro = new ProjectManagers({
+    name: 'Petro',
+    age: 37,
+    gender: 'male',
+    location: 'Minneapolis',
+    favLanguage: 'Java',
+    specialty: 'Front-end',
+    catchPhrase: 'It has begun',
+    gradClassName: 'web6',
+    favInstructor: 'Danny' 
+});
