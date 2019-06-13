@@ -1,5 +1,5 @@
 // CODE here for your Lambda Classes
-class person{
+class Person{
     constructor(attributes){
         this.name = attributes.name
         this.age = attributes.age
@@ -10,7 +10,7 @@ class person{
     }
 }
 
-class insturctor extends person{
+class Insturctor extends Person{
     constructor(insAttr){
         super(insAttr)
         this.specialty = insAttr.specialty
@@ -22,30 +22,33 @@ class insturctor extends person{
         return `Today we are learning about ${subject}.`
     }
     
-    grade(student){
-        return `${student} receives a perfect score on ${subject}`
+    grade(Student){
+        return `${Student} receives a perfect score on ${subject}`
     }
 }
 
-class student extends person{
+class Student extends Person{
     constructor(stdAttr){
         super(stdAttr)
         this.className = stdAttr.className
         this.favSubject = stdAttr.favSubject
         this.previousBackground = stdAttr.previousBackground
     }
-    listsSubjects(){
 
+    listsSubjects(){
+        return favSubject.array.forEach() 
     }
-    sprintChallenge(subject){
-        return `${student.name} has begun sprint challenge on ${subject}`
+
+    sprintChallenge(Student, subject){
+        return `${Student.name} has begun sprint challenge on ${subject}`
     }
-    prAssignment(subject){
-        return `${student.name} has submitted a PR for ${subject}`
+
+    prAssignment(Student, subject){
+        return `${Student.name} has submitted a PR for ${subject}`
     }
 }
 
-class projectManager extends insturctor{
+class ProjectManager extends Insturctor{
     constructor(pmAttr){
         super(pmAttr)
         this.gradClassName = pmAttr.gradClassName
@@ -56,8 +59,16 @@ class projectManager extends insturctor{
         return `${this.name} announces to ${channel}, @channel standy times!​​​​`
     }
 
-    debugsCode(student){
-        return `${this.name} debugs ${student.name}'s code on ${student}`
+    debugsCode(Student, subject){
+        return `${this.name} debugs ${Student.name}'s code on ${subject}`
     }
 }
 
+const john = new Instructor({
+  name: 'John',
+  location: 'Portland',
+  age: 43,
+  favLanguage: 'C++',
+  specialty: 'Back-end',
+  catchPhrase: `Winter is Coming`
+});
