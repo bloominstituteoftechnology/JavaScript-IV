@@ -44,6 +44,23 @@ class Student extends Person {
         this.className = StudentAttrs.className;
         this.favSubjects = StudentAttrs.favSubjects;
     }
+
+    listsSubjects(favSubjects) {
+        return `${this.favSubjects}`
+
+    }
+
+    PRAssignment(subject) {
+
+        return '${this.name} has submittes a PR for ${this.subject}';
+
+    }
+
+    sprintChallenge(subject) {
+
+        return '${this.name} has begun sprint challenge on ${this.subject}';
+
+    }
 }
 
 
@@ -52,6 +69,18 @@ class Student extends Person {
 class ProjectManager extends Instructor {
     constructor(ProjectManagerAttrs){
         super(ProjectManagerAttrs);
+        this.gradClassName = ProjectManagerAttrs.gradClassName;
+        this.favInstructor = ProjectManagerAttrs.favInstructor;
+
+    }
+
+    standUp(channel){
+        return `${this.name} announces to ${this.channel}, @ channel standy times!`
+
+    }
+
+    debugsCode(student, subject){
+        return `${this.name} debugs ${student}'s code on ${subject}`
     }
 
 }
@@ -65,7 +94,8 @@ const Instructor = new Instructor ({
 
 })
 
-instructor.speak();
+instructor.demo();
+
 
 
 const Student = new Student ({
@@ -73,6 +103,10 @@ const Student = new Student ({
     className: 'web21',
     favSubjects: ['HTML, CSS, Python']
 })
+
+Student.listsSubjects();
+Student.PRAssignment();
+Student.sprintChallenge();
 
 
 
