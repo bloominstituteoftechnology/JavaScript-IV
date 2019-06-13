@@ -77,6 +77,7 @@ class Student extends Person {
         this.previousBackground = attrs.previousBackground;
         this.className = attrs.className;
         this.favSubjects = attrs.favSubjects;
+//        * Extend the functionality of the Student by adding a prop called grade and setting it equal to a number between 1-100.
         this.grade = attrs.grade; 
     }
     listSubjects() {
@@ -124,6 +125,7 @@ const scott = new Student({
     previousBackground: 'Computer Programmer',
     className: 'Web21',
     favSubjects: ['Javascript','Preprocessor'],
+// * Extend the functionality of the Student by adding a prop called grade and setting it equal to a number between 1-100.    
     grade: 12,
 })
 console.log(scott);
