@@ -42,6 +42,21 @@ class Instructor extends Person {
     grade(student, subject) {
         console.log(`${student.name} receives a perfect score on ${subject}`)
     }
+/*
+* Now that our students have a grade build out a method on the Instructor (this will be used by _BOTH_ instructors and PM's)
+ that will randomly add or subtract points to a student's grade. _Math.random_ will help.
+*/
+changeGrade(student, subject) {
+        let neg = Math.random();
+        if (neg < 0.5)
+        {neg = -1}
+        else{neg = 1}
+        const amt = Math.round(neg * 10 * Math.random());
+        let oldGrade = student.grade;
+        student.grade = student.grade + amt;
+
+        console.log(`${student.name}'s grade was ${oldGrade}, but is now ${student.grade} for ${subject}`)
+    }
 }
 /*
 * Now we need some students!
@@ -62,6 +77,7 @@ class Student extends Person {
         this.previousBackground = attrs.previousBackground;
         this.className = attrs.className;
         this.favSubjects = attrs.favSubjects;
+        this.grade = attrs.grade; 
     }
     listSubjects() {
         let nam = this.name;
@@ -108,6 +124,7 @@ const scott = new Student({
     previousBackground: 'Computer Programmer',
     className: 'Web21',
     favSubjects: ['Javascript','Preprocessor'],
+    grade: 12,
 })
 console.log(scott);
 scott.listSubjects();
@@ -125,4 +142,4 @@ joe.demo('paper');
 joe.grade(scott, 'Skiing');
 joe.standup('xyz');
 joe.debugsCode(scott, 'thought');
-
+joe.changeGrade(scott,'Math');
