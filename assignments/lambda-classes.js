@@ -33,3 +33,36 @@ const Danny = new instructor ({
     specialty: "Back-end",
     catchPhrase: "Everybody wants to rule the world."
 })
+
+const Carol = new instructor ({
+    name: "Carol",
+    age: 27,
+    location: 'San Diego',
+    favLanguage: "ruby",
+    specialty: "Back-end",
+    catchPhrase: "Dang it Karen not again."
+})
+
+
+class Student extends Person {
+    constructor(studentAttributes){
+        super(studentAttributes);
+        this.previousBackground = studentAttributes.previousBackground;
+        this.className = studentAttributes.className;
+        this.favSubjects = studentAttributes.favSubjects;
+    }
+    listsSubjects(){
+       let logSubjects =this.favSubjects.forEach(element => console.log((element)));
+       return logSubjects;
+        }
+
+     PRAssignment(subject){
+        if (this.favSubjects.includes(subject)){
+            console.log(`${this.name} has submitted a PR for ${subject}`);
+        }
+    }
+    sprintChallenge(subject){
+        console.log(`${this.name} has begun sprint challenge on ${subject}`)
+    }
+
+ }
