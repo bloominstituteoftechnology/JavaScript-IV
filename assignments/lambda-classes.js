@@ -60,3 +60,24 @@ class Student extends Person {
     console.log(`${this.name} has begun sprint challenge for ${this.subject}`);
   }
 }
+
+class ProjectManager extends Instructor {
+  constructor(pmAttrs) {
+    super(pmAttrs);
+    this.gradClassName = pmAttrs.gradClassName;
+    this.favInstructor = pmAttrs.favInstructor;
+  }
+
+  standUp(channel) {
+    console.log(`${this.name} announces to ${this.channel} @channel standup time`);
+  }
+
+  debugsCode()
+}
+
+
+const dan = new Instructor({
+  specialty: "redux",
+  favLanguage: "JavaScript",
+  catchPhrase: "I love cats!"
+})
