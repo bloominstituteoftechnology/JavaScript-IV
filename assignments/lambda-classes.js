@@ -73,7 +73,7 @@ class ProjectManager extends Instructor {
   }
 
   debugsCode(student, subject) {
-    console.log(`${this.name} debugs ${student}'s code on ${subject}'`);
+    console.log(`${this.name} debugs ${student.name}'s code on ${student.favSubjects}`);
   }
 }
 
@@ -132,3 +132,4 @@ const jose = new ProjectManager({
 
 console.log(dan.name);
 console.log(dan.catchPhrase);
+console.log(nick.debugsCode(emily));
