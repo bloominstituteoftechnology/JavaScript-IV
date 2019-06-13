@@ -45,7 +45,7 @@ class Student extends Person {
     super(stuAttrs);
     this.previousBackground = stuAttrs.previousBackground;
     this.className = stuAttrs.className;
-    this.favSubject = stuAttrs.favSubjects;
+    this.favSubjects = stuAttrs.favSubjects;
   }
 
   listsSujects() {
@@ -87,11 +87,45 @@ const dan = new Instructor({
   catchPhrase: 'Rosie, no!',
 })
 
-const josh = new Instructor{{
+const josh = new Instructor({
   name: 'Josh',
   age: '32',
   location: 'Utah',
   specialty: 'Redux',
   favLanguage: 'JavaScript',
   catchPhrase: 'Banjo time!',
-}}
+})
+
+const emily = new Student({
+  name: 'Emily',
+  age: '32',
+  location: 'Illinois',
+  previousBackground: 'Teacher',
+  className: 'Web 21',
+  favSubjects: 'Logic',
+})
+
+const marcus = new Student({
+  name: 'Marcus',
+  age: '32',
+  location: 'Illinois',
+  previousBackground: 'Teacher',
+  className: 'Web 21',
+  favSubjects: 'Logic',
+})
+
+const nick = new ProjectManager({
+  name: 'Nick',
+  age: '32',
+  location: 'New Mexico',
+  gradClassName: 'Web 19',
+  favInstructor: 'Dan',
+})
+
+const jose = new ProjectManager({
+  name: 'Jose',
+  age: '32',
+  location: 'Illinois',
+  gradClassName: 'Web 19',
+  favInstructor: 'Dan',
+})
