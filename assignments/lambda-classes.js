@@ -11,13 +11,11 @@
 // }
 
 
-
-/* ONE SECOND
 class Person {
   constructor(attrs) {
-    this.name = name;
-    this.age = age;
-    this.location = location;
+    this.name = attrs.name;
+    this.age = attrs.age;
+    this.location = attrs.location;
   }
 
   speak() {
@@ -25,7 +23,18 @@ class Person {
   }
 }
 
-*/
+class Instructor extends Person {
+  constructor(instAttrs) {
+    this.specialty = instAttrs.specialty;
+    this.favLanguage = instAttrs.favLanguage;
+    this.catchPhrase = instAttrs.catchPhrase;
+  }
+
+  demo(subject) {
+    console.log(`Today we are learning about ${this.subject}`);
+  }
+}
+
 
 // class Dog extends Animal {
 //   constructor(name) {
@@ -37,7 +46,7 @@ class Person {
 //   }
 // }
 
-/* ONE SECOND
+
 class Student extends Person {
   constructor(attrs) {
     super(attrs) {
@@ -49,4 +58,3 @@ class Student extends Person {
     }
   }
 }
-*/
