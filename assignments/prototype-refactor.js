@@ -24,9 +24,9 @@ destroy(){
   * should inherit destroy() from GameObject's prototype
 */
 class CharacterStats extends GameObject{ 
-    super(stats);
-    constructor(this,stats) {
-    this.healthPoints= stats.healthPoints;
+    constructor(stats) {
+        super(stats);
+        this.healthPoints= stats.healthPoints;
 }
 
 CharacterStats.prototype = Object.create(GameObject.prototype)
