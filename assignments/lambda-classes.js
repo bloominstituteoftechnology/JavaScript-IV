@@ -12,18 +12,43 @@ class person{
 
 class insturctor extends person{
     constructor(insAttr){
-
+        super(insAttr)
+        this.specialty = insAttr.specialty
+        this.favLanguage = insAttr.favLanguage
+        this.catchPhrase = insAttr.catchPhrase
+    }
+    
+    demo(){
+        return `Today we are learning about ${subject}.`
+    }
+    
+    grade(){
+        return `${student} receives a perfect score on ${subject}`
     }
 }
 
 class student extends person{
     constructor(stdAttr){
-
+        super(stdAttr)
+        this.className = stdAttr.className
+        this.favSubject = stdAttr.favSubject
+        this.previousBackground = stdAttr.previousBackground
+    }
+    listsSubjects(){
+        
+    }
+    sprintChallenge(){
+        return `student.name has begun sprint challenge on ${subject}`
+    }
+    prAssignment(){
+        return `student.name has submitted a PR for ${subject}`
     }
 }
 
 class projectManager extends insturctor{
     constructor(pmAttr){
-
+        super(pmAttr)
+        this.gradClassName = pmAttr.gradClassName
+        this.favInstructor = pmAttr.favInstructor
     }
 }
