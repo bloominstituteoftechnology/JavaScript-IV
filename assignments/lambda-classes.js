@@ -22,7 +22,7 @@ class insturctor extends person{
         return `Today we are learning about ${subject}.`
     }
     
-    grade(){
+    grade(student){
         return `${student} receives a perfect score on ${subject}`
     }
 }
@@ -35,13 +35,13 @@ class student extends person{
         this.previousBackground = stdAttr.previousBackground
     }
     listsSubjects(){
-        
+
     }
-    sprintChallenge(){
-        return `student.name has begun sprint challenge on ${subject}`
+    sprintChallenge(subject){
+        return `${student.name} has begun sprint challenge on ${subject}`
     }
-    prAssignment(){
-        return `student.name has submitted a PR for ${subject}`
+    prAssignment(subject){
+        return `${student.name} has submitted a PR for ${subject}`
     }
 }
 
@@ -51,4 +51,13 @@ class projectManager extends insturctor{
         this.gradClassName = pmAttr.gradClassName
         this.favInstructor = pmAttr.favInstructor
     }
+    
+    standUp(channel){
+        return `${this.name} announces to ${channel}, @channel standy times!​​​​`
+    }
+
+    debugsCode(student){
+        return `${this.name} debugs ${student.name}'s code on ${student}`
+    }
 }
+
