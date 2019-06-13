@@ -110,3 +110,37 @@ sprintChallenge(subject) {
 // * ProjectManagers have the following Methods:
 //   * `standUp` a method that takes in a slack channel and logs `{name} announces to {channel}, @channel standy times!​​​​​
 //   * `debugsCode` a method that takes in a student object and a subject and logs out `{name} debugs {student.name}'s code on {subject}`
+
+const josh = new Student({
+    name : 'Josh',
+    gender : 'Male',
+    location : 'Louisiana, USA',
+    age : 19,
+    previousBackground : 'phone repair',
+    className : 'Web21',
+    favSubjects : ['Cyber security', 'OO-Programming', 'LESS']
+});
+
+
+const jeff = new Instructor ({
+    name : 'jeff',
+    gender : 'male'
+    location : 'LA, California'
+    age : 34,
+    specialty : 'Back-end'
+    favLanguage : 'Python'
+    catchPhrase : 'Yo dawg heard you like callbacks'
+
+});
+
+const scott = new ProjectManager ({
+    name : 'scott',
+    gender : 'Male',
+    location : 'Orlando, Floirda',
+    age : 29,
+    specialty : 'Finessing some React',
+    favLanguage : 'Javascript',
+    catchPhrase : 'Lets code',
+    gradClassName : 'Web21',
+    favInstructor : 'Dan Levy'
+});
