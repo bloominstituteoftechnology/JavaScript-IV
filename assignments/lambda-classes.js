@@ -25,3 +25,11 @@ class instructor extends person {
         return '${student.name} receives a perfect score on ${subject}'
     }
 }
+const Danny = new instructor ({
+    name: "Danny",
+    age: 34,
+    location: 'Chicago',
+    favLanguage: "Python",
+    specialty: "Back-end",
+    catchPhrase: "Everybody wants to rule the world."
+})
