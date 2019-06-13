@@ -1,8 +1,3 @@
-// CODE here for your Lambda Classes
-// * Lambda personnel can be broken down into three different types of `people`.
-//   * **Instructors** - extensions of Person
-//   * **Students** - extensions of Person
-//   * **Project Managers** - extensions of Instructors
 // * **IMPORTANT** - You'll need to create 2 - 3 objects for each class and test them according to their unique Attributes.
 
 
@@ -71,7 +66,7 @@ class ProjectManagers extends Instructor {
         console.log(`${this.name} debugs ${student.name}'s code on ${subject}`);
     }
 }
-
+// 3 instructors
 const fred = new Instructor({
     name: 'Fred',
     location: 'Bedrock',
@@ -92,4 +87,29 @@ const wilma = new Instructor({
     catchPhrase: 'why are we here?'
 });
 
-wilma.speak();
+  wilma.speak();
+
+  const barney = new Instructor({
+    name: 'Barney',
+    location: 'Bedrock',
+    age: 32,
+    favLanguage: 'french',
+    specialty: 'Stealing Fruity Pebbles',
+    catchPhrase: 'GIMMI THOSE PEBBLES'
+});
+
+  fred.speak();
+  fred.demo('french');
+  
+
+  //3 students
+
+  const luis = new Student({
+      name: 'Lou',
+      age: 32,
+      location: 'BummerTown, USA',
+      previousBackground: 'Pizza slave',
+      className: 'Web21',
+      favSubjects: 'LESS and JS so far'
+  });
+  fred.grade(luis, 'french');
