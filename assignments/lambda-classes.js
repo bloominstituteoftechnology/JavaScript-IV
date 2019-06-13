@@ -129,3 +129,6 @@ const jose = new ProjectManager({
   gradClassName: 'Web 19',
   favInstructor: 'Dan',
 })
+
+console.log(dan.name);
+console.log(dan.catchPhrase);
