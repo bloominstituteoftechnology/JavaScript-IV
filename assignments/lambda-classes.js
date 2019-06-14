@@ -27,7 +27,33 @@ class Person {
       console.log(`${this.name} received a perfect score in ${subject} class`)
     }
   }
+
+  class Student extends Person{
+      constructor(props){
+          super(props);
+          this.previousBackground = props.previousBackground;
+          this.className = props.className;
+          this.favSubjects = props.favSubjects;
+      }
+      listsSubjects(){
+          console.log(`My favourite subjects are ${favSubjects}!`)
+      }
+      PRAssignment(subject){
+          console.log(`${this.name} has submitted a PR for {subject}`)
+      }
+      sprintChallenge(){
+          console.log(`${this.name} has begun sprint challenge on {subject}`)
+      }
+  }
   
+  class Instructor extends Instructor{
+      
+  }
+
+
+
+
+
   const elizabeth = new Instructor({
     name: 'Elizabeth',
     age: 22,
