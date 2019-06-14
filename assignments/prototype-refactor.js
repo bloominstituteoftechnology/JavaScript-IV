@@ -19,14 +19,12 @@ class GameObject {
     constructor(attributes) {
         this.createAt = attributes.createdAt; 
         this.name = attributes.name; 
-        this.dimensions = attributes.dimensions 
+        this.dimensions = attributes.dimensions;  
     }
     destroy() {
-        console.log(`${this.name} was removed from the game.`)
+        return `${this.name} was removed from the game.` 
     }
-}
-
-
+} 
 
 
 /*
@@ -39,14 +37,12 @@ class GameObject {
 class CharacterStats extends GameObject {
     constructor(attributes) {
         super(attributes)
-        this.healthPoints 
+        this.healthPoints = attributes.healthPoints; 
     }
     takeDamage() {
-        console.log(`${this.healthPoints} ${this.name} took damage`)
+        return `${this.healthPoints} ${this.name} took damage`; 
     }
 }
-
-
 
 
 /*
@@ -59,16 +55,16 @@ class CharacterStats extends GameObject {
 * should inherit takeDamage() from CharacterStats
 */
 
-/*
-function Humanoid(human) {
-CharacterStats.call(this,human); 
-this.team = human.team; 
-this.weapons = human.weapons; 
-this.language = human.language; 
-}
-Humanoid.prototype = Object.create(CharacterStats.prototype); 
-Humanoid.prototype.greet = function() {
-return this.name + " " + this.language;  
-}
-*/
+class Humanoid extends GameObject {
+    constructor(attributes) {
+        super(attributes); 
+        this.team = attributes.team;
+        this.weapons = attributes.weapons;
+        this.language = attributes.language; 
+
+    } 
+    greet() {
+        return `${this.name} ${this.language}` 
+    }
+}; 
 
