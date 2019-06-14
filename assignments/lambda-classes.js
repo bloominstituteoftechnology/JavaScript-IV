@@ -149,7 +149,7 @@ const jose = new ProjectManager({
 console.log(dan.name);
 console.log(dan.catchPhrase);
 console.log(emily.location);
-console.log(emily.listsSubjects())
+console.log(marcus.listsSubjects())
 console.log(nick.catchphrase);
 console.log(nick.standUp("Nick_Ballenger's_Channel"));
 console.log(nick.debugsCode(emily));
