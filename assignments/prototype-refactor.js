@@ -27,16 +27,15 @@ Prototype Refactor
 */
 class GameObject {
     constructor(attributes) {
-    this.createdAt = attributes.createdAt;
-    this.name = attributes.name;
-    this.dimensions = attributes.dimensions;
-  }
+        this.createdAt = attributes.createdAt;
+        this.name = attributes.name;
+        this.dimensions = attributes.dimensions;
+    }
 
- 
     destroy() {
         return `${this.name} was removed from the game.`;
     }
-    }
+}
  /*
    === CharacterStats ===
    * healthPoints
@@ -46,13 +45,13 @@ class GameObject {
  
  class CharacterStats {
     constructor(attributes) {
-   GameObject.call(this, attributes);
-   this.healthPoints = attributes.healthPoints;
- }
+        GameObject.call(this, attributes);
+        this.healthPoints = attributes.healthPoints;
+    }
  
- takeDamage() {
-   return `${this.name} took damage.`;
- }
+    takeDamage() {
+        return `${this.name} took damage.`;
+    }
 }
  
  /*
@@ -65,16 +64,17 @@ class GameObject {
    * should inherit takeDamage() from CharacterStats
  */
  
-class Humanoid (attributes) {
-    constructor(attributes){
-        { CharacterStats.call(this,attributes);
-   this.team = attributes.team;
-   this.weapons = attributes.weapons;
-   this.language = attributes.language;
+class Humanoid {
+    constructor(attributes) {
+        CharacterStats.call(this, attributes);
+        this.team = attributes.team;
+        this.weapons = attributes.weapons;
+        this.language = attributes.language;
+    }
  
- destroy (){
-   return `${this.name} offers a greeting in <object language>.`;
- }
+    destroy() {
+        return `${this.name} offers a greeting in <object language>.`;
+    }
 }
   
  /*
