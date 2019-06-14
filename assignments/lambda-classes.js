@@ -150,6 +150,6 @@ console.log(dan.name);
 console.log(dan.catchPhrase);
 console.log(emily.location);
 console.log(marcus.listsSubjects())
-console.log(nick.catchphrase);
+console.log(nick.catchPhrase);
 console.log(nick.standUp("Nick_Ballenger's_Channel"));
 console.log(nick.debugsCode(emily));
