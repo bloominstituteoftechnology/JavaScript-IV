@@ -1,15 +1,5 @@
-// CODE here for your Lambda Classes
 
-// class Animal {
-//   constructor(name) {
-//     this.name = name;
-//   }
-//
-//   speak() {
-//     console.log(this.name + ' makes a noise.');
-//   }
-// }
-
+// Person class
 
 class Person {
   constructor(attrs) {
@@ -22,6 +12,9 @@ class Person {
     console.log(`Hello, my name is ${this.name}, I am from ${this.location}`);
   }
 }
+
+
+// Instructor class
 
 class Instructor extends Person {
   constructor(instAttrs) {
@@ -40,16 +33,19 @@ class Instructor extends Person {
   }
 }
 
+
+// Student class
+
 class Student extends Person {
   constructor(stuAttrs) {
     super(stuAttrs);
     this.previousBackground = stuAttrs.previousBackground;
     this.className = stuAttrs.className;
-    this.favSubjects = stuAttrs.favSubjects;
+    this.favSubjects = [stuAttrs.favSubjects];
   }
 
-  listsSujects() {
-    console.log(`${this.favoriteSubjects}`);
+  listsSubjects() {
+    console.log(`${this.favSubjects}`);
   }
 
   PRAssignment() {
@@ -61,6 +57,9 @@ class Student extends Person {
   }
 }
 
+
+// ProjectManager class
+
 class ProjectManager extends Instructor {
   constructor(pmAttrs) {
     super(pmAttrs);
@@ -69,7 +68,7 @@ class ProjectManager extends Instructor {
   }
 
   standUp(channel) {
-    console.log(`${this.name} announces to ${this.channel} @channel standup time`);
+    console.log(`${this.name} announces to ${channel} @channel Standup Time!`);
   }
 
   debugsCode(student, subject) {
@@ -77,6 +76,7 @@ class ProjectManager extends Instructor {
   }
 }
 
+// Instructor objects
 
 const dan = new Instructor({
   name: 'Dan',
@@ -87,6 +87,7 @@ const dan = new Instructor({
   catchPhrase: 'Rosie, no!',
 })
 
+
 const josh = new Instructor({
   name: 'Josh',
   age: 32,
@@ -95,6 +96,9 @@ const josh = new Instructor({
   favLanguage: 'JavaScript',
   catchPhrase: 'Banjo time!',
 })
+
+
+// Student objects
 
 const emily = new Student({
   name: 'Emily',
@@ -111,13 +115,19 @@ const marcus = new Student({
   location: 'Illinois',
   previousBackground: 'Teacher',
   className: 'Web 21',
-  favSubjects: 'Logic',
+  favSubjects: ['Logic', 'Syntax', 'Language'],
 })
+
+
+// ProjectManager objects
 
 const nick = new ProjectManager({
   name: 'Nick',
   age: 32,
   location: 'New Mexico',
+  specialty: 'Redux',
+  favLanguage: 'JavaScript',
+  catchPhrase: 'Listen up!',
   gradClassName: 'Web 19',
   favInstructor: 'Dan',
 })
@@ -126,10 +136,20 @@ const jose = new ProjectManager({
   name: 'Jose',
   age: 32,
   location: 'Illinois',
+  specialty: 'Redux',
+  favLanguage: 'JavaScript',
+  catchPhrase: 'Listen up!',
   gradClassName: 'Web 19',
   favInstructor: 'Dan',
 })
 
+
+// console.log() tests
+
 console.log(dan.name);
 console.log(dan.catchPhrase);
+console.log(emily.location);
+console.log(emily.listsSubjects())
+console.log(nick.catchphrase);
+console.log(nick.standUp("Nick_Ballenger's_Channel"));
 console.log(nick.debugsCode(emily));
