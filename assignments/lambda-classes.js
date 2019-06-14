@@ -7,9 +7,11 @@ class Person {
         this.location = acc.location; 
     }
     speak() {
-        console.log(`Hi, my name is ${this.name} and I live in ${this.location}. I am ${this.age} years old`)
+        return `Hi, my name is ${this.name} and I live in ${this.location}. I am ${this.age} years old`
     }
 }; 
+
+
 
 // Person Objects
 const Noah = new Person({
@@ -30,6 +32,10 @@ const Anakin = new Person({
     age: 32
 }); 
 
+console.log(
+    Noah.speak()
+)
+
 
 // Instructor Class
 class Instructor extends Person {
@@ -40,7 +46,7 @@ class Instructor extends Person {
         this.catchPhrase = acc.catchPhrase; 
     }
     demo(subject) {
-        console.log(`Today we are learning about ${subject}`); 
+        return (`Today we are learning about ${subject}`); 
     }; 
     grade(subject) {
         console.log(`${student.name} receives a perfect score on ${subject}`)
@@ -138,8 +144,8 @@ class ProjectManagers extends Person {
     standUp() {
         console.log()
     }
-    debugsCode() {
-        console.log()
+    debugsCode(subject) {
+        
     }
 }; 
 
