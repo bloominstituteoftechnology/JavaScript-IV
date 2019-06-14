@@ -46,7 +46,10 @@ class Student extends Person {
     }
 
     listsSubjects(favSubjects) {
-        return `${this.favSubjects}`
+        this.favSubjects.forEach(element => {
+            console.log(element)
+            return element
+        });
 
     }
 
@@ -87,12 +90,12 @@ class ProjectManager extends Instructor {
 
 
 const Instructor = new Instructor ({
-    name: 'Zack',
+    name: 'dan',
     age: 32,
     location: 'New York'
     favLanguage: 'python',
     specialty: 'AI',
-    catchPhrase: 'Do not forget the homies'
+    catchPhrase: 'Do not forget the homies',
 
 
 })
@@ -107,7 +110,7 @@ const Student = new Student ({
     location: 'orlando',
     previousBackground: 'none',
     className: 'web21',
-    favSubjects: ['HTML, CSS, Python']
+    favSubjects: ['HTML, CSS, Python'],
 })
 
 Student.listsSubjects();
@@ -117,10 +120,26 @@ Student.sprintChallenge();
 
 const ProjectManager = new ProjectManager ({
     name: 'josh',
-    
+    age: 30,
+    location: 'California',
+    gradClassName: 'Web21',
+    favInstructor: 'Dan',
+    specialty: 'AI',
+    favLanguage: 'HTML',
+    catchPhrase: 'Do your homework',
+
 })
 
 
 
 
-
+// console.log(kelly)
+console.log(kelly.speak())
+console.log(kelly.listsSubjects())
+console.log(josh.debugsCode('josh', 'HTML'))
+console.log(josh.standup('channel'))
+// console.log(dan)
+console.log(dan.demo(dan.favLanguage))
+console.log(dan.grade('kelly', 'HTML'))
+console.log(kelly.sprintChallenge('CSS'))
+console.log(kelly.PRAssignment('CSS'))
