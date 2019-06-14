@@ -11,18 +11,18 @@ class Person {
     }
 
     speak () {
-        return `Hello my name is + $(this.name) + I am from + $(this.location)`
+        return `Hello my name is  ${this.name}  I am from  ${this.location}`
     }
 }
 
 
 class Instructor extends Person {
 
-    constructor(InstructorAttrs){
-        super(InstructorAttrs);
-        this.specialty = InstructorAttrs.specialty;
-        this.favLanguage = InstructorAttrs.favLanguage;
-        this.catchPhrase = InstructorAttrs.Dontforgetthehomies;
+    constructor(instructorAttrs){
+        super(instructorAttrs);
+        this.specialty = instructorAttrs.specialty;
+        this.favLanguage = instructorAttrs.favLanguage;
+        this.catchPhrase = instructorAttrs.Dontforgetthehomies;
 
     }
     demo (subject) {
@@ -38,17 +38,19 @@ class Instructor extends Person {
 
 class Student extends Person {
 
-    constructor(StudentAttrs){
-        super(StudentAttrs);
-        this.previousBackground = StudentAttrs.previousBackground;
-        this.className = StudentAttrs.className;
-        this.favSubjects = StudentAttrs.favSubjects;
+    constructor(studentAttrs){
+        super(studentAttrs);
+        this.previousBackground = studentAttrs.previousBackground;
+        this.className = studentAttrs.className;
+        this.favSubjects = studentAttrs.favSubjects;
     }
 
-    listsSubjects(favSubjects) {
-        this.favSubjects.forEach(element => {
+    listsSubjects() {
+
+        console.log('subject');        
+        return this.favSubjects.forEach(element => {
             console.log(element)
-            return element
+            
         });
 
     }
@@ -70,15 +72,15 @@ class Student extends Person {
 
 
 class ProjectManager extends Instructor {
-    constructor(ProjectManagerAttrs){
-        super(ProjectManagerAttrs);
-        this.gradClassName = ProjectManagerAttrs.gradClassName;
-        this.favInstructor = ProjectManagerAttrs.favInstructor;
+    constructor(projectManagerAttrs){
+        super(projectManagerAttrs);
+        this.gradClassName = projectManagerAttrs.gradClassName;
+        this.favInstructor = projectManagerAttrs.favInstructor;
 
     }
 
     standUp(channel){
-        return `${this.name} announces to ${this.channel}, @ channel standy times!`
+        return `${this.name} announces to ${channel}, @ channel standy times!`
 
     }
 
@@ -89,10 +91,10 @@ class ProjectManager extends Instructor {
 }
 
 
-const Instructor = new Instructor ({
+const dan = new Instructor({
     name: 'dan',
     age: 32,
-    location: 'New York'
+    location: 'New York',
     favLanguage: 'python',
     specialty: 'AI',
     catchPhrase: 'Do not forget the homies',
@@ -100,25 +102,25 @@ const Instructor = new Instructor ({
 
 })
 
-instructor.demo();
+dan.demo();
 
 
 
-const Student = new Student ({
+const kelly = new Student ({
     name: 'kelly',
     age: 25,
     location: 'orlando',
     previousBackground: 'none',
     className: 'web21',
-    favSubjects: ['HTML, CSS, Python'],
+    favSubjects: ['HTML', 'CSS', 'Python'],
 })
 
-Student.listsSubjects();
-Student.PRAssignment();
-Student.sprintChallenge();
+kelly.listsSubjects();
+kelly.PRAssignment();
+kelly.sprintChallenge();
 
 
-const ProjectManager = new ProjectManager ({
+const josh = new ProjectManager ({
     name: 'josh',
     age: 30,
     location: 'California',
@@ -135,9 +137,9 @@ const ProjectManager = new ProjectManager ({
 
 // console.log(kelly)
 console.log(kelly.speak())
-console.log(kelly.listsSubjects())
+// console.log(kelly.listsSubjects())
 console.log(josh.debugsCode('josh', 'HTML'))
-console.log(josh.standup('channel'))
+console.log(josh.standUp('channel'))
 // console.log(dan)
 console.log(dan.demo(dan.favLanguage))
 console.log(dan.grade('kelly', 'HTML'))
