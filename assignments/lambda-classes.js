@@ -36,7 +36,14 @@ class Student extends Person{
     }
 
     listsSubjects(){
-        return `${this.favSubjects}` 
+        // return this.favSubjects.forEach({
+        //     return 
+        // })
+            for (let i = 0; i < this.favSubjects.length; i++){
+                console.log(`${this.name} favorite subject is ${this.favSubjects[i]}`)
+            }
+        
+        // return `${this.favSubjects}` 
     }
 
     sprintChallenge(subject){
@@ -140,40 +147,40 @@ const isaiah = new Student({
 
 //Test of Person Methods//
 //Instructor//
-console.log(dan.speak('Speak method called')) 
+// console.log(dan.speak('Speak method called')) 
 
-//Project Managers//
-console.log(marguel.speak('Speak method called'))
-console.log(brandon.speak('Speak method called'))
-console.log(mary.speak('Speak method called'))
+// //Project Managers//
+// console.log(marguel.speak('Speak method called'))
+// console.log(brandon.speak('Speak method called'))
+// console.log(mary.speak('Speak method called'))
 
-// Students//
-console.log(isaiah.speak('Speak method called'))
-console.log(kevin.speak('Speak method called'))
-console.log(nisa.speak('Speak method called'))
+// // Students//
+// console.log(isaiah.speak('Speak method called'))
+// console.log(kevin.speak('Speak method called'))
+// console.log(nisa.speak('Speak method called'))
 
-// Test of Instructor Methods//
-console.log(dan.demo('Demo method called'))
-console.log(dan.grade(isaiah, 'Grade method called'))
-console.log(dan.grade(kevin, 'Grade method called'))
-console.log(dan.grade(nisa, 'Grade method called'))
+// // Test of Instructor Methods//
+// console.log(dan.demo('Demo method called'))
+// console.log(dan.grade(isaiah, 'Grade method called'))
+// console.log(dan.grade(kevin, 'Grade method called'))
+// console.log(dan.grade(nisa, 'Grade method called'))
 
-// Test of student Methods//
-console.log(`Isaiah ${isaiah.listsSubjects(isaiah.favSubjects)} listsSubjects Method Called`)
-console.log(`Kevin ${kevin.listsSubjects(kevin.favSubjects)} listsSubjects Method Called`)
-console.log(`Nisa ${nisa.listsSubjects(kevin.favSubjects)} listsSubjects Method Called`)
-console.log(isaiah.prAssignment('prAssignment Method Called'))
-console.log(kevin.prAssignment('prAssignment Method Called'))
-console.log(kevin.sprintChallenge('Sprintchallenge Method Called'))
-console.log(isaiah.sprintChallenge('Sprintchallenge Method Called'))
+// // Test of student Methods//
+// console.log(`Isaiah ${isaiah.listsSubjects()} listsSubjects Method Called`)
+// console.log(`Kevin ${kevin.listsSubjects()} listsSubjects Method Called`)
+// console.log(`Nisa ${nisa.listsSubjects()} listsSubjects Method Called`)
+// console.log(isaiah.prAssignment('prAssignment Method Called'))
+// console.log(kevin.prAssignment('prAssignment Method Called'))
+// console.log(kevin.sprintChallenge('Sprintchallenge Method Called'))
+// console.log(isaiah.sprintChallenge('Sprintchallenge Method Called'))
 
-//Test of Project Manager Methods
-console.log(marguel.standUp('Standup Method Called'))
-console.log(brandon.standUp('Standup Method Called'))
-console.log(mary.standUp('Standup Method Called'))
-console.log(marguel.debugsCode(isaiah, 'Debugscode Method Called'))
-console.log(brandon.debugsCode(kevin, 'Debugscode Method Called'))
-console.log(mary.debugsCode(nisa, 'Debugscode Method Called'))
+// //Test of Project Manager Methods
+// console.log(marguel.standUp('Standup Method Called'))
+// console.log(brandon.standUp('Standup Method Called'))
+// console.log(mary.standUp('Standup Method Called'))
+// console.log(marguel.debugsCode(isaiah, 'Debugscode Method Called'))
+// console.log(brandon.debugsCode(kevin, 'Debugscode Method Called'))
+// console.log(mary.debugsCode(nisa, 'Debugscode Method Called'))
 
 
 
@@ -222,7 +229,7 @@ console.log(isaiah.age)
 console.log(isaiah.location)
 console.log(isaiah.previousBackground)
 console.log(isaiah.className)
-console.log(isaiah.favSubjects)
+isaiah.listsSubjects()
 
 console.log(kevin.name)
 console.log(kevin.age)
