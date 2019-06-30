@@ -21,15 +21,15 @@ Prototype Refactor
   * dimensions (These represent the character's size in the video game)
   * destroy() // prototype method that returns: `${this.name} was removed from the game.`
 */
-const GameObject = function (gameObjectAttribs) {
-    this.createdAt = gameObjectAttribs.createdAt
-    this.name = gameObjectAttribs.name
-    this.dimensions = gameObjectAttribs.dimensions
-}
+// const GameObject = function (gameObjectAttribs) {
+//     this.createdAt = gameObjectAttribs.createdAt
+//     this.name = gameObjectAttribs.name
+//     this.dimensions = gameObjectAttribs.dimensions
+// }
 
-GameObject.prototype.destroy = function () {
-    return `${this.name} was removed from the game`
-}
+// GameObject.prototype.destroy = function () {
+//     return `${this.name} was removed from the game`
+// }
 class GameObject {
   constructor(createdAt, name, dimensions) {
     this.createdAt = createdAt
@@ -48,17 +48,28 @@ class GameObject {
 * should inherit destroy() from GameObject's prototype
 */
 
-const CharacterStats = function (characterStatsAttribs) {
-    GameObject.call(this, characterStatsAttribs)
-    this.healthPoints = characterStatsAttribs.healthPoints
+// const CharacterStats = function (characterStatsAttribs) {
+//     GameObject.call(this, characterStatsAttribs)
+//     this.healthPoints = characterStatsAttribs.healthPoints
+// }
+
+// CharacterStats.prototype = Object.create(GameObject.prototype)
+
+// CharacterStats.prototype.takeDamage = function () {
+//     return `${this.name} took damage`
+// }
+class CharacterStats extends GameObject {
+    constructor(healthPoints){
+      super(createdAt, name, dimensions)
+      this.createdAt = createdAt
+      this.name = name
+      this.dimensions = dimensions
+      this.healthPoints = healthPoints
+    }
+    takeDamage() {
+        return `${this.name} took damage`
+    }
 }
-
-CharacterStats.prototype = Object.create(GameObject.prototype)
-
-CharacterStats.prototype.takeDamage = function () {
-    return `${this.name} took damage`
-}
-
 /*
   === Humanoid (Having an appearance or character resembling that of a human.) ===
   * team
