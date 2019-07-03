@@ -1,7 +1,6 @@
 // CODE here for your Lambda Classes
 class Person {
   constructor (personAttribs) {
-    console.log(personAttribs, '<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<')
     this.name = personAttribs.name
     this.age = personAttribs.age
     this.location = personAttribs.location
@@ -28,7 +27,6 @@ class Instructor extends Person {
 
 class Student extends Person {
   constructor (studentAttribs) {
-    console.log(studentAttribs, 'Student Attributes')
     super(studentAttribs)
     this.previousBackground = studentAttribs.previousBackground
     this.className = studentAttribs.className
