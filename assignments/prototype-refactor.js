@@ -60,22 +60,8 @@ class GameObject {
 destroy() {
   return `${this.name} was removed from the game.`;
     }
-};
+}
 
-// const camelot = new GameObject({
-//   createdAt: new Date(),
-//   name: new Name(),
-//   dimensions: {
-//     length: 2, 
-//     width: 1,
-//     height: 3,
-//   },
-//   healthPoints: 15,
-//   name: 'Lady Guinevere',
-//   team: 'Sir Lancelot',
-//   weapons: ['Chastity Belt', 'Silver Armour'],
-//   language: 'English',
-// });
 
 // function game(gameAttrs) {
 //   GameObject.call(this, gameAttrs);
@@ -93,26 +79,12 @@ takeDamage() {
   return `${this.name} took damage.`;
 }
 
-// const arthur = new CharacterStats({
-//   createdAt: new Date(),
-//   name: new Name(),
-//   dimensions: {
-//     length: 2.5,
-//     width: 2,
-//     height: 4,
-//   },
-//   healthPoints: 20,
-//   name: 'King Arthur',
-//   team: 'Merlyn',
-//   weapons: ['Holy Grail', 'Merlyns Beard'],
-//   language: 'English', 'Common Tongue',
-// });
 
 // function character(characterAttrs) {
 //   CharacterStats.call(this, characterAttrs);
 //   this.newCharacter = characterAttrs.newCharacter;
 // }
-// character.prototype = Object.create(CharacterStats.prototype);
+// character.prototype = Object.create(CharacterStats.prototype);//
 
 class Humanoid extends CharacterStats {
   constructor(human) {
@@ -125,7 +97,6 @@ class Humanoid extends CharacterStats {
 greet() {
   return `${this.name} offers a greeting in ${this.language}.`;
     }
-}
 
 const mage = new Humanoid({
   createdAt: '19 July 2019',
@@ -177,11 +148,11 @@ const archer = new Humanoid({
   language: 'Elvish',
 });
 
-class Human extends Humanoid {
-  constructor(humanAttrs) {
-    super(humanAttrs);
-    this.newHumanoid = humanAttrs.newHumanoid;
-}
+// class Human extends Humanoid {
+//   constructor(humanAttrs) {
+//     super(humanAttrs);
+//     this.newHumanoid = humanAttrs.newHumanoid;
+// }
 // human.prototype = Object.create(Humanoid.prototype);
 
 
@@ -200,12 +171,12 @@ class Human extends Humanoid {
   // Stretch task: 
   // * Create Villain and Hero constructor functions that inherit from the Humanoid constructor function.  
 
-  class Villian extends Humanoid {
-    constructor(bad) {
-     super(bad);
-     this.createdAt = bad.createdAt;
-     this.name = bad.name;
-     this.dimensions = bad.dimensions;
+class Villian extends Humanoid {
+  constructor(bad) {
+    super(bad);
+    this.createdAt = bad.createdAt;
+    this.name = bad.name;
+    this.dimensions = bad.dimensions;
     };
 
 greet() {
@@ -225,12 +196,12 @@ greet() {
   language: 'Orkish',
   });
 
-  class Hero extends Humanoid {
-    constructor(brave) {
-     super(brave);
-     this.createdAt = brave.createdAt;
-     this.name = brave.name;
-     this.dimensions = brave.dimensions;
+class Hero extends Humanoid {
+  constructor(brave) {
+    super(brave);
+    this.createdAt = brave.createdAt;
+    this.name = brave.name;
+    this.dimensions = brave.dimensions;
 };
 
 greet() {
@@ -251,12 +222,42 @@ greet() {
   language: 'English',
   });
 
+  const camelot = new Hero({
+  createdAt: new Date(),
+  dimensions: {
+    length: 2, 
+    width: 1,
+    height: 3,
+  },
+  healthPoints: 15,
+  name: 'Lady Guinevere',
+  team: 'Sir Lancelot',
+  weapons: ['Chastity Belt', 'Silver Armour'],
+  language: 'English',
+});
+
+
+  const arthur = new Hero({
+  createdAt: new Date(),
+  dimensions: {
+    length: 2.5,
+    width: 2,
+    height: 4,
+  },
+  healthPoints: 20,
+  name: 'King Arthur',
+  team: 'Merlyn',
+  weapons: ['Holy Grail', 'Merlyns Beard'],
+  language: 'English', 'Common Tongue',
+});
 
 console.log(gameHero.name);
-// console.log(gameHero.team);
-// console.log(gameHero.weapons);
+console.log(arthur.name);
+console.log(camelot.name);
 console.log(gameVillian.name);
 // console.log(gameVillian.team);
 // console.log(gameVilian.language);
+
+
   // * Give the Hero and Villains different methods that could be used to remove health points from objects which could result in destruction if health gets to 0 or drops below 0;
   // * Create two new objects, one a villain and one a hero and fight it out with methods!
