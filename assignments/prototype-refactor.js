@@ -55,13 +55,12 @@ class GameObject {
     this.createdAt = attrs.createdAt;
     this.name = attrs.name;
     this.dimensions = attrs.dimensions;
-}
+  }
 
-destroy() {
-  return `${this.name} was removed from the game.`;
+  destroy() {
+    return `${this.name} was removed from the game.`;
     }
 }
-
 
 // function game(gameAttrs) {
 //   GameObject.call(this, gameAttrs);
@@ -78,7 +77,7 @@ class CharacterStats extends GameObject {
 takeDamage() {
   return `${this.name} took damage.`;
 }
-
+}
 
 // function character(characterAttrs) {
 //   CharacterStats.call(this, characterAttrs);
@@ -92,11 +91,12 @@ class Humanoid extends CharacterStats {
     this.team = human.team;
     this.weapons = human.weapons;
     this.language = human.language;
-}
+  }
 
 greet() {
   return `${this.name} offers a greeting in ${this.language}.`;
     }
+}
 
 const mage = new Humanoid({
   createdAt: '19 July 2019',
@@ -182,6 +182,7 @@ class Villian extends Humanoid {
 greet() {
   return `${this.name} tries to kill them with his ${this.weapons}.`;
 }
+}
   const gameVillian = new Villian({
   createdAt: '19 July 2019',
   dimensions: {
@@ -207,7 +208,7 @@ class Hero extends Humanoid {
 greet() {
   return `${this.name} tries to save them with his ${this.weapons}.`;
 }
-
+}
   const gameHero = new Hero({
   createdAt:'19 July 2019',
   dimensions: {
@@ -248,7 +249,7 @@ greet() {
   name: 'King Arthur',
   team: 'Merlyn',
   weapons: ['Holy Grail', 'Merlyns Beard'],
-  language: 'English', 'Common Tongue',
+  language: ['English', 'Common Tongue']
 });
 
 console.log(gameHero.name);
