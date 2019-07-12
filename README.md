@@ -107,7 +107,7 @@ const fred = new Instructor({
   * `gradClassName`: i.e. CS1
   * `favInstructor`: i.e. Sean
 * ProjectManagers have the following Methods:
-  * `standUp` a method that takes in a slack channel and logs `{name} announces to {channel}, @channel standy times!​​​​​
+  * `standUp` a method that takes in a slack channel and logs `{name} announces to {channel}, @channel standy times!​​​​​`
   * `debugsCode` a method that takes in a student object and a subject and logs out `{name} debugs {student.name}'s code on {subject}`
 
 #### Stretch Problem
@@ -117,3 +117,5 @@ const fred = new Instructor({
 * Add a graduate method to a student.
   * This method, when called, will check the grade of the student and see if they're ready to graduate from Lambda School
   * If the student's grade is above a 70% let them graduate! Otherwise go back to grading their assignments to increase their score.
+
+Douglas Little
