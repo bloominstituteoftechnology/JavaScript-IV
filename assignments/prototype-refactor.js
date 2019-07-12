@@ -4,7 +4,7 @@ Prototype Refactor
 
 1. Copy and paste your code or the solution from yesterday
 
-2. Your goal is to refactor all of this code to use ES6 Classes. The console.log() statements should still return what is expected of them. Use 'class'and 'extends'.
+2. Your goal is to refactor all of this code to use ES6 Classes. The console.log() statements should still return what is expected of them. Use 'class' and 'extends'.
 
 */
 /*
@@ -16,7 +16,7 @@ Prototype Refactor
   
   Each constructor function has unique properties and methods that are defined in their block comments below:
 */
-  
+
 /*
   === GameObject ===
   * createdAt
@@ -41,7 +41,7 @@ Prototype Refactor
   * should inherit destroy() from GameObject through CharacterStats
   * should inherit takeDamage() from CharacterStats
 */
- 
+
 /*
   * Inheritance chain: GameObject -> CharacterStats -> Humanoid
   * Instances of Humanoid should have all of the same properties as CharacterStats and GameObject.
@@ -59,7 +59,7 @@ class GameObject {
 
   destroy() {
     return `${this.name} was removed from the game.`;
-    }
+  }
 }
 
 // function game(gameAttrs) {
@@ -72,11 +72,11 @@ class CharacterStats extends GameObject {
   constructor(stats) {
     super(stats);
     this.healthPoints = stats.healthPoints;
-}
+  }
 
-takeDamage() {
-  return `${this.name} took damage.`;
-}
+  takeDamage() {
+    return `${this.name} took damage.`;
+  }
 }
 
 // function character(characterAttrs) {
@@ -93,9 +93,9 @@ class Humanoid extends CharacterStats {
     this.language = human.language;
   }
 
-greet() {
-  return `${this.name} offers a greeting in ${this.language}.`;
-    }
+  greet() {
+    return `${this.name} offers a greeting in ${this.language}.`;
+  }
 }
 
 const mage = new Humanoid({
@@ -156,46 +156,46 @@ const archer = new Humanoid({
 // human.prototype = Object.create(Humanoid.prototype);
 
 
-  console.log(mage.createdAt); // Today's date
-  console.log(archer.dimensions); // { length: 1, width: 2, height: 4 }
-  console.log(swordsman.healthPoints); // 15
-  console.log(mage.name); // Bruce
-  console.log(swordsman.team); // The Round Table
-  console.log(mage.weapons); // Staff of Shamalama
-  console.log(archer.language); // Elvish
-  console.log(archer.greet()); // Lilith offers a greeting in Elvish.
-  console.log(mage.takeDamage()); // Bruce took damage.
-  console.log(swordsman.destroy()); // Sir Mustachio was removed from the game.
+console.log(mage.createdAt); // Today's date
+console.log(archer.dimensions); // { length: 1, width: 2, height: 4 }
+console.log(swordsman.healthPoints); // 15
+console.log(mage.name); // Bruce
+console.log(swordsman.team); // The Round Table
+console.log(mage.weapons); // Staff of Shamalama
+console.log(archer.language); // Elvish
+console.log(archer.greet()); // Lilith offers a greeting in Elvish.
+console.log(mage.takeDamage()); // Bruce took damage.
+console.log(swordsman.destroy()); // Sir Mustachio was removed from the game.
 
 
-  // Stretch task: 
-  // * Create Villain and Hero constructor functions that inherit from the Humanoid constructor function.  
+// Stretch task: 
+// * Create Villain and Hero constructor functions that inherit from the Humanoid constructor function.  
 
-class Villian extends Humanoid {
+class Villain extends Humanoid {
   constructor(bad) {
     super(bad);
     this.createdAt = bad.createdAt;
     this.name = bad.name;
     this.dimensions = bad.dimensions;
-    };
+  };
 
-greet() {
-  return `${this.name} tries to kill them with his ${this.weapons}.`;
+  greet() {
+    return `${this.name} tries to kill them with his ${this.weapons}.`;
+  }
 }
-}
-  const gameVillian = new Villian({
+const gameVillain = new Villain({
   createdAt: '19 July 2019',
   dimensions: {
-    length: 3, 
+    length: 3,
     width: 2,
     height: 5,
   },
   healthPoints: 10,
   name: 'The Evil Mordred',
   team: 'Cave of Mordue',
-  weapons: ['Flaming Sword', 'Black Armour', 'Invisible Sheild'],
+  weapons: ['Flaming Sword', 'Black Armour', 'Invisible Shield'],
   language: 'Orkish',
-  });
+});
 
 class Hero extends Humanoid {
   constructor(brave) {
@@ -203,30 +203,30 @@ class Hero extends Humanoid {
     this.createdAt = brave.createdAt;
     this.name = brave.name;
     this.dimensions = brave.dimensions;
-};
+  };
 
-greet() {
-  return `${this.name} tries to save them with his ${this.weapons}.`;
+  greet() {
+    return `${this.name} tries to save them with his ${this.weapons}.`;
+  }
 }
-}
-  const gameHero = new Hero({
-  createdAt:'19 July 2019',
+const gameHero = new Hero({
+  createdAt: '19 July 2019',
   dimensions: {
-    length: 2, 
+    length: 2,
     width: 1.5,
     height: 3,
   },
   healthPoints: 15,
   name: 'The Handsome Prince Charming',
   team: 'Lady of the Lake',
-  weapons: ['Sword in the Stone', 'White Armour', 'Golden Sheild'],
+  weapons: ['Sword in the Stone', 'White Armour', 'Golden Shield'],
   language: 'English',
-  });
+});
 
-  const camelot = new Hero({
+const camelot = new Hero({
   createdAt: new Date(),
   dimensions: {
-    length: 2, 
+    length: 2,
     width: 1,
     height: 3,
   },
@@ -238,7 +238,7 @@ greet() {
 });
 
 
-  const arthur = new Hero({
+const arthur = new Hero({
   createdAt: new Date(),
   dimensions: {
     length: 2.5,
@@ -255,9 +255,9 @@ greet() {
 console.log(gameHero.name);
 console.log(arthur.name);
 console.log(camelot.name);
-console.log(gameVillian.name);
-// console.log(gameVillian.team);
-// console.log(gameVilian.language);
+console.log(gameVillain.name);
+// console.log(gameVillain.team);
+// console.log(gameVillain.language);
 
 
   // * Give the Hero and Villains different methods that could be used to remove health points from objects which could result in destruction if health gets to 0 or drops below 0;

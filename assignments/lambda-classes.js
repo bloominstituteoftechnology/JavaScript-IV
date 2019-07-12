@@ -8,10 +8,11 @@ class Person {
         this.location = people.location;
     }
 
-    phrase() {
+    speak() {
         return `Hello my name is ${this.name}, and I am from ${this.location}`;
     }
 }
+
 
 class Instructor extends Person {
     constructor(teacher) {
@@ -21,13 +22,21 @@ class Instructor extends Person {
         this.catchPhrase = teacher.catchPhrase;
     }
     demo(subject) {
-        console.log(`Today we are learning about ${this.specialty}.`);
+        console.log(`Today we are learning about ${subject}.`);
     }
     grade(student,subject) {
-        console.log(`${this.name} receives a perfect score on ${this.favSubjects}`);
+        console.log(`${student.name} receives a perfect score on ${subject}`);
     }
-
 }
+
+const fred = new Instructor({
+    name: 'Fred',
+    location: 'Bedrock',
+    age: 35,
+    favLanguage: ['JavaScript', 'Python', 'Elm'],
+    specialty: 'redux',
+    catchPhrase: `Don't forget the homies`
+});
 
 
 class Student extends Person {
@@ -37,38 +46,62 @@ class Student extends Person {
         this.className = learner.className;
         this.favSubjects = learner.favSubjects;
     }
-   listsSubjects(Student)['Html', 'CSS', 'JavaScript'] {
-        console.log(listsSubjects);
+   listsSubjects() {
+       for(let i = 0; i < this.favSubjects.length; i++) {
+           console.log(`One of ${this.name}'s favorite subject is ${this.favSubjects[i]}.`);
+       }
     }
-    prAassignmen(subject) {
-        console.log(`${this.className} has submitted a PR for ${this.favSubjects}`)
+    prAssignment(subject) {
+        console.log(`${this.name} has submitted a PR for ${subject}`);
     }
     sprintChallenge(subject) {
-        console.log(`${this.className} has begun the sprint challenge on ${this.favSubjects}`);
+        console.log(`${this.name} has begun the sprint challenge on ${subject}`);
     }
 }
 
-
-class Team Lead extends Instructor {
-    constructor(tl) {
-    super(tl);
-    this.gradClassName = tl.gradClassName;
-    this.favInstructor = tl.favInstructor;
-    }
-    standUp = function('slack channel') {
-        console.log(`${this.favInstructor} announces to ${this.gradClassName}, @channel standy times!`);
-    }
-    debugsCode = function(student, subject) {
-        console.log(`${this.favInstructor} debugs ${this.name} code on ${this.favSubjects}`)
-    }
-}
-
-
-const fred = new Instructor({
-  name: 'Fred',
-  location: 'Bedrock',
-  age: 37,
-  favLanguage: 'JavaScript',
-  specialty: 'Front-end',
-  catchPhrase: `Don't forget the homies`
+const sara = new Student({
+    name: 'Sara',
+    location: 'Colorado',
+    age: 40,
+    favLanguage: 'JavaScript',
+    specialty: 'Front-end',
+    catchPhrase: `Don't forget the homies`,
+    previousBackground: 'Radiology Technologist',
+    className: 'CS132',
+    favSubjects: ['Html', 'CSS', 'JavaScript']
 });
+
+
+class TeamLead extends Instructor {
+    constructor(oldPMs) {
+    super(oldPMs);
+    this.gradClassName = oldPMs.gradClassName;
+    this.favInstructor = oldPMs.favInstructor;
+    }
+    standUp(slackChannel) {
+        console.log(`${this.name} announces to ${slackChannel}, @channel standup times!`);
+    }
+    debugsCode(student, subject) {
+        console.log(`${this.name} debugs ${student.name} code on ${subject}`)
+    }
+}
+
+const jimmyJohn = new TeamLead({
+    name: 'Jimmy John',
+    location: 'Bedrock',
+    age: 25,
+    favLanguage: 'JavaScript',
+    specialty: 'Front-end',
+    catchPhrase: `Don't forget the homies`,
+    gradClassName: 'CS1',
+    favInstructor: 'Sean'
+});
+
+console.log(jimmyJohn.name);
+jimmyJohn.standUp('webpt8_Billy');
+jimmyJohn.debugsCode(sara, 'Html');
+fred.demo('math');
+fred.grade(sara, 'JavaScript');
+sara.listsSubjects();
+sara.prAssignment('redux');
+sara.sprintChallenge('JavaScript');
