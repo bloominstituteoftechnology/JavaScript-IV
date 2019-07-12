@@ -99,6 +99,7 @@ const fred = new Instructor({
   * `PRAssignment` a method that receives a subject as an argument and logs out that the `student.name has submitted a PR for {subject}`
   * `sprintChallenge` similar to PRAssignment but logs out `student.name has begun sprint challenge on {subject}`
 
+
 #### Project Manager
 
 * Now that we have instructors and students, we'd be nowhere without our PM's
