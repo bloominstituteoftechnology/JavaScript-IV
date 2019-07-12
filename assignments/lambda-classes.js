@@ -26,8 +26,12 @@ class Instructor extends Person {
     }
     grade(student,subject) {
         console.log(`${student.name} receives a perfect score on ${subject}`);
-    }
+    // }
+    // studentsGrade(_max) {
+    //     return Math.random(this.grade) * (100-70) + max;
+    // }
 }
+
 
 const fred = new Instructor({
     name: 'Fred',
@@ -68,7 +72,8 @@ const sara = new Student({
     catchPhrase: `Don't forget the homies`,
     previousBackground: 'Radiology Technologist',
     className: 'CS132',
-    favSubjects: ['Html', 'CSS', 'JavaScript']
+    favSubjects: ['Html', 'CSS', 'JavaScript'],
+    grade: '1 >= 100'
 });
 
 
@@ -105,3 +110,4 @@ fred.grade(sara, 'JavaScript');
 sara.listsSubjects();
 sara.prAssignment('redux');
 sara.sprintChallenge('JavaScript');
+sara.studentsGrade(100);
