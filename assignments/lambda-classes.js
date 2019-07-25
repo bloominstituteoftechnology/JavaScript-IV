@@ -26,6 +26,13 @@ class Instructor extends Person {
     grade(student,subject) {
         console.log(`${student.name} receives a perfect score on ${subject}`);
     }
+
+    changeGrade(student) {
+        let change = Math.round(Math.random())*2-1; //pos or negative number
+        change = change * 20;
+        student.grade += change;
+        console.log(`${student.name}'s grade has changed by ${change}! Their grade is now ${student.grade}`);
+    }
 }
 
 class Student extends Person {
@@ -34,16 +41,27 @@ class Student extends Person {
         this.previousBackground = attributes.previousBackground;
         this.className = attributes.className;
         this.favSubjects = attributes.favSubjects;
+        this.grade = Math.floor(Math.random()*100);
     }
 
     listsSubjects() {
         this.favSubjects.forEach(subject => (console.log(subject)));
     }
+
     PRAssignment(subject) {
         console.log(`${this.name} has submitted a PR for ${subject}`);
     }
+
     sprintChallenge(subject) {
         console.log(`${this.name} has begun sprint challenge on ${subject}`);
+    }
+
+    graduate() {
+        if (this.grade >= 70) {
+            console.log(`${this.name} can graduate from Lambda School`);
+        } else {
+            console.log(`${this.name} cannot graduate yet :( Has a grade of ${this.grade}, needs at least 70!`);
+        }
     }
 }
 
@@ -53,5 +71,37 @@ class ProjectManagers extends Instructor {
         this.gradClassName = attributes.gradClassName;
         this.favInstructor = attributes.favInstructor;
     }
+
+    standup(channel) {
+        console.log(`${this.name} announces to ${channel}, @channel standy times!`);
+    }
+
+    debugsCode(student, subject) {
+        console.log(`${this.name} debugs ${student.name}'s code on ${subject}`);
+    }
 }
 
+let jordan = new Student({
+    name: "jordan",
+    location: "seattle",
+    age: 23,
+    previousBackground: "Meteorology",
+    className: "WEB22",
+    favSubjects: ["Math", "JavaScript", "Forecasting"]
+});
+
+let josh = new Instructor({
+    name:"josh",
+    location:"somewhere",
+    age:1,
+    specialty:"notion hub",
+    favLanguage: "english",
+    catchphrase:"chicken nuggets are bomb"
+});
+
+josh.changeGrade(jordan);
+josh.changeGrade(jordan);
+josh.changeGrade(jordan);
+josh.changeGrade(jordan);
+josh.changeGrade(jordan);   
+jordan.graduate();
