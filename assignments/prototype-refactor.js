@@ -59,6 +59,26 @@ console.log(npc.destroy());
     * should inherit destroy() from GameObject through CharacterStats
     * should inherit takeDamage() from CharacterStats
   */
+ class details extends CharacterStats {
+    constructor(attribs) {
+      super(attribs);
+      this.healthPoints = attribs.healthPoints;
+        this.weapons =attribs.weapons;
+        this.language=attribs.language;
+
+    
+    }
+    speak() {
+      console.log  `${this.name} offers a gr33ting in ${this.language}.`;
+    }
+  }
+  
+
+// let Humanoid = new CharacterStats({
+//     createdAt:today
+
+// })
+
 
 //    function Humanoid(attribs) {
 //     CharacterStats.call(this, attribs);
@@ -72,7 +92,12 @@ console.log(npc.destroy());
 //   Humanoid.prototype.greet = function() {
 //     return `${this.name} offers a gr33ting in ${this.language}.`;
 //   };
-/*
+
+
+
+
+
+  /*
  * Inheritance chain: GameObject -> CharacterStats -> Humanoid
  * Instances of Humanoid should have all of the same properties as CharacterStats and GameObject.
  * Instances of CharacterStats should have all of the same properties as GameObject.
