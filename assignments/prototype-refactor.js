@@ -7,83 +7,74 @@ Prototype Refactor
 2. Your goal is to refactor all of this code to use ES6 Classes. The console.log() statements should still return what is expected of them.
 
 */
-function GameObject(char) {
-    this.createdAt = char.createdAt;
-    this.name = char.name;
-    this.dimensions = char.dimensions;
-  }
-  GameObject.prototype.destroy = function () {
-    return `${this.name} was removed from the game.`;
-  }
-  
-  function CharacterStats(stats) {
-    GameObject.call(this, stats);
-    this.healthPoints = stats.healthPoints;
-  }
-  CharacterStats.prototype = Object.create(GameObject.prototype);
-  
-  CharacterStats.prototype.takeDamage = function () {
-    return `${this.name} took damage.`;
-  }
+class GameObject {
+    constructor(char) {
+        this.createdAt = char.createdAt;
+        this.name = char.name;
+        this.dimensions = char.dimensions;
+    }
+    destroy() {
+        return `${this.name} was removed from the game.`;
+    }
+}
 
-  function Humanoid(attrs) {
-    CharacterStats.call(this, attrs);
-    this.team = attrs.team;
-    this.weapons = attrs.weapons;
-    this.language = attrs.language;
-  }
-  Humanoid.prototype = Object.create(GameObject.prototype);
-  Humanoid.prototype = Object.create(CharacterStats.prototype);
+class CharacterStats extends GameObject {
+    constructor(stats) {
+        super(stats);
+        this.healthPoints = stats.healthPoints;
+    }
+    takeDamage() {
+        return `${this.name} took damage.`;
+    }
+}
   
-  Humanoid.prototype.greet = function () {
-    return `${this.name} offers a greeting in ${this.language}.`
-  }
-  
+
+class Humanoid extends CharacterStats {
+    constructor(attrs) {
+        super(attrs);
+        this.team = attrs.team;
+        this.weapons = attrs.weapons;
+        this.language = attrs.language;
+    }
+    greet() {
+        return `${this.name} offers a greeting in ${this.language}.`
+    }
+}
   // Hero 
   
-  function Hero(heroAttrs) {
-    Humanoid.call(this, heroAttrs);
-    this.defeatedVillian = heroAttrs.defeatedVillian;
-  }
-  
-  Hero.prototype = Object.create(GameObject.prototype);
-  Hero.prototype = Object.create(CharacterStats.prototype);
-  Hero.prototype = Object.create(Humanoid.prototype);
-  
-  Hero.prototype.isHere = function () {
-    return `${this.name}, our hero, is here!`;
-  }
-  
-  Hero.prototype.struckBack = function () {
-    return `${this.name} uses ${this.weapons}, ${villian.name} moved, but was struck in the arm.`;
-  }
-  
-  Hero.prototype.injured = function () {
-    return `${this.name} used ${this.weapons} against ${villian.name}, health has fallen to ${this.defeatedVillian}, ${this.name} defeated ${villian.name}.`;
-  };
-  
+class Hero extends Humanoid {
+    constructor(heroAttrs) {
+        super(heroAttrs);
+        this.defeatedVillian = heroAttrs.defeatedVillian;
+    }
+    isHere() {
+        return `${this.name}, our hero, is here!`;
+    }
+    struckBack() {
+        return `${this.name} uses ${this.weapons}, ${villian.name} moved, but was struck in the arm.`;
+    }
+    injured() {
+        return `${this.name} used ${this.weapons} against ${villian.name}, health has fallen to ${this.defeatedVillian}, ${this.name} defeated ${villian.name}.`;
+    };
+}
   // Villian 
-  
-  function Villian(villianAttrs) {
-    Humanoid.call(this, villianAttrs);
+
+class Villian extends Humanoid {
+  constructor(villianAttrs) {
+    super(villianAttrs);
     this.damageHealth = villianAttrs.damageHealth;
   }
-  
-  Villian.prototype = Object.create(GameObject.prototype);
-  Villian.prototype = Object.create(CharacterStats.prototype);
-  Villian.prototype = Object.create(Humanoid.prototype);
-  
-  Villian.prototype.appeared = function () {
+  appeared() {
     return `${this.name} appeared!`;
   }
-  
-  Villian.prototype.attacked = function () {
+  attacked() {
     return `${this.name} attacked ${hero.name} with ${this.weapons}, but ${hero.name} blocked the attack.`;
   }
-  
-  Villian.prototype.fallen = function () {
+  fallen() {
     return `${this.name} struck ${hero.name} with ${this.weapons}, health has fallen to ${this.damageHealth}.`;
   }
+}
+
 
   const mage = new Humanoid({
     createdAt: new Date(),
