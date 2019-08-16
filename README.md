@@ -26,7 +26,7 @@ You already pretty much know all about classes but you're used to seeing them bu
 ```js
 function Person(personAttributes)  {
   this.name = personAttributes.name;
-  this.age = personAttributes.age;
+  this.age = personAttributes.age; 
   this.location = personAttributes.location;
 }
 
