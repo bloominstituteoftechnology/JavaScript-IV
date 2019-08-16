@@ -47,7 +47,7 @@ class Villain extends Humanoid {
         this.removeHealthPoints = villanAttr.removeHealthPoints;
     }
         checkIfDestroy = function () {
-            console.log(`${this.name} lost ${this.removeHealthPoints}`)
+            return `${this.name} lost ${this.removeHealthPoints}`
         }
     
 }
@@ -57,7 +57,7 @@ class Hero extends Humanoid {
         this.saveHealthPoints = heroAttr.saveHealthPoints;
     }
         checkIfSaved = function () {
-            console.log(`${this.name} gained ${this.saveHealthPoints}`)
+            return `${this.name} gained ${this.saveHealthPoints}`
         }
     
 }
