@@ -17,7 +17,7 @@ class Person{
         this.age = attrs.age;
         this.location = attrs.location;
     }
-    speak = function(){
+    speak(){
         console.log(`Hello, my name is ${this.name}, I am from ${this.location}`);
     }
 }

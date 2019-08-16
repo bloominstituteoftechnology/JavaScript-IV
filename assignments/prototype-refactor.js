@@ -29,10 +29,10 @@ class CharacterStats extends GameObject{        //extends == Class.call
         super(attrs);                           //super == Object.create(this. Class)
         this.healthPoints = attrs.healthPoints;
     }
-    takeDamage = function(){
+    takeDamage(){
         return `${this.name} took damage. Derp`;
     }
-    checkIfDead = function(){
+    checkIfDead(){
         if (this.healthPoints <= 0){
             return true;
         }else{return false;}
@@ -47,7 +47,7 @@ class Humanoid extends CharacterStats{
         this.weapons = attrs.weapons;
         this.language = attrs.language;
     }
-    greet = function(){
+    greet(){
         return `${this.name} offers a greeting in ${this.language}`;
     }
 }
@@ -124,7 +124,7 @@ class UniqueChar extends Humanoid{
     super(attrs);
     this.damage = attrs.damage;
   }
-  attack = function(obj){
+  attack(obj){
     console.log(`${this.name} attacks ${obj.name} for ${this.damage} damage.`);
     return obj.healthPoints = obj.healthPoints - this.damage;
   }
@@ -168,11 +168,14 @@ const Hero = new UniqueChar({
 });
 
 
-//Hero vs. Villain fight//
+//-----Hero vs. Villain fight-----//
+
+//--Prints out Starting HealthPoints of both characters--//
 console.log(`${Hero.name}'s health: ${Hero.healthPoints}; ${Villain.name}'s health : ${Villain.healthPoints}.`);
 
+
 while(Hero.healthPoints > 0 && Villain.healthPoints > 0){
-  var chance = Math.random()*10;
+  var chance = Math.random()*10;  // random number between 0 and 10
   if(chance>=4){
     Hero.attack(Villain);
   }else{
@@ -182,7 +185,7 @@ while(Hero.healthPoints > 0 && Villain.healthPoints > 0){
 
 }
 if(Hero.healthPoints<0){
-  console.log(Hero.destroy());
+  console.log(Hero.destroy());  //Hero dies
 }else{
-  console.log(Villain.destroy());
+  console.log(Villain.destroy()); //Villain dies
 }
