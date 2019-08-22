@@ -80,6 +80,16 @@ const brit = new Instructor({
     subject: 'Web Development'
 });
 
+const mike = new Instructor({
+    name: 'Mike',
+    age: 40,
+    location: 'Cali',
+    specialty: 'Tacos',
+    favLanguage: 'New Yorker',
+    catchPhrase: "I'm walking here!",
+    subject: 'Math'
+});
+
 const sean = new Student({
     name: 'Sean',
     age: 'also...none of your business',
@@ -96,6 +106,23 @@ const sean = new Student({
     ' and French ',],
 });
 
+const matt = new Student({
+    name: 'Matt',
+    age: 28,
+    location: 'Barcelona',
+    specialty: 'Event planning',
+    favLanguage: 'Catalan',
+    catchPhrase: '¡Oopa!',
+    subject: 'Political Science',
+    previousBackground: 'Politics',
+    className: 'Web Dev 23',
+    favSubject: [
+    ' Catalan ', 
+    ' Political Science ', 
+    ' and Math ',],
+});
+
+
 const reed = new ProjectManager({
     name: 'Reed',
     age: 'meh? 20something?',
@@ -108,17 +135,39 @@ const reed = new ProjectManager({
     favInstructor: 'Life'
 });
 
+const lucy = new ProjectManager({
+    name: 'Lucy',
+    age: 50,
+    location: 'Korea',
+    specialty: 'Teaching kindy',
+    favLanguage: 'British English',
+    catchPhrase: 'Oh, Love!',
+    subject: 'Kindy',
+    gradClassName: 'Some Web Devs Before Us',
+    favInstructor: 'Ana Teacher'
+});
+
 const graduation = (brit.finalGrade() >= 70) ? 'You may graduate' : 'Go back to increase your score.';
 
 console.log(brit);
 console.log(brit.demo('Web Dev Fundamentals'));
 console.log(brit.grade('Sean', 'JavaScript'));
 console.log(brit.finalGrade('Sean'));
+console.log(mike);
+console.log(mike.demo('Tacos'));
+console.log(mike.grade('Sean', 'Taco constructors'));
 console.log(sean);
 console.log(sean.listsSubjects());
 console.log(sean.PRAssignment('All the FUNDAMENTALS!!'));
 console.log(sean.sprintChallenge('Applied JS!'));
 console.log(sean.graduate());
+console.log(matt);
+console.log(matt.listsSubjects());
+console.log(matt.PRAssignment('Advanced Catalan!'));
+console.log(matt.sprintChallenge('Political Science'));
 console.log(reed);
 console.log(reed.standUp("Reed's Channel"));
 console.log(reed.debugsCode("Sean", 'JavaScript'));
+console.log(lucy);
+console.log(lucy.standUp("Lucy's Channel"));
+console.log(lucy.debugsCode("Sean", 'Bootstrap'));
