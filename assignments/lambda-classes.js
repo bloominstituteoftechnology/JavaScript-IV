@@ -20,8 +20,8 @@ class Instructor extends Person {
         demo(subject){
             return `Today we are learning about ${subject}`;
         }
-        demo(){
-            return `${student.name} receives a perfect score on ${subject}`
+        grade(Student, subject){
+            return `${Student.name} receives a perfect score on ${subject}`
         }
     }
 
@@ -33,15 +33,15 @@ class Student extends Person {
         this.catchPhrase = studentattributes.catchPhrase;
         }
 
-        listsSubjects(){
+        listsSubjects(Student, subject){
             return `${this.favSubjects}`;
         }
         demo(){
-            return `${student.name} receives a perfect score on ${subject}`
+            return `${Student.name} receives a perfect score on ${subject}`
         }
 
          PRAssignment(subject) {
-            return `${student.name} has submitted a PR for ${subject}`
+            return `${Student.name} has submitted a PR for ${subject}`
         }
 
         sprintChallenge() {
@@ -57,7 +57,7 @@ class ProjectManagers extends Instructor {
         }
 
         standup (channel) {
-            return `${name} announces to ${channel}, @channel standy times!​​​​​`
+            return `${this.name} announces to ${channel}, @channel standy times!​​​​​`
         }
 
         debugsCode (subject) {
@@ -70,19 +70,54 @@ const fred = new Person({
     name: 'Fred',
     location: 'Bedrock',
     age: 37,
-    // favLanguage: 'JavaScript',
-    // specialty: 'Front-end',
-    // catchPhrase: `Don't forget the homies`
+
 })
 
 const wilma = new Person({
     name: 'Wilma',
     location: 'Rosebed',
     age: 30,
-    // favLanguage: 'Python',
-    // specialty: 'Back-end',
-    // catchPhrase: `Happy Birthday`,
+})
+
+const tom = new Instructor ({
+    name: 'Tom',
+    location: 'USA',
+    age: 30,
+    favLanguage: 'Python',
+    specialty: 'Back-end',
+    catchPhrase: `Happy Birthday`,
+})
+
+const jerry = new Instructor ({
+    name: 'Jerry',
+    location: 'Costa Rica',
+    age: 40,
+    favLanguage: 'JavaScript',
+    specialty: 'Front-end',
+    catchPhrase: `Salud`
+})
+
+
+const nicole = new Student ({
+    name: 'Nicole',
+    location: 'San Diego',
+    age: 21,
+    previousBackground: 'Sales',
+    className: 'Web-Dev23',
+    favSubjects: ['Html', 'CSS', 'JavaScript']
+})
+
+const nikki = new Student ({
+    name: 'Nikki',
+    location: 'Los Angeles',
+    age: 22,
+    previousBackground: 'Beauty',
+    className: 'Web-Dev21',
+    favSubjects: ['Python', 'React', 'C#']
 })
 
 console.log(fred.speak());
 console.log(wilma.speak());
+console.log(tom.demo("constructors"));
+console.log(jerry.demo("classes"));
+console.log(tom.grade(nikki, "constructors"));
