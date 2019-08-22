@@ -59,7 +59,7 @@ class Instructor extends Person{
 }
 
 
-const George = new Instructor ({
+const instructorGeorge = new Instructor ({
     name: "George",
     age: 33,
     location: "Utah",
@@ -68,7 +68,7 @@ const George = new Instructor ({
     catchPhrase: "Woo-Hoo!"
 })
 
-const Mary = new Instructor ({
+const instructorMary = new Instructor ({
     name: "Mary",
     age: 28,
     location: "California",
@@ -99,6 +99,32 @@ class ProjectManager extends Instructor{
     }
 }
 
+const pmCurtis = new ProjectManager ({
+    name: "Curtis",
+    age: 28,
+    location: "Montana",
+    specialty: "User Research",
+    favLanguage: "CSS",
+    catchPhrase: "Ruh-Oh",
+    gradClassName: "UX2",
+    favInstructor: "Ryan Hamblin"
+
+})
+
+const pmHannah = new ProjectManager ({
+    name: "Hannah",
+    age: 25,
+    location: "Idaho",
+    specialty: "JavaScript",
+    favLanguage: "JavaScript",
+    catchPhrase: "We got this",
+    gradClassName: "Web20",
+    favInstructor: "Nick Basile"
+
+})
+
+
+
 // * Student has the following unique props:
 //   * `previousBackground` i.e. what the Student used to do before Lambda School
 //   * `className` i.e. CS132
@@ -122,6 +148,34 @@ class Student extends ProjectManager{
         console.log(`${student.name} has begun spring challenge on ${subject}.`)
     }
 }
+
+const studentNathan = new Student ({
+    name: "Nathan",
+    age: 30,
+    location: "Wisconsin",
+    specialty: "CSS",
+    favLanguage: "HTML & CSS",
+    catchPhrase: "LOL",
+    gradClassName: "UX2",
+    favInstructor: "Christijan Draper",
+    previousBackground: "Beer Sales",
+    className: "UX2",
+    favSubjects: ["Web Dev", "User Experience Design"]
+})
+
+const studentMeera = new Student ({
+    name: "Nathan",
+    age: 30,
+    location: "Wisconsin",
+    specialty: "CSS",
+    favLanguage: "HTML & CSS",
+    catchPhrase: "LOL",
+    gradClassName: "UX2",
+    favInstructor: "Christijan Draper",
+    previousBackground: "Beer Sales",
+    className: "UX2",
+    favSubjects: ["Web Dev", "User Experience Design"]
+})
 
 
 /*
