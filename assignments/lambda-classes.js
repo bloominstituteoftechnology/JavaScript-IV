@@ -2,9 +2,9 @@
 
 class Person {
   constructor(personAttributes) {
-    this.newName = personAttributes.name;
-    this.newAge = personAttributes.age;
-    this.newLocation = personAttributes.location;
+    this.name = personAttributes.name;
+    this.age = personAttributes.age;
+    this.location = personAttributes.location;
   }
   speak() {
     return `Hello my name is ${this.newName}, I am from ${this.newLocation}`;
@@ -14,41 +14,41 @@ class Person {
 class Instructor extends Person {
   constructor(instructorAttributes) {
     super(instructorAttributes);
-    this.newSpecialty = instructorAttributes.specialty;
-    this.newFavLanguage = instructorAttributes.favLanguage;
-    this.newCatchPhrase = instructorAttributes.catchPhrase;
+    this.specialty = instructorAttributes.specialty;
+    this.favLanguage = instructorAttributes.favLanguage;
+    this.catchPhrase = instructorAttributes.catchPhrase;
   }
-  demo() {
-    return `Today we are learning about ${this.newFavSubjects}`;
+  demo(subject) {
+    return `Today we are learning about ${subject}`;
   }
-  grade() {
-    return `${this.name} receives a perfect score on the ${this.subject}}`;
+  grade(students, subject) {
+    return `${student.name} receives a perfect score on the ${subject}`;
   }
 }
 
 class Students extends Person {
   constructor(studentsAttributes) {
     super(studentsAttributes);
-    this.newPreviousBackground = studentsAttributes.previousBackground;
-    this.newClassName = studentsAttributes.className;
-    this.newFavSubjects = studentsAttributes.favSubjects;
+    this.previousBackground = studentsAttributes.previousBackground;
+    this.className = studentsAttributes.className;
+    this.favSubjects = studentsAttributes.favSubjects;
   }
   listsSubjects() {
-    return `${this.newFavSubjects}`;
+    return `${this.favSubjects}`;
   }
   PRAssignment() {
-    return `${this.newName} has submitted a PR for ${this.subject}`;
+    return `${this.name} has submitted a PR for ${this.subject}`;
   }
   sprintChallenge() {
-    return `${this.newName} has begun sprint challenge on ${this.subject}`;
+    return `${this.name} has begun sprint challenge on ${this.subject}`;
   }
 }
 
 class ProjectManager extends Instructor {
   constructor(pmAttributes) {
     super(pmAttributes);
-    this.newGradClassName = pmAttributes.gradClassName;
-    this.newFavInstructor = pmAttributes.favInstructor;
+    this.gradClassName = pmAttributes.gradClassName;
+    this.favInstructor = pmAttributes.favInstructor;
   }
   standUp() {
     return `${this.NewName} annouces to ${
@@ -56,9 +56,7 @@ class ProjectManager extends Instructor {
     }, at @channel standy times!`;
   }
   debugsCode() {
-    return `${this.newName} debugs ${student.name}'s code on the ${
-      this.subject
-    }`;
+    return `${this.newName} debugs ${arya.name}'s code on the ${this.subject}`;
   }
 }
 
