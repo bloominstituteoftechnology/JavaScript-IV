@@ -46,19 +46,71 @@ class Person {
 class Instructor extends Person{
     constructor(instructorAttributes){
         super(instructorAttributes);
-        this.specialty = instructorAttributes.specialty;
-        this.favLanguage = instructorAttributes.favLanguage;
-        this.catchPhrase = instructorAttributes.catchPhrase;
+        this.specialty = instructorAttributes.specialty,
+        this.favLanguage = instructorAttributes.favLanguage,
+        this.catchPhrase = instructorAttributes.catchPhrase
     }
     demo(subject){
-        returns `Today we are learning about ${subject}.`
+        return`Today we are learning about ${subject}`
     }
     grade(student, subject){
-        console.log (`${student.name} receives a perfect score on ${subject}.`)
+        return`${student.name} receives a perfect score on ${subject}.`
     }
 }
 
 
+
+
+// * ProjectManagers are extensions of Instructors
+// * Project Manger has the following unique props:
+// * `gradClassName`: i.e. CS1
+//   * `favInstructor`: i.e. Sean
+// * ProjectManagers have the following Methods:
+//   * `standUp` a method that takes in a slack channel and logs `{name} announces to {channel}, @channel standy times!​​​​​
+//   * `debugsCode` a method that takes in a student object and a subject and logs out `{name} debugs {student.name}'s code on {subject}`
+
+class ProjectManager extends Instructor{
+    constructor(pmAttributes){
+        super(pmAttributes);
+        this.gradClassName = pmAttributes.gradClassName;
+        this.favInstructor = pmAttributes.favInstructor;
+    }
+    standUp(slackChannel){
+        return(`${this.name} announces to ${slackChannel}, @channel standup time!`);
+    }
+    debugsCode(student, subject){
+        return(`${this.name} debugs ${student.name}'s code on ${subject}`);
+    }
+}
+
+
+
+
+
+// * Student has the following unique props:
+//   * `previousBackground` i.e. what the Student used to do before Lambda School
+//   * `className` i.e. CS132
+//   * `favSubjects`. i.e. an array of the student's favorite subjects ['Html', 'CSS', 'JavaScript']
+// * Student has the following methods:
+//   * `listsSubjects` a method that logs out all of the student's favoriteSubjects one by one.
+//   * `PRAssignment` a method that receives a subject as an argument and logs out that the `student.name has submitted a PR for {subject}`
+//   * `sprintChallenge` similar to PRAssignment but logs out `student.name has begun sprint challenge on {subject}`
+
+class Student extends Person{
+    constructor(studentAttributes){
+        super(studentAttributes);
+        this.previousBackground = studentAttributes.previousBackground;
+        this.className = studentAttributes.className;
+        this.favSubjects = studentAttributes.favSubjects;
+    }
+    listsSubjects(){
+        return this.favSubjects.forEach(item => console.log(item));
+    }
+    PRAssignment(subject){
+        return `${student.name} has begun spring challenge on ${subject}.`
+    }
+}
+//------------------INTSTRUCTOR OBJECTS--------------------
 const instructorGeorge = new Instructor ({
     name: "George",
     age: 33,
@@ -77,28 +129,7 @@ const instructorMary = new Instructor ({
     catchPhrase: "Noiiiice"
 })
 
-// * ProjectManagers are extensions of Instructors
-// * Project Manger has the following unique props:
-// * `gradClassName`: i.e. CS1
-//   * `favInstructor`: i.e. Sean
-// * ProjectManagers have the following Methods:
-//   * `standUp` a method that takes in a slack channel and logs `{name} announces to {channel}, @channel standy times!​​​​​
-//   * `debugsCode` a method that takes in a student object and a subject and logs out `{name} debugs {student.name}'s code on {subject}`
-
-class ProjectManager extends Instructor{
-    constructor(pmAttributes){
-        super(pmAttributes);
-        this.gradClassName = pmAttributes.gradClassName;
-        this.favInstructor = pmAttributes.favInstructor;
-    }
-    standUp(slackChannel){
-        console.log(`${this.name} announces to ${slackChannel}, @channel standup time!`);
-    }
-    debugsCode(student, subject){
-        console.log(`${this.name} debugs ${student.name}'s code on ${subject}`);
-    }
-}
-
+//------------------PM OBJECTS--------------------
 const pmCurtis = new ProjectManager ({
     name: "Curtis",
     age: 28,
@@ -123,32 +154,7 @@ const pmHannah = new ProjectManager ({
 
 })
 
-
-
-// * Student has the following unique props:
-//   * `previousBackground` i.e. what the Student used to do before Lambda School
-//   * `className` i.e. CS132
-//   * `favSubjects`. i.e. an array of the student's favorite subjects ['Html', 'CSS', 'JavaScript']
-// * Student has the following methods:
-//   * `listsSubjects` a method that logs out all of the student's favoriteSubjects one by one.
-//   * `PRAssignment` a method that receives a subject as an argument and logs out that the `student.name has submitted a PR for {subject}`
-//   * `sprintChallenge` similar to PRAssignment but logs out `student.name has begun sprint challenge on {subject}`
-
-class Student extends Person{
-    constructor(studentAttributes){
-        super(studentAttributes);
-        this.previousBackground = studentAttributes.previousBackground;
-        this.className = studentAttributes.className;
-        this.favSubjects = studentAttributes.favSubjects;
-    }
-    listsSubjects(){
-        this.favSubjects.forEach(item => console.log(item));
-    }
-    PRAssignment(subject){
-        console.log(`${student.name} has begun spring challenge on ${subject}.`)
-    }
-}
-
+//------------------STUDENT OBJECTS--------------------
 const studentNathan = new Student ({
     name: "Nathan",
     age: 30,
@@ -171,7 +177,12 @@ const studentMeera = new Student ({
 console.log(studentMeera.speak());
 console.log(studentNathan.listsSubjects());
 console.log(pmCurtis.standUp("Curtis-Web23"));
-console.log(pmHannah.)
+console.log(pmHannah.debugsCode(studentMeera, "JavaScript"))
+console.log(instructorGeorge.demo("CSS"));
+console.log(instructorMary.grade(studentNathan, "JavaScript"));
+
+
+
 
 
 
