@@ -53,7 +53,7 @@ class CharacterStats extends GameObject {
         this.healthPoints = charAtters.healthPoints;
     }
     //prototype stuff goes below
-    takeDamage(){
+    takeDamage() {
         console.log(`${this.name} took damage.`);
     }
 }
@@ -68,7 +68,7 @@ class CharacterStats extends GameObject {
 // Humanoid.prototype = Object.create(CharacterStats.prototype);
 // Humanoid.prototype.greet = function(){ return `Salutations, ${this.name} offers a greeting in ${this.language}.`}
 
-class Humanoid extends GameObject {
+class Humanoid extends CharacterStats {
     constructor(humAtters){
         super(humAtters);
         this.team = humAtters.team;
@@ -76,10 +76,9 @@ class Humanoid extends GameObject {
         this.language = humAtters.language;
     }
     //prototype stuff goes below
-    greet(){
-        console.log(`Salutations, ${this.name} offers a greeting in ${this.language}.`);
+    greet() {
+        console.log(`${this.name} offers a greeting in ${this.language}.`);
     }
-
 }
 
 const mage = new Humanoid({
@@ -143,5 +142,6 @@ console.log(archer.language); // Elvish
 console.log(archer.greet()); // Lilith offers a greeting in Elvish.
 console.log(mage.takeDamage()); // Bruce took damage.
 console.log(swordsman.destroy()); // Sir Mustachio was removed from the game.
+console.log(swordsman.weapons);
 
 
