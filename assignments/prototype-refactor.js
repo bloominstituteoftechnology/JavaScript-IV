@@ -170,31 +170,31 @@ class Villain extends Humanoid{
 const Paladin = new Hero ({
     createdAt: new Date(),
     dimensions: {
-      length: 2,
-      width: 3,
-      height: 3,
+        length: 2,
+        width: 3,
+        height: 3,
     },
     healthPoints: 21,
     name: 'Sir Paladin',
     team: 'Human',
     weapons: [
-      'Long Sword',
+        'Long Sword',
     ],
     language: 'Common Tongue',
-  })
-  
-  const theLich = new Villain ({
+})
+
+const theLich = new Villain ({
     createdAt: new Date(),
     dimensions: {
-      length: 2,
-      width: 2,
-      height: 4,
+        length: 2,
+        width: 2,
+        height: 4,
     },
     healthPoints: 20,
     name: 'The Lich',
     team: 'Undead',
     weapons: [
-      'Frost Magic',
+        'Frost Magic',
     ],
     language: 'Undead',
   })
