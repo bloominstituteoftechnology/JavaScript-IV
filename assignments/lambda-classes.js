@@ -27,6 +27,11 @@ class Instructor extends Person {
     grade(student, subject){
         console.log(`${student} receives a perfect score on ${subject}!`);
     }
+    finalGrade(student, min, max){
+        min = Math.ceil(0);
+        max = Math.floor(100);
+        return `${student}'s final grade is: ${Math.floor(Math.random() * (max - min)) + min}`; //th maximum is exclusive?? anf the minimum is inclusive??
+    }
 }
 
 class Student extends Person {
@@ -35,6 +40,7 @@ class Student extends Person {
         this.previousBackground = studentAtters.previousBackground;
         this.className = studentAtters.className;
         this.favSubject = studentAtters.favSubject; // an array here
+        this.grade = studentAtters.grade;
     }
     listsSubjects(){
         console.log(`${this.name}'s favorite subjects are: ${this.favSubject}.`);
@@ -45,7 +51,9 @@ class Student extends Person {
     sprintChallenge(subject){
         console.log(`${this.name} has begun sprint challenge on ${subject}`);
     } // similar to PRAssignment (accepts subject as a parameter, check) but logs out `student.name has begun sprint challenge on {subject}`
-
+    graduate(){
+        console.log(graduation);
+    }
 }
 
 class ProjectManager extends Instructor{
@@ -100,13 +108,17 @@ const reed = new ProjectManager({
     favInstructor: 'Life'
 });
 
+const graduation = (brit.finalGrade() >= 70) ? 'You may graduate' : 'Go back to increase your score.';
+
 console.log(brit);
 console.log(brit.demo('Web Dev Fundamentals'));
 console.log(brit.grade('Sean', 'JavaScript'));
+console.log(brit.finalGrade('Sean'));
 console.log(sean);
 console.log(sean.listsSubjects());
 console.log(sean.PRAssignment('All the FUNDAMENTALS!!'));
 console.log(sean.sprintChallenge('Applied JS!'));
+console.log(sean.graduate());
 console.log(reed);
 console.log(reed.standUp("Reed's Channel"));
 console.log(reed.debugsCode("Sean", 'JavaScript'));

@@ -99,7 +99,7 @@ const fred = new Instructor({
 * Student has the following methods:
   [X] `listsSubjects` a method that logs out all of the student's favoriteSubjects one by one. <-- CHECK IF THIS WORKS!! needs the function () in the console.log (same as above) -->
   [X] `PRAssignment` a method that receives a subject as an argument and logs out that the `student.name has submitted a PR for {subject}` <-- CHECK IF THIS WORKS!!....it does, just use a string in the console.log -->
-  [ ]`sprintChallenge` similar to PRAssignment but logs out `student.name has begun sprint challenge on {subject}`
+  [X]`sprintChallenge` similar to PRAssignment but logs out `student.name has begun sprint challenge on {subject}`
 
 #### Project Manager
 
@@ -109,8 +109,8 @@ const fred = new Instructor({
   [X] `gradClassName`: i.e. CS1
   [X] `favInstructor`: i.e. Sean
 * ProjectManagers have the following Methods:
-  [ ]`standUp` a method that takes in a slack channel and logs `{name} announces to {channel}, @channel standy times!​​​​​ <-- CHECK IF THIS WORKS!!-->
-  [ ] `debugsCode` a method that takes in a student object and a subject and logs out `{name} debugs {student.name}'s code on {subject}` <-- CHECK IF THIS WORKS!!-->
+  [X]`standUp` a method that takes in a slack channel and logs `{name} announces to {channel}, @channel standy times!​​​​​ <-- CHECK IF THIS WORKS!!...it does-->
+  [X] `debugsCode` a method that takes in a student object and a subject and logs out `{name} debugs {student.name}'s code on {subject}` <-- CHECK IF THIS WORKS!!...it does-->
 
 #### Stretch Problem
 
