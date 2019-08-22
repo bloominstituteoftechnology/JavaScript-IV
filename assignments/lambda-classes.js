@@ -14,14 +14,14 @@ class Person{
 class Instructor extends Person{
     constructor(instructorAttributes){
         super(instructorAttributes);
-        this.newSpecialty = redux
-        this.newFavLanguage = Javascript
-        this.newCatchPhrase = Ehhhh
+        this.newSpecialty = instructorAttributes.specialty
+        this.newFavLanguage = instructorAttributes.favLanguage
+        this.newCatchPhrase = instructorAttributes.catchPhrase
     }
-    demo(){
+    demo(subject){
         return `Today we are learning about ${subject}`  //Need to add a subject string as an argument
     }
-    grade(){
+    grade(student, subject){
         return `${student.name} receives a perfect score on {subject}`  //Need to add student as an object and a subject string as arguments
     }
 }
@@ -29,15 +29,15 @@ class Instructor extends Person{
 class Student extends Person{
     constructor(studentAttributes){
         super(studentAttributes);
-        this.previousBackground = McDonalds
-        this.className = Web23
-        this.favSubjects = HTML
+        this.previousBackground = studentAttributes.previousBackground
+        this.className = studentAttributes.className
+        this.favSubjects = studentAttributes.favSubjects
     }
     listsSubjects(){  //need a method that logs out all of the student's favoriteSubjects one by one
 
     }
     PRAssignment(){  //need a method that receives a subject as an argument and logs out that the student.name has submitted a PR for {subject}
-
+        return `${student.name} has submitted a PR for ${subject}`
     }
     sprintChallenge(){
         return `${student.name} has begun sprint challenge on ${subject}`
@@ -47,13 +47,36 @@ class Student extends Person{
 class ProjectManagers extends Instructor{
     constructor(ProjectManagersAttritubes){
         super(ProjectManagersAttritubes);
-        this.gradClassName = Web20
-        this.favInstructor = Steven
+        this.gradClassName = ProjectManagersAttritubes.gradClassName
+        this.favInstructor = ProjectManagersAttritubes.favInstructor
     }
     standUp(){
         return `${name} announces to ${channel}, @channel standy times!`
     }
-    debugsCode(){
+    debugsCode(student){
         return `${name} debugs ${student.name}'s code on ${subject}`
     }
 }
+
+const Steve = new Person({
+    name: 'Steve',
+    age: 41,
+    location: 'Seattle',
+})
+
+const Brit = new Instructor({
+    specialty: 'teaching',
+    favLanguage: 'JavaScript',
+    catchPhrase: 'Ehhhh',
+})
+
+const Skippy = new Student({
+    previousBackground: 'McDonalds',
+    className: 'Web23',
+    favSubjects: 'HTML',
+})
+
+const Tyler = new ProjectManagers({
+    gradClassName: 'Web1',
+    favInstructor: 'Shanaynay',
+})
