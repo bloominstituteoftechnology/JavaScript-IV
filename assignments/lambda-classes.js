@@ -95,7 +95,7 @@ class ProjectManager extends Instructor{
         console.log(`${this.name} announces to ${slackChannel}, @channel standup time!`);
     }
     debugsCode(student, subject){
-        console.log(`${this.name} debugs ${student.name}'s code on {subject}`);
+        console.log(`${this.name} debugs ${student.name}'s code on ${subject}`);
     }
 }
 
@@ -134,7 +134,7 @@ const pmHannah = new ProjectManager ({
 //   * `PRAssignment` a method that receives a subject as an argument and logs out that the `student.name has submitted a PR for {subject}`
 //   * `sprintChallenge` similar to PRAssignment but logs out `student.name has begun sprint challenge on {subject}`
 
-class Student extends ProjectManager{
+class Student extends Person{
     constructor(studentAttributes){
         super(studentAttributes);
         this.previousBackground = studentAttributes.previousBackground;
@@ -153,29 +153,27 @@ const studentNathan = new Student ({
     name: "Nathan",
     age: 30,
     location: "Wisconsin",
-    specialty: "CSS",
-    favLanguage: "HTML & CSS",
-    catchPhrase: "LOL",
-    gradClassName: "UX2",
-    favInstructor: "Christijan Draper",
     previousBackground: "Beer Sales",
     className: "UX2",
     favSubjects: ["Web Dev", "User Experience Design"]
 })
 
 const studentMeera = new Student ({
-    name: "Nathan",
+    name: "Meera",
     age: 30,
-    location: "Wisconsin",
-    specialty: "CSS",
-    favLanguage: "HTML & CSS",
-    catchPhrase: "LOL",
-    gradClassName: "UX2",
-    favInstructor: "Christijan Draper",
-    previousBackground: "Beer Sales",
+    location: "Utah",
+    previousBackground: "ABA Therapy",
     className: "UX2",
     favSubjects: ["Web Dev", "User Experience Design"]
 })
+
+
+console.log(studentMeera.speak());
+console.log(studentNathan.listsSubjects());
+console.log(pmCurtis.standUp("Curtis-Web23"));
+console.log(pmHannah.)
+
+
 
 
 /*
