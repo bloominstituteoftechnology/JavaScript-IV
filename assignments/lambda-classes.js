@@ -8,6 +8,15 @@
     - Students - extensions of Person
     - Project Managers - extensions of Instructors
 IMPORTANT - You'll need to create 2 - 3 objects for each class and test them according to their unique Attributes. For example:
+
+const fred = new Instructor({
+  name: 'Fred',
+  location: 'Bedrock',
+  age: 37,
+  favLanguage: 'JavaScript',
+  specialty: 'Front-end',
+  catchPhrase: `Don't forget the homies`
+});
 */
 
 // * First we need a Person class. This will be our `base-class`
@@ -49,6 +58,25 @@ class Instructor extends Person{
     }
 }
 
+
+const George = new Instructor ({
+    name: "George",
+    age: 33,
+    location: "Utah",
+    favLanguage: "JavaScript",
+    specialty: "Back-End",
+    catchPhrase: "Woo-Hoo!"
+})
+
+const Mary = new Instructor ({
+    name: "Mary",
+    age: 28,
+    location: "California",
+    favLanguage: "CSS",
+    specialty: "Front-End",
+    catchPhrase: "Noiiiice"
+})
+
 // * ProjectManagers are extensions of Instructors
 // * Project Manger has the following unique props:
 // * `gradClassName`: i.e. CS1
@@ -89,10 +117,12 @@ class Student extends ProjectManager{
     }
     listsSubjects(){
         this.favSubjects.forEach(item => console.log(item));
-        }
     }
-
+    PRAssignment(subject){
+        console.log(`${student.name} has begun spring challenge on ${subject}.`)
+    }
 }
+
 
 /*
 Stretch Problem
