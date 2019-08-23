@@ -7,7 +7,7 @@ class Person {
     this.location = personAttributes.location;
   }
   speak() {
-    return `Hello my name is ${this.newName}, I am from ${this.newLocation}`;
+    return `Hello my name is ${this.name}, I am from ${this.location}`;
   }
 }
 
@@ -19,10 +19,10 @@ class Instructor extends Person {
     this.catchPhrase = instructorAttributes.catchPhrase;
   }
   demo(subject) {
-    return `Today we are learning about ${subject}`;
+    console.log(`${this.name}: Today we are learning about ${subject}`);
   }
-  grade(students, subject) {
-    return `${student.name} receives a perfect score on the ${subject}`;
+  grade(student, subject) {
+    return `${student} receives a perfect score on the ${subject}`;
   }
 }
 
@@ -36,11 +36,11 @@ class Students extends Person {
   listsSubjects() {
     return `${this.favSubjects}`;
   }
-  PRAssignment() {
-    return `${this.name} has submitted a PR for ${this.subject}`;
+  PRAssignment(subject) {
+    return `${this.name} has submitted a PR for ${subject}`;
   }
-  sprintChallenge() {
-    return `${this.name} has begun sprint challenge on ${this.subject}`;
+  sprintChallenge(subject) {
+    return `${this.name} has begun sprint challenge on ${subject}`;
   }
 }
 
@@ -50,13 +50,11 @@ class ProjectManager extends Instructor {
     this.gradClassName = pmAttributes.gradClassName;
     this.favInstructor = pmAttributes.favInstructor;
   }
-  standUp() {
-    return `${this.NewName} annouces to ${
-      this.channel
-    }, at @channel standy times!`;
+  standUp(slackChannel) {
+    return `${this.name} annouces to ${slackChannel} at @channel standy times!`;
   }
-  debugsCode() {
-    return `${this.newName} debugs ${arya.name}'s code on the ${this.subject}`;
+  debugsCode(student, subject) {
+    return `${this.name} debugs ${student}'s code on the ${subject}`;
   }
 }
 
@@ -133,17 +131,17 @@ const varys = new ProjectManager({
 console.log(eddard.speak());
 console.log(jon.speak());
 console.log(madQueen.speak());
-console.log(jon.demo());
-console.log(madQueen.demo());
-console.log(eddard.demo());
-console.log(madQueen.grade());
+console.log(jon.demo("White Walkers"));
+console.log(madQueen.demo("Dragons"));
+console.log(eddard.demo("Honor"));
+console.log(madQueen.grade("Arya", "99"));
 
 // Student
 console.log(arya.listsSubjects());
 console.log(joffrey.listsSubjects());
-console.log(arya.PRAssignment());
-console.log(joffrey.sprintChallenge());
+console.log(arya.PRAssignment("React"));
+console.log(joffrey.sprintChallenge("Science"));
 
 // Project Managers
-console.log(tyrion.standUp());
-console.log(varys.debugsCode());
+console.log(tyrion.standUp("WEB 23"));
+console.log(varys.debugsCode("Jofrey", "JavaScript"));
