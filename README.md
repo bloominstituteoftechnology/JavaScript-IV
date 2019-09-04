@@ -1,3 +1,5 @@
+//initial commit here
+
 # JavaScript IV
 
 This challenge focuses on classes in JavaScript using the new `class` keyword.
@@ -6,16 +8,16 @@ This challenge focuses on classes in JavaScript using the new `class` keyword.
 
 **Follow these steps to set up and work on your project:**
 
-* [ ] Create a forked copy of this project.
-* [ ] Add your project manager as collaborator on Github.
-* [ ] Clone your OWN version of the repository (Not Lambda's by mistake!).
-* [ ] Create a new branch: git checkout -b `<firstName-lastName>`.
-* [ ] Implement the project on your newly created `<firstName-lastName>` branch, committing changes regularly.
-* [ ] Push commits: git push origin `<firstName-lastName>`.
+* [X] Create a forked copy of this project.
+* [X] Add your project manager as collaborator on Github.
+* [X] Clone your OWN version of the repository (Not Lambda's by mistake!).
+* [X] Create a new branch: git checkout -b `<firstName-lastName>`.
+* [X] Implement the project on your newly created `<firstName-lastName>` branch, committing changes regularly.
+* [X] Push commits: git push origin `<firstName-lastName>`.
 
 **Follow these steps for completing your project.**
 
-* [ ] Submit a Pull-Request to merge <firstName-lastName> Branch into master (student's  Repo). **Please don't merge your own pull request**
+* [X] Submit a Pull-Request to merge <firstName-lastName> Branch into master (student's  Repo). **Please don't merge your own pull request**
 * [ ] Add your project manager as a reviewer on the pull-request
 * [ ] Your project manager will count the project as complete by merging the branch back into master.
 
@@ -69,46 +71,46 @@ const fred = new Instructor({
 
 #### Person
 
-* First we need a Person class. This will be our `base-class`
-* Person receives `name` `age` `location` all as props
-* Person receives `speak` as a method.
-* This method logs out a phrase `Hello my name is Fred, I am from Bedrock` where `name` and `location` are the object's own props
+[X]First we need a Person class. This will be our `base-class`
+[X]Person receives `name` `age` `location` all as props
+[X]Person receives `speak` as a method.
+[X]This method logs out a phrase `Hello my name is Fred, I am from Bedrock` where `name` and `location` are the object's own props
 
 #### Instructor
 
 * Now that we have a Person as our base class, we'll build our Instructor class.
 * Instructor uses the same attributes that have been set up by Person
 * Instructor has the following unique props:
-  * `specialty` what the Instructor is good at i.e. 'redux'
-  * `favLanguage` i.e. 'JavaScript, Python, Elm etc.'
-  * `catchPhrase` i.e. `Don't forget the homies`
+  [X]`specialty` what the Instructor is good at i.e. 'redux'
+  [X]`favLanguage` i.e. 'JavaScript, Python, Elm etc.'
+  [X]`catchPhrase` i.e. `Don't forget the homies`
 * Instructor has the following methods:
-  * `demo` receives a `subject` string as an argument and logs out the phrase 'Today we are learning about {subject}' where subject is the param passed in.
-  * `grade` receives a `student` object and a `subject` string as arguments and logs out '{student.name} receives a perfect score on {subject}'
+  [X]`demo` receives a `subject` string as an argument and logs out the phrase 'Today we are learning about {subject}' where subject is the param passed in.
+  [X]`grade` receives a `student` object and a `subject` string as arguments and logs out '{student.name} receives a perfect score on {subject}'<-- COMPARE TO THE OTHER METHODS AND SEE IF THEY NEED THE PARAMS...they do, don't need this. in front of the string template literal --> 
 
 #### Student
 
 * Now we need some students!
 * Student uses the same attributes that have been set up by Person
 * Student has the following unique props:
-  * `previousBackground` i.e. what the Student used to do before Lambda School
-  * `className` i.e. CS132
-  * `favSubjects`. i.e. an array of the student's favorite subjects ['Html', 'CSS', 'JavaScript']
+  [X]`previousBackground` i.e. what the Student used to do before Lambda School
+  [X]`className` i.e. CS132
+  [X]`favSubjects`. i.e. an array of the student's favorite subjects ['Html', 'CSS', 'JavaScript'] <-- CHECK IF THIS WORKS!!....it does, needs the function () in the console.log -->
 * Student has the following methods:
-  * `listsSubjects` a method that logs out all of the student's favoriteSubjects one by one.
-  * `PRAssignment` a method that receives a subject as an argument and logs out that the `student.name has submitted a PR for {subject}`
-  * `sprintChallenge` similar to PRAssignment but logs out `student.name has begun sprint challenge on {subject}`
+  [X] `listsSubjects` a method that logs out all of the student's favoriteSubjects one by one. <-- CHECK IF THIS WORKS!! needs the function () in the console.log (same as above) -->
+  [X] `PRAssignment` a method that receives a subject as an argument and logs out that the `student.name has submitted a PR for {subject}` <-- CHECK IF THIS WORKS!!....it does, just use a string in the console.log -->
+  [X]`sprintChallenge` similar to PRAssignment but logs out `student.name has begun sprint challenge on {subject}`
 
 #### Project Manager
 
 * Now that we have instructors and students, we'd be nowhere without our PM's
 * ProjectManagers are extensions of Instructors
 * ProjectManagers have the following unique props:
-  * `gradClassName`: i.e. CS1
-  * `favInstructor`: i.e. Sean
+  [X] `gradClassName`: i.e. CS1
+  [X] `favInstructor`: i.e. Sean
 * ProjectManagers have the following Methods:
-  * `standUp` a method that takes in a slack channel and logs `{name} announces to {channel}, @channel standy times!​​​​​
-  * `debugsCode` a method that takes in a student object and a subject and logs out `{name} debugs {student.name}'s code on {subject}`
+  [X]`standUp` a method that takes in a slack channel and logs `{name} announces to {channel}, @channel standy times!​​​​​ <-- CHECK IF THIS WORKS!!...it does-->
+  [X] `debugsCode` a method that takes in a student object and a subject and logs out `{name} debugs {student.name}'s code on {subject}` <-- CHECK IF THIS WORKS!!...it does-->
 
 #### Stretch Problem
 
