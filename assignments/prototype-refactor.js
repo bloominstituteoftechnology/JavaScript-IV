@@ -35,6 +35,7 @@ class GameObject {
   
   class CharacterStats extends GameObject{
       constructor(characterStatsAttrs){
+        super(characterStatsAttrs);
         this.healthPoints = characterStatsAttrs.healthPoints;  
       }
     takeDamage(){
@@ -55,6 +56,7 @@ class GameObject {
    
   class Humanoid extends CharacterStats {
       constructor(humanAttrs){
+        super(humanAttrs);
         this.team = humanAttrs.team;
         this.weapons = humanAttrs.weapons;
         this.language = humanAttrs.language;
