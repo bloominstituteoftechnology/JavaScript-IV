@@ -26,21 +26,17 @@ class Instructor extends Person {
     grade() {
         return (`${this.name} receives a perfect score on ${this.specialty}`);
     }
-    score() {
-        if (this.gradingScale >= 70) {
-            return `Congratulations, you have graduated!`
-        }
-        `Still grading to determine if passing.`
-    }
+
 }
 
 
-class Students extends Instructor {
+class Students extends Person {
     constructor(studentAttributes) {
         super(studentAttributes);
         this.previousBackground = studentAttributes.previousBackground,
             this.classname = studentAttributes.classname,
             this.favSubjects = studentAttributes.favSubjects
+        this.gradingScale = studentAttributes.gradingScale
     }
     listsSubjects() {
         return ['HTML', 'CSS', 'JavaScript']
@@ -53,9 +49,9 @@ class Students extends Instructor {
     }
     score() {
         if (this.gradingScale >= 70) {
-            return `Congratulations, you have graduated!`
+            return `Congratulations, you have graduated!`;
         }
-        `Still grading to determine if passing.`
+        return `Still grading to determine if passing.`;
     }
 }
 
@@ -91,7 +87,7 @@ const student = new Students({
     previousBackground: 'teacher',
     classname: 'Web24',
     favSubjects: ['HTML', 'CSS', 'JavaScript'],
-    gradingScale: 95,
+    gradingScale: Math.floor(Math.random() * 100) + 1
 });
 
 const instruct = new Instructor({
@@ -121,4 +117,5 @@ console.log(student.prassignment());
 console.log(student.sprintChallenge());
 console.log(projectMag.standUp());
 console.log(projectMag.debugsCode());
+console.log(student.gradingScale);
 console.log(student.score());
