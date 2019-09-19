@@ -20,11 +20,11 @@ class Instructor extends Person{
     this.favLanguage = InstructorAttributes.favLanguage,
     this.catchPhrase = InstructorAttributes.catchPhrase
     }
-    demo(_subject){
-        return `Today we are learning about ${this.subject}`
+    demo(subject){
+        return `Today we are learning about ${subject}.`
     }
-    grade(_student, _object){
-        return `${this.student.name} receives a perfect score on ${this.subject}!`;
+    grade(student, subject){
+        return `${student.name} receives a perfect score on ${subject}!`;
     }
 
 }
@@ -41,8 +41,8 @@ class Student extends Instructor{
     listsSubjects(){
         return `${this.favSubjects}`
     }
-    PRAssignment(_name, _subject){
-        return `${this.student.name} has submitted a PR for ${this.subject}`;
+    PRAssignment(student, subject){
+        return `${student.name} has submitted a PR for ${subject}`;
     }
 }
 
@@ -54,11 +54,11 @@ class ProjectManager extends Student{
     this.gradClassName = ProjectManagerAttributes.gradClassName,
     this.favInstructor = ProjectManagerAttributes.favInstructor
     }   
-    standUp(_slackChannel){
-       return `${this.name} announces to ${this.channel}, @channel stand times!​​​​​`;
+    standUp(channel){
+       return `${this.name} announces to ${channel}, @channel stand times!​​​​​`;
     }
-    debugsCode(_object, _subject ){
-        return `${this.name} debugs ${this.student.name}'s code on ${this.subject}`;
+    debugsCode(student, subject ){
+        return `${this.name} debugs ${student.name}'s code on ${subject}`;
     }
 
 }
@@ -67,20 +67,20 @@ class ProjectManager extends Student{
 //instructors:
 
 const Jerry = new Instructor({
-name: 'Jerry',
-location: 'Utah',
-age: 42,
-favLanguage: 'Java',
-specialty: 'Computer Science Theory',
-catchPhrase: `Love the whales`
-});
+    name: 'Jerry',
+    location: 'Utah',
+    age: 42,
+    favLanguage: 'Java',
+    specialty: 'Computer Science Theory',
+    catchPhrase: `Love the whales`
+    });
 
 const Aya = new Instructor({
     name: 'Aya',
     location: 'Wisconsin',
     age: 48,
     favLanguage: 'C++',
-    specialty: 'devops',
+    specialty: 'DevOps',
     catchPhrase: `I like cats`
     });
 
@@ -89,13 +89,13 @@ const Aya = new Instructor({
 
 
 const Jon = new Student({
-        name: 'Jon',
-        location: 'Idaho',
-        age: 36,
-        previousBackground: `cook`,
-        className: `CS122`,
-        favSubjects: `front-end`
-        });
+    name: 'Jon',
+    location: 'Idaho',
+    age: 36,
+    previousBackground: `cook`,
+    className: `CS122`,
+    favSubjects: `front-end`
+    });
 
 const Jeremy = new Student({
     name: 'Jeremy',
@@ -125,17 +125,19 @@ const Kerin = new ProjectManager({
     favInstructor: 'Jerry'
     });
 
-//______________________________________________________________________
-//console.logs for students:
-
-console.log(Jerry.speak());
-console.log(Aya.speak());
 
 //______________________________________________________________________
 //console.logs for instructors:
 
+console.log(Jerry.speak());
+console.log(Jerry.demo('math'));
+console.log(Aya.speak());
+console.log(Aya.demo('science'));
+console.log(Jerry.grade(Jon, 'Computer Science'))
+//______________________________________________________________________
+//console.logs for students:
 
-
+console.log(Jon.)
 
 
 //______________________________________________________________________
