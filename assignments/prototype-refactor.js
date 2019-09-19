@@ -6,16 +6,6 @@ Prototype Refactor
 
 2. Your goal is to refactor all of this code to use ES6 Classes. The console.log() statements should still return what is expected of them.
 
-*/
-/*Object oriented design is commonly used in video games.  For this part of the assignment you will be implementing several constructor functions with their correct inheritance hierarchy.
-
-In this file you will be creating three constructor functions: GameObject, CharacterStats, Humanoid.  
-
-At the bottom of this file are 3 objects that all end up inheriting from Humanoid.  Use the objects at the bottom of the page to test your constructor functions.
-
-Each constructor function has unique properties and methods that are defined in their block comments below:
-*/
-
 /*
 === GameObject ===
 * createdAt
@@ -24,16 +14,17 @@ Each constructor function has unique properties and methods that are defined in 
 * destroy() // prototype method that returns: `${this.name} was removed from the game.`
 */
 
-function GameObject(attributes) {
+class GameObject{
+    constructor(attributes){
 this.createdAt = attributes.createdAt,
 this.name =  attributes.name,
 this.dimensions = attributes.dimensions
+    }
+
+    destroy() {
+    return `${this.name} was removed from the game`
+    }
 }
-
-GameObject.prototype.destroy = function () {
-return `${this.name} was removed from the game`
-};
-
 
 
 
@@ -43,15 +34,15 @@ return `${this.name} was removed from the game`
 * takeDamage() // prototype method -> returns the string '<object name> took damage.'
 * should inherit destroy() from GameObject's prototype
 */
-function CharacterStats(attributes) {
-GameObject.call(this, attributes),
-this.healthPoints = attributes.healthPoints
-  }
-CharacterStats.prototype = GameObject.prototype;
-CharacterStats.prototype.takeDamage = function () {
-return `${this.name} took damage.`
-};
-
+class CharacterStats extends GameObject{
+    constructor(childAttributes){
+    super(childAttributes);
+    this.healthPoints = childAttributes.healthPoints
+    }
+    takeDamage(_destroy) {
+    return `${this.name} took damage.`
+    };
+}
 
 /*
 === Humanoid (Having an appearance or character resembling that of a human.) ===
@@ -63,17 +54,17 @@ return `${this.name} took damage.`
 * should inherit takeDamage() from CharacterStats
 */
 
-function Humanoid(attributes) {
-CharacterStats.call(this, attributes),
-this.team = attributes.team,
-this.weapons = attributes.weapons,
-this.language = attributes.language
+class Humanoid extends CharacterStats {
+    constructor(grandChildAttributes) {
+    super(grandChildAttributes);
+    this.team = grandChildAttributes.team,
+    this.weapons = grandChildAttributes.weapons,
+    this.language = grandChildAttributes.language
+    }
+    greet(_destroy, _takeDamage) {
+    return `${this.name} offers a greeting in ${this.language}.`
+    };
 }
-Humanoid.prototype = CharacterStats.prototype;
-Humanoid.prototype.greet = function () {
-return `${this.name} offers a greeting in ${this.language}.`
-};
-
 
 
 
