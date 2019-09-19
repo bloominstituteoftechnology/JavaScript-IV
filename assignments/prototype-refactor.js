@@ -144,11 +144,11 @@ const badGuy = new EvilCharacter({
         height: 3
     },
     healthPoints: 15,
-    attackPoints: 3,
+    attackPoints: 4,
     name: "Sir EVILTON",
     team: "THE GROUP OF EV1L",
     weapons: [
-        "Fists",
+        "Dagger",
         "Feet",
     ],
     language: "Common Tongue",
@@ -157,16 +157,16 @@ const badGuy = new EvilCharacter({
 
 
 
-console.log(mage.createdAt); // Today's date
-console.log(archer.dimensions); // { length: 1, width: 2, height: 4 }
-console.log(swordsman.healthPoints); // 15
-console.log(mage.name); // Bruce
-console.log(swordsman.team); // The Round Table
-console.log(mage.weapons); // Staff of Shamalama
-console.log(archer.language); // Elvish
-console.log(archer.greet()); // Lilith offers a greeting in Elvish.
-console.log(mage.takeDamage()); // Bruce took damage.
-console.log(swordsman.destroy()); // Sir Mustachio was removed from the game.
+// console.log(mage.createdAt); // Today's date
+// console.log(archer.dimensions); // { length: 1, width: 2, height: 4 }
+// console.log(swordsman.healthPoints); // 15
+// console.log(mage.name); // Bruce
+// console.log(swordsman.team); // The Round Table
+// console.log(mage.weapons); // Staff of Shamalama
+// console.log(archer.language); // Elvish
+// console.log(archer.greet()); // Lilith offers a greeting in Elvish.
+// console.log(mage.takeDamage()); // Bruce took damage.
+// console.log(swordsman.destroy()); // Sir Mustachio was removed from the game.
 
 
 console.log(badGuy.greet());
