@@ -19,7 +19,7 @@ class Instructor extends Person {
     this.catchPhrase = attribute.catchPhrase;
   }
   demo(subject) {
-    return `Today we are learning about ${this.subject}.`;
+    return `Today we are learning about ${subject}.`;
   }
   grade(student, subject) {
     return `${student.name} receives a perfect score on ${this.subject}!`;
@@ -51,10 +51,10 @@ class ProjectManager extends Instructor {
     this.favInstructor = attribute.favIntructor;
   }
   standUp(channel) {
-    return `${this.name} announce to ${channel}, @channel standy times!`;
+    return `${this.name} announces to ${channel}, @channel standy times!`;
   }
   debugsCode(student, subject) {
-    return `${this.name} debugs ${student.name}'s code on ${subject}.`;
+    return `${this.name} debugs ${student}'s code on ${subject}.`;
   }
 }
 
@@ -73,7 +73,7 @@ const student_two = new Student({
   location: "Salt Lake City",
   previousBackground: "Sales",
   className: "Javascript II",
-  favSubjects: ["HTML", "Javascript", "CS"]
+  favSubjects: ["Javascript", "Redux"]
 });
 
 const student_three = new Student({
@@ -82,7 +82,7 @@ const student_three = new Student({
   location: "San Antonio",
   previousBackground: "Retail",
   className: "Javascript II",
-  favSubjects: ["HTML", "Javascript", "CS"]
+  favSubjects: ["HTML", "CSS", "npm"]
 });
 
 const instructor_one = new Instructor({
@@ -126,3 +126,6 @@ const projectManager_two = new ProjectManager({
 });
 
 console.log(student_three.PRAssignment("CSS"));
+console.log(projectManager_one.standUp("Web24"));
+console.log(projectManager_two.debugsCode("Greg", "CSS"));
+console.log(instructor_two.demo("callback functions"));
