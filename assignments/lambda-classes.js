@@ -6,24 +6,24 @@ class Person {
         this.location = props.location;
     }
     speak () {
-        return `Hellp, my name is ${this.name}, I am from ${this.location} `
+        return `Hello, my name is ${this.name}, I am from ${this.location} `
     }
     
 }
 
 class Instructor extends Person {
-    constuctor(props) {
-    super(props);
-    this.specialty = props.specialty;
-    this.favLanguage = props.favLanguage;
-    this.catchPhrase = props.catchPhrase;
+    constructor(people) {
+    super(people);
+    this.specialty = people.specialty;
+    this.favLanguage = people.favLanguage;
+    this.catchPhrase = people.catchPhrase;
     }
     demo (subject) {
         return `Today we are learning about ${subject}`;
     };
 
-    grade (subject) {
-        return `${student.name} recieves a perfect score on ${subject}`
+    grade (name, subject) {
+        return `${name} recieves a perfect score on the ${subject} test`
     }
 
 }
@@ -93,7 +93,7 @@ const rodger = new Instructor({
     gradClassName: `CS1`, 
     className: `CS132`,
     favSubjects: `CSS`,
-    previousBackground: `Dishwasher`
+    previousBackground: `Dishwasher`,
   });
 
   const kristen = new Student({
@@ -106,11 +106,12 @@ const rodger = new Instructor({
     gradClassName: `CS7`, 
     favInstructor: `Bill`,
     className: `CS135`,
-    previousBackground: `Dishwasher`
+    previousBackground: `Dishwasher`,
+    favSubjects: `Math`
   });
 
- const diane = new ProjectManagers({
-    name: 'Diane',
+ const dani = new ProjectManagers({
+    name: 'Dani',
     location: 'Charlotte',
     age: 41,
     favLanguage: 'C++',
@@ -126,7 +127,7 @@ const rodger = new Instructor({
   const diane = new ProjectManagers({
     name: 'Diane',
     location: 'Vegas',
-    age: 41,
+    age: 35,
     favLanguage: 'C#',
     specialty: 'back-end',
     catchPhrase: `That was easy`,
@@ -136,3 +137,14 @@ const rodger = new Instructor({
     favSubjects: `C#`,
     previousBackground: 'stripping'
   });
+
+  console.log(diane.speak());
+  console.log(kristen.listsSubjects());
+  console.log(kristen.PRAssignment(`CSS`));
+  console.log(karen.sprintChallenge(`Javascript`));
+  console.log(kevin.demo(`math`));
+  console.log(rodger.grade(`Karen`, `science`));
+  console.log(diane.standUp(`Diane`, `slack`));
+  console.log(dani.debugsCode(`Jonathan`, `Javascript`));  
+  
+
