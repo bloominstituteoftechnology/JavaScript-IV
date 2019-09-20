@@ -28,7 +28,7 @@ class Instructor extends Person {
 
 }
 
-class student extends Person {
+class Student extends Person {
     constructor(props)  {
     super(props);
     this.previousBackground = props.previousBackground;
@@ -65,6 +65,74 @@ class ProjectManagers extends Instructor {
   }
 }
 
+const rodger = new Instructor({
+    name: 'Rodger',
+    location: 'New York',
+    age: 26,
+    favLanguage: 'JavaScript',
+    specialty: 'Front-end',
+    catchPhrase: `Milirock`
+  });
 
+  const kevin = new Instructor({
+    name: 'Kevin',
+    location: 'New Jeresy',
+    age: 33,
+    favLanguage: 'JavaScript',
+    specialty: 'back-end',
+    catchPhrase: `Peace of cake`
+  });
 
+  const karen = new Student({
+    name: 'Karen',
+    location: 'texas',
+    age: 30,
+    favLanguage: 'C#',
+    specialty: 'back-end',
+    catchPhrase: `One at a time`,
+    gradClassName: `CS1`, 
+    className: `CS132`,
+    favSubjects: `CSS`,
+    previousBackground: `Dishwasher`
+  });
 
+  const kristen = new Student({
+    name: 'Kristen',
+    location: 'Greenbay',
+    age: 19,
+    favLanguage: 'CSS',
+    specialty: 'front-end',
+    catchPhrase: `I love Jesus`,
+    gradClassName: `CS7`, 
+    favInstructor: `Bill`,
+    className: `CS135`,
+    previousBackground: `Dishwasher`
+  });
+
+ const diane = new ProjectManagers({
+    name: 'Diane',
+    location: 'Charlotte',
+    age: 41,
+    favLanguage: 'C++',
+    specialty: 'back-end',
+    catchPhrase: `Just do it`,
+    gradClassName: `CS9`, 
+    favInstructor: `Tommy`,
+    className: `CS138`,
+    favSubjects: `CSS`,
+    previousBackground: 'sewing'
+  });
+
+  const diane = new ProjectManagers({
+    name: 'Diane',
+    location: 'Vegas',
+    age: 41,
+    favLanguage: 'C#',
+    specialty: 'back-end',
+    catchPhrase: `That was easy`,
+    gradClassName: `CS9`, 
+    favInstructor: `Hilary`,
+    className: `CS138`,
+    favSubjects: `C#`,
+    previousBackground: 'stripping'
+  });
