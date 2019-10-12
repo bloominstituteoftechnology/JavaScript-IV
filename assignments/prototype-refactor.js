@@ -37,20 +37,21 @@ class Parent {
 		}//Child
 --------------------------------------------------------------------
 */
-class Parent {
-	GameObject(objects) {
-	this.createdAt = objects.createdAt;
-	this.name = objects.name;
-	this.dimensions = objects.dimensions;
-	}
-	destroy() {
-		return `${this.name} was removed from the game.`;
+class GameObject {
+			constructor(objects) {
+			this.createdAt = objects.createdAt;
+			this.name = objects.name;
+			this.dimensions = objects.dimensions;
+			}
+			destroy() {
+				return `${this.name} was removed from the game.`;
+		
 	}
 
-}
+}	
 
-class Child extends Parent {
-	CharacterStats(stats) {
+class CharacterStats extends GameObject{
+	constructor(stats) {
 	super(stats);
 	this.healthPoints = stats.healthPoints;
 	};
@@ -62,8 +63,8 @@ class Child extends Parent {
 
 
 
-class grandchild extends Child {
-	Humanoid(attributes) {
+class Humanoid extends CharacterStats{
+	constructor(attributes) {
 	super(attributes);	 
 	this.team = attributes.team;
 	this.weapons = attributes.weapons;

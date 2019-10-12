@@ -1,71 +1,85 @@
 // CODE here for your Lambda Classes
 //Parent
 class Parent {
-	person(attributes) {
+		constructor(attributes) {
 		this.newName = attributes.name;
 		this.newAge = attributes.age;
 		this.newLocation = attributes.location;
-	}
+		}
 
 //Method
-	speak() {
-			return `Hell my name is ${this.name}, I am from ${this.location}.`;
+		speak() {
+			return `Hello my name is ${this.name}, I am from ${this.location}.`;
 			console.log(speak());
 		}
 }
 //---------------------------
 //Child	
-class Child extends Person {
-	instructors(resume) {
-		super();
+class Child extends Parent {
+		constructor(resume) {
+		super(resume);
 		this.newSpecialty = resume.specialty;
 		this.newfavLanguage = resume.favLanguage;
 		this.newcatchPhrase = resume.catchPhrase;
 		
-	}
-
-//Method
-	demo(subject) {
-			return `Today we are learning about ${subject}.`;
 		}
-		grade() {
-				return `${student.name}receives a perfect score on ${subject}.`;
+
+//Methods
+		demo(subject) {
+			return `Today we are learning about ${subject}.`;
+			console.log(demo(subject));
+				
 			}
-}
+
+		grade(student, subject) {
+			return `Hello ${student.name}receives a perfect score on ${subject}.`;				
+			console.log(grade('Kara','hello'))			
+				}
+
+}		
+			
+		
+
 //---------------------------	
 //Grandchild
-class Grandchild extends Child {
-	students(report) {
+class GrandChild extends Child {
+		constructor(report) {
+		super(report);
 		this.newPreviousBackground = report.previousBackground;
 		this.newClassName = report.className;
 		this.newFavSubjects = report.favSubjects;
-		super(report);
+		
 	}
-}
+
 //Methods
-	listSubjects() {// a method that logs out all of the student's favoriteSubjects one by one.
-			return `${student.name}receives a perfect score on ${subject}.`;
-		}
-		PRAssignment() {//a method that receives a subject as an argument and logs out that the student.name has submitted a PR for {subject}
-				return `${student.name}receives a perfect score on ${subject}.`;
+		listSubjects(student, favSubjects) {// a method that logs out all of the student's favoriteSubjects one by one.
+			return `${student.name}receives a perfect score on ${this.favSubjects}.`;
+			console.log(listSubjects());
 			}
-			sprintChallenge() {//similar to PRAssignment but logs out student.name has begun sprint challenge on {subject}
-					return ``;
-				}
+		PRAssignment() {//a method that receives a subject as an argument and logs out that the student.name has submitted a PR for {subject}
+			return `${student.name}receives a perfect score on ${subject}.`;
+			console.log(PRAssignment());
+			}
+		sprintChallenge() {//similar to PRAssignment but logs out student.name has begun sprint challenge on {subject}
+			return ``;
+			}
+}
+
 //---------------------------
 //GreatGrandchild
 class GreatGrandchild extends GrandChild {
-	projectManagers(personal) {
+		constructor(personal) {
+		super(personal);
 		this.newstandUp = personal.standup;
 		this.newFavInstructor = personal.favInstructor;
-		super(personal);
+		
 	}
 
 //Method
-	standUp() {//a method that takes in a slack channel and logs `{name} announces to {channel}, @channel standy times!​​​​​
-		return ``;
-		}
-		debugsCodes() {//a method that takes in a student object and a subject and logs out {name} debugs {student.name}'s code on {subject}
+		standUp() {//a method that takes in a slack channel and logs `{name} announces to {channel}, @channel standy times!​​​​​
+			return ``;
+			}
+		debugsCodes(student, subject) {//a method that takes in a student object and a subject and logs out {name} debugs {student.name}'s code on {subject}
 			return ``;
 			}
 }
@@ -75,86 +89,86 @@ class GreatGrandchild extends GrandChild {
 
 
 //----Objects====
-//----Person------
+//----Parent------
 //1.
-const firstPerson = new person({
+const firstPerson = new Parent({
   name: 'Gildo',
   age: 11,
   location: 'New Brunswick'
 });
 
 //2.
-const secondPerson = new person({
+const secondPerson = new Parent({
   name: 'Galarny',
   age: 13,
   location: 'San Salvador',
  });
-const thirdPerson = new person({
+const thirdPerson = new Parent({
   name: 'Beckwith',
   age: 26,
   location: 'Calgary'
  });
 
 
-//----- Instructor ------
+//----- Child ------
 //1.
-const firstInstructor = new instructor({
+const firstInstructor = new Child({
   specialty: 'History',
   favLanguage: 'Dothraky',
   catchPhrase: 'You know nuthin'
 });
 
 //2.
-const secondInstructor = new instructor({
-  specialty: 'Alchemy'
+const secondInstructor = new Child({
+  specialty: 'Alchemy',
   favLanguage: 'Elvin',
-  catchPhrase: 'Tu-wotha',  
+  catchPhrase: 'Tu-wotha'  
 });
 
 
 //3.
-const thirdInstructor = new instructor({
-  specialty: 'metalurgy'
+const thirdInstructor = new Child({
+  specialty: 'metalurgy',
   favLanguage: 'muckduck',
   catchPhrase: 'All hands in the pot',  
 });
 
-//---- Students -----
+//---- Grandchild -----
 //1.
-const firstStudent = new students({
-  previousBackground: '',
-  className: ,
-  favSubjects: '',
+const firstStudent = new GrandChild({
+  previousBackground: 'Detroit auto worker',
+  className: 'webpt11' ,
+  favSubjects: ['javascript', 'html', 'css'],
 });
 
 //2.
-const d = new students({
-  previousBackground: '',
-  className: ,
-  favSubjects: '',
+const d = new GrandChild({
+  previousBackground: 'coal miner',
+  className: 'webpt11',
+  favSubjects: ['javascript', 'html', 'css']
 });
 
 //3.
-const d = new students({
-  previousBackground: '',
-  className: ,
-  favSubjects: '',
+const z = new GrandChild({
+  previousBackground: 'truck driver',
+  className: 'webpt11',
+  favSubjects: ['javascript', 'html', 'css'],
 });
-//---- PM's ------
+//---- Great Grand Child ------
 //1.
-const g = new projectManagers({
-  standUp: '',
-  favInstructor: , 
+const g = new GreatGrandchild({
+  gradClassName: 'webpt11',
+  favInstructor: 'Josh Knell', 
 });
 
 //2.
-const g = new projectManagers({
-  standUp: '',
-  favInstructor: , 
+const y = new GreatGrandchild({
+  gradClassName: 'webpt11',
+  favInstructor: 'Josh Knell', 
 });
 
 //3.
-const g = new projectManagers({
-  standUp: '',
-  favInstructor: , 
+const m = new GreatGrandchild({
+  gradClassName: 'webpt11',
+  favInstructor: 'Josh Knell', 
 });
