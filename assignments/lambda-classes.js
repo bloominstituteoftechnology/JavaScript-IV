@@ -43,7 +43,7 @@ class Student extends Person {
     }
 }
 
-class TeamLead extends Instructors {
+class TeamLead extends Instructor {
     constructor(attrs) {
         super(attrs);
         this.gradClassName = attrs.gradClassName;
@@ -57,10 +57,57 @@ class TeamLead extends Instructors {
     }
 }
 
-const instructor = new Instructor({
-    
+// class Person {
+//     constructor(attrs) {
+//         this.name = attrs.name;
+//         this.location = attrs.location;
+//         this.age = attrs.age;
+//     }
+
+const instructor_one = new Instructor({
+    name: 'Charles',
+    location: 'Wisconsin',
+    age: 35,
+    specialty:  'Javascript',
+    favLanguage: 'Javascript',
+    catchPhrase: 'Remember the classes!'
 })
 
 const student_one = new Student({
-
+    name: 'Brenda',
+    location: 'Florida',
+    age: 22,
+    previousBackground: 'Retail',
+    className: 'WEBPT11',
+    favSubjects: ['Math', 'Graphic Design', 'HTML', 'CSS'],
 })
+
+const student_two = new Student({
+    name: 'Linda',
+    location: 'Colorado',
+    age: 24,
+    previousBackground: 'Customer Service Representative',
+    className: 'WEB22',
+    favSubjects: ['Creative Writing', 'Drawing101', 'Javascript', 'Music Theory']
+})
+
+const student_three = new Student({
+    name: 'Bob',
+    location: 'Kentucky',
+    age: 50,
+    previousBackground: 'Cashier',
+    className: 'WEBPT8',
+    favSubjects: ['Calculus', 'Science', 'Python', 'Drama']
+})
+
+const team_lead = new TeamLead({
+    name: 'Leo',
+    location: 'California',
+    age: 27,
+    specialty:  'Javascript',
+    favLanguage: 'Javascript',
+    catchPhrase: 'Don\'t throw me under the bus!',
+    gradClassName: 'WEB22',
+    favInstructor: 'Pace'
+})
+
