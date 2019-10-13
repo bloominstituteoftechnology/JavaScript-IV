@@ -53,7 +53,7 @@ class TeamLead extends Instructor {
         return `${this.name} announces to ${slackChannel}, @channel standy times!`;
     }
     debugsCode(student, subject) {
-        return `${this.name} debugs ${student.name}'s code on ${subject}`
+        return `${this.name} debugs ${student}'s code on ${subject}`
     }
 }
 
@@ -111,3 +111,14 @@ const team_lead = new TeamLead({
     favInstructor: 'Pace'
 })
 
+console.log(student_one.name);
+console.log(instructor_one.favLanguage);
+console.log(instructor_one.demo('Math'));
+console.log(instructor_one.grade(student_two.name, 'Drama'));
+console.log(team_lead.name);
+console.log(team_lead.catchPhrase);
+console.log(student_three.favSubjects);
+console.log(team_lead.debugsCode(student_three.name, student_three.favSubjects[1]));
+console.log(team_lead.standUp('webpt11'));
+console.log(team_lead.speak());
+console.log(instructor_one.speak());
