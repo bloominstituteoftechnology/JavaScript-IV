@@ -1,6 +1,5 @@
 // CODE here for your Lambda Classes
-//Step 1: Create the classes for: Person, Instructor, Student, and Project Manager
-
+/******Step 1: Create the classes for: Person, Instructor, Student, and Project Manager********/
 //'Person' is the base class
 class Person {
   constructor(parentAttributes) {
@@ -72,3 +71,37 @@ class Project extends Instructor {
     console.log(`${this.name} debugs ${this.name}`);
   }
 }
+
+/*****STEP 2:CREATE PERSON, INSTRUCTOR(SAMPLE GIVEN TO US), STUDENT, AND PROJECT MANAGER OBJECTS */
+//Sample Instructor object
+// const fred = new Instructor({
+//   name: 'Fred',
+//   location: 'Bedrock',
+//   age: 37,
+//   favLanguage: 'JavaScript',
+//   specialty: 'Front-end',
+//   catchPhrase: `Don't forget the homies`
+// });
+
+//Person object
+const todd = new Person({
+  name: 'Liam Murphy',
+  age: 44,
+  location: 'Halifax, Nova Scotia, Canada'
+});
+
+// Instructor object
+const marina = new Instructor({
+  name: 'Marina Baskova',
+  age: '58',
+  location: 'San Fran, California, United States'
+});
+
+//Student object
+const alicia = new Student({
+  name: 'Alicia Murphy',
+  age: 40,
+  locaton: 'Toronto, Ontario, Canada'
+});
+
+//Project Manager object
