@@ -123,3 +123,10 @@ const don = new Project({
 });
 
 console.log(todd.speak()); //logs 'Hello, my name is Liam Murphy, I am from Halifax, Nova Scotia, Canada'
+console.log(marina.demo());
+console.log(marina.grade());
+console.log(alicia.listSubjects());
+console.log(alicia.PRAssignment());
+console.log(alicia.sprintChallenge());
+console.log(don.standUp());
+consolelog(don.debugsCode());
