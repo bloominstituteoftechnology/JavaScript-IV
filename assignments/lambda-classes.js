@@ -24,8 +24,9 @@ class Instructor extends Person {
   demo() {
     return `Today we are learning about ${this.speciality}`;
   }
-  grade() {
-    return `${this.name} receives a perfect score on ${this.favLanguage}`;
+  //pass in a the 'alica' object as 'studentObject' to access student properties,
+  grade(studentObject) {
+    return `${studentObject.name} receives a perfect score on ${this.favLanguage}`;
   }
 }
 
@@ -60,8 +61,9 @@ class Project extends Instructor {
   standUp() {
     return `${this.name} announces to the ${this.gradClassName}, @channel standy times and I'm back!.`;
   }
-  debugsCode() {
-    return `${this.name} debugs ${this.name} code on ${this.favSubjects}`;
+  //pass in a the 'alica' object as 'studentObject' to access student properties, and pass in 'subject' parameter.
+  debugsCode(studentObject, studentSubject) {
+    return `${this.name} debugs ${studentObject.name} code on ${studentSubject}`;
   }
 }
 
@@ -114,9 +116,9 @@ const john = new Project({
 
 console.log(todd.speak()); //logs 'Hello, my name is Liam Murphy, I am from Halifax, Nova Scotia, Canada'
 console.log(marina.demo()); //logs 'Today we are learning about node.js'
-console.log(marina.grade()); //logs 'Marina Baskova receives a perfect score on JavaScript '
+console.log(marina.grade(alicia)); //logs 'Alicia Murphy receives a perfect score on JavaScript '
 console.log(alicia.listSubjects()); //logs 'HTML, CSS, JavaScript'
 console.log(alicia.PRAssignment()); //logs 'Alicia Murph has submitted a PR for HTML, CSS, JavaScript'
 console.log(alicia.sprintChallenge()); //logs 'Alica Murphy has begun a sprint challenge on HTML, CSS, JavaScript'
 console.log(john.standUp()); //logs 'John Wick announces to the Web 16, @channel standy times and I'm Back.'
-console.log(john.debugsCode()); //logs 'John Wick debugs code on undefined'
+console.log(john.debugsCode(alicia, 'UI/UX')); //logs 'John Wick debugs Alicia Murphy code on UI/UX'
