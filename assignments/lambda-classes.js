@@ -116,9 +116,9 @@ const john = new Project({
 
 console.log(todd.speak()); //logs 'Hello, my name is Liam Murphy, I am from Halifax, Nova Scotia, Canada'
 console.log(marina.demo()); //logs 'Today we are learning about node.js'
-console.log(marina.grade(alicia)); //logs 'Alicia Murphy receives a perfect score on JavaScript '
+console.log(marina.grade(alicia)); //logs pass in the 'student' object to access student properties.'Alicia Murphy receives a perfect score on JavaScript '
 console.log(alicia.listSubjects()); //logs 'HTML, CSS, JavaScript'
 console.log(alicia.PRAssignment()); //logs 'Alicia Murph has submitted a PR for HTML, CSS, JavaScript'
 console.log(alicia.sprintChallenge()); //logs 'Alica Murphy has begun a sprint challenge on HTML, CSS, JavaScript'
 console.log(john.standUp()); //logs 'John Wick announces to the Web 16, @channel standy times and I'm Back.'
-console.log(john.debugsCode(alicia, 'UI/UX')); //logs 'John Wick debugs Alicia Murphy code on UI/UX'
+console.log(john.debugsCode(alicia, 'UI/UX')); //logs pass in the 'student' object to access student properties. 'John Wick debugs Alicia Murphy code on UI/UX'
