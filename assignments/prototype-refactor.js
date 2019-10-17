@@ -25,14 +25,19 @@ Prototype Refactor
   * dimensions (These represent the character's size in the video game)
   * destroy() // prototype method that returns: `${this.name} was removed from the game.`
 */
- function GameObject (mainat) {
+ class GameObject {
+     constructor(mainat){
     this.createdAt = mainat.createdAt;
     this.dimensions = mainat.dimensions;
     this.name = mainat.name;
+     }
+  
+  
+     destroy() {
+        return `${this.name} was removed from the game.`;
+    }
   };
-    GameObject.prototype.destroy = function() {
-      return `${this.name} was removed from the game.`;
-    };
+   
   
   
   /*
@@ -41,16 +46,17 @@ Prototype Refactor
     * takeDamage() // prototype method -> returns the string '<object name> took damage.'
     * should inherit destroy() from GameObject's prototype
   */
-  function CharacterStats(mainat) {
-    GameObject.call(this, mainat);
+  class CharacterStats extends GameObject {
+    constructor(mainat){
+    super(mainat);
     this.healthPoints = mainat.healthPoints;
-    this.name = mainat.name;
-  }
-  CharacterStats.prototype = Object.create(GameObject.prototype);
-  
-  CharacterStats.prototype.takeDamage = function() {
+   }
+    takeDamage() {
     return `${this.name} took damage`;
   };
+}
+  
+
   
   /*
     === Humanoid (Having an appearance or character resembling that of a human.) ===
@@ -61,18 +67,21 @@ Prototype Refactor
     * should inherit destroy() from GameObject through CharacterStats
     * should inherit takeDamage() from CharacterStats
   */
-  function Humanoid(mainat) {
-    CharacterStats.call(this, mainat);
+  class Humanoid extends CharacterStats {
+    constructor(mainat){
+    super(mainat);
     this.team = mainat.team;
     this.weapons = mainat.weapons;
     this.language = mainat.language;
+    }
+    greet() {
+        return `${this.name} offers a greeting in ${this.language}.`;
+      };
+
   }
   
-  Humanoid.prototype = Object.create(CharacterStats.prototype);
   
-  Humanoid.prototype.greet = function() {
-    return `${this.name} offers a greeting in ${this.language}.`;
-  };
+
    
   /*
     * Inheritance chain: GameObject -> CharacterStats -> Humanoid
