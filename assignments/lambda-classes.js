@@ -4,6 +4,7 @@
 class Person {
   constructor(parentAttributes) {
     this.name = parentAttributes.name;
+    this.age = parentAttributes.age;
     this.location = parentAttributes.location;
   }
   speak() {
@@ -94,14 +95,27 @@ const todd = new Person({
 const marina = new Instructor({
   name: 'Marina Baskova',
   age: '58',
-  location: 'San Fran, California, United States'
+  location: 'San Fran, California, United States',
+  speciality: 'excellent communication',
+  favLanguage: 'JavaScript',
+  catchPhrase: 'Our team is the best!'
 });
 
 //Student object
 const alicia = new Student({
   name: 'Alicia Murphy',
   age: 40,
-  locaton: 'Toronto, Ontario, Canada'
+  locaton: 'Toronto, Ontario, Canada',
+  previousBackground: 'startups',
+  className: 'Web25',
+  favSubjects: [HTML, CSS, JavaScript]
 });
 
 //Project Manager object
+const don = new Project({
+  name: 'Donald Murphy',
+  age: 75,
+  location: 'In hiding and healing from a beat down somewhere, Canada',
+  gradClassName: 'Web 16',
+  favInstructor: 'John Wick'
+});
