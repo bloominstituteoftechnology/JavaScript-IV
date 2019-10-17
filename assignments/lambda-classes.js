@@ -8,9 +8,7 @@ class Person {
     this.location = parentAttributes.location;
   }
   speak() {
-    return console.log(
-      `Hello, my name is ${this.name}, I am from ${this.location}.`
-    );
+    return `Hello, my name is ${this.name}, I am from ${this.location}.`;
   }
 }
 
@@ -24,12 +22,10 @@ class Instructor extends Person {
     this.catchPhrase = instructorAttributes.catchPhrase;
   }
   demo() {
-    return console.log(`Today we are learning about ${this.subject}`);
+    return `Today we are learning about ${this.speciality}`;
   }
   grade() {
-    return console.log(
-      `${this.name} receives a perfect score on ${this.subject}`
-    );
+    return `${this.name} receives a perfect score on ${this.favLanguage}`;
   }
 }
 
@@ -43,17 +39,13 @@ class Student extends Person {
     this.favSubjects = studentAttributes.favSubjects;
   }
   listSubjects() {
-    return console.log(`${this.favSubjects}`);
+    return `${this.favSubjects}`;
   }
   PRAssignment() {
-    return console.log(
-      `${this.name} has submitted a PR for ${this.favSubjects}`
-    );
+    return `${this.name} has submitted a PR for ${this.favSubjects}`;
   }
   sprintChallenge() {
-    return console.log(
-      `${this.name} has begun a sprint challenge on ${this.favSubjects}`
-    );
+    return `${this.name} has begun a sprint challenge on ${this.favSubjects}`;
   }
 }
 
@@ -66,12 +58,10 @@ class Project extends Instructor {
     this.favInstructor = projectAttributes.favInstructor;
   }
   standUp() {
-    return console.log(
-      `${this.name} announces to the ${this.channel}, @channel standy times}`
-    );
+    return `${this.name} announces to the ${this.gradClassName}, @channel standy times and I'm back!.`;
   }
   debugsCode() {
-    console.log(`${this.name} debugs ${this.name} code on ${this.favSubjects}`);
+    return `${this.name} debugs ${this.name} code on ${this.favSubjects}`;
   }
 }
 
@@ -98,7 +88,7 @@ const marina = new Instructor({
   name: 'Marina Baskova',
   age: '58',
   location: 'San Fran, California, United States',
-  speciality: 'excellent communication',
+  speciality: 'node.js',
   favLanguage: 'JavaScript',
   catchPhrase: 'Our team is the best!'
 });
@@ -114,19 +104,19 @@ const alicia = new Student({
 });
 
 //Project Manager object
-const don = new Project({
-  name: 'Donald Murphy',
+const john = new Project({
+  name: 'John Wick',
   age: 75,
   location: 'In hiding and healing from a beat down somewhere, Canada',
   gradClassName: 'Web 16',
-  favInstructor: 'John Wick'
+  favInstructor: 'Don Murphy'
 });
 
 console.log(todd.speak()); //logs 'Hello, my name is Liam Murphy, I am from Halifax, Nova Scotia, Canada'
-console.log(marina.demo());
-console.log(marina.grade());
-console.log(alicia.listSubjects());
-console.log(alicia.PRAssignment());
-console.log(alicia.sprintChallenge());
-console.log(don.standUp());
-consolelog(don.debugsCode());
+console.log(marina.demo()); //logs 'Today we are learning about node.js'
+console.log(marina.grade()); //logs 'Marina Baskova receives a perfect score on JavaScript '
+console.log(alicia.listSubjects()); //logs 'HTML, CSS, JavaScript'
+console.log(alicia.PRAssignment()); //logs 'Alicia Murph has submitted a PR for HTML, CSS, JavaScript'
+console.log(alicia.sprintChallenge()); //logs 'Alica Murphy has begun a sprint challenge on HTML, CSS, JavaScript'
+console.log(john.standUp()); //logs 'John Wick announces to the Web 16, @channel standy times and I'm Back.'
+console.log(john.debugsCode()); //logs 'John Wick debugs code on undefined'
