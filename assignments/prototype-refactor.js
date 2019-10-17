@@ -15,15 +15,27 @@ Prototype Refactor
 // * destroy() // prototype method that returns: `${this.name} was removed from the game.`
 // */
 
-function GameObject(attributes) {
-  this.createdAt = attributes.createdAt;
-  this.name = attributes.name;
-  this.dimensions = attributes.dimensions;
-}
+// function GameObject(attributes) {
+//   this.createdAt = attributes.createdAt;
+//   this.name = attributes.name;
+//   this.dimensions = attributes.dimensions;
+// }
 
-GameObject.prototype.destroy = function() {
-  return `${this.name} was removed from the game`;
-};
+// GameObject.prototype.destroy = function() {
+//   return `${this.name} was removed from the game`;
+// };
+
+//Converted 'GameObject' function to 'Game' class
+class Game {
+  constructor(attributes) {
+    this.createdAt = attributes.createdAt;
+    this.name = attributes.name;
+    this.dimensions = attributes.dimensions;
+  }
+  destroy() {
+    return `${this.name} was removed from the game`;
+  }
+}
 
 /*
 === CharacterStats Constructor Function ===
@@ -32,17 +44,28 @@ GameObject.prototype.destroy = function() {
 * should inherit destroy() from GameObject's prototype
 */
 
-function CharacterStats(attributes) {
-  GameObject.call(this, attributes);
-  this.healthPoints = attributes.healthPoints;
+// function CharacterStats(attributes) {
+//   GameObject.call(this, attributes);
+//   this.healthPoints = attributes.healthPoints;
+// }
+
+//Converted 'CharacterStats' function to 'Character' class
+class Character extends Game {
+  constructor(attributes) {
+    super(attributes); //need to connect 'Character' atributes to parent 'Game' class
+    this.healthPoints = attributes.healthPoints;
+  }
+  takeDamage() {
+    return ` ${this.name} took damage`;
+  }
 }
 
 //Object.create creates the object with (GameObject.prototype) links or reference and brings-->  GameOject.prototype.destroy
 /***** ORDER MATTERS*/
-CharacterStats.prototype = Object.create(GameObject.prototype); //inheriting destroy() from GameObject
-CharacterStats.prototype.takeDamage = function() {
-  return ` ${this.name} took damage`; //what object name? do we pick an object name from below (mage, swordsman, archer)?
-};
+// CharacterStats.prototype = Object.create(GameObject.prototype); //inheriting destroy() from GameObject
+// CharacterStats.prototype.takeDamage = function() {
+//   return ` ${this.name} took damage`; //what object name? do we pick an object name from below (mage, swordsman, archer)?
+// };
 
 /*
 === Humanoid Constructor Function (Having an appearance or character resembling that of a human.) ===
@@ -53,18 +76,27 @@ CharacterStats.prototype.takeDamage = function() {
 * should inherit destroy() from GameObject through CharacterStats
 * should inherit takeDamage() from CharacterStats
 */
-function Humanoid(attributes) {
-  CharacterStats.call(this, attributes);
-  (this.team = attributes.team),
-    (this.weapons = attributes.weapons),
-    (this.language = attributes.languag);
+// function Humanoid(attributes) {
+//   CharacterStats.call(this, attributes);
+//   (this.team = attributes.team),
+//     (this.weapons = attributes.weapons),
+//     (this.language = attributes.languag);
+// }
+
+class Humanoid extends Character {
+  constructor(attributes) {
+    super(attributes);
+  }
+  greet() {
+    return `${this.name} offers a greeting ${this.language}`;
+  }
 }
 
-Humanoid.prototype = Object.create(CharacterStats.prototype); //inheriting destroy() from GameObject through CharacterStats
+// Humanoid.prototype = Object.create(CharacterStats.prototype); //inheriting destroy() from GameObject through CharacterStats
 
-Humanoid.prototype.greet = function() {
-  return `${this.name} offers a greeting ${this.language}`;
-};
+// Humanoid.prototype.greet = function() {
+//   return `${this.name} offers a greeting ${this.language}`;
+// };
 
 /*
  * Inheritance chain: GameObject -> CharacterStats -> Humanoid
