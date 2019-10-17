@@ -46,11 +46,13 @@ class Student extends Person {
     return console.log(`${this.favSubjects}`);
   }
   PRAssignment() {
-    return console.log(`${this.name} has submitted a PR for ${this.subject}`);
+    return console.log(
+      `${this.name} has submitted a PR for ${this.favSubjects}`
+    );
   }
   sprintChallenge() {
     return console.log(
-      `${this.name} has begun a sprint challenge on ${this.subject}`
+      `${this.name} has begun a sprint challenge on ${this.favSubjects}`
     );
   }
 }
@@ -69,7 +71,7 @@ class Project extends Instructor {
     );
   }
   debugsCode() {
-    console.log(`${this.name} debugs ${this.name}`);
+    console.log(`${this.name} debugs ${this.name} code on ${this.favSubjects}`);
   }
 }
 
@@ -108,7 +110,7 @@ const alicia = new Student({
   locaton: 'Toronto, Ontario, Canada',
   previousBackground: 'startups',
   className: 'Web25',
-  favSubjects: [HTML, CSS, JavaScript]
+  favSubjects: ['HTML', 'CSS', 'JavaScript']
 });
 
 //Project Manager object
@@ -119,3 +121,5 @@ const don = new Project({
   gradClassName: 'Web 16',
   favInstructor: 'John Wick'
 });
+
+console.log(todd.speak()); //logs 'Hello, my name is Liam Murphy, I am from Halifax, Nova Scotia, Canada'
