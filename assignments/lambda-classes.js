@@ -23,7 +23,7 @@ class Instructor extends Person {
         return `Today we are learning about ${subject}`;
     }
     grade(student, subject) {
-        return `${student.name} receives a perfect score on ${subject}`
+        return `${student} receives a perfect score on ${subject}`
     }///this one needs fixing
 }
 
@@ -37,11 +37,11 @@ class Student extends Person {
     listsSubjects(){
         return `${this.favSubjects}`;
     }
-    PRAssignment(name, subject){
-        return `${student.name} has submitted a PR for ${subject}`;
+    PRAssignment(subject){
+        return `${this.name} has submitted a PR for ${subject}`;
     }
-    sprintChallenge(name, subject){
-        return `${student.name} has begun sprint challenge on${subject}`;
+    sprintChallenge(subject){
+        return `${this.name} has begun sprint challenge on ${subject}`;
     }
 }
 
@@ -51,14 +51,22 @@ class ProjectManager extends Instructor {
             this.gradClassName = pmAttr.gradClassName,
             this.favInstuctor = pmAttr.favInstuctor
     }
-    standUp(name, channel) {
-        return `${name} announces to ${channel}, @channel standup times!`
+    standUp(channel) {
+        return `${this.name} announces to ${channel}, @channel standup times!`
     }
-    debugscode(name, subject) {
-        return `${projectmang.name} debugs ${student.name}'s code on ${subject}`
+    debugscode(student, subject) {
+        return `${this.name} debugs ${student}'s code on ${subject}`
     }
 }
 
+const fred = new Instructor({
+    name: 'Fred',
+    location: 'Bedrock',
+    age: 37,
+    favLanguage: 'JavaScript',
+    specialty: 'Front-end',
+    catchPhrase: `Don't forget the homies`
+  });
 
 const jason = new Instructor ({
     name: 'Jason Momoa',
@@ -100,7 +108,7 @@ const chanyeol = new Student ({
     previousBackground: 'Kpop Idol',
     className: 'Web400',
     favSubjects: ['music', 'UX/UI', 'HTML']
-})
+});
 
 
 const joscelyn = new ProjectManager ({
@@ -123,5 +131,14 @@ const tommy = new ProjectManager ({
     catchPhrase: 'Whats sleep?',
     gradClass: 'Web21',
     favInstructor: 'Luis',
-})
+});
 
+
+console.log(fred.speak());
+console.log(jason.demo('Python'));
+console.log(penelope.grade('Chad', 'CSS'));
+console.log(sarah.listsSubjects());
+console.log(chanyeol.PRAssignment('Band'));
+console.log(chanyeol.sprintChallenge('Pokemon'));
+console.log(joscelyn.standUp('#Web3000'));
+console.log(tommy.debugscode('Sarah', 'Swift'));
