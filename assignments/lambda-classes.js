@@ -3,8 +3,8 @@
 
 class Person{
     constructor(attributes){
-        this.name = attributes.name,
-        this.age = attributes.age,
+        this.name = attributes.name;
+        this.age = attributes.age;
         this.location = attributes.location
     }
     speak(){
@@ -16,8 +16,8 @@ class Person{
 class Instructor extends Person{
     constructor(attributes){
     super(attributes);
-        this.specialty = attributes.specialty,
-        this.favLanguage = attributes.favLanguage,
+        this.specialty = attributes.specialty;
+        this.favLanguage = attributes.favLanguage;
         this.catchPhrase = attributes.catchPhrase
 }
     demo(){
@@ -38,13 +38,13 @@ class Instructor extends Person{
 class Student extends Person{
     constructor(attributes){
     super(attributes);
-        this.previousBackground = attributes.previousBackground,
-        this.className = attributes.className,
+        this.previousBackground = attributes.previousBackground;
+        this.className = attributes.className;
         this.favSubjects = attributes.favSubjects
 }
-    listsSubjects(){
-        return `${this.favSubjects}`;
-};
+    functionlistSubjects(){
+    this.favSubjects.forEach(element => {console.log(element)})
+}
 
     PRAssignment(){
         return `${this.name} has submitted a PR for ${this.className}`;
@@ -56,14 +56,14 @@ class Student extends Person{
 }
 
 
-class ProjectManager extends Instructors{
+class ProjectManager extends Instructor{
     constructor(attributes){
     super(attributes);
-        this.gradClassName = attributes.gradClassName,
+        this.gradClassName = attributes.gradClassName;
         this.favInstructor = attributes.favInstructor
 }
     standUp(){
-        return `${thi.name} announces ${this.channel}, @channel standy times!`;
+        return `${this.name} announces ${this.gradClassName}, @channel standy times!`;
     };
 
     debugsCode(){
@@ -142,8 +142,8 @@ const F = new Instructor({
     location: 'Orlando',
     previousBackground: 'student',
     className: 'CS',
-    favSubjects: ['English', 'Econ', 'Marketing']
-    grade: 98
+    favSubjects: ['English', 'Econ', 'Marketing'],
+    grade: 76
   })
 
 
@@ -192,3 +192,8 @@ const F = new Instructor({
 
 
 
+console.log(T.location);
+console.log(M.specialty);
+console.log(Louise.favLanguage);
+console.log(Hanna.standUp());
+console.log(Andrea.favSubjects);
