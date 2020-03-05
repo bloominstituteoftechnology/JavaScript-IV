@@ -1,3 +1,4 @@
+
 // Here we have a functioning solutoin to your challenge from yesterday.
 // Today your goal is to refactor all of this code to use ES6 Classes.
 // The console.log() statements should still return what is expected of them.
@@ -11,14 +12,7 @@ class GameObject {
        return `${this.name} was removed from the game.`;
     }
 }
-                // function GameObject(options) {
-                //   this.createdAt = options.createdAt;
-                //   this.dimensions = options.dimensions;
-                // }
-
-                // GameObject.prototype.destroy = function() {
-                //   return `Object was removed from the game.`;
-                // };
+               
 class CharacterStats extends GameObject {
      constructor(characterStatsOptions) {
         super(characterStatsOptions);
@@ -29,17 +23,7 @@ class CharacterStats extends GameObject {
          return `${this.name} took damage.`;
      }
 }
-                  // function CharacterStats(characterStatsOptions) {
-                  //   GameObject.call(this, characterStatsOptions);
-                  //   this.hp = characterStatsOptions.hp;
-                  //   this.name = characterStatsOptions.name;
-                  // }
-
-                  // CharacterStats.prototype = Object.create(GameObject.prototype);
-
-                  // CharacterStats.prototype.takeDamage = function() {
-                  //   return `${this.name} took damage.`;
-                  // };
+                 
 
 class Humanoid extends CharacterStats {
       constructor(humanoidOptions){
@@ -52,19 +36,7 @@ class Humanoid extends CharacterStats {
          return `${this.name} offers a greeting in ${this.language}.`;
      }
 }
-                          // function Humanoid(humanoidOptions) {
-                          //   CharacterStats.call(this, humanoidOptions);
-                          //   this.faction = humanoidOptions.faction;
-                          //   this.weapons = humanoidOptions.weapons;
-                          //   this.language = humanoidOptions.language;
-                          // }
-
-                          // Humanoid.prototype = Object.create(CharacterStats.prototype);
-
-                          // Humanoid.prototype.greet = function() {
-                          //   return `${this.name} offers a greeting in ${this.language}.`;
-                          // };
-
+                          
 const mage = new Humanoid({
   createdAt: new Date(),
   dimensions: {
