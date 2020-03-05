@@ -87,7 +87,6 @@ const fred = new Instructor({
   * `grade` receives a `student` object and a `subject` string as arguments and logs out '{student.name} receives a perfect score on {subject}'
 
 #### Student
-
 * Now we need some students!
 * Student uses the same attributes that have been set up by Person
 * Student has the following unique props:
