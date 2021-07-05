@@ -1,0 +1,122 @@
+html{
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: center;
+}
+
+* {
+  box-sizing: border-box;
+  /* border: 1px solid red; */
+}
+
+.fight-sim-cont{
+  width: 800px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly
+}
+
+.fighter-pic{
+  width: 100%;
+  height: auto;
+}
+
+.fighter-cont{
+  width: 48%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.healthbar-cont{
+  position: relative;
+  margin: 20px 0;
+  width: 90%;
+  border: 2px solid gray;
+  height: 20px;
+  border-radius: 4px;
+}
+
+.healthnum1{
+  font-size: 14px;
+  font-weight: bold;
+  position: absolute;
+  left: 45.3%;
+  bottom: -14px;
+}
+
+.healthnum2{
+  font-size: 14px;
+  font-weight: bold;
+  position: absolute;
+  left: 45.3%;
+  bottom: -14px;
+}
+
+.health1{
+  height: 100%;
+  width: 100%;
+  background-color: #00E676;
+  transition: width 2s ease;
+}
+
+.health2{
+  height: 100%;
+  width: 100%;
+  background-color: #00E676;
+  transition: width 2s ease;
+}
+
+.fight-btn{
+  position: relative;
+  font-size: 18px;
+  bottom: 0px;
+  color: white;
+  background-color: #f44336;
+  border-radius: 4px;
+  width: 100%;
+  padding: 20px 0;
+  font-weight: bold;
+  margin-top: 20px;
+  box-shadow: 0px 0px 0px #d32f2f;
+  transition: box-shadow 0.2s ease, text-shadow 0.2s ease, bottom 0.2s ease;
+  cursor: pointer;
+}
+
+.fight-btn:hover{
+  bottom: 4px;
+  box-shadow: 0px 4px 0px #d32f2f;
+  text-shadow: 0px 0px 2px white;
+}
+
+.fight-btn:active{
+  bottom: 0px;
+  box-shadow: 0px 0px 0px #d32f2f;
+}
+
+.chat-cont{
+  width: 800px;
+  margin: 0 auto;
+  text-align: left;
+  border: 1px solid lightgray;
+  margin-top: 20px;
+  border-radius: 4px;
+}
+
+.chat-cont h2{
+  margin: 5px 10px;
+}
+
+.chat{
+  border-top: 1px solid lightgray;
+  padding: 0 10px 10px 10px;
+  max-height: 284px;
+  overflow: auto;
+}
+
+.chats{
+  border-bottom: 1px solid lightgray;
+  margin: 0px;
+  padding: 10px 0;
+}

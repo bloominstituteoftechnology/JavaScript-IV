@@ -1,17 +1,51 @@
 <!doctype html>
 
 <html lang="en">
+
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>JS IV</title>
+  <link rel="stylesheet" href="style.css">
 
-  <script src="prototype-refactor.js"></script>
-  <script src="lambda-classes.js"></script>
+
 </head>
 
 <body>
-  <h1>JS IV - Check your work in the console!</h1>
+  <h1>Dog Man vs Cat Man</h1>
+
+  <div class="fight-sim-cont">
+    <div class="fighter-cont">
+      <h1 class="fighter1"></h1>
+      <img src="dogman.jpg" class="fighter-pic">
+      <div class="healthbar-cont">
+        <p class="healthnum1">10/10</p>
+        <div class="health1"></div>
+      </div>
+    </div>
+
+    <div class="fighter-cont">
+      <h1 class="fighter2"></h1>
+      <img src="catman.jpg" class="fighter-pic">
+      <div class="healthbar-cont">
+        <p class="healthnum2">10/10</p>
+        <div class="health2"></div>
+      </div>
+    </div>
+
+    <div class="fight-btn">Next Turn</div>
+  </div>
+
+  <div class="chat-cont">
+    <h2>Chat:</h2>
+    <div class="chat">
+    </div>
+  </div>
+  <script src="prototype-refactor.js"></script>
+  <script src="lambda-classes.js"></script>
 </body>
+
 </html>
+
+
