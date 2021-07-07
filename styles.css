@@ -1,0 +1,96 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  font-size: 62.5%;
+  text-align: center;
+}
+
+img {
+  height: 300px;
+  width: 200px;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.battleground-container {
+  display: flex;
+  justify-content: space-around;
+  margin: 0 0 30px;
+}
+
+.fighter {
+  /* border: 1px solid coral; */
+  width: 48%;
+  padding: 15px;
+}
+
+.fighter h3 {
+  font-size: 5rem;
+}
+
+.jim-img {
+  width: 100%;
+  transition: width 2s ease;
+}
+
+.dan-img {
+  width: 100%;
+  transition: width 2s ease;
+}
+
+.healthbar {
+  border: 1px solid coral;
+  margin: 5px 35px;
+}
+
+.health1 {
+  height: 100%;
+  width: 100%;
+  background: green;
+  transition: width 2s ease;
+}
+
+.health2 {
+  height: 100%;
+  width: 100%;
+  background: green;
+  transition: width 2s ease;
+}
+
+.fight-btn {
+  background: coral;
+  padding: 15px 0;
+  font-size: 2rem;
+  margin: 15px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.chat-container {
+  padding: 25px;
+
+  border: 1px solid grey;
+}
+
+.chat-container h2 {
+  text-align: left;
+  font-size: 2rem;
+  border-bottom: 1px solid grey;
+}
+
+.chat-pair {
+  border: 3px solid black;
+}
+
+.chat-item {
+  text-align: left;
+  font-size: 3rem;
+  border-bottom: 1px solid grey;
+}
