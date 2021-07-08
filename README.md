@@ -74,6 +74,9 @@ const fred = new Instructor({
 * Person receives `speak` as a method.
 * This method logs out a phrase `Hello my name is Fred, I am from Bedrock` where `name` and `location` are the object's own props
 
+
+
+
 #### Instructor
 
 * Now that we have a Person as our base class, we'll build our Instructor class.
@@ -115,5 +118,6 @@ const fred = new Instructor({
 * Extend the functionality of the Student by adding a prop called grade and setting it equal to a number between 1-100.
 * Now that our students have a grade build out a method on the Instructor (this will be used by _BOTH_ instructors and PM's) that will randomly add or subtract points to a student's grade. _Math.random_ will help.
 * Add a graduate method to a student.
+
   * This method, when called, will check the grade of the student and see if they're ready to graduate from Lambda School
   * If the student's grade is above a 70% let them graduate! Otherwise go back to grading their assignments to increase their score.
